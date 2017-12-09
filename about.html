@@ -1,0 +1,22 @@
+---
+layout: page
+title: "About"
+description: "안녕하세요. 만나서 반갑습니다."
+header-img: "img/home_top_banner.jpg"
+---
+
+{% for member in site.data.members %} {% if member.visible == true %}
+<div class="introduce_wrap">
+	<dl class="introduce_head">
+		<dt class="introduce_image">
+			<img src="{{ member.img }}">
+			<div class="introduce_name">{{ member.name }}</div>
+		</dt>
+		<dd class="introduce_job">{{ member.job }}</dd>
+	</dl>
+	<dl class="introduce_summary">
+		<dt>안녕하세요. 만나서 반갑습니다!</dt>
+		<dd>{{ member.description }}</dd>
+	</dl>
+</div>
+{% endif %}{% endfor %}
