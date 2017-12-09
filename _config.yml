@@ -6,6 +6,7 @@ facebook_username: "itsmetaeng"
 github_username: "madplay"
 header-img: "img/home_top_banner.jpg"
 headercolor: "#FFFFFF"
+g-analytics: "UA-111002457-1"
 
 # Server Settings
 baseurl: ""
