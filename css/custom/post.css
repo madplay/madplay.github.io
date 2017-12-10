@@ -1,0 +1,51 @@
+/* Post */
+div.post_tx_inner {
+	line-height: 1.6;
+}
+
+/* table */
+.table-container {
+  display: table;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  font-size: 16px;
+}
+.table-row {
+  display: table-row;
+  text-align: center;
+}
+.table-header {
+  background-color: #EEE;
+  display: table-header-group;
+}
+.table-col {
+  border: 1px solid #999999;
+  display: table-cell;
+  padding: 3px 10px;
+  vertical-align: middle;
+}
+
+.table-text-left {
+  text-align: left;
+}
+
+.table-size-1 {
+  width: 10%;
+}
+
+.table-size-2 {
+  width: 20%;
+}
+
+.table-size-3 {
+  width: 30%;
+}
+
+.table-size-4 {
+  width: 40%;
+}
+
+.table-size-5 {
+  width: 50%;
+}

@@ -1,0 +1,35 @@
+.introduce_wrap {
+  font-family: 'AppleSDGothicNeo', 'Dotum', '돋움', 'Helvetica', sans-serif;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.introduce_head {
+	font-size: 20px;
+  	font-weight: 500;
+	clear: both;
+	float: left;
+	width: 100%;
+}
+
+.introduce_name {
+	font-size: 28px;
+	line-height: 1.6;
+}
+
+.introduce_image img {
+	position: relative;
+	float: left;
+	display: inline-block;
+	margin: 1px 15px 0 0;
+	width: 200px !important;
+}
+
+.introduce_summary {
+	clear:both;
+	font-size: 18px;
+	font-weight: 500;
+}
+
