@@ -1,5 +1,6 @@
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="No-Cache"> 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ site.description }}">
@@ -9,33 +10,19 @@
 	<!-- <link rel='shortcut icon' type='image/png' href='{{ site.baseurl }}/favicon.png' /> -->
     <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
-	<!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="{{ "/css/bootstrap.css" | prepend: site.baseurl | prepend: site.url }}">
-	
-	<!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ "/css/custom/common.css" | prepend: site.baseurl | prepend: site.url }}">
-    <link rel="stylesheet" href="{{ "/css/custom/post.css" | prepend: site.baseurl | prepend: site.url }}">
-    <link rel="stylesheet" href="{{ "/css/custom/introduce.css" | prepend: site.baseurl | prepend: site.url }}">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="/css/bootstrap.css">
 
-    <!-- Pygments Github CSS -->
-    <link rel="stylesheet" href="{{ "/css/syntax.css" | prepend: site.baseurl | prepend: site.url }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/custom/common.css">
+    <link rel="stylesheet" href="/css/custom/post.css">
+    <link rel="stylesheet" href="/css/custom/introduce.css">
 
-    <!-- Custom Fonts -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-    <!-- jQuery -->
-    <script src="{{ "/js/jquery-2.1.4.min.js" | prepend: site.baseurl | prepend: site.url }}"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-	<!-- Custom JavaScript -->
-	<script src="{{ "/js/custom/common.js" | prepend: site.baseurl | prepend: site.url }}"></script
+    <!-- Library Fonts -->
+    <link type="text/css" rel="stylesheet" href="/css/lib/GoogleFont_1.css">
+    <link type="text/css" rel="stylesheet" href="/css/lib/GoogleFont_2.css">
 
     <!-- Code Highlighting -->
-    <link rel="stylesheet" href="{{ "/css/prism.css" | prepend: site.baseurl | prepend: site.url }}">
-    <script src="{{ "/js/prism.js" | prepend: site.baseurl | prepend: site.url }}"></script>
+    <link type="text/css" rel="stylesheet" href="/css/lib/prism.css">    
     
 </head>
