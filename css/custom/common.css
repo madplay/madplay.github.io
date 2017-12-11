@@ -1,3 +1,6 @@
+@import url(//fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
 .intro-header .site-heading,
 .intro-header .post-heading,
 .intro-header .page-heading {
@@ -5,7 +8,7 @@
   color: #FFFFFF;
 }
 body {
-  font-family: AppleSDGothicNeo,Dotum,'돋움',Helvetica,sans-serif;
+  font-family: 'Nanum Gothic', serif;
   font-size: 18px;
   color: #404040;
   line-height: 1.3;
@@ -23,13 +26,8 @@ p.red {
   color: #FF0000;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: AppleSDGothicNeo,Dotum,'돋움',Helvetica,sans-serif;
+h1,h2,h3,h4,h5,h6 {
+  font-family: 'Nanum Gothic', serif;
   font-weight: 500;
 }
 a {
@@ -44,7 +42,7 @@ a img:focus {
 }
 blockquote {
   color: #808080;
-  font-style: italic;
+  padding: 1px 20px;
 }
 hr.small {
   max-width: 100px;
@@ -59,7 +57,7 @@ hr.small {
   left: 0;
   width: 100%;
   z-index: 3;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Nanum Gothic', serif;
 }
 .navbar-custom .navbar-brand {
   font-weight: 800;
@@ -169,7 +167,7 @@ hr.small {
   font-size: 24px;
   line-height: 1.1;
   display: block;
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Nanum Gothic', serif;
   font-weight: 300;
   margin: 10px 0 0;
 }
@@ -188,13 +186,13 @@ hr.small {
   display: block;
 }
 .intro-header .post-heading .subheading {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Nanum Gothic', serif;
   font-size: 24px;
   margin: 10px 0 30px;
   font-weight: 600;
 }
 .intro-header .post-heading .meta {
-  font-family: 'Lora', 'Times New Roman', serif;
+  font-family: 'Nanum Gothic', serif;
   font-style: italic;
   font-weight: 300;
   font-size: 20px;
@@ -219,21 +217,38 @@ hr.small {
   color: #0085a1;
 }
 .post-preview > a > .post-title {
-  font-size: 30px;
+  font-size: 26px;
   margin-top: 30px;
   margin-bottom: 10px;
 }
+@media only screen and (max-width: 768px) {
+  .post-preview > a > .post-title {
+    font-size: 22px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+}
 .post-preview > a > .post-subtitle {
   margin: 0;
-  font-weight: 300;
+  font-weight: 200;
+  font-size: 18px;
   margin-bottom: 10px;
+}
+@media only screen and (max-width: 768px) {
+  .post-preview > a > .post-subtitle {
+    margin: 0;
+  font-weight: 200;
+  font-size: 16px;
+  margin-bottom: 10px;
+  }
 }
 .post-preview > .post-meta {
   color: #808080;
-  font-size: 18px;
+  font-size: 14px;
   font-style: italic;
   margin-top: 0;
 }
+
 .post-preview > .post-meta > a {
   text-decoration: none;
   color: #404040;
@@ -245,7 +260,7 @@ hr.small {
 }
 @media only screen and (min-width: 768px) {
   .post-preview > a > .post-title {
-    font-size: 36px;
+    font-size: 32px;
   }
 }
 .section-heading {
@@ -326,7 +341,7 @@ form .row:first-child .floating-label-form-group {
   border-top: 1px solid #eeeeee;
 }
 .btn {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Nanum Gothic', serif;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 800;
@@ -349,7 +364,7 @@ form .row:first-child .floating-label-form-group {
 }
 .pager li > a,
 .pager li > span {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Nanum Gothic', serif;
   text-transform: uppercase;
   font-size: 14px;
   font-weight: 800;
@@ -406,7 +421,19 @@ div.notepad-index-post-tags {
     float: none;
     color: black;
     padding-top: 1.25rem;
-    padding-bottom: 0.625rem; }
+    padding-bottom: 0.625rem;
+}
+
+@media only screen and (max-width: 768px) {
+  div.notepad-index-post-tags {
+    font-size: 13px;
+    float: none;
+    color: black;
+    padding-top: 1.25rem;
+    padding-bottom: 0.625rem;
+  }
+}
+
 .notepad-index-post-tags a {
 	display: inline-block;
 	padding: 0.3125rem 0.9375rem;
@@ -414,10 +441,13 @@ div.notepad-index-post-tags {
 	color: black;
 	border: 0.0625rem solid black;
 	border-radius: 0.125rem;
-	margin-bottom: 0.3125rem; }
+	margin-bottom: 0.3125rem; 
+}
+
 .notepad-index-post-tags a:hover {
 	color: #e51843;
-	border: 0.0625rem solid #e51843; }
+	border: 0.0625rem solid #e51843; 
+}
 
 table {
 	width:100%;
@@ -465,16 +495,26 @@ hr.style-one {
 }
 
 .top_introduce {
-    font-family: 'Lora', 'Dotum', '돋움', 'Helvetica', sans-serif;
-    font-style: italic;
+    font-family: 'Nanum Brush Script', serif;
     font-weight: 300;
 }
 
 .top_subheading {
-    font-family: 'AppleSDGothicNeo', 'Dotum', '돋움', 'Helvetica', sans-serif;
+    font-family: 'Nanum Gothic', serif;
+    font-size: 16px;
+    line-height: 1.3;
+    display: block;
+    font-weight: 300;
+    margin: 10px 0 0;
+}
+
+@media only screen and (min-width: 768px) {
+  .top_subheading {
+    font-family: 'Nanum Gothic', serif;
     font-size: 22px;
     line-height: 1.3;
     display: block;
     font-weight: 300;
     margin: 10px 0 0;
+  }
 }
