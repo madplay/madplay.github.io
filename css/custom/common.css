@@ -6,12 +6,14 @@ p{line-height:1.8;font-weight:200;margin-top:20px;}
 p a{text-decoration:underline;}
 p.red{color:#FF0000;}
 h1,h2,h3,h4,h5,h6{font-family:'Nanum Gothic', serif;font-weight:500;}
+h2{font-size: 20px;}
+@media only screen and (min-width:768px){h2{font-size: 24px;}}
 a{color:#404040;}
 a:hover,
 a:focus{color:#0085a1;}
 a img:hover,
 a img:focus{}
-blockquote{color:#808080;padding:1px 20px;}
+blockquote{color:#808080;padding:1px 15px;}
 hr.small{max-width:100px;margin:15px auto;border-width:4px;border-color:#FFFFFF;}
 .navbar-custom{background:white;position:absolute;top:0;left:0;width:100%;z-index:3;font-family:'Nanum Gothic', serif;}
 .navbar-custom .navbar-brand{font-weight:800;}
