@@ -114,8 +114,10 @@ div.notepad-index-post-tags{font-size:16px;float:none;color:black;padding-top:1.
 }
 .notepad-index-post-tags a{display:inline-block;padding:0.3125rem 0.9375rem;margin-right:0.1875rem;color:black;border:0.0625rem solid black;border-radius:0.125rem;margin-bottom:0.3125rem;}
 .notepad-index-post-tags a:hover{color:#e51843;border:0.0625rem solid #e51843;}
-table{width:100%;}
-th{border-bottom-color:black;border-bottom-style:solid;border-bottom-width:1px;border-collapse:collapse;}
+table{width:100%; border: 2px solid #000; margin-top:10px margin-bottom:20px;}
+tr{display: table-row; text-align: center;}
+th{border: 1px solid #999999; padding: 10px 10px;}
+td{border: 1px solid #999999; padding: 5px 10px; line-height:1.6;}
 div.float-right{width:300px;position:fixed;right:0;margin-right:2%;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 div.float-left{width:300px;position:fixed;left:0;margin-left:2%;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 @media (max-width:1500px){div.float-left{display:none !important;}
@@ -126,3 +128,7 @@ hr.style-one{border:0;height:1px;background:#333;background-image:linear-gradien
 .top_subheading{font-family:'Nanum Gothic', serif;font-size:16px;line-height:1.3;display:block;font-weight:300;margin:10px 0 0;}
 @media only screen and (min-width:768px){.top_subheading{font-family:'Nanum Gothic', serif;font-size:22px;line-height:1.3;display:block;font-weight:300;margin:10px 0 0;}
 }
+ol > li{line-height: 1.8; font-weight: bold;}
+ul{margin-bottom: 10px; padding-left:20px;}
+ul li{font-weight:200;}
+ol{padding-left:15px;}
