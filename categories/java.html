@@ -1,0 +1,21 @@
+---
+layout: category
+title: "Java"
+description: "프로그래밍 언어에 대한 정리"
+header-img: "img/home_top_banner.jpg"
+type: categories
+---
+
+{% for category in site.categories %}
+<div class="post-preview">
+    <a href="{{ category | first | prepend: site.baseurl }}">
+        <h2 class="post-title"> {{ category | first }}</h2>
+        {% for posts in category %}
+                {% for post in posts %}
+                        <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                {% endfor %}
+        {% endfor %}
+    </a>
+</div>
+<hr>
+{% endfor %}
