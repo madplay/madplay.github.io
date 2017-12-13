@@ -64,7 +64,7 @@ hr.small{max-width:100px;margin:15px auto;border-width:4px;border-color:#FFFFFF;
 .post-preview > a:hover,
 .post-preview > a:focus{text-decoration:none;color:#0085a1;}
 .post-preview > a > .post-title{font-size:26px;margin-top:30px;margin-bottom:10px;}
-@media only screen and (max-width:768px){.post-preview > a > .post-title{font-size:22px;margin-top:30px;margin-bottom:10px;}
+@media only screen and (max-width:768px){.post-preview > a > .post-title{font-family:'Nanum Brush Script', serif;font-size:50px;margin-top:30px;margin-bottom:10px;border-bottom:1px solid;}
 }
 .post-preview > a > .post-subtitle{margin:0;font-weight:200;font-size:18px;margin-bottom:10px;}
 @media only screen and (max-width:768px){.post-preview > a > .post-subtitle{margin:0;font-weight:200;font-size:16px;margin-bottom:10px;}
@@ -73,7 +73,7 @@ hr.small{max-width:100px;margin:15px auto;border-width:4px;border-color:#FFFFFF;
 .post-preview > .post-meta > a{text-decoration:none;color:#404040;}
 .post-preview > .post-meta > a:hover,
 .post-preview > .post-meta > a:focus{color:#0085a1;text-decoration:underline;}
-@media only screen and (min-width:768px){.post-preview > a > .post-title{font-size:32px;}
+@media only screen and (min-width:768px){.post-preview > a > .post-title{font-family:'Nanum Brush Script', serif;font-size:70px;border-bottom:1px solid;}
 }
 .section-heading{font-size:36px;margin-top:60px;font-weight:700;}
 .caption{text-align:center;font-size:15px;padding:10px;font-style:italic;margin:0;display:block;border-bottom-right-radius:5px;border-bottom-left-radius:5px;}
