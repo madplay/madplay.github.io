@@ -63,11 +63,11 @@ hr.small{max-width:100px;margin:15px auto;border-width:4px;border-color:#FFFFFF;
 .post-preview > a{color:#404040;}
 .post-preview > a:hover,
 .post-preview > a:focus{text-decoration:none;color:#0085a1;}
-.post-preview > a > .post-title{font-family:'Nanum Gothic',serif;font-size:26px;margin-top:30px;margin-bottom:10px;}
+.post-preview > a > .post-title{font-family:'Nanum Gothic',serif;font-size:22px;margin-top:30px;margin-bottom:10px;}
 @media only screen and (min-width:768px){
 .post-preview > a > .post-title{font-family:'Nanum Gothic',serif;font-size:28px;margin-top:30px;margin-bottom:10px;}
 }
-.post-preview > .post-subtitle{margin:0;font-weight:200;font-size:16px;margin-top:10px;margin-bottom:5px;}
+.post-preview > .post-subtitle{margin:0;font-weight:200;font-size:16px;margin-top:12px;}
 @media only screen and (min-width:768px){
 .post-preview > .post-subtitle{margin:0;font-weight:200;font-size:16px;margin-top:20px;margin-bottom:5px;}
 }
