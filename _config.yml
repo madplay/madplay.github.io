@@ -25,7 +25,8 @@ gems: [jekyll-paginate]
 exclude: ["README.md"]
 
 # Print Settings
-permalink: pretty
+permalink: :categories/:year/:month/:day/:title
+#permalink:: pretty
 paginate: 10
 
 # Disqus(Comment)
