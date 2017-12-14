@@ -1,20 +1,25 @@
 ---
 layout: page
+title: "Script"
+description: "Script 언어에 대한 정리"
+header-img: "img/home_top_banner.jpg"
+type: category
+permalink: "/categories/script"
 ---
 
-{% for post in paginator.posts %}
+{% for post in site.categories.Script %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">{{ post.title }}</h2>
-    </a>    
-    {% if post.subtitle %}
-    <h3 class="post-subtitle">
-        {{ post.subtitle }}
-    </h3>
-    {% endif %}
-    
-    <p class="post-meta">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
-	<div class="notepad-index-post-tags">
+        <h2 class="post-title">            {{ post.title }}
+        </h2>
+        {% if post.subtitle %}
+        <h3 class="post-subtitle">
+            {{ post.subtitle }}
+        </h3>
+        {% endif %}
+    </a>
+    <p class="post-meta" style="margin-bottom:5px">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
+	<div class="notepad-index-post-tags" style="">
 		{% for tag in post.tags %}<a href="{{ site.baseurl }}/search#{{ tag | cgi_encode }}" title="Other posts from the {{ tag | capitalize }} tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
 	</div>
 </div>
