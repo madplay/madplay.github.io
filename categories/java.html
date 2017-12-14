@@ -1,8 +1,13 @@
 ---
 layout: page
+title: "Java"
+description: "Java 언어에 대한 정리"
+header-img: "img/home_top_banner.jpg"
+type: category
+permalink: /java/
 ---
 
-{% for post in paginator.posts %}
+{% for post in site.categories.Java %}
 <div class="post-preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">            {{ post.title }}

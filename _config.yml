@@ -5,8 +5,11 @@ url: "https://madplay.github.io"
 facebook_username: "itsmetaeng"
 github_username: "madplay"
 header-img: "img/home_top_banner.jpg"
+og-img: "img/og_img.jpg"
 headercolor: "#FFFFFF"
 g-analytics: "UA-111002457-1"
+
+my_categories: ["Java"]
 
 # Server Settings
 baseurl: ""

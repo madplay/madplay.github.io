@@ -1,0 +1,11 @@
+.search_post_title {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:24px;font-weight:600;margin-bottom: 5px;margin-top: 15px;}
+.search_post_list {padding-bottom: 10px;}
+@media only screen and (min-width:768px){
+	.search_post_title {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:30px;font-weight:600;margin-bottom: 5px;}
+}
+@media only screen and (min-width:768px){
+	.search_post_list {padding-bottom: 15px;}
+}
+.search_tag_box {
+	margin-bottom:10px;padding-left:20px;
+}
