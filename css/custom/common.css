@@ -111,7 +111,7 @@ img::selection{color:white;background:transparent;}
 img::-moz-selection{color:white;background:transparent;}
 body{webkit-tap-highlight-color:#0085a1;}
 div.notepad-index-post-tags{font-size:16px;float:none;color:black;padding-top:0.25rem;padding-bottom:0.625rem;}
-@media only screen and (max-width:768px){div.notepad-index-post-tags{font-size:13px;float:none;color:black;padding-top:1.25rem;padding-bottom:0.625rem;}
+@media only screen and (min-width:768px){div.notepad-index-post-tags{font-size:13px;float:none;color:black;padding-top:0.625rem;padding-bottom:0.625rem;}
 }
 .notepad-index-post-tags a{display:inline-block;padding:0.3125rem 0.9375rem;margin-right:0.1875rem;color:black;border:0.0625rem solid black;border-radius:0.125rem;margin-bottom:0.3125rem;}
 .notepad-index-post-tags a:hover{color:#e51843;border:0.0625rem solid #e51843;}
