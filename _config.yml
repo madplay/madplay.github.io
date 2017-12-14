@@ -9,8 +9,6 @@ og-img: "img/og_image.jpg"
 headercolor: "#FFFFFF"
 g-analytics: "UA-111002457-1"
 
-my_categories: ["Java"]
-
 # Server Settings
 baseurl: ""
 

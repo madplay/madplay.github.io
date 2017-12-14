@@ -16,17 +16,10 @@
                 <li>
                     <a href="{{ site.baseurl }}/">Home</a>
                 </li>
-                {% for page in site.pages %}
-                    {% for my_category in site.my_categories %}
-                        {% if page.title contains my_category %}
-                        {% else %}
-                        {% if page.title %}
-                        <li>
-                            <a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-                        </li>
-                        {% endif %}
-                        {% endif %}
-                    {% endfor %}
+                {% for menu in site.data.menus %}
+                <li>
+                    <a href="/{{ menu.name | downcase }}">{{ menu.name | downcase }}</a>
+                </li>
                 {% endfor %}
             </ul>
         </div>
