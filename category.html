@@ -4,11 +4,12 @@ title: "Category"
 description: "안녕하세요. 만나서 반갑습니다."
 header-img: "img/home_top_banner.jpg"
 ---
+
 {% for category in site.categories %}
 <div class="post-preview">
-    <a href="{{ category.url | prepend: site.baseurl }}">
-        <h2 class="post-title"> {{ category | first }}</h2>
-		{% for posts in category %}
+    <a href="/{{ category | first | downcase }}">
+        <h2 class="category_post_title"> {{ category | first }}</h2>
+	    {% for posts in category %}
       		{% for post in posts %}
         		<h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
       		{% endfor %}
