@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
-{% include head.html %}
-{% include analytics.html %}
+<head>
+{% include StyleHeader.html %}
+<!-- Open Graph 정보 -->
+{% include MetaHeader.html %}
+{% include Analytics.html %}
 {% include AdSense.html %}
+</head>
 <body>
 
-    {% include nav.html %}
+    {% include Navigator.html %}
 
     {{ content }}
 	
-    {% include footer.html %}
+    {% include Footer.html %}
 
 </body>
 
