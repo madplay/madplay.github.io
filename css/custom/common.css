@@ -67,11 +67,11 @@ hr.small{max-width:100px;margin:15px auto;border-width:4px;border-color:#FFFFFF;
 @media only screen and (min-width:768px){
 .post-preview > a > .post-title{font-family:'Nanum Gothic',serif;font-size:28px;margin-top:30px;margin-bottom:10px;}
 }
-.post-preview > a > .post-subtitle{margin:0;font-weight:200;font-size:16px;margin-top:10px;margin-bottom:5px;}
+.post-preview > .post-subtitle{margin:0;font-weight:200;font-size:16px;margin-top:10px;margin-bottom:5px;}
 @media only screen and (min-width:768px){
-.post-preview > a > .post-subtitle{margin:0;font-weight:200;font-size:16px;margin-top:20px;margin-bottom:5px;}
+.post-preview > .post-subtitle{margin:0;font-weight:200;font-size:16px;margin-top:20px;margin-bottom:5px;}
 }
-.post-preview > .post-meta{color:#808080;font-size:14px;font-style:italic;margin-top:0;}
+.post-preview > .post-meta{color:#808080;font-size:14px;font-style:italic;margin-top:0;margin-bottom:5px;}
 .post-preview > .post-meta > a{text-decoration:none;color:#404040;}
 .post-preview > .post-meta > a:hover,
 .post-preview > .post-meta > a:focus{color:#0085a1;text-decoration:underline;}
