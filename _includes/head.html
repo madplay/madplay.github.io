@@ -13,6 +13,9 @@
 	<!-- <link rel='shortcut icon' type='image/png' href='{{ site.baseurl }}/favicon.png' /> -->
     <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
 
+    <!-- SEO Optimalize -->
+    <link rel="canonical" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="/css/bootstrap.css">
 
