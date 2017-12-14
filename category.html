@@ -7,7 +7,7 @@ header-img: "img/home_top_banner.jpg"
 
 {% for category in site.categories %}
 <div class="post-preview">
-    <a href="/{{ category | first | downcase }}">
+    <a href="/categories/{{ category | first | downcase }}">
         <h2 class="category_post_title"> {{ category | first }}</h2>
 	    {% for posts in category %}
       		{% for post in posts %}
