@@ -77,7 +77,6 @@ hr.small{max-width:100px;margin:15px auto;border-width:4px;border-color:#FFFFFF;
 .post-preview > .post-meta > a:focus{color:#0085a1;text-decoration:underline;}
 
 .section-heading{font-size:36px;margin-top:60px;font-weight:700;}
-.caption{text-align:center;font-size:15px;padding:10px;font-style:italic;margin:0;display:block;border-bottom-right-radius:5px;border-bottom-left-radius:5px;}
 footer{padding:50px 0 65px;}
 footer .list-inline{margin:0;padding:0;}
 footer .copyright{font-size:14px;text-align:center;margin-bottom:0;}
@@ -115,16 +114,16 @@ div.notepad-index-post-tags{font-size:16px;float:none;color:black;padding-top:0.
 }
 .notepad-index-post-tags a{display:inline-block;padding:0.3125rem 0.9375rem;margin-right:0.1875rem;color:black;border:0.0625rem solid black;border-radius:0.125rem;margin-bottom:0.3125rem;}
 .notepad-index-post-tags a:hover{color:#e51843;border:0.0625rem solid #e51843;}
-table{width:100%; border: 2px solid #000; margin-top:10px margin-bottom:20px;}
+table{width:100%; border: 2px solid #000; margin-top:auto;margin-bottom:auto;}
 tr{display: table-row; text-align: center;}
 th{border: 1px solid #999999; padding: 10px 10px;}
 td{border: 1px solid #999999; padding: 5px 10px; line-height:1.6;}
 div.float-right{width:300px;position:fixed;right:0;margin-right:2%;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
 div.float-left{width:300px;position:fixed;left:0;margin-left:2%;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
-@media (max-width:1500px){div.float-left{display:none !important;}
-div.float-right{display:none !important;}
-}
-hr.style-one{border:0;height:1px;background:#333;background-image:linear-gradient(to right, #ccc, #333, #ccc);}
+@media (max-width:1500px){
+    div.float-left{display:none !important;}
+    div.float-right{display:none !important;}  }
+hr.style-one{border:0;height:1px; background: #333 linear-gradient(to right, #ccc, #333, #ccc);}
 .top_introduce{font-family:'Nanum Pen Script', serif;font-weight:300; padding-bottom:15px;}
 .top_subheading{font-family:'Nanum Pen Script','Nanum Gothic', serif;font-size:24px;line-height:0.8;display:block;font-weight:300;margin:10px 0 0;}
 @media only screen and (min-width:768px){.top_subheading{font-family:'Nanum Pen Script','Nanum Gothic', serif;font-size:36px;line-height:1.1;display:block;font-weight:300;margin:10px 0 0;}
@@ -135,7 +134,6 @@ ul li{font-weight:200;}
 ol{padding-left:15px;}
 
 /* Category */
-
 .post-preview > a > .category_post_title{font-family:'Nanum Brush Script',serif;font-size:30px;margin-top:30px;margin-bottom:10px;}
 @media only screen and (min-width:768px){
 .post-preview > a > .category_post_title{font-family:'Nanum Brush Script', serif;font-size:40px;margin-top:30px;margin-bottom:10px;}
