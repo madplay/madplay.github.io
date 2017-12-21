@@ -3,18 +3,18 @@ layout: page
 ---
 
 {% for post in paginator.posts %}
-<div class="post-preview">
+<div class="post_preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
         <h2 class="post-title">{{ post.title }}</h2>
     </a>    
     {% if post.subtitle %}
-    <h3 class="post-subtitle">
+    <h3 class="post_subtitle">
         {{ post.subtitle }}
     </h3>
     {% endif %}
     
-    <p class="post-meta">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
-	<div class="notepad-index-post-tags">
+    <p class="post_meta">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
+	<div class="notepad_index_post_tags">
 		{% for tag in post.tags %}<a href="{{ site.baseurl }}/search#{{ tag | cgi_encode }}" title="Other posts from the {{ tag | capitalize }} tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
 	</div>
 </div>
