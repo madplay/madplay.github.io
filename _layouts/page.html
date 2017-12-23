@@ -7,6 +7,7 @@ layout: default
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <a class="site_heading_link" href="{{ page.url }}">
                 <div class="site_heading">
 					{% if page.url == '/' %}
 					{% else %}{% endif %}	
@@ -14,6 +15,7 @@ layout: default
                     <hr class="small">
                     <span class="top_subheading">{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}</span>
                 </div>
+                </a>
             </div>
         </div>
     </div>
