@@ -1,6 +1,6 @@
 /* Post */
 div.post_tx_inner {line-height: 1.6;}
-.post_image{max-width:100%;display:block;margin-left:auto;margin-right:auto;}
+.post_image{max-width:100%;display:block;margin-left:auto;margin-right:auto;height:auto}
 .post_image_inline{max-width:100%;margin-left:auto;margin-right:auto;}
 .post_caption{text-align:center;font-size:16px;font-weight:600;padding:10px;font-style:italic;margin:0;display:block;border-bottom-right-radius:5px;border-bottom-left-radius:5px;line-height:1.5;}
 
