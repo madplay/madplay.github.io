@@ -25,7 +25,8 @@ exclude: ["README.md"]
 # Print Settings
 permalink: :categories/:year/:month/:day/:title
 #permalink:: pretty
-paginate: 10
+paginate: 5
+paginate_path: /page:num
 
 # Disqus(Comment)
 disqus : 
