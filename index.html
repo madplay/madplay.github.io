@@ -5,7 +5,7 @@ layout: page
 {% for post in paginator.posts %}
 <div class="post_preview">
     <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post-title">{{ post.title }}</h2>
+        <h2 class="post_title">{{ post.title }}</h2>
     </a>    
     {% if post.subtitle %}
     <h3 class="post_subtitle">
@@ -15,24 +15,49 @@ layout: page
     
     <p class="post_meta">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
 	<div class="notepad_index_post_tags">
-		{% for tag in post.tags %}<a href="{{ site.baseurl }}/search#{{ tag | cgi_encode }}" title="Other posts from the {{ tag | capitalize }} tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
+		{% for tag in post.tags %}<a href="{{ site.baseurl }}/search#{{ tag | cgi_encode }}" title="Other posts from the {{ tag }} tag">{{ tag }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
 	</div>
 </div>
 <hr>
 {% endfor %}
 
-<!-- Pager -->
-{% if paginator.total_pages > 1 %}
 <ul class="pager">
+{% if paginator %}
+    {% if paginator.total_pages <= 5 %}
+        {% assign first = 1 %}
+        {% assign last = paginator.total_pages %}
+    {% else %}
+        {% assign first = paginator.page | minus: 2 %}
+        {% if first < 1 %}
+            {% assign first = 1 %}
+        {% endif %}
+        {% assign last = first | plus: 4 %}
+        {% if last > paginator.total_pages %}
+            {% assign last = paginator.total_pages %}
+        {% endif %}
+    {% endif %}
+
     {% if paginator.previous_page %}
-    <li class="previous">
-        <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
+    <li><a href="{{ site.baseurl }}{{ paginator.previous_page_path }}"><span class="prev_page">이전</span></a>
     </li>
+    {% else %}
+    <li><span class="disabled">No Previous Page</span></li>
     {% endif %}
+
+    {% for curPage in (first..last) %}
+        {% if curPage == paginator.page %}
+        <li class="selected"><span>{{ curPage }}</span></li>
+        {% elsif curPage == 1 %}
+        <li class="pager_number"><a href="{{ site.baseurl }}/">{{ curPage }}</a></li>
+        {% else %}
+        <li class="pager_number"><a href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', curPage }}">{{ curPage }}</a></li>
+        {% endif %}
+    {% endfor %}
+
     {% if paginator.next_page %}
-    <li class="next">
-        <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-    </li>
+    <li><a href="{{ site.baseurl }}{{ paginator.next_page_path }}"><span class="next_page">다음</span></a></li>
+    {% else %}
+    <li><span class="sr-only">No Next Page</span></li>
     {% endif %}
-</ul>
 {% endif %}
+</ul>
