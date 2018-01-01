@@ -2,9 +2,8 @@
 layout: page
 title: "Java"
 description: "Java 언어에 대한 정리"
-header-img: "img/home_top_banner.jpg"
 type: category
-permalink: "/categories/java"
+permalink: "/java"
 ---
 
 {% for post in site.categories.Java %}
@@ -18,8 +17,8 @@ permalink: "/categories/java"
         </h3>
         {% endif %}
     </a>
-    <p class="post_meta" style="margin-bottom:5px">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
-	<div class="notepad_index_post_tags" style="">
+    <p class="post_meta">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
+	<div class="notepad_index_post_tags">
 		{% for tag in post.tags %}<a href="{{ site.baseurl }}/search#{{ tag | cgi_encode }}" title="Other posts from the {{ tag | capitalize }} tag">{{ tag | capitalize }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
 	</div>
 </div>
