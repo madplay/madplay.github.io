@@ -4,11 +4,11 @@ title: Search
 description: 키워드 또는 태그로 포스트를 검색해보세요.
 ---
 <form action="get" id="site_search">
-<center>
+<div style="text-align: center;">
   <strong class="search_guide"><a>키워드 검색 :</a></strong>
   <input type="text" id="search_box" class="search_box">
   <input class="search_btn" type="submit" value="검색">
-</center>
+</div>
 </form>
 <br>
 <ul id="search_results"></ul>
@@ -19,16 +19,17 @@ description: 키워드 또는 태그로 포스트를 검색해보세요.
 {% assign tags_list = site.tags %}  
   {% if tags_list.first[0] == null %}
     {% for tag in tags_list %} 
-      <a href="#{{ tag }}">{{ tag | capitalize }} <span>{{ site.tags[tag].size }}</span></a>
+      <a href="#{{ tag }}">{{ tag }} <span>{{ site.tags[tag].size }}</span></a>
     {% endfor %}
   {% else %}
     {% for tag in tags_list %} 
-      <a href="#{{ tag[0] }}">{{ tag[0] | capitalize }} <span>{{ tag[1].size }}</span></a>
+      <a href="#{{ tag[0] }}">{{ tag[0] }} <span>{{ tag[1].size }}</span></a>
     {% endfor %}
   {% endif %}
 {% assign tags_list = nil %}
 </div></ul>
 
+<!--
 {% for tag in site.tags %} 
   <h2 class="search_post_title" id="{{ tag[0] }}">{{ tag[0] | capitalize }}</h2>
   <ul class="search_post_list">
@@ -36,7 +37,7 @@ description: 키워드 또는 태그로 포스트를 검색해보세요.
     {% for post in pages_list %}
       {% if post.title != null %}
       {% if group == null or group == post.group %}
-      <li><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }} - <span class="entry-date"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %d, %Y" }}</time></a></li>
+      <li><a href="{{ site.url }}{{ site.baseurl }}{{ post.url }}">{{ post.title }} - <span class="create_date"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %d, %Y" }}</time></a></li>
       {% endif %}
       {% endif %}
     {% endfor %}
@@ -44,9 +45,6 @@ description: 키워드 또는 태그로 포스트를 검색해보세요.
     {% assign group = nil %}
   </ul>
 {% endfor %}
+-->
 
 {% include scriptHeader.html %}
-
-<!-- Script for Search -->
-<script type="text/javascript" src="/js/search/lunr.min.js"></script>
-<script type="text/javascript" src="/js/search/search.js"></script>

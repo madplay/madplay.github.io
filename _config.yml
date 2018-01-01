@@ -4,8 +4,8 @@ description: "공부하는 개발자의 이야기를 담고 있습니다."
 url: "https://madplay.github.io"
 facebook_username: "itsmetaeng"
 github_username: "madplay"
-header-img: "img/home_top_banner.jpg"
-og-img: "img/og_image.jpg"
+header-img: "img/common/home_top_banner.jpg"
+og-img: "img/meta/og_image.jpg"
 headercolor: "#FFFFFF"
 g-analytics: "UA-111002457-1"
 
@@ -23,7 +23,7 @@ gems: [jekyll-paginate]
 exclude: ["README.md"]
 
 # Print Settings
-permalink: :categories/:year/:month/:day/:title
+permalink: post/:year/:month/:day/:title
 #permalink:: pretty
 paginate: 5
 paginate_path: /page:num
