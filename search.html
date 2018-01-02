@@ -4,8 +4,8 @@ title: Search
 description: 키워드 또는 태그로 포스트를 검색해보세요.
 ---
 <form action="get" id="site_search">
-<div style="text-align: center;">
-  <strong class="search_guide"><a>키워드 검색 :</a></strong>
+<div class="search_container">
+  <strong class="search_guide">키워드 검색 :</strong>
   <input type="text" id="search_box" class="search_box">
   <input class="search_btn" type="submit" value="검색">
 </div>
@@ -15,7 +15,7 @@ description: 키워드 또는 태그로 포스트를 검색해보세요.
 <hr style="background-color: #000; height: 2px; margin-bottom: 10px">
 
 
-<ul class="search_tag_box"><div class="notepad_index_post_tags" style="">
+<ul class="search_tag_box"><div class="post_tag" style="">
 {% assign tags_list = site.tags %}  
   {% if tags_list.first[0] == null %}
     {% for tag in tags_list %} 
