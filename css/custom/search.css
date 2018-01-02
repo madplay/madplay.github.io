@@ -1,23 +1,15 @@
+.search_container {text-align:center;}
 .search_post_title {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:24px;font-weight:600;margin-bottom: 5px;margin-top: 15px;}
 .search_post_list {padding-bottom: 10px;}
+.search_tag_box {margin-bottom:10px;padding-left:20px;}
+.search_guide {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:22px;font-weight:600;}
+.search_box {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:22px;border:2px solid;height:auto;width:100px;}
+.search_btn {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:22px;border:2px solid;font-weight: bold;height:auto;background-color:transparent;}
 @media only screen and (min-width:768px){
 .search_post_title {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:30px;font-weight:600;margin-bottom: 5px;}
-}
-@media only screen and (min-width:768px){
 .search_post_list {padding-bottom: 15px;}
+.search_guide {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:28px;font-weight:600;}
+.search_box {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:28px;border:2px solid;height:auto;width:200px;}
+.search_btn {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:28px;border:2px solid;font-weight: bold;height:auto;}
 }
-.search_tag_box {
-margin-bottom:10px;padding-left:20px;
-}
-.search_guide {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:30px;font-weight:600;}
-@media only screen and (min-width:768px){
-.search_guide {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:40px;font-weight:600;}
-}
-.search_box {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:20px;border:2px solid;height:30px;width:100px;padding-top:5px;}
-@media only screen and (min-width:768px){
-.search_box {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:28px;border:2px solid;height:40px;width:200px;}
-}	
-.search_btn {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:20px;border:2px solid;font-weight: bold;height:30px;padding-top:3px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
-@media only screen and (min-width:768px){
-.search_btn {font-family:'Nanum Brush Script','Nanum Gothic', serif;font-size:24px;border:2px solid;font-weight: bold;height:40px;padding-top:9px;box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);}
-}	
+
