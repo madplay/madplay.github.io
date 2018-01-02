@@ -7,15 +7,13 @@ description: "안녕하세요. 만나서 반갑습니다."
 {% for category in site.categories %}
 <div class="category_preview">
     <h2 class="category_title">
-        <a class="category_link" href="/{{ category | first | downcase }}">
-             {{ category | first }}
-        </a>
+        <a class="category_link" href="/{{ category | first | downcase }}">{{ category | first }}</a>
     </h2>
     {% for posts in category %}
         {% for post in posts %}
             {% if post.url != category.name %}
-            <h3 class="category_post_title"><a class="category_link" href="{{ post.url }}">{{ post.title }}
-            - <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %d, %Y" }}</time></a></h3>
+            <h3 class="category_post_title"><a class="category_link" href="{{ post.url }}">{{ post.title }} -
+                <span class="category_post_time"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %d, %Y" }}</time></span></a></h3>
             {% endif %}
         {% endfor %}
     {% endfor %}
