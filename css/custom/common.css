@@ -110,7 +110,7 @@ hr.style-one{border:0;height:1px; background: #333 linear-gradient(to right, #cc
 }
 ol > li{line-height: 1.8; font-weight: bold;}
 ul{margin-bottom: 10px; padding-left:20px;}
-ul li{font-weight:600;font-style:italic;line-height:2;margin-left:10px}
+ul li{font-weight:600;line-height:2;margin-left:10px}
 ol{padding-left:15px;}
 
 /* Category */
@@ -128,13 +128,15 @@ a.category_link:active {text-decoration:none;}
 
 /* Paging */
 .pager{margin:20px 0 0;}
-.pager li {font-family:'Nanum Gothic', serif;text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:1px;padding:13px 4px;background-color:white;border-radius:0;}
-@media only screen and (min-width:768px){
-.pager li {font-size:14px;padding:10px 10px;}
-}
+.pager li {font-family:'Nanum Gothic', serif;text-transform:uppercase;font-size:12px;font-weight:800;letter-spacing:1px;padding:13px 4px;background-color:white;border-radius:0;margin-left:0px;}
 .pager li > a{padding:5px 12px;}
 .pager li > span{background-color:#0085a1;cursor:not-allowed;color:white;padding:5px 12px;}
 .pager li > span.disabled {width:1px;height:1px;margin:-1px;clip:rect(0, 0, 0, 0);position:absolute;overflow:hidden;}
+@media only screen and (min-width:768px){
+.pager li {font-size:14px;padding:10px 12px;margin-left:5px;}
+.pager li > a{padding:5px 14px;}
+.pager li > span{background-color:#0085a1;cursor:not-allowed;color:white;padding:5px 14px;}
+}
 /*.pager li > a > .prev_page{background:url('/img/common/icon_prev.png') no-repeat center;position:absolute;}*/
 /*.pager li > a > .next_page{background:url('/img/common/icon_next.png') no-repeat center;position:absolute;}*/
 
