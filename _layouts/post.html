@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 <!-- Post Header -->
 <header class="intro_header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}');">
     <div class="container">
@@ -29,6 +28,10 @@ layout: default
 
                 <hr>
 
+                {% include adSense.html %}
+
+                <hr>
+
                 <ul class="pager _pager">
                     {% if page.previous.url %}
                     <li class="previous">
@@ -48,8 +51,6 @@ layout: default
 </article>
 
 <hr>
-
 {% include comments.html %}
-
 <hr>
 
