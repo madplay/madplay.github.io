@@ -1,15 +1,12 @@
-<div class="container" style="padding-right: 50px;padding-left: 50px;">
-<div class="row">
-<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1" id="disqus_thread">
+<!-- 댓글 로드 영역 -->
+<div class="container">
+    <div id="disqus_thread" class="comment_box"></div>
 </div>
-</div>
-</div>
-<script type="text/javascript">
-    /* 댓글 로드 영역 */
-    (function() { 
-		var d = document, s = d.createElement('script');
-		s.src = '//{{ site.disqus.id }}.disqus.com/embed.js';
-		s.setAttribute('data-timestamp', +new Date());
-		(d.head || d.body).appendChild(s);
-	})();
+<script>
+    (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://madplay.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
