@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 {% include head.html %}
-{% include scriptHeader.html %}
+{% include topScriptHeader.html %}
 {% include styleHeader.html %}
 {% include analytics.html %}
 </head>
@@ -11,8 +11,10 @@
     {% include navigator.html %}
 
     {{ content }}
-    
+
     {% include footer.html %}
+
+    {% include bottomScriptHeader.html %}
 
 </body>
 </html>

@@ -155,3 +155,6 @@ footer{padding:35px 0 35px;}
 .social_icon{width:50px;height:50px;}
 .copyright{font-family:'Nanum Pen Script', serif;font-size:28px;text-align:center;margin-bottom:0;}
 }
+
+/* Comment */
+.comment_box{padding-right:50px;padding-left:50px;}
