@@ -158,3 +158,9 @@ footer{padding:35px 0 35px;}
 
 /* Comment */
 .comment_box{padding-right:50px;padding-left:50px;}
+
+/* Adsense */
+.adsense_box {width:100%;height:90px;}
+@media only screen and (min-width:768px) {
+    .adsense_box {width:100%;height:120px;}
+}
