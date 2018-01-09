@@ -20,7 +20,7 @@ a img:hover,
 a img:focus{}
 blockquote{color:#808080;padding:1px 15px;}
 hr.small{max-width:100px;margin:15px auto;border: 4px #FFFFFF;}
-.navbar_custom{background:white;position:absolute;top:0;left:0;width:100%;z-index:3;font-family:'Nanum Pen Script', 'Nanum Gothic', serif;}
+.navbar_custom{background:#F2F4F6;border:none;position:absolute;top:0;left:0;width:100%;z-index:3;font-family:'Nanum Pen Script', 'Nanum Gothic', serif;}
 .navbar_custom .navbar_brand{font-weight:600; font-family:'Nanum Pen Script','Nanum Gothic', serif;font-size:26px;letter-spacing:1px;}
 .navbar_custom .nav li a{text-transform:uppercase;font-size:18px;font-weight:800;letter-spacing:1px;}
 @media only screen and (min-width:768px){.navbar_custom{background:transparent;border-bottom:1px solid transparent;}
