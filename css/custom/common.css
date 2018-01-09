@@ -1,13 +1,12 @@
 img::selection{color:white;background:transparent;}
 img::-moz-selection{color:white;background:transparent;}
-body{webkit-tap-highlight-color:#0085a1;}
 .intro_header .site_heading,
 .intro_header .post_heading{padding:100px 0 30px;color:#FFFFFF;text-align:center;}
 a.site_heading_link:link,
 a.site_heading_link:visited,
 a.site_heading_link:hover,
 a.site_heading_link:active{text-decoration:none;color:#FFFFFF;}
-body{font-family:'Nanum Gothic', serif;font-size:15px;color:#404040;line-height:1.3;}
+body{font-family:'Nanum Gothic', serif;font-size:15px;color:#404040;line-height:1.3;-webkit-tap-highlight-color:#0085a1;}
 p{line-height:1.8;font-weight:200;margin-top:20px;}
 p a{text-decoration:underline;}
 p.red{color:#FF0000;}
