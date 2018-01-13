@@ -1,7 +1,6 @@
 img::selection{color:white;background:transparent;}
 img::-moz-selection{color:white;background:transparent;}
-.intro_header .site_heading,
-.intro_header .post_heading{padding:100px 0 30px;color:#FFFFFF;text-align:center;}
+.intro_header .site_heading{padding:100px 0 30px;color:#FFFFFF;text-align:center;}
 a.site_heading_link:link,
 a.site_heading_link:visited,
 a.site_heading_link:hover,
@@ -20,7 +19,7 @@ a img:hover,
 a img:focus{}
 blockquote{color:#808080;padding:1px 15px;}
 hr.small{max-width:100px;margin:15px auto;border: 4px #FFFFFF;}
-.navbar_custom{background:#F2F4F6;border:none;position:absolute;top:0;left:0;width:100%;z-index:3;font-family:'Nanum Pen Script', 'Nanum Gothic', serif;}
+.navbar_custom{background:#ECF4FB;border:none;position:absolute;top:0;left:0;width:100%;z-index:3;font-family:'Nanum Pen Script', 'Nanum Gothic', serif;}
 .navbar_custom .navbar_brand{font-weight:600; font-family:'Nanum Pen Script','Nanum Gothic', serif;font-size:26px;letter-spacing:1px;}
 .navbar_custom .nav li a{text-transform:uppercase;font-size:18px;font-weight:800;letter-spacing:1px;}
 @media only screen and (min-width:768px){.navbar_custom{background:transparent;border-bottom:1px solid transparent;}
@@ -57,18 +56,6 @@ background: url('/img/common/home_top_banner.jpg') no-repeat scroll center cente
 }
 
 .intro_header .site_heading .subheading{font-size:24px;line-height:1.1;display:block;font-family:'Nanum Gothic', serif;font-weight:300;margin:10px 0 0;}
-.intro_header .post_heading h1{font-size:40px;}
-.intro_header .post_heading .subheading,
-.intro_header .post_heading .subheading{font-family:'Nanum Gothic', serif;font-size:24px;margin:10px 0 30px;font-weight:600;}
-.intro_header .post_heading .meta{font-family:'Nanum Pen Script', serif;font-style:italic;font-weight:300;font-size:18px;}
-@media only screen and (min-width:768px){
-.intro_header .post_heading .meta{font-family:'Nanum Pen Script', serif;font-style:italic;font-weight:300;font-size:22px;}
-}
-.intro_header .post_heading .meta a{color:white;}
-@media only screen and (min-width:768px){
-.intro_header .post_heading h1{font-size:65px;}
-.intro_header .post_heading .subheading{font-size:30px;}
-}
 
 /* Post Preview */
 .post_preview > a{color:#404040;}
