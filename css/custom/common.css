@@ -14,25 +14,27 @@ h2{font-size: 20px;}
 @media only screen and (min-width:768px){h2{font-size: 24px;}}
 a{color:#404040;}
 a:hover,
-a:focus{color:#0085a1;}
+a:focus{color:#404040;}
 a img:hover,
 a img:focus{}
 blockquote{color:#808080;padding:1px 15px;}
 hr.small{max-width:100px;margin:15px auto;border: 4px #FFFFFF;}
 
 /* Navigation */
-.navbar_custom{background:#F7F7F7;border:none;position:fixed;top:0;left:0;width:100%;z-index:3;font-family:'Nanum Pen Script','Nanum Gothic',serif;color:#777;}
+.navbar_custom{background:#F7F7F7;box-shadow:0 2px 2px -2px;position:fixed;top:0;left:0;width:100%;z-index:3;font-family:'Nanum Pen Script','Nanum Gothic',serif;color:#777;}
 .navbar_custom .navbar_brand{font-weight:600; font-family:'Nanum Pen Script','Nanum Gothic', serif;font-size:26px;letter-spacing:1px;}
 .navbar_custom .nav li a{text-transform:uppercase;font-size:18px;font-weight:800;letter-spacing:1px;}
 @media only screen and (min-width:768px){
-.navbar_custom{background:#F8F8F8;position:fixed;border-bottom:1px solid transparent;}
-.navbar_custom .navbar_brand{color:#777;padding:20px;font-family:'Nanum Pen Script','Nanum Gothic',serif;font-size:36px;letter-spacing: 1px}
+.navbar_custom{background:#F7F7F7;box-shadow:0 2px 2px -2px;position:fixed;border-bottom:1px solid transparent;}
+.navbar_custom .navbar_brand{color:#707070;padding:20px;font-family:'Nanum Pen Script','Nanum Gothic',serif;font-size:36px;letter-spacing: 1px;margin-left:5px}
 .navbar_custom .navbar_brand:hover,
-.navbar_custom .navbar_brand:focus{color:#0085A1;}
-.navbar_custom .nav li a{color:#777; padding:20px; font-family:'Nanum Pen Script','Nanum Gothic', serif;font-size:24px;}
+.navbar_custom .navbar_brand:focus{color:#404040;}
+.navbar_custom .nav li a{color:#707070; padding:20px; font-family:'Nanum Pen Script','Nanum Gothic', serif;font-size:24px;}
 .navbar_custom .nav li a:hover,
-.navbar_custom .nav li a:focus{color:#0085A1;}
+.navbar_custom .nav li a:focus{color:#404040;}
+.navbar_right{float: right !important;margin: 0 -5px 0 0;visibility:visible !important}
 }
+
 
 /* Header */
 .intro_header{
@@ -108,12 +110,12 @@ a.category_link:active {text-decoration:none;}
 /* Paging */
 .pager{margin:20px 0 0;}
 .pager li {font-family:'Nanum Gothic', serif;font-size:11px;font-weight:800;padding:13px 4px;background-color:white;margin-left:0px;}
-.pager li > span{background-color:#0085a1;cursor:not-allowed;color:white;}
+.pager li > span{background-color:#707070;cursor:not-allowed;color:white;}
 .pager li > span.disabled {width:1px;height:1px;margin:-1px;clip:rect(0, 0, 0, 0);position:absolute;overflow:hidden;}
 .pager li > a, .pager li > span {border-radius:18px;padding:5px 12px;}
 @media only screen and (min-width:768px){
 .pager li {font-size:14px;padding:10px 12px;margin-left:5px;}
-.pager li > span{background-color:#0085a1;cursor:not-allowed;color:white;}
+.pager li > span{background-color:#707070;cursor:not-allowed;color:white;}
 .pager li > a, .pager li > span {border-radius:18px;padding:5px 14px;}
 }
 
