@@ -18,7 +18,7 @@ markdown: kramdown
 highlighter: rouge
 
 # Plugins Settings
-gems: [jekyll-paginate]
+plugins: ["jekyll-paginate"]
 
 # Read Processing
 exclude: ["README.md"]
