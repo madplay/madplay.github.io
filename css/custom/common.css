@@ -6,10 +6,10 @@ a.site_heading_link:visited,
 a.site_heading_link:hover,
 a.site_heading_link:active{text-decoration:none;color:#FFFFFF;}
 body{font-family:'Nanum Gothic', serif;font-size:15px;color:#404040;line-height:1.3;}
-p{line-height:1.8;font-weight:200;margin-top:20px;}
+p{line-height:1.8;margin-top:20px;}
 p a{text-decoration:underline;}
 p.red{color:#FF0000;}
-h1,h2,h3,h4,h5,h6{font-family:'Nanum Gothic', serif;font-weight:500;}
+h1,h2,h3,h4,h5,h6{font-family:'Nanum Gothic', serif;}
 h2{font-size: 20px;}
 @media only screen and (min-width:768px){h2{font-size: 24px;}}
 a{color:#404040;}
@@ -22,17 +22,17 @@ hr.small{max-width:100px;margin:15px auto;border: 4px #FFFFFF;}
 
 /* Navigation */
 .navbar_custom{background:#F7F7F7;box-shadow:0 2px 2px -2px;position:fixed;top:0;left:0;width:100%;z-index:3;font-family:'Nanum Pen Script','Nanum Gothic',serif;color:#777;}
-.navbar_custom .navbar_brand{font-weight:600; font-family:'Nanum Pen Script','Nanum Gothic', serif;font-size:26px;letter-spacing:1px;}
-.navbar_custom .nav li a{text-transform:uppercase;font-size:18px;font-weight:800;letter-spacing:1px;}
+.navbar_custom .navbar_brand{font-family:'Catamaran','Itim','Nanum Gothic', serif;font-size:22px;}
+.navbar_custom .nav li a{text-transform:uppercase;font-size:14px;font-family:'Catamaran','Nanum Gothic', serif;}
 @media only screen and (min-width:768px){
 .navbar_custom{background:#F7F7F7;box-shadow:0 2px 2px -2px;position:fixed;border-bottom:1px solid transparent;}
-.navbar_custom .navbar_brand{color:#707070;padding:20px;font-family:'Nanum Pen Script','Nanum Gothic',serif;font-size:36px;letter-spacing: 1px;margin-left:5px}
+.navbar_custom .navbar_brand{color:#707070;padding:20px;font-family:'Catamaran','Nanum Gothic',serif;font-size:30px;margin-left:5px}
 .navbar_custom .navbar_brand:hover,
 .navbar_custom .navbar_brand:focus{color:#404040;}
-.navbar_custom .nav li a{color:#707070; padding:20px; font-family:'Nanum Pen Script','Nanum Gothic', serif;font-size:24px;}
+.navbar_custom .nav li a{color:#707070; padding:20px;font-family:'Catamaran','Nanum Gothic', serif;font-size:18px;}
 .navbar_custom .nav li a:hover,
 .navbar_custom .nav li a:focus{color:#404040;}
-.navbar_right{float: right !important;margin: 0 -5px 0 0;visibility:visible !important}
+.navbar_right{float: right !important;margin: 0 5px 0 0;visibility:visible !important}
 }
 
 
@@ -45,12 +45,12 @@ background: url('/img/common/home_top_banner.jpg') no-repeat scroll center cente
 .intro_header .site_heading{padding:120px 0;}
 }
 .intro_header .site_heading,
-.intro_header .site_heading h1{margin-top:0;font-size:46px;}
+.intro_header .site_heading h1{margin-top:0;font-size:36px;}
 @media only screen and (min-width:768px){
-.intro_header .site_heading h1{margin-top:0;font-size:80px;}
+.intro_header .site_heading h1{margin-top:0;font-size:60px;}
 }
 
-.intro_header .site_heading .subheading{font-size:24px;line-height:1.1;display:block;font-family:'Nanum Gothic', serif;font-weight:300;margin:10px 0 0;}
+.intro_header .site_heading .subheading{font-size:24px;line-height:1.1;display:block;font-family:'Nanum Gothic', serif;margin:10px 0 0;}
 
 /* Post Preview */
 .post_preview > a{color:#404040;}
@@ -60,9 +60,9 @@ background: url('/img/common/home_top_banner.jpg') no-repeat scroll center cente
 @media only screen and (min-width:768px){
 .post_preview > a > .post_title{font-family:'Nanum Gothic',serif;font-size:28px;margin-top:20px;margin-bottom:20px;}
 }
-.post_preview > .post_subtitle{font-weight:200;font-size:16px;margin: 12px 0 0;}
+.post_preview > .post_subtitle{font-size:16px;margin: 12px 0 0;}
 @media only screen and (min-width:768px){
-.post_preview > .post_subtitle{font-weight:200;font-size:16px;margin: 20px 0 5px;}
+.post_preview > .post_subtitle{font-size:16px;margin: 20px 0 5px;}
 }
 .post_preview > .post_meta{color:#808080;font-size:14px;font-style:italic;margin-top:0;margin-bottom:5px;}
 .post_preview > .post_meta > a{text-decoration:none;color:#404040;}
@@ -84,14 +84,14 @@ th{border: 1px solid #999999; padding: 10px 10px;}
 td{border: 1px solid #999999; padding: 5px 10px; line-height:1.6;}
 
 hr.style-one{border:0;height:1px; background: #333 linear-gradient(to right, #ccc, #333, #ccc);}
-.top_introduce{font-family:'Nanum Pen Script', serif;font-weight:300; padding-bottom:15px;}
-.top_subheading{font-family:'Nanum Pen Script','Nanum Gothic', serif;font-size:24px;line-height:0.8;display:block;font-weight:300;margin:10px 0 0;}
+.site_heading .top_introduce{font-family:'Catamaran', serif;padding-bottom:15px;}
+.top_subheading{font-family:'Nanum Pen Script','Nanum Gothic', serif;font-size:24px;line-height:0.8;display:block;margin:10px 0 0;}
 @media only screen and (min-width:768px){
-.top_subheading{font-family:'Nanum Pen Script','Nanum Gothic', serif;font-size:36px;line-height:1.1;display:block;font-weight:300;margin:10px 0 0;}
+.top_subheading{font-family:'Nanum Pen Script','Nanum Gothic', serif;font-size:36px;line-height:1.1;display:block;margin:10px 0 0;}
 }
-ol > li{line-height: 1.8; font-weight: bold;}
+ol > li{line-height: 1.8;}
 ul{margin-bottom: 10px; padding-left:20px;}
-ul li{font-weight:600;line-height:2;margin-left:10px}
+ul li{line-height:2;margin-left:10px}
 ol{padding-left:15px;}
 
 /* Category */
@@ -109,7 +109,7 @@ a.category_link:active {text-decoration:none;}
 
 /* Paging */
 .pager{margin:20px 0 0;}
-.pager li {font-family:'Nanum Gothic', serif;font-size:11px;font-weight:800;padding:13px 4px;background-color:white;margin-left:0px;}
+.pager li {font-family:'Nanum Gothic', serif;font-size:11px;padding:13px 4px;background-color:white;margin-left:0px;}
 .pager li > span{background-color:#707070;cursor:not-allowed;color:white;}
 .pager li > span.disabled {width:1px;height:1px;margin:-1px;clip:rect(0, 0, 0, 0);position:absolute;overflow:hidden;}
 .pager li > a, .pager li > span {border-radius:18px;padding:5px 12px;}
@@ -124,13 +124,13 @@ footer{padding:20px 0 25px;}
 .social_list{text-align:center;padding-right:20px;}
 .social_site{display:inline-block;padding-right:7px;padding-left:7px;list-style:none;margin:0;}
 .social_icon{width:38px;height:38px;}
-.copyright{font-family:'Nanum Pen Script', serif;font-size:20px;text-align:center;margin-bottom:0;}
+.copyright{font-family:'Catamaran', serif;font-size:14px;text-align:center;margin-bottom:0;}
 @media only screen and (min-width:768px) {
 footer{padding:35px 0 35px;}
 .social_container{text-align:center;}
 .social_site{display:inline-block;padding-right:15px;padding-left:15px;list-style: none;margin:0;}
 .social_icon{width:50px;height:50px;}
-.copyright{font-family:'Nanum Pen Script', serif;font-size:28px;text-align:center;margin-bottom:0;}
+.copyright{font-family:'Catamaran', serif;font-size:20px;text-align:center;margin-bottom:0;}
 }
 
 /* Comment */

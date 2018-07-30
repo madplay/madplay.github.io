@@ -6,16 +6,43 @@ description: "안녕하세요. 만나서 반갑습니다."
 
 {% for member in site.data.members %} {% if member.visible == true %}
 <div class="introduce_wrap">
-	<dl class="introduce_head">
-		<dt class="introduce_image">
-			<img src="{{ member.img }}" alt="프로필 이미지">
-			<div class="introduce_name">{{ member.name }}</div>
-		</dt>
-		<dd class="introduce_job">{{ member.job }}</dd>
-	</dl>
-	<dl class="introduce_summary">
-		<dt>안녕하세요. 만나서 반갑습니다!</dt>
-		<dd>{{ member.description }}</dd>
-	</dl>
+    <div class="introduce_image">
+        <img src="{{ member.img }}" alt="프로필 이미지">
+    </div>
+
+    <h2 class="introduce_title">Kim Taewan [MadPlay]</h2>
+    <ul>
+        <li>Software Engineer</li>
+        <li>Back-end Server Developer</li>
+    </ul>
+
+    <h2 class="introduce_title">Activities</h2>
+    <ul>
+        <li>Email : itsmetaeng@gmail.com</li>
+        <li><a class="introduce_link" href="https://www.linkedin.com/in/madplay/" target="_blank">Linkedin</a></li>
+        <li><a class="introduce_link" href="https://github.com/madplay" target="_blank">Github</a>
+            <img src="https://ghchart.rshah.org/madplay" alt="Github Image" style="max-width:100%">
+        </li>
+    </ul>
+
+    <h2 class="introduce_title">Awards</h2>
+    <ul>
+        <li>A Minister of Science, ICT and Future Planning Prize
+            <br/> - The 8th OSS WORLD CHALLENGE
+        </li>
+    </ul>
+
+    <h2 class="introduce_title">Thesis</h2>
+    <ul>
+        <li>English Syntactic Rule Management Tool for Improving English Machine Translation System.
+            <br/> - The 20th Annual Conference on Human & Cognitive Language Technology
+        </li>
+        <li>Performance Evaluation of MissLess Soft Keyboard with Recommendation
+            <br/> - The Institute of Internet, Broadcasting and Communication
+        </li>
+        <li>An Authoring Tool for Hangul Soft Keyboard in Android
+            <br/> - The Institute of Internet, Broadcasting and Communication
+        </li>
+    </ul>
 </div>
 {% endif %}{% endfor %}
