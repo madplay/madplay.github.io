@@ -1,5 +1,5 @@
 .introduce_wrap {
-    font-family: 'Nanum Gothic', 'Dotum', '돋움', 'Helvetica', sans-serif;
+    font-family: 'Helvetica Neue', 'Dotum', '돋움', 'Helvetica', sans-serif;
     margin-top: 10px;
     padding-top: 10px;
 }
@@ -18,11 +18,11 @@
     padding: 0;
     font-weight: bold;
     line-height: 1.6;
-    font-family: 'Nanum Gothic';
+    font-family: 'Helvetica Neue';
 }
 
 .introduce_summary {
-    font-family: 'Nanum Gothic';
+    font-family: 'Helvetica Neue';
     font-size: 18px;
 }
 
