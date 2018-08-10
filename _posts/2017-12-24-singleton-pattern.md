@@ -205,7 +205,7 @@ public enum MadPlay {
 
 실제로 위 코드의 컴파일 된 클래스를 터미널에서 javap 명령어를 통해 확인해보면 알 수 있습니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/24/001-1.jpg" width="700" height="290" alt="TCP/IP와 OSI 7계층"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-24-singleton-pattern-1.jpg" width="700" height="290" alt="TCP/IP와 OSI 7계층"/>
 
 <div class="post_caption">"javap는 클래스 파일의 내부 기본 구조와 JVM의 바이너리 코드만 나오는 역어셈블 방법입니다.<br/>클래스를 원래 소스로 변환하는 역컴파일과는 다릅니다."</div>
 

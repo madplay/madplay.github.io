@@ -75,7 +75,7 @@ public static Class<?> forName(String className)
 위의 벡터 클래스 객체를 가져오고, 선언된 모든 메서드의 이름을 출력하는 코드의 실행 결과는 어떻게 될까요?
 예상했던 것과 같이 클래스 내에 선언된 메서드의 목록이 출력됩니다. (많아서 중간 생략했습니다)
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/05/001-1.png" width="540" height="300" alt="Vector 클래스의 메서드"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-05-java-reflection-1.png" width="540" height="300" alt="Vector 클래스의 메서드"/>
 
 <br/>
 

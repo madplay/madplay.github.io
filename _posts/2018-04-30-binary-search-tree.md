@@ -55,7 +55,7 @@ comments: true
 그러니까 모든 노드의 차수(Degree)가 2 이하인 트리를 말하는 것이지요.
 그리고 이진 트리의 모든 서브 트리들은 모두 이진 트리여야 합니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/04/30/001-1.jpg" width="600" height="350" alt="Binary Tree"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-04-30-binary-search-tree-1.jpg" width="600" height="350" alt="Binary Tree"/>
 
 노드 5의 서브 트리는 루트가 4인 트리와 8인 트리가 있습니다.
 또 노드 8은 루트가 10인 오른쪽 서브 트리를 가지고 있고요.
@@ -70,14 +70,14 @@ comments: true
 마지막 노드를 제외하고 모든 노드가 채워져 있는 트리를 말합니다.
 또한 마지막 레벨에서는 왼쪽부터 오른쪽으로 노드가 채워져있는 트리를 말하지요.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/04/30/001-2.jpg" width="600" height="350" alt="Complete Binary Tree"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-04-30-binary-search-tree-2.jpg" width="600" height="350" alt="Complete Binary Tree"/>
 
 <br/><br/>
 
 마지막으로 ```포화 이진 트리(Perfect Binary Tree)```를 살펴봅시다.
 모든 노드가 가득 차 있어야 합니다. 왼쪽이든 오른쪽이든 가득 차 있어야 하지요.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/04/30/001-3.jpg" width="600" height="300" alt="Perfect Binary Tree"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-04-30-binary-search-tree-3.jpg" width="600" height="300" alt="Perfect Binary Tree"/>
 
 완전 이진 트리는 포화 이진 트리가 될 수 없지만, 포화 이진 트리는 완전 이진 트리라고 할 수 있습니다.
 

@@ -18,7 +18,7 @@ comments: true
 국제 표준화 기구인 ISO(International Standard Organization)가 확립한 OSI(Open System Interconnection) 7계층은
 개방화된 데이터 통신 환경에서 사용하는 계층적 구현 모델의 표준입니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/22/001-1.png" width="740" height="400" alt="OSI 7 계층"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-22-network-osi-7-layer-1.png" width="740" height="400" alt="OSI 7 계층"/>
 
 이름처럼 7개의 계층으로 구성되어 있으며, 각 계층마다 수행하는 역할이 다릅니다.<br/>
 임의의 호스트에서 실행되는 계층 N 모듈은 상대 호스트의 계층 N 모듈과 논리적으로 통신하며

@@ -31,7 +31,7 @@ comments: true
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/03/08/001-1.png" width="600" height="200" alt="install homebrew"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-03-08-jekyll-build-not-working-in-mac-os-high-sierra-1.png" width="600" height="200" alt="install homebrew"/>
 
 <br/><br/>
 
@@ -54,7 +54,7 @@ Downloading ruby-2.4.3.tar.bz2...
 ... 생략
 ```
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/03/08/001-2.png" width="600" height="200" alt="install ruby"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-03-08-jekyll-build-not-working-in-mac-os-high-sierra-2.png" width="600" height="200" alt="install ruby"/>
 
 <br/><br/>
 

@@ -18,7 +18,7 @@ comments: true
 바로 이 동기화가 중요한 이슈가 될 수 있는데요. 동기화가 제공되는 것이 무조건적으로 좋은 것이 아니라
 실행 속도 측면에서 성능의 차이가 있기 때문에 상황에 따라서 적절하게 사용하는 것이 좋습니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/04/16/001-1.jpg" width="800" height="660" alt="Collection Interface"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-04-16-java-collection-synchronize-1.jpg" width="800" height="660" alt="Collection Interface"/>
 
 위의 그림처럼 자바에서는 수많은 Collection 인터페이스의 구현 클래스를 제공하고 있습니다.
 너무 많으니까 대표적으로 List, Set 그리고 Map에 대해 살펴보도록 합시다.

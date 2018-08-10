@@ -37,25 +37,25 @@ For i -> 0 to n:
 
 <div class="post_caption">"여기서는 위치를 변경하는 경우만 N 회전(PASS)로 카운팅합니다."</div>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/15/001-1.png" width="650" height="150" alt="선택 정렬 Step1"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-15-selection-sort-1.png" width="650" height="150" alt="선택 정렬 Step1"/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/15/001-2.png" width="650" height="300" alt="선택 정렬 Step2"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-15-selection-sort-2.png" width="650" height="300" alt="선택 정렬 Step2"/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/15/001-3.png" width="650" height="220" alt="선택 정렬 Step3"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-15-selection-sort-3.png" width="650" height="220" alt="선택 정렬 Step3"/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/15/001-4.png" width="650" height="220" alt="선택 정렬 Step4"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-15-selection-sort-4.png" width="650" height="220" alt="선택 정렬 Step4"/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/15/001-5.png" width="650" height="220" alt="선택 정렬 Step5"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-15-selection-sort-5.png" width="650" height="220" alt="선택 정렬 Step5"/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/15/001-6.png" width="650" height="220" alt="선택 정렬 Step6"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-15-selection-sort-6.png" width="650" height="220" alt="선택 정렬 Step6"/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/15/001-7.png" width="650" height="220" alt="선택 정렬 Step7"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-15-selection-sort-7.png" width="650" height="220" alt="선택 정렬 Step7"/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/15/001-8.png" width="650" height="220" alt="선택 정렬 Step8"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-15-selection-sort-8.png" width="650" height="220" alt="선택 정렬 Step8"/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/15/001-9.png" width="650" height="220" alt="선택 정렬 Step4"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-15-selection-sort-9.png" width="650" height="220" alt="선택 정렬 Step4"/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/15/001-10.png" width="650" height="130" alt="선택 정렬 Step4"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-15-selection-sort-10.png" width="650" height="130" alt="선택 정렬 Step4"/>
 
 <br/><br/>
 

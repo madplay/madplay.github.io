@@ -19,7 +19,7 @@ comments: true
 
 먼저 그림으로 쉽게 알아봅시다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/06/30/001-1.jpg" width="400" height="250" alt="Process and Thread"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-06-30-process-vs-thread-1.jpg" width="400" height="250" alt="Process and Thread"/>
 
 위의 그림만 봐도 차이는 쉽게 알 수 있습니다. 조금 더 디테일하게 비교해보자면!
 
@@ -30,7 +30,7 @@ comments: true
 
 이를 그림으로 본다면 아래와 같다고 볼 수 있지요.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/06/30/001-2.jpg" width="500" height="350" alt="Usage Memory"/> 
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-06-30-process-vs-thread-2.jpg" width="500" height="350" alt="Usage Memory"/> 
 
 이와같은 특성으로 인해 스레드 간의 전환 속도가 프로세스 간의 전환보다 더 빠릅니다.
 그렇다고해서 스레드는 장점만 있는 것이 아닙니다. 스레드 간의 잘못된 자원 공유로 인해 오류가 발생할 수 있지요.
