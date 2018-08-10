@@ -24,8 +24,7 @@ plugins: ["jekyll-paginate"]
 exclude: ["README.md"]
 
 # Print Settings
-permalink: post/:year/:month/:day/:title
-#permalink:: pretty
+permalink: /:title
 paginate: 5
 paginate_path: /page:num
 
