@@ -58,7 +58,7 @@ class MadPlay {
 어렵고 난해한 단어와 이론만으로 이해하려고 하니까 참 어렵습니다. 조금 더 명확하게 이해하기 위해서는 그림이 참 좋죠.
 아래 그림에서는 모든 객체 참조가 Strong Reference 라고 생각합시다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/04/02/001-1.png" width="600" height="250" alt="바쁘겠다. 가비지 컬렉터"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-04-02-java-garbage-collection-and-java-reference-1.png" width="600" height="250" alt="바쁘겠다. 가비지 컬렉터"/>
 
 
 그림도 참 복잡하게 엮어있습니다만, 우선 여기서 유효한 참조가 있는 Reachable과 가비지 컬렉터의 먹잇감이 되는 Unreachable을 분류하면 어떻게 될까요?
@@ -68,13 +68,13 @@ class MadPlay {
 
 색을 입혀 구분해보면 다음과 같습니다. 녹색은 Reachable이고 적색은 Unreachable 입니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/04/02/001-2.png" width="600" height="250" alt="Reachable과 Unreachable"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-04-02-java-garbage-collection-and-java-reference-2.png" width="600" height="250" alt="Reachable과 Unreachable"/>
 
 <br/><br/>
 여기서 또 한 가지! Unreachable 객체가 가비지 컬렉터에 수거되지 않으려고 Reachable 객체를 참조하더라도
 정작 자신이 참조를 받지 못한다면 여전히 Unreachable로 분류됩니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/04/02/001-3.png" width="600" height="250" alt="Unreachable"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-04-02-java-garbage-collection-and-java-reference-3.png" width="600" height="250" alt="Unreachable"/>
 
 <br/><br/>
 
@@ -109,7 +109,7 @@ class MadPlay {
 
 위의 코드를 그림으로 본다면 다음과 같겠죠?
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/04/02/001-4.png" width="500" height="200" alt="Weak Reference"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-04-02-java-garbage-collection-and-java-reference-4.png" width="500" height="200" alt="Weak Reference"/>
 
 <br/>
 
@@ -143,7 +143,7 @@ class MadPlay {
 위 코드에서 생성된 MadPlay 객체는 오로지 WeakReference로만 참조가 됩니다.
 바로 이때, 이 객체를 ```Weakly Reachable Object``` 라고 부릅니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/04/02/001-5.png" width="500" height="200" alt="assign null to Weak Reference"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-04-02-java-garbage-collection-and-java-reference-5.png" width="500" height="200" alt="assign null to Weak Reference"/>
 
 정리를 해보자면, 가비지 컬렉션은 Reachable 인지 또는 반대로 Unreachable 인지를 판단해서 처리를 진행하였고
 개발자가 개입할 수 없었던 부분을 java.lang.ref 패키지를 통해서 조금이나마 간섭할 수 있습니다.

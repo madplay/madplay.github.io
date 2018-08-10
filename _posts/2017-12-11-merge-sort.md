@@ -18,7 +18,7 @@ comments: true
 전체 과정을 보면 아래와 같이 표현할 수 있습니다.
 <br/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/11/001-1.png" width="420" height="360" alt="합병 정렬 과정"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-11-merge-sort-1.png" width="420" height="360" alt="합병 정렬 과정"/>
 
 <br/><br/>
 
@@ -27,27 +27,27 @@ comments: true
 위의 전체 정렬 과정을 조금 더 자세히 각 단계마다 살펴봅시다.<br/>
 정렬 요소들을 반으로 나누었을 때 왼쪽 영역을 left, 오른쪽 영역을 right로 표기하고 각각의 시작과 끝에 Start, End로 표기했습니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/11/001-2.png" width="420" height="280" alt="합병 정렬 Step1"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-11-merge-sort-2.png" width="420" height="280" alt="합병 정렬 Step1"/>
 <div class="post_caption">"3과 1을 비교한다. 비교 연산 후 1을 정렬 결과를 담을 배열에 이동, rightStart를 증가시킨다."</div>
 
 <br/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/11/001-3.png" width="420" height="280" alt="합병 정렬 Step2"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-11-merge-sort-3.png" width="420" height="280" alt="합병 정렬 Step2"/>
 <div class="post_caption">"3과 2를 비교한다. 비교 연산 후 2를 정렬 결과를 담을 배열에 이동, rightStart를 증가시킨다."</div>
 
 <br/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/11/001-4.png" width="420" height="280" alt="합병 정렬 Step3"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-11-merge-sort-4.png" width="420" height="280" alt="합병 정렬 Step3"/>
 <div class="post_caption">"3과 7을 비교한다. 비교 연산 후 3을 정렬 결과를 담을 배열에 이동, leftStart를 증가시킨다."</div>
 
 <br/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/11/001-5.png" width="420" height="280" alt="합병 정렬 Step4"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-11-merge-sort-5.png" width="420" height="280" alt="합병 정렬 Step4"/>
 <div class="post_caption">"6과 7을 비교한다. 비교 연산 후 6을 정렬 결과를 담을 배열에 이동, leftStart를 증가시킨다."</div>
 
 <br/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/11/001-6.png" width="420" height="280" alt="합병 정렬 Step5"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-11-merge-sort-6.png" width="420" height="280" alt="합병 정렬 Step5"/>
 <div class="post_caption">"9와 7을 비교한다. 비교 연산 후 6을 정렬 결과를 담을 배열에 이동, rightStart를 증가시킨다."</div>
 
 <br/>

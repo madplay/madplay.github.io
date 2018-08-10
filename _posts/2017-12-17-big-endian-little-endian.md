@@ -18,7 +18,7 @@ comments: true
 
 달걀을 깰 때 무딘 끝(Big-End)을 먼저 개는 사람들(Big Endian)과 이와 반대로 뾰족한 끝(Little-End)을 먼저 깨는 사람들(Little Endian) 사이에 격론이 벌어진 데서 따왔다고 합니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/17/001-1.jpg" width="600" height="300" alt="빅 엔디안과 리틀 엔디안"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-17-big-endian-little-endian-1.png" width="600" height="300" alt="빅 엔디안과 리틀 엔디안"/>
 
 <br/><br/>
 
@@ -58,7 +58,7 @@ IP 패킷이 바이트 단위로 구분된 이후 최상위 비트(Most Signific
 
 큰 단위부터 들어가는 빅 엔디안입니다. 
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/17/001-2.png" width="400" height="350" alt="빅 엔디안"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-17-big-endian-little-endian-2.png" width="400" height="350" alt="빅 엔디안"/>
 
 장점이라면 사람이 읽기 편합니다. 숫자를 쓰고 읽는 방법과 같기 때문이지요.<br/>
 예를 들어 0x12345678은 빅 엔디안으로 12 34 56 78로 표현됩니다.
@@ -69,7 +69,7 @@ IP 패킷이 바이트 단위로 구분된 이후 최상위 비트(Most Signific
 
 작은 단위가 먼저 들어가는 리틀 엔디안입니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/17/001-3.png" width="400" height="350" alt="리틀 엔디안"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-17-big-endian-little-endian-3.png" width="400" height="350" alt="리틀 엔디안"/>
 
 그림과 같이 오른쪽에서부터 왼쪽으로 저장됩니다.<br/>
 이는 산술 연산이 메모리의 주소가 낮은 쪽에서부터 높은 쪽으로 가면서 처리되는 순서와 같습니다.

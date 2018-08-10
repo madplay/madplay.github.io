@@ -86,7 +86,7 @@ Levenshtein Distance는 두 개의 문자열 A, B가 주어졌을 때, 두 문�
 
 아래와 같이 매트릭스(행렬)로 진행 과정을 살펴볼 수 있습니다.
   
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/15/001-1.png" width="650" height="150" alt="편집거리 알고리즘 예시1"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-15-levenshtein-distance-edit-distance-1.png" width="650" height="150" alt="편집거리 알고리즘 예시1"/>
 
 문자열 A의 delegate와 문자열 B의 delete의 첫 번째 문자는 둘 다 'd'이므로 같습니다.
 따라서 위의 의사 코드(pseudo code)로 표현한 알고리즘의 16번 라인의 코드처럼 대각선으로 위에 있는 값을 그대로 갖습니다.
@@ -96,7 +96,7 @@ Levenshtein Distance는 두 개의 문자열 A, B가 주어졌을 때, 두 문�
 
 이러한 과정을 계속 진행해보면 아래와 같이 최종적인 매트릭스의 모습을 확인할 수 있습니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/15/001-2.png" width="650" height="150" alt="편집거리 알고리즘 예시1"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-15-levenshtein-distance-edit-distance-2.png" width="650" height="150" alt="편집거리 알고리즘 예시1"/>
 
 우측 가장 하단에 있는 숫자 2가 뜻하는 것은 문자열(delegate) A가 문자열(delete) B와 서로 같아지기 위한 연산의 횟수가 됩니다.
 

@@ -25,7 +25,7 @@ comments: true
 IDE로 Intellij를 주로 사용하지만 이번 포스팅에서는 사용자가 더 많은 <b>Eclipse를 기준</b>으로 합니다.
 
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/08/001-1.png" width="600" height="200" alt="반가워 404"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-08-maven-tomcat-404-error-1.png" width="600" height="200" alt="반가워 404"/>
 
 <div class="post_caption">그...그래 반갑다.</div>
 
@@ -63,12 +63,12 @@ web.xml을 못 찾는 경우도 있습니다.
 Mac OSX El Capitan 환경을 기준으로 ```프로젝트 우클릭 -> Properties -> Deployment Assembly``` 를 보면
 아래와 같은 화면이 나타납니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/08/001-2.png" width="700" height="400" alt="Eclipse 설정"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-08-maven-tomcat-404-error-2.png" width="700" height="400" alt="Eclipse 설정"/>
 
 이 부분이 자신의 프로젝트의 설정과 다를 수 있는데요. 경로를 올바르게 변경하도록 합니다.
 Maven의 pom.xml 설정이 잘 되있으면 참 좋았을텐데 말이지요.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/08/001-3.png" width="400" height="100" alt="Directory Path 설정"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-08-maven-tomcat-404-error-3.png" width="400" height="100" alt="Directory Path 설정"/>
 
 <br/><br/>
 
@@ -79,7 +79,7 @@ Maven의 pom.xml 설정이 잘 되있으면 참 좋았을텐데 말이지요.
 <a href="http://tomcat.apache.org/whichversion.html" target="_blank">Java와 Tomcat 버전(링크)</a>를 보시면
 버전 가이드를 확인하실 수 있는데요. 혹시 이슈가 없는 지 확인해봅시다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/08/001-4.png" width="700" height="200" alt="Java와 톰캣"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-08-maven-tomcat-404-error-4.png" width="700" height="200" alt="Java와 톰캣"/>
 
 위와 같이 버전을 잘 매핑했더라도 프로젝트 버전과 맞지 않는 경우가 있습니다.
 
@@ -88,7 +88,7 @@ Maven의 pom.xml 설정이 잘 되있으면 참 좋았을텐데 말이지요.
 또, 설치돤 자바 버전의 문제로 인해서 톰캣이 정상적으로 실행되지 않은 경우일 수도 있습니다.
 Max OSX El Capitan 환경을 기준으로 터미널에서 아래와 같이 버전을 확인해봅시다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/08/001-5.png" width="480" height="100" alt="Java Version"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-08-maven-tomcat-404-error-5.png" width="480" height="100" alt="Java Version"/>
 
 <br/>
 
