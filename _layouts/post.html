@@ -2,24 +2,8 @@
 layout: default
 ---
 
-<!-- Post Header -->
-<header class="intro_header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <a class="post_heading_link" href="{{ page.url }}">
-                <div class="post_heading">
-                    <h1 class="top_introduce">{{ page.title }}</h1>
-                    {% if page.subtitle %}
-                    <h2 class="top_subheading">{{ page.subtitle }}</h2>
-                    {% endif %}
-                    <span class="meta">Posted by {{ page.author }} on {{ page.date | date: "%B %-d, %Y" }}</span>	
-                </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</header>
+{% include header.html type="post" %}
+
 <article>
     <div id="content" class="container">
         <div class="row">
