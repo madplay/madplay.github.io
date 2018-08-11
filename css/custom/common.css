@@ -84,6 +84,8 @@ tr{display: table-row; text-align: center;}
 th{border: 1px solid #999999; padding: 10px 10px;}
 td{border: 1px solid #999999; padding: 5px 10px; line-height:1.6;}
 
+hr{margin-top: 10px;margin-bottom: 15px;border: 0;border-top: 1px solid #ccc;
+}
 hr.style-one{border:0;height:1px; background: #333 linear-gradient(to right, #ccc, #333, #ccc);}
 .site_heading .top_introduce{font-family:'Catamaran';padding-bottom:15px;}
 .top_subheading{font-family:'Nanum Pen Script','Helvetica Neue';font-size:24px;line-height:0.8;display:block;margin:10px 0 0;}
@@ -109,22 +111,22 @@ a.category_link:active {text-decoration:none;}
 }
 
 /* Paging */
-.pager{margin:20px 0 0;}
+.pager{margin:10px 0 0;}
 .pager li {font-family:'Helvetica Neue';font-size:11px;padding:13px 4px;background-color:white;margin-left:0px;}
-.pager li > span{background-color:#707070;cursor:not-allowed;color:white;}
+.pager li > span{background-color:#808080;cursor:not-allowed;color:white;}
 .pager li > span.disabled {width:1px;height:1px;margin:-1px;clip:rect(0, 0, 0, 0);position:absolute;overflow:hidden;}
-.pager li > a, .pager li > span {border-radius:18px;padding:5px 12px;}
+.pager li > a, .pager li > span {padding:5px 12px;}
 @media only screen and (min-width:768px){
 .pager li {font-size:14px;padding:10px 12px;margin-left:5px;}
-.pager li > span{background-color:#707070;cursor:not-allowed;color:white;}
-.pager li > a, .pager li > span {border-radius:18px;padding:5px 14px;}
+.pager li > span{background-color:#808080;cursor:not-allowed;color:white;}
+.pager li > a, .pager li > span {padding:5px 14px;}
 }
 
 /* Footer */
 footer{padding:20px 0 25px;}
 .social_list{text-align:center;padding-right:20px;}
 .social_site{display:inline-block;padding-right:7px;padding-left:7px;list-style:none;margin:0;}
-.social_icon{width:38px;height:38px;}
+.social_icon{width:31px;height:31px;}
 .copyright{font-family:'Catamaran';font-size:14px;text-align:center;margin-bottom:0;}
 @media only screen and (min-width:768px) {
 footer{padding:35px 0 35px;}
