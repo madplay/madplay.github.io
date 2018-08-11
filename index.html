@@ -1,24 +1,37 @@
 ---
 layout: page
+title: MadPlay's MadLife.
+subtitle: 공부하는 개발자의 이야기를 담고 있습니다.
 ---
-{% for post in paginator.posts %}
-<div class="post_preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-        <h2 class="post_title">{{ post.title }}</h2>
-        {% if post.subtitle %}
-        <h3 class="post_subtitle">
-            {{ post.subtitle }}
-        </h3>
-        {% endif %}
-    </a>
-    <p class="post_meta">Posted by {{ post.author }} on {{ post.date | date: "%B %-d, %Y" }}</p>
-	<div class="post_tag">
-		{% for tag in post.tags %}<a href="javascript:;">{{ tag }}</a>{% unless forloop.last %}&nbsp;{% endunless %}{% endfor %}
-	</div>
-</div>
-<hr>
-{% endfor %}
 
+<div class="posts-list">
+    {% for post in paginator.posts %}
+    <article class="post-preview">
+        <a href="{{ post.url | prepend: site.baseurl }}">
+            <h2 class="post-title">{{ post.title }}</h2>
+
+            {% if post.subtitle %}
+            <h3 class="post-subtitle">
+                {{ post.subtitle }}
+            </h3>
+            {% endif %}
+        </a>
+
+        <p class="post-meta">
+            Posted on {{ post.date | date: "%B %-d, %Y" }}
+        </p>
+
+        {% if post.tags.size > 0 %}
+        <div class="blog-tags">
+            #{{ post.tags | join: "  #" }}
+        </div>
+        {% endif %}
+
+    </article>
+    {% endfor %}
+</div>
+
+<hr/>
 <ul class="pager">
 {% if paginator %}
     {% if paginator.previous_page or paginator.next_page %}
@@ -27,7 +40,7 @@ layout: page
             {% assign mid_size = 1 %}
             {% assign current =  paginator.page %}
             {% capture current_page %}
-                <li class="selected"><span>{{ current }}</span></li>
+                <li><span class="selected" disabled>{{ current }}</span></li>
             {% endcapture %}
 
             {% assign total = paginator.total_pages %}

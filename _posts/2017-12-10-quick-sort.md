@@ -2,7 +2,7 @@
 layout:   post
 title:    퀵 정렬(Quick Sort)
 author:   Kimtaeng
-tags: 	  Algorithm
+tags: 	  Algorithm quicksort pivot
 subtitle: 분할&정복을 근거로 한 퀵 정렬 알고리즘을 알아보자.
 category: Algorithm
 comments: true
