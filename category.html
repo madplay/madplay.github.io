@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Category"
-description: "안녕하세요. 만나서 반갑습니다."
+description: "공부하는 개발자의 이야기를 담고 있습니다."
 ---
 
 {% for category in site.categories %}
@@ -12,8 +12,13 @@ description: "안녕하세요. 만나서 반갑습니다."
     {% for posts in category %}
         {% for post in posts %}
             {% if post.url != category.name %}
-            <h3 class="category_post_title"><a class="category_link" href="{{ post.url }}">{{ post.title }} -
-                <span class="category_post_time"><time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%B %d, %Y" }}</time></span></a></h3>
+            <h3 class="category_post_title">
+                <a class="category_link" href="{{ post.url }}">{{ post.title }}
+                <span class="category_post_time">
+                    - <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %d, %Y" }}</time>
+                </span>
+                </a>
+            </h3>
             {% endif %}
         {% endfor %}
     {% endfor %}
