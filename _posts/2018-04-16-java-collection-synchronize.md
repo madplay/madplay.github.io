@@ -284,7 +284,7 @@ Map의 경우에도 동기화 기능을 위해 Collections.SynchroniezdMap 메�
 
 Java 1.5 버전부터 등장한 ```java.util.concurrent``` 패키지는 다양한 동시성 기능을 제공합니다.
 <a href="https://docs.oracle.com/javase/1.5.0/docs/api/java/util/concurrent/package-summary.html" target="_blank">
-https://docs.oracle.com/javase/1.5.0/docs/api/java/util/concurrent/package-summary.html</a>
+Java 1.5 API Docs</a>
 
 HashMap에 동기화 기능을 적용한 ```ConcurrentHashMap``` 이 여기에 속해있습니다.
 동기화를 위해서 SynchronizedMap을 사용할 수 있지만 지금 살펴볼 ConcurrentHashMap의 성능이 더 좋습니다
