@@ -28,13 +28,13 @@ LookAndFeel을 이용하면 프로그램 전체의 UI 모습을 변경할 수 �
 
 자바에서 제공하는 Swing 라이브러리를 이용해 간단한 컴포넌트(Button, Label)를 올려놓은 모습을 살펴봅시다. 
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/02/001-1.jpeg" width="280" height="280" alt="Swing 기본"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-02-java-swing-look-and-feel-1.jpeg" width="280" height="280" alt="Swing 기본"/>
 
 <br/>
 
 <div class="post_caption">"위 화면에서 LookAndFeel을 이용해 UI를 조금 변경해보겠습니다."</div>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/02/001-2.jpeg" width="280" height="280" alt="LookAndFeel 적용"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-02-java-swing-look-and-feel-2.jpeg" width="280" height="280" alt="LookAndFeel 적용"/>
 
 <br/>
 
@@ -44,25 +44,25 @@ LookAndFeel을 이용하면 프로그램 전체의 UI 모습을 변경할 수 �
 
 우선, 자바의 Swing 기본 스타일입니다. 디자인이 아닌 기능에만 충실한다면 Swing도 쓸만합니다..!?!?
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/02/001-3.jpeg" width="700" height="490" alt="MadSearch 기본"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-02-java-swing-look-and-feel-3.jpeg" width="700" height="490" alt="MadSearch 기본"/>
 
 <br/>
 
 <div class="post_caption">"Nimbus 스타일"</div>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/02/001-4.jpeg" width="700" height="490" alt="MadSearch Nimbus"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-02-java-swing-look-and-feel-4.jpeg" width="700" height="490" alt="MadSearch Nimbus"/>
 
 <br/>
 
 <div class="post_caption">"Liquid 스타일"</div>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/02/001-5.jpeg" width="700" height="490" alt="MadSearch Liquid"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-02-java-swing-look-and-feel-5.jpeg" width="700" height="490" alt="MadSearch Liquid"/>
 
 <br/>
 
 <div class="post_caption">"Windows 스타일"</div>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/02/001-6.jpeg" width="700" height="490" alt="MadSearch Windows"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-02-java-swing-look-and-feel-6.jpeg" width="700" height="490" alt="MadSearch Windows"/>
 
 <br/>
 

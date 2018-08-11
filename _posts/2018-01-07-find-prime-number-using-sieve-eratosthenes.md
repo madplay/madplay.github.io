@@ -51,7 +51,7 @@ comments: true
 
 <div class="post_caption">아래와 같은 그림처럼 말이지요.<br>- Wikipedia -</div>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/07/001-2.gif" width="500" height="220" alt="애니메이션"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-07-find-prime-number-using-sieve-eratosthenes-2.gif" width="500" height="220" alt="애니메이션"/>
 
 <br/><br/>
 
@@ -113,7 +113,7 @@ int main(void)
 
 위 코드의 실행 결과는 아래와 같습니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018/01/07/001-1.jpeg" width="400" height="220" alt="실행결과"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-07-find-prime-number-using-sieve-eratosthenes-1.jpeg" width="400" height="220" alt="실행결과"/>
 
 <br/><br/>
 

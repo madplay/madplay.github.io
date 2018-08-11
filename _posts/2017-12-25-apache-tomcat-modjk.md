@@ -32,7 +32,7 @@ WAS(Web Application Server)라고 말하는데, 이는 웹 서버와 웹 컨테�
 
 <div class="post_caption">"왜 WAS만 사용하지 않고 웹 서버와 같이 사용할까?"</div>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/25/001-1.png" width="650" height="280" alt="WAS"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-25-apache-tomcat-modjk-1.png" width="650" height="280" alt="WAS"/>
 
 <br/>
 <b>만일 웹 서버가 없이 WAS만 사용한다고 가정해봅시다.</b><br/>
@@ -233,4 +233,4 @@ sudo apachectl start
 ```http://localhost``` 만을 입력했을 때, Tomcat의 Web Root의 index.jsp가 보여야 합니다.<br/>
 연동 전에는 포트 번호를 붙여야 하지만, 이후에는 아래 비교된 이미지처럼 포트 번호 없이 접속이 가능해야 합니다. 
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/25/001-2.png" width="740" height="250" alt="연동 전 후"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-25-apache-tomcat-modjk-2.png" width="740" height="250" alt="연동 전 후"/>

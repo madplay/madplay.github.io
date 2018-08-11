@@ -26,7 +26,7 @@ TCP/IP는 DARPA 모델(TCP/IP를 개발한 미 정보 조직의 이름에서 유
 
 <div class="post_caption">"잠깐, TCP/IP 4계층은 OSI 7계층과 다릅니다."</div>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/22/002-1.png" width="330" height="470" alt="TCP/IP와 OSI 7계층"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-22-network-tcp-udp-tcpip-1.png" width="330" height="470" alt="TCP/IP와 OSI 7계층"/>
 
 위 TCP/IP의 전송(Transport) 계층은 IP에 의해 전달되는 패킷의 오류를 검사하고 재전송 요구 등의 제어를 담당하는 계층입니다.
 바로 이곳에서 TCP와 UDP라는 두 종류의 프로토콜이 사용됩니다.
@@ -38,12 +38,12 @@ TCP/IP는 DARPA 모델(TCP/IP를 개발한 미 정보 조직의 이름에서 유
 그림으로 비교하는 게 가장 명확하고 빠를 것 같습니다.<br/><br/>
 
 <div class="post_caption">"먼저 TCP의 모습을 살펴봅시다."</div>
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/22/002-2.png" width="400" height="370" alt="TCP"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-22-network-tcp-udp-tcpip-2.png" width="400" height="370" alt="TCP"/>
 
 <br/>
 
 <div class="post_caption">"다음으로 UDP의 모습도 봐볼까요?"</div>
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/22/002-3.png" width="400" height="370" alt="UDP"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-22-network-tcp-udp-tcpip-3.png" width="400" height="370" alt="UDP"/>
 
 즉, 신뢰성이 요구되는 애플리케이션에서는 TCP를 사용하고 간단한 데이터를 빠른 속도로 전송하고자 하는 애플리케이션에서는 UDP를 사용합니다.
 

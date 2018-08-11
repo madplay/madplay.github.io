@@ -26,7 +26,7 @@ comments: true
 <br/><br/>
 아래 예시 그림을 통해서 조금 더 자세히 살펴봅시다. 여기서 pivot은 가장 왼쪽에 위치한 < 요소 6 > 입니다.<br/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/10/001-1.png" width="420" height="220" alt="퀵 정렬 용어 설명"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-10-quick-sort-1.png" width="420" height="220" alt="퀵 정렬 용어 설명"/>
 
 low는 < 요소 3 >이며 오른쪽 방향으로 움직이면서 정렬을 진행합니다. 반대로 high는  < 요소 7 > 이며 왼쪽 방향으로 움직이면서 정렬을 진행합니다.
 물론 low와 high는 번갈아가면서 한 칸씩 움직이는 것이 아니라 별개로 진행됩니다.<br/>
@@ -38,14 +38,14 @@ low는 < 요소 3 >이며 오른쪽 방향으로 움직이면서 정렬을 진�
 진행은 규칙은 간단합니다. high는 pivot 보다 작은 값을 찾고 반대로 low는 pivot 보다 큰 값을 찾습니다.<br/>
 조건에 맞는 값을 찾는 경우 high와 low가 찾은 값을 서로 교환하는 것이지요.<br/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/10/001-2.png" width="420" height="420" alt="퀵 정렬 Step 1"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-10-quick-sort-2.png" width="420" height="420" alt="퀵 정렬 Step 1"/>
 
 <br/>
 < 교환 1회 진행 > 후 모습입니다. high가 찾은 < 요소 2 >와 low가 찾은 < 요소 9 >가 교환되었습니다.
 high와 low가 서로 교환된 후에도 high는 왼쪽 방향으로 pivot 보다 더 큰 값을 찾아 이동하고
 low는 오른쪽 방향으로 pivot 보다 더 작은 값을 찾아 움직입니다.<br/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/10/001-3.png" width="420" height="220" alt="퀵 정렬 Step 2"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-10-quick-sort-3.png" width="420" height="220" alt="퀵 정렬 Step 2"/>
 
 <br/>
 high는 pivot인 < 요소 6 >보다 작은 < 요소 1 >을 발견했고, low는 pivot보다 큰 < 요소 9 >를 찾았습니다.<br/>
@@ -56,14 +56,14 @@ high는 pivot인 < 요소 6 >보다 작은 < 요소 1 >을 발견했고, low는 
 
 
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/10_001-4.png" width="420" height="400" alt="퀵 정렬 Step 3"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-10-quick-sort-4.png" width="420" height="400" alt="퀵 정렬 Step 3"/>
 
 <br/>
 이동한 pivot 값의 위치를 보면 앞에서 네 번째에 위치해있습니다. 정렬 대상이 6개의 요소밖에 되지 않아
 눈치채신 분들도 계시겠지만 방금 교환으로 인하여 < 요소 6 >은 자신의 정렬 위치를 찾게 되었습니다.
 이후에는 자신의 정렬 위치를 찾은 < 요소 6 >을 기준으로 왼쪽과 오른쪽 영역으로 나뉘어 위 과정을 다시 진행하게 됩니다.<br/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017/12/10_001-5.png" width="420" height="220" alt="퀵 정렬 Step 4"/> 
+<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-10-quick-sort-5.png" width="420" height="220" alt="퀵 정렬 Step 4"/> 
 
 <br/><br/>
 
