@@ -98,15 +98,15 @@ ul li{line-height:2;margin-left:10px}
 ol{padding-left:15px;}
 
 /* Category */
-.category_preview > .category_title{font-family:'Nanum Brush Script';font-size:35px;margin-top:30px;margin-bottom:10px;}
+.category_preview > .category_title{font-family:'Helvetica Neue';font-size:35px;margin-top:30px;margin-bottom:10px;}
 .category_preview > .category_post_title{font-size:16px;}
-.category_post_time{font-family:'Nanum Brush Script';font-size:18px;}
+.category_post_time{font-family:'Helvetica Neue';font-size:12px;}
 a.category_link:hover,
 a.category_link:active {text-decoration:none;}
 @media only screen and (min-width:768px){
-.category_preview > .category_title{font-family:'Nanum Brush Script';font-size:50px;margin-top:30px;margin-bottom:10px;}
+.category_preview > .category_title{font-family:'Helvetica Neue';font-size:50px;margin-top:30px;margin-bottom:10px;}
 .category_preview > .category_post_title{font-size:20px;}
-.category_post_time{font-family:'Nanum Brush Script';font-size:22px;}
+.category_post_time{font-family:'Helvetica Neue';font-size:14px;}
 
 }
 

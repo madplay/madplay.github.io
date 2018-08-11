@@ -4,7 +4,7 @@ title:    컴투스 면접 후기(플랫폼개발)
 author:   Kimtaeng
 tags: 	  Job Career Interview
 subtitle: 컴투스 플랫폼개발 면접 후기
-category: 취업이야기
+category: Carrer
 comments: true
 ---
 

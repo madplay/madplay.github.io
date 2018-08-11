@@ -4,7 +4,7 @@ title:    라인플러스 면접 후기(SW개발, 기술면접)
 author:   Kimtaeng
 tags: 	  Job Career Interview
 subtitle: 라인플러스 SW개발 면접 후기
-category: 취업이야기
+category: Carrer
 comments: true
 ---
 
