@@ -5,7 +5,9 @@
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="{{ include.type }}-heading">
                         <h1>{% if page.title %}{{ page.title }}{% else %}<br/>{% endif %}</h1>
+                        {% if include.type == "page" %}
                         <hr class="small">
+                        {% endif %}
                         {% if page.subtitle %}
                         {% if include.type == "page" %}
                         <span class="{{ include.type }}-subheading">{{ page.subtitle }}</span>
@@ -16,6 +18,9 @@
 
                         {% if include.type == "post" %}
                         <span class="post-meta">Posted by Kimtaeng on {{ page.date | date: "%B %-d, %Y" }}</span>
+                        {% endif %}
+                        {% if page.tags.size > 0 %}
+                        <div class="blog-tags">#{{page.tags | join: "  #" }}</div>
                         {% endif %}
                     </div>
                 </div>
