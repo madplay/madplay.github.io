@@ -81,6 +81,7 @@ color: {{ site.hover-col }};
 blockquote {
     color: #808080;
     font-style: italic;
+    padding: 1px 20px;
 }
 blockquote p:first-child {
     margin-top: 0;
