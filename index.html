@@ -1,7 +1,7 @@
 ---
 layout: page
 title: MadPlay's MadLife.
-subtitle: 공부하는 개발자의 이야기를 담고 있습니다.
+subtitle: 개발자의 이야기를 담고 있습니다.
 ---
 
 <div class="posts-list">
@@ -9,24 +9,14 @@ subtitle: 공부하는 개발자의 이야기를 담고 있습니다.
     <article class="post-preview">
         <a href="{{ post.url | prepend: site.baseurl }}">
             <h2 class="post-title">{{ post.title }}</h2>
-
             {% if post.subtitle %}
-            <h3 class="post-subtitle">
-                {{ post.subtitle }}
-            </h3>
+            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
             {% endif %}
         </a>
-
-        <p class="post-meta">
-            Posted on {{ post.date | date: "%B %-d, %Y" }}
-        </p>
-
+        <p class="post-meta">Posted on {{ post.date | date: "%B %-d, %Y" }}</p>
         {% if post.tags.size > 0 %}
-        <div class="blog-tags">
-            #{{ post.tags | join: "  #" }}
-        </div>
+        <div class="blog-tags">#{{ post.tags | join: "  #" }}</div>
         {% endif %}
-
     </article>
     {% endfor %}
 </div>
