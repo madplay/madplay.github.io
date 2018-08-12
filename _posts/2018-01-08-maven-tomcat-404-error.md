@@ -4,7 +4,7 @@ title:    메이븐 + 톰캣 404 에러 해결하기(Eclipse 환경)
 author:   Kimtaeng
 tags: 	  Framework Maven Tomcat
 subtitle: Maven + Tomcat에서 404 에러가 발생하는 여러가지 원인을 찾아보자. 
-category: Network
+category: Knowledge
 comments: true
 ---
 
@@ -25,7 +25,7 @@ comments: true
 IDE로 Intellij를 주로 사용하지만 이번 포스팅에서는 사용자가 더 많은 <b>Eclipse를 기준</b>으로 합니다.
 
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-08-maven-tomcat-404-error-1.png" width="600" height="200" alt="반가워 404"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-08-maven-tomcat-404-error-1.png" width="740" height="125" alt="반가워 404"/>
 
 <div class="post_caption">그...그래 반갑다.</div>
 

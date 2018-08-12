@@ -19,7 +19,7 @@ comments: true
 
 먼저 그림으로 쉽게 알아봅시다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018-06-30-process-vs-thread-1.jpg" width="400" height="250" alt="Process and Thread"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-06-30-process-vs-thread-1.jpg" width="300" height="310" alt="Process and Thread"/>
 
 위의 그림만 봐도 차이는 쉽게 알 수 있습니다. 조금 더 디테일하게 비교해보자면!
 
