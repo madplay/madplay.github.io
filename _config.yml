@@ -6,6 +6,7 @@ facebook_username: "itsmetaeng"
 github_username: "madplay"
 instagram_username: "itsme.taeng"
 header-img: "img/common/home_top_banner.jpg"
+avatar-img: "img/profile/profile.jpg"
 og-img: "img/meta/og_image.png"
 headercolor: "#FFFFFF"
 g-analytics: "UA-111002457-1"
@@ -17,6 +18,25 @@ baseurl: ""
 markdown: kramdown
 highlighter: rouge
 
+# Constatns
+max_description_length: 50
+
+# Colors in CSS
+navbar-col: "#F5F5F5"
+navbar-text-col: "#404040"
+navbar-children-col: "#F5F5F5"
+link-col: "#707070"
+hover-col: "#707070"
+footer-col: "#F5F5F5"
+footer-text-col: "#777777"
+footer-link-col: "#A44B8A"
+
+# List of links in the navigation bar
+nav_menus:
+  Home: ""
+  About Me: "about"
+  Category: "category"
+
 # Plugins Settings
 plugins: ["jekyll-paginate"]
 
@@ -24,8 +44,7 @@ plugins: ["jekyll-paginate"]
 exclude: ["README.md"]
 
 # Print Settings
-permalink: post/:year/:month/:day/:title
-#permalink:: pretty
+permalink: /post/:title
 paginate: 5
 paginate_path: /page:num
 
