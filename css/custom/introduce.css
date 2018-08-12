@@ -18,11 +18,11 @@
     padding: 0;
     font-weight: bold;
     line-height: 1.6;
-    font-family: 'Helvetica Neue';
+    font-family: 'Open Sans', 'Helvetica Neue';
 }
 
 .introduce_summary {
-    font-family: 'Helvetica Neue';
+    font-family: 'Open Sans', 'Helvetica Neue';
     font-size: 18px;
 }
 
