@@ -1,0 +1,32 @@
+---
+layout: page
+title: "Timeline"
+description: "공부하는 개발자의 이야기를 담고 있습니다."
+---
+
+<div class="timeline_introduce">현재까지 {{ site.posts.size }}개의 포스트를 작성했어요.</div>
+
+{% for post in site.posts %}
+<div class="timeline_box">
+    {% assign post_day = post.date | date: '%d' %}
+    {% if post_day != day %}
+        {% assign day = post_day %}
+        {% if container_type == 'left' %}
+            {% assign container_type = 'right' %}
+        {% else %}
+            {% assign container_type = 'left' %}
+        {% endif %}
+    {% endif %}
+    <div class="timeline_container {{ container_type }}">
+        <div class="timeline_content">
+            <div class="timeline_date">{{ post.date | date: "%Y-%m-%d" }}</div>
+            <a href="{{ post.url }}">
+                <div class="timeline_title">{{ post.title }}</div>
+            </a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+
