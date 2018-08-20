@@ -63,6 +63,6 @@ UPDATE user set authentication_string=password('새로운 비밀번호') where u
 
 왜 그럴까요? 보통 최신 버전(2016년?)을 설치하면 Mac의 MySQL은 대부분 아래와 같이 되어있답니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-23-mysql-change-root-password-error-1.png" width="740" height="560" alt="MySQL user테이블"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-02-19-mysql-change-root-password-error-1.png" width="740" height="560" alt="MySQL user테이블"/>
 
 <div class="post_caption">직접 겪었던 부분이라서 기억에 잘 남네요...</div>
