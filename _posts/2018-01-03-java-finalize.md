@@ -227,7 +227,7 @@ null 할당은 가비지 컬렉션이 일어나기만 한다면 바로 회수되
 자세한 내용은 다음 링크를 참조하면 됩니다. 
 
 
-<a href="http://blog.naver.com/madplay/220875720543" target="_blank">관련 블로그 참조</a>
+<a href="https://madplay.github.io/post/java-garbage-collection-and-java-reference" target="_blank" rel="nofollow">자바 레퍼런스와 가비지 컬렉션(링크)</a>
 
 
 위의 링크된 포스팅 내용과 가비지 컬렉션 그리고 오늘 살펴본 finalize 메서드와의 관계를 요약해보면
