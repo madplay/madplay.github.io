@@ -2,12 +2,13 @@
 layout:   post
 title:    자바 언어의 특징
 author:   Kimtaeng
-tags: 	  Java 자바기초
+tags: 	  Java
 subtitle: 자바 언어는 어떤 특성을 가지고 있을까?
 category: Java
 comments: true
 ---
 <hr/>
+
 > ## Java 언어와 시스템의 특징
 
 자바 언어와 시스템은 다음과 같은 독특한 특성을 가집니다.
