@@ -6,6 +6,7 @@ description: "공부하는 개발자의 이야기를 담고 있습니다."
 
 <div class="timeline_introduce">현재까지 {{ site.posts.size }}개의 포스트를 작성했어요.</div>
 
+{% assign curYear = "now" | date : "%Y" %}
 {% for post in site.posts %}
 <div class="timeline_box">
     {% assign post_day = post.date | date: '%d' %}
@@ -25,8 +26,32 @@ description: "공부하는 개발자의 이야기를 담고 있습니다."
             </a>
         </div>
     </div>
+    {% assign post_year = post.date | date: '%Y' %}
+    {% if post_year != curYear %}
+        {% assign curYear = post_year %}
+    {% if container_type == 'left' %}
+        {% assign container_type = 'right' %}
+    {% else %}
+        {% assign container_type = 'left' %}
+    {% endif %}
+    <div class="timeline_container {{ container_type }}">
+        <div class="timeline_content">
+            <div class="timeline_date">{{ curYear }} : Happy New Year!</div>
+        </div>
+    </div>
+    {% endif %}
 </div>
 {% endfor %}
 
-
-
+<div class="timeline_box">
+    {% if container_type == 'left' %}
+        {% assign container_type = 'right' %}
+    {% else %}
+        {% assign container_type = 'left' %}
+    {% endif %}
+    <div class="timeline_container {{ container_type }}">
+        <div class="timeline_content">
+            <div class="timeline_date">블로그 시작 !!!</div>
+        </div>
+    </div>
+</div>
