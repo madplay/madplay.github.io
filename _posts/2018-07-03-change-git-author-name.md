@@ -48,7 +48,6 @@ $ git log
 
 * commit 10aa749 (HEAD -> master, origin/master)
 | Author: madplay <itsmetaeng@gmail.com>
-| Date:   2 hours ago
 | 
 |     [포스팅] 이진 탐색 트리
 |     
@@ -56,19 +55,16 @@ $ git log
 |  
 * commit b813011
 | Author: Kimtaeng <madplay@MadPlayui-MacBook-Pro.local>
-| Date:   2 hours ago
 | 
 |     git 작성자 변경 테스트(얘가 잘못되었어)
 |  
 * commit 80be237
 | Author: madplay <itsmetaeng@gmail.com>
-| Date:   2 hours ago
 | 
 |     git 작성자 변경 테스트
 |  
 * commit 97a9e69
   Author: madplay <itsmetaeng@gmail.com>
-  Date:   2 hours ago
 
 ```
 
@@ -155,7 +151,6 @@ git 작성자 변경 테스트(얘가 잘못되었어)
 # with '#' will be ignored, and an empty message aborts the commit.
 #
 # Author:    madplay <itsmetaeng@gmail.com>
-# Date:      Sun Aug 12 21:31:25 2018 +0900
 #
 # interactive rebase in progress; onto 80be237
 # Last command done (1 command done):
@@ -173,7 +168,6 @@ git 작성자 변경 테스트(얘가 잘못되었어)
 ```bash
 $ git commit --amend --author="madplay <itsmetaeng@gmail.com>"
 [detached HEAD 515c3cc] git 작성자 변경 테스트(얘가 잘못되었어)
- Date: Sun Aug 12 21:31:25 2018 +0900
  1 file changed, 1 insertion(+), 1 deletion(-)
 ```
 

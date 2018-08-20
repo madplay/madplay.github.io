@@ -72,7 +72,7 @@ int main(void)
 
 위 코드 작성은 Mac OSX 환경에서 진행했고 gcc를 통해서 컴파일 한 후 실행하였습니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-03-java-finalize-1.jpg" width="600" height="180" alt="GCC 결과"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-03-java-finalize-1.jpg" width="600" height="180" alt="GCC 결과"/>
 
 여기서 C++의 객체 생성과 소멸의 특징이 있습니다. 반드시 소멸자가 호출된다는 점입니다.
 
@@ -194,7 +194,7 @@ Runtime.getRuntime().totalMemory() : JVM의 모든 메모리 양을 바이트 �
 
 
 위 코드를 실행하면 다음과 같은 OutOfMemoryError Exception이 발생합니다.
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-03-java-finalize-2.jpg" width="600" height="200" alt="OOM Exception"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-03-java-finalize-2.jpg" width="600" height="200" alt="OOM Exception"/>
 
 GC와 Full GC가 일어나도 메모리는 여전히 부족합니다.
 resourceAllocate() 메서드가 종료되기 전까지 testArr1의 참조가 존재하기 때문이지요.
@@ -215,7 +215,7 @@ byte[] testArr2 = new byte[2000000000];
 ...
 </code></pre>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-03-java-finalize-3.jpg" width="600" height="230" alt="testArr1을 null로"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-03-java-finalize-3.jpg" width="600" height="230" alt="testArr1을 null로"/>
 
 Out Of Memory Error 예외가 발생하지 않는 모습을 볼 수 있습니다.
 그렇다면 자원 관리를 위해 객체 사용 후에는 매번 null 할당해야 할까요?

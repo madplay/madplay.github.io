@@ -12,7 +12,7 @@ comments: true
 
 > ## 이진 탐색 트리를 구현해보자.
 
-앞서 살펴보았던  <a href="https://madplay.github.io/post/2018/04/30/001" target="_blank">이진 탐색 트리 Part I - 이론(클릭시 이동)</a>를 기억해가며 자바(Java) 언어로
+앞서 살펴보았던  <a href="https://madplay.github.io/post/2018/04/30/001" target="_blank" rel="nofollow">이진 탐색 트리 Part I - 이론(클릭시 이동)</a>를 기억해가며 자바(Java) 언어로
 이진 탐색 트리(Binary Search Tree)를 구현해봅시다. 먼저 노드(Node)를 나타낼 클래스를 정의합니다. 노드의 값(Value)을 나타내는 멤버 변수와 왼쪽과 오른쪽 자식 노드는 생성자로 초기화합니다.
 
 
