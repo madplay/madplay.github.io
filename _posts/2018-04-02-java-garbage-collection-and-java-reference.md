@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    자바 가비지 컬렉션과 레퍼런스의 객체 참조
+title:    자바 레퍼런스와 가비지 컬렉션(Java Reference & Garbage Collection)
 author:   Kimtaeng
 tags: 	  Java Garbage GC Reference
-subtitle: 가비지 컬렉션에 이어서 레퍼런스의 객체 참조에 대해서 알아보자.
+subtitle: 가비지 컬렉션에 이어서 자바 레퍼런스의 객체 참조에 대해서 알아보자.
 category: Java
 comments: true
 ---
@@ -12,7 +12,7 @@ comments: true
 
 > ## 자바 레퍼런스의 객체 참조
 
-우리는 흔히 아래와 같이 객체를 생성합니다. 그리고 이와같은 전형적인 객체 참조를 <b>Strong Reference</b> 라고 말합니다.
+우리는 보통 아래 코드와 같이 객체를 생성합니다. 그리고 이러한 전형적인 객체 참조 방식을 <b>Strong Reference</b> 라고 말합니다.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">/**
  * Test for Java References
@@ -35,14 +35,14 @@ class MadPlay {
 }
 </code></pre>
 
-초기의 Java는 가비지 컬렉션의 수행에 관해서 사용자의 코드가 관여하지 않도록 구현되었습니다.
+초기의 Java는 사용자의 코드가 가비지 컬렉션의 수행에 관해서 관여하지 않도록 구현되었습니다.
 하지만 <b>JDK 1.2부터 java.lang.ref 패키지</b>를 통해 조금이나마 가비지 컬렉터와 소통할 수 있게 되었지요.
 
 이 패키지는 앞서 살펴본 일반적인 객체 참조 방식인 ```Strong Reference``` 외에도 ```Soft Reference```,
 ```Weak Reference```, ```Phantom Reference``` 이라는 참조 방식을 클래스로 제공합니다.
 
-개발자는 이를 통해서 가비지 컬렉션에 조금 더 관여할 수 있게 되었지요.
-그리고 위에서 언급한 Reference 클래스에 의해 생겨난 객체를
+이를 통해서 개발자는 가비지 컬렉션에 조금 더 관여할 수 있게 되었지요.
+그리고 위에서 언급한 레퍼런스(Reference) 클래스에 의해 생겨난 객체를
 <a href="http://www.pawlan.com/monica/articles/refobjs/" target="_blank">Reference Object(링크)</a> 라고 부릅니다.
 
 <br/><br/>
@@ -169,5 +169,3 @@ Phantom Reference 없이 Weak Reference만 통과하는 참조가 하나라도 �
 
 ```Phantom Reachable``` 은 Strongly, Softly, Weakly Reachable 객체에 모두 해당하지 않는 객체를 말합니다.
 그러니까 finalize 되었지만 아직 메모리가 회수하지 않은 상태를 말합니다.
-
-  
