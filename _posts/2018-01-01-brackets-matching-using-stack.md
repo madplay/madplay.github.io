@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    스택을 이용한 괄호 짝 검사
+title:    스택을 이용한 괄호 짝 검사(Java)
 author:   Kimtaeng
-tags: 	  Algorithm 자료구조 Stack
-subtitle: 수식의 괄호가 짝이 맞는 지 확인해보자.
+tags: 	  Algorithm DataStructure Stack
+subtitle: 주어진 수식의 괄호가 서로 짝이 맞는 지 확인해보자.
 category: Algorithm
 comments: true
 ---

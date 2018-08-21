@@ -15,7 +15,7 @@ comments: true
 파일 시스템은 하드 디스크에 데이터를 어떻게 기록할 지, 읽어 들일지, 삭제할 지에 대한 약속을 말합니다.<br/>
 NTFS, FAT32 등은 Windows 운영체제에서 사용하는 파일 시스템을 말하지요. 포맷을 진행할 때 본 적이 있을겁니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2017-12-21-ntfs-fat32-exfat-1.png" width="340" height="560" alt="포맷 화면"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-17-ntfs-fat32-exfat-1.png" width="340" height="560" alt="포맷 화면"/>
 
 <br/><br/>
 
