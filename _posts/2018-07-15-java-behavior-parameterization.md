@@ -177,8 +177,8 @@ static List&lt;Book&gt; filterBooks(List&lt;Book&gt; bookList, BookPredicate pre
 }
 </code></pre>
 
-실행은 아래와 같이 하면 된다. 인터페이스를 구현하는 클래스 관련 코드가 많아지는 것이 보기 싫으니
-우선 ```익명 클래스(Anonymous Class)```로 구현한다.
+실행은 아래와 같이 하면 됩니다. 인터페이스를 구현하는 클래스 관련 코드가 많아지는 것이 보기 싫으니
+우선 ```익명 클래스(Anonymous Class)```로 구현하지요.
 <pre class="line-numbers"><code class="language-java" data-start="1">/**
  * 나쁘지 않다. 변경에 대해 Predicate 부분만 구현해주면 된다. 
  */
