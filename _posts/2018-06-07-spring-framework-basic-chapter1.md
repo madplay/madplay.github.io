@@ -218,14 +218,14 @@ private Connection getConnection() throws Exception {
 - <b>템플릿 메서드 패턴</b>
   - 슈퍼 클래스에서 정의한 기본 로직을 서브 클래스에서 필요에 맞게 구현해서 쓰는 방법
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018-07-16-spring-framework-basic-chapter1-1.png" width="700" height="400" alt="template method pattern"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-06-07-spring-framework-basic-chapter1-1.png" width="700" height="400" alt="template method pattern"/>
 
 <br/>
 
 - <b>팩토리 메서드 패턴</b>
   - 오브젝트 생성 방법을 기본 코드에서 독립시키는 방법
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018-07-16-spring-framework-basic-chapter1-2.png" width="700" height="400" alt="factory method pattern"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-06-07-spring-framework-basic-chapter1-2.png" width="700" height="400" alt="factory method pattern"/>
 
 <br/>
 
@@ -463,7 +463,7 @@ public interface ConnectionMaker {
 초기의 DAO와 비교하면 생각보다 많은 개선을 적용했는데요. 그러면서 접목된 많은 객체지향의 기술이 있었습니다.
 잊어버리기 전에 다시 정리해봅시다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018-07-16-spring-framework-basic-chapter1-3.png" width="700" height="400" alt="open closed principle"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-06-07-spring-framework-basic-chapter1-3.png" width="700" height="400" alt="open closed principle"/>
 
 클래스나 모듈의 확장에는 열려 있어야 하고 변경에는 닫혀 있어야 한다는 <b>개방 폐쇄 원칙(Open Closed Principle)</b>은
 응집도(Coherence)와 결합도(Coupling)의 측면으로도 설명할 수 있는데요. 높은 응집도와 낮은 결합도는 개방 폐쇄 원칙을 잘 지킨 것이라고 볼 수 있습니다.
@@ -471,21 +471,21 @@ public interface ConnectionMaker {
 - <b>응집도(Coherence)</b>
   - 모듈 내의 코드가 하나의 기능을 제공하기 위해 집중하는 정도를 말합니다. 응집도가 높을수록 좋습니다. 
   
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018-07-16-spring-framework-basic-chapter1-4.png" width="700" height="400" alt="coherence"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-06-07-spring-framework-basic-chapter1-4.png" width="700" height="400" alt="coherence"/>
 
 <br/>
 
 - <b>결합도(Coupling)</b>
   - 두 개의 모듈 사이의 연관관계, 모듈간 상호 의존하는 정도를 말합니다. 결합도가 낮을수록 좋습니다.
   
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018-07-16-spring-framework-basic-chapter1-5.png" width="700" height="400" alt="coupling"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-06-07-spring-framework-basic-chapter1-5.png" width="700" height="400" alt="coupling"/>
 
 <br/>
 
 한편으로 현재까지의 개선된 구조를 디자인 패턴 관점으로 보다면 <b>전략 패턴(Strategy Pattern)</b>이 적용되었다고 할 수 있습니다.
 ConnectionMaker를 구현한 클래스가 전략이 되어 필요에 따라 전략을 바꿔 사용할 수 있게 되었지요.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018-07-16-spring-framework-basic-chapter1-6.png" width="700" height="400" alt="coupling"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-06-07-spring-framework-basic-chapter1-6.png" width="700" height="400" alt="coupling"/>
 
 스프링 프레임워크에 대해서 공부하기 전에 객체지향에 대한 부분을 더 많이 공부한 것 같은데요.
 이러한 기초를 탄탄히 다져야 차후에 본격적인 내용이 등장했을 때 당황하지 않겠죠?
