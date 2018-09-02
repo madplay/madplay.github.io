@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    스프링 프레임워크 기초 Chapter II - Inversion of Control
+title:    스프링 프레임워크 기초 - Inversion of Control
 author:   Kimtaeng
 tags: 	  spring framework 
 subtitle: 스프링의 제어의 역전(IOC, Inversion of Control)에 대해서 알아보자
@@ -12,8 +12,8 @@ comments: true
 
 > ## Inversion of Control : Object Factory
 
-지난 <a href="https://madplay.github.io/post/spring-framework-basic-chapter1" rel="nofollow" target="_blank">
-스프링 프레임워크 기초 ChapterI(링크) </a> 에서는 ```책임의 분리```를 통해서 클라이언트에서 인터페이스 ConnectionMaker의
+지난 <a href="https://madplay.github.io/post/spring-framework-basic-design-pattern" rel="nofollow" target="_blank">
+스프링 프레임워크 기초 - 디자인패턴(링크) </a> 에서는 ```책임의 분리```를 통해서 클라이언트에서 인터페이스 ConnectionMaker의
 구현 클래스를 결정하도록 변경했습니다.
 
 하지만 변경하기 이전의 클라이언트는 UserDAO의 기능을 단순히 테스트만 하는 책임을 가지고 있었지요.
@@ -315,7 +315,7 @@ contextDAO1과 contextDAO2는 같은 레퍼런스 값이 출력되는 것을 알
 
 그렇다면 의존관계라는 것은 무엇일까요? UML 모델링 관점에서 살펴봅시다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018-06-19-spring-framework-basic-chapter2-inversion-of-control-1.png" width="700" height="300" alt="dependency in uml"/> 
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-03-22-spring-framework-basic-inversion-of-control-1.png" width="700" height="300" alt="dependency in uml"/> 
 
 <br/>
 
