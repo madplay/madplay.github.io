@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    Intellij에서 SpringBoot 프로젝트 시작하기
+title:    Intellij에서 Spring Boot 프로젝트 설정하기
 author:   Kimtaeng
 tags: 	  springboot intellij 
 subtitle: Intellij IDE를 이용해서 스프링부트(SpringBoot) 프로젝트를 생성해보자 
@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## SpringBoot
+> ## 스프링 부트(Spring Boot)
 스프링 프레임워크를 조금 더 빠르게!
 
 ```스프링 프레임워크```는 J2EE로 알려진 자바 엔터프라이즈 환경을 경량화하기 위해 등장했는데요.
