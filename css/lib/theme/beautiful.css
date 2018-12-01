@@ -89,6 +89,9 @@ blockquote p:first-child {
 ul {
     padding-left: 25px;
 }
+ul ul {
+    padding-top: 5px;
+}
 li {
     line-height: 1.8;
     padding-bottom: 10px;
@@ -471,7 +474,7 @@ color: {{ site.hover-col }};
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #999;
     font-size: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .blog-tags a {
@@ -513,7 +516,7 @@ background-color: #EEE;
 /* --- Post and page headers --- */
 
 .intro-header {
-    margin: 80px 0 30px;
+    margin: 80px 0px 0px 0px;
     position: relative;
 }
 .intro-header.big-img {
