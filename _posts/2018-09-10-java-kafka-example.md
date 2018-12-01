@@ -33,8 +33,9 @@ $ kafka-topics --create --zookeeper localhost:2181 \
       --replication-factor 1 --partitions 1 --topic taeng
 </code></pre>
 
-일단 카프카를 코드로 구현할 준비는 모두 끝났습니다.
-본격적인 구현에 앞서! 이번 포스팅에서는 kafka나 zookeeper에 대한 이론적인 부분은 자세히 다루지 않습니다.
+일단 카프카를 코드로 구현할 준비는 모두 끝났습니다. 다만 간단한 예제를 살펴보기 위한 최소한의 준비입니다.
+실제 실무에서는 지금과 같이 단일 시스템으로 사용하지는 않습니다.
+그리고 본격적인 구현에 앞서! 이번 포스팅에서는 kafka나 zookeeper에 대한 이론적인 부분은 자세히 다루지 않습니다.
 
 <br/><br/>
 
