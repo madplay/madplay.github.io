@@ -566,7 +566,7 @@ background-color: #EEE;
     display: block;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 600;
-    margin: 10px 0 0;
+    margin: 10px 0 10px;
 }
 .intro-header .post-heading .post-subheading {
     margin-bottom: 20px;
