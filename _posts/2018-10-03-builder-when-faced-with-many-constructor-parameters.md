@@ -3,7 +3,7 @@ layout:   post
 title:    생성자에 매개변수가 많다면 빌더를 고려하라
 author:   Kimtaeng
 tags: 	  java
-subtitle: Consider a builder when faced with many constructor parameters 
+subtitle: "Effective Java 2: Consider a builder when faced with many constructor parameters" 
 category: Java
 comments: true
 ---

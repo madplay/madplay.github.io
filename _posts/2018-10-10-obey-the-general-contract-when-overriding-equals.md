@@ -3,7 +3,7 @@ layout:   post
 title:    equals는 일반 규약을 지켜 재정의하라
 author:   Kimtaeng
 tags: 	  java
-subtitle: Obey the general contract when overriding equals 
+subtitle: "Effective Java 10: Obey the general contract when overriding equals" 
 category: Java
 comments: true
 ---
