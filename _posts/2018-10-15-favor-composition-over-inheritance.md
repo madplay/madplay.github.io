@@ -3,7 +3,7 @@ layout:   post
 title:    상속보다는 컴포지션을 사용하라
 author:   Kimtaeng
 tags: 	  java
-subtitle: Favor composition over inheritance 
+subtitle: "Effective Java 18: Favor composition over inheritance" 
 category: Java
 comments: true
 ---
