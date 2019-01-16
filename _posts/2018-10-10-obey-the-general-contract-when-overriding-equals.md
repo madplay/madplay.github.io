@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    equals는 일반 규약을 지켜 재정의하라
+title:    "이펙티브 자바 10: equals는 일반 규약을 지켜 재정의하라"
 author:   Kimtaeng
 tags: 	  java
 subtitle: "Effective Java 10: Obey the general contract when overriding equals" 
