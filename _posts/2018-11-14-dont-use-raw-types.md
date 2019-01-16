@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    로 타입은 사용하지 말라
+title:    "이펙티브 자바 26: 로 타입은 사용하지 말라"
 author:   Kimtaeng
 tags: 	  java
 subtitle: "Effective Java 26: don't use raw types" 

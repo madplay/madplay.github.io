@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    상속보다는 컴포지션을 사용하라
+title:    "이펙티브 자바 18: 상속보다는 컴포지션을 사용하라"
 author:   Kimtaeng
 tags: 	  java
 subtitle: "Effective Java 18: Favor composition over inheritance" 
