@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="other_posts">
+        <div class="other_posts_header">
+            <h4>{{ page.categories }} 카테고리의 다른 글</h4>
+            <a href="/{{ page.categories[0] | downcase }}" class="link_button">더보기</a>
+        </div>
+        <table>
+            <tbody>
+            {% assign post_count = 0 %}
+            {% for post in site.posts %}
+            {% if post.categories == page.categories and post.url != page.url %}
+            {% assign post_count = post_count | plus: 1 %}
+            {% if post_count < 6 %}
+            <tr>
+                <th class="other_posts_title">
+                    <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                </th>
+                <!--<td class="other_posts_date">{{ post.date | date: '%Y. %m. %d' }}</td>-->
+            </tr>
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>

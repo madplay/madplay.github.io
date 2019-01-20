@@ -4,7 +4,7 @@ title:    서버 사이드 렌더링과 클라이언트 사이드 렌더링
 author:   Kimtaeng
 tags: 	  serverside clientside rendering SPA
 subtitle: 서버 사이드 렌더링(Server Side Rendering)과 클라이언트 사이드 렌더링(Client Side Rendering)은 어떤 차이가 있을까? 
-category: Framework
+category: Knowledge
 comments: true
 ---
 
