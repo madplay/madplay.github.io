@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    Windows 10 환경에서 Jekyll 간단 설치하기
+title:    Windows 10 Jekyll 설치 및 github blog 만들기
 author:   Kimtaeng
-tags: 	  jekyll windows 
-subtitle: 윈도우 10(Windows 10) 환경에서 지킬(Jekyll)을 설치해보자. 
+tags: 	  jekyll windows github
+subtitle: 윈도우 10(Windows 10) 환경에서 지킬(Jekyll)을 설치하고 github blog 를 생성해봅시다 
 category: Knowledge
 comments: true
 ---
@@ -71,6 +71,12 @@ bash 쉘을 정상적으로 실행했으면 이제 몇가지 명령어만 입력
 - ```sudo gem install jekyll bundler```
 
 이후 ```jekyll {폴더명}``` 명령어로 신규 디렉터리 생성 후 시작하시면 됩니다.
+혹시나 Windows 바탕화면에 이미 프로젝트가 있다면 아래와 같이 경로를 입력하면 됩니다.
+```
+# /mnt/c/Users/MadPlay/Desktop/blog/madplay.github.io
+$ cd /mnt/c/Users/${사용자 유저명}/Desktop/
+```
+
 저는 기존에 깃헙(github)에 레파지토리를 두고 관리하고 있어서 clone 받은 후 디렉터리로 이동해서 아래와 같이 실행했습니다. 
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-09-04-install-jekyll-on-windows-6.jpg" width="560" height="400" alt="jekyll serve"/>
@@ -84,4 +90,4 @@ bash 쉘을 정상적으로 실행했으면 이제 몇가지 명령어만 입력
 이것저것 찾아보니 중간과정에서 ```sudo apt-get install build-essential``` 명령어 누락이 있었네요.
 위에 정리한 내용은 삽질한 시간을 생략한 최단 방법입니다.
 
-이제 Windows만 사용하는 집에서도 Jekyll을 사용할 수 있게 됐네요.
+이제 Windows만 사용하는 집에서도 Jekyll을 실행해서 github 블로그를 관리할 수 있게 됐네요.
