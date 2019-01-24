@@ -133,6 +133,6 @@ C++의 경우는 객체를 생성할 때 생성자를 호출하고 객체를 메
 그렇다고 소멸자의 개념이 없는 것도 아닙니다. ```java.lang.Object``` 클래스를 살펴보면 finalize() 메서드가 존재합니다.
 가비지 컬렉터는 내부적으로 이 메서드를 호출하여 객체를 메모리에서 해제시킵니다.
 
-<a href="https://madplay.github.io/post/2017/12/03/001" target="_blank" rel="nofollow">자바 Finalize 메서드(링크)</a>
+<a href="https://madplay.github.io/post/java-finalize" target="_blank" rel="nofollow">자바 Finalize 메서드(링크)</a>
 
 메모리 관리를 자바 가상 기계가 알아서 해준다는 것. 편리함에 단점도 있는 법이겠지요? 
