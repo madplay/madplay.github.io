@@ -250,3 +250,5 @@ public class Main {
 
 람다도 익명 클래스와 동일하게 직렬화(Serialization) 형태가 구현별(가령 가상 머신 별로)로 다를 수 있으므로 주의해야 합니다.
 ```Comparator```처럼 직렬화해야만 하는 함수 객체가 있다면 ```private 정적 중첩 클래스```의 인스턴스를 사용하면 됩니다.
+
+<a href="https://madplay.github.io/post/java-serialization" target="_blank" rel="nofollow">참고 링크: 자바 직렬화(Serialization)</a>
