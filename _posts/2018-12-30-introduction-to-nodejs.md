@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    Node.js 이해하기
+title:    처음 접하는 Node.js
 author:   Kimtaeng
 tags: 	  nodejs 
-subtitle: Node.js란 무엇이며 어떤 특징이 있을까?
+subtitle: Node.js란 무엇이며 어떤 특징이 있을까? 기초부터 알아보며 입문해보자
 category: nodejs
 comments: true
 ---
@@ -17,9 +17,10 @@ comments: true
 서버에 쿼리를 전송해야 한다는 점에서 조금 더 쉬운 방법을 찾다가 고안했다고 합니다.
 
 Java 언어가 주를 이룬 서버 개발 환경을 탈피하여 자바스크립트(Javascript)로 서버 개발을 할 수 있기 때문에
-프론트 개발자들도 서버 영역에 조금 더 쉽게 접근할 수 있게 되었다지만 개인적 의견으로는... 무작정 쉽지는 않은 것 같습니다.
-물론 능숙도와 개발자에 따라서 얘기가 달라질 수 있겠지만 직접 노드로 서버 개발을 간단하게 경험해보았을 때
-Node.js의 특징을 잘 이해하지 못했을 때 난항을 겪은 기억이 많았던 것 같습니다.
+프론트 개발자들도 서버 영역에 조금 더 쉽게 접근할 수 있게 되었습니다.
+
+하지만 개인적 의견으로는 무작정 쉽지는 않은 것 같습니다. 물론 능숙도와 개발자에 따라서 얘기가 달라질 수 있겠지만
+직접 노드로 서버 개발을 간단하게 경험해보았을 때 Node.js의 특징을 잘 이해하지 못했을 때 난항을 겪은 기억이 많았던 것 같습니다.
 
 <br/><br/>
 
@@ -58,15 +59,15 @@ nodejs의 내부 구조(Architecture)를 살펴보면 아래 그림과 같습니
 관련된 사이트들을 찾다가보니 ```libev``` 가 보이는데 v0.9.0 버전에서 종속성이 제거되었다고 합니다. 
 <a href="https://stackoverflow.com/a/34566312/9212562" target="_blank">(관련링크: Stack overflow)</a>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018-12-30-nodejs-basic-1.png" width="600" height="480" alt="nodejs architecture"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-12-30-introduction-to-nodejs-1.png" width="600" height="480" alt="nodejs architecture"/>
 
 
 nodejs는 **V8 Engine** 위에서 동작합니다. 이 자바스크립트 엔진은 구글이 개발한 Chrome 브라우저에서 사용하기 위해 만들었는데요.
 자바스크립트를 빠른 속도로 해석하여 인식할 수 있는 코드로 변환합니다. 따라서 Node.js는 Chrome에 적용되는 최신 트렌드와
-성능 향상을 빠르게 적용할 수 있습니다. 구글이 문을 닫지 않는 한 V8 Engine은 꾸준히 개발되괴 업그레이드 되겠지요.
+성능 향상을 빠르게 적용할 수 있습니다. 구글이 문을 닫지 않는 한 V8 Engine은 꾸준히 개발되고 업그레이드 되겠지요.
 추가적으로 V8 Engine의 경우 오픈 소스<a href="https://github.com/v8/v8" target="_blank">(링크: V8 Engine Github)</a>로 공개되어 있습니다.
 
-그리고 **JSON 포맷에 강합니다.** 자바스크립트 언어가 자체적으로 JSON을 지원하기 때문에 JSON 형태의 포맷을 처리할 때 배우 편리합니다.
+그리고 **JSON 포맷에 안성맞춤** 입니다. 자바스크립트 언어가 자체적으로 JSON을 지원하기 때문에 JSON 형태의 포맷을 처리할 때 배우 편리합니다.
 특히나 데이터 저장소가 MongoDB라면 더 말할 것도 없을 것 같습니다. ORM(Object-Relational Mapping)이나 객체와 JSON 사이의 변환 없이도
 간편하게 처리할 수 있습니다.
 
@@ -78,12 +79,14 @@ nodejs는 **V8 Engine** 위에서 동작합니다. 이 자바스크립트 엔진
 
 > ## 마치며
 
-자바로만 서버 개발을 해본 입장에서 Node.js라는 플랫폼이 처음에는 많이 낯설었던 것 같습니다. 지금도 낯설어서 공부중입니다.
-그런데 생각보다 노드로 서버를 구성하는데 생각보다는 오래 걸리지 않았던 것 같습니다. 특히나 데이터의 포맷이 JSON과 같은 형태였을 때
-자바보다 더 짧고 간결한 로직을 작성할 수 있다는 점이 매력적이었습니다.
+자바로만 서버 개발을 해본 입장에서 Node.js을 짧고 간단하게 살펴보았습니다.  처음에는 접했을 때도 낯설고 지금도 자바만큼
+익숙하지 않아 계속 공부중입니다. 짧게 경험해보았지만 생각보다 노드로 서버를 구성하는데 오래 걸리지 않았던 것 같습니다.
+특히나 사용하는 데이터의 포맷이 JSON과 같은 형태였을 때 자바보다 더 짧고 간결한 로직을 작성할 수 있다는 점이 매력적이었습니다.
 
-이어지는 글에서 Nodejs를 직접 설치하고 언어를 배울 때의 가장 기본이라고 할 수 있는 Hello World를 출력해보겠습니다.  
-<a href="https://madplay.github.io/post/nodejs-install-osx" target="_blank" rel="nofollow">링크: Mac OSX에 Nodejs 설치하고 예제 따라해보기</a> 
+이어지는 글에서 Node.js를 직접 설치해보고 언어를 배울 때의 가장 기본이라고 할 수 있는 **Hello World**를 출력해보겠습니다.
+
+<a href="https://madplay.github.io/post/nodejs-install-osx" target="_blank" rel="nofollow">
+링크: Mac OSX에 Nodejs 설치하고 예제 따라해보기(클릭!)</a> 
 
 <div class="post_caption">이 포스트는 아래의 링크들을 참고하여 직접 작성하였습니다.</div>
 
