@@ -4,7 +4,7 @@ title:    스프링 프레임워크 기초 - 테스트
 author:   Kimtaeng
 tags: 	  spring framework 
 subtitle: 테스트는 스프링을 학습하기 위한 가장 효과적인 방법 중 하나다.
-category: Framework
+category: Spring
 comments: true
 ---
 
