@@ -4,7 +4,7 @@ title:    처음 접하는 Node.js
 author:   Kimtaeng
 tags: 	  nodejs 
 subtitle: Node.js란 무엇이며 어떤 특징이 있을까? 기초부터 알아보며 입문해보자
-category: nodejs
+category: Nodejs
 comments: true
 ---
 

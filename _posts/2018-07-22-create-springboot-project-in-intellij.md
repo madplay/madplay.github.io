@@ -4,7 +4,7 @@ title:    Intellij에서 Spring Boot 프로젝트 설정하기
 author:   Kimtaeng
 tags: 	  springboot intellij 
 subtitle: Intellij IDE를 이용해서 스프링부트(SpringBoot) 프로젝트를 생성해보자 
-category: Framework
+category: Spring
 comments: true
 ---
 
