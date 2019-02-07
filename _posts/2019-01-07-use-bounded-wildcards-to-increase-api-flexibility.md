@@ -20,7 +20,8 @@ comments: true
 ```List<String>```이 ```List<Object>```의 기능을 제대로 수행하지 못하므로 하위 타입이라고 말할 수 없습니다.
 
 혹시나 자바의 제네릭에 대해서 전혀 모르신다면 아래 링크를 참조하여 보고 오셔도 좋을 것 같습니다.
-<a href="https://madplay.github.io/post/java-generic target="_blank" rel="nofollow">링크: 자바 제네릭(Java Generic)</a>
+
+<a href="https://madplay.github.io/post/java-generic" target="_blank" rel="nofollow">링크: 자바 제네릭(Java Generic)</a>
 
 <br/><br/>
 
