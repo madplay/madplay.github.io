@@ -68,7 +68,7 @@ export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
 $ nvm ls-remote
 
 # 특정 버전 설치하기
-nvm instlal v10.15.0
+nvm install v10.15.0
 </code></pre>
 
 <br/><br/>
