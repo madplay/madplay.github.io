@@ -156,4 +156,6 @@ for (Iterator&lt;Suit> i = suits.iterator(); i.hasNext(); ) {
 불리고 있어서 결국 모든 숫자(Suit)를 탐색하게 되어 ```NoSuchElementException```이 발생하게 됩니다.
 
 위에서 살펴본 상황에 속하게 될 경우 일반적인 for 문을 사용해야 합니다. ```for-each``` 문은 컬렉션과 배열은 물론
-```Iterable``` 인터페이스를 구현한 객체라면 무엇이든 순회할 수 있습니다. 
+```Iterable``` 인터페이스를 구현한 객체라면 무엇이든 순회할 수 있습니다.
+
+<div class="post_caption">해당 내용은 Effective Java 3th Edition을 기반으로 작성되었습니다.</div> 
