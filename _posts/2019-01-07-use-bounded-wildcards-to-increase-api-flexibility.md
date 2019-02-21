@@ -330,7 +330,7 @@ public static &lt;E extends Comparable&lt;? super E>> E max(Collection&lt;? exte
 
 예를 들어서 ```Java 5``` 부터 지원한 ```ScheduledFuture``` 인터페이스의 구현 코드를 살펴보면 아래와 같습니다.
 ```Delayed```의 하위 인터페이스이며 ```Delayed```인터페이스는 ```Comparable<Delayed>```를 확장했습니다.
-반면에 ```ScheduledFuture``` 인터페이스는 ```Comparable<ScheduledFuture```를 확장(extends)하지 않았습니다.
+반면에 ```ScheduledFuture``` 인터페이스는 ```Comparable<ScheduledFuture>```를 확장(extends)하지 않았습니다.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">// ScheduledFuture interface
 public interface ScheduledFuture&lt;V> extends Delayed, Future&lt;V> {
@@ -396,4 +396,6 @@ class Item28Test {
 따라서 와일드 카드 타입의 실제 타입을 알기 위하여 제네릭 메서드(위 코드에서 wildcardSwapHelper)의 도움이 필요합니다. 
 이 메서드는 매개변수로 넘어오는 리스트가 ```List<E>```에서 꺼낸 값의 타입이 항상 E 임을 알고 있으며 이는 리스트에 넣어도
 타입 안전함을 알고 있습니다. 물론 와일드카드 메서드를 지원하기 위하여 추가적인 메서드가 작성되었지만 클라이언트의 입장에서는
-**타입 매개변수에 신경쓰지 않는 메서드**를 사용할 수 있게 됩니다.  
+**타입 매개변수에 신경쓰지 않는 메서드**를 사용할 수 있게 됩니다.
+
+<div class="post_caption">해당 내용은 Effective Java 3th Edition을 기반으로 작성되었습니다.</div>  
