@@ -276,6 +276,21 @@ TestObject 객체가 가비지 컬렉션의 대상이 될 때, 멤버의 해제�
 위와 같은 방법이 아니라면 하위 클래스의 finalize 메서드에서 상위 클래스의 finalize 메서드를 호출하면 됩니다.<br/>
 하지만 상위 클래스의 메서드 호출을 잊어버릴 가능성이 있지요.
 
-
 결론적으로는 finalize 메서드는 실행을 보장하지 않습니다. 사용에 따른 장점이 적습니다.<br/>
 만일 사용해야 한다면 상위 클래스의 종료자 호출을 잊으면 안됩니다.
+
+그리고 **Java 9 버전**에서 finalize 메서드는 **deprecated** 되었고
+새롭게 ```java.lang.ref``` 패키지에 Clenaer 클래스가 추가되었습니다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">@Deprecated(since="9")
+protected void finalize() throws Throwable { }
+</code></pre>
+
+<pre class="line-numbers"><code class="language-java" data-start="1">/*
+ * ... 생략
+ * @since 9
+ */
+public final class Cleaner { 
+    // 생략
+}
+</code></pre>
