@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    자바 직렬화(Java Serialization) 
+title:    자바에서 직렬화란 무엇일까? 
 author:   Kimtaeng
 tags: 	  java serialize deserialize
 subtitle: 자바의 직렬화(Serialization)와 역직렬화(Deserialization) 그리고 SerialVersionUID 대해서 알아봅시다.
@@ -25,7 +25,7 @@ comments: true
 > ## 직렬화 해보기
 
 자바 직렬화를 하는 방법은 간단합니다. 하지만 직렬화(Serialize)를 하기 위한 **조건** 이 있는데요.
-객체를 직렬화하기 위해 **직렬화가 가능한 클래스** 를 먼저 만드는 것입니다.
+객체를 직렬화하기 위해 **직렬화가 가능한 클래스** 를 먼저 만드는 것입니다. 바로 **Serializable 인터페이스를 구현**해서 말이지요.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">/**
  * 직렬화 가능한 클래스로 만들기 위해
@@ -89,7 +89,7 @@ public class Main {
 그리고 결과값인 바이트 배열 데이터의 결과를 정상적으로 확인하기 위해 ```base64 인코딩```하여 콘솔 출력을 하였고요. 
 
 main 메서드에 출력한 결과는 개발자가 알아보기 힘든 인코딩된 문자열입니다만(인코딩하지 않으면 더 힘들지만)
-이 값을 이용하여 다시 역직렬화(Deserialization)하면 처음 선언한 객체를 얻을 수 있습니다.
+이 값을 이용하여 다시 **역직렬화(Deserialization)**하면 처음 선언한 객체를 얻을 수 있습니다.
 
 <br/><br/>
 
