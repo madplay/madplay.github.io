@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    자바 제네릭(Java Generic) 
+title:    자바에서 제네릭(Generic)란 무엇일까? 
 author:   Kimtaeng
 tags: 	  java generic generic-class generic-interface generic-method
-subtitle: 자바의 제네릭(Generic)과 클래스, 인터페이스 그리고 메서드에 적용하는 방법에 대해서 알아봅시다.  
+subtitle: 자바에서의 제네릭과 제네릭 클래스, 제네릭 인터페이스 그리고 메서드에 제네릭을 적용하는 방법에 대해서 알아봅니다.  
 category: Java
 comments: true
 ---
@@ -17,7 +17,7 @@ comments: true
 쉽게 말하면 특정 클래스 내부에서 사용할 타입을 인스턴스를 생성할 시점에 확정 짓는 것이라고 말할 수 있겠네요. 
  
 여러 방면으로 많은 도움을 주지만 개인적으로는 자바를 공부할 때 어렵다는 느낌을 주는... 그 중에서도 손에 꼽는 내용인 것 같습니다.
-그래서 이번 글에서는 자바의 제네릭과 클래스, 메서드 등에서 사용하는 방법 그리고 장점에 대해서 정리합니다.
+그래서 이번 글에서는 자바의 제네릭과 제네릭 클래스, 제네릭 메서드 등에서 사용하는 방법 그리고 장점에 대해서 정리합니다.
 
 <br/><br/>
 
@@ -69,7 +69,6 @@ comments: true
 </code></pre>
 
 위 코드에서 String 타입으로 구체화된 객체 stringObject의 모습을 그림으로 보면 아래와 같습니다.
-
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-12-13-java-generic-1.png" width="600" height="400" alt="generic class with string"/>
 
