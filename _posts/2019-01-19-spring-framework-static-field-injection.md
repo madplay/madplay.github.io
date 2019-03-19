@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    스프링 프레임워크에서 static field에 injection 하려면 어떻게 해야 할까?
+title:    static 변수에 autowired 설정하려면 어떻게 해야 할까?
 author:   Kimtaeng
-tags: 	  spring framework 
-subtitle: 스프링 프레임워크에서 정적 필드에 Autowired 해보자.
+tags: 	  spring framework
+subtitle: 스프링 프레임워크에서 정적 필드(static field)에 빈을 주입(injection) 해보자.
 category: Spring
 comments: true
 ---
@@ -12,7 +12,8 @@ comments: true
 
 > ## 코드 예시
 
-아래와 같은 코드가 있다고 가정합시다.
+스프링 프레임워크에서 정적(static) 멤버에 ```@autowired``` 어노테이션으로
+빈을 주입하는 방법을 알아봅시다. 먼저 아래와 같은 코드가 있다고 가정합시다.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">// import 생략
 
