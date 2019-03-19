@@ -38,7 +38,7 @@ objectList.add("Kimtaeng");
 하지만 제네릭은 타입 정보가 런타임 시점에 소거(erasure)됩니다. 원소 타입을 컴파일 시점에만 검사하기 때문에
 런타임 시점에는 알 수 없습니다. 타입 정보가 소거된 ```로 타입(Raw type)```의 경우 제네릭이 지원되기 전의 레거시 코드와
 제네릭 타입을 함께 사용할 수 있도록 해줍니다. 
-<a href="https://madplay.github.io/post/dont-use-raw-types" target="_blank" rel="nofollow">
+<a href="/post/dont-use-raw-types" target="_blank">
 (참고 링크 - 이펙티브 자바 26: 로 타입은 사용하지 말라)
 </a> 
 

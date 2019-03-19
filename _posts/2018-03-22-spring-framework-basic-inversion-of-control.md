@@ -12,8 +12,8 @@ comments: true
 
 > ## Inversion of Control : Object Factory
 
-지난 <a href="https://madplay.github.io/post/spring-framework-basic-design-pattern" rel="nofollow" target="_blank">
-스프링 프레임워크 기초 - 디자인패턴(링크) </a> 에서는 ```책임의 분리```를 통해서 클라이언트에서 인터페이스 ConnectionMaker의
+지난 <a href="/post/spring-framework-basic-design-pattern" target="_blank">
+스프링 프레임워크 기초 - 디자인패턴(링크)</a> 에서는 ```책임의 분리```를 통해서 클라이언트에서 인터페이스 ConnectionMaker의
 구현 클래스를 결정하도록 변경했습니다.
 
 하지만 변경하기 이전의 클라이언트는 UserDAO의 기능을 단순히 테스트만 하는 책임을 가지고 있었지요.
@@ -284,7 +284,7 @@ contextDAO1과 contextDAO2는 같은 레퍼런스 값이 출력되는 것을 알
 그러니까 스프링은 여러 번에 걸쳐 빈을 요청하더라도 매번 동일한 오브젝트를 돌려줍니다! (싱글톤 오브젝트)
 
 한편 싱글톤 패턴에는 몇가지 문제점이 있습니다.
-<a href="https://madplay.github.io/post/singleton-pattern" rel="nofollow" target="_blank">
+<a href="/post/singleton-pattern" target="_blank">
 (싱글톤 패턴에 대한 자세한 내용은 이 페이지를 참고하세요(링크))</a>
 
 - **private 생성자를 가지고 있어 상속을 할 수 없다.** 

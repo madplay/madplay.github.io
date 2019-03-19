@@ -13,8 +13,8 @@ comments: true
 > ## 목차
 
 - 자바 스트림 - 1. 소개와 스트림 생성
-- <a href="/post/java-streams-intermediate-operations" target="_blank" rel="nofollow">자바 스트림 - 2. 중간 연산 (링크)</a>
-- <a href="/post/java-streams-terminal-operations" target="_blank" rel="nofollow">자바 스트림 - 3. 결과 구하기 (링크)</a>
+- <a href="/post/java-streams-intermediate-operations" target="_blank">자바 스트림 - 2. 중간 연산 (링크)</a>
+- <a href="/post/java-streams-terminal-operations" target="_blank">자바 스트림 - 3. 결과 구하기 (링크)</a>
 
 <br/><br/>
 
@@ -212,5 +212,5 @@ Stream&lt;Object> empty = Stream.empty();
 이어지는 포스팅에서는 만들어진 스트림을 알맞은 형태로 가공하거나 필요한 값들만 필터링할 수 있는
 중간 연산(Intermediate Operations)에 대해서 알아봅니다.
 
-- <a href="/post/java-streams-intermediate-operations" target="_blank" rel="nofollow">
+- <a href="/post/java-streams-intermediate-operations" target="_blank">
 자바 스트림 - 2. 중간 연산 (링크)</a>

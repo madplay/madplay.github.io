@@ -12,8 +12,8 @@ comments: true
 
 > ## 목차
 
-- <a href="/post/introduction-to-java-streams" target="_blank" rel="nofollow">자바 스트림 - 1. 소개와 스트림 생성 (링크)</a>
-- <a href="/post/java-streams-intermediate-operations" target="_blank" rel="nofollow">자바 스트림 - 2. 중간 연산 (링크)</a>
+- <a href="/post/introduction-to-java-streams" target="_blank">자바 스트림 - 1. 소개와 스트림 생성 (링크)</a>
+- <a href="/post/java-streams-intermediate-operations" target="_blank">자바 스트림 - 2. 중간 연산 (링크)</a>
 - 자바 스트림 - 3. 결과 구하기
 
 <br/><br/>

@@ -52,7 +52,7 @@ OS 프로세스도 접근할 수 있습니다. 하지만 대체할만한 자바 
 > ## 네이티브 메서드의 단점
 
 안전하지 않습니다. 네이티브 메서드를 사용하는 애플리케이션도 메모리 훼손 오류로부터 안전하지 않습니다.
-<a href="https://madplay.github.io/post/make-defensive-copies-when-needed" target="_blank" rel="nofollow">
+<a href="/post/make-defensive-copies-when-needed" target="_blank">
 (참고 링크: 이펙티브 자바 50: 적시에 방어적 복사본을 만들라)</a>
 
 자바보다 플랫폼 종속성이 높고 이식성도 낮으며 디버깅하기도 어렵습니다. 성능적인 측면으로는 오히려 속도가 더 느릴 수 있으며
