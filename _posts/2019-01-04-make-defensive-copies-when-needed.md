@@ -20,7 +20,7 @@ comments: true
 
 자바에서 제공하는 ```Date``` 클래스는 가변이기 때문에 쉽게 불변식을 깨뜨릴 수 있습니다.
 
-<a href="https://madplay.github.io/post/reasons-why-javas-date-and-calendar-was-bad" target="_blank" rel="nofollow">
+<a href="/post/reasons-why-javas-date-and-calendar-was-bad" target="_blank">
 참고링크: Java Date와 Time 클래스를 사용하면 안되는 이유
 </a>
 
@@ -63,8 +63,7 @@ class Item50Test {
 ```Date``` 클래스의 대부분 메서드는 ```Deprecated``` 되었으므로 사용하면 안됩니다.
 ```Java 8```부터 제공되는 ```LocalDateTime```과 같은 클래스를 사용하는 것을 권장합니다. 
 
-<a href="https://madplay.github.io/post/java8-date-and-time" target="_blank" rel="nofollow">
-참고링크: Java 8 날짜와 시간 계산</a>
+<a href="/post/java8-date-and-time" target="_blank">참고링크: Java 8 날짜와 시간 계산</a>
 
 외부의 공격으로부터 인스턴스의 내부를 보호하려면 생성자에서 받은 가변 매개변수를 **방어적으로 복사**해야 합니다.
 위에서 살펴본 코드의 생성자를 아래와 같이 변경해봅시다.

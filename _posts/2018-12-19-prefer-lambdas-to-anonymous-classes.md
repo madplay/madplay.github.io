@@ -101,7 +101,7 @@ public class Main {
 }
 </code></pre>
 
-그리고 <a href="https://madplay.github.io/post/use-enums-instead-of-int-constants" target="_blank" rel="nofollow">
+그리고 <a href="/post/use-enums-instead-of-int-constants" target="_blank">
 이펙티브 자바 34: INT 상수 대신 열거 타입을 사용하라(링크)
 </a> 에서 살펴본 ```enum```을 예로 들어 조금 더 간결하고 깔끔하게 만들 수 있습니다. 우선 기존 코드를 보면 아래와 같습니다.
 
@@ -251,6 +251,6 @@ public class Main {
 람다도 익명 클래스와 동일하게 직렬화(Serialization) 형태가 구현별(가령 가상 머신 별로)로 다를 수 있으므로 주의해야 합니다.
 ```Comparator```처럼 직렬화해야만 하는 함수 객체가 있다면 ```private 정적 중첩 클래스```의 인스턴스를 사용하면 됩니다.
 
-<a href="https://madplay.github.io/post/java-serialization" target="_blank" rel="nofollow">참고 링크: 자바 직렬화(Serialization)</a>
+<a href="/post/java-serialization" target="_blank">참고 링크: 자바 직렬화(Serialization)</a>
 
 <div class="post_caption">해당 내용은 Effective Java 3th Edition을 기반으로 작성되었습니다.</div>

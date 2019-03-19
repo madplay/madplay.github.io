@@ -84,8 +84,7 @@ nodejs는 **V8 Engine** 위에서 동작합니다. 이 자바스크립트 엔진
 
 이어지는 글에서 Node.js를 직접 설치해보고 언어를 배울 때의 가장 기본이라고 할 수 있는 **Hello World**를 출력해보겠습니다.
 
-<a href="https://madplay.github.io/post/nodejs-install-osx" target="_blank" rel="nofollow">
-링크: Mac OSX에 Nodejs 설치하고 예제 따라해보기(클릭!)</a> 
+<a href="/post/nodejs-install-osx" target="_blank">링크: Mac OSX에 Nodejs 설치하고 예제 따라해보기(클릭!)</a> 
 
 <div class="post_caption">이 포스트는 아래의 링크들을 참고하여 직접 작성하였습니다.</div>
 

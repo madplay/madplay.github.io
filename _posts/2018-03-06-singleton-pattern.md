@@ -187,7 +187,7 @@ public class MadPlay {
 위에서 제시한 방법들은 직렬화(Serialize)를 해야하는 경우에 직접 Serializable을 구현(implements) 해야하는 점이 있으나
 enum의 경우에는 해당 클래스는 자동으로 Serializable 하면서 반드시 한 번만 객체화되는 것을 보장합니다.
 
-<a href="https://madplay.github.io/post/java-serialization" target="_blank" rel="nofollow">참고 링크: 자바 직렬화(Serialization)</a>
+<a href="/post/java-serialization" target="_blank">참고 링크: 자바 직렬화(Serialization)</a>
 
 <pre class="line-numbers"><code class="language-java" data-start="1">/**
  * enum을 사용한 싱글톤

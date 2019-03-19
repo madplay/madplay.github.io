@@ -19,8 +19,7 @@ comments: true
 그런데 ```finalize``` 메서드는 **Java 9에서 Deprecated** 되었는데요. 새롭게 추가된 Cleaner의 경우에도
 사용을 권장하지 않습니다. 그 이유를 하나씩 살펴봅시다.
 
-<a href="https://madplay.github.io/post/java-finalize" target="_blank" rel="nofollow">
-참고: Finalize 메서드(링크)</a>
+<a href="/post/java-finalize" target="_blank">참고: Finalize 메서드(링크)</a>
 
 <br/><br/>
 
