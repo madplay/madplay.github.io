@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    자바에서 직렬화란 무엇일까? 
+title:    자바에서 직렬화(serialize)란 무엇일까? 
 author:   Kimtaeng
 tags: 	  java serialize deserialize
-subtitle: 자바의 직렬화(Serialization)와 역직렬화(Deserialization) 그리고 SerialVersionUID 대해서 알아봅시다.
+subtitle: 자바에서의 직렬화와 역직렬화 그리고 SerialVersionUID 대해서 알아봅니다.
 category: Java
 comments: true
 ---
