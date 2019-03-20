@@ -102,8 +102,8 @@ public final static int MARCH = 2;
 ```java.util.Date``` 클래스에 나노 초 단위 필드를 더한 클래스입니다. ```equals 메서드``` 재정의를 어긴 것인데,
 자세한 내용은 아래 링크를 참조하시기 바랍니다.
 
-<a href="https://madplay.github.io/post/obey-the-general-contract-when-overriding-equals" target="_blank" rel="nofollow">
-링크 > 이펙티브 자바 10: equals는 일반 규약을 지켜 재정의하라(클릭)</a>
+<a href="/post/obey-the-general-contract-when-overriding-equals" target="_blank">
+이펙티브 자바 10: equals는 일반 규약을 지켜 재정의하라(링크)</a>
 
 <br/><br/>
 
@@ -125,7 +125,7 @@ cal.set(Calendar.MONTH, 2 - 1);
 > ## 그럼 어떻게 해야할까?
 
 다행히도 JDK 8 부터는 보다 안전하고 간편한 날짜 관련 클래스가 제공됩니다.
-<a href="https://madplay.github.io/post/java8-date-and-time" target="_blank" rel="nofollow">
+<a href="/post/java8-date-and-time" target="_blank">
 " 이어지는 글 : Java 8 날짜와 시간 계산(링크) "</a> 에서 예제를 통해 사용법을 알아봅시다.
 
 

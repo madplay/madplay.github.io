@@ -52,8 +52,7 @@ public void someMethod(String fileName) {
 오류를 명시하면 자연스럽게 해당 오류가 발생하지 않도록 개발할 수 있습니다.
 
 아래 예제에서 보이는 숫자 리터럴의 언더스코어(_)에 관해서는 아래 링크를 참고하세요. 
-<a href="https://madplay.github.io/post/underscores-in-numeric-literals" target="_blank" rel="nofollow">
-(링크: 자바의 숫자 표현과 언더스코어)</a>
+<a href="/post/underscores-in-numeric-literals" target="_blank">(링크: 자바의 숫자 표현과 언더스코어)</a>
 
 <pre class="line-numbers"><code class="language-java" data-start="1">/**
  * blah blah...

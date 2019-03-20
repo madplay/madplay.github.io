@@ -50,7 +50,7 @@ comments: true
 물론 참조형이기 때문에 String str = new String("madplay"); 도 가능합니다.<br/>
 (하지만 이런 경우 메모리 적재 장소가 다릅니다. 객체 생성과 리터럴의 차이!)<br/>
 
-<a href="https://madplay.github.io/post/java-string-literal-vs-string-object" target="_blank" rel="nofollow">
+<a href="/post/java-string-literal-vs-string-object" target="_blank">
 참고 링크 : 자바의 String 리터럴과 String 객체의 차이는 무엇일까?
 </a>
 

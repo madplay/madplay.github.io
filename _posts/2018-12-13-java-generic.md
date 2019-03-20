@@ -155,7 +155,7 @@ public class GenericTest {
 > ## 제네릭 사용시 주의할 점은?
 
 제네릭은 클래스와 인터페이스만 적용되기 때문에 자바 **기본 타입(Primitive Type)은 사용할 수 없습니다.**
-<a href="https://madplay.github.io/post/java-data-type" target="_blank" rel="nofollow">(관련 링크 : 자바의 데이터 타입)</a> 
+<a href="/post/java-data-type" target="_blank">(관련 링크 : 자바의 데이터 타입)</a> 
 
 
 <pre class="line-numbers"><code class="language-java" data-start="1">public void someMethod() {

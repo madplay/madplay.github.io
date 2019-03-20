@@ -53,8 +53,8 @@ public class UserDAOTest {
 }
 </code></pre>
 
-<a href="https://madplay.github.io/post/spring-framework-basic-design-pattern#설정-방법에-xml-사용하기"
-rel="nofollow" target="_blank">**스프링 프레임워크 기초 - Inversion of Control의 마지막 부분(링크)**</a>에 적용한 XML로 설정하는 방법까지 진행하였습니다.
+<a href="/post/spring-framework-basic-design-pattern#설정-방법에-xml-사용하기" 
+target="_blank">**스프링 프레임워크 기초 - Inversion of Control의 마지막 부분(링크)**</a>에 적용한 XML로 설정하는 방법까지 진행하였습니다.
 
 위의 코드를 보면 아쉬운 부분이 있습니다. 간단한 main 메서드이지만 DAO가 많아진다면 그에 대한 main 메서드 또한 많아질 것입니다.
 또한, 현재의 코드로는 DB에 추가한 후에 다시 가져왔을 때 정상적으로 추가되었는지 확인해주지 않습니다.
