@@ -66,16 +66,16 @@ comments: true
 입력한 URL 정보를 각각의 변수에 할당된 객체가 반환됩니다. 
 
 <pre class="line-numbers"><code class="language-bash" data-start="1">>>> from urllib import parse
->>> url = parse.urlparse("https://madplay.github.io/post/java-kafka-example?test=hi")
+>>> url = parse.urlparse("https://예시도메인/post/java-kafka-example?test=hi")
 >>> print (url)
-ParseResult(scheme='https', netloc='madplay.github.io', path='/post/java-kafka-example', params='', query='test=hi', fragment='')
+ParseResult(scheme='https', netloc='예시도메인', path='/post/java-kafka-example', params='', query='test=hi', fragment='')
 </code></pre>
 
 **쿼리 스트링**을 가져오기 위해서는 ```urlparse```함수를 통해 반환된 객체의 ```query 변수```와
 ```parse_qs``` 함수를 이용하면 됩니다. 리턴 타입이 딕셔너리(dictionary)입니다.
 
 <pre class="line-numbers"><code class="language-bash" data-start="1">>>> from urllib import parse
->>> url = parse.urlparse("https://madplay.github.io/post/java-kafka-example?test=hi")
+>>> url = parse.urlparse("https://예시도메인/post/java-kafka-example?test=hi")
 >>> print (parse.parse_qs(url.query))
 {'test': ['hi']}
 >>> parse.parse_qs(url.query)['test'][0]
