@@ -149,5 +149,5 @@ fun myHandleMethod(exchange: ServerWebExchange, model: Model): String? {
 ---
 
 > ### 목차 가이드
-> - 다음글 "1.11. WebFlux Config" 로 이동
+> - <a href="/post/spring-webflux-references-webflux-config">다음글 "1.11. WebFlux Config" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>
