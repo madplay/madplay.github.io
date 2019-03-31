@@ -521,6 +521,84 @@ class WebConfig : WebFluxConfigurer {
 리졸버는 URL을 다시 작성하여 jar의 버전을 포함하고, 버전없이 들어온 요청 URL과도 매칭할 수 있다.
 (예를 들어, `/jquery/jquery.min.js`를 `/jquery/1.2.0/jquery.min.js.`로 매칭한다)
 
+<br>
+
+## 1.11.9. 경로 매칭(Path Matching)
+경로 매칭 관련 옵션을 커스터마이징할 수 있다. 개별 옵션에 대한 자세한 내용은 `PathMatchConfigurer` javadoc을 참조하라.
+다음 예제는 `PathMatchConfigurer`를 사용하는 방법이다:
+
+Java:
+```java
+@Configuration
+@EnableWebFlux
+public class WebConfig implements WebFluxConfigurer {
+
+    @Override
+    public void configurePathMatch(PathMatchConfigurer configurer) {
+        configurer
+            .setUseCaseSensitiveMatch(true)
+            .setUseTrailingSlashMatch(false)
+            .addPathPrefix("/api",
+                    HandlerTypePredicate.forAnnotation(RestController.class));
+    }
+}
+```
+
+Kotlin:
+```kotlin
+@Configuration
+@EnableWebFlux
+class WebConfig : WebFluxConfigurer {
+
+    @Override
+    fun configurePathMatch(configurer: PathMatchConfigurer) {
+        configurer
+            .setUseCaseSensitiveMatch(true)
+            .setUseTrailingSlashMatch(false)
+            .addPathPrefix("/api",
+                    HandlerTypePredicate.forAnnotation(RestController::class.java))
+    }
+}
+```
+
+> 스프링 웹플럭스는 `RequestPath`라는 인터페이스로 파싱된 path에 의존하는데, 따라서 세미콜론이 제거되고 디코딩된 path segment(path
+또는 matrix 변수) 값을 이용한다. 이는 스프링 MVC와 다르게 요청 경로를 디코딩 여부 또는 경로 매칭 목적으로 세미콜론의 제거 여부를 명시하지
+않아도 되는 것이다.
+
+또한 스프링 웹플럭스는 스프링 MVC와 다르게 접미사(suffix) 패턴 매칭을 지원하지 않는다. 또한 접미사 패턴에 의존하지 않는 다른 방법을
+**추천**한다.
+
+<br>
+
+## 1.11.10. 고급 설정 모드(Advanced Configuration Mode)
+`@EnableWebFlux`는 아래와 같은 역할을 하는 `DelegatingWebFluxConfiguration`를 임포트(import)한다.
+
+- 웹플럭스 애플리케이션을 위한 기본 스프링 설정을 제공한다.
+- 설정을 커스텀하기 위한 `WebFluxConfigurer` 구현체를 찾고 위임(delegate)한다.
+
+더 많은 설정을 직접 설정하려면 다음 예제와 같이 `@EnableWebFlux`를 제거하고 `WebFluxConfigurer`를 구현하는 대신에
+`DelegatingWebFluxConfiguration`을 직접 확장하면 된다.
+
+Java:
+```java
+@Configuration
+public class WebConfig extends DelegatingWebFluxConfiguration {
+
+    // ...
+}
+```
+
+Kotlin:
+```kotlin
+@Configuration
+class WebConfig : DelegatingWebFluxConfiguration {
+
+    // ...
+}
+```
+
+`WebConfig`에 있던 기존 메서드를 유지하고 사용할 수 있지만, 위 예제처럼 하는 경우 부모 클래스(base class)에서 정의한 빈(bean)을
+재정의하고 클래스 경로 내 여러 다른 클래스들로 `WebMvcConfigurer`를 구현할 수 있다.
 
 ---
 
