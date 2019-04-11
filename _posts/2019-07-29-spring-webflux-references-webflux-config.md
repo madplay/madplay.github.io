@@ -603,5 +603,5 @@ class WebConfig : DelegatingWebFluxConfiguration {
 ---
 
 > ### 목차 가이드
-> - 다음글 "1.12. HTTP/2" 로 이동
+> - <a href="/post/spring-webflux-references-http2">다음글 "1.12. HTTP/2" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>

@@ -35,7 +35,7 @@ rel="nofollow" target="_blank" >참고 링크: Web on Reactive Stack</a>
 - <a href="/post/spring-webflux-references-view-technologies">1.9. View Technologies</a>
 - <a href="/post/spring-webflux-references-http-caching">1.10. HTTP Caching</a>
 - <a href="/post/spring-webflux-references-webflux-config">1.11. WebFlux Config</a>
-- 1.12. HTTP/2
+- <a href="/post/spring-webflux-references-http2">1.12. HTTP/2</a>
 
 ### 2. WebClient
 - 2.1. Configuration
