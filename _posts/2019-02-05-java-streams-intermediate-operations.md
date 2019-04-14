@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    자바 스트림 - 2. 중간 연산 
+title:    자바 스트림 정리 - 2. 중간 연산 
 author:   Kimtaeng
 tags: 	  java
 subtitle: 자바에서 스트림(Stream) 내의 요소를 원하는 형태에 알맞게 가공하는 연산은 어떤 것들이 있을까? 
@@ -12,9 +12,10 @@ comments: true
 
 > ## 목차
 
-- <a href="/post/introduction-to-java-streams">자바 스트림 - 1. 소개와 스트림 생성 (링크)</a>
-- 자바 스트림 - 2. 중간 연산
-- <a href="/post/java-streams-terminal-operations">자바 스트림 - 3. 결과 구하기 (링크)</a>
+- <a href="/post/introduction-to-java-streams">자바 스트림 정리 - 1. 소개와 스트림 생성 (링크)</a>
+- 자바 스트림 정리 - 2. 중간 연산
+- <a href="/post/java-streams-terminal-operations">자바 스트림 정리 - 3. 결과 구하기 (링크)</a>
+- <a href="/post/java-streams-examples" target="_blank">자바 스트림 정리 - 4. 예제 (링크)</a>
 
 <br/><br/>
 
@@ -279,4 +280,4 @@ Stream&lt;Integer> boxedStream = intStream.boxed();
 이어지는 포스팅에서는 가공한 스트림을 통해 결과 값을 구할 수 있는 단말 연산(Terminal Operations)에 대해서 알아봅니다.
  
 - <a href="/post/java-streams-terminal-operations" target="_blank">
-자바 스트림 - 3. 결과 구하기 (링크)</a>
+자바 스트림 정리 - 3. 결과 구하기 (링크)</a>
