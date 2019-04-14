@@ -2,7 +2,7 @@
 layout:   post
 title:    자바 스트림 정리 - 1. 소개와 스트림 생성 
 author:   Kimtaeng
-tags: 	  java
+tags: 	  java stream
 subtitle: Java 8에서 도입된 스트림(Stream)은 무엇일까? 그리고 어떻게 생성할까?
 category: Java
 comments: true
@@ -16,6 +16,7 @@ comments: true
 - <a href="/post/java-streams-intermediate-operations" target="_blank">자바 스트림 정리 - 2. 중간 연산 (링크)</a>
 - <a href="/post/java-streams-terminal-operations" target="_blank">자바 스트림 정리 - 3. 결과 구하기 (링크)</a>
 - <a href="/post/java-streams-examples" target="_blank">자바 스트림 정리 - 4. 예제 (링크)</a>
+- <a href="/post/mistakes-when-using-java-streams" target="_blank">자바 스트림 정리 - 5. 주의할 점 (링크)</a>
 
 <br/><br/>
 

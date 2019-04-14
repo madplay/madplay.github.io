@@ -2,7 +2,7 @@
 layout:   post
 title:    자바 스트림 정리 - 3. 결과 구하기
 author:   Kimtaeng
-tags: 	  java
+tags: 	  java stream
 subtitle: 원하는 형태로 가공한 스트림에서 결과를 구하는 연산의 종류에는 무엇이 있을까?
 category: Java
 comments: true
@@ -16,6 +16,7 @@ comments: true
 - <a href="/post/java-streams-intermediate-operations" target="_blank">자바 스트림 정리 - 2. 중간 연산 (링크)</a>
 - 자바 스트림 정리 - 3. 결과 구하기
 - <a href="/post/java-streams-examples" target="_blank">자바 스트림 정리 - 4. 예제 (링크)</a>
+- <a href="/post/mistakes-when-using-java-streams" target="_blank">자바 스트림 정리 - 5. 주의할 점 (링크)</a>
 
 <br/><br/>
 
