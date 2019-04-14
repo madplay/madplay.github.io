@@ -2,7 +2,7 @@
 layout:   post
 title:    자바 스트림 정리 - 4. 스트림 예제
 author:   Kimtaeng
-tags: 	  java
+tags: 	  java stream
 subtitle: 자바 스트림 API를 사용하는 여러가지 예제들을 알아보자.
 category: Java
 comments: true
@@ -16,6 +16,7 @@ comments: true
 - <a href="/post/java-streams-intermediate-operations" target="_blank">자바 스트림 정리 - 2. 중간 연산 (링크)</a>
 - <a href="/post/java-streams-terminal-operations" target="_blank">자바 스트림 정리 - 3. 결과 구하기 (링크)</a>
 - 자바 스트림 정리 - 4. 예제
+- <a href="/post/mistakes-when-using-java-streams" target="_blank">자바 스트림 정리 - 5. 주의할 점 (링크)</a>
 
 <br/><br/>
 
@@ -217,3 +218,13 @@ List&lt;String> list = Arrays.stream(names)
 String[] flattedNames = Arrays.stream(names)
         .flatMap(Stream::of).toArray(String[]::new);
 </code></pre>
+
+<br/><br/>
+
+> ## 이어서
+
+스트림 API를 이용한 여러가지 예제에 대해서 알아보았습니다. 
+이어지는 포스팅에서는 스트림 API를 사용하면서 주의할 점에 대해서 알아봅니다. 
+ 
+- <a href="/post/mistakes-when-using-java-streams" target="_blank">
+자바 스트림 정리 - 5. 주의할 점 (링크)</a>
