@@ -2,7 +2,7 @@
 layout:   post
 title:    자바 스트림 정리 - 2. 중간 연산 
 author:   Kimtaeng
-tags: 	  java
+tags: 	  java stream
 subtitle: 자바에서 스트림(Stream) 내의 요소를 원하는 형태에 알맞게 가공하는 연산은 어떤 것들이 있을까? 
 category: Java
 comments: true
@@ -16,6 +16,7 @@ comments: true
 - 자바 스트림 정리 - 2. 중간 연산
 - <a href="/post/java-streams-terminal-operations">자바 스트림 정리 - 3. 결과 구하기 (링크)</a>
 - <a href="/post/java-streams-examples" target="_blank">자바 스트림 정리 - 4. 예제 (링크)</a>
+- <a href="/post/mistakes-when-using-java-streams" target="_blank">자바 스트림 정리 - 5. 주의할 점 (링크)</a>
 
 <br/><br/>
 
