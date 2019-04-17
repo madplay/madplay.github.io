@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    자바 직렬화(Java Serialization)
+title:    "자바 직렬화: 직렬화와 역직렬화"
 author:   Kimtaeng
 tags: 	  java serialization deserialization
 description: 자바에서 직렬화(serialization)와 역직렬화(deserialization)란 무엇일까?
@@ -168,7 +168,9 @@ public class Main {
 <br/>
 
 # 이어서
-이번 글에서는 자바 직렬화에 대한 소개와 직렬화, 역직렬화하는 방법에 대해서 알아보았습니다.
-이어지는 글에서 자바 직렬화를 사용할 때 등장하는 SerialVersionUID 과 같은 조금 더 상세한 내용에 대해서 살펴봅니다.
+이번 글에서는 자바 직렬화에 대해서 알아보았다. 직렬화는 모든 클래스에 적용되는 것은 아니며 **Serializable** 인터페이스를
+구현하는 클래스만 가능하다. 클래스의 멤버 변수로 선언된 클래스의 경우도 동일하다.
 
-- 다음 글: <a href="/post/java-serialization-advanced" target="_blank">자바 직렬화와 SerialVersionUID</a>
+이어지는 글에서는 자바 직렬화를 사용할 때 등장하는 **SerialVersionUID** 에 대해서 알아본다.
+
+- <a href="/post/java-serialization-advanced" target="_blank">다음 글: "자바 직렬화: SerialVersionUID는 무엇일까?"</a>
