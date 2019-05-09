@@ -41,6 +41,12 @@ LocalDateTime ofDateTime = LocalDateTime.of(2018, 12, 11, 15, 23, 32);
 
 > ## 특정 날짜/시간 가져오기
 
+- 오늘 자정(0시 0분 0초) 가져온 후 문자열 변환
+<pre class="line-numbers"><code class="language-java" data-start="1">// 오늘 날짜의 자정(midnight)
+DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS");
+String date = LocalDate.now().atStartOfDay().format(formatter); // 2018-12-12 00:00:00.000
+</code></pre>
+
 - 내일 날짜 가져오기
 
 <pre class="line-numbers"><code class="language-java" data-start="1">// 2018년 12월 11일 15시 23분 32초, 2018-12-11T15:23:32
@@ -50,7 +56,7 @@ LocalDateTime ofDateTime = LocalDateTime.of(2018, 12, 11, 15, 23, 32);
 LocalDateTime tomorrow = ofDateTime.plusDays(1);
 </code></pre>
 
-- 내일 자정
+- 내일 날짜의 마지막 시간 가져오기
 <pre class="line-numbers"><code class="language-java" data-start="1">// 2018년 12월 12일 23시 59분 59초
 // 정확히는~ 23:59:59.999999999
 LocalDateTime.now().plusDays(1).with(LocalTime.MAX);
