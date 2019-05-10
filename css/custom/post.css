@@ -83,3 +83,12 @@ a.post_heading_link:active {
     text-decoration: none;
     color: #FFFFFF;
 }
+
+table {
+    width: 100%;
+    border: 1px solid #808080;
+}
+
+th, td {
+    border: 1px solid;
+}
