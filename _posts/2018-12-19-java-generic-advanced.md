@@ -13,7 +13,7 @@ comments: true
 > ## 제네릭은 무엇일까?
 
 지난 포스팅에서는 자바에서 제네릭은 무엇인지, 클래스와 인터페이스 그리고 메서드에는 어떻게 제네릭을 적용하는 지에 대해서 알아보았습니다.
-- <a href="/post/java-generic" target="_blank">자바에서 제네릭(Generic)이란 무엇일까?(링크)</a>
+- <a href="/post/java-generic" target="_blank">링크: 자바 제네릭(Java Generic)</a>
 
 이번 포스팅에서는 자바에서 제네릭이 왜 좋은지, 사용할 때 주의할 점은 없는 지 살펴봅니다.
 
