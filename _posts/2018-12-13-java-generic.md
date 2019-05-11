@@ -158,5 +158,4 @@ public class GenericTest {
 그리고 제네릭 메서드를 만드는 방법에 대해서 알아보았습니다.
 
 이어지는 포스팅에서 제네릭을 사용하면 좋은 점과 사용할 때 주의할 점에 대해서 알아보겠습니다.
-- <a href="/post/java-generic-advanced" target="_blank">
-자바에서 제네릭의 장점과 사용할 때 주의할 점(링크)</a> 
+- <a href="/post/java-generic-advanced" target="_blank">링크: 자바에서 제네릭의 장점과 사용할 때 주의할 점</a> 
