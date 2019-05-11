@@ -165,6 +165,23 @@ private 생성자는 ```MadPlay.INSTANCE```를 초기화할 때 딱 한번만 �
 > ## 아이템 4. 인스턴스화를 막으려거든 private 생성자를 사용하라
 Enforce noninstantiability with a private constructor
 
+생성자를 명시하지 않으면 컴파일러가 자동으로 기본 생성자를 만들어낸다. 따라서 인스턴스화를 막으려면 ```private 생성자```를
+명시적으로 생성해주어야 한다. 혹시라도 클래스 내부에서 생성자를 호출하지 않도록 오류를 던지는 것도 좋다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public class MadUtil {
+    private MadUtil {
+        throw new AssertionError();
+    }
+    // ... 생략
+}
+</code></pre>
+
+**추상 클래스**로 만드는 것은 자기 자신의 인스턴스화를 막을 수는 있지만 하위 클래스를 만들어 인스턴스화를 할 수 있기 때문에
+완벽하게 **인스턴스화를 막을 수 없다.** 하지만 위와같이 생성자를 ```private```으로 제한하면 상속도 방지된다.
+모든 생성자는 명시적이든, 묵시적이든 상위 클래스의 생성자를 호출하는데 외부에 공개되어있지 않기 때문에 호출할 수가 없다.
+
+<div class="post_caption">인스턴스화를 막는 최고의 방법은 private 생성자를 만드는 것이다.</div>
+
 <br/><br/>
 
 > ## 아이템 5. 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라
