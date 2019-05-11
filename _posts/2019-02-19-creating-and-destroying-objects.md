@@ -108,16 +108,57 @@ person.setEmail("hello@gmail.com");
             .build();
 </code></pre>
 
-<div class="post_caption">생성자나 정적 팩터리 메서드에 매개변수가 많다면 빌더 패턴을 선택하는 게 더 낫다.</div>
+- <a href="https://madplay.github.io/post/builder-when-faced-with-many-constructor-parameters">
+더 상세한 내용은 링크 참고: 이펙티브 자바 2: 생성자에 매개변수가 많다면 빌더를 고려하라</a>
 
-매개변수 중 대부분이 필수가 아니거나 같은 타입이면 더욱 그렇다. 
-<a href="https://madplay.github.io/post/builder-when-faced-with-many-constructor-parameters">
-더 상세한 정리는 링크 참고</a>
+<div class="post_caption">생성자나 정적 팩터리에 매개변수가 많다면 빌더 패턴을 선택하는 게 더 낫다.
+매개변수 중 대부분이 필수가 아니거나 같은 타입이면 더욱 그렇다. </div>
 
 <br/><br/>
 
 > ## 아이템 3. private 생성자나 열거 타입으로 싱글턴임을 보증하라
 Enforce the singleton property with a private constructor or an enum type
+
+싱글톤(singleton)이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말하며 아래처럼 3가지 방법이 있다.
+
+- **public static final 필드**를 사용하는 방식이 있다. 생성자는 private 으로 감춰둔다.
+private 생성자는 ```MadPlay.INSTANCE```를 초기화할 때 딱 한번만 호출된다.
+<pre class="line-numbers"><code class="language-java" data-start="1">public class MadPlay {
+    public static final MadPlay INSTANCE = new MadPlay();
+    private MadPlay() { }
+}
+</code></pre>
+
+<br/>
+
+- **정적 팩터리 메서드**를 제공하는 방식이 있다. 싱글턴이라는 것이 명백하게 드러나고 차후 변경에도 매우 유연하다.
+또한 정적 팩터리를 제네릭 싱글턴 팩터리로 만들 수 있으며 ```MadPlay::getInstance```처럼 메서드 참조 방식으로 사용할 수 있다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public class MadPlay {
+    private static final MadPlay INSTANCE = new MadPlay();
+    private MadPlay() { }
+    public static MadPlay getInstance() { return INSTANCE; }
+}
+</code></pre>
+
+하지만 위 두가지 방식의 경우 리플렉션 API를 사용하는 경우 private 생성자 호출에 의해 싱글톤이 깨질 수 있다.
+또한 역직렬화할 때 여러 인스턴스가 생성될 수 있는데, 모든 필드를 ```transient``` 키워드로 선언하고 무조건 싱글톤 인스턴스인
+```INSTANCE```를 반환하도록 ```readResolve``` 메서드(역직렬화시에 호출된다)를 수정하는 대처가 필요하다.
+
+<br/>
+
+- **Enum**을 사용하는 방식이 있다. 
+
+```public static final``` 필드 방식과 비슷하지만 매우 간결하며, 위에서 살펴본 리플렉션, 직렬화로 인한 문제를 막아준다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public enum MadPlay {
+    INSTANCE;
+}
+</code></pre>
+
+- <a href="/post/singleton-pattern" target="_blank">링크: 싱글톤 패턴(Singleton Pattern)</a>
+
+<div class="post_caption">private 생성자나 열거 타입으로 싱글턴임을 보증하라</div>
 
 <br/><br/>
 
