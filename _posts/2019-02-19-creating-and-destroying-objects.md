@@ -86,7 +86,33 @@ Consider static factory methods instead of constructors
 > ## 아이템 2. 생성자에 매개변수가 많다면 빌더를 고려하라
 Consider a builder when faced with many constructor parameters
 
-생성자가 있다면~
+정적 팩터리와 생성자는 선택적 매개변수가 많을 때 적절하게 대응하기 어렵다.
+
+- 점층적인 생성자 패턴
+<pre class="line-numbers"><code class="language-java" data-start="1">Person person = new Person("탱", 29, "010-1234-1234", "hello@gmail.com");
+</code></pre>
+
+- 자바빈 패턴
+<pre class="line-numbers"><code class="language-java" data-start="1">Person person = new Person();
+person.setName("탱");
+person.setAge(29);
+person.setPhoneNumber("010-1234-1234");
+person.setEmail("hello@gmail.com");
+</code></pre>
+
+**빌더 패턴**을 사용하면 점층적인 생성자 패턴의 안정성과 자바빈 패턴의 가독성을 함께할 수 있다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">Person person = new Person().Builder("탱", 29)
+            .phoneNumber("010-1234-1234")
+            .email("hello@gmail.com")
+            .build();
+</code></pre>
+
+<div class="post_caption">생성자나 정적 팩터리 메서드에 매개변수가 많다면 빌더 패턴을 선택하는 게 더 낫다.</div>
+
+매개변수 중 대부분이 필수가 아니거나 같은 타입이면 더욱 그렇다. 
+<a href="https://madplay.github.io/post/builder-when-faced-with-many-constructor-parameters">
+더 상세한 정리는 링크 참고</a>
 
 <br/><br/>
 
