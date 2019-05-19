@@ -187,6 +187,44 @@ Enforce noninstantiability with a private constructor
 > ## 아이템 5. 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라
 Prefer dependency injection to hardwiring resources
 
+대부분의 클래스가 하나 이상의 자원에 의존한다. 이런 클래스를 정적 유틸리티 클래스로 구현하면 유연하지 않고 테스트하기도 어렵다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public class SpellChecker {
+    private static final Lexicon dictionary = new KoreanDictionary();
+    private SpellChecker() {} // 객체 생성을 방지한다.
+    
+    public static boolean isValid(String word) { /* 구현 생략 */ }
+    public static List&lt;String> suggestions(String type) { /* 구현 생략 */ }
+}
+</code></pre>
+
+유틸리티 클래스뿐만 아니라 싱글톤으로 구현하는 경우도 동일하다. 두 가지 모두 변경에 유연하게 대처하기 어렵다. 
+만약에 다른 언어의 사전을 사용해야 한다면 어떻게 할 것인가? 간단한 방법으로 **인스턴스를 생성할 때 생성자에 필요한 자원을 넘겨**주면 된다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public class SpellChecker {
+    private final Lexicon dictionary;
+    
+    public SpellChecker(Lexicon dictionary) {
+        this.dictionary = Objects.requireNonNull(dictionary);
+    }
+    // 그 외 메서드 생략
+}
+</code></pre>
+
+불변을 보장하여 같은 자원을 사용하려는 여러 클라이언트가 의존 객체들을 안심하고 공유할 수 있다.
+또한 생성자뿐만 아니라 정적 팩터리, 빌더 모두에 똑같이 응용할 수 있다.
+
+더 나아가 생성자에 자원 팩터리를 넘겨줄 수도 있다. 팩터리는 호출할 때마다 특정 타입의 인스턴스를 반복해서 만들어주는 
+객체를 말한다. 자바 8에서 등장한 ```Supplier<T>``` 를 이용할 수 있다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public SpellChecker(Supplier&lt;? extends Lexicon> dicFactory) {
+    this.dictionary = dicFactory.get();
+}
+</code></pre>
+
+<div class="post_caption">클래스가 하나 이상의 동작에 영향을 주는 자원에 의존한다면,
+자원을 생성자(또는 정적 팩터리나 빌더)에 넘겨주자</div>
+
 <br/><br/>
 
 > ## 아이템 6. 불필요한 객체 생성을 피하라
