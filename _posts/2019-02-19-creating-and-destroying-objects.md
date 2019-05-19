@@ -108,7 +108,7 @@ person.setEmail("hello@gmail.com");
             .build();
 </code></pre>
 
-- <a href="https://madplay.github.io/post/builder-when-faced-with-many-constructor-parameters">
+- <a href="/post/builder-when-faced-with-many-constructor-parameters">
 더 상세한 내용은 링크 참고: 이펙티브 자바 2: 생성자에 매개변수가 많다면 빌더를 고려하라</a>
 
 <div class="post_caption">생성자나 정적 팩터리에 매개변수가 많다면 빌더 패턴을 선택하는 게 더 낫다.
@@ -229,6 +229,69 @@ Prefer dependency injection to hardwiring resources
 
 > ## 아이템 6. 불필요한 객체 생성을 피하라
 Avoid creating unnecessary objects
+
+생성자로 문자열을 만들어내는 경우 매번 새로운 String 인스턴스를 생성하게 된다.
+
+<a href="/post/java-string-literal-vs-string-object" target="_blank">링크: 자바의 String 객체와 String 리터럴</a>
+
+<pre class="line-numbers"><code class="language-java" data-start="1">// 예시1 - 문자열 생성
+String myId1 = "MadPlay";
+String myId2 = "MadPlay";
+System.out.println(myId1 == myId2); // true
+
+// 예시2 - 생성자로 문자열 생성 
+String myId3 = new String("MadPlay");
+String myId4 = new String("MadPlay");
+System.out.println(myId3 == myId4); // false
+</code></pre>
+
+정적 팩터리 메서드에서도 불필요한 객체 생성을 줄일 수 있다. 예를 들어 ```Boolean(String)``` 생성자 대신에
+```Boolean.valueOf(String)``` 팩터리 메서드를 사용하는 것이 좋다. (자바 9에서 생성자는 Deprecated 되었다.)
+
+생성 비용이 비싼 객체를 재사용하는 것도 중요하다. Pattern 인스턴스는 한 번 사용되고 바로 가비지가 된다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">// AS-IS: 내부에서 생성되는 Pattern 인스턴스는 사용 후 가비지가 된다.
+static boolean isTwoAndFourLengthKoreanWord(String s) {
+    // 한글 2~4글자 단어 정규식
+    return s.matches("[가-힣]{2,4}");
+}
+
+// TO-BE: Pattern 인스턴스를 만들어두고 메서드가 호출될 때마다 재사용한다.
+private static final Pattern KOREAN_WORD = Pattern.compile("[가-힣]{2,4}");
+static boolean isTwoAndFourLengthKoreanWord(String s) {
+    return KOREAN_WORD.matcher(s).matches();
+}
+</code></pre>
+
+실제 작업은 뒷단 객체에 위임하고 자신은 제 2의 인터페이스 역할을 해주는 객체인 어댑터의 경우도 마찬가지이다.
+뒷단 객체 외에는 관리할 상태가 없기때문에 뒷단 객체 하나당 하나의 어댑터만 있으면 된다.
+예를 들어 Map 인터페이스의 ```keySet``` 메서드는 호출할 때마다 새로운 Set 인스턴스를 반환하지 않는다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">Map&lt;String, String> phoneBook = new HashMap&lt;>();
+phoneBook.put("김탱", "010-1234-1234");
+phoneBook.put("MadPlay", "010-4321-4321");
+Set&lt;String> keySet1 = phoneBook.keySet();
+Set&lt;String> keySet2 = phoneBook.keySet();
+
+
+System.out.println(keySet1 == keySet2); // true
+System.out.println(keySet1.size() == keySet2.size()); // true
+keySet1.remove("MadPlay");
+System.out.println(phoneBook.size()); // 1
+</code></pre>
+
+한변 기본 타입과 박싱된 기본 타입을 섞어 쓸 때 자동으로 상호 변환해주는 **오토 박싱(auto boxing)**을 통해서도
+불필요한 객체가 만들어진다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">// long이 아닌 Long으로 선언되었다.
+// 불필요한 Long 인스턴스가 만들어질 것이다. (변수 i가 sum 변수에 더해질 때마다)
+Long sum = 0L;
+for (long i = 0; i <= Integer.MAX_VALUE; i++) {
+    sum += i;
+}
+</code></pre>
+
+<div class="post_caption">불필요한 객체 생성을 피하자.</div>
 
 <br/><br/>
 
