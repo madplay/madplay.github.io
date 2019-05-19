@@ -298,6 +298,65 @@ for (long i = 0; i <= Integer.MAX_VALUE; i++) {
 > ## 아이템 7. 다 쓴 객체 참조를 해체하라
 Eliminate obsolete object references
 
+자바는 C, C++ 처럼 직접 메모리를 관리하지 않는다. GC가 알아서 사용이 끝난 객체를 회수한다.
+그렇다고 메모리 관리에 신경 쓰지 않아도 되는 것은 아니다. 특히 자기 메모리를 직접 관리하는 클래스면 메모리 누수에 주의해야 한다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public class MyStack {
+    private Object[] elements;
+    private int size = 0;
+    
+    public Object pop() {
+        if(size ==0) {
+            throw new EmptyStackException();
+        }
+        return elements[--size]; // 이곳이 문제다.
+    }
+    // ...생략
+}
+</code></pre>
+
+```pop``` 메서드 내부에서 size를 감소시키고 있으나 스택에서 꺼내진 객체들을 가비지 컬렉터가 회수하지 않는다.
+size 값보다 작은 elements 배열의 원소들로 구성된 **활성 영역** 밖의 참조들도 해당된다. 이런 경우 명시적으로 **null 처리**하면
+참조를 해제할 수 있다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public Object pop() {
+    if(size ==0) {
+        throw new EmptyStackException();
+    }
+    Object result = elements[--size];
+    elements[size] = null; // 참조 해제
+    return result;
+}
+</code></pre>
+
+그렇다고 모든 객체를 다 쓰고나서 null 처리해야 하는 것은 아니다. 가장 좋은 방법은 그 참조를 담은 변수를 유효 범위(scope)
+밖으로 밀어내는 것이다. 변수의 범위를 최소가 되게 정의했다면 자연스럽게 이뤄진다.
+
+**캐시(Cache)**도 메모리 누수를 일으키는 주범이다. 객체 참조를 캐시에 넣고 해당 객체를 사용한 후에 잊는 경우 누수가 생긴다.
+```WeakHasHMap```, ```LinkedHashMap.removeEldestEntry``` 등을 권장한다. 아래는 WeakHashMap을 테스트하는 간단한 예이다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">// WeakHashMap가 내부적으로 Key 객체를
+WeakReference로 만드는 것을 표현하기 위해 명시적으로...
+WeakHashMa&lt;<WeakReference, String> phoneCacheMap = new WeakHashMap&lt;>();
+WeakReference&lt;String> weakNameKey1 = new WeakReference&lt;>("김탱");
+WeakReference&lt;String> weakNameKey2 = new WeakReference&lt;>("MadPlay");
+
+phoneCacheMap.put(weakNameKey1, "010-1234-1234");
+phoneCacheMap.put(weakNameKey2, "010-4321-4321");
+System.out.println(phoneCacheMap.size()); // 2
+
+weakNameKey1 = null;
+System.gc(); // 물론 호출이 보장되지 않는다.
+System.out.println(phoneCacheMap.size()); // gc가 동작한다면 사이즈가 줄어서 1
+</code></pre>
+
+```System.gc()``` 메서드는 가비지 컬렉션 실행을 요청하는 메서드이지만, 반드시 실행을 보장하는 것은 아니다.
+
+<a href="/post/java-garbage-collection-and-java-reference" target="_blank">
+링크: 자바 레퍼런스와 가비지 컬렉션(Java Reference & Garbage Collection)</a>
+
+<div class="post_caption">메모리 누수에 주의하고 예방법을 익혀두자.</div>
+
 <br/><br/>
 
 > ## 아이템 8. finalize와 cleaner 사용을 피하라
