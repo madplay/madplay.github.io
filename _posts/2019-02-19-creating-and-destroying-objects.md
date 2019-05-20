@@ -362,6 +362,25 @@ System.out.println(phoneCacheMap.size()); // gc가 동작한다면 사이즈가 
 > ## 아이템 8. finalize와 cleaner 사용을 피하라
 Avoid finalizers and cleaners
 
+자바에서는 2가지의 객체 소멸자를 제공한다. 첫 번째로 ```finalizer```인데, 예측할 수 없고 상황에 따라 위험할 수 있어
+일반적으로 불필요하다. 두 번째로 ```cleaner```가 있다. **Deprecated된 finalizer**의 대안으로 등장하여 덜 위험하지만,
+여전히 예측할 수 없고, 일반적으로 불필요하며 느리다.
+
+finalizer가 언제, 어떠한 스레드에서 실행되는지 알 수도 없고 finalizer의 동작 과정에서 발생한 예외는 무시되며
+처리할 작업이 남았더라도 그 순간 종료되버리는 부작용도 있다. 그나마 cleaner를 사용하는 라이브러리는 자신의 스레드를
+통제하기 때문에 이러한 문제가 발생되지는 않는다.
+
+**그럼 대체 언제 쓸까?** 혹시나 ```close``` 메서드를 호출하지 않는 것에 대비한 안전망 역할을 한다.
+실제로 ```FileOutputStream```, ```ThreadPoolExecutor``` 등에는 안전망으로 동작하는 finalizer가 있다.
+
+그리고 네이티브(native) 객체는 가비지 컬렉터가 회수하지 못한다. 자바 객체가 아니므로 가비지 컬렉터가 그 존재를 알지 못한다.
+이럴 때 cleaner나 finalizer가 나서서 처리하기에 적당하다. 물론 성능 저하를 감당할 수 있고 네이티브 객체가 심각한 자원을
+가지고 있지 않을 때에만 해당된다.
+
+<a href="/post/java-finalize" target="_blank">참고 링크: 자바 소멸자 finalize</a>
+
+<div class="post_caption">그냥 사용하지 않는 것이 나은 것 같다.</div>
+
 <br/><br/>
 
 > ## 아이템 9. try-finally보다는 try-with-resources를 사용하라
