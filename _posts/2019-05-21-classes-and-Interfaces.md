@@ -164,6 +164,78 @@ package-private 클래스 또는 private 중첩 클래스라면 public 으로 �
 # 아이템 17. 변경 가능성을 최소화하라
 > Minimize mutability
 
+불변 클래스란 인스턴스의 내부 값을 수정할 수 없는 클래스를 말한다. 객체가 소멸되기 전까지 절대로 달라지지 않는다.
+불변 클래스는 가변 클래스보다 설계하고 구현하고 사용하기 쉬우며 오류가 발생한 소지도 적고 훨씬 안전하다. 
+
+## 불변 클래스를 만드는 규칙
+- 객체의 상태를 변경하는 메서드(변경자)를 제공하지 않는다.
+- 클래스를 확장할 수 없도록 한다.
+  - 하위 클래스에서 객체의 상태를 변하게 하는 것을 막는다. 대표적으로 클래스를 final로 선언하면 된다.
+- 모든 필드를 final로 선언한다.
+  - 개발자의 의도를 명확하게 드러내는 방법이다.
+- 모든 필드를 private으로 선언한다.
+  - 필드가 참조하는 가변 객체를 직접 접근하는 일을 막는다.
+- 자신 외에는 내부의 가변 컴포넌트에 접근할 수 없도록 한다.
+
+클래스를 final로 선언하여 상속을 막을 수 있지만 모든 생성자를 private 또는 package-private으로 만들고
+public 정적 팩터리를 만드는 더 유연한 방법도 있다. 아래는 생성자 대신 정적 팩터리를 사용한 불변 클래스이다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public class Complex {
+    private final double re;
+    private final double im;
+
+    // 생성자는 private이다.
+    private Complex(double re, double im) {
+        this.re = re;
+        this.im = im;
+    }
+
+    // 정적 팩터리 메서드 
+    public static Complex valueOf(double re, double im) {
+        return new Complex(re, im);
+    }
+	// 그 외 생략
+}
+</code></pre>
+
+
+## 불변 클래스와 불변 객체의 특징
+
+불변 클래스의 객체는 근본적으로 **스레드 안전하기 때문에 안심하고 공유**할 수 있다. 따라서 불변 클래스라면 한번 만든
+인스턴스를 최대한 재활용하면 좋다. 불변 객체는 그 자체로 **실패 원자성**을 제공한다.
+
+> 실패 원자성(failure atomicity)이란?<br/>
+> 메서드에서 예외가 발생한 후에도 그 객체는 여전히 메서드 호출 전과 똑같은 유효한 상태여야 한다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public class BigInteger extends Number implements Comparable&lt;BigInteger> {
+    final int signum;
+    final int[] mag;
+    ...
+    public BigInteger negate() {
+        return new BigInteger(this.mag, -this.signum);
+    }
+    ...
+}
+</code></pre>
+
+한편 **불변 클래스의 단점**도 있다. 값이 다르다면 반드시 독립된 객체로 만들어야 한다.
+예를 들어 백만 비트짜리 BigInteger에서 비트 하나를 바꾸기 위해서 새로운 인스턴스를 만들어야 한다.
+그리고 객체를 완성하기 까지의 단계가 많고, 그 중간 단계에서 만들어지는 객체들이 모두 버려지는 성능 문제가 있을 수 있다.
+
+해결 방법으로는 흔히 쓰일 다단계 연산을 기본적으로 제공하는 것이다. **가변 동반 클래스(Companion class)** 라고 한다.
+불변 클래스인 String을 예로 들자면, StringBuilder와 StringBuffer가 있다.
+
+
+## 정리하면?
+
+- 클래스는 꼭 필요한 경우가 아니라면 불변이어야 한다.
+- 불변으로 만들 수 없는 클래스라도 변경할 수 있는 부분을 최소한으로 줄여야 한다.
+- 다른 합당한 이유가 없다면 클래스의 모든 필드는 private final 이어야 한다.
+- 생성자는 불변식 설정이 모두 완료된, 초기화가 완벽히 끝난 상태의 객체를 생성해야 한다.
+- 확실한 이유가 없다면 생성자와 정적 팩터리 외에는 그 어떤 초기화 메서드도 public으로 제공해서는 안 된다. 
+
+<div class="post_caption">클래스는 꼭 필요한 경우가 아니라면 불변으로 설계해야 한다.</div>
+
 <br/>
 
 # 아이템 18. 상속보다는 컴포지션을 사용하라
