@@ -112,6 +112,53 @@ public static final Integer[] values() {
 # 아이템 16. public 클래스에서는 public 필드가 아닌 접근자 메서드를 사용하라
 > In public classes, use accessor methods, not public fields
 
+아래와 같은 클래스는 캡슐화의 이점이 없다. 데이터 필드에 직접적으로 접근할 수 있기 때문이다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">class Point {
+    public double x;
+    public double y;
+}
+</code></pre>
+
+public 클래스의 멤버 필드가 public 으로 선언되었다면 클라이언트가 이를 사용할 소지가 있어 마음대로 변경하기 어려워진다.
+예를 들어, ```java.awt.package``` 패키지의 Point와 Dimension 클래스가 그렇다.
+ 
+클래스의 멤버 변수는 private으로 바꾸고 public 접근자(getter)를 추가해서 사용하자.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">class Point {
+    private double x;
+    private double y;
+    
+    public Point(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+    
+    public double getX() { return x; }
+    public double getY() { return y; }
+    
+    public void setX(double x) { this.x = x; }
+    public void setY(double y) { this.y = y; }
+}
+</code></pre>
+
+package-private 클래스 또는 private 중첩 클래스라면 public 으로 두어도 문제가 없다. 오히려 코드 작성 면에서 getter를
+사용하는 것보다 더 깔끔할 수 있다. 내부에서만 동작하기 때문이다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public class Example {
+    private static class InnerNested {
+        public String memberField;
+    }
+    
+    public void somePrint() {
+        InnerNested instance = new InnerNested();
+        System.out.println(instance.memberField);
+    }
+}
+</code></pre>
+
+<div class="post_caption">public 클래스는 절대 가변 필드를 public 접근 지정자로 두어서는 안된다.</div>  
+
 <br/>
 
 # 아이템 17. 변경 가능성을 최소화하라
