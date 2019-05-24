@@ -1,8 +1,8 @@
 ---
 layout:   post
-title:    자바 소멸자 finallize
+title:    자바 소멸자 finalize
 author:   Kimtaeng
-tags: 	  Java 소멸자 자바기초
+tags: 	  java finalize 소멸자
 subtitle: 자바에서 메모리 할당된 객체를 해제하려면?
 category: Java
 comments: true
@@ -118,7 +118,8 @@ public class Test {
 자바는 자동으로 상위 클래스의 종료자가 호출되지 않기 때문에 super.finalize(); 코드를 통해서
 명시적으로 상위 클래스의 종료자를 호출해야 합니다.
 
-위의 코드를 실행해보면 종료자를 멀리해야 하는 이유를 알 수 있는데요. < Effective Java > 서적에서는 finalize 메서드 사용에 대해서 다음과 같이 언급하고 있습니다.
+위의 코드를 실행해보면 종료자를 멀리해야 하는 이유를 알 수 있는데요. < Effective Java > 서적에서는 finalize 메서드 사용에
+대해서 다음과 같이 언급하고 있습니다.
 
 
 <div class="post_caption">"종료자는 사용하면 안 된다. 예측이 불가능하고 대체로 위험하고 일반적으로 필요하지 않다."</div>
@@ -276,8 +277,9 @@ TestObject 객체가 가비지 컬렉션의 대상이 될 때, 멤버의 해제�
 위와 같은 방법이 아니라면 하위 클래스의 finalize 메서드에서 상위 클래스의 finalize 메서드를 호출하면 됩니다.<br/>
 하지만 상위 클래스의 메서드 호출을 잊어버릴 가능성이 있지요.
 
-결론적으로는 finalize 메서드는 실행을 보장하지 않습니다. 사용에 따른 장점이 적습니다.<br/>
-만일 사용해야 한다면 상위 클래스의 종료자 호출을 잊으면 안됩니다.
+결론적으로는 **finalize 메서드는 실행을 보장하지 않습니다.** 사용에 따른 장점이 적습니다.<br/>
+만일 사용해야 한다면 상위 클래스의 종료자 호출을 잊으면 안됩니다. 하지만 **예측할 수 없고, 느리고, 일반적으로 불필요**한 경우가
+많기 때문에 사용하지 않는 것이 더 이롭습니다.
 
 그리고 **Java 9 버전**에서 finalize 메서드는 **deprecated** 되었고
 새롭게 ```java.lang.ref``` 패키지에 Clenaer 클래스가 추가되었습니다.
