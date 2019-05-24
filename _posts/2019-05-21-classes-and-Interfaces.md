@@ -20,7 +20,7 @@ comments: true
 - <a href="#아이템-19-상속을-고려해-설계하고-문서화하라-그러지-않았다면-상속을-금지하라">아이템 19. 상속을 고려해 설계하고 문서화하라. 그러지 않았다면 상속을 금지하라</a>
 - <a href="#아이템-20-추상-클래스보다는-인터페이스를-우선하라">아이템 20. 추상 클래스보다는 인터페이스를 우선하라</a>
 - <a href="#아이템-21-인터페이스는-구현하는-쪽을-생각해-설계하라">아이템 21. 인터페이스는 구현하는 쪽을 생각해 설계하라</a>
-- <a href="#아이템-22-인터페이스는-구현하는-쪽을-생각해-설계하라">아이템 22. 인터페이스는 구현하는 쪽을 생각해 설계하라</a>
+- <a href="#아이템-22-인터페이스는-타입을-정의하는-용도로만-사용하라">아이템 22. 인터페이스는 타입을 정의하는 용도로만 사용하라</a>
 - <a href="#아이템-23-태그-달린-클래스보다는-클래스-계층구조를-활용하라">아이템 23. 태그 달린 클래스보다는 클래스 계층구조를 활용하라</a>
 - <a href="#아이템-24-멤버-클래스는-되도록-static으로-만들라">아이템 24. 멤버 클래스는 되도록 static으로 만들라</a>
 - <a href="#아이템-25-톱레벨-클래스는-한-파일에-하나만-담으라">아이템 25. 톱레벨 클래스는 한 파일에 하나만 담으라</a>
@@ -392,8 +392,45 @@ Collection 구현체 중 아파치 라이브러리의 ```SynchronizedCollection`
 
 <br/>
 
-# 아이템 22. 인터페이스는 구현하는 쪽을 생각해 설계하라
+# 아이템 22. 인터페이스는 타입을 정의하는 용도로만 사용하라
 > Use interfaces only to define types
+
+인터페이스는 자신을 구현(implements)한 클래스의 인스턴스를 참조할 수 있는 타입 역할을 한다.
+그러니까, 인터페이스를 구현한다는 것은 인스턴스로 무엇을 할 수 있는지 클라이언트에게 말하는 것이다.
+인터페이스의 이처럼 명확한 용도를 가지고 있으며 이를 지켜야 한다.
+
+잘못 사용된 경우도 있다. 한 가지 예로 상수 인터페이스가 있다. 메서드 없이 상수를 뜻하는 static final 필드로만 구성된
+인터페이스를 말한다. 모습은 아래와 같다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public interface PhysicalConstants {
+    // 아보가드로 수 (1/몰)
+    static final double AVOGADROS_NUMBER = 6.022_140_857e23;
+    // 볼츠만 상수 (J/K)
+    static final double BOLTZMANN_CONSTANT = 1.380_648_52e-23;
+    // 전자 질량(kg)
+    static final double ELECTRON_MASS = 9.109_383_56e-31;
+}
+</code></pre>
+
+위와 같은 구현은 인터페이스를 잘못 사용한 예시다. 상수는 클래스의 내부에서 사용하는 것인데,
+인터페이스로 구현했기 때문에 내부 구현을 API로 노출한 셈이다.
+
+상수를 공개할 목적이라면 다른 방안을 고려해보자. **클래스나 인터페이스 자체에 추가**하는 방법도 있다. 예를 들어, Integer와
+Double 클래스의 ```MIN_VALUE```와 ```MAX_VALUE``` 상수가 있다. 또 다른 방법으로 **열거(enum) 타입**으로 표기할 수도 있고,
+아래와 같이 인스턴스화할 수 없는 **유틸리티 클래스**를 구현하여 제공하는 것도 좋다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public class PhysicalConstants {
+    private PhysicalConstants() {
+        // 인스턴스화 하지 못하도록 한다.
+        throw new AssertionError("Cannot instantiate !!!");
+    }
+    static final double AVOGADROS_NUMBER = 6.022_140_857e23;
+    static final double BOLTZMANN_NUMBER = 1.380_648_52e-23;
+    static final double ELECTRON_NUMBER = 9.109_383_56e-31;
+}
+</code></pre>
+
+<div class="post_caption">인터페이스는 타입을 정의하는 용도로만 사용하자</div>
 
 <br/>
 
