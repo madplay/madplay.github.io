@@ -385,3 +385,50 @@ finalizer가 언제, 어떠한 스레드에서 실행되는지 알 수도 없고
 
 > ## 아이템 9. try-finally보다는 try-with-resources를 사용하라
 Prefer try-with-resources to try-finally
+
+자바 라이브러리에는 ```close()``` 메서드를 통해 닫아야 하는 자원들이 있다. 자바 7이전에는 ```try-finally```를 이용했다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public void someMethod() throws IOException {
+    InputStream in = new FileInputStream("filePath");
+    try {
+        OutputStream out = new FileOutputStream("filePath");
+        try {
+            // do something
+        } finally {
+            out.close();
+        }
+    } finally {
+        in.close();
+    }
+}
+</code></pre>
+
+위 코드에서 예외는 try 블록과 finally 블록 모두에서 발생할 수 있다. 즉, close 메서드에서도 예외가 발생할 수 있는데
+그러한 경우 try 블록 내에서 발생한 예외가 무시될 수 있다.
+
+이러한 문제는 자바 7에서 등장한 ```try-with-resources```구문을 사용하면 해결할 수 있다.
+물론, ```AutoCloseable``` 인터페이스를 구현한 클래스에 대해서만 사용이 가능하며 여러 개의 자원도 한 번에 처리할 수 있다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public void someMethod() throws IOException {
+    try (InputStream in = new FileInputStream("filePath");
+         OutputStream out = new FileOutputStream("filePath")) {
+        // do something
+    }
+}
+</code></pre>
+
+더 나아가 자바 9 버전부터는 조금 더 향상된 ```try-with-resources``` 문장을 사용할 수 있다.
+자원의 초기화를 try 문장 밖에서 한 경우에 그 변수를 try 문장 안에서 사용할 수 없었으나, 이제 그럴 필요가 없다. 
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public void someMethod() throws IOException {
+    InputStream in = new FileInputStream("filePath");
+    OutputStream out = new FileOutputStream("filePath");
+    try (in; out) {
+        // do something
+    }
+}
+</code></pre>
+
+주의할 점은 사용할 변수가 ```final```이거나 초기화 이후 절대 바뀌지 않는 ```effectively final``` 변수여야 한다.
+
+<div class="post_caption">꼭 회수해야 하는 자원은 try-with-resources 문장을 사용하자.</div> 
