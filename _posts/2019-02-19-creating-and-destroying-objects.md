@@ -335,22 +335,39 @@ size 값보다 작은 elements 배열의 원소들로 구성된 **활성 영역*
 **캐시(Cache)**도 메모리 누수를 일으키는 주범이다. 객체 참조를 캐시에 넣고 해당 객체를 사용한 후에 잊는 경우 누수가 생긴다.
 ```WeakHasHMap```, ```LinkedHashMap.removeEldestEntry``` 등을 권장한다. 아래는 WeakHashMap을 테스트하는 간단한 예이다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">// WeakHashMap가 내부적으로 Key 객체를
-WeakReference로 만드는 것을 표현하기 위해 명시적으로...
-WeakHashMa&lt;<WeakReference, String> phoneCacheMap = new WeakHashMap&lt;>();
-WeakReference&lt;String> weakNameKey1 = new WeakReference&lt;>("김탱");
-WeakReference&lt;String> weakNameKey2 = new WeakReference&lt;>("MadPlay");
+<pre class="line-numbers"><code class="language-java" data-start="1">// WeakHashMap는 내부적으로 Key를 WeakReference로 만든다.
+// GC로그 출력은 아래와 같은 VM Options을 추가
+// -XX:+PrintGC -XX:+PrintGCDetails (자바 9는 -Xlog:gc)
+WeakHashMap&lt;Integer, String> testMap = new WeakHashMap&lt;>();
+Integer testWeakKey1 = 185;
+Integer testWeakKey2 = 189;
+testMap.put(testWeakKey1, "testValue1");
+testMap.put(testWeakKey2, "testValue2");
 
-phoneCacheMap.put(weakNameKey1, "010-1234-1234");
-phoneCacheMap.put(weakNameKey2, "010-4321-4321");
-System.out.println(phoneCacheMap.size()); // 2
-
-weakNameKey1 = null;
+System.out.println("before call gc() : " + testMap.size()); // 2
+testWeakKey1 = null;
 System.gc(); // 물론 호출이 보장되지 않는다.
-System.out.println(phoneCacheMap.size()); // gc가 동작한다면 사이즈가 줄어서 1
+System.out.println("after call gc() : " + testMap.size()); // 동작했다면 1
 </code></pre>
 
 ```System.gc()``` 메서드는 가비지 컬렉션 실행을 요청하는 메서드이지만, 반드시 실행을 보장하는 것은 아니다.
+실행이 된다면 아래의 수행 결과처럼 testMap의 사이즈가 달라진 것을 확인할 수 있다.
+
+```bash
+before call gc() : 2
+[GC (System.gc()) [PSYoungGen: 7864K->783K(76288K)] 7864K->791K(251392K), 0.0012243 secs] [Times: user=0.00 sys=0.00, real=0.00 secs] 
+[Full GC (System.gc()) [PSYoungGen: 783K->0K(76288K)] [ParOldGen: 8K->667K(175104K)] 791K->667K(251392K), [Metaspace: 3103K->3103K(1056768K)], 0.0058476 secs] [Times: user=0.01 sys=0.00, real=0.00 secs] 
+after call gc() : 1
+Heap
+ PSYoungGen      total 76288K, used 1748K [0x000000076ab00000, 0x0000000770000000, 0x00000007c0000000)
+  eden space 65536K, 2% used [0x000000076ab00000,0x000000076acb5040,0x000000076eb00000)
+  from space 10752K, 0% used [0x000000076eb00000,0x000000076eb00000,0x000000076f580000)
+  to   space 10752K, 0% used [0x000000076f580000,0x000000076f580000,0x0000000770000000)
+ ParOldGen       total 175104K, used 667K [0x00000006c0000000, 0x00000006cab00000, 0x000000076ab00000)
+  object space 175104K, 0% used [0x00000006c0000000,0x00000006c00a6de8,0x00000006cab00000)
+ Metaspace       used 3110K, capacity 4496K, committed 4864K, reserved 1056768K
+  class space    used 341K, capacity 388K, committed 512K, reserved 1048576K
+```
 
 <a href="/post/java-garbage-collection-and-java-reference" target="_blank">
 링크: 자바 레퍼런스와 가비지 컬렉션(Java Reference & Garbage Collection)</a>
