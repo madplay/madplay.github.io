@@ -32,7 +32,7 @@ comments: true
 
 잘 설계된 컴포넌트는 클래스 내부 데이터와 내부 구현 정보를 외부 컴포넌트로부터 얼마나 잘 숨겼는가에 결정된다.
 모든 내부 구현을 완벽하게 숨겨, 구현과 API를 깔끔하게 분리하는 것이다.
-이를 **정보 은닉(information hiding) 혹은 캡슐화(encapsulation)**라고 한다. 
+이를 **정보 은닉(information hiding) 혹은 캡슐화(encapsulation)** 라고 한다.
 
 ## 정보 은닉 혹은 캡슐화의 장점
 
@@ -44,11 +44,9 @@ comments: true
 즉, 요구 사항 변화에 따른 코드 수정 범위를 최소화할 수 있다.
 
 이를 통해 얻을 수 있는 장점으로는 우선, **개발 속도를 높일 수 있다.** 여러 컴포넌트를 병렬 개발할 수 있기 때문이다.
-어떤 컴포넌트가 문제를 일으키는지 찾기 쉽고 다른 컴포넌트에 영향없이 최적화할 수 있기 때문에 **성능 최적화에도 도움**을 준다.
-또한 각 컴포넌트를 더 빨리 파악할 수 있고 다른 컴포넌트로 교체하는 부담도 적기 때문에 **관리적인 비용도 줄일 수 있으며**
-**재사용성을 높일 수 있다.** 그리고 시스템이 미완성되었어도 개별 컴포넌트의 동작을 검증할 수 있기 때문에 **큰 시스템의 제작을
-조금 더 쉽게** 해준다. 
-  
+어떤 컴포넌트가 문제를 일으키는지 찾기 쉽고 다른 컴포넌트에 영향없이 최적화할 수 있기 때문에 **성능 최적화에도 도움을 준다.**
+또한 각 컴포넌트를 더 빨리 파악할 수 있고 다른 컴포넌트로 교체하는 부담도 적기 때문에 **관리적인 비용도 줄일 수 있으며 재사용성을 높일 수 있다.** 그리고 시스템이 미완성되었어도 개별 컴포넌트의 동작을 검증할 수 있기 때문에 **큰 시스템의 제작을 조금 더 쉽게** 해준다.
+
 
 ## 어떻게 잘 설계된 컴포넌트를 만들까?
 
@@ -61,11 +59,11 @@ package-private: 멤버가 소속된 패키지 안의 모든 클래스에서 접
 protected: package-private의 접근 범위를 포함하며, 이 멤버를 선언한 클래스의 하위 클래스에서도 접근할 수 있다.<br/>
 public: 모든 곳에서 접근할 수 있다.
 
-- 패키지 외부에서 사용할 이유가 없다면 package-private으로 선언하자. 
+- 패키지 외부에서 사용할 이유가 없다면 package-private으로 선언하자.
   - 그러면 API가 아닌 내부 구현이 되어 언제든 수정할 수 있다.
 - 경우에 따라 private static 중첩 클래스를 사용해보자.
   - 하나의 클래스에서만 사용하는 package-private 톱레벨 클래스나 인터페이스는 이를 사용하는 클래스 안에 private static으로
-중첩시켜 보자. 
+중첩시켜 보자.
   - 이렇게 하면 바깥 클래스 하나에서만 접근할 수 있다.
 - 클래스의 공개 API를 제외한 모든 멤버는 private으로 만들자.
   - 같은 패키지의 다른 클래스가 접근해야 하는 멤버에 한해 package-private으로 풀어준다.
@@ -77,7 +75,7 @@ public: 모든 곳에서 접근할 수 있다.
   - 하지만 public static final 배열 필드를 두거나 이를 반환하는 접근자 메서드는 두면 안된다.
   - 다른 객체를 참조하도록 바꿀 수는 없지만 참조된 객체 자체가 수정될 수는 있다.
   - 길이가 0이 아닌 배열은 모두 변경 가능하다.
-  
+
 <pre class="line-numbers"><code class="language-java" data-start="1">class Example {
     public static final Integer[] SOME_VALUES = {1, 2, 3};
 }
@@ -122,21 +120,21 @@ public static final Integer[] values() {
 
 public 클래스의 멤버 필드가 public 으로 선언되었다면 클라이언트가 이를 사용할 소지가 있어 마음대로 변경하기 어려워진다.
 예를 들어, ```java.awt.package``` 패키지의 Point와 Dimension 클래스가 그렇다.
- 
+
 클래스의 멤버 변수는 private으로 바꾸고 public 접근자(getter)를 추가해서 사용하자.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">class Point {
     private double x;
     private double y;
-    
+
     public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
-    
+
     public double getX() { return x; }
     public double getY() { return y; }
-    
+
     public void setX(double x) { this.x = x; }
     public void setY(double y) { this.y = y; }
 }
@@ -149,7 +147,7 @@ package-private 클래스 또는 private 중첩 클래스라면 public 으로 �
     private static class InnerNested {
         public String memberField;
     }
-    
+
     public void somePrint() {
         InnerNested instance = new InnerNested();
         System.out.println(instance.memberField);
@@ -165,7 +163,7 @@ package-private 클래스 또는 private 중첩 클래스라면 public 으로 �
 > Minimize mutability
 
 불변 클래스란 인스턴스의 내부 값을 수정할 수 없는 클래스를 말한다. 객체가 소멸되기 전까지 절대로 달라지지 않는다.
-불변 클래스는 가변 클래스보다 설계하고 구현하고 사용하기 쉬우며 오류가 발생한 소지도 적고 훨씬 안전하다. 
+불변 클래스는 가변 클래스보다 설계하고 구현하고 사용하기 쉬우며 오류가 발생한 소지도 적고 훨씬 안전하다.
 
 ## 불변 클래스를 만드는 규칙
 - 객체의 상태를 변경하는 메서드(변경자)를 제공하지 않는다.
@@ -190,7 +188,7 @@ public 정적 팩터리를 만드는 더 유연한 방법도 있다. 아래는 �
         this.im = im;
     }
 
-    // 정적 팩터리 메서드 
+    // 정적 팩터리 메서드
     public static Complex valueOf(double re, double im) {
         return new Complex(re, im);
     }
@@ -201,8 +199,7 @@ public 정적 팩터리를 만드는 더 유연한 방법도 있다. 아래는 �
 
 ## 불변 클래스와 불변 객체의 특징
 
-불변 클래스의 객체는 근본적으로 **스레드 안전하기 때문에 안심하고 공유**할 수 있다. 따라서 불변 클래스라면 한번 만든
-인스턴스를 최대한 재활용하면 좋다. 불변 객체는 그 자체로 **실패 원자성**을 제공한다.
+불변 클래스의 객체는 근본적으로 **스레드 안전하기 때문에 안심하고 공유할 수 있다.** 따라서 불변 클래스라면 한번 만든 인스턴스를 최대한 재활용하면 좋다. 불변 객체는 그 자체로 **실패 원자성을 제공한다.**
 
 > 실패 원자성(failure atomicity)이란?<br/>
 > 메서드에서 예외가 발생한 후에도 그 객체는 여전히 메서드 호출 전과 똑같은 유효한 상태여야 한다.
@@ -218,7 +215,7 @@ public 정적 팩터리를 만드는 더 유연한 방법도 있다. 아래는 �
 }
 </code></pre>
 
-한편 **불변 클래스의 단점**도 있다. 값이 다르다면 반드시 독립된 객체로 만들어야 한다.
+한편 **불변 클래스의 단점도 있다.** 값이 다르다면 반드시 독립된 객체로 만들어야 한다.
 예를 들어 백만 비트짜리 BigInteger에서 비트 하나를 바꾸기 위해서 새로운 인스턴스를 만들어야 한다.
 그리고 객체를 완성하기 까지의 단계가 많고, 그 중간 단계에서 만들어지는 객체들이 모두 버려지는 성능 문제가 있을 수 있다.
 
@@ -232,7 +229,7 @@ public 정적 팩터리를 만드는 더 유연한 방법도 있다. 아래는 �
 - 불변으로 만들 수 없는 클래스라도 변경할 수 있는 부분을 최소한으로 줄여야 한다.
 - 다른 합당한 이유가 없다면 클래스의 모든 필드는 private final 이어야 한다.
 - 생성자는 불변식 설정이 모두 완료된, 초기화가 완벽히 끝난 상태의 객체를 생성해야 한다.
-- 확실한 이유가 없다면 생성자와 정적 팩터리 외에는 그 어떤 초기화 메서드도 public으로 제공해서는 안 된다. 
+- 확실한 이유가 없다면 생성자와 정적 팩터리 외에는 그 어떤 초기화 메서드도 public으로 제공해서는 안 된다.
 
 <div class="post_caption">클래스는 꼭 필요한 경우가 아니라면 불변으로 설계해야 한다.</div>
 
@@ -246,7 +243,7 @@ public 정적 팩터리를 만드는 더 유연한 방법도 있다. 아래는 �
 여기서의 상속은 클래스가 다른 클래스를 확장하는 구현 상속을 말한다. 즉, 클래스가 인터페이스를 구현(implements)하거나
 인터페이스가 다른 인터페이스를 확장(extends)하는 인터페이스 상속과는 무관하다.
 
-- <a href="/post/favor-composition-over-inheritance">더 상세한 내용은 링크 참고: 
+- <a href="/post/favor-composition-over-inheritance">더 상세한 내용은 링크 참고:
 [이펙티브 자바 3판] 아이템 18. 상속보다는 컴포지션을 사용하라</a>
 
 <div class="post_caption">상속은 상위 클래스와 하위 클래스가 순수한 is-a 관계일 때만 사용하자.</div>
@@ -261,7 +258,7 @@ public 정적 팩터리를 만드는 더 유연한 방법도 있다. 아래는 �
 
 상속용 클래스는 재정의할 수 있는 메서드들을 내부적으로 어떻게 이용하는지(자기 사용) 문서로 남겨야 한다.
 재정의 가능한 메서드를 호출할 수 있는 모든 상황을 문서로 남겨야 한다. 여기서 **재정의 가능이란** public과
-protected 메서드 중에서 final이 아닌 모든 메서드를 말한다. 
+protected 메서드 중에서 final이 아닌 모든 메서드를 말한다.
 
 ## 상속을 고려한 설계를 할 때 주의할 점
 
@@ -278,7 +275,7 @@ protected 메서드 중에서 final이 아닌 모든 메서드를 말한다.
 ## 상속을 금지하는 방법
 
 클래스를 상속용으로 설계하는 것은 엄청난 노력이 필요하고 제약도 많은 것을 명심해야 한다. 상속용으로 설계되지 않은 클래스는
-상속을 금지하는 것이 좋다. **상속을 금지하는 방법**으로는 클래스를 final로 선언하거나, 모든 생성자를 private이나
+상속을 금지하는 것이 좋다. **상속을 금지하는 방법** 으로는 클래스를 final로 선언하거나, 모든 생성자를 private이나
 package-private으로 선언하고 public 정적 팩터리를 만들어주는 방법이 있다.
 
 <div class="post_caption">상속용 클래스 설계는 쉽지 않다. 클래스 내부에서 스스로를 어떻게 사용하는지 모두 문서로 남겨야 하며,
@@ -306,7 +303,7 @@ package-private으로 선언하고 public 정적 팩터리를 만들어주는 �
 
 그래도 둘의 차이는 분명하다. 추상 클래스가 정의한 타입을 구현한 클래스는 반드시 추상 클래스의 하위 클래스가 되어야 한다는
 점이다. 단일 상속만 지원하는 자바에서 추상 클래스를 상속한 채 새로운 타입을 정의하기는 어렵다. 반면에 인터페이스를 올바르게
-구현한(정의해야 하는 메서드를 모두 선언하는 등의 규약을 잘 지킨) 클래스는 어떤 클래스를 상속했든 같은 타입으로 취급된다. 
+구현한(정의해야 하는 메서드를 모두 선언하는 등의 규약을 잘 지킨) 클래스는 어떤 클래스를 상속했든 같은 타입으로 취급된다.
 
 인터페이스는 추상 클래스에 비해 자유롭다. 기존 클래스 위에 추상 클래스를 상속시키는 것은 어렵다. 두 클래스가 같은 추상 클래스를
 확장해야 한다면, 그 추상 클래스는 계층구조상 두 클래스의 공통 조상이어야 한다. 하지만 기존 클래스에 인터페이스를 구현시킬 때는
@@ -348,7 +345,7 @@ public interface SingerSongWriter extends Singer, Songwriter {
 
 인터페이스와 추상 골격 구현 클래스를 함께 제공하여 인터페이스와 추상 클래스의 장점을 모두 갖는 방법도 있다.
 인터페이스로는 타입을 정의하고 필요한 경우 디폴트 메서드도 정의한다. 그리고 골격 구현 클래스에는 나머지 메서드들까지 구현한다.
-주로 이런 구조는 템플릿 메서드 패턴(Template Method Pattern)에 많이 이용된다. 
+주로 이런 구조는 템플릿 메서드 패턴(Template Method Pattern)에 많이 이용된다.
 
 관례상으로 인터페이스 이름이 XXX라면, 골격 구현 클래스의 이름은 AbstractXXX로 짓는다. 예를 들어 AbstractSet, AbstractList,
 AbstractMap 등이 핵심 컬렉션 인터페이스의 골격 구현 클래스이다.
@@ -415,9 +412,9 @@ Collection 구현체 중 아파치 라이브러리의 ```SynchronizedCollection`
 위와 같은 구현은 인터페이스를 잘못 사용한 예시다. 상수는 클래스의 내부에서 사용하는 것인데,
 인터페이스로 구현했기 때문에 내부 구현을 API로 노출한 셈이다.
 
-상수를 공개할 목적이라면 다른 방안을 고려해보자. **클래스나 인터페이스 자체에 추가**하는 방법도 있다. 예를 들어, Integer와
-Double 클래스의 ```MIN_VALUE```와 ```MAX_VALUE``` 상수가 있다. 또 다른 방법으로 **열거(enum) 타입**으로 표기할 수도 있고,
-아래와 같이 인스턴스화할 수 없는 **유틸리티 클래스**를 구현하여 제공하는 것도 좋다.
+상수를 공개할 목적이라면 다른 방안을 고려해보자. **클래스나 인터페이스 자체에 추가하는 방법도 있다.** 예를 들어, Integer와
+Double 클래스의 ```MIN_VALUE```와 ```MAX_VALUE``` 상수가 있다. 또 다른 방법으로 **열거(enum) 타입으로** 표기할 수도 있고,
+아래와 같이 인스턴스화할 수 없는 **유틸리티 클래스** 를 구현하여 제공하는 것도 좋다.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">public class PhysicalConstants {
     private PhysicalConstants() {
@@ -436,6 +433,92 @@ Double 클래스의 ```MIN_VALUE```와 ```MAX_VALUE``` 상수가 있다. 또 다
 
 # 아이템 23. 태그 달린 클래스보다는 클래스 계층구조를 활용하라
 > Prefer class hierarchies to tagged classes
+
+태그 달린 클래스란 두 가지 이상의 기능을 갖고 있으며, 그 중에서 어떠한 기능을 갖고 있는지 나타내는 태그(tag) 필드가 있는
+클래스를 말한다. 아래와 같은 형태를 가지고 있다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">class Figure {
+    enum Shape { RECTANGLE, CIRCLE };
+
+    final Shape shape; // 태그 필드 - 현재 모양을 나타낸다.
+
+    // 다음 필드들은 모양이 사각형(RECTANGLE)일 때만 쓰인다.
+    double length;
+    double width;
+
+    // 다음 필드느 모양이 원(CIRCLE)일 때만 쓰인다.
+    double radius;
+
+    // 원용 생성자
+    Figure(double radius) {
+        shape = Shape.CIRCLE;
+        this.radius = radius;
+    }
+
+    // 사각형용 생성자
+    Figure(double length, double width) {
+        shape = Shape.RECTANGLE;
+        this.length = length;
+        this.width = width;
+    }
+
+    double area() {
+        switch(shape) {
+            case RECTANGLE:
+                return length * width;
+            case CIRCLE:
+                return Math.PI * (radius * radius);
+            default:
+                throw new AssertionError(shape);
+        }
+    }
+}
+</code></pre>
+
+이와 같은 태그 달린 클래스는 안 좋다. 이유는 많다.
+
+- 열거(enum) 타입 선언, 태그 필드, switch 문장 등 쓸데없는 코드가 많다.
+- 여러 구현이 하나의 클래스에 혼합돼 있어서 가독성도 좋지 않다.
+- 다른 의미를 위한 코드가 함께 있으니 상대적으로 메모리도 더 차지한다.
+- 필드를 final로 선언하려면 해당 의미에 사용되지 않는 필드까지 생성자에서 초기화해야 한다.
+  - 쓰지 않는 필드를 초기화하는 코드가 생긴다.
+- 또 다른 의미를 추가하려면 코드를 수정해야 한다. 특히 switch 문장에도
+- 인스턴스의 타입만으로는 현재 나타내는 의미를 파악하기 어렵다.
+
+**태그 달린 클래스 형태를 클래스 계층 구조로 바꿔보자.**
+
+<pre class="line-numbers"><code class="language-java" data-start="1">abstract class Figure {
+    abstract double area();
+}
+
+class Circle extends Figure {
+    final double radius;
+    Circle(double radius) { this.radius = radius; }
+    @Override double area() { return Math.PI * (radius * radius); }
+}
+
+class Rectangle extends Figure {
+    final double length;
+    final double width;
+    Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+    @Override double area() { return length * width; }
+}
+</code></pre>
+
+**간결하고 명확해졌으며, 쓸데없는 코드들이 모두 사라졌다.** 각 의미를 독립된 클래스에 담았기 때문에 관련 없던 데이터 필드는 모두 제거 되었다. 게다가 실수로 빼먹은 switch 구문의 case 문장 때문에 런타임 오류가 발생할 이유도 없다.
+
+타입 사이의 자연스러운 계층 관계를 반영할 수 있어서 유연성은 물론 컴파일 타임에서의 타입 검사 능력도 높여준다. 또한 클래스 계층 구조라면, 아래와 같이 정사각형(Square)가 추가될 때도 간단하게 반영할 수 있다.
+<pre class="line-numbers"><code class="language-java" data-start="1">class Square extends Rectangle {
+    Square(double side) {
+        super(side, side);
+    }
+}
+</code></pre>
+
+<div class="post_caption">태그 달린 클래스를 쓰는 상황은 거의 없다.</div>
 
 <br/>
 
