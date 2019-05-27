@@ -39,6 +39,12 @@ comments: true
 # 아이템 27. 비검사 경고를 제거하라
 > Eliminate unchecked warnings
 
+비검사 경고(unchecked warnings)를 제거하면 런타임에 형변환 예외(ClassCastException)이 발생할 일이 없고, 코드의 올바른 동작을 기대할 수 있다.
+
+만일 경고를 제거할 수 없지만 타입이 안전하다고 확신할 수 있다면 ```@SuppressWarnings("unchecked")``` 어노테이션을 붙여 경고를 숨기자. 리턴 문장을 제외한 개별 지역변수 선언부터 클래스 전체까지 어떤 선언에도 달 수 있지만, 가능한 좁은 범위에 적용해야 한다. 이 때는 경고를 **무시해도 안전한 이유를 주석으로** 같이 남겨두도록 하자.
+
+<div class="post_caption">할 수 있는 한 모든 비검사 경고를 모두 제거하자.</div>
+
 <br/>
 
 # 아이템 28. 배열보다는 리스트를 사용하라
