@@ -109,6 +109,68 @@ String s = stringLists[0].get(0);                   // (5)
 # 아이템 29. 이왕이면 제네릭 타입으로 만들라
 > Favor generic types
 
+클라이언트에서 직접적으로 형변환을 해야 하는 타입보다는 **제네릭 타입이 더 안전하고 사용하기에도 편리하다.** 그러므로 새로운 타입을 설계할 때는
+형변환 없이도 사용할 수 있도록 하는 것이 좋다. 그렇게 하기 위해서는 제네릭 타입으로 만들어야 하는 경우가 있다. 기존 타입 중에서 제네릭이었어야
+하는 것이 있다면 제네릭 타입으로 변경해보자.
+
+다음은 제네릭 클래스로 변경하는 과정이다. 먼저, **(1) 클래스 선언에 타입 매개 변수를 추가한다.**
+그리고 **(2) 일반 타입을 타입 매개변수로 바꾸면 된다.** 끝으로 이 과정에서 발생하는 비검사 경고를 해결해준다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">// Object 기반으로 구현된 스택
+public class Stack { // (1) Stack&lt;E> 로 변경해준다.
+    private Object[] elements; // (2) E[] elements 로 변경해준다.
+    private int size = 0;
+    private static final int DEFAULT_INITIAL_CAPACITY = 16;
+
+    public Stack() {
+        // (2) (E[]) new Object[DEFAULT_INITIAL_CAPACITY]; 로 변경해준다.
+        elements = new Object[DEFAULT_INITIAL_CAPACITY];
+    }
+
+    public void push(Object e) { // (2) push(E e) 로 변경한다.
+        ensureCapacity();
+        elements[size++] = e;
+    }
+
+    public Object pop() { // (2) E pop() 로 변경한다.
+        if (size ==0) {
+            throw new EmptyStackException();
+        }
+
+        // (2) E result = elements[--size]; 로 변경한다.
+        Object result = elements[--size];
+        elements[size] = null;
+        return result;
+    }
+
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    private void ensureCapacity() {
+        if (elements.length == size)
+            elements = Arrays.copyOf(elements, 2 * size + 1);
+    }
+}
+</code></pre>
+
+위의 예시는 바로 앞의 아이템 28과 모순된 내용이지만, 제네릭 타입 안에서 리스트를 사용하는 것이 항상 가능하지 않으며
+매번 좋은 것도 아니다. 예를 들어, ```HashMap```과 같은 제네릭 타입은 성능을 높일 목적으로 배열을 사용하기도 한다.
+
+제네릭 타입은 타입 매개변수에 대부분의 제약을 두지 않지만 기본 타입은 사용할 수 없다. 물론 박싱된 기본 타입을 통해 우회할 수 있다.
+한편으로 타입 매개변수에 제약을 두는 제네릭 타입도 있다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">// java.util.concurrent.DelayQueue
+class DelayQueue&lt;E extends Delayed> implements BlockingQueue&lt;E>
+</code></pre>
+
+위 코드에서 ```<E extends Delayed>```는 Delayed의 하위 타입만 받겠다는 뜻이 된다. 즉, DelayQueue 자신과 이를 사용하는
+클라이언트는 DelayQueue의 원소에서 형변환 없이 곧바로 Delayed 클래스의 메서드를 호출할 수 있다. 타입이 보장되기 때문이다.
+이러한 타입 매개변수를 **한정적 타입 매개변수(bounded type parameter)** 라고 한다.
+
+<div class="post_caption">직접 형변환하는 것보다 제네릭 타입이 더 안전하고 간편하다.</div>
+
+
 <br/>
 
 # 아이템 30. 이왕이면 제네릭 메서드로 만들라
