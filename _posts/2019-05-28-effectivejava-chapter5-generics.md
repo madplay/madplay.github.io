@@ -170,11 +170,39 @@ class DelayQueue&lt;E extends Delayed> implements BlockingQueue&lt;E>
 
 <div class="post_caption">직접 형변환하는 것보다 제네릭 타입이 더 안전하고 간편하다.</div>
 
-
 <br/>
 
 # 아이템 30. 이왕이면 제네릭 메서드로 만들라
 > Favor generic methods
+
+메서드도 제네릭으로 만들 수 있다. 아래는 타입 매개변수 목록은 ```<E>```이고 반환 타입은 ```Set<E>``` 이다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">// 제네릭 메서드
+public static &lt;E> Set&lt;E> union(Set&lt;E> s1, Set&lt;E> s2) {
+    Set&lt;E> result = new HashSet&lt;>(s1);
+    result.addAll(s2);
+    return result;
+}
+</code></pre>
+
+## 제네릭 싱글톤 팩터리
+
+제네릭은 런타임에타입 정보가 소거되기 때문에 하나의 객체를 어떤 타입으로든 매개변수화할 수 있다. 하지만 요청한 타입 매개변수에 맞도록
+매번 그 객체의 타입을 변경해주는 정적 팩터리를 만들어야 한다. 이를 제네릭 싱글톤 팩터리라고 한다.
+대표적으로 ```Collections.reverseOrder```와 ```Collections.emptySet```이 있다.
+
+## 재귀적 타입 한정
+
+재귀적 타입 한정(recursive type bound)이란 자기 자신이 들어간 표현식을 사용하여 타입 매개변수의 허용 범위를 한정하는 것을 말한다.
+주로 타입의 순서를 정하는 Comparable 인터페이스와 함께 쓰인다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">// 재귀적 타입 한정을 이용해 상호 비교할 수 있음을 표현
+public static &lt;E extends Comparable&lt;E>> E max(Collection&lt;E> c);
+</code></pre>
+
+위의 타입 한정인 ```<E extends Comparable<E>>```는 "모든 타입 E는 자신과 비교할 수 있다" 라고 읽을 수 있다.
+
+<div class="post_caption">명시적으로 형변환해야 하는 메서드보다는 제네릭 메서드가 더 안전하고 사용하기 쉽다.</div>
 
 <br/>
 
