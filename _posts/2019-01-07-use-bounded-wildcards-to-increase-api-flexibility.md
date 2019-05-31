@@ -3,7 +3,7 @@ layout:   post
 title:    "[이펙티브 자바 3판] 아이템 31. 한정적 와일드카드를 사용해 API 유연성을 높이라"
 author:   Kimtaeng
 tags: 	  java effectivejava
-subtitle: "[Effective Java 3th Edition] Item 31. Use bounded wildcards to increase API flexibility" 
+subtitle: "[Effective Java 3th Edition] Item 31. Use bounded wildcards to increase API flexibility"
 category: Java
 comments: true
 ---
@@ -12,22 +12,22 @@ comments: true
 
 # 제네릭은 불공변
 
-<a href="/post/prefer-lists-to-arrays" target="_blank">
-[이펙티브 자바 3판] 아이템 28. 배열보다는 리스트를 사용하라(링크)</a>에서 살펴본 것처럼 매개변수화 타입은 불공변(invariant) 입니다.
-예를 들어 Type1과 Type2가 있을 때, ```List<Type1>```은 ```List<Type2>```의 하위 타입 또는 상위 타입이라는 관계가 성립될 수 없습니다.
+<a href="/post/prefer-lists-to-arrays">[이펙티브 자바 3판] 아이템 28. 배열보다는 리스트를 사용하라(링크)</a> 에서 살펴본 것처럼
+매개변수화 타입은 불공변(invariant) 입니다. 예를 들어 Type1과 Type2가 있을 때, ```List<Type1>```은 ```List<Type2>```의
+하위 타입 또는 상위 타입이라는 관계가 성립될 수 없습니다.
 
-```List<Object>```에는 어떠한 객체도 넣을 수 있지만 ```List<String>```에는 문자열만 넣는 것을 보면
-```List<String>```이 ```List<Object>```의 기능을 제대로 수행하지 못하므로 하위 타입이라고 말할 수 없습니다.
+조금 더 풀어보면 ```List<Object>```에는 어떠한 객체도 넣을 수 있지만 ```List<String>```에는 문자열만 넣을 수 있습니다.
+즉 ```List<String>```이 ```List<Object>```의 기능을 제대로 수행하지 못하므로 하위 타입이라고 말할 수 없습니다.
 
-혹시나 자바의 제네릭에 대해서 전혀 모르신다면 아래 링크를 참조하여 보고 오셔도 좋을 것 같습니다.
+시작하기 전에 자바의 제네릭이 처음이시다면, 아래 링크를 참조하여 보고 오셔도 좋을 것 같습니다.
 
-<a href="/post/java-generic" target="_blank">링크: 자바 제네릭(Java Generic)</a>
+- [링크: 자바 제네릭(Java Generic)](/post/java-generic)
 
 <br/>
 
 # 생산자(Producer)와 와일드카드
 
-```Stack 클래스```의 public API로 매개변수의 모든 원소를 넣는 메서드를 추가한다고 가정해봅시다.
+우선 ```Stack 클래스```의 public API로 매개변수의 모든 원소를 넣는 메서드를 추가한다고 가정해봅시다.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">// 매개변수의 원소들을 스택에 넣는 메서드를 추가한다.
 public void pushAll(Iterable&lt;E> src) {
@@ -37,9 +37,9 @@ public void pushAll(Iterable&lt;E> src) {
 }
 </code></pre>
 
-컴파일은 정상적으로 수행되지만 아래와 같이 ```Number``` 타입으로 선언된 Stack 객체의 메서드에
-```Integer``` 타입의 매개변수를 전달하면 컴파일 오류가 발생합니다. Integer는 Number의 하위 타입이니 정상적으로 잘 동작할 것만 같지만
-```incompatible types... Iterable<Integer> cannot be converted to Iterable<Number>```와 같은 오류가 발생합니다.
+컴파일은 정상적으로 수행되지만 아래와 같이 ```Number``` 타입으로 선언된 Stack 객체의 메서드에 ```Integer``` 타입의 매개변수를 전달하면
+컴파일 오류가 발생합니다. Integer는 Number의 하위 타입이니 정상적으로 잘 동작할 것만 같지만 ```incompatible types...
+Iterable<Integer> cannot be converted to Iterable<Number>```와 같은 오류가 발생합니다.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">import java.util.Arrays;
 
@@ -102,7 +102,8 @@ public void pushAll(Iterable&lt;? extends E> src) {
 위의 선언을 해석하면 매개변수는 E의 Iterable이 아니라 ```E의 하위 타입의 Iterable``` 이라는 뜻입니다.
 **Number 클래스를 상속하는** Integer, Long, Double 등의 타입 요소를 가질 수 있게 됩니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2019-01-07-use-bounded-wildcards-to-increase-api-flexibility-1.png" width="600" height="300" alt="producer with wildcard"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-01-07-use-bounded-wildcards-to-increase-api-flexibility-1.png"
+width="600" height="300" alt="producer with wildcard"/>
 
 직접 정의한 Stack 클래스는 ```push(E)``` 메서드를 통해서만 요소를 추가할 수 있습니다.
 따라서 타입 안전성은 확인되지만 elements 배열은 런타임 시에 ```E[]```가 아닌 ```Object[]```가 됩니다.
@@ -118,9 +119,7 @@ public void pushAll(Iterable&lt;? extends E> src) {
 import java.util.Collection;
 import java.util.EmptyStackException;
 
-/**
- * Effect Java 29 소스코드 참고
- */
+// Effect Java 29 소스코드 참고
 class Stack&lt;E> {
     private Object[] elements;
     private int size = 0;
@@ -176,7 +175,7 @@ class Item28Test {
     public static void main(String[] args) {
         Stack&lt;Number> numberStack = new Stack&lt;>();
         Collection&lt;Object> objects = Arrays.asList(new Object());
-        
+
         // incompatible types...
         numberStack.popAll(objects);
     }
@@ -187,8 +186,8 @@ class Item28Test {
 일치하면 오류는 발생하지 않으나, 위에서 작성한 예제처럼 타입이 일치하지 않으면 컴파일 에러가 발생합니다.
 
 Number 클래스는 최상위 Object 클래스를 상속하지만 역시나 제네릭의 **매개변수화 타입은 불공변**이기 때문에 **상속이란 관계가
-무의미**합니다. 동일하게 와일드카드 타입을 사용하면 해결할 수 있는데, ```popAll``` 메서드의 매개변수 타입은
-**E의 컬렉션**이 아니라 **E의 상위 타입인 Collection**이라고 선언합니다.
+무의미합니다.** 동일하게 와일드카드 타입을 사용하면 해결할 수 있는데, ```popAll``` 메서드의 매개변수 타입은 **E의 컬렉션이 아니라
+E의 상위 타입인 Collection** 이라고 선언합니다.
 
 
 <pre class="line-numbers"><code class="language-java" data-start="1">// E의 상위 타입의 Collection이어야 한다.
@@ -199,10 +198,11 @@ public void popAll(Collection&lt;? super E> dst) {
 }
 </code></pre>
 
-모든 타입은 자기 자신의 상위 타입이므로 ```Collection<? super Number>```선언은 ``` Collection<Number>```을 비롯하여
-```Collection<Object>``` 타입의 매개변수가 전달되어도 오류가 발생하지 않습니다.
+모든 타입은 자기 자신의 상위 타입이므로 ```Collection<? super Number>```선언은 ``` Collection<Number>```을
+비롯하여 ```Collection<Object>``` 타입의 매개변수가 전달되어도 오류가 발생하지 않습니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2019-01-07-use-bounded-wildcards-to-increase-api-flexibility-2.png" width="600" height="300" alt="consumer with wildcard"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-01-07-use-bounded-wildcards-to-increase-api-flexibility-2.png"
+width="600" height="300" alt="consumer with wildcard"/>
 
 <br/>
 
@@ -219,8 +219,8 @@ public void popAll(Collection&lt;? super E> dst) {
 
 <div class="post_caption">혹시나 생산자와 소비자의 개념이 아직 명확하게 이해가 안되었다면...</div>
 
-글 초반에 살펴본 ```pushAll``` 메서드를 살펴보면 매개변수 src은 stack이 사용할 인스턴스를 생산하므로
-```생산자(Producer)``` 역할입니다. 따라서 메서드의 매개변수에는 ```extends```가 선언되었고요.
+글 초반에 살펴본 ```pushAll``` 메서드를 살펴보면 매개변수 src은 stack이 사용할 인스턴스를 생산하므로 ```생산자(Producer)``` 역할입니다.
+따라서 메서드의 매개변수에는 ```extends```가 선언되었고요.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">// class Integer extends Number ...
 public void pushAll(Iterable&lt;? extends E> src) {
@@ -248,9 +248,8 @@ public void popAll(Collection&lt;? super E> dst) {
 메서드의 **리턴값에는 와일드카드 타입을 사용하면 안됩니다.** 메서드를 사용하는 클라이언트 코드에서도
 메서드 반환 값으로 와일드카드 자료형을 써야하기 때문입니다.
 
-두 개의 Set 컬렉션을 매개변수로 받아서 합치는(union)하는 메서드의 경우에도 아래와 같이
-```Producer```의 역할을 하므로 ```extends```를 사용하여 처리합니다.
-하지만 메서드를 사용하는 main 메서드를 보면 와일드카드 타입을 전혀 신경쓰지 않아도 됩니다.
+두 개의 Set 컬렉션을 매개변수로 받아서 합치는(union)하는 메서드의 경우에도 아래와 같이 ```Producer```의 역할을 하므로 ```extends```를
+사용하여 처리합니다. 하지만 메서드를 사용하는 main 메서드를 보면 와일드카드 타입을 전혀 신경쓰지 않아도 됩니다.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">public class Union {
     public static &lt;E> Set&lt;E> union(Set&lt;? extends E> s1, Set&lt;? extends E> s2) {
@@ -313,10 +312,9 @@ class Item28Test {
 }
 </code></pre>
 
-이 메서드에도 PECS 공식에 맞추어 와일드카드를 적용해봅시다. 먼저 매개변수는 foreach 루프에서 **E 인스턴스**를 생산하는
-```Producer``` 이므로 매개변수 선언 부분은 ```Collection<? extends E>```가 되어야 합니다. 한편 ```Comparable``` 은
-**E 인스턴스**를 소비하는 소비자이므로 ```super```가 적용됩니다. 따라서 아래와 같이 PECS 공식을 2번 적용한 형태로 변경되어야 합니다.
-
+이 메서드에도 PECS 공식에 맞추어 와일드카드를 적용해봅시다. 먼저 매개변수는 foreach 루프에서 **E 인스턴스를 생산하는** ```Producer```
+이므로 매개변수 선언 부분은 ```Collection<? extends E>```가 되어야 합니다. 한편 ```Comparable``` 은
+**E 인스턴스를 소비하는** 소비자이므로 ```super```가 적용됩니다. 따라서 아래와 같이 PECS 공식을 2번 적용한 형태로 변경되어야 합니다.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">// 변경 전
 public static &lt;E extends Comparable&lt;E>> E max(Collection&lt;E> collection)
@@ -328,13 +326,13 @@ public static &lt;E extends Comparable&lt;? super E>> E max(Collection&lt;? exte
 복잡하지만 위와 같은 방식은 ```Comparable```을 예로 들었을 때, ```Comparable```을 직접 구현하지 않고
 직접 구현한 다른 클래스를 확장한 타입을 지원할 때 필요합니다.
 
-예를 들어서 ```Java 5``` 부터 지원한 ```ScheduledFuture``` 인터페이스의 구현 코드를 살펴보면 아래와 같습니다.
-```Delayed```의 하위 인터페이스이며 ```Delayed```인터페이스는 ```Comparable<Delayed>```를 확장했습니다.
-반면에 ```ScheduledFuture``` 인터페이스는 ```Comparable<ScheduledFuture>```를 확장(extends)하지 않았습니다.
+예를 들어서 ```Java 5``` 부터 지원한 ```ScheduledFuture``` 인터페이스의 구현 코드를 살펴보면 아래와 같습니다. ```Delayed```의
+하위 인터페이스이며 ```Delayed```인터페이스는 ```Comparable<Delayed>```를 확장했습니다. 반면에 ```ScheduledFuture```
+인터페이스는 ```Comparable<ScheduledFuture>```를 확장(extends)하지 않았습니다.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">// ScheduledFuture interface
 public interface ScheduledFuture&lt;V> extends Delayed, Future&lt;V> {
-    // ... 
+    // ...
 }
 
 // Delayed interface
@@ -359,7 +357,7 @@ PECS 공식을 적용하지 않은 max 예제 메서드에서는 아래와 같�
 class Item28Test {
     public static void main(String[] args) {
         List&lt;ScheduledFuture&lt;?>> scheduledFutureList = ...
-        
+
         // incompatible types...
         RecursiveTypeBound.max(scheduledFutureList);
     }
@@ -390,12 +388,11 @@ class Item28Test {
 바깥에서 호출 가능한 public API라면 간단하게 두 번째 방식을 사용하면 타입 매개변수에 대해 신경쓰지 않아도 되므로
 더 편리하지만 리스트의 타입이 와일드카드 형태인 ```List<?>```에는 null 외에는 어떤 값도 넣을 수 없는 문제가 있습니다.
 
-<a href="/post/dont-use-raw-types#원소의-타입을-모른채-쓰고-싶다면" target="_blank">
-"[이펙티브 자바 3판] 아이템 26. 로 타입은 쓰지 말라" 링크의 하단 부분 참고</a>
+- [[이펙티브 자바 3판] 아이템 26. 로 타입은 쓰지 말라" 링크의 하단 부분 참고](/post/dont-use-raw-types#원소의-타입을-모른채-쓰고-싶다면)
 
-따라서 와일드 카드 타입의 실제 타입을 알기 위하여 제네릭 메서드(위 코드에서 wildcardSwapHelper)의 도움이 필요합니다. 
+따라서 와일드 카드 타입의 실제 타입을 알기 위하여 제네릭 메서드(위 코드에서 wildcardSwapHelper)의 도움이 필요합니다.
 이 메서드는 매개변수로 넘어오는 리스트가 ```List<E>```에서 꺼낸 값의 타입이 항상 E 임을 알고 있으며 이는 리스트에 넣어도
 타입 안전함을 알고 있습니다. 물론 와일드카드 메서드를 지원하기 위하여 추가적인 메서드가 작성되었지만 클라이언트의 입장에서는
-**타입 매개변수에 신경쓰지 않는 메서드**를 사용할 수 있게 됩니다.
+**타입 매개변수에 신경쓰지 않는 메서드를** 사용할 수 있게 됩니다.
 
 <div class="post_caption">해당 내용은 Effective Java 3th Edition을 기반으로 작성되었습니다.</div>  

@@ -209,6 +209,14 @@ public static &lt;E extends Comparable&lt;E>> E max(Collection&lt;E> c);
 # 아이템 31. 한정적 와일드카드를 사용해 API 유연성을 높이라
 > Use bounded wildcards to increase API flexibility
 
+매개변수화 타입은 불공변(invariant)이다. 자바에서는 타입의 유연성을 극대화하기 위해 한정적 와일드카드 타입이라는
+특별한 매개변수화 타입을 지원한다.
+
+- <a href="/post/use-bounded-wildcards-to-increase-api-flexibility">
+더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 31. 한정적 와일드카드를 사용해 API 유연성을 높이라</a>
+
+<div class="post_caption">조금 복잡하더라도 와일드카드 타입을 적용하면 API가 훨씬 유연해지는 장점이 있다.</div>
+
 <br/>
 
 # 아이템 32. 제네릭과 가변인수를 함께 쓸 때는 신중하라
