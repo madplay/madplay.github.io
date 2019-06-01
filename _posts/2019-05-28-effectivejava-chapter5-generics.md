@@ -222,6 +222,68 @@ public static &lt;E extends Comparable&lt;E>> E max(Collection&lt;E> c);
 # 아이템 32. 제네릭과 가변인수를 함께 쓸 때는 신중하라
 > Combine generics and varargs judiciously
 
+가변인수 메서드를 호출하면 가변인수를 담기 위한 배열이 자동으로 생긴다. 제네릭과 가변인수를 혼용해서 사용하면 어떻게 될까?
+아이템 28에서 만들 수 없다던 제네릭 배열이 생성되진 않을까? 아래 코드로 살펴보자.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">import java.util.ArrayList;
+import java.util.List;
+
+public class Example {
+    static void dangerous(List&lt;String>... stringLists) {
+        List&lt;Integer> intList = List.of(42);
+        Object[] objects = stringLists;
+        objects[0] = intList; // 힙 오염 발생
+        String s = stringLists[0].get(0); // ClassCastException
+    }
+
+    public static void main(String[] args) {
+        List&lt;String> stringList = new ArrayList&lt;>();
+        stringList.add("Hi there");
+        dangerous(stringList);
+    }
+}
+</code></pre>
+
+위의 코드는 컴파일 오류는 발생하지 않지만, 인수를 건네 호출하게 되면 ```ClassCastException```이 발생한다.
+해당 코드 부분에 보이지는 않지만 컴파일러가 생성한 형변환 코드가 숨어 있기 때문이다. 이처럼 제네릭 가변인수 배열 매개변수에 값을
+저장하는 것은 타입 안전성이 깨지므로 안전하지 않다.
+
+하지만 제네릭이나 매개변수화 타입의 varargs 매개변수를 받는 메서드가 실무에서 매우 유용하기 때문에, 위의 예제처럼 제네릭 varargs 매개변수를
+받는 메서드를 선언할 수 있도록 했다. 대표적으로 아래와 같이 ```Arrays.list(T... a)```, ```EnumSet.of(E first, E... set)```과
+같은 메서드가 있다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">// Arrays.Java
+@SafeVarargs
+@SuppressWarnings("varargs")
+public static &lt;T> List&lt;T> asList(T... a) {
+    return new ArrayList&lt;>(a);
+}
+
+// EnumSet.java
+@SafeVarargs
+public static &lt;E extends Enum&lt;E>> EnumSet&lt;E> of(E first, E... rest) {
+    EnumSet&lt;E> result = noneOf(first.getDeclaringClass());
+    result.add(first);
+    for (E e : rest)
+        result.add(e);
+    return result;
+}
+</code></pre>
+
+## 메서드가 안전한지 어떻게 확신할까?
+
+자바 7부터는 ```@SafeVarargs```를 사용하여 제네릭 가변인수 관련 컴파일 경고를 숨길 수 있게 되었다.
+물론 재정의할 수 없는 메서드에만 달아야 한다. 자바 8에서는 오직 정적 메서드와 final 인스턴스 메서드에만 붙일 수 있게 변경되었고
+자바 9부터는 private 인스턴스 메서드에도 허용되도록 변경되었다.
+
+이처럼 ```@SafeVarargs``` 어노테이션은 메서드 작성자가 그 메서드가 타입을 안전하다고 보장하는 장치다.
+그렇다면 어떻게 메서드가 안전하지 확신할 수 있을까?
+
+먼저, 메서드가 가변인수 메서드가 호출될 때 생성되는 varargs 매개변수 배열에 아무것도 저장하지 않아야 한다. 그리고 그 배열의 참조가 외부로
+노출되지 않아야 한다. 그러니까 varargs 매개변수 배열이 순수하게 인수들을 전달하는 목적만 하면 그 메서드는 안전하다고 할 수 있다.
+
+<div class="post_caption">가변인수와 제네릭은 잘 어울리지 않는다.</div>
+
 <br/>
 
 # 아이템 33. 타입 안전 이종 컨테이너를 고려하라
