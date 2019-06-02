@@ -288,3 +288,55 @@ public static &lt;E extends Enum&lt;E>> EnumSet&lt;E> of(E first, E... rest) {
 
 # 아이템 33. 타입 안전 이종 컨테이너를 고려하라
 > Consider typesafe heterogeneous containers
+
+제네릭은 ```Set<E>```, ```Map<K, V>```과 같은 컬렉션과 ```ThreadLocal<T>``` 등의 단일원소 컨테이너에도 사용된다.
+여기서 매개변수화되는 대상은 원소가 아닌 컨테이너 자신이다. 그렇기 때문에 하나의 컨테이너에서 매개변수화할 수 있는 타입의 수가 제한된다.
+> 컨테이너라는 말을 "클래스"로 의미를 두면 이해하기 쉽다.
+
+제한없이 유연하게 사용되어야 하는 경우 컨테이 대신 키를 매개변수화한 다음에 컨테이너에 값을 넣거나 뺄 때 매개변수화한 키를 함께 제공하면 된다.
+이러한 설계 방식을 타입 안전 이종 컨테이너 패턴(type safe heterogeneous container pattern)이라고 한다. 한편 컴파일타임 타입 정보와
+런타임 타입 정보를 알아내기 위해 메서드들이 주고받는 class 리터럴을 타입 토큰(type token)이라고 한다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public class Favorites {
+    // 제네릭을 중첩해서 썼으므로 class 리터럴이면 뭐든 넣을 수 있다.
+    private Map&lt;Class<?>, Object> favorites = new HashMap&lt;>();
+
+    public &lt;T> void putFavorite(Class&lt;T> type, T instance) {
+        favorites.put(Objects.requireNonNull(type), instance);
+    }
+
+    public &lt;T> T getFavorite(Class&lt;T> type) {
+        return type.cast(favorites.get(type));
+    }
+
+    public static void main(String[] args) {
+        Favorites f = new Favorites();
+        f.putFavorite(String.class, "Java");
+        f.putFavorite(Class.class, Favorites.class);
+
+        String favoriteString = f.getFavorite(String.class);
+        Class&lt;?> favoriteClass = f.getFavorite(Class.class);
+
+        // 출력 결과: Java Favorites
+        System.out.printf("%s %s%n", favoriteString, favoriteClass.getName());
+    }
+}
+</code></pre>
+
+위 Favorites 클래스는 타입 안전하다. String을 요청했을 때 Integer를 반환하는 등의 예외가 발생하지 않는다.
+하지만 이 구현에도 단점은 존재한다. 먼저, 넣을 때 잘못 넣으면 오류가 발생할 수 있습니다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">f.putFavorite((Class)Integer.class, "This is not integer !!!");
+Integer notInteger = f.getFavorite(Integer.class); // ClassCastException
+</code></pre>
+
+또한 실체화가 불가능한 타입은 넣을 수 없다. 그러니까, ```String```이나 ```String[]```은 저장할 수 있지만, ```List<String>```은
+저장할 수 없다. 우회하기 위한 방법으로는 슈퍼 타입 토큰을 사용할 수 있다. 슈퍼 타입을 토큰으로 사용한다는 뜻이다. 스프링 프레임워크에서는
+이를 클래스로 미리 구현해놓았다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">List&lt;String> pets = Arrays.asList("강아지", "고양이");
+f.putFavorite(new TypeRef&lt;List&lt;String>>(){}, pets);
+List&lt;String> list = f.getFavorite(new TypeRef&lt;List&lt;String>>(){});
+</code></pre>
+
+<div class="post_caption">컨테이너 자체가 아닌 키를 타입 매개변수로 바꾸면 타입 안전 이종 컨테이너를 만들 수 있다.</div>
