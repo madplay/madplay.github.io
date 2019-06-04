@@ -78,6 +78,7 @@ OpenJDK로 다시 설치해야 하나 싶었다. 처음 자바를 다운로드�
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2019-02-24-openjdk-vs-oracle-jdk-2.png" width="650" height="300" alt="whatisjava"/>
 
+
 비상업적인 목적인 개발 용도로 개인이 사용하는 것은 위반 사항이 아닐 테지만 개인이 자바 개발을 목적이라면 Oracle JDK를
 고수할 필요는 없을 것 같다. 그래도 2020년 12월이면 아직 많이 남았지만... OpenJDK를 살펴보니 벌써 11버전까지 있다. 설치해봐야겠다.
 (2019년 5월에 다시보니, OpenJDK 13버전의 릴리즈 노트가...) 
