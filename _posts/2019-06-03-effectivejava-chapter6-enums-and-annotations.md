@@ -27,6 +27,22 @@ comments: true
 # 아이템 34. int 상수 대신 열거 타입을 사용하라
 > Use enums instead of int constants
 
+enum 타입이 등장하기 전에는 정수 열거 패턴(int enum pattern)을 사용했었다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public static final int APPLE_FUJI = 0;
+public static final int APPLE_PIPPIN = 1;
+
+public static final int ORANGE_NEVEL = 0;
+public static final int ORANGE_TEMPLE = 1;
+</code></pre>
+
+단점이 많다. 타입에 안전하지 않으며 코드도 계속 길어지게 된다. 오렌지를 건네야 하는 메서드에 사과를 보낸 후 동등 연산자 ```==```로 비교해도 어떠한
+경고 메시지가 출력되지 않는다.
+
+- <a href="/post/use-enums-instead-of-int-constants">더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 34. INT 상수 대신 열거 타입을 사용하라</a>
+
+<div class="post_caption">열거 타입은 확실히 정수 상수보다 뛰어나다.</div>
+
 <br/>
 
 # 아이템 35. ordinal 메서드 대신 인스턴스 필드를 사용하라
