@@ -48,6 +48,35 @@ public static final int ORANGE_TEMPLE = 1;
 # 아이템 35. ordinal 메서드 대신 인스턴스 필드를 사용하라
 > Use instance fields instead of ordinals
 
+해당 상수가 열거 타입에서 몇 번째인지 반환하는 ```ordinal``` 메서드를 제공한다. 예를 들어 가장 첫 번째 상수는 0을 반환한다.
+열거 타입 상수와 연결된 정숫값이 필요한 경우 ordinal 메서드를 이용하고 싶은 유혹에 빠질 수 있는데, 위험한 선택일 수 있다.
+아래 코드를 통해 확인해보자. 합주단의 종류를 연주자가 1명인 솔로(solo)부터 10명인 디텍트(detect)까지 정의한 enum이다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public enum Ensemble {
+    SOLO, DUET, TRIO, QUARTET, QUINTET,
+    SEXTET, SEPTET, OCTET, NONET, DECTET;
+
+    public int numberOfMusicians() { return ordinal() + 1; }   
+}
+</code></pre>
+
+상수의 선언을 바꾸는 순간 바로 오동작을 할 수 있으며, 이미 사용 중인 정수와 값이 같은 상수는 추가할 수도 없다.
+**해결책은 간단하다.** 열거 타입 상수에 연결된 값은 ordinal 메서드로 얻지 말고, **인스턴스 필드에 저장해서 사용하면 된다.**
+
+<pre class="line-numbers"><code class="language-java" data-start="1">
+public enum Ensemble {
+    SOLO(1), DUET(2), TRIO(3), QUARTET(4), QUINTET(5),
+    SEXTET(6), SEPTET(7), OCTET(8), NONET(9), DECTET(10),
+    DOUBLE_QUARTET(8), TRIPLE_QUARTET(12);
+
+    private final int int numberOfMusicians;
+    Ensemble(int size) { this.numberOfMusicians = size; }
+    public int numberOfMusicians() { return numberOfMusicians; }
+}
+</code></pre>
+
+<div class="post_caption">열거 타입 상수에 연결된 값은 인스턴스 필드에 저장하자.</div>
+
 <br/>
 
 # 아이템 36. 비트 필드 대신 EnumSet을 사용하라
