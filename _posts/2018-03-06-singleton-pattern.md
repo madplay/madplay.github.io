@@ -18,9 +18,9 @@ comments: true
 그럼 왜 하나만 제한할까요? 정말 간단하게 로그를 남기는 것으로 예로 들어봅시다.
 프로그램이 시작되어 종료될 때까지 로그를 남기는 로거를 참조하여 에러나 구동 정보를 기록할텐데
 로깅을 하기위해서 참조할 때마다 로거 객체를 생성해서 사용한다면 계속해서 자원을 소모하게 될 겁니다.
-자바로 예를 들면, new( ) 를 통해 객체를 생성하는 경우 Heap 메모리 자원이 소모되기 때문이지요.
+자바로 예를 들면, ```new( )``` 를 통해 객체를 생성하는 경우 Heap 메모리 자원이 소모되기 때문이지요.
 
-이러한 경우에는 단 하나만의 로거 객체를 이용해서 같은 객체를 참조하여 사용하는 것이
+이러한 경우에는 단 하나만의 로거(Logger) 객체를 이용해서 같은 객체를 참조하여 사용하는 것이
 시스템 자원 소모를 줄이는 방법이 될 수 있습니다.
 
 <br/><br/>
@@ -28,7 +28,7 @@ comments: true
 > ## 어떻게 사용할까?
 
 먼저, 외부에서 해당 클래스의 객체를 생성할 수 없도록 제한하기 위해서
-생성자는 반드시 private 접근 지정자로 선언되어야 합니다.
+생성자는 **반드시 private** 접근 지정자로 선언되어야 합니다.
 
 또한 어느 영역에서 접근이 가능하도록 정적 메서드로 객체를 참조할 수 있도록 정의합니다.
 위와 같은 규칙을 자바 코드로 작성하면 다음과 같은 모습이 됩니다.
@@ -60,10 +60,10 @@ public class MadPlay {
 > ## 반드시 하나의 객체만 생성될까?
 
 위와 같은 생성자 패턴의 기본 구조를 보았을 때, 의문이 생길 수 있습니다.
-'어떠한 경우에서도 반드시 하나의 객체만 존재하는 것을 보장할 수 있을까?'
+**"어떠한 경우에서도 반드시 하나의 객체만 존재하는 것을 보장할 수 있을까?"**
 
 단일 스레드가 아닌 2개 이상의 스레드가 실행되고 있는 상황,
-그러니까 멀티 스레딩 환경에서는 객체가 하나만 생성되어야하는 싱글톤 패턴을 적용해도
+그러니까 멀티 스레딩(Multi-Threading) 환경에서는 객체가 하나만 생성되어야하는 싱글톤 패턴을 적용해도
 두 개 이상의 객체가 생성될 수 있습니다.
 
 동시에 최초의 getInstance() 메서드에 접근하는 경우에 그렇습니다.
@@ -142,7 +142,7 @@ public class MadPlay {
 
 <b>또 다른 방법은 DCL(Double-Checking Locking)을 사용하는 방법입니다.</b><br/>
 getInstance() 메서드를 동기화하긴 하지만, 해당 영역을 줄이는 방법입니다.
-객체가 생성되었는지 확인한 후 생성되지 않았따면 동기화를 진행하는 것입니다.
+객체가 생성되었는지 확인한 후 생성되지 않았다면 동기화를 진행하는 것입니다.
 쉽게 말하면 처음에만 동기화하고 그 이후에는 동기화를 하지 않습니다.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">/**
@@ -175,7 +175,7 @@ public class MadPlay {
 }
 </code></pre>
 
-동기화 선언 부분 외에 달라진 점이라면 instance 레퍼런스에 volatile 키워드가 사용되었는데,
+동기화 선언 부분 외에 달라진 점이라면 instance 레퍼런스에 ```volatile``` 키워드가 사용되었는데,
 이는 CPU가 객체 참조시에 캐시된 메모리를 사용하지 않고 직접 메모리에서 값을 가져오도록 보장합니다.
 자바의 volatile 키워드에 대한 내용은 추가적으로 포스팅하도록 하겠습니다.
 우선, Thread는 보통 Cache Memory를 참조해서 값을 읽어온다는 부분만 짚고 넘어갑시다.
@@ -221,12 +221,12 @@ public enum MadPlay {
 단점이라면 우선적으로 일단 자원을 소모하게 되어있고, 해제되는 시점을 알기 어렵습니다.
 그리고 전역변수와 다를 것이 없는 문제가 있습니다. 어디서든 호출이 가능하기 때문이지요.
 
-OOP(Object-Oriented Programming)의 컨셉과 맞지 않는 부분도 있습니다.
+**OOP(Object-Oriented Programming)**의 컨셉과 맞지 않는 부분도 있습니다.
 구조가 변경되는 경우 변경 영역이 많아질 수도 있기 때문입니다.
 
 자바서에는 기본적으로 싱글톤으로 구현된 것도 있습니다.
-<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html" target="_blank">java.lang.Runtime</a>,
-<a href="https://docs.oracle.com/javase/7/docs/api/java/awt/Desktop.html" target="_blank">java.awt.Desktop</a>
+<a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html" target="_blank" rel="nofollow">java.lang.Runtime(링크)</a>,
+<a href="https://docs.oracle.com/javase/7/docs/api/java/awt/Desktop.html" target="_blank" rel="nofollow"java.awt.Desktop(링크)</a>
 
 한편, OOP의 개념이 생기면서 객체 자체에 대한 많은 연구와 패턴이 생겨난 것인데,
-싱글톤 패턴은 오히려 흔히 사용되면서도 지양해야하는 안티 패턴으로 인식되기도 합니다.
+싱글톤 패턴은 오히려 흔히 사용되면서도 지양해야하는 **안티 패턴(Anti Pattern)**으로 인식되기도 합니다.
