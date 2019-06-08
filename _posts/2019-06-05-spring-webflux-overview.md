@@ -29,7 +29,7 @@ comments: true
 또다른 탄생 배경은 함수형 프로그래밍(functional programming)이다. 자바 5에 어노테이션을 추가한 것처럼(어노테이션이 붙은 Rest 컨트롤러, 단위 테스트)
 자바 8에서 추가된 람다 표현식은 자바의 기능적인 API를 위한 기회를 만들었다. 람다 표현식은 비동기 로직을 서술적으로 작성할 수 있게 하는 논 블로킹
 애플리케이션과 연속형 API(예를 들면 `CompletableFuture`, `ReactiveX`)에게 도움이 된다. 프로그래밍 모델 레벨에서 자바 8은 스프링 웹플럭스가
-어노테이션 달린 컨트롤러와 함께 기능적인 웹 엔드포인트를 제공하도록 했다.
+어노테이션 컨트롤러와 함께 기능적인 웹 엔드포인트를 제공하도록 했다.
 
 ### 1.1.1. "리액티브" 정의(Define "Reactive")
 앞서 "논 블로킹(non-blocking)"과 "기능적(functional)"에 대해서 언급했다. 그런데 리액티브는 무엇을 의미할까?
@@ -75,7 +75,7 @@ HTTP 서버(구독자 역할)가 응답에 사용할 수 있는 데이터를 생
 
 이를 바탕으로 스프링 웹플럭스는 두 가지 프로그래밍 모델 중에서 선택할 수 있도록 한다.
 
-- **어노테이션 달린 컨트롤러(Annotated Controller)**: 스프링 MVC와 일치하며, `spring-web` 모듈과 동일한 어노테이션을 기반으로 한다.
+- **어노테이션 컨트롤러(Annotated Controller)**: 스프링 MVC와 일치하며, `spring-web` 모듈과 동일한 어노테이션을 기반으로 한다.
 스프링 MVC와 웹플럭스 컨트롤러는 리액티브(리액터와 RxJava) 반환 타입을 지원하므로 이를 구분하기가 쉽지 않다. 주목할만한 차이점 중 하나는 웹플럭스 또한
 리액티브 `@RequestBody` 인수(arguments)를 지원한다는 것이다.
 
@@ -96,19 +96,25 @@ width="700" alt="the diagram for spring mvc and spring webflux"/>
 
 - 제대로 동작하는 스프링 MVC 애플리케이션이라면 변경할 필요가 없다. 명령형 프로그래밍은 코드를 작성하고, 이해하고, 디버깅하는 가장 쉬운 방법이다.
 대부분 라이브러리가 블로킹 방식이기 때문에 라이브러리르 선택할 때 많은 선택권을 갖게 된다.
+
 - 논 블로킹 웹 스택을 고려하고 있다면, 스프링 웹플럭스는 다른 웹 스택과 동일한 실행 모델 이점을 제공하며 서버(네티, 톰캣, 제티, 언더토우 그리고
 서블릿 3.1+ 컨테이너), 프로그래밍 모델(어노테이션 컨트롤러와 함수형 웹 엔드포인트) 그리고 리액티브 라이브러리(Reactor, RxJava 또는 그 외)에 대한
 선택지를 제공한다.
+
 - 자바 8의 람다 또는 코틀린과 함께 사용할 함수형 웹 프레임워크를 찾는다면, 스프링 웹플럭스 함수형 웹 엔드포인트를 사용할 수 있다. 또한 소규모의
 애플리케이션이나 더 큰 명료함과 제어를 더 적은 복잡도로 제공하는 마이크로 서비스에 좋은 선택이 될 수 있다.
+
 - 마이크로 서비스 아키텍처에서 스프링 MVC 또는 스프링 웹플럭스 컨트롤러 또는 스프링 웹플럭스 함수형 엔드포인트로 만들어진 애플리케이션을 혼합하여
 사용할 수 있다. 두 프레임워크에서 동일하게 어노테이션 기반 프로그래밍 모델을 지원하는 점은 지식을 더 쉽게 재사용할 수 있게 할 뿐만 아니라 작업에 적합한
 도구를 선택할 수 있게 한다.
+
 - 애플리케이션을 평가하는 간단한 방법은 애플리케이션의 의존성(dependencies)를 확인하는 것이다. 블로킹 퍼시스턴스(persistence) API 또는
 네트워킹 API를 사용하고 있다면 적어도 공통 아키텍처에는 스프링 MVC가 가장 적합하다. 스프링 MVC는 개별 스레드에 리액터(Reactor)와 RxJava를 사용하여 블로킹 호출을 실행할 수 있지만 논 블로킹 웹 스택을 최대한으로 활용하지 못한다.
+
 - 원격 서비스를 호출하는 스프링 MVC 애플리케이션인 경우 리액티브 `WebClient`를 사용해보라. 스프링 MVC 컨트롤러 메서드에서 리액티브 타입(Reactor,
 RxJava 또는 기타)을 직접 반환할 수 있다. 호출 당 대기 시간이 길거나 호출 간 상호 의존성도가 높을수록 더욱 극적인 이점을 얻을 수 있다.
 스프링 MVC 컨트롤러는 다른 리액티브 컴포넌트도 호출할 수 있다.
+
 - 팀의 규모가 크다면, 논 블로킹, 함수형과 선언적 프로그래밍으로의 전환에 따른 학습 곡선(learning curve)이 가파른 점을 명심해야 한다. 전체를 전환하지
 않고 시작하는 실용적인 방법은 리액티브 `WebClient`를 사용하는 것이다. 이를 넘어서면 작은 것부터 시작하여 이점을 측정해보자. 광범위한 적용이 필요한 경우,
 전환이 불필요할 수 있다. 어떤 이점을 찾아야할지 확실하지 않다면, 논 블로킹 I/O 작동 방식(예를 들면, 단일 스레드 노드 js에서의 동시성)과 그 효과에 대해서
@@ -141,7 +147,7 @@ RxJava 또는 기타)을 직접 반환할 수 있다. 호출 당 대기 시간�
 여기서 리액티브 스택의 장점을 볼 수 있으며, 그 차이는 극적으로 나타날 수 있다.
 
 ### 1.1.7. 동시성 모델(Concurrency Model)
-스프링 MVC와 스프링 웹플럭스 모두 어노테이션 달린 컨트롤러를 지원하지만 동시성 모델과 블로킹 및 스레드에 대한 기본 가정에는 중요한 차이가 있다.
+스프링 MVC와 스프링 웹플럭스 모두 어노테이션 컨트롤러를 지원하지만 동시성 모델과 블로킹 및 스레드에 대한 기본 가정에는 중요한 차이가 있다.
 
 스프링 MVC(그리고 일반적인 서블릿 애플리케이션)에서는 애플리케이션이 현재 스레드(예를 들어 원격 호출)가 블로킹할 수 있다고 가정한다. 이러한 이유로 서블릿
 컨테이너는 요청 처리 중에 잠재적 블로킹을 흡수하기 위해 큰 스레드 풀을 사용한다.
@@ -180,3 +186,143 @@ RxJava 또는 기타)을 직접 반환할 수 있다. 호출 당 대기 시간�
 #### 설정(Configuring)
 스프링 프레임워크는 서버 시작, 중단시키는 기능을 지원하지 않는다. 서버의 스레딩 모델을 구성하려면, 서버 별 구성 API를 사용하거나 스프링 부트를 사용한다면
 각 서버의 스프링 부트 구성 옵션을 확인하라. `WebClient`는 직접 설정할 수 있다. 다른 모든 라이브러리에 대해서는 각각의 문서를 참조하라.
+
+## 1.2. 리액티브 코어(Reactive Core)
+`spring-web` 모듈은 리액티브 웹 애플리케이션에 대한 다음과 같은 기본 지원이 포함한다.
+
+- 서버 요청 처리에는 두 가지 수준의 지원이 있다.
+  - HttpHandler: Reactor Netty, Undertow, Tomcat, Jetty 및 모든 Servlet 3.1+ 컨테이너용 어댑터와 함께 동작하는 HTTP 요청 핸들링을 위한
+  논 블로킹 I/O 및 리액티브 스트림 기반의 기본 핸들러다.
+  - WebHandler API: 약간 더 높은 수준의 요청 처리를 위한 범용적인 웹 API다. 어노테이션 컨트롤러 및 함수형 엔드포인트와 같은 구체적인 프로그래밍
+  모델 위에 위치한다.
+
+- 클라이언트 측의 경우, 리액터 네티 및 리액티브 `Jetty HttpClient`용 어댑터와 함께 논 블로킹 I/O 및 리액티브 스트림 백프레셔로 HTTP 요청을 수행하는
+기본 `ClientHttpConnector` 계약이 있다. 애플리케이션에서 사용되는 고수준의 `WebClient`는 이 기본 계약을 기반으로 한다.
+
+- 클라이언트와 서버의 경우 HTTP 요청 및 응답 컨텐츠를 직렬화(serialization)와 역직렬화(deserialization)하기 위해 코덱을 사용한다.
+
+### 1.2.1. HttpHandler
+`HttpHandler`는 요청과 응답을 처리하는 단일 메서드를 가진 간단한 계약이다. 의도적으로 최소한으로 만들어졌으며, 유일한 목적은 다른 HTTP 서버 API에 대한
+최소한의 추상화이다.
+
+다음 표는 지원되는 서버 API를 설명한다.
+
+서버 이름 | 사용된 서버 API | 리액티브 스트림 지원
+|--|--|--|
+Netty | Netty API | Reactor Netty
+Undertow | Undertow API | spring-web: undertow to 리액티브 스트림 브릿지
+Tomcat | 서블릿 3.1 논 블로킹 I/O; byte[]에 대응하여 ByteBuffer를 읽고 쓰는 Tomcat API | spring-web: 서블릿 3.1 논 블로킹 I/O to 리액티브 스트림 브릿지
+Jetty | 서블릿 3.1 논 블로킹 I/O; byte[]에 대응하여 ByteBuffer를 읽고 쓰는 Jetty API | spring-web: 서블릿 3.1 논 블로킹 I/O to 리액티브 스트림 브릿지
+Servlet 3.1+ 컨테이너 | 서블릿 3.1 논 블로킹 I/O | spring-web: 서블릿 3.1 논 블로킹 I/O to 리액티브 스트림 브릿지
+
+다음 표는 서버 의존성에 대해 설명한다(지원되는 버전도 참조할 것):
+
+서버 이름 | 그룹 ID | 아티팩트 이름
+|--|--|--|
+Reactor Netty | io.projectreactor.netty | reactor-netty
+Underrtow | io.undertow | undertow-core
+Tomcat | org.apache.tomcat.embed | tomcat-embed-core
+Jetty | org.eclipse.jetty | jetty-server, jetty-servlet
+
+아래 코드 스니펫은 각 서버 API로 `HttpHandler` 어댑터를 사용하는 것을 보여준다.
+
+#### 리액터 네티(Reactor Netty)
+Java:
+```java
+HttpHandler handler = ...
+ReactorHttpHandlerAdapter adapter = new ReactorHttpHandlerAdapter(handler);
+HttpServer.create().host(host).port(port).handle(adapter).bind().block();
+```
+
+Kotlin:
+```kotlin
+val handler: HttpHandler = ...
+val adapter = ReactorHttpHandlerAdapter(handler)
+HttpServer.create().host(host).port(port).handle(adapter).bind().block()
+```
+
+#### 언더토우(Undertow)
+Java:
+```java
+HttpHandler handler = ...
+UndertowHttpHandlerAdapter adapter = new UndertowHttpHandlerAdapter(handler);
+Undertow server = Undertow.builder().addHttpListener(port, host).setHandler(adapter).build();
+server.start();
+```
+
+Kotlin:
+```kotlin
+val handler: HttpHandler = ...
+val adapter = UndertowHttpHandlerAdapter(handler)
+val server = Undertow.builder().addHttpListener(port, host).setHandler(adapter).build()
+server.start()
+```
+
+#### 톰캣(Tomcat)
+Java:
+```java
+HttpHandler handler = ...
+Servlet servlet = new TomcatHttpHandlerAdapter(handler);
+
+Tomcat server = new Tomcat();
+File base = new File(System.getProperty("java.io.tmpdir"));
+Context rootContext = server.addContext("", base.getAbsolutePath());
+Tomcat.addServlet(rootContext, "main", servlet);
+rootContext.addServletMappingDecoded("/", "main");
+server.setHost(host);
+server.setPort(port);
+server.start();
+```
+
+Kotlin:
+```kotlin
+val handler: HttpHandler = ...
+val servlet = TomcatHttpHandlerAdapter(handler)
+
+val server = Tomcat()
+val base = File(System.getProperty("java.io.tmpdir"))
+val rootContext = server.addContext("", base.absolutePath)
+Tomcat.addServlet(rootContext, "main", servlet)
+rootContext.addServletMappingDecoded("/", "main")
+server.host = host
+server.setPort(port)
+server.start()
+```
+
+#### 제티(Jetty)
+Java:
+```java
+HttpHandler handler = ...
+Servlet servlet = new JettyHttpHandlerAdapter(handler);
+
+Server server = new Server();
+ServletContextHandler contextHandler = new ServletContextHandler(server, "");
+contextHandler.addServlet(new ServletHolder(servlet), "/");
+contextHandler.start();
+
+ServerConnector connector = new ServerConnector(server);
+connector.setHost(host);
+connector.setPort(port);
+server.addConnector(connector);
+server.start();
+```
+
+Kotlin:
+```kotlin
+val handler: HttpHandler = ...
+val servlet = JettyHttpHandlerAdapter(handler)
+
+val server = Server()
+val contextHandler = ServletContextHandler(server, "")
+contextHandler.addServlet(ServletHolder(servlet), "/")
+contextHandler.start();
+
+val connector = ServerConnector(server)
+connector.host = host
+connector.port = port
+server.addConnector(connector)
+server.start()
+```
+
+#### 서블릿 3.1+ 컨테이너
+서블릿 3.1+ 컨테이너에 WAR로 배포하기 위해 `AbstractReactiveWebInitializer`를 확장하여 WAR에 포함해야 한다. 이 클래스는 `ServletHttpHandlerAdapter`로 `HttpHandler`를 래핑하고 이를 서블릿으로 등록한다.
