@@ -135,6 +135,73 @@ immutableEnumSet.add(Text.Style.INDERLINE); // java.lang.UnsupportedOperationExc
 # 아이템 37. ordinal 인덱싱 대신 EnumMap을 사용하라
 > Use EnumMap instead of ordinal indexing
 
+## ordinal 메서드를 배열 인덱스로 사용하면 위험하다.
+
+아래와 같이 ```ordinal``` 메서드를 배열 인덱스로 사용하면 위험하다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">// 배열은 제네릭과 호환되지 않으니 비검사 형변환도 필요
+Set&lt;Plant>[] plantByLifeCycle = 
+    (Set&lt;Plant>[]) new Set[Plant.LifeCycle.values().length];
+
+for (int i = 0; i < plantsByLifeCycle.length; i++) {
+    plantsByLifeCycle[i] = new HashSet&lt;>();
+}
+
+for (plant p : garden) {
+    plantsByLifeCycle[p.lifeCycle.ordinal()].add(p);
+}
+
+// 결과 출력
+for (int i = 0; i < plantsByLifeCycle.length; i++) {
+    System.out.printf("%s: %s\n", Plant.LifeCycle.values()[i], plantsByLifeCycle[i]);
+}
+</code></pre>
+
+배열은 각 인덱스의 의미를 모르기 때문에 위 코드에서의 ```%s :%s\n```과 같은 출력 결과를 포맷팅해야 한다.
+가장 큰 문제는 **정확한 정수값을 사용한다는 것을 개발자가 보증해야 한다.** 잘못된 값이 사용되어 예외가 발생하거나 또는
+오동작을 하게 되는 위험이 있다. ordinal 메서드는 상수 선언 순서에 따라 반환 값이 바뀌기 때문이다.
+
+## EnumMap을 사용하면 안전하다.
+
+위와 같은 문제는 **EnumMap을 사용하면 해결된다.** 열거 타입을 키로 사용하도록 설계된 아주 빠른 Map 구현체이다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">// EnumMap을 사용하여 데이터와 열거 타입을 매핑한다.
+Map&lt;Plant.LifeCycle, Set&lt;Plant>> plantsByLifeCycle =
+    new EnumMap&lt;>(Plant.LifeCycle.class);
+
+for (Plant.LifeCycle lc : Plant.LifeCycle.values()) {
+    plantsByLifeCycle.put(lc, new HashSet&lt;>());
+}
+
+for (Plant p : garden) {
+    plantsByLifeCycle.get(p.lifeCycle).add(p);
+}
+System.out.println(plantsByLifeCycle);
+</code></pre>
+
+안전하지 않은 형변환을 사용하지 않는다. 내부 구현 방식을 숨겨 Map의 타입 안전성과 배열의 성능을 모두 얻은 것이다.
+맵의 키인 열거 타입이 그 자체만으로 출력용 문자열을 제공하기 때문에 직접 포맷팅할 필요가 없다. 또한 인덱스 계산에 대한
+오류 가능성도 없다. 여기서 EnumMap의 생성자의 Class 객체는 한정적 타입 토큰으로, 런타임 제네릭 타입 정보를 제공한다.
+
+## 스트림(Stream)을 이용한 방법
+
+스트림을 사용해 맵을 관리하면 코드를 더 줄일 수 있다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">// Map을 이용해 데이터와 열거 타입 매핑
+Arrays.stream(garden)
+    .collect(groupingBy(p -> p.lifeCycle))
+
+// EnumMap을 이용해 데이터와 열거 타입 매핑
+Arrays.stream(garden)
+    .collect(groupingBy(
+        p -> p.lifeCycle, 
+        () -> new EnumMap&lt;>(LifeCycle.class),
+        toSet())
+    );
+</code></pre>
+
+<div class="post_caption">배열의 인덱스를 얻을 때는 EnumMap을 사용하자.</div>
+
 <br/>
 
 # 아이템 38. 확장할 수 있는 열거 타입이 필요하면 인터페이스를 사용하라
