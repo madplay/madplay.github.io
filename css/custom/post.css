@@ -85,9 +85,8 @@ a.post_heading_link:active {
 }
 
 table {
-    width: 95%;
+    width: auto;
     margin: auto;
-    word-break: break-all;
 }
 
 th, td {

@@ -326,3 +326,90 @@ server.start()
 
 #### 서블릿 3.1+ 컨테이너
 서블릿 3.1+ 컨테이너에 WAR로 배포하기 위해 `AbstractReactiveWebInitializer`를 확장하여 WAR에 포함해야 한다. 이 클래스는 `ServletHttpHandlerAdapter`로 `HttpHandler`를 래핑하고 이를 서블릿으로 등록한다.
+
+### 1.2.2. WebHandler API
+`org.springframework.web.server` 패키지는 HttpHandler를 기반으로 다중 WebExceptionHandler와 WebFilter 그리고 단일 WebHandler
+컴포넌트의 체인을 통해 요청을 처리하기 위한 범용 웹 API 제공한다. 체인은 컴포넌트가 자동 감지되는 스프링 애플리케이션 컨텍스트에 지정하거나
+빌더에 컴포넌트를 등록하여 WebHttpHandlerBuilder와 함께 사용할 수 있다.
+
+`HttpHandler`의 목적은 서로 다른 HTTP 서버에서의 사용을 추상화하는 것이지만, `WebHandler` API는 아래와 같이 웹 애플리케이션에서 일반적으로
+사용되는 보다 더 광범위한 기능을 제공하는 것을 목표로 한다.
+
+- 속성이 있는 사용자 세션(User session with attributes)
+- 요청 속성(Request attributes)
+- 요청에 대한 리졸브된 Locale 또는 Principal(Resolved Locale or Principal for the request)
+- 구문 분석과 캐시된 폼 데이터에 대한 액세스(Access to parsed and cached form data)
+- 멀티파트 데이텅츼 추상화(Abstractions for multipart data)
+- 기타 등등.. (and more..)
+
+#### 특별한 빈 타입들(Special bean types)
+아래 표는 `WebHttpHandlerBuilder`가 스프링 애플리케이션 컨텍스트에서 자동 감지하거나, 직접 등록할 수 있는 컴포넌트 목록이다.
+
+| 빈 이름 | 빈 타입 | 개수 | 설명
+|--|--|--|--|
+`<any>` | `WebExceptionHandler` | 0..N | `WebFilter` 인스턴스 체인과 대상 `WebHandler`에서 예외에 대한 처리를 제공한다. 자세한 내용은 예외를 참조
+`<any>` | `WebFilter` | 0..N | 필터 체인의 나머지 부분과 타겟 `WebHandler` 전후에 인터셉터 스타일의 처리를 제공한다. 자세한 내용은 필터 참조
+`webHandler` | `WebHandler` | 1 | 요청을 처리한다.
+`webSessionManager` | `WebSessionManager` | 0..1 | `ServerWebExchange`의 메서드를 통해 노출된 `WebSession` 인스턴스 관리자. 디폴트는 `DefaultWebSessionManager`
+`serverCodecConfigurer` | `ServerCodecConfigurer` | 0..1 | `ServerWebExchange`의 메서드를 통해 노출된 폼 데이터와 멀티파트 데이터를 구문 분석하기 위해 `HttpMessageReader`에 액세스. 기본적으로 `ServerCodecConfigurer.create()`
+`localeContextResolver` | `LocaleContextResolver` | 0..1 | `ServerWebExchange`의 메서드를 통해 노출되는 `LocaleContext`에 대한 리졸버
+`forwardedHeaderTransformer` | `ForwardedHeaderTransformer` | 0..1 | 포워드 타입 헤더를 추출 및 제거 또는 제거만 한다. 디폴트는 사용하지 않음
+
+#### 폼 데이터(Form Data)
+`ServerWebExchange`는 아래와 같은 폼 데이터 액세스 메서드를 제공한다.
+
+Java:
+```java
+Mono<MultiValueMap<String, String>> getFormData();
+```
+
+Kotlin:
+```kotlin
+suspend fun getFormData(): MultiValueMap<String, String>
+```
+
+`DefaultServerWebExchange`는 설정된 `HttpMessageReader`를 사용하여 폼 데이터(application/x-www-form-urlencoded)를 MultiValueMap
+으로 파싱한다. 기본적으로 `FormHttpMessageReader`는 `ServerCodecConfigurer` 빈에서 사용하도록 설정된다. (웹 핸들러 API 참조)
+
+#### 멀티파트 데이터(Multipart Data)
+웹 MVC.
+
+`ServerWebExchange`는 아래와 같은 멀티파트 데이터 액세스 메서드를 제공한다.
+
+Java:
+```java
+Mono<MultiValueMap<String, Part>> getMultipartData();
+```
+
+Kotlin:
+```kotlin
+suspend fun getMultipartData(): MultiValueMap<String, Part>
+```
+
+`DefaultServerWebExchange`는 설정된 `HttpMessageReader <MultiValueMap<String, Part>>`를 사용하여 multipart/form-data 컨텐츠를
+`MultiValueMap`으로 파싱한다. 현재로서는 **Synchronoss NIO Multipart**가 유일하게 지원되는 써드파티 라이브러리며, 멀티파트 요청을 논 블로킹으로
+파싱하는 유일한 라이브러리다. `ServerCodecConfigurer` 빈을 통해 활성화된다. (웹 핸들러 API 참조)
+
+멀티파트 데이터를 스트리밍 방식으로 파싱하려면 `HttpMessageReader<Party>`에서 반환된 `Flux<Part>`를 대신 사용할 수 있다. 예를 들어, 어노테이션
+컨트롤러에서 `@RequestPart`를 사용하면 이름 별로 개별 파트에 대한 `Map`과 같은 액세스를 의미한다. 따라서, 멀티파트 데이터를 전체적으로 파싱해야 한다.
+반면에 `@RequestBody`를 사용하여 `MultiValueMap`으로 모으지 않고 `Flux<Part>`로 컨텐츠를 디코딩할 수 있다.
+
+#### 전달된 헤더(Forwarded Headers)
+Web MVC.
+
+요청이 프록시(예를 들면 로드 밸런서)를 통과하면 호스트, 포트 그리고 체계(scheme)가 변경될 수 있다. 따라서 클라이언트 관점에서 올바른 호스트, 포트 그리고
+체계가 가리키는 링크를 만드는 것은 쉽지 않다.
+
+RFC 7239는 원래 요청에 대한 정보를 제공하는데 사용할 수 있는 Forwarded HTTP 헤더를 정의한다. `X-Forwarded-Host`, `X-Forwarded-Port`,
+`X-Forwarded-Proto`, `X-Forwarded-Ssl` 그리고 `X-Forwarded-Prefix` 를 포함한 다른 비표준 헤더도 있다.
+
+`ForwardedHeaderTransformer`는 ForwardedHeader를 기반으로 요청의 호스트, 포트 그리고 체계(scheme)를 수정한 후에 해당 헤더를 제거하는
+컴포넌트다. 이름이 forwardedHeaderTransformer인 빈으로 선언하면 감지되어 사용된다.
+
+애플리케이션은 헤더가 프록시에 의해 추가되었는지 또는 악의적인 클라이언트에 의해 의도적으로 추가되었는지 알 수 없으므로 전달된 헤더(forwarded headers)의
+보안 고려사항이 있다. 이것이 신뢰의 경계에 있는 프록시를 구성하여 외부에서 들어오는 신뢰할 수 없는 트래픽을 제거하도록 설정해야 하는 이유다.
+`removeOnly=true`옵션으로 `ForwardedHeaderTransformer`를 구성할 수도 있다. 이 경우 헤더는 제거하지만 사용하지 않는다.
+
+> 5.1 버전에서는 `ForwardedHeaderFilter`가 deprecated 되었고 `ForwardedHeaderTransformer`로 대체되었다. 그렇기 때문에 전달된
+헤더(forwarded headers)는 exchange의 생성되기 전에 더 일찍 처리될 수 있다. 필터가 설정된 경우라면 필터 목록에서 제거되고 대신
+`ForwardedHeaderTransformer`가 사용된다.
