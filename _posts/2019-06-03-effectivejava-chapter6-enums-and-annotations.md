@@ -153,7 +153,7 @@ for (plant p : garden) {
 
 // 결과 출력
 for (int i = 0; i < plantsByLifeCycle.length; i++) {
-    System.out.printf("%s: %s\n", Plant.LifeCycle.values()[i], plantsByLifeCycle[i]);
+    System.out.printf("%s: %s%n", Plant.LifeCycle.values()[i], plantsByLifeCycle[i]);
 }
 </code></pre>
 
@@ -206,6 +206,90 @@ Arrays.stream(garden)
 
 # 아이템 38. 확장할 수 있는 열거 타입이 필요하면 인터페이스를 사용하라
 > Emulate extensible enums with interfaces
+
+**열거 타입을 확장하는 것은 대부분 좋지 않다.** 하지만 연산 코드(operation code)를 구현할 때는 어울릴 수 있다.
+이때는 열거 타입 enum이 인터페이스를 구현(implements)할 수 있다는 점을 이용하면 된다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public interface Operation {
+    double apply(double x, double y);
+}
+
+public enum BasicOperation implements Operation {
+    PLUS("+") {
+        public double apply(double x, double y) { return x + y; }
+    },
+    MINUS("-") {
+        public double apply(double x, double y) { return x - y; }
+    },
+    TIMES("*") {
+        public double apply(double x, double y) { return x * y; }
+    },
+    DIVIDE("/") {
+        public double apply(double x, double y) { return x / y; }
+    };
+
+    private final String symbol;
+    BasicOperation(String symbol) { this.symbol = symbol; }
+    @Override public String toString() { return symbol; }
+}
+</code></pre>
+
+우선 ```BasicOperation```은 열거 타입이기 때문에 추가 확장은 불가능하다. 하지만 인터페이스 ```Operation```은 가능하다.
+그렇기 때문에 다른 연산을 추가할 때는 아래와 같이 인터페이스를 구현한 새로운 열거 타입을 작성하면 된다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public enum ExtendedOperation implements Operation {
+    EXP("^") {
+        public double apply(double x, double y) {
+            return Math.pow(x, y);
+        }
+    },
+    REMAINDER("%") {
+        public double apply(double x, double y) {
+            return x % y;
+        }
+    };
+
+    private final String symbol;
+    // 생성자, toString 생략
+}
+</code></pre>
+
+타입 수준에서도 기본 열거 타입 대신에 확장한 열거 타입을 넘겨서 열거 타입의 모든 원소를 순회하게 할 수 있다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public static void main(String[] args) {
+    double x = Double.parseDouble(args[0]);
+    double y = Double.parseDouble(args[1]);
+    test(ExtendedOperation.class, x, y);
+}
+
+private static &lt;T extends Enum&lt;T> & Operation> void test(Class&lt;T> opEnumType, double x, double y) {
+    for (Operation op : opEnumType.getEnumConstants()) {
+        System.out.printf("%f %s %f = %f%n", x, op, y, op.apply(x, y));
+    }
+}
+</code></pre>
+
+여기서 ```<T extends Enum<T> & Operation>```는 Class 객체가 열거 타입인 동시에 Operation의 하위 타입임을 말한다.
+즉, Enum 타입이면서 Operation을 구현한 클래스이다. 위와 다르게 **한정적 와일드카드 타입을 사용하는 방법도 있다.**
+열거 타입의 리스트를 전달하여 한정적 와일드 카드 타입으로 지정한다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public static void main(String[] args) {
+    double x = Double.parseDouble(args[0]);
+    double y = Double.parseDouble(args[1]);
+    test(Arrays.asList(ExtendedOperation.values()), x, y);
+}
+
+private static void test(Collection&lt;? extends Operation> opSet, double x, double y) {
+    for (Operation op : opSet) {
+        System.out.printf("%f %s %f = %f%n", x, op, y, op.apply(x, y));
+    }
+}
+</code></pre>
+
+한편 열거 타입끼리 구현을 상속할 수 없는 문제는 있다. 열거 타입 간의 공유하는 기능이 늘어나 코드 중복량이 많아진다면
+Helper 클래스 또는 메서드로 분리하면 좋다.
+
+<div class="post_caption">열거 타입은 인터페이스 구현을 통해 확장 효과를 낼 수 있다.</div>
 
 <br/>
 
