@@ -348,7 +348,7 @@ server.start()
 | 빈 이름 | 빈 타입 | 개수 | 설명
 |--|--|--|--|
 `<any>` | `WebExceptionHandler` | 0..N | `WebFilter` 인스턴스 체인과 대상 `WebHandler`에서 예외에 대한 처리를 제공한다. 자세한 내용은 예외를 참조
-`<any>` | `WebFilter` | 0..N | 필터 체인의 나머지 부분과 타겟 `WebHandler` 전후에 인터셉터 스타일의 처리를 제공한다. 자세한 내용은 필터 참조
+`<any>` | `WebFilter` | 0..N | 타겟 `WebHandler` 전후에 인터셉터 스타일의 처리를 제공한다. 자세한 내용은 필터 참조
 `webHandler` | `WebHandler` | 1 | 요청을 처리한다.
 `webSessionManager` | `WebSessionManager` | 0..1 | `ServerWebExchange`의 메서드를 통해 노출된 `WebSession` 인스턴스 관리자. 디폴트는 `DefaultWebSessionManager`
 `serverCodecConfigurer` | `ServerCodecConfigurer` | 0..1 | `ServerWebExchange`의 메서드를 통해 노출된 폼 데이터와 멀티파트 데이터를 구문 분석하기 위해 `HttpMessageReader`에 액세스. 기본적으로 `ServerCodecConfigurer.create()`
@@ -395,8 +395,6 @@ suspend fun getMultipartData(): MultiValueMap<String, Part>
 반면에 `@RequestBody`를 사용하여 `MultiValueMap`으로 모으지 않고 `Flux<Part>`로 컨텐츠를 디코딩할 수 있다.
 
 #### 전달된 헤더(Forwarded Headers)
-Web MVC.
-
 요청이 프록시(예를 들면 로드 밸런서)를 통과하면 호스트, 포트 그리고 체계(scheme)가 변경될 수 있다. 따라서 클라이언트 관점에서 올바른 호스트, 포트 그리고
 체계가 가리키는 링크를 만드는 것은 쉽지 않다.
 
@@ -413,3 +411,27 @@ RFC 7239는 원래 요청에 대한 정보를 제공하는데 사용할 수 있�
 > 5.1 버전에서는 `ForwardedHeaderFilter`가 deprecated 되었고 `ForwardedHeaderTransformer`로 대체되었다. 그렇기 때문에 전달된
 헤더(forwarded headers)는 exchange의 생성되기 전에 더 일찍 처리될 수 있다. 필터가 설정된 경우라면 필터 목록에서 제거되고 대신
 `ForwardedHeaderTransformer`가 사용된다.
+
+
+### 1.2.3. 필터
+`WebHandler` API에서 `WebFilter`를 사용하여 인터셉터 스타일의 로직을 `WebHandler`의 전후에 체이닝 방식으로 적용할 수 있다.
+**Webflux Config**를 사용하는 경우, `WebFilter`를 등록하는 것은 스프링 빈을 등록하는 것만큼 간단하며 빈 선언에 `@Order`를 사용하거나
+`Ordered` 인터페이스를 구현하여 우선 순위를 표시할 수 있다.
+
+#### CORS
+스프링 웹플럭스는 컨트롤러의 어노테이션을 통해 CORS 설정을 세부적으로 지원한다. 그러나 스프링 시큐리티(Spring Security)와 함께 사용하는 경우
+내장 `CorsFilter`를 사용하는 것을 권장한다. 이 필터는 스프링 시큐리티의 필터 체인보다 먼저 적용되어야 한다.
+
+더 자세한 내용은 CORS와 webflux-cors를 참조하라.
+
+### 1.2.4. 예외
+`WebHandler` API에서 `WebExceptionHandler`를 사용하여 WebFilter 인스턴스와 타겟 WebHandler의 예외를 처리할 수 있다. WebFlux Config를
+사용하는 경우, `WebExceptionHandler`를 등록하는 것은 스프링 빈을 등록하는 것만큼 간단하며 빈 선언에 `@Order`를 사용하거나 `Ordered` 인터페이스를
+구현하여 우선 순위를 표시할 수 있다.
+
+아래 표는 사용 가능한 `WebExceptionHandler` 구현체에 대한 설명이다.
+
+| 예외 핸들러 | 설명 
+|--|--|
+`ResponseStatusExceptionHandler` | 예외의 HTTP 상태 코드에 대한 응답을 설정하여 `ResponseStatusException` 유형의 예외를 처리한다.
+`WebFluxResponseStatusExceptionHandler` | 예외 유형에 상관없이 `@ResponseStatus`의 상태 코드를 결정할 수 있는 `ResponseStatusExceptionHandler`의 확장 버전이다. 이 핸들러는 **Webflux Config**에 선언한다.
