@@ -12,14 +12,14 @@ comments: true
 
 > ## 예외(Exception)란?
 
-```Checked Exception```과 ```Unchecked Exception```의 차이를 알아보기 전에 먼저 ```Exception```이 무엇인지
+```Checked Exception```과 ```Unchecked Exception```의 차이를 알아보기 전에 먼저 예외와 에러가 무엇인지
 알아볼 필요가 있습니다. 프로그래밍에서 **예외(Exception)**이란 입력 값에 대한 처리가 불가능하거나, 프로그램 실행 중에 참조된
 값이 잘못된 경우 등 정상적인 프로그램의 흐름을 어긋나는 것을 말합니다. 그리고 자바에서 예외는 개발자가 직접 처리할 수 있기
 때문에 예외 상황을 미리 예측하여 핸들링할 수 있습니다.
 
 한편, **에러(Error)**는 시스템에 무엇인가 비정상적인 상황이 발생한 경우에 사용됩니다.
 주로 자바 가상머신에서 발생시키는 것이며 예외와 반대로 이를 애플리케이션 코드에서 잡으려고 하면 안됩니다.
-사실 잡아도 방법이 없습니다. 예로는 ```OutOfMemoryError```, ```ThreadDeath```, ```StackOverflow``` 등이 있습니다.
+사실 잡아도 방법이 없습니다. 에러의 예로는 **OutOfMemoryError**, **ThreadDeath**, **StackOverflowError** 등이 있습니다.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">/**
  * StackOverflowError Example.
