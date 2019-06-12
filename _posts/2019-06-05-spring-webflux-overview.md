@@ -435,3 +435,95 @@ RFC 7239는 원래 요청에 대한 정보를 제공하는데 사용할 수 있�
 |--|--|
 `ResponseStatusExceptionHandler` | 예외의 HTTP 상태 코드에 대한 응답을 설정하여 `ResponseStatusException` 유형의 예외를 처리한다.
 `WebFluxResponseStatusExceptionHandler` | 예외 유형에 상관없이 `@ResponseStatus`의 상태 코드를 결정할 수 있는 `ResponseStatusExceptionHandler`의 확장 버전이다. 이 핸들러는 **Webflux Config**에 선언한다.
+
+### 1.2.5. 코덱(Codecs)
+`spring-web`과 `spring-core` 모듈은 리액티브 스트림 백프레셔와 논 블로킹 I/O를 통하여 고수준 객체와 바이트 컨텐츠를 직렬화(serialization)하고
+역직렬화(deserialization)하는 기능을 지원한다. 다음은 지원하는 기능에 대한 설명이다.
+
+- `Encoder`와 `Decoder`는 HTTP와 무관하게 컨텐츠를 인코딩하고 디코딩하는 저수준(low level) 기능이다.
+- `HttpMessageReader`와 `HttpMessageWriter`는 HTTP 메시지 컨텐츠를 인코딩하고 디코딩하기 위해 사용된다.
+- 인코더는 `EncoderHttpMessageWriter`로 래핑되어 웹 애플리케이션에서 사용할 수 있도록 조정할 수 있고, 디코더는 `DecoderHttpMessageReader`로
+래핑될 수 있다.
+
+- **DataBuffer**는 다른 바이트 버퍼 표현(예를 들면 Netty ByteBuf, java.nio.ByteBuffer 등)을 추상화하며 모든 코덱은 여기서 동작한다. 관련하여
+자세한 내용은 **스프링 코어**의 **데이터 버퍼 및 코덱(Data Buffers and Codecs)**를 참고하라.
+
+`spring-core` 모듈은 `byte[]`, `ByteBuffer`, `Resource`, `String` 인코더 및 디코더 구현체를 제공한다.
+`spring-web` 모듈은 Jackson JSON, Jackson Smile, JAXB2, Protocol Buffer 그리고 기타 다른 인코더와 디코더와 함께 폼 데이터,
+멀티파트 컨텐츠, 서버 전송 이벤트 및 기타 처리를 위한 웹 전용 HTTP 메시지 reader/writer 구현체를 제공한다.
+
+`ClientCodecConfigurer`와 `ServerCodecConfigurer`는 일반적으로 애플리케이션에서 사용할 코덱을 설정하고 사용자 맞춤설정(customize)을 위해
+사용된다. 이부분은 **HTTP 메시지 코덱** 설정에 대한 섹션을 참조하라.
+
+#### 잭슨(Jackson) JSON
+잭슨(Jackson) 라이브러리가 있으면, JSON과 이진 JSON(Smile)이 모두 지원된다.
+
+`Jackson2Decoder`는 아래와 같이 동작한다:
+
+- Jackson의 비동기, 논 블로킹 파서는 바이트 청크 스트림을 각각 JSON 객체를 나타내는 `TokenBuffer`로 수집하기 위해 사용된다.
+- 각 `TokenBuffer`는 Jackson의 `ObjectMapper`로 전달되어 더 높은 수준의 객체를 만든다.
+- 단일값 퍼블리셔(Mono)로 디코딩할 때는, 하나의 `TokenBuffer`가 존재한다.
+- 다중값 퍼블리셔(Flux)로 디코딩할 때는, 각 `TokenBuffer`는 완전히 포맷팅된 객체가 될 정도의 충분한 바이트가 수신되는 즉시 `ObjectMapper`로
+전달된다. 입력 컨텐츠는 JSON 배열이거나, 컨텐츠 유형이 `application/stream+json`인 경우 **라인 구분된 JSON(line-delimited JSON)**일 수 있다.
+
+`Jackson2Encoder`는 아래와 같이 동작한다:
+
+- 단일값 퍼블리셔(Mono)의 경우, 간단히 `ObectMapper`로 직렬화(serialization)한다.
+- `application/json`을 사용하는 다중값 퍼블리셔의 경우, 기본적으로 `Flux#collectToList()`로 값을 모은 후에 그 결과를 직렬화한다.
+- `application/stream+json` 또는 `application/stream+x-jackson-smile`과 같은 스트리밍 미디어 타입의 다중값 퍼블리셔의 경우
+라인 구분된 JSON(line-delimited JSON) 포맷을 이용하여 각 값을 개별적으로 인코딩, 쓰기 그리고 플러싱한다.
+- SSE(Server-Sent Events)의 경우 `Jackson2Encoder`가 이벤트마다 호출되며 출력(output)은 지연없이 전달되도록 플러싱된다.
+
+> 기본적으로 `Jackson2Encoder`와 `Jackson2Decoder` 모두 문자열(String) 타입의 요소를 지원하지 않는다. 대신에 기본 가정은 문자열 또는 문자열
+시퀀스가 직렬화된 JSON 컨텐츠를 나타내며 `CharSequenceEncoder`에 의해 렌더링된다는 것이다. `Flux<String>`에서 JSON 배열을 렌더링해야 하는 경우,
+`Flux#collectToList()`를 사용하고 `Mono<List<String>>`을 인코딩하라.
+
+#### 폼 데이터(Form Data)
+`FormHttpMessageReader`와 `FormHttpMessageWriter`는 `application/x-www-form-urlencoded` 컨텐츠의 디코딩과 인코딩을 지원한다.
+
+여러 곳에서 폼 컨텐츠에 접근해야 하는 서버 측에서는 `ServerWebExchange`가 제공하는 `getFormData()` 메서드로 파싱한다.
+`FormHttpMessageReader` 통해 내용을 파싱한 후 반복적인 액세스를 위해 결과를 캐싱한다. `WebHandler` API 섹션의 폼 데이터(Form Data)를 참조하라.
+
+`getFormData()` 메서드가 호출되면, 더 이상 요청 본문에서 원래의 원본 컨텐츠는 읽을 수 없다. 이러한 이유로 애플리케이션은 요청 본문에서 원본 컨텐츠를
+읽는 것 대신에 `ServerWebExchange`를 통해 캐싱된 폼 데이터에 접근하도록 한다.
+
+#### 멀티파트(Multipart)
+`MultipartHttpMessageReader`와 `MultipartHttpMessageWriter`는 `multipart/form-data` 컨텐츠의 디코딩과 인코딩을 지원한다. 결과적으로
+`MultipartHttpMessageReader`는 `Flux<Part>`로의 파싱 작업은 `HttpMessageReader`에게 위임한 후에 결과를 `MultiValueMap`에 수집한다.
+현재는 Synchronoss NIO Multipart가 실제 파싱에 사용된다.
+
+여러 곳에서 멀티파트 컨텐츠에 접근해야 하는 서버 측에서는 `ServerWebExchange`가 제공하는 `getMultipartData()` 메서드로 파싱한다.
+`MultipartHttpMessageReader`를 통해 내용을 파싱한 후 반복적인 액세스를 위해 결과를 캐싱한다. `WebHandler` API 섹션의 멀티파트
+데이터(Multipart Data)를 참조하라.
+
+`getMultipartData()` 메서드가 호출되면, 더 이상 요청 본문에서 원래의 원본 컨텐츠는 읽을 수 없다. 이로 인해 애플리케이션은 반복적인 맵과 같은 액세스에
+대해서 `getMultipartData()` 메서드를 지속적으로 사용해야 하며, `Flux<Part>`로의 일회성 접근에는 `SynchronossPartHttpMessageReader`를
+사용한다.
+
+#### 제한(Limits)
+입력 스트림의 일부 또는 전부를 버퍼링하는 `Decoder`와 `HttpMessageReader` 구현체는 메모리에서 버퍼링할 최대 바이트 사이즈를 지정할 수 있다.
+입력 버퍼링이 발생하는 경우가 있다. 예를 들면 `@RequestBody byte[]`, `x-www-form-urlencoded` 등의 데이터를 다루는 컨트롤러 메서드처럼
+입력이 합쳐져 단일 객체로 표현되는 경우가 있다. 또한, 구분된 텍스트(delimited text), JSON 객체의 스트림 등과 같은 입력 스트림을 분리할 때
+스트리밍에서에서 버퍼링이 발생할 수 있다. 이러한 스트리밍 경우, 버퍼 바이트 사이즈 제한은 스트림에서 하나의 객체와 연결된 바이트 수에 적용된다.
+
+버퍼 사이즈를 설정하기 위해서, 지정된 `Decoder` 또는 `HttpMessageReader`의 `maxInMemorySize` 설정이 가능한지 확인하고, Javadoc에 기본값에
+대한 세부 사항이 있는지 확인할 수 있다. 서버 측에서 `ServerCodecConfigurer`은 모든 코덱을 설정할 수 있는 단일 위치를 제공한다. 관련 내용은
+**HTTP 메시지 코덱**을 참조하라. 클라이언트 쪽에서는 모든 코덱에 대한 제한을 `WebClient.Builder`에서 변경할 수 있다.
+
+`maxInMemorySize` 속성은 멀티파트 파싱에 적용되는 non-file 파트의 크기를 제한한다. 파일 파트의 경우 파트가 디스크에 기록되는 임계값을 결정한다.
+디스크에 기록된 파일 파트의 경우 파트 당 디스크 공간의 양을 제한하는 `maxDiskUsagePerPart` 속성이 추가적으로 있다. 또한 `maxParts` 속성은
+멀티파트 요청의 전체 사이즈를 제한한다. 웹플럭스에서 이 세가지 속성을 모두 설정하려면 미리 설정된 `MultipartHttpMessageReader` 인스턴스를
+`ServerCodecConfigurer`에 설정해야 한다.
+
+#### 스트리밍(Streaming)
+`text/event-stream`, `application/stream+json`과 같은 HTTP 응답으로 스트리밍 할 때는 연결이 끊어진 클라이언트를 보다 빨리 감지할 수 있도록
+주기적으로 데이터를 보내야한다. 이러한 전송은 코멘트만 있거나, 빈 SSE(Server Sent Events) 또는 심장박동(heartbeat) 역할을 하는 다른 어떠한
+"동작없음(no-op)" 데이터일 수 있다.
+
+#### 데이터 버퍼(Data Buffer)
+`DataBuffer`는 웹플럭스의 바이트 버퍼를 나타낸다. 스프링 코어의 **데이터 버퍼와 코덱** 섹션에서 더 자세히 확인할 수 있다. 중요한 점은 네티(Netty)와
+같은 일부 서버에서 바이트 버퍼가 풀링되고 참조 카운트되며 메모리 누수(leak)를 방지하기 위해 소비될 때 해제되어야 한다는 것이다.
+
+데이터 버퍼를 직접 소비하거나 생산하지 않는 한, 더 높은 수준의 개체로 변환하거나 사용자 지정 코덱을 만들어 사용하거나 또는 코덱을 사용하여
+고수준 객체들로/로부터 변환하는 작업을 하지 않는 이상, 웹플럭스 애플리케이션은 일반적으로 이러한 이슈에 대해서 걱정할 필요가 없다. 이러한 경우에 대해서는
+**데이터 버퍼와 코덱**, 특히 **데이터 버퍼 사용**에 대한 섹션을 참조하라.
