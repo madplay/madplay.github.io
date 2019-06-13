@@ -6,6 +6,7 @@ layout: null
 {% for post in site.posts %}
   <url>
     <loc>{{ site.url }}{{ post.url }}</loc>
+    <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
   </url>
 {% endfor %}
 {% for page in site.pages %}
