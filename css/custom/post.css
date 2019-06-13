@@ -85,12 +85,17 @@ a.post_heading_link:active {
 }
 
 table {
-    width: auto;
+    word-break: break-all;
+    width: 95%;
     margin: auto;
 }
 
 th, td {
     border: 1px solid rgba(80, 80, 80, 0.25);
+}
+
+.post_container {
+    word-break: break-all;
 }
 
 .post_container th {
