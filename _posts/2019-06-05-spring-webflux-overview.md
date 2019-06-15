@@ -527,3 +527,99 @@ RFC 7239는 원래 요청에 대한 정보를 제공하는데 사용할 수 있�
 데이터 버퍼를 직접 소비하거나 생산하지 않는 한, 더 높은 수준의 개체로 변환하거나 사용자 지정 코덱을 만들어 사용하거나 또는 코덱을 사용하여
 고수준 객체들로/로부터 변환하는 작업을 하지 않는 이상, 웹플럭스 애플리케이션은 일반적으로 이러한 이슈에 대해서 걱정할 필요가 없다. 이러한 경우에 대해서는
 **데이터 버퍼와 코덱**, 특히 **데이터 버퍼 사용**에 대한 섹션을 참조하라.
+
+### 1.2.6. 로깅(Logging)
+스프링 웹플럭스의 **DEBUG** 레벨 로깅은 가볍고, 최소화되며, 인간 친화적으로 설계되었다. 특정 문제를 디버깅할 때만 유용한 다른 정보에 비해
+계속해서 가치가 있는 정보에 중점을 둔다.
+
+**TRACE** 레벨 로깅은 일반적으로 DEBUG와 동일한 원칙을 따르지만(예를 들어, firehose가 되어선 안된다.) 어떠한 디버깅에도 사용될 수 있다.
+또한 일부 로그 메시지는 TRACE와 DEBUG 레벨에서 서로 다른 수준의 세부 정보를 표시할 수 있다.
+
+좋은 로깅은 사용 경험에서 비롯된다. 명시된 목표를 충족하지 못하는 것이 발견되면 제보하라.
+
+#### 로그 아이디(Log Id)
+웹플럭스에서는 단일 요청을 여러 스레드에서 실행할 수 있기 때문에, 특정 요청에 대한 로그 메시지의 연관성을 찾는데 스레드 ID는 유용하지 못하다.
+이것이 웹플럭스 로그 메시지 앞에 기본적으로 요청별 ID가 접두사로 붙는 이유다.
+
+서버 측에서 로그 ID는 `ServerWebExchange` 속성(LOG_ID_ATTRIBUTE)으로 저장되며 `ServerWebExchange#getLogPrefix()` 메서드를 통해
+해당 ID를 기반으로 한 완전히 포맷팅된 접두사를 얻을 수 있다.. 클라이언트 측에서 로그 ID는 `ClientRequest` 속성(LOG_ID_ATTRIBUTE)로 저장되며
+`ClientRequest#logPrefix()` 메서드를 통해 완전히 포맷팅된 접두사를 얻을 수 있다.
+
+#### 민감한 데이터(Sensitive Data)
+DEBUG와 TRACE 로깅은 민감한 정보를 기록할 수 있다. 그렇기 때문에 폼 파라미터와 헤더는 기본적으로 마스킹되어야 하고, 전체 로깅은 명시적으로 활성화돼야
+한다.
+
+다음 예제는 서버 측 요청에 대한 로깅 설정 방법이다:
+
+Java:
+```java
+@Configuration
+@EnableWebFlux
+class MyConfig implements WebFluxConfigurer {
+
+    @Override
+    public void configureHttpMessageCodecs(ServerCodecConfigurer configurer) {
+        configurer.defaultCodecs().enableLoggingRequestDetails(true);
+    }
+}
+```
+
+Kotlin
+```kotlin
+@Configuration
+@EnableWebFlux
+class MyConfig : WebFluxConfigurer {
+
+    override fun configureHttpMessageCodecs(configurer: ServerCodecConfigurer) {
+        configurer.defaultCodecs().enableLoggingRequestDetails(true)
+    }
+}
+```
+
+다음 예제는 클라이언트 측 요청에 대한 로깅 설정 방법이다:
+
+Java:
+```java
+Consumer<ClientCodecConfigurer> consumer = configurer ->
+        configurer.defaultCodecs().enableLoggingRequestDetails(true);
+
+WebClient webClient = WebClient.builder()
+        .exchangeStrategies(strategies -> strategies.codecs(consumer))
+        .build();
+```
+
+Kotlin:
+```kotlin
+val consumer: (ClientCodecConfigurer) -> Unit  = { configurer -> configurer.defaultCodecs().enableLoggingRequestDetails(true) }
+
+val webClient = WebClient.builder()
+        .exchangeStrategies({ strategies -> strategies.codecs(consumer) })
+        .build()
+```
+
+#### 사용자 지정 코덱(Custom codecs)
+애플리케이션은 추가적인 미디어 유형을 지원하거나 기본 코덱에서 지원하지 않는 특정 동작을 지원하기 위해 사용자 지정 코덱을 등록할 수 있다.
+
+개발자가 설정할 수 있는 일부 옵션은 기본 코덱에 적용된다. 사용자 지정 코덱은 버퍼링 제한 또는 민감한 데이터 로깅과 같은 설정을 필요로할 수 있다.
+
+아래 예제는 클라이언트측 요청에 대한 설정 방법이다.
+
+Java:
+```java
+WebClient webClient = WebClient.builder()
+        .codecs(configurer -> {
+                CustomDecoder decoder = new CustomDecoder();
+                configurer.customCodecs().registerWithDefaultConfig(decoder);
+        })
+        .build();
+```
+
+Kotlin:
+```kotlin
+val webClient = WebClient.builder()
+        .codecs({ configurer ->
+                val decoder = CustomDecoder()
+                configurer.customCodecs().registerWithDefaultConfig(decoder)
+         })
+        .build()
+```
