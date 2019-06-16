@@ -6,7 +6,7 @@ layout: null
 {% for post in site.posts %}
   <url>
     <loc>{{ site.url }}{{ post.url }}</loc>
-        <priority>1.0</priority>
+    <lastmod>{{ post.date | date: "%Y-%m-%d" }}</lastmod>
   </url>
 {% endfor %}
 {% for page in site.pages %}
@@ -15,10 +15,8 @@ layout: null
   {% else %}
   <url>
     <loc>{{ site.url }}{{ page.url | remove: '.html' }}</loc>
-    <priority>0.5</priority>
   </url>
   {% endif %}
 {% endif %}
 {% endfor %}
-
 </urlset>
