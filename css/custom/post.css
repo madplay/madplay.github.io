@@ -149,3 +149,7 @@ a {
 ol {
     padding-left: 25px;
 }
+
+code {
+    font-size: 80%
+}
