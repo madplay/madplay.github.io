@@ -30,6 +30,8 @@ FTP Active 모드의 동작 방식을 그림으로 보면 아래와 같습니다
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2019-03-09-ftp-active-passive-1.png" width="500" height="460" alt="ftp active mode"/>
 
+<br/>
+
 - 1) 클라이언트는 서버의 21번 포트로 접속한 후에 자신이 사용할 두 번째 포트를 서버에 미리 알려줍니다.
 - 2) 서버는 클라이언트의 요청에 응답합니다. (acks)
 - 3) 서버의 20번 데이터 포트는 클라이언트가 알려준 두 번째 포트로의 접속을 시도합니다.
@@ -49,6 +51,8 @@ FTP Active 모드의 동작 방식을 그림으로 보면 아래와 같습니다
 지정할 수도 있습니다.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2019-03-09-ftp-active-passive-2.png" width="500" height="460" alt="ftp passive mode"/>
+
+<br/>
 
 - 1) 클라이언트가 커맨드 포트로 접속을 시도합니다. (Passive 모드 연결)
 - 2) 서버에서는 사용할 두 번째 포트를 클라이언트에게 알려줍니다.
