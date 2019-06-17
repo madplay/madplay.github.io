@@ -32,7 +32,7 @@ comments: true
 어노테이션 컨트롤러와 함께 기능적인 웹 엔드포인트를 제공하도록 했다.
 
 ### 1.1.1. "리액티브" 정의(Define "Reactive")
-앞서 "논 블로킹(non-blocking)"과 "기능적(functional)"에 대해서 언급했다. 그런데 리액티브는 무엇을 의미할까?
+앞서 "논 블로킹(non-blocking)"과 "기능적(functional)"에 대해서 간단히 다뤘다. 그런데 리액티브는 무엇을 의미할까?
 
 "리액티브(reactive)"란 용어는 I/O 이벤트에 반응하는 네트워크 요소, 마우스 이벤트에 반응하는 UI 컨트롤러 등 변화에 반응하는 것을 중점으로 둔
 프로그래밍 모델을 말한다. 그런 의미에서 논 블로킹(non-blocking)은 리액티브다. 이유는 블로킹되지 않고 작업이 완료되거나 데이터가 사용 가능해짐 등과 같은
@@ -623,3 +623,46 @@ val webClient = WebClient.builder()
          })
         .build()
 ```
+
+## 1.3. 디스패처 핸들러(Dispatcher Handler)
+스프링 MVC와 유사하게 스프링 웹플럭스는 프론트 컨트롤러 패턴을 중심으로 설계되었으며 중앙의 WebHandler인 `DispatcherHandler`는 요청 처리를 위한
+공유 알고리즘을 제공하며, 실제 작업은 설정 가능한 위임 컴포넌트에 의해 수행된다. 이 모델은 유연하고 다양한 작업 흐름을 지원한다.
+
+`DispatcherHandler`는 스프링 설정에서 필요한 위임 컴포넌트를 탐색한다. 또한 스프링 빈 자체로 설계되었으며 실행되는 컨텍스트에 접근하기 위해
+`ApplicationContextAware`를 구현한다. `DispatcherHandler`의 빈 이름이 webHandler로 선언되면, `WebHttpHandlerBuilder`에 의해 발견되어
+사용되며 `WebHandler` API에서 설명한 것처럼 요청 처리 체인을 구성한다.
+
+웹플럭스 애플리케이션의 스프링 설정에는 일반적으로 아래 내용이 포함된다.
+
+- 빈 이름이 webHandler로 선언된 `DispatcherHandler`
+- `WebFilter`와 `WebExceptionHandler` 빈
+- `DispatcherHandler` 스페셜 빈
+- 기타 등등
+
+다음 예제와 같이 `WebHttpHandlerBuilder`에 처리 체인이 만들기 위한 설정이 제공된다.
+
+Java:
+```java
+ApplicationContext context = ...
+HttpHandler handler = WebHttpHandlerBuilder.applicationContext(context).build();
+```
+
+```kotlin
+val context: ApplicationContext = ...
+val handler = WebHttpHandlerBuilder.applicationContext(context).build()
+```
+
+위 결과 HttpHandler는 서버 어댑터와 함께 사용할 수 있다.
+
+### 1.3.1. 특별한 빈 타입들(Special bean types)
+`DispatcherHandler`는 요청을 처리하고 적절한 응답을 제공하기 위해 특별한(special) 빈에 작업을 위임한다. "특별한 빈" 은 웹플럭스 프레임워크의
+스펙을 구현한 스프링이 관리하는 객체 인스턴스를 의미한다. 보통 기본적으로 제공되지만, 속성값을 변경하거나 확장 또는 다른 빈으로 대체하는 일도 가능하다.
+
+아래 표는 `DispatcherHandler`에 의해 발견되는 특별한 빈 목록을 보여준다. 낮은 레벨(low-level)에서는 이 빈들 외에도 다른 빈들도 있다.
+(WebHandler API의 **Special bean types** 참고)
+
+| 빈 타입 | 설명 |
+|-------|---------|
+| `HandlerMapping` | 요청을 핸들러에 매핑한다. 매핑은 몇 가지 기준을 기반으로 하며, `HandlerMapping` 구현에 따라 달라진다. 어노테이션 컨트롤러, 단순 URL 패턴 매핑, 기타 등등 <br><br> `@RequestMapping` 어노테이션이 있는 메서드에 대한 주요 `HandlerMapping` 구현은   `RequestMappingHandlerMapping`, 함수형 엔드 포인트 라우팅에 대해서는 `RouterFunctionMapping`, URL 경로 패턴 및 WebHandler 인스턴스의 명시적 등록을 위한 `SimpleUrlHandlerMapping` 다.
+| `HandlerAdapter` | 핸들러가 실제로 호출되는 방식에 관계없이 `DispatcherHandler`가 요청에 매핑된 핸들러를 실행하도록 도와준다. 예를 들어, 어노테이션 컨트롤러를 호출하려면 어노테이션 리졸빙(resolving)이 필요하다. `HandlerAdaptor`의 주요 목적은 이러한 세부 사항으로부터 `DispatcherHandler`를 가리는 것이다.
+| `HandlerResultHandler`| 핸들러 실행 결과를 처리하고 응답을 완료한다. **Result Handling**을 참조하라.
