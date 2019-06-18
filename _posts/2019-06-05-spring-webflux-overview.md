@@ -664,5 +664,30 @@ val handler = WebHttpHandlerBuilder.applicationContext(context).build()
 | 빈 타입 | 설명 |
 |-------|---------|
 | `HandlerMapping` | 요청을 핸들러에 매핑한다. 매핑은 몇 가지 기준을 기반으로 하며, `HandlerMapping` 구현에 따라 달라진다. 어노테이션 컨트롤러, 단순 URL 패턴 매핑, 기타 등등 <br><br> `@RequestMapping` 어노테이션이 있는 메서드에 대한 주요 `HandlerMapping` 구현은   `RequestMappingHandlerMapping`, 함수형 엔드 포인트 라우팅에 대해서는 `RouterFunctionMapping`, URL 경로 패턴 및 WebHandler 인스턴스의 명시적 등록을 위한 `SimpleUrlHandlerMapping` 다.
-| `HandlerAdapter` | 핸들러가 실제로 호출되는 방식에 관계없이 `DispatcherHandler`가 요청에 매핑된 핸들러를 실행하도록 도와준다. 예를 들어, 어노테이션 컨트롤러를 호출하려면 어노테이션 리졸빙(resolving)이 필요하다. `HandlerAdaptor`의 주요 목적은 이러한 세부 사항으로부터 `DispatcherHandler`를 가리는 것이다.
+| `HandlerAdapter` | 핸들러가 실제로 호출되는 방식에 관계없이 `DispatcherHandler`가 요청에 매핑된 핸들러를 실행하도록 도와준다. 예를 들어, 어노테이션 컨트롤러를 호출하려면 어노테이션 리졸빙(resolving)이 필요하다. `HandlerAdapter`의 주요 목적은 이러한 세부 사항으로부터 `DispatcherHandler`를 가리는 것이다.
 | `HandlerResultHandler`| 핸들러 실행 결과를 처리하고 응답을 완료한다. **Result Handling**을 참조하라.
+
+### 1.3.2. 웹플럭스 설정(Webflux Config)
+애플리케이션은 요청을 처리하는데 필요한 빈(Web Handler API와 DispatcherHandler에 나열된)을 선언할 수 있다. 하지만 대부분 **WebFlux Config**가
+가장 좋은 시작점이다. 필요한 빈을 선언하고 이를 사용자 정의(customize)하기 위한 고수준(high-level)의 설정 콜백 API를 제공한다.
+
+> 스프링 부트는 웹플럭스 설정을 사용하여 스프링 웹플럭스를 설정하며, 다양하며 편리한 추가 옵션을 제공한다.
+
+### 1.3.3. 처리(Processing)
+`DispatcherHandler`는 아래와 같이 요청을 처리한다.
+
+- 각 `HandlerMapping`이 핸들러를 매칭하도록 요청받고, 처음으로 매칭된 핸들러가 사용된다.
+- 핸들러를 찾으면, 적절한 `HandlerAdapter`를 통해 핸들러가 실행되며, 리턴되는 값은 `HandlerResult`이다.
+- `HandlerResult`는 적절한 `HandlerResultHandler`에게 제공되며, 응답에 바로 쓰이거나 뷰를 사용하여 렌더링하는 방식으로 처리를 완료한다.
+
+### 1.3.4. 결과 핸들링(Result Handling)
+`HandlerAdapter`를 통해 실행하여 반환된 값은 일부 추가적인 컨텍스트와 함께 `HandlerResult`로 래핑되며, 이 래핑된 반환값을 핸들링할 수 있는 첫 번째
+ `HandlerResultHandler`로 전달된다.
+
+아래 표는 사용 가능한 `HandlerResultHandler` 구현체를 보여준다. 이 구현체는 **WebFlux Config**에 선언된다.
+
+| 결과 핸들러 타입 | 반환 값 | 디폴트 적용 순서
+| `ResponseEntityResultHandler` | `ResponseEntity`, 전형적으로 `@Controller` 인스턴스들로부터 반환된다. | 0
+| `ServerResponseResultHandler` | `ServerResponse`, 전형적으로 함수형 엔드포인트로부터 반환된다.  | 0
+| `ResponseBodyResultHandler` | `@ResponseBody` 메서드나 `@RestController` 클래스로부터의 반환값을 처리한다. | 100
+| `ViewResolutionResultHandler` | `CharSequence`, `View`, `Model`, `Map`, `Rendering` 또는 모델 속성으로 처리되는 기타 객체 <br><br> **View Resolution**를 참조하라. | `Integer.MAX_VALUE`
