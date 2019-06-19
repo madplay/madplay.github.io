@@ -311,6 +311,37 @@ JUnit 3 버전까지는 테스트 메서드의 이름이 test로 시작해야 �
 # 아이템 40. @Override 애너테이션을 일관되게 사용하라
 > Consistently use the Override annotation
 
+```@Override```는 상위 타입의 메서드를 재정의했다는 뜻이며 메서드 선언에만 달 수 있다. 이 애너테이션을 일관되게 사용하면
+발생할 수 있는 실수나 버그들을 예방해줄 수 있다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public class Bigram {
+    private final char first;
+    private final char second;
+
+    public boolean equals(Bigram b) {
+        return b.first == first && b.second == second;
+    }
+
+    public int hashCode() {
+        return 31 * first * second;
+    }
+
+    // 기타 코드 생략
+}
+</code></pre>
+
+위의 코드에서 ```equals``` 메서드를 재정의 한 것으로 보인다. hashCode도 같이 재정의하는 것도 잊지 않았다. 그런데 자세히 보면 ```equals``` 메서드를 
+재정의(overriding)한 것이 아니라 다중정의(overloading) 해버렸다. Object의 equals를 재정의 할 때는 매개변수 타입을 Object로 해야 하는데
+개발자가 실수한 것이다. 만일 ```@Override``` 애너테이션이 있었다면 컴파일 오류 메시지를 통해 코드가 실행되기 전에 알 수 있다.
+
+그러므로 상위 클래스의 메서드를 재정의하려는 모든 메서드에 ```@Override``` 애너테이션을 달자. 예외는 단 한 곳이다. 추상 메서드를 재정의할 때는 반드시
+애너테이션을 달지 않아도 된다. 구현 클래스가 추상 메서드를 모두 구현하지 않았다면 컴파일러가 알려주기 때문이다. 
+
+인터페이스를 구현할 때도 마찬가지다. 디폴트 메서드가 생긴 이후부터 인터페이스의 메서드를 구현한 메서드에도 애너테이션을 다는 습관을 들이자.
+기본적으로 대부분의 IDE 에서는 메서드를 재정의할 때 기본적으로 ```@Override``` 애너테이션을 붙여준다.
+
+<div class="post_caption">@Override를 붙이면 메서드를 재정의할 때의 발생할 수 있는 실수를 줄일 수 있다.</div>
+
 <br/>
 
 # 아이템 41. 정의하려는 것이 타입이라면 마커 인터페이스를 사용하라
