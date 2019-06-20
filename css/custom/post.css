@@ -85,7 +85,9 @@ a.post_heading_link:active {
 }
 
 table {
-    word-break: break-all;
+    display: block;
+    overflow-x: auto;
+    word-break: normal;
     width: 95%;
     margin: auto;
 }
