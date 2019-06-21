@@ -397,6 +397,8 @@ class MyConfig {
 > (3) 핸들러 메서드를 얻는다.
 > (4) 등록을 추가한다.
 
+---
+
 > ### 목차 가이드
 > - 다음글 "1.5 Functional Endpoints" 로 이동(준비중)
 > - <a href="/post/web-on-reactive-stack" target="_blank">전체 목차 페이지로 이동</a>
