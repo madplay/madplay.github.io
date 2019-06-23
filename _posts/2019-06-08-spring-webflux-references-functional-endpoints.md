@@ -99,8 +99,281 @@ class PersonHandler(private val repository: PersonRepository) {
 
 대부분의 응용 프로그램은 웹플럭스 자바 설정을 통해 실행할 수 있다. **Running a Server**를 참조하라.
 
+## 1.5.2. HandlerFunction
+`ServerRequest`와 `ServerResponse`는 불변 인터페이스며, HTTP 요청과 응답에 대한 자바 8 친화적인 방식을 제공한다. 요청과 응답 모두 바디 스트림에
+대한 리액티브 스트림 벡프레셔를 제공한다. 요청 본문(request body)은 리액터 `Flux` 또는 `Mono`로 표현한다. 응답 본문(response body)은 `Flux`와
+`Mono`를 포함한 모든 리액티브 스트림 Publisher로 표현된다. 이에 대한 더 자세한 내용은 **Reactive Libraries**를 참조하라.
+
+### ServerRequest
+`ServerRequest`는 HTTP 메서드, URI, 헤더와 쿼리 파라미터에 대한 접근을 제공하며, 본문(body)에 대한 접근은 메서드를 제공한다.
+
+아래는 `request body`를 `Mono<String>`으로 추출하는 예제다.
+
+Java:
+```java
+Mono<String> string = request.bodyToMono(String.class);
+```
+
+Kotlin:
+```kotlin
+val string = request.awaitBody<String>()
+```
+
+다음 예제는 본문을 `Flux<Person>` (또는 코틀린의 `Flow<Person>`)으로 추출한다. 여기서 Person 객체는 JSON이나 XML과 같은 직렬화된 데이터로부터
+디코딩된다.
+
+Java:
+```java
+Flux<Person> people = request.bodyToFlux(Person.class);
+```
+
+Kotlin:
+```kotlin
+val people = request.bodyToFlow<Person>()
+```
+
+위의 예제는 함수형 전략 인터페이스인 `BodyExtractor`를 받는 `ServerRequest.body(BodyExtractor)` 메서드의 축약형 버전이다.
+유틸리티 클래스 `BodyExtractors`에 있는 여러 인스턴스에 대한 접근을 제공한다. 예를 들어 위의 예제는 아래와 같이 작성할 수도 있다.
+
+Java:
+```java
+Mono<String> string = request.body(BodyExtractors.toMono(String.class));
+Flux<Person> people = request.body(BodyExtractors.toFlux(Person.class));
+```
+
+Kotlin:
+```kotlin
+val string = request.body(BodyExtractors.toMono(String::class.java)).awaitFirst()
+val people = request.body(BodyExtractors.toFlux(Person::class.java)).asFlow()
+```
+
+아래는 폼 데이터에 접근하는 예제다:
+
+Java:
+```java
+Mono<MultiValueMap<String, Part> map = request.multipartData();
+```
+
+Kotlin:
+```kotlin
+val map = request.awaitFormData()
+```
+
+아래는 맵 방식으로 멀티파트 데이터에 접근하는 예제다:
+
+Java:
+```java
+Mono<MultiValueMap<String, Part> map = request.multipartData();
+```
+
+Kotlin:
+```kotlin
+val map = request.awaitMultipartData()
+```
+
+아래 예제는 스트리밍 방식으로 한 번에 하나씩 멀티파트 데이터에 접근하는 예제다:
+
+Java:
+```java
+Flux<Part> parts = request.body(BodyExtractors.toParts());
+```
+
+Kotlin:
+```kotlin
+val parts = request.body(BodyExtractors.toParts()).asFlow()
+```
+
+### ServerResponse
+`ServerResponse`는 HTTP 응답에 대한 접근을 제공하며, 불변형이므로 `build` 메서드를 사용하여 작성할 수 있다. 빌더를 사용하여 응답 상태를 설정하거나
+응답 헤더를 추가하거나 본문을 제공할 수 있다. 아래 예제는 JSON 컨텐츠로 200(OK) 응답을 작성한다.
+
+Java:
+```java
+Mono<Person> person = ...
+ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(person, Person.class);
+```
+
+Kotlin:
+```kotlin
+val person: Person = ...
+ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(person)
+```
+
+아래는 본문(body) 없이 `Location` 헤더를 사용하여 201(CREATED) 응답을 작성하는 예제다:
+
+Java:
+```java
+URI location = ...
+ServerResponse.created(location).build();
+```
+
+Kotlin:
+```kotlin
+val location: URI = ...
+ServerResponse.created(location).build()
+```
+
+사용된 코덱에 따라 힌트 매개변수(hint parameters)를 전달하여 본문(body)이 직렬화 또는 역직렬화되는 방식을 지정할 수 있다.
+예를 들면 **Jackson JSON view**를 지정한다:
+
+Java:
+```java
+ServerResponse.ok().hint(Jackson2CodecSupport.JSON_VIEW_HINT, MyJacksonView.class).body(...);
+```
+
+Kotlin:
+```kotlin
+ServerResponse.ok().hint(Jackson2CodecSupport.JSON_VIEW_HINT, MyJacksonView::class.java).body(...)
+```
+
+### 핸들러 클래스(Handler Classes)
+핸들러 함수를 아래와 같이 람다로 만들 수 있다.
+
+Java:
+```java
+HandlerFunction<ServerResponse> helloWorld =
+  request -> ServerResponse.ok().bodyValue("Hello World");
+```
+
+Kotlin:
+```kotlin
+val helloWorld = HandlerFunction<ServerResponse> { ServerResponse.ok().bodyValue("Hello World") }
+```
+
+편리하지만 애플리케이션에서 여러 개의 함수를 사용한다면, 인라인 람다가 지저분할 수도 있다. 따라서 핸들러 클래스로 그룹화하여 핸들러 함수를 묶을 수 있다.
+그러면 어노테이션 기반 애플리케이션에서의 `@Controller`와 비슷한 역할을 한다. 예를 들어 다음 클래스는 리액티브 `Person` 관련 처리를 한다:
+
+Java:
+```java
+import static org.springframework.http.MediaType.APPLICATION_JSON;
+import static org.springframework.web.reactive.function.server.ServerResponse.ok;
+
+public class PersonHandler {
+
+    private final PersonRepository repository;
+
+    public PersonHandler(PersonRepository repository) {
+        this.repository = repository;
+    }
+
+    public Mono<ServerResponse> listPeople(ServerRequest request) { (1)
+        Flux<Person> people = repository.allPeople();
+        return ok().contentType(APPLICATION_JSON).body(people, Person.class);
+    }
+
+    public Mono<ServerResponse> createPerson(ServerRequest request) { (2)
+        Mono<Person> person = request.bodyToMono(Person.class);
+        return ok().build(repository.savePerson(person));
+    }
+
+    public Mono<ServerResponse> getPerson(ServerRequest request) { (3)
+        int personId = Integer.valueOf(request.pathVariable("id"));
+        return repository.getPerson(personId)
+            .flatMap(person -> ok().contentType(APPLICATION_JSON).bodyValue(person))
+            .switchIfEmpty(ServerResponse.notFound().build());
+    }
+}
+```
+
+> (1) `listPeople`은 repository에서 검색한 모든 `Person` 객체를 JSON 형태로 반환하는 핸들러 함수다.<br>
+> (2) `createPerson`은 요청 본문(request body)에 있는 `Person`을 저장하는 핸들러 함수다. `PersonRepository.savePerson(Person)`은
+`Mono<Void>`를 반환한다. 빈 `Mono`는 `Person`이 리퀘스트에서 읽혀지고 저장되면 완료됐다는 신호를 보낸다. 그래서 이 완료 신호를 받았을 때(즉, Person이
+저장되었을 때) 응답을 보내기 위해 `build(Publisher<Void>`를 사용한다.<br>
+> (3) `getPerson`은 `id` 경로 변수(path variable)로 식별되는 `Person` 객체 하나를 반환하는 핸들러 함수다. repository에서 `Person`을
+찾으면 JSON 응답을 만든다. 하지만 찾지 못했다면 `switchIfEmpty(Mono<T>)`를 실행해 404 Not Found 응답을 반환한다.
+
+
+Kotlin:
+```kotlin
+class PersonHandler(private val repository: PersonRepository) {
+
+    suspend fun listPeople(request: ServerRequest): ServerResponse { (1)
+        val people: Flow<Person> = repository.allPeople()
+        return ok().contentType(APPLICATION_JSON).bodyAndAwait(people);
+    }
+
+    suspend fun createPerson(request: ServerRequest): ServerResponse { (2)
+        val person = request.awaitBody<Person>()
+        repository.savePerson(person)
+        return ok().buildAndAwait()
+    }
+
+    suspend fun getPerson(request: ServerRequest): ServerResponse { (3)
+        val personId = request.pathVariable("id").toInt()
+        return repository.getPerson(personId)?.let { ok().contentType(APPLICATION_JSON).bodyValueAndAwait(it) }
+                ?: ServerResponse.notFound().buildAndAwait()
+
+    }
+}
+```
+
+> (1) `listPeople`은 repository에서 검색한 모든 `Person` 객체를 JSON 형태로 반환하는 핸들러 함수다.<br>
+> (2) `createPerson`은 요청 본문(request body)에 있는 `Person`을 저장하는 핸들러 함수다. `PersonRepository.savePerson(Person)`은
+반환 타입이 없는 suspend 함수다.<br>
+> (3) `getPerson`은 `id` 경로 변수(path variable)로 식별되는 `Person` 객체 하나를 반환하는 핸들러 함수다. repository에서 `Person`을
+찾으면 JSON 응답을 만든다. 하지만 찾지 못했다면 404 Not Found 응답을 반환한다.
+
+### Validation
+함수형 엔드포인트는 스프링의 검증(Validation) 기능을 사용하여 요청 본문(request body)를 검증할 수 있다. 예를 들어, 사용자가 정의한 스프링 Validator
+구현체로 `Person`을 검증하다:
+
+Java:
+```java
+public class PersonHandler {
+
+    private final Validator validator = new PersonValidator(); (1)
+
+    // ...
+
+    public Mono<ServerResponse> createPerson(ServerRequest request) {
+        Mono<Person> person = request.bodyToMono(Person.class).doOnNext(this::validate); (2)
+        return ok().build(repository.savePerson(person));
+    }
+
+    private void validate(Person person) {
+        Errors errors = new BeanPropertyBindingResult(person, "person");
+        validator.validate(person, errors);
+        if (errors.hasErrors()) {
+            throw new ServerWebInputException(errors.toString()); (3)
+        }
+    }
+}
+```
+
+Kotlin:
+```kotlin
+class PersonHandler(private val repository: PersonRepository) {
+
+    private val validator = PersonValidator() (1)
+
+    // ...
+
+    suspend fun createPerson(request: ServerRequest): ServerResponse {
+        val person = request.awaitBody<Person>()
+        validate(person) (2)
+        repository.savePerson(person)
+        return ok().buildAndAwait()
+    }
+
+    private fun validate(person: Person) {
+        val errors: Errors = BeanPropertyBindingResult(person, "person");
+        validator.validate(person, errors);
+        if (errors.hasErrors()) {
+            throw ServerWebInputException(errors.toString()) (3)
+        }
+    }
+}
+```
+
+> (1) `Validator` 인스턴스를 만든다.
+> (2) 검증 로직을 수행한다.
+> (3) 400으로 응답하는 예외를 발생시킨다.
+
+핸들러는 `LocationValidatorFactoryBean`을 기반으로 글로벌 `Validator` 인스턴스를 주입하여 표준 빈 유효성 검증 API(JSR-303)을
+사용할 수도 있다. **Spring Validation**를 참조하라.
+
 ---
 
 > ### 목차 가이드
-> - <a href="/post/spring-webflux-references-annotated-controllers" target="_blank">다음글 "1.6 URI Links" 로 이동</a>
+> - 다음글 "1.6 URI Links" 로 이동
 > - <a href="/post/web-on-reactive-stack" target="_blank">전체 목차 페이지로 이동</a>
