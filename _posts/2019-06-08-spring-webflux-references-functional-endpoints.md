@@ -372,6 +372,159 @@ class PersonHandler(private val repository: PersonRepository) {
 핸들러는 `LocationValidatorFactoryBean`을 기반으로 글로벌 `Validator` 인스턴스를 주입하여 표준 빈 유효성 검증 API(JSR-303)을
 사용할 수도 있다. **Spring Validation**를 참조하라.
 
+## 1.5.3. RouterFunction
+라우터 함수는 요청을 해당 `HandlerFunction`으로 라우팅하는데 사용된다. 일반적으로 라우터 함수를 직접 작성하지 말고 `RouterFunctions` 유틸리티
+클래스에서 메서드를 사용하여 작성한다. `RouterFunctions.route()`(매개변수 없음)는 라우터 함수를 생성하기 위한 유연한 빌더를 제공하는 반면,
+`RouterFunctions.route(RequestPredicate, HandlerFunction)`은 라우터를 생성하는 직접적인 방법을 제공한다.
+
+일반적으로 `route()` 빌더 사용을 권장한다. 일반적인 매핑 시나리오를 찾기 어려운 정적 임포트 없이 사용할 수 있도록 제공되기 때문이다.
+예를 들면, 라우터 함수 빌더는 `GET(String, HandlerFunction)` 메서드를 제공하여 GET 요청에 대한 매핑을 생성한다. POST의 경우는
+`POST(String, HandlerFunction)` 메서드가 있다.
+
+HTTP 메서드 기반 매핑 외에도 라우트 빌더는 요청에 매핑할 때 추가적인 술어(predicates)를 도입하는 방법을 제공한다. 각 HTTP 메서드마다
+`RequestPredicate`를 매개 변수로 받는 메서드를 오버로딩하고 있기 때문에 다른 조건을 추가할 수 있다.
+
+<div class="post_comments">[역주] 'predicate'를 술어로 번역하였습니다. 주어에 대해 주장되는 개념으로 '스프링은 프레임워크다', '꽃은 아름답다'
+와 같은 문장이 있을 때, '프레임워크', '아름답다' 에 해당합니다.</div>
+
+### Predicates
+직접 `RequestPredicate`를 작성할 수 있지만, `RequestPredicates` 유틸리티 클래스는 요청 경로, HTTP 메서드, 콘텐츠 유형 등을 기반으로 공통적으로
+사용되는 구현체들을 제공한다. 아래는 요청 술어(request predicates)를 사용하여 `Accept` 헤더에 기반한 조건을 생성하는 예제다.
+
+Java:
+```java
+RouterFunction<ServerResponse> route = RouterFunctions.route()
+    .GET("/hello-world", accept(MediaType.TEXT_PLAIN),
+        request -> ServerResponse.ok().bodyValue("Hello World")).build();
+```
+
+Kotlin:
+```kotlin
+val route = coRouter {
+    GET("/hello-world", accept(TEXT_PLAIN)) {
+        ServerResponse.ok().bodyValueAndAwait("Hello World")
+    }
+}
+```
+
+다음을 사용하여 여러 요청 술어를 함께 작성할 수 있다.
+
+- `RequestPredicate.and(RequestPredicate)` - 둘 다 만족해야 한다.
+- `RequestPredicate.or(RequestPredicate)` - 둘 중 하나라도 만족하면 된다.
+
+`RequestPredicates`에는 많은 술어가 구성되어 있다. 예를 들어 `RequestPredicates.GET(String)`은
+`RequestPredicates.method(HttpMethod)`와 `RequestPredicates.path(String)`으로 구성된다. 위의 예제에서의 빌더도 내부적으로
+`RequestPredicates.GET`와 accept 술어(predicate)를 같이 구성한다.
+
+### Routes
+라우터 함수는 순서대로 실행된다: 첫 번째 경로가 일치하지 않으면 두 번째를 실행하는 방식이다. 따라서, 일반적인 경로보다 구체적인 경로를 먼저 선언해야 한다.
+이 동작은 어노테이션 기반 프로그래밍 모델과 다르다. 어노테이션 기반에서는 "가장 구체적인" 컨트롤러 메서드가 자동으로 선택된다.
+
+라우터 함수 빌더를 사용하면, 정의된 모든 라우터는 `build()`에서 리턴되는 하나의 `RouterFunction`으로 구성된다. 또한 여러 라우터 기능을 함께 구성하는
+다른 방법도 있다.
+
+- `RouterFunctions.route()` 빌더의 `add(RouterFunction)`
+- `RouterFunction.and(RouterFunction)`
+- `RouterFunction.andRoute(RequestPredicate, HandlerFunction)` - `RouterFunction.and()` 와
+중첩된 `RouterFunctions.route()` 의 축약형
+
+다음 예제는 4개의 라우팅 구성을 보여준다:
+
+Java:
+```java
+import static org.springframework.http.MediaType.APPLICATION_JSON;
+import static org.springframework.web.reactive.function.server.RequestPredicates.*;
+
+PersonRepository repository = ...
+PersonHandler handler = new PersonHandler(repository);
+
+RouterFunction<ServerResponse> otherRoute = ...
+
+RouterFunction<ServerResponse> route = route()
+    .GET("/person/{id}", accept(APPLICATION_JSON), handler::getPerson) (1)
+    .GET("/person", accept(APPLICATION_JSON), handler::listPeople) (2)
+    .POST("/person", handler::createPerson) (3)
+    .add(otherRoute) (4)
+    .build();
+```
+
+Kotlin:
+```kotlin
+import org.springframework.http.MediaType.APPLICATION_JSON
+
+val repository: PersonRepository = ...
+val handler = PersonHandler(repository);
+
+val otherRoute: RouterFunction<ServerResponse> = coRouter {  }
+
+val route = coRouter {
+    GET("/person/{id}", accept(APPLICATION_JSON), handler::getPerson) (1)
+    GET("/person", accept(APPLICATION_JSON), handler::listPeople) (2)
+    POST("/person", handler::createPerson) (3)
+}.and(otherRoute) (4)
+```
+
+> (1) `GET /person/{id}`와 `Accept` 헤더가 JSON으로 매핑되면 `PersonHandler.getPerson`으로 라우팅한다. <br>
+> (2) `GET /person`과 `Accept` 헤더가 JSON으로 매핑되면 `PersonHandler.listPeople`로 라우팅한다. <br>
+> (3) `POST /person`이 매핑되면 `PersonHandler.createPerson`으로 라우팅한다. 그리고 <br>
+> (4) `otherRoute`는 다른 곳에서 만들어진 라우터 함수다. 라우팅에 추가한다. (나머지 요청을 처리한다)
+
+### Nested Routes
+라우터 함수 그룹은 경로를 공유하는 것처럼 일반적으로 술어(predicate)를 공유한다. 위의 예제에서 공유된 술어는 3개의 라우팅에서 사용된 `/person`에
+매핑되는 경로 술어다. 어노테이션을 사용할 때 `/person`에 매핑되는 타입 레벨 `@RequestMapping` 어노테이션을 사용하여 이러한 중복을 제거했다.
+**WebFlux.fn**에서는 라우터 함수 빌더의 `path` 메서드로 경로 술어를 공유할 수 있다. 예를 들어, 위 예제의 마지막 몇 줄은 중첩된 라우팅을 사용하여
+아래와 같이 개선될 수 있다:
+
+Java:
+```java
+RouterFunction<ServerResponse> route = route()
+    .path("/person", builder -> builder (1)
+        .GET("/{id}", accept(APPLICATION_JSON), handler::getPerson)
+        .GET("", accept(APPLICATION_JSON), handler::listPeople)
+        .POST("/person", handler::createPerson))
+    .build();
+```
+
+> (1) `path` 메서드의 두 번째 파라미터는 라우터 빌더를 사용하는 컨슈머다.
+
+Kotlin:
+```kotlin
+val route = coRouter {
+    "/person".nest {
+        GET("/{id}", accept(APPLICATION_JSON), handler::getPerson)
+        GET("", accept(APPLICATION_JSON), handler::listPeople)
+        POST("/person", handler::createPerson)
+    }
+}
+```
+
+경로 기반 중첩이 가장 일반적이지만 빌더에서 `nest` 메서드를 사용하여 모든 유형의 술어를 중첩할 수 있다. 위의 예제는 여전히 `Accept` 헤더가 중복이다.
+`accept`와 `nest` 메서드를 함께 사용하면 더 개선할 수 있다:
+
+Java:
+```java
+RouterFunction<ServerResponse> route = route()
+    .path("/person", b1 -> b1
+        .nest(accept(APPLICATION_JSON), b2 -> b2
+            .GET("/{id}", handler::getPerson)
+            .GET("", handler::listPeople))
+        .POST("/person", handler::createPerson))
+    .build();
+```
+
+Kotlin:
+```kotlin
+val route = coRouter {
+    "/person".nest {
+        accept(APPLICATION_JSON).nest {
+            GET("/{id}", handler::getPerson)
+            GET("", handler::listPeople)
+            POST("/person", handler::createPerson)
+        }
+    }
+}
+```
+
 ---
 
 > ### 목차 가이드
