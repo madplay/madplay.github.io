@@ -525,6 +525,191 @@ val route = coRouter {
 }
 ```
 
+## 1.5.4. 서버 실행(Running a Server)
+HTTP 서버에서 어떻게 라우터 기능을 실행할까? 간단한 옵션은 다음 중 하나를 사용하여 라우터 기능을 `HttpHandler`로 변환하는 것이다.
+
+- `RouterFunctions.toHttpHandler(RouterFunction)`
+- `RouterFunctions.toHttpHandler(RouterFunction, HandlerStrategies)`
+
+반환된 `HttpHandler`를 서버 지사사항에 따라 서버 어댑터와 함께 사용할 수 있다.
+
+스프링 부트에서도 사용되는 보다 일반적인 옵션은 **Webflux Config**를 통해 `DispatcherHandler` 기반 설정으로 실행하는 것이다.
+**WebFlux Config**는 스프링 설정을 사용하여 요청을 처리하는데 필요한 컴포넌트를 선언한다. 웹플럭스 자바 설정은 함수형 엔드포인트를 지원하기 위해
+아래와 같은 컴포넌트를 지원한다:
+
+- `RouterFunctionMapping`: 스프링 설정에서 하나 이상의 `RouterFunction<?>` 빈을 찾고 `RouterFunction.andOther`로 결합한 후
+요청을 구성한 `RouterFunction`으로 라우팅한다.
+- `HandlerFunctionAdapter`: `DispatcherHandler`가 요청에 매핑된 `HandlerFunction`을 호출할 수 있게 도와주는 간단한 어댑터다.
+- `ServerResponseResultHandler`: `ServerResponse`의 `writeTo` 메서드로 `HandlerFunction` 호출 결과를 처리한다.
+
+위에서 살펴본 컴포넌트들은 함수형 엔드포인트가 `DispatcherHandler` 요청 처리 라이프 사이클에 적합하고 어노테이션 컨트롤러가 선언되어 있다면, 이와
+함께(잠재적으로) 실행될 수 있도록 한다. 이것은 또한 스프링 부트 웹플럭스 스타터(starter)가 함수형 엔드포인트를 적용하는 방식이다.
+
+다음 예제는 웹플럭스 자바 설정을 보여준다. (실행 방법은 `DispatcherHandler`를 참조하라):
+
+Java:
+```java
+@Configuration
+@EnableWebFlux
+public class WebConfig implements WebFluxConfigurer {
+
+    @Bean
+    public RouterFunction<?> routerFunctionA() {
+        // ...
+    }
+
+    @Bean
+    public RouterFunction<?> routerFunctionB() {
+        // ...
+    }
+
+    // ...
+
+    @Override
+    public void configureHttpMessageCodecs(ServerCodecConfigurer configurer) {
+        // configure message conversion...
+    }
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        // configure CORS...
+    }
+
+    @Override
+    public void configureViewResolvers(ViewResolverRegistry registry) {
+        // configure view resolution for HTML rendering...
+    }
+}
+```
+
+Kotlin:
+```kotlin
+@Configuration
+@EnableWebFlux
+class WebConfig : WebFluxConfigurer {
+
+    @Bean
+    fun routerFunctionA(): RouterFunction<*> {
+        // ...
+    }
+
+    @Bean
+    fun routerFunctionB(): RouterFunction<*> {
+        // ...
+    }
+
+    // ...
+
+    override fun configureHttpMessageCodecs(configurer: ServerCodecConfigurer) {
+        // configure message conversion...
+    }
+
+    override fun addCorsMappings(registry: CorsRegistry) {
+        // configure CORS...
+    }
+
+    override fun configureViewResolvers(registry: ViewResolverRegistry) {
+        // configure view resolution for HTML rendering...
+    }
+}
+```
+
+## 1.5.5. Filtering Handler Functions
+라우팅 함수 빌더의 `before`, `after` 또는 `filter` 메서드를 사용하여 핸들러 함수를 필터링할 수 있다. 어노테이션으로는 `@ControllerAdvice`,
+`ServletFilter` 또는 둘 다를 사용하여 유사한 기능을 수행할 수 있다. 필터는 빌더의 모든 라우팅에 적용된다. 그러니까, 중첩된 라우팅에 정의된 필터는
+"최상위" 라우팅에 적용되지 않는다는 것이다. 예를 들어, 아래 예제를 보라:
+
+Java:
+```java
+RouterFunction<ServerResponse> route = route()
+    .path("/person", b1 -> b1
+        .nest(accept(APPLICATION_JSON), b2 -> b2
+            .GET("/{id}", handler::getPerson)
+            .GET("", handler::listPeople)
+            .before(request -> ServerRequest.from(request) (1)
+                .header("X-RequestHeader", "Value")
+                .build()))
+        .POST("/person", handler::createPerson))
+    .after((request, response) -> logResponse(response)) (2)
+    .build();
+```
+
+Kotlin:
+```kotlin
+val route = router {
+    "/person".nest {
+        GET("/{id}", handler::getPerson)
+        GET("", handler::listPeople)
+        before { (1)
+            ServerRequest.from(it)
+                    .header("X-RequestHeader", "Value").build()
+        }
+        POST("/person", handler::createPerson)
+        after { _, response -> (2)
+            logResponse(response)
+        }
+    }
+}
+```
+
+> (1) 커스텀 요청 헤더를 추가하는 `before` 필터의 경우 두 개의 GET 라우팅에만 적용된다.<br>
+> (2) 로그를 기록하는 `after` 필터의 경우 중첩된 경로를 포함하여 모든 라우팅에 적용된다.
+
+라우터 빌더에 있는 `filter` 메서드는 `HandlerFilterFunction`을 인자로 받는다. 이는 `ServerRequest`와 `HandlerFunction`을 받아
+`ServerResponse`를 반환하는 함수다. 핸들러 함수 매개변수는 체인의 다음 요소를 나타낸다. 다음 요소는 일반적으로 라우팅되는 핸들러지만 여러 개 필터가
+적용되는 경우에는 다른 필터가 될 수도 있다.
+
+이제 특정 경로의 접근 여부를 결정할 수 있는 `SecurityManager`가 있다고 가정하고 간단한 보안 필터를 추가할 수 있다. 다음 예제는 이를 수행하는 방법을
+보여준다:
+
+Java:
+```java
+SecurityManager securityManager = ...
+
+RouterFunction<ServerResponse> route = route()
+    .path("/person", b1 -> b1
+        .nest(accept(APPLICATION_JSON), b2 -> b2
+            .GET("/{id}", handler::getPerson)
+            .GET("", handler::listPeople))
+        .POST("/person", handler::createPerson))
+    .filter((request, next) -> {
+        if (securityManager.allowAccessTo(request.path())) {
+            return next.handle(request);
+        }
+        else {
+            return ServerResponse.status(UNAUTHORIZED).build();
+        }
+    })
+    .build();
+```
+
+Kotlin:
+```kotlin
+val securityManager: SecurityManager = ...
+
+val route = router {
+        ("/person" and accept(APPLICATION_JSON)).nest {
+            GET("/{id}", handler::getPerson)
+            GET("", handler::listPeople)
+            POST("/person", handler::createPerson)
+            filter { request, next ->
+                if (securityManager.allowAccessTo(request.path())) {
+                    next(request)
+                }
+                else {
+                    status(UNAUTHORIZED).build();
+                }
+            }
+        }
+    }
+```
+
+앞선 예제는 `next.handle(ServerRequest)` 실행이 선택 사항임을 보여준다. 접근이 허용된 경우에만 핸들러 함수가 실행된다.
+라우터 함수 빌더의 `filter` 메서드를 사용하는 것 외에, `RouterFunction.filter(HandlerFilterFunction)`을 통해 기존 라우터 함수에 필터를
+적용할 수 있다.
+
+> 함수형 엔드포인트에 대한 CORS 지원은 `CorsWebFilter`를 통해 제공된다.
+
 ---
 
 > ### 목차 가이드
