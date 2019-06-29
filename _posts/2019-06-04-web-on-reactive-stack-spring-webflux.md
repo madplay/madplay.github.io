@@ -28,7 +28,7 @@ comments: true
 - <a href="/post/spring-webflux-references-dispatcherhandler" target="_blank">1.3. DispatcherHandler</a>
 - <a href="/post/spring-webflux-references-annotated-controllers" target="_blank">1.4. Annotated Controllers</a>
 - <a href="/post/spring-webflux-references-functional-endpoints" target="_blank">1.5. Functional Endpoints</a>
-- 1.6. URI Links
+- <a href="/post/spring-webflux-references-url-links" target="_blank">1.6. URI Links</a>
 - 1.7. CORS
 - 1.8. Web Security
 - 1.9. View Technologies

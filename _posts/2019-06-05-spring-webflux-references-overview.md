@@ -195,5 +195,5 @@ RxJava 또는 기타)을 직접 반환할 수 있다. 호출 당 대기 시간�
 ---
 
 > ### 목차 가이드
-> - <a href="/post/spring-webflux-references-reactive-core" target="_blank">다음글 "1.2 리액티브 코어" 로 이동</a>
+> - <a href="/post/spring-webflux-references-reactive-core" target="_blank">다음글 "1.2. 리액티브 코어" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack" target="_blank">전체 목차 페이지로 이동</a>
