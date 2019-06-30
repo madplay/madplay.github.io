@@ -158,3 +158,8 @@ JAXB API를 이용하면 간단하게 XML 파싱을 진행할 수 있습니다. 
 
 다만, 마샬러(Marshaller)와 언마샬러(Unmarshaller)의 경우 스레드 안전하지 않기 때문에 **마샬/언마샬이 수행될 때마다 다시
 생성**하는 것을 권장합니다. 다행히 이를 생성하는 비용은 크지 않습니다.
+
+이어지는 포스팅에서는 JAXB API를 사용하는 과정에서 문법 오류(Syntax Error) 등의 이유로 에러가 발생하는 것을 탐지하는
+방법, 그리고 발생한 위치를 알아내는 방법 등에대해서 알아봅니다.
+ 
+- <a href="/post/jaxb-validation-event-handler" target="_blank">참고 링크: ValidationEventHandler를 이용하여 JAXB 파싱 에러 탐지하기</a> 
