@@ -57,7 +57,7 @@ ValidationEvent.ERROR(정수 값 1), ValidationEvent.FATAL_ERROR(정수 값 2)**
   참고 링크: Extensible Markup Language (XML) 1.0 > Terminology</a>
 - ```ValidationEventLocator```: 발생한 ValidationEvent의 위치 정보를 캡슐화하고 있는 객체입니다.
   - 에러 발생 라인 번호(line number), 발생 열 번호(column number), 내용(message) 등을 확인할 수 있습니다.
-- ```return```: 이벤트 처리 이후에 현재 진행하고 있는 마샬, 언마샬, 유효성검사(validate) 등을 계속 진행할지에 대한 true / false 값
+- ```return```: 이벤트 처리 이후에 현재 진행하고 있는 마샬, 언마샬, 유효성검사(validate) 등을 계속 진행할지에 대한 Boolean 값
 
 사용할 때는 위에서 정의한 이벤트 핸들러를 마샬러 또는 언마샬러 등에 설정해주면 됩니다.
 
@@ -137,6 +137,7 @@ ValidationEvent 인터페이스에는 아래와 같이 에러 레벨에 대한 �
     public static final int FATAL_ERROR = 2;
     
     // ... 생략
+}
 </code></pre>
 
 이처럼 **ValidationEventHandler**를 이용하면 JAXB API를 사용하면서 발생한 오류에 대해서 개발자가 직접적으로 개입할 수 있고
@@ -146,13 +147,13 @@ ValidationEvent 인터페이스에는 아래와 같이 에러 레벨에 대한 �
 
 > ## 정리하며
 
-JAXB는 여러 종류의 구현 클래스 라이브러리를 가지고 있습니다. 기본적으로 Sun에서 제공하는 JAXB 구현체, Apache Camel 등이 있으며
+JAXB는 여러 종류의 **구현체 라이브러리**를 가지고 있습니다. 기본적으로 Sun에서 제공하는 JAXB 구현체, Apache Camel 등이 있으며
 xPath 표현식까지 지원하여 매우 유용하게 사용할 수 있는 EclipseLink Moxy 도 있습니다. 
 마치 Json 포맷을 다룰 때 Jackson, Gson 등 선택할 수 있는 라이브러리 종류가 있다는 개념으로 이해하면 될 것 같습니다.
 
 다른 라이브러리를 사용할 때는 ```JAXBContextFactory```를 통해서 직접적으로 JAXB 구현체를 선택할 수 있습니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">// import org.eclipse.persistence.jaxb.JAXBContextFactory;
+<pre class="line-numbers"><code class="language-java" data-start="1">import org.eclipse.persistence.jaxb.JAXBContextFactory;
 
 JAXBContext context = JAXBContextFactory.createContext(new Class[]{Person.class}, someProperties);
 Unmarshaller unmarshaller = context.createUnmarshaller();
@@ -160,7 +161,7 @@ unmarshaller.setEventHandler(new CustomEventHandler());
 // ... 생략
 </code></pre>
 
-한편 이벤트 핸들러에 탐지되는 정보가 올바르지 않는 경우도 있습니다. 스트림을 포함하여 특정 형태의 인자를 언마샬링에 사용하게 되면
+한편 **이벤트 핸들러에 탐지되는 정보가 올바르지 않는 경우**도 있습니다. 스트림을 포함하여 특정 형태의 인자를 언마샬링에 사용하게 되면
 ValidationEvent의 위치 정보가 정확하게 표기되지 않다거나, 이벤트 핸들러에 탐지(Detect)조차 되지 않는 경우가 있습니다.
 물론 이번 포스팅 예제에서 사용한 파일(file) 형태나 InputSource 등과 같은 형태로 변환하여 사용하면 이슈는 없습니다.
 
