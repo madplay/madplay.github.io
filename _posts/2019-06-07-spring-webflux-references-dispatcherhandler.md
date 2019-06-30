@@ -138,5 +138,5 @@ JSON과 XML 같은 미디어 유형을 지원하기 위해 스프링 웹플럭�
 ---
 
 > ### 목차 가이드
-> - <a href="/post/spring-webflux-references-annotated-controllers" target="_blank">다음글 "1.4 Annotated Controllers" 로 이동</a>
+> - <a href="/post/spring-webflux-references-annotated-controllers" target="_blank">다음글 "1.4. Annotated Controllers" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack" target="_blank">전체 목차 페이지로 이동</a>

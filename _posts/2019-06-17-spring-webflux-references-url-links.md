@@ -295,10 +295,8 @@ URI 변수를 적용할 때 인코딩 한다.
 `RestTemplate`은 이전 버전과의 호환성을 위해서 `EncodingMode.URI_COMPONENT`로 설정된다. `WebClient`는 `DefaultUriBuilderFactory`의
 기본값을 사용하며 5.0.x 버전에서는 `EncodingMode.URI_COMPONENT`이지만, 5.1 버전에서는 `EncodingMode.TEMPLATE_AND_VALUES`로 변경되었다.
 
-
-
 ---
 
 > ### 목차 가이드
-> - 다음글 "1.6 URI Links" 로 이동
+> - 다음글 "1.7. CORS" 로 이동
 > - <a href="/post/web-on-reactive-stack" target="_blank">전체 목차 페이지로 이동</a>
