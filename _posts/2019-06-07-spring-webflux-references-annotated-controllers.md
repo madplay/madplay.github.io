@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.4 어노테이션 컨트롤러"
+title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.4. 어노테이션 컨트롤러"
 author:   Kimtaeng
 tags: 	  spring webflux reactive
-description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.4 Annotated Controllers"
+description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.4. Annotated Controllers"
 category: Spring
 date: "2019-06-07 23:59:22"
 comments: true
