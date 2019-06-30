@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.3 디스패처 핸들러"
+title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.3. 디스패처 핸들러"
 author:   Kimtaeng
 tags: 	  spring webflux reactive
-description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.3 DispatcherHandler"
+description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.3. DispatcherHandler"
 category: Spring
 date: "2019-06-07 23:24:14"
 comments: true

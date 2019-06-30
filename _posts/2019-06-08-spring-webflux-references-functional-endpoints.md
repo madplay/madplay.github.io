@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.5 함수형 엔드포인트"
+title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.5. 함수형 엔드포인트"
 author:   Kimtaeng
 tags: 	  spring webflux reactive
-description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.5 Functional Endpoints"
+description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.5. Functional Endpoints"
 category: Spring
 date: "2019-06-08 22:11:53"
 comments: true

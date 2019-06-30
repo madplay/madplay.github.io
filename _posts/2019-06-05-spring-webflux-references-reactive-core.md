@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.2 리액티브 코어"
+title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.2. 리액티브 코어"
 author:   Kimtaeng
 tags: 	  spring webflux reactive
-description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.2 Reactive Core"
+description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.2. Reactive Core"
 category: Spring
 date: "2019-06-05 00:31:24"
 comments: true

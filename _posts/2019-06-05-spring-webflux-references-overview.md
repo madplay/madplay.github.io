@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.1 개요"
+title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.1. 개요"
 author:   Kimtaeng
 tags: 	  spring webflux reactive
-description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.1 Overview"
+description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.1. Overview"
 category: Spring
 date: "2019-06-05 00:01:24"
 comments: true
