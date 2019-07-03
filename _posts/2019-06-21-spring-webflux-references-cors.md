@@ -47,6 +47,145 @@ URL 패턴 기반 `CorsConfiguration` 매핑으로 각 `HandlerMapping`마다 �
 - `CorsProcessor`와 `DefaultCorsProcessor`
 - `AbstractHandlerMapping`
 
+## 1.7.3. @CrossOrigin
+`@CrossOrigin` 어노테이션은 아래 예제와 같이 어노테이션 컨트롤러 메서드에서 cross-origin 요청을 가능하게 한다:
+
+Java:
+```java
+@RestController
+@RequestMapping("/account")
+public class AccountController {
+
+    @CrossOrigin
+    @GetMapping("/{id}")
+    public Mono<Account> retrieve(@PathVariable Long id) {
+        // ...
+    }
+
+    @DeleteMapping("/{id}")
+    public Mono<Void> remove(@PathVariable Long id) {
+        // ...
+    }
+}
+```
+
+Kotlin:
+```kotlin
+@RestController
+@RequestMapping("/account")
+class AccountController {
+
+    @CrossOrigin
+    @GetMapping("/{id}")
+    suspend fun retrieve(@PathVariable id: Long): Account {
+        // ...
+    }
+
+    @DeleteMapping("/{id}")
+    suspend fun remove(@PathVariable id: Long) {
+        // ...
+    }
+}
+```
+
+기본적으로, `@CrossOrigin`은 다음을 허용한다.
+
+- 모든 origin
+- 모든 헤더
+- 컨트롤러 메서드에 매핑된 모든 HTTP 메서드
+
+`allowedCredentials`는 기본적으로 비활성화되어 있다. 이유는 민감한 유저 식별 정보(쿠키와 CSRF 토큰과 같은)를 노출하는 신뢰 수준을 설정하기 때문이다.
+따라서 적절한 상황에서만 사용해야 한다.
+
+`maxAge`는 30분으로 설정되어 있다.
+
+`@CrossOrigin`은 클래스 수준에서도 지원되며 클래스에 적용한 경우 모든 메서드에서 상속된다. 아래 예제는 특정 도메인을 지정하고 `maxAge`를 1시간으로
+설정한다:
+
+Java:
+```java
+@CrossOrigin(origins = "https://domain2.com", maxAge = 3600)
+@RestController
+@RequestMapping("/account")
+public class AccountController {
+
+    @GetMapping("/{id}")
+    public Mono<Account> retrieve(@PathVariable Long id) {
+        // ...
+    }
+
+    @DeleteMapping("/{id}")
+    public Mono<Void> remove(@PathVariable Long id) {
+        // ...
+    }
+}
+```
+
+Kotlin:
+```kotlin
+@CrossOrigin("https://domain2.com", maxAge = 3600)
+@RestController
+@RequestMapping("/account")
+class AccountController {
+
+    @GetMapping("/{id}")
+    suspend fun retrieve(@PathVariable id: Long): Account {
+        // ...
+    }
+
+    @DeleteMapping("/{id}")
+    suspend fun remove(@PathVariable id: Long) {
+        // ...
+    }
+}
+```
+
+아래 예제처럼 `@CrossOrigin`을 클래스 레벨과 메서드 레벨 동시에 선언할 수도 있다.
+
+Java:
+```java
+@CrossOrigin(maxAge = 3600) (1)
+@RestController
+@RequestMapping("/account")
+public class AccountController {
+
+    @CrossOrigin("https://domain2.com") (2)
+    @GetMapping("/{id}")
+    public Mono<Account> retrieve(@PathVariable Long id) {
+        // ...
+    }
+
+    @DeleteMapping("/{id}")
+    public Mono<Void> remove(@PathVariable Long id) {
+        // ...
+    }
+}
+```
+
+Kotlin:
+```kotlin
+@CrossOrigin(maxAge = 3600) (1)
+@RestController
+@RequestMapping("/account")
+class AccountController {
+
+    @CrossOrigin("https://domain2.com") (2)
+    @GetMapping("/{id}")
+    suspend fun retrieve(@PathVariable id: Long): Account {
+        // ...
+    }
+
+    @DeleteMapping("/{id}")
+    suspend fun remove(@PathVariable id: Long) {
+        // ...
+    }
+}
+```
+
+> (1) `@CrossOrigin`을 클래스 레벨에 사용한다.<br>
+> (2) `@CrossOrigin`을 메서드 레벨에 사용한다.
+
+
 ---
 
 > ### 목차 가이드
