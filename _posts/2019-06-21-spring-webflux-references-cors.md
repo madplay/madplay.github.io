@@ -185,6 +185,114 @@ class AccountController {
 > (1) `@CrossOrigin`을 클래스 레벨에 사용한다.<br>
 > (2) `@CrossOrigin`을 메서드 레벨에 사용한다.
 
+## 1.7.4. 전역 설정(Global Configuration)
+컨트롤러 메서드 레벨에 세분화하여 설정하는 것 대신에 전역으로 CORS 설정이 필요할 수도 있다. URL 기반 `CorsConfiguration` 매핑을 어떠한
+어떤 `HandlerMapping`에든 개별적으로 설정할 수 있다. 하지만 대부분 애플리케이션은 웹플럭스 자바 설정을 사용하여 전역으로 설정한다.
+
+전역 설정을 사용하면 다음을 기본적으로 허용한다.
+
+- 모든 origin
+- 모든 헤더
+- `GET`, `HEAD` 그리고 `POST` 메서드
+
+`allowedCredentials`는 기본적으로 비활성화되어 있다. 이유는 민감한 유저 식별 정보(쿠키와 CSRF 토큰과 같은)를 노출하는 신뢰 수준을 설정하기 때문이다.
+따라서 적절한 상황에서만 사용해야 한다.
+
+`maxAge`는 30분으로 설정되어 있다.
+
+웹플럭스 자바 설정으로 CORS를 사용하려면 아래 예제와 같이 `CorsRegistry` 콜백을 사용한다:
+
+Java:
+```java
+@Configuration
+@EnableWebFlux
+public class WebConfig implements WebFluxConfigurer {
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+
+        registry.addMapping("/api/**")
+            .allowedOrigins("https://domain2.com")
+            .allowedMethods("PUT", "DELETE")
+            .allowedHeaders("header1", "header2", "header3")
+            .exposedHeaders("header1", "header2")
+            .allowCredentials(true).maxAge(3600);
+
+        // Add more mappings...
+    }
+}
+```
+
+Kotlin:
+```kotlin
+@Configuration
+@EnableWebFlux
+class WebConfig : WebFluxConfigurer {
+
+    override fun addCorsMappings(registry: CorsRegistry) {
+
+        registry.addMapping("/api/**")
+                .allowedOrigins("https://domain2.com")
+                .allowedMethods("PUT", "DELETE")
+                .allowedHeaders("header1", "header2", "header3")
+                .exposedHeaders("header1", "header2")
+                .allowCredentials(true).maxAge(3600)
+
+        // Add more mappings...
+    }
+}
+```
+
+## 1.7.5. CORS WebFilter
+함수형 엔드포인트와 적합한 내장된 `CorsWebFilter`를 통해 CORS 지원을 적용할 수 있다.
+
+> Spring Security와 `CorsFilter`를 함께 사용하는 경우, Spring Security에는 내장형 CORS 지원이 있는 것을 유념하라.
+
+필터를 설정하기 위해 아래 예제와 같이 `CorsWebFilter` 빈을 선언하고 `CorsConfigurationSource`를 생성자에 전달한다:
+
+Java:
+```java
+@Bean
+CorsWebFilter corsFilter() {
+
+    CorsConfiguration config = new CorsConfiguration();
+
+    // Possibly...
+    // config.applyPermitDefaultValues()
+
+    config.setAllowCredentials(true);
+    config.addAllowedOrigin("https://domain1.com");
+    config.addAllowedHeader("*");
+    config.addAllowedMethod("*");
+
+    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+    source.registerCorsConfiguration("/**", config);
+
+    return new CorsWebFilter(source);
+}
+```
+
+Kotlin:
+```kotlin
+@Bean
+fun corsFilter(): CorsWebFilter {
+
+    val config = CorsConfiguration()
+
+    // Possibly...
+    // config.applyPermitDefaultValues()
+
+    config.allowCredentials = true
+    config.addAllowedOrigin("https://domain1.com")
+    config.addAllowedHeader("*")
+    config.addAllowedMethod("*")
+
+    val source = UrlBasedCorsConfigurationSource().apply {
+        registerCorsConfiguration("/**", config)
+    }
+    return CorsWebFilter(source)
+}
+```
 
 ---
 
