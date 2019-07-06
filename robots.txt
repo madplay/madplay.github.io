@@ -1,5 +1,4 @@
 User-agent: *
-Allow: *
-Disallow: /page*
+Allow: /
 
 Sitemap: https://madplay.github.io/sitemap.xml
