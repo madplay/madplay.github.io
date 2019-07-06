@@ -46,7 +46,7 @@ exclude: ["README.md"]
 
 # Print Settings
 permalink: /post/:title
-paginate: 5
+paginate: 10
 paginate_path: /page:num
 
 # Disqus(Comment)
