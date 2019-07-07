@@ -31,7 +31,7 @@ rel="nofollow" target="_blank" >참고 링크: Web on Reactive Stack</a>
 - <a href="/post/spring-webflux-references-functional-endpoints" target="_blank">1.5. Functional Endpoints</a>
 - <a href="/post/spring-webflux-references-url-links" target="_blank">1.6. URI Links</a>
 - <a href="/post/spring-webflux-references-cors" target="_blank">1.7. CORS</a>
-- 1.8. Web Security
+- <a href="/post/spring-webflux-references-web-security" target="_blank">1.8. Web Security</a>
 - 1.9. View Technologies
 - 1.10. HTTP Caching
 - 1.11. WebFlux Config
