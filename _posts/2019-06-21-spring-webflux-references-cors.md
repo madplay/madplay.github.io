@@ -297,5 +297,5 @@ fun corsFilter(): CorsWebFilter {
 ---
 
 > ### 목차 가이드
-> - 다음글 "1.8. Web Security" 로 이동
+> - <a href="/post/spring-webflux-references-web-security" target="_blank">다음글 "1.8. Web Security" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack" target="_blank">전체 목차 페이지로 이동</a>
