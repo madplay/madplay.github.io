@@ -23,8 +23,8 @@ Mac OS 기준으로 brew를 이용하면 바로 설치 가능합니다.
 <pre class="line-numbers"><code class="language-bash" data-start="1">$ brew install jenv
 </code></pre>
 
-설치가 끝나면 현재 설정된 JDK 버전을 확인해봅시다. 아래처럼 JDK가 보이지 않는다고 설치된 것이 아닐 수 있습니다.
-그저 jEnv에 등록되지 않은 것일 수 있습니다.
+설치가 끝나면 현재 설정된 JDK 버전을 확인해봅시다. 혹시나 아래처럼 JDK가 보이지 않는다고해서 JDK가 설치된 것이 아닐 수 있습니다.
+처음 jEnv 설치한 후에 아무것도 등록하지 않았다면 원래 보이지 않습니다.
 
 <pre class="line-numbers"><code class="language-bash" data-start="1">$ jenv versions
  * system (set by /Users/madplay/.jenv/version) 
@@ -40,12 +40,13 @@ Matching Java Virtual Machines (3):
   1.7.0_79, x86_64:	"Java SE 7"	/Library/Java/JavaVirtualMachines/jdk1.7.0_79.jdk/Contents/Home
 </code></pre>
 
-혹시나 설치된 것이 없더라도 걱정하지 않아도 됩니다. 아래와 같이 cask 패키지를 통해서 간단하게 설치할 수 있습니다.
+혹시나 설치된 JDK가 없더라도 걱정하지 않아도 됩니다. 아래와 같이 cask 패키지를 통해서 간단하게 설치할 수 있습니다.
 (다만, 최신 버전이 기본으로 설치됩니다.)
 <pre class="line-numbers"><code class="language-bash" data-start="1">$ brew cask install java
 </code></pre>
 
-JDK가 설치되었다면 이제 마지막으로 jenv를 초기화해줍니다.
+예제에서는 최신 버전만 설치했지만 다른 버전도 같이 설치해주면 됩니다.
+설치가 완료되었다면 이제 마지막으로 jenv를 초기화해줍니다.
 
 <pre class="line-numbers"><code class="language-bash" data-start="1">$ echo 'export PATH="HOME/.jenv/bin:$PATH"' >> ~/.bash_profile
 $ echo 'eval "$(jenv init -)"' >> ~/.bash_profile
