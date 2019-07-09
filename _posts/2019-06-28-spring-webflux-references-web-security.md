@@ -93,5 +93,5 @@ public class HelloWebfluxSecurityConfig {
 ---
 
 > ### 목차 가이드
-> - 다음글 "1.9. View Technologies" 로 이동
+> - <a href="/post/spring-webflux-references-view-technologies" target="_blank">다음글 "1.9. View Technologies" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack" target="_blank">전체 목차 페이지로 이동</a>
