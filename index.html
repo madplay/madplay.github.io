@@ -76,14 +76,14 @@ subtitle: 공부하는 개발자의 이야기를 담고 있습니다.
             {% assign current_minus_one = current | minus: 1 %}
             {% if left_mid > left_end %}
                 {% for i in (left_mid..current_minus_one) %}
-                    <li class="pager_number"><a href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', i }}">{{ i }}</a></li>
+                    <li class="pager_number"><a href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', i }}/">{{ i }}</a></li>
                 {% endfor %}
             {% endif %}
             {{ current_page }}
 
             {% if right_mid < right_end %}
                 {% for i in (current_plus_one..right_mid) %}
-                    <li class="pager_number"><a href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', i }}">{{ i }}</a></li>
+                    <li class="pager_number"><a href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', i }}/">{{ i }}</a></li>
                 {% endfor %}
             {% endif %}
 
@@ -93,7 +93,7 @@ subtitle: 공부하는 개발자의 이야기를 담고 있습니다.
             {% endif %}
 
             {% for i in (right_end..total) %}
-                <li class="page_number"><a href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', i }}">{{ i }}</a></li>
+                <li class="page_number"><a href="{{ site.baseurl }}{{ site.paginate_path | replace: ':num', i }}/">{{ i }}</a></li>
             {% endfor %}
         {% endcapture %}
         {% assign paginator = paginator | normalize_whitespace %}
