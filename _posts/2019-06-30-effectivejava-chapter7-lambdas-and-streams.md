@@ -74,11 +74,11 @@ class GoshThisClassNameIsHumongous {
 
 메서드 참조 유형 | 예시 | 같은 기능의 람다
 |:--|:--|:--
-정적 | Integer::parseInt | str -> Integer.parseInt(str)
-한정적(인스턴스) | Instant.now()::isAfter | Instant then = Instant.now(); <br/>t -> then.isAfter(t)
-비한정적(인스턴스) | String::toLowerCase | str -> str.toLowerCase()
-클래스 생성자 | TreeMap<K,V>::new | () -> new TreeMap<K,V>()
-배열 생성자 | Int[]::new | len -> new int[len]
+정적 | ```Integer::parseInt``` | ```str -> Integer.parseInt(str)```
+한정적(인스턴스) | ```Instant.now()::isAfter``` | ```Instant then = Instant.now();``` <br/> ```t -> then.isAfter(t)```
+비한정적(인스턴스) | ```String::toLowerCase``` | ```str -> str.toLowerCase()```
+클래스 생성자 | ```TreeMap<K,V>::new``` | ```() -> new TreeMap<K,V>()```
+배열 생성자 | ```Int[]::new``` | ```len -> new int[len]```
 
 <div class="post_caption">메서드 참조는 람다의 간결한 대안책이 될 수 있다.</div>
 
@@ -86,6 +86,14 @@ class GoshThisClassNameIsHumongous {
 
 # 아이템 44. 표준 함수형 인터페이스를 사용하라
 > Favor the use of standard functional interfaces
+
+필요에 따라서 함수형 인터페이스를 직접 구현할 수 있겠지만, 대부분 ```java.util.function``` 패키지가 제공하는
+표준 함수형 인터페이스로 해결할 수 있다.
+
+- <a href="/post/favor-the-use-of-standard-functional-interfaces">
+더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 44. 표준 함수형 인터페이스를 사용하라</a>
+
+<div class="post_caption">표준 함수형 인터페이스를 사용하는 것이 대부분 가장 좋은 선택이다.</div>
 
 <br/>
 
