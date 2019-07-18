@@ -100,6 +100,90 @@ class GoshThisClassNameIsHumongous {
 # 아이템 45. 스트림은 주의해서 사용하라
 > Use streams judiciously
 
+스트림은 데이터 원소의 유한 또는 무한 시퀀스(sequence)를 뜻한다. 컬렉션, 배열, 파일 등을 통해서 만들 수 있다.
+
+- <a href="/post/introduction-to-java-streams">자바 스트림 정리: 1. API 소개와 스트림 생성 연산</a>
+
+## 스트림 파이프라인
+
+스트림 파이프라인은 스트림의 원소들로 수행하는 연산 단계를 표현한다. 스트림을 생성하는 연산을 시작으로 종단 연산을 통해 끝나며,
+그 사이에는 스트림을 변환하거나 계산하는 한 개 이상의 중간 연산이 포함될 수 있다.
+
+또한 스트림 파이프라인은 지연 평가(lazy evaluation) 된다. 평가는 종단 연산이 호출될 때 진행되며, 종단 연산에 사용되지 않는
+데이터는 계산에 사용되지 않는다. 이것이 무한 스트림을 다룰 수 있게 해주는 핵심이다. 그러므로 종단 연산을 잊음녀 안된다.
+
+## 가독성
+
+스트림을 남발하게 되면 오히려 읽기 어려운 코드가 된다.
+
+- <a href="/post/mistakes-when-using-java-streams">자바 스트림 정리: 5. 스트림을 사용할 때 주의할 점</a>
+
+```java
+public class Anagrams {
+    public static void main(String[] args) throws IOException {
+        Path dictionary = Paths.get(args[0]);
+        int minGroupSize = Integer.parseInt(args[1]);
+
+        try (Stream<String> words = Files.lines(dictionary)) {
+            words.collect(groupingBy(word -> word.chars().sorted()
+                    .collect(StringBuilder::new,
+                        (sb, c) -> sb.append((char) c),
+                        StringBuilder::append).toString()))
+                .values().stream()
+                .filter(group -> group.size() >= minGroupSize)
+                .map(group -> group.size() + ": " + group)
+                .forEach(System.out::println);
+        }
+    }
+}
+```
+
+모든 반복문과 같은 로직을 스트림으로 바꾸는 것보다 적절히 분리하는 것이 더 좋다. 특정 로직은 도우미(helper) 메서드로  적절하게
+분리하는 것이 도움이 된다. 특히 람다에서는 타입 이름을 자주 생략하므로 매개변수의 이름을 잘 지어야 한다.
+
+```java
+public class Anagrams {
+    public static void main(String[] args) {
+        Path dictionary = Paths.get(args[0]);
+        int minGroupSize = Integer.parseInt(args[1]);
+
+        try (Stream<String> words = Files.lines(dictionary)) {
+            words.collect(groupingBy(word -> alphabetize(word)))
+                .values().stream()
+                .filter(group -> group.size() >= minGroupSize)
+                .forEach(g -> System.out.println(g.size() + ": " + g));
+        }
+    }
+
+    private static String alphabetize(String s) {
+        char[] a = s.toCharArray();
+        Arrays.sort(a);
+        return new String(a);
+    }
+}
+```
+
+## 코드 블록 vs 람다 블록
+
+코드 블록에서는 지역변수를 읽고 수정할 수 있으나, **람다에서는 final 혹은 사실상 final인 변수만** 읽을 수 있다.
+지역 변수를 수정하는 것은 불가능하다. 그리고 코드 블록에서는 return 문으로 메서드를 빠져나가거나, break, continue 문을 통하여
+블록 바깥에 위치한 반복문을 종료하거나 건너뛸 수 있다. 그런데 람다에서는 불가능하다.
+
+## 그럼 언제 스트림을 사용할까?
+
+스트림 파이프라인은 일단 **하나의 값을 다른 값이 매핑하면 원래의 값을 잃는 구조이다.** 따라서 한 데이터가
+파이프라인의 여러 단계를 통과할 때, 이 데이터의 각 단계에서의 값들에 동시에 접근하기 어렵다.
+스트림을 사용하기 좋은 경우는 아래와 같다.
+
+- 원소들의 시퀀스를 일관되게 변환하는 경우
+- 원소들의 시퀀스를 필터링하는 경우
+- 원소들의 시퀀스를 하나의 연산을 사용하여 결합하는 경우(더하기, 최솟값 구하기 등)
+- 원소들의 시퀀스를 컬렉션에 모으는 경우
+- 원소들의 시퀀스에서 특정 조건을 만족하는 원소를 찾는 경우
+
+<div class="post_caption">스트림과 반복 중 선택을 못하겠다면 둘 다 해보고 정해라</div>
+
+
 <br/>
 
 # 아이템 46. 스트림에서는 부작용 없는 함수를 사용하라
