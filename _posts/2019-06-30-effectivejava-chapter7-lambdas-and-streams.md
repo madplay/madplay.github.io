@@ -183,11 +183,39 @@ public class Anagrams {
 
 <div class="post_caption">스트림과 반복 중 선택을 못하겠다면 둘 다 해보고 정해라</div>
 
-
 <br/>
 
 # 아이템 46. 스트림에서는 부작용 없는 함수를 사용하라
 > Prefer side-effect-free functions in streams
+
+스트림 패러다임의 핵심은 계산을 일련의 변환(transformation)으로 재구성하는 부분이다. 이때 각 변환 단계는 가능한
+이전 단계의 결과를 받아서 처리하는 함수여야 한다. 순수 함수란 오직 입력만이 결과에 영향을 주어야 한다.
+
+종종 이러한 스트림 코드를 작성하는 경우가 있다. 스트림 패러다임을 잘 이해하지 못한 것이다.
+
+```java
+// tokens 메서드는 자바 9부터 지원한다.
+try (Stream<String> words = new Scanner(file).tokens()) {
+    words.forEach(word -> {
+        freq.merge(word.toLowerCase(), 1L, Long::sum);;
+    })
+}
+```
+
+모든 연산이 forEach에서 일어나는데, 외부 상태를 수정하는 람다를 실행하면서 문제가 있다. forEach는 스트림의 계산 결과를
+보고할 때만 사용하는 것이 좋다.
+
+```java
+try (Stream<String> words = new Scanner(file).tokens()) {
+    freq = words.collect(groupingBy(String::toLowerCase, counting()));
+}
+```
+
+> 책의 ```Collectors``` 사용 예제는 아래 링크로 대체합니다.
+
+- <a href="/post/java-streams-terminal-operations">자바 스트림 정리: 3. 스트림 결과 구하기</a>
+
+<div class="post_caption">스트림과 더불어 스트림 관련 객체에 건네지는 모든 함수 객체가 부작용이 없어야 한다.</div>
 
 <br/>
 
