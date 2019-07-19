@@ -222,6 +222,31 @@ try (Stream<String> words = new Scanner(file).tokens()) {
 # 아이템 47. 반환 타입으로는 스트림보다 컬렉션이 낫다
 > Prefer Collection to Stream as a return type
 
+원소 시퀀스 타입으로 Collection 인터페이스, Iterable 그리고 배열을 사용했다. 그리고 자바 8부터는 스트림도 추가되었다.
+그런데 스트림은 반복(iteration)을 지원하지 않기 때문에 스트림과 반복을 알맞게 조합하여 좋은 코드를 만들어야 한다.
+Stream 인터페이스는 Iterable 인터페이스가 정의한 추상 메서드를 전부 포함하였고 Iterable 인터페이스가 정의한 방식대로
+동작하지만, ```for-each```로 스트림을 반복할 수 없다. 이유는 Stream이 Iterable을 확장(extends)하지 않았기 때문이다.
+
+```
+// 스트림을 반복하기 위해서 이런식으로 할 수 있긴 하다.
+public static <E> Iterable<E> iterableOf(Stream<E> stream) {
+    return stream::iterator;
+}
+
+for (ProcessHandle p : iterableOf(ProcessHandle.allProcesses())) {
+    // do something
+}
+```
+
+정리해보면, 아래와 같은 이유로 반환 타입은 컬렉션이 스트림보다 낫다.
+
+- 동작은 하지만 복잡하고 직관성이 떨어진다.
+- Collection은 Iterable 하위 타입이고, Stream 메서드도 지원한다.
+- 공개 API의 반환 타입에는 컬렉션이나 그 하위 타입을 쓰는게 보통 최선이다.
+- Arrays 역시 asList와 Stream.of 메서드로 쉽게 반복문과 Stream을 지원할 수 있다.
+
+<div class="post_caption">스트림보다 컬렉션을 반환하는 것이 낫다.</div>
+
 <br/>
 
 # 아이템 48. 스트림 병렬화는 주의해서 적용하라
