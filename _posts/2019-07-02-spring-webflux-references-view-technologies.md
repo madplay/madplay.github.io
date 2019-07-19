@@ -319,5 +319,5 @@ target="_blank" rel="nofollow">리소스(resources)</a>를 참조하라
 ---
 
 > ### 목차 가이드
-> - 다음글 "1.10. HTTP Caching" 로 이동
+> - <a href="/post/spring-webflux-references-http-caching">다음글 "1.10. HTTP Caching" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>
