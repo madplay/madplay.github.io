@@ -33,7 +33,7 @@ rel="nofollow" target="_blank" >참고 링크: Web on Reactive Stack</a>
 - <a href="/post/spring-webflux-references-cors">1.7. CORS</a>
 - <a href="/post/spring-webflux-references-web-security">1.8. Web Security</a>
 - <a href="/post/spring-webflux-references-view-technologies">1.9. View Technologies</a>
-- 1.10. HTTP Caching
+- <a href="/post/spring-webflux-references-http-caching">1.10. HTTP Caching</a>
 - 1.11. WebFlux Config
 - 1.12. HTTP/2
 
