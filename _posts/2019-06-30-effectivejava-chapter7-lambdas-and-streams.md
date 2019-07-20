@@ -251,3 +251,39 @@ for (ProcessHandle p : iterableOf(ProcessHandle.allProcesses())) {
 
 # 아이템 48. 스트림 병렬화는 주의해서 적용하라
 > Use caution when making streams parallel
+
+스트림을 생성하는 데이터 소스가 ```Stream.iterate```이거나 중간 연산으로 limit를 사용하면 파이프라인 병렬화로는
+성능 개선을 기대하기 어렵다.
+
+```java
+public static void main(String[] args) {
+    // java.math.BigInteger.TWO는 자바 9부터 public 접근이 가능하다.
+    primes().map(p -> TWO.pow(p.intValueExact()).subtract(ONE))
+        .filter(mersenne -> mersenne.isProbablePrime(50))
+        .limit(20)
+        .forEach(System.out::println);
+}
+
+static Stream<BigInteger> primes() {
+    return Stream.iterate(TWO, BigInteger::nextProbablePrime);
+}
+```
+
+위 코드를 성능을 높인다고 ```parallel()```을 사용하게 되면 응답 불가 상황이 발생한다.
+스트림 라이브러리가 병렬화 방법을 찾을 수 없기 때문이다.
+
+## 어떤 경우가 병렬화에 좋을까?
+
+스트림의 소스가 ArrayList, HashMap, HashSet, ConcurrentHashMap의 인스턴스이거나 배열, int, long 일 때 효과가 좋다.
+이들은 데이터를 원하는 크기에 정확하고 쉽게 나눌 수 있어 다수의 스레드에 분배하기 좋기 때문이다.
+또한 참조 지역성(locally of reference) 뛰어나다는 점이 있다. 이웃한 원소의 참조들이 연속해서 메모리에 저장되어 있다.
+참조 지역성이 좋지 않다면, 스레드는 데이터가 주 메모리에서 캐시 메모리로 전송되어 오는 것을 기다리는 시간이 늘어날 것이다.
+
+종단 연산 중에서는 min, max 와 같이 만들어진 모든 원소를 하나로 합치는 축소(reduction) 연산이 좋다.
+또한 ```anyMatch```, ```allMatch```, ```noneMatch``` 처럼 조건이 맞는 경우 즉시 반환되는 메서드도 병렬화에 적합하다.
+반면에 가변 축소(mutable reduction)을 수행하는 collect 메서드는 병렬화에 적합하지 않다. 합치는 비용이 크기 때문이다.
+
+따라서, 병렬화를 하더라도 성능 향상이 기대에 못미치는 경우가 있기 때문에 잘 숙지하고 사용해야 하며, 정말로 효과가 있는지
+테스트를 반드시 병행해야 한다.
+
+<div class="post_caption">스트림을 잘못 병렬화하면 오동작하거나 성능이 느려진다.</div>
