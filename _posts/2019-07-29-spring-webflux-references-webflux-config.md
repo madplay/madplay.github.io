@@ -136,6 +136,72 @@ class WebConfig : WebFluxConfigurer {
 > `FormatterRegistrar` 구현체에 대한 자세한 정보는 **`FormatterRegistrar` SPI**와
 `FormattingConversionServiceFactoryBean` 를 참조하라.
 
+<br>
+
+# 1.11.4. 검증(Valiation)
+기본적으로 **빈 검증(Bean Validation)**이 클래스 경로(path)에 존재하면(예를 들어, Hibernate Validator) 
+`LocalValidatorFactoryBean`이 전역 **검증기(validator)**로 등록되어 `@Valid`와 `@Validated` 어노테이션을
+`@Controller` 메서드의 인자로 사용할 수 있다.
+
+자바 설정에서 아래 예제와 같이 전역 `Validator` 인스턴스를 사용자 정의할 수 있다:
+
+Java:
+```java
+@Configuration
+@EnableWebFlux
+public class WebConfig implements WebFluxConfigurer {
+
+    @Override
+    public Validator getValidator(); {
+        // ...
+    }
+
+}
+```
+
+Kotlin:
+```kotlin
+@Configuration
+@EnableWebFlux
+class WebConfig : WebFluxConfigurer {
+
+    override fun getValidator(): Validator {
+        // ...
+    }
+
+}
+```
+
+아래 예제와 같이 `Validator` 구현을 로컬 설정으로 할 수 있다:
+
+Java:
+```java
+@Controller
+public class MyController {
+
+    @InitBinder
+    protected void initBinder(WebDataBinder binder) {
+        binder.addValidators(new FooValidator());
+    }
+
+}
+```
+
+Kotlin:
+```kotlin
+@Controller
+class MyController {
+
+    @InitBinder
+    protected fun initBinder(binder: WebDataBinder) {
+        binder.addValidators(FooValidator())
+    }
+}
+```
+
+> `LocalValidatorFactoryBean`을 어딘가에 주입해야 하는 경우 MVC 설정에 선언된 빈과의 충돌을 피하기 위해 빈을 생성하고 `@Primary`을
+선언한다.
+
 
 ---
 
