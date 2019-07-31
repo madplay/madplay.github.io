@@ -63,8 +63,8 @@ gradle을 통해서 생성하는 방법도 있으나, 이번 포스팅에서는 
   &lt;name&gt;Mad-Plugin&lt;/name&gt; &lt;!-- 플러그인의 이름 --&gt;
   &lt;version&gt;0.0.1&lt;/version&gt; &lt;!-- 플러그인의 버전 --&gt;
   
-  &lt;!-- 플러그인 제공자 정보 --&gt;
-  &lt;vendor email=&quot;itsme@taeng.com&quot; url=&quot;http://www.yourcompany.com&quot;&gt;madplay&lt;/vendor&gt;
+  &lt;!-- 플러그인 제공자 정보. email, url 등 정의 가 --&gt;
+  &lt;vendor email=&quot;itsme@taeng.com&quot;&gt;madplay&lt;/vendor&gt;
 
   &lt;!-- 플러그인에 대한 설명이 들어갑니다. --&gt;
   &lt;description&gt;&lt;![CDATA[
@@ -79,7 +79,8 @@ gradle을 통해서 생성하는 방법도 있으나, 이번 포스팅에서는 
     ]]&gt;
   &lt;/change-notes&gt;
 
-  &lt;!-- 플러그인을 사용할 수 있는 인텔리제이의 버전을 적습니다. since/until로 구분 가능 --&gt;
+  &lt;!-- 플러그인을 사용할 수 있는 인텔리제이의 빌드 버전을 적습니다. --&gt; 
+  &lt;!-- since/until로 지원 버전 범위를 지정할 수 있습니다. --&gt;
   &lt;idea-version since-build=&quot;173.0&quot;/&gt;
   
   &lt;!-- IntelliJ IDEA, PyCharm, WebStorm 등 IDE를 타겟팅할 수 있습니다. --&gt;
