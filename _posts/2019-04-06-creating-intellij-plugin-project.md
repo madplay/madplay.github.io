@@ -22,7 +22,7 @@ gradle을 통해서 생성하는 방법도 있으나, 이번 포스팅에서는 
 플러그인을 만들기 위해서는 먼저, 인텔리제이에서 **플러그인 프로젝트**를 생성해야 합니다.
 **File -> New -> Project...** 경로로 진입하여 아래와 같은 새 프로젝트를 만드는 화면에서 **Intellij Platform Plugin**을 선택합니다. 
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-06-creating-intellij-plugin-project-1.png" width="600" height="450" alt="create plugin module"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-06-creating-intellij-plugin-project-1.png" width="650" height="500" alt="create plugin project"/>
 
 <br/>
 
@@ -37,14 +37,14 @@ gradle을 통해서 생성하는 방법도 있으나, 이번 포스팅에서는 
 프로젝트가 생성되었으면 개발하기 위한 설정이 완료되었는지 점검해야 합니다.
 ```Project Structure``` 에서 **Project SDK**를 확인해봅니다. 아래 화면처럼 **Intellij Platform Plugin SDK**여야 합니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-06-creating-intellij-plugin-project-2.png" width="600" height="450" alt="Configuring intellij platform sdk"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-06-creating-intellij-plugin-project-2.png" width="650" height="500" alt="Configuring intellij platform sdk"/>
 
 <br/>
 
 설정이 되어있지 않은 경우는 New 버튼을 선택하여 자신의 버전에 맞게 추가하면 됩니다. 설정이 완료된 경우 프로젝트의 SDK 설정에
 아래와 같이 표기됩니다. 이번 예제에서는 Intellij 2019.1 버전(Build 191)과 자바 8버전을 사용하여 설정하였습니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-06-creating-intellij-plugin-project-3.png" width="600" height="450" alt="Platform SDK Settings"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-06-creating-intellij-plugin-project-3.png" width="650" height="500" alt="Platform SDK Settings"/>
 
 <br/><br/>
 
@@ -73,7 +73,6 @@ gradle을 통해서 생성하는 방법도 있으나, 이번 포스팅에서는 
 
   &lt;!-- 버전별 변경 정보를 입력할 수 있습니다 --&gt;
   &lt;change-notes&gt;&lt;![CDATA[
-      0.0.1:
       &lt;ul&gt;
         &lt;li&gt;Release plugin&lt;/li&gt;
       &lt;/ul&gt;
@@ -81,15 +80,11 @@ gradle을 통해서 생성하는 방법도 있으나, 이번 포스팅에서는 
   &lt;/change-notes&gt;
 
   &lt;!-- 플러그인을 사용할 수 있는 인텔리제이의 버전을 적습니다. since/until로 구분 가능 --&gt;
-  &lt;!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description --&gt;
   &lt;idea-version since-build=&quot;173.0&quot;/&gt;
   
-  &lt;!-- IntelliJ IDEA, PyCharm, WebStorm 등 IDE를 타겟팅할 수 있습니다.  --&gt;
-  &lt;!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-     on how to target different products --&gt;
-  &lt;!-- uncomment to enable plugin in all products
-  &lt;depends&gt;com.intellij.modules.lang&lt;/depends&gt;
-  --&gt;
+  &lt;!-- IntelliJ IDEA, PyCharm, WebStorm 등 IDE를 타겟팅할 수 있습니다. --&gt;
+  &lt;!-- 이번 예제에서는 IntelliJ IDEA, Android Studio를 타겟으로 합니다. --&gt;
+  &lt;depends&gt;com.intellij.modules.java&lt;/depends&gt;
  
   &lt;!-- 상호 작용할 다른 플러그인을 정의할 수 있습니다. --&gt;
   &lt;extensions defaultExtensionNs=&quot;com.intellij&quot;&gt;
@@ -99,3 +94,10 @@ gradle을 통해서 생성하는 방법도 있으나, 이번 포스팅에서는 
 </code></pre>
 
 <br/><br/>
+
+> ## 이어서
+
+이제 인텔리제이 플러그인을 개발할 준비는 끝났습니다. 이어지는 포스팅에서는 플러그인을 실행하기 위한 동작,
+액션(Action)을 정의하는 방법에 대해서 알아봅니다.
+
+- <a href="/post/creating-an-intellij-plugin-action" target="_blank">다음 포스팅: Intellij 플러그인 만들기 - 2. Action 정의</a>
