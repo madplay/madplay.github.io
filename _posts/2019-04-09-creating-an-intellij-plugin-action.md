@@ -93,7 +93,7 @@ public class MadAction extends AnAction {
 위에서 정의한 액션이 정상적으로 동작하는지 플러그인을 실행해봅시다.  이 포스팅을 작성하면서 다시 생성해보았을 때,
 실행 환경이 자동 구성되는 것을 확인하긴 했는데, 혹시 보이지 않는다면 아래와 같이 설정하면 됩니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-09-creating-an-intellij-plugin-action-3.png" width="600" height="450" alt="run configuration"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-09-creating-an-intellij-plugin-action-3.png" width="650" height="500" alt="run configuration"/>
 
 위 구성대로 플러그인을 실행하면 새로운 Intellij IDEA가 실행되는 것을 확인할 수 있습니다.
 새롭게 실행된 인텔리제이 프로젝트에서 상단의 Tools 메뉴를 클릭하면, 앞서 정의한 액션을 확인할 수 있습니다.
@@ -101,14 +101,14 @@ public class MadAction extends AnAction {
 플러그인의 액션을 생성하는 과정에서 Group을 ToolsMenu로, 그리고 Anchor를 First로 지정했기 때문에
 인텔리제이의 화면 최상단에서 직접 만든 플러그인의 진입점을 확인할 수 있습니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-09-creating-an-intellij-plugin-action-4.png" width="600" height="450" alt="execute plugin"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-09-creating-an-intellij-plugin-action-4.png" width="650" height="500" alt="execute plugin"/>
 
 <br/>
 
 **"Hello Madplay"** 라는 문구는 역시나 앞서 액션을 생성할 때 지정한 액션의 이름이 됩니다.
 클릭해서 우리가 정의한 다이얼로그가 아래와 같이 보여지는지 확인하면 됩니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-09-creating-an-intellij-plugin-action-5.png" width="600" height="450" alt="show dialog"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-09-creating-an-intellij-plugin-action-5.png" width="650" height="500" alt="show dialog"/>
 
 <br/><br/>
 
