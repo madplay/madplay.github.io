@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    Intellij 플러그인 만들기 - 1. 환경 구성
+title:    인텔리제이(Intellij) 플러그인 만들기 - 1. 환경 구성
 author:   Kimtaeng
 tags: 	  intellij plugin 
 subtitle: 인텔리제이(Intellij)에서 사용하는 플러그인(Plugin)을 직접 개발해보자
