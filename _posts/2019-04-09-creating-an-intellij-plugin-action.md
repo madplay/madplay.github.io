@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    Intellij 플러그인 만들기 - 2. Action 정의
+title:    인텔리제이(Intellij) 플러그인 만들기 - 2. Action 정의
 author:   Kimtaeng
 tags: 	  intellij plugin 
 subtitle: 인텔리제이(Intellij) 플러그인(Plugin)를 실행하기 위한 액션(Action) 정의하기
