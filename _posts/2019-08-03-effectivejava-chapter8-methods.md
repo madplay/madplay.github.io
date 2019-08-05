@@ -93,6 +93,14 @@ private void someMethod(int arr[], int length) {
 # 아이템 50. 적시에 방어적 복사본을 만들라
 > Make defensive copies when needed
 
+자바는 안전한 언어다. 하지만 클라이언트가 언제든지 불변식을 깨드릴 수 있다고 가정하고 방어적인 프로그래밍을 해야 한다.
+클래스가 클라이언트로부터 받거나 클라이언트에게 반환하는 구성 요소가 가변적이라면 그 요소는 반드시 방어적으로 복사해야 한다.
+
+- <a href="/post/make-defensive-copies-when-needed">
+더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 50. 적시에 방어적 복사본을 만들라</a>
+
+<div class="post_caption">경우에 따라서 방어적 복사본을 만들어야 한다.</div>
+
 <br/>
 
 # 아이템 51. 메서드 시그니처를 신중히 설계하라
