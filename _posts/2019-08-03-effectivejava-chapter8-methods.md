@@ -106,6 +106,87 @@ private void someMethod(int arr[], int length) {
 # 아이템 51. 메서드 시그니처를 신중히 설계하라
 > Design method signatures carefully
 
+**메서드 이름은 신중히 지어야한다.** 표쥰 명명 규칙에 따라 지으며 긴 이름은 지양해야 한다. 애매하다면 자바 라이브러리 가이드를
+참조해도 좋다. 같은 패키지에 속한 다른 이름들과 일관되게 짓는 것이 좋다.
+
+**편의 메서드를 많이 만드는 것은 좋지 않다.** 너무 많은 메서드는 그에 따른 문서화, 유지보수, 테스트를 요구한다.
+메서드의 매개변수 목록도 4개 이하가 적절하며 특히 같은 타입의 매개변수 여러 개가 연달아 나오는 것은 좋지 않다.
+매개변수를 줄일 수 있는 방법들을 살펴보자.
+
+**여러 메서드로 나눠본다.** 예를 들어 리스트에서 특정 요소를 찾는다고 가정해보자. 이 기능을 하나의 메서드로 구현하려면
+리스트의 시작과 끝 그리고 찾을 요소까지 총 3개의 매개변수가 필요하다. 하지만 List 인터페이스는 ```subList```와 ```indexOf```
+메서드를 별개로 제공한다. 이들을 조합하면 원하는 기능을 구현할 수 있다.
+
+```java
+List<String> list = Lists.of("a", "b", "c", "d");
+
+List<String> newList = list.subList(1, 3);
+int index = newList.indexOf("b"); // 0
+```
+
+다른 방법으로는 **도우미(Helper) 클래스가 있다.** 여러 개의 매개변수를 묶어주는 역할을 하도록 말이다.
+
+```java
+// 기존 메서드
+public void someMethod(String name, String address, String email, String job) {
+    // do something
+}
+
+// Helper 클래스 적용
+class SomeHelper {
+    String name;
+    String address;
+    String email;
+    String job;
+}
+
+public void someMethod(SomeHelper someHelper) {
+    // do something
+}
+```
+
+그리고 **빌더 패턴을 사용하는 방법이 있다.** 
+
+- <a href="/post/creating-and-destroying-objects#아이템-2-생성자에-매개변수가-많다면-빌더를-고려하라">
+링크 참고: [이펙티브 자바 3판] 아이템 2. 생성자에 매개변수가 많다면 빌더를 고려하라</a>
+
+한편 **파라미터의 타입으로는 클래스보다는 인터페이스 형태가 낫다.** 예를 들어 ```HashMap``` 보다는 ```Map```을 사용하는
+편이 좋다. 클래스를 사용하는 것은 클라이언트에게 특정 구현체만 사용하도록 제한하는 것이다.
+그리고 **boolean 보다는 원소 2개짜리 enum이 더 낫다.** 물론 이름상 boolean 형태가 명확한 경우는 예외다.
+
+```java
+public void setProgram(boolean isNews) {
+    if (isNews) {
+        // set program for news
+    } else {
+        // set anything
+    }
+}
+```
+
+만일 여기에 뉴스가 아닌 새로운 프로그램을 추가해야 한다면 어떻게 해야 할까? boolean을 사용한다면 새로운 타입에 대한
+boolean 매개 변수가 필요할 것이다. 하지만 열거 타입으로 구현한다면 아래처럼 간결하게 작성할 수 있다.
+
+```java
+public enum ProgramType { NEWS, SPORTS, ENTERTAINMENT }
+
+public void setProgram(ProgramType type) {
+    switch (type) {
+        case NEWS:
+            // do something
+            break;
+        case SPORTS:
+            // do something
+            break;
+        case ENTERTAINMENT:
+            // do something
+            break;
+    }
+}
+```
+
+<div class="post_caption">메서드의 이름과 매개변수 리스트는 신중히 설계해야 한다.</div>
+
 <br/>
 
 # 아이템 52: 다중정의는 신중히 사용하라
