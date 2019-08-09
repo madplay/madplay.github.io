@@ -192,6 +192,50 @@ public void setProgram(ProgramType type) {
 # 아이템 52: 다중정의는 신중히 사용하라
 > Use overloading judiciously
 
+재정의(overriding, 오버라이딩)를 한 메서드는 실행 중에 동적으로 선택되지만  다중 정의(overloading, 오버로딩)된 메서드의
+호출 여부는 컴파일 타임에 정해진다. 그리고 이러한 다중 정의 메서드는 개발자가 기대한 것처럼 동작하지 않는 경우가 있다.
+
+```java
+class ColectionClassifier {
+    public static String classify(Set<?> set) {
+        return "집합";
+    }
+
+    public static String classify(List<?> list) {
+        return "리스트";
+    }
+
+    public static String classify(Collection<?> collection) {
+        return "그 외"
+    }
+
+    public static void main(String[] args) {
+        Collection<?>[] collections = {
+            new HashSet<String>(),
+            new ArrayList<Integer>(),
+            new HashMap<String, String>().values()
+        };
+
+        for (Collection<?> c : collections) {
+            System.out.println(classfy(c));
+        }
+    }
+}
+```
+
+위 코드의 출력 결과는 "그 외" 만 연달아 세 번 출력한다. 컴파일 타임에서는 for 문 안의 c는 항상 ```Collection<?>``` 타입이다.
+이처럼 오버로딩이 혼란을 일으키지 않도록 프로그래밍해야 한다. 특히, 매개변수가 같은 다중정의는 피해야 한다. 헷갈릴 소지가 많다.
+더불어 가변인수를 사용하는 메서드는 다중정의를 아예 하면 안된다.
+
+다중정의를 하는 대신에 메서드 이름을 다르게 짓는 방법도 있다. ```ObjectOutputStream``` 클래스를 보면 다중정의 대신에 메서드의
+이름을 다르게 지었다. ```writeBoolean(boolean)```, ```writeInt(int)``` 처럼 말이다. 짝꿍 클래스인 ```ObjectInputStream```은
+```readBoolean()```, ```readInt()``` 처럼 짝에 맞는 메서드를 가지고 있다.
+
+한편, 생성자의 경우는 이름을 다르게 지을 수 없다. 그렇기 때문에 두 번째 생성자부터는 무조건 다중정의를 하게 되는 셈이다.
+생성자는 정적 팩터리를 사용하는 대안을 활용할 수 있다.
+
+<div class="post_caption">일반적으로 매개변수 개수가 같을 때는 다중 정의를 피하는 것이 좋다.</div>
+
 <br/>
 
 # 아이템 53. 가변인수는 신중히 사용하라
