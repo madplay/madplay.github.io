@@ -276,6 +276,56 @@ public void foo(int arg1, arg2, arg3, int... restArg) {}
 # 아이템 54. null이 아닌, 빈 컬렉션이나 배열을 반환하라
 > Return empty collections or arrays, not nulls
 
+컬렉션이 빈 경우에 null을 반환하는 메서드를 자주 보았을 것이다.
+
+```java
+private final List<Cheese> cheesesInStock = ...;
+
+public List<Cheese> getCheeses() {
+    return cheesesInStock.isEmpty() ? null : new ArrayList<>(cheesesInStock);
+}
+```
+
+이렇게 되는 경우 코드를 사용하는 클라이언트에서는 null을 방어하는 코드를 반드시 추가해주어야 한다.
+null 반환과 빈 컨테이너 반환의 성능 차이는 신경 쓸 수준이 되지 않기 때문에 꼭 null 을 반환하지 않아도 된다.
+빈 컬렉션과 배열은 새로 할당하지 않고도 반환할 수 있다.
+
+```java
+public List<Cheese> getCheeses() {
+    return new ArrayList<>(cheesesInStock);
+}
+```
+
+가능성이 낮지만 사용 패턴에 따라 빈 컬렉션 할당이 성능을 저하시킬 수 있다. 이럴 때는 매번 같은 불변 컬렉션을 반환하면 된다.
+
+```java
+public List<Cheese> getCheeses() {
+    return cheesesInStock.isEmpty() ? Collections.emptyList() : new ArrayList<>(cheesesInStock);
+}
+```
+
+배열의 경우도 마찬가지다. null 반환 대신에 길이가 0인 배열을 반환하면 된다. 그리고 컬렉션과 동일하게 빈 배열을 매번 새롭게
+할당하지 않고 반환하는 방법도 있다.
+
+```java
+// 길이가 0인 배열 반환
+public Cheese[] getCheeses() {
+    return cheesesInStock.toArray(new Cheese[0]);
+}
+
+// 매번 새로 할당하지 않게 하는 방법
+private static final Cheese[] EMPTY_CHEESE_ARRAY = new Cheese[0];
+
+
+public Cheese[] getCheeses() {
+    return cheesesInStock.toArray(EMPTY_CHEESE_ARRAY);
+    // 아래와 같이 미리 할당하는 것은 오히려 성능을 떨어뜨릴 수 있다.
+    // return cheesesInStock.toArray(new Cheese[cheesesInStock.size()]);
+}
+```
+
+
+
 <br/>
 
 # 아이템 55. 옵셔널 반환은 신중히 하라
