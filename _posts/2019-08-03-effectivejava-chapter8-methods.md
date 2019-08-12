@@ -324,12 +324,87 @@ public Cheese[] getCheeses() {
 }
 ```
 
-
+<div class="post_caption">null이 아닌, 빈 배열이나 컬렉션을 반환하라.</div>
 
 <br/>
 
 # 아이템 55. 옵셔널 반환은 신중히 하라
 > Return optionals judiciously
+
+메서드가 특정 조건에서 값을 반환할 수 없을 때를 생각해보자. 자바 8 전에는 예외를 던지거나 null을 반환했다.
+하지만 예외는 진짜 예외적인 경우에만 사용해야 하며, null은 ```NullPointerException```과 null 처리 코드를 만들게 한다.
+
+하지만 자바 8 이후로는 조금 다르다. ```Optional<T>```이 등장했기 때문인데, null이 아닌 T 타입 참조를 하나 담거나 또는
+아무것도 담지 않는 객체이다. 원소를 최대 1개 가질 수 있는 '불변' 컬렉션이며, 보다 null-safe한 코드를 작성할 수 있다.
+
+```java
+// 옵셔널을 사용하지 않았을 때
+public static <E extends Comparable<E>> E max(Collection<E> c) {
+    if (c.isEmpty()) {
+        throw new IllegalArgumentException("빈 컬렉션");
+    }        
+
+    E result = null;
+    for (E e : c) {
+        if (result == null || e.compareTo(result) > 0)
+            result = Objects.requireNonNull(e);
+    }
+    return result;
+}
+
+// 옵셔널 + 스트림을 사용할 때
+public static <E extends Comparable<E>>
+        Optional<E> max(Collection<E> c) {
+    return c.stream().max(Comparator.naturalOrder());
+}
+```
+
+## Optional 활용
+
+### 기본값을 설정한다.
+
+옵셔널을 반환하는 메서드로부터 원하는 값을 받지 못했을 때, 기본 값을 설정할 수 있다.
+
+```java
+String lastWordInLexicon = max(words).orElse("단어 없음...");
+```
+
+### 원하는 예외를 던진다.
+
+값이 없는 경우 원하는 예외를 던질 수 있다. 한편 여기서는 실제 예외가 아니라 예외 팩터리를 건넸다.
+이렇게 하면 예외가 실제 발생하지 않는 한 예외 생성 비용이 들지 않는다.
+
+```java
+Toy myToy = max(toys).orElseThrow(TemperTantrumException::new);
+```
+
+### 항상 값이 채워짐을 가정한다.
+
+옵셔널에 항상 값이 있음을 확신할 때 사용해야 한다. 값이 없다면 ```NoSuchElementException```이 발생한다.
+
+```java
+Element lastNobleGas = max(Elements.NOBLE_GASES).get();
+```
+
+### 기본값 설정 비용이 큰 경우
+
+기본값 설정 비용이 커서 부담이라면 ```orElseGet```을 사용해보자. 값이 처음 필요할 때 ```Supplier<T>```를 사용하여 생성하므로
+초기 설정 비용을 낮출 수 있다.
+
+```java
+Connection conn = getConnection(dataSource).orElseGet(() -> getLocalConn());
+```
+
+## 사용시 주의점
+
+컬렉션, 스트림, 배열, 옵셔널 같은 컨테이너를 옵셔널로 감싸면 안된다. 그러니까 ```Optional<List<T>>```를 반환하는 것보다
+그저 빈 리스트 ```List<T>```를 반환하는 것이 낫다. 빈 컨테이너를 그대로 반환하면 클라이언트에서는 옵셔널 처리 코드를 만들지
+않아도 되기 때문이다.
+
+한편 옵셔널을 컬렉션의 키, 값, 원소 그리고 배열의 원소로 사용하는 것은 좋지 않다. ```Map```에 사용하는 것을 예로 들어보자.
+맵 안에 키가 없다는 정의가 2가지가 된다. "키 자체가 없는 경우"와 "키는 있지만 속이 빈 옵셔널인 경우" 이렇게 모호해진다.
+
+<div class="post_caption">성능에 민감한 메서드라면 null을 반환하거나 예외를 던지는 것이 낫다.</div>
 
 <br/>
 
