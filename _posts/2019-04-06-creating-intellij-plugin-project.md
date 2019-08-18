@@ -101,4 +101,4 @@ gradle을 통해서 생성하는 방법도 있으나, 이번 포스팅에서는 
 이제 인텔리제이 플러그인을 개발할 준비는 끝났습니다. 이어지는 포스팅에서는 플러그인을 실행하기 위한 동작,
 액션(Action)을 정의하는 방법에 대해서 알아봅니다.
 
-- <a href="/post/creating-an-intellij-plugin-action" target="_blank">다음 포스팅: Intellij 플러그인 만들기 - 2. Action 정의</a>
+- <a href="/post/creating-an-intellij-plugin-action" target="_blank">다음 포스팅: 인텔리제이(Intellij) 플러그인 만들기 - 2. Action 정의</a>
