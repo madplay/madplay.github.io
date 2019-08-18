@@ -41,4 +41,35 @@ comments: true
 
 - <a href="/post/creating-intellij-plugin-project" target="_blank">참고: 인텔리제이(Intellij) 플러그인 만들기 - 1. 환경 구성</a> 
 
+위 작업이 끝나면 아래와 같은 메시지를 인텔리제이 IDEA의 우측 하단에서 확인할 수 있습니다.
 
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-1.png" width="300" height="200" alt="prepare plugin module"/>
+
+프로젝트 내의 파일 변환로도 확인할 수 있습니다. 아래처럼 프로젝트 디렉터리 내에 jar 파일이 생성되기 때문이지요.
+
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-2.png" width="350" height="200" alt="jar file was created"/>
+
+<br/><br/>
+
+> ## 플러그인 사용하기
+
+만들어진 jar 파일을 이용하면 플러그인을 설치하여 사용할 수 있습니다. 
+
+Intellij IDEA의 **Preferences** 메뉴로 들어가서 **Plugin** 탭을 선택한 후에
+아래와 같이 ```Install Plugin from Disk...``` 을 선택하여 위 과정에서 만들어진 jar 파일을 선택해주면 됩니다.
+설치가 완료된 후 IDE를 다시 실행해주면 반영됩니다. 
+
+참고로 이 과정은 JetBrains의 플러그인 저장소에 업로드하기 위해서 반드시 필요한 과정은 아닙니다. 
+
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-3.png" width="750" height="450" alt="install plugin from disk"/>
+
+앞서 말씀드린 것처럼 플러그인을 JetBrains의 플러그인 저장소에 업로드하는 경우에는 이 과정을 생략해도 됩니다. 
+그러니까 우리가 보통 접하는 Plugin 탭에서 이름을 검색하여 다운로드 받는 방식을 사용하려면 JetBrains의 플러그인 저장소에
+직접 업로드를 해야 하기 때문이지요. 지금 과정은 자신의 IDE에만 설치됩니다. 그렇기 때문에 다른 사용자가 설치하려면 
+플러그인 jar 파일이 필요합니다.
+
+<br/><br/>
+
+> ## 플러그인 저장소에 업로드하기
+
+준비중... 
