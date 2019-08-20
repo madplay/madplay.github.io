@@ -99,6 +99,25 @@ for (Iterator<Element> i = c.iterator(); i.hasNext(); ) {
 # 아이템 60. 정확한 답이 필요하다면 float와 double은 피하라
 > 60: Avoid float and double if exact answers are required
 
+`float`와 `double`은 과학과 공학 계산용도로 설계되었다. 넓은 범위의 수를 빠르고 정밀한 '근사치'로 계산하도록 설계되었다.
+따라서 0.1 또는 10의 음의 거듭 제곱 등을 표현할 수 없기 때문에 금융 관련 계산에는 적합하지 않다.
+
+```java
+System.out.println(1.03 - 0.42);
+// 예상: 0.61
+// 실제: 0.6100000000000001
+```
+
+정확한 계산이 필요할 땐 `BigDecimal`, `int` 또는 `long`을 사용하면 된다.
+
+하지만 `BigDecimal`에는 primitive 타입보다 사용하기 불편하고 성능적으로 훨씬 느리다.
+이때는 `int` 또는 `long` 타입을 사용해야 하는데, 값의 크기가 제한되고 소수점을 직접 관리해야 하는 점이 있다.
+
+성능 저하를 크게 신경 쓰지 않는다면 `BigDecimal`을 사용하고 숫자가 너무 크지 않다면 `int`나 `long` 타입을 사용하자.
+9자리 십진수로 표현할 수 있다면 `int` 타입, 18자리 십진수로 표현할 수 있다면 `long` 타입, 18자리가 넘어가면 `BigDecimal`을 사용하면 된다.
+
+<div class="post_caption">정확한 계산이 필요할 때는 float와 double은 피하자.</div>
+
 <br/>
 
 # 아이템 61. 박싱된 기본 타입보다는 기본 타입을 사용하라
