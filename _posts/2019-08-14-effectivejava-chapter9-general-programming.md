@@ -65,6 +65,16 @@ for (Iterator<Element> i = c.iterator(); i.hasNext(); ) {
 # 아이템 58. 전통적인 for 문보다는 for-each 문을 사용하라
 > Prefer for-each loops to traditional for loops
 
+배열과 컬렉션의 요소를 탐색할 때 보통 `for` 문을 사용했다. 특히 반복자(iterator)나 인덱스 탐색을 위한 루프 변수는
+실제로 필요한 원소를 얻기 위한 코드일 뿐이다. 따라서 불필요하며 오히려 잘못 사용한 경우 오류가 발생할 가능성이 높다.
+
+그래서 **향상된 for 문**(enhanced for statement)인 `for-each` 문장을 권장한다.
+
+- <a href="/post/prefer-foreach-loops-to-traditional-for-loops" target="_blank">
+더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 58. 전통적인 for 문보다는 for-each 문을 사용하라</a>
+
+<div class="post_caption">for-each 문은 명료하고 유연하며 버그를 예방해주며 성능 저하도 없다.</div>
+
 <br/>
 
 # 아이템 59. 라이브러리를 익히고 사용하라
