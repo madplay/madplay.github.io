@@ -41,7 +41,7 @@ while 문을 사용하면 반복문 밖으로 불필요한 변수가 선언된�
 ```java
 Iterator<Element> i = c.iterator(); // 불필요하다.
 while (i.hasNext()) {
-  doSomething(i.next());
+    doSomething(i.next());
 }
 ```
 
@@ -145,13 +145,13 @@ naturalOrder.compare(new Integer(42), new Integer(42));
 ## 문제 사례 2 - 오류
 ```java
 public class Unbelievable {
-  static Integer i;
+    static Integer i;
 
-  public static void main(String[] args) {
-    if (i == 42) {
-      System.out.println("Hello!");
+    public static void main(String[] args) {
+      if (i == 42) {
+        System.out.println("Hello!");
+      }
     }
-  }
 }
 ```
 
@@ -161,11 +161,11 @@ public class Unbelievable {
 ## 문제 사례 3 - 성능 저하
 ```java
 private static long sum() {
-  Long sum = 0L;
-  for (long i = 0; i <= Integer.MAX_VALUE; i++>) {
-    sum += i;
-  }
-  return sum;
+    Long sum = 0L;
+    for (long i = 0; i <= Integer.MAX_VALUE; i++>) {
+      sum += i;
+    }
+    return sum;
 }
 ```
 
@@ -181,6 +181,13 @@ private static long sum() {
 
 # 아이템 62. 다른 타입이 적절하다면 문자열 사용을 피하라
 > Avoid strings where other types are more appropriate
+
+문자열은 사용하기 쉽고 편리하다. 그래서 의도한 것과 사용되기도 한다.
+
+- <a href="/post/avoid-strings-where-other-types-are-more-appropriate" target="_blank">
+더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 62. 다른 타입이 적절하다면 문자열 사용을 피하라</a>
+
+<div class="post_caption">문자열은 잘못 사용하면 번거롭고, 느리고, 오류 가능성도 크다.</div>
 
 <br/>
 
