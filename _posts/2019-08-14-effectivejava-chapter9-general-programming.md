@@ -123,6 +123,60 @@ System.out.println(1.03 - 0.42);
 # 아이템 61. 박싱된 기본 타입보다는 기본 타입을 사용하라
 > Prefer primitive types to boxed primitives
 
+자바의 데이터 타입은 `int`, `double`, `boolean` 같은 기본형과 `String`, `List` 같은 참조형으로 분류할 수 있다.
+그리고 각각의 기본형에 대응되는 참조 타입이 하나씩 있다. 예를 들면 `Integer`, `Double`, `Boolean` 등이다.
+
+자바에는 오토박싱과 오토언박싱이 지원되기 때문에 기본 타입과 박싱된 기본 타입을 크게 구분하지 않고 사용할 수 있지만 차이가 있다.
+
+첫 번째로 기본 타입은 값만 같지만 박싱된 기본 타입은 값과 식별성(identity) 속성을 갖는다. 즉, 두 인스턴스가 값이 같더라도 다르다고 식별된다.
+두 번째로 기본 타입은 항상 유효한 값을 갖지만 박싱된 기본 타입은 `null`을 가질 수 있다. 마지막으로 기본 타입이 박싱된 기본 타입보다 상대적으로
+시간, 메모리 사용면에서 더 효율적이다.
+
+## 문제 사례 1 - 잘못 사용된 비교
+```java
+Comparator<Integer> naturalOrder = (i, j) -> (i < j) ? -1 : (i == j ? 0 : 1);
+
+// 반환되는 값은?
+naturalOrder.compare(new Integer(42), new Integer(42));
+```
+
+위의 비교자 코드를 보면 박싱된 기본 타입에 `==` 연산자를 사용한다. 즉, 객체 참조의 식별성을 검사하기 때문에 결과는 1이 반환된다.
+
+## 문제 사례 2 - 오류
+```java
+public class Unbelievable {
+  static Integer i;
+
+  public static void main(String[] args) {
+    if (i == 42) {
+      System.out.println("Hello!");
+    }
+  }
+}
+```
+
+위 코드를 실행하면 "Hello!"를 출력하지 않지만 `NullPointerException`을 발생시킨다. 다른 참조 타입과 마찬가지로 초기값이 `null`인 것이 이유다.
+**기본 타입과 박싱된 기본 타입을 혼용하는 연산에서는 박싱된 기본 타입의 박싱이 해제**된다. 해결 방법은 i를 `int`로 선언해주면 된다.
+
+## 문제 사례 3 - 성능 저하
+```java
+private static long sum() {
+  Long sum = 0L;
+  for (long i = 0; i <= Integer.MAX_VALUE; i++>) {
+    sum += i;
+  }
+  return sum;
+}
+```
+
+위 코드에서는 박싱과 언박싱이 반복해서 일어나 성능이 느려진다.
+
+## 그렇다면 박싱된 기본 타입은 언제 사용할까?
+컬렉션의 원소, 키, 값에 사용한다. 컬렉션에서는 기본 타입을 담을 수 없기 때문에 박싱된 기본 타입을 사용해야 한다. 또한 매개변수화 타입이나
+메서드의 타입 매개변수로는 박싱된 기본 타입을 사용해야 한다. 그리고 리플렉션을 통한 메서드 호출을 할 때도 박싱된 기본 타입을 사용한다.
+
+<div class="post_caption">박싱된 기본 타입을 사용해야 한다면 주의를 기울이자.</div>
+
 <br/>
 
 # 아이템 62. 다른 타입이 적절하다면 문자열 사용을 피하라
