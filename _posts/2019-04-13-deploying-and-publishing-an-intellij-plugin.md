@@ -59,11 +59,11 @@ Intellij IDEA의 **Preferences** 메뉴로 들어가서 **Plugin** 탭을 선택
 아래와 같이 ```Install Plugin from Disk...``` 을 선택하여 위 과정에서 만들어진 jar 파일을 선택해주면 됩니다.
 설치가 완료된 후 IDE를 다시 실행해주면 반영됩니다. 
 
-참고로 이 과정은 JetBrains의 플러그인 저장소에 업로드하기 위해서 반드시 필요한 과정은 아닙니다. 
+참고로 이 과정은 JetBrains의 플러그인 저장소에 업로드하기 위한 과정은 아닙니다. 그저 사용해보기 위한 것이지요.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-3.png" width="750" height="450" alt="install plugin from disk"/>
 
-앞서 말씀드린 것처럼 플러그인을 JetBrains의 플러그인 저장소에 업로드하는 경우에는 이 과정을 생략해도 됩니다. 
+앞서 말씀드린 것처럼 플러그인을 JetBrains의 플러그인 저장소에 업로드하는 경우에는 이 과정을 생략해도 됩니다.
 그러니까 우리가 보통 접하는 Plugin 탭에서 이름을 검색하여 다운로드 받는 방식을 사용하려면 JetBrains의 플러그인 저장소에
 직접 업로드를 해야 하기 때문이지요. 지금 과정은 자신의 IDE에만 설치됩니다. 그렇기 때문에 다른 사용자가 설치하려면 
 플러그인 jar 파일이 필요합니다.
@@ -72,4 +72,12 @@ Intellij IDEA의 **Preferences** 메뉴로 들어가서 **Plugin** 탭을 선택
 
 > ## 플러그인 저장소에 업로드하기
 
-준비중... 
+빌드&배포 과정에서 생성된 jar 파일로 JetBrains의 플러그인 저장소<a href="https://plugins.jetbrains.com" target="_blank" rel="nofollow">
+(https://plugins.jetbrains.com)</a>에 등록해봅시다. 당연히 JetBrains 계정이 필요합니다. 로그인 한 후에 우측 상단에 내 아이디를 클릭한 후
+```Upload plugin```을 선택해줍니다.
+
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-4.png" width="750" height="450" alt="Upload Plugin"/>
+
+플러그인을 업로드 하는 데는 간단합니다. jar 파일을 ... 작성중
+
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-5.png" width="750" height="450" alt="Upload Plugin"/>
