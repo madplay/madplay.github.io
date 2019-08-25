@@ -73,11 +73,38 @@ Intellij IDEA의 **Preferences** 메뉴로 들어가서 **Plugin** 탭을 선택
 > ## 플러그인 저장소에 업로드하기
 
 빌드&배포 과정에서 생성된 jar 파일로 JetBrains의 플러그인 저장소<a href="https://plugins.jetbrains.com" target="_blank" rel="nofollow">
-(https://plugins.jetbrains.com)</a>에 등록해봅시다. 당연히 JetBrains 계정이 필요합니다. 로그인 한 후에 우측 상단에 내 아이디를 클릭한 후
+(https://plugins.jetbrains.com)</a>에 등록해봅시다. 당연히 JetBrains 계정이 필요합니다. 로그인 한 후에 우측 상단에 내 계정이 표기된 부분을 클릭한 후
 ```Upload plugin```을 선택해줍니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-4.png" width="750" height="450" alt="Upload Plugin"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-4.png" width="650" height="400" alt="Upload Plugin"/>
 
-플러그인을 업로드 하는 데는 간단합니다. jar 파일을 ... 작성중
+<br/>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-5.png" width="750" height="450" alt="Upload Plugin"/>
+이후 화면에서 앞서 만든 jar 파일을 업로드하고 라이선스, 카테고리 등을 선택해주면 됩니다. 업로드할 채널도 지정할 수 있는데요.
+설명에도 나와있듯이 기본적으로는 모든 사용자가 기본적으로 사용할 수 있는 채널인 Stable로 지정됩니다. 
+
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-5.png" width="750" height="500" alt="Upload New Plugin"/>
+
+등록 이후에 보여지는 화면에서 업로드한 플러그인에 대한 상세 정보 페이지로 이동할 수 있습니다. 페이지로 이동하게 되면
+위의 그림처럼 상단에는 플러그인에 대해 2일동안의 검토 기간이 있음을 알 수 있습니다. 즉, 플러그인에 대한 검토가 있는 것을
+알 수 있습니다.
+
+<br/>
+
+<div class="post_caption">Thank you!<br/>The plugin has been submitted for moderation.
+The request will be processed within two business days.</div>
+
+<br/>
+
+관련해서는 계정에 등록된 이메일로도 정보를 확인 할 수 있습니다.   
+
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-6.png" width="750" height="450" alt="received a email"/>
+
+그리고 상세 페이지에서는 플러그인에 대해서 수정할 수도 있습니다. 업로드할 때보다 조금 더 디테일한 설정을 할 수 있는데요.
+이슈 트래커, 코드 저장소에 대한 링크도 설정할 수 있습니다.
+
+그리고 ```plugin.xml```에서 설정한 빌드 버전들에 대해서 호환성 검증(Compatibility verification)을 할 수 있습니다.
+다만 포스팅을 위해 업로드한 플러그인은 테스트 용도이기 때문에 정상적으로 진행되지 않습니다. 이미지는 따로 개발하고 있는
+Mad-jEnv 플러그인의 유효성 검사 결과입니다.
+
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-7.png" width="750" height="450" alt="Compatibility verificationn"/>  
