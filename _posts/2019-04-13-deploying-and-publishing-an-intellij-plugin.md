@@ -85,9 +85,8 @@ Intellij IDEA의 **Preferences** 메뉴로 들어가서 **Plugin** 탭을 선택
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-5.png" width="750" height="500" alt="Upload New Plugin"/>
 
-등록 이후에 보여지는 화면에서 업로드한 플러그인에 대한 상세 정보 페이지로 이동할 수 있습니다. 페이지로 이동하게 되면
-위의 그림처럼 상단에는 플러그인에 대해 2일동안의 검토 기간이 있음을 알 수 있습니다. 즉, 플러그인에 대한 검토가 있는 것을
-알 수 있습니다.
+등록 이후에 보여지는 화면에서 업로드한 플러그인에 대한 상세 정보 페이지로 이동할 수 있습니다. 상세 페이지로 이동하게 되면
+위의 그림처럼 상단을 통해 플러그인에 대해 2일동안의 검토가 있음을 알 수 있습니다.
 
 <br/>
 
@@ -96,15 +95,42 @@ The request will be processed within two business days.</div>
 
 <br/>
 
-관련해서는 계정에 등록된 이메일로도 정보를 확인 할 수 있습니다.   
+JetBrains의 플러그인 검토(또는 심사) 관련 내용은 계정에 등록된 이메일로도 전달됩니다.   
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-6.png" width="750" height="450" alt="received a email"/>
+
+<br/>
 
 그리고 상세 페이지에서는 플러그인에 대해서 수정할 수도 있습니다. 업로드할 때보다 조금 더 디테일한 설정을 할 수 있는데요.
 이슈 트래커, 코드 저장소에 대한 링크도 설정할 수 있습니다.
 
-그리고 ```plugin.xml```에서 설정한 빌드 버전들에 대해서 호환성 검증(Compatibility verification)을 할 수 있습니다.
-다만 포스팅을 위해 업로드한 플러그인은 테스트 용도이기 때문에 정상적으로 진행되지 않습니다. 이미지는 따로 개발하고 있는
-Mad-jEnv 플러그인의 유효성 검사 결과입니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-7.png" width="750" height="450" alt="Compatibility verificationn"/>  
+<br/><br/>
+
+> ## 플러그인 호환성 검증
+
+```plugin.xml```에서 설정한 빌드 버전들에 대해서 호환성 검증(Compatibility verification)도 할 수 있습니다.
+아래 이미지처럼 버전을 선택하고 검증(Verify)할 수 있습니다.
+
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-7.png" width="750" height="450" alt="Compatibility verificationn"/>
+
+<br/>
+
+다만 포스팅을 위해 업로드한 플러그인은 테스트 용도이기 때문에 정상적으로 진행되지 않습니다. 이미지는 따로 개발하고 있는
+```Mad-jEnv``` 이라는 플러그인의 유효성 검사 결과입니다.
+
+<img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-8.png" width="750" height="450" alt="Compatibility verificationn"/>
+
+업로드할 때 안내된 것처럼 주말/휴일을 제외하고 2일정도 지나면 플러그인 검토에 대한 결과가 메일로 전송됩니다.
+플러그인 상세 페이지에서도 확인 가능하고요. 이후부터는 자신이 사용하는 IDE의 플러그인 매니저를 통해서 설치 가능합니다.
+이번 포스팅 시리즈에서는 Intellij IDEA, Android Studio를 타겟으로 개발했기 때문에 해당 IDE에서만 플러그인이 검색됩니다.
+물론 ```plugin.xml```에 명시한 지원 버전도 맞아야 합니다.
+
+<br/><br/>
+
+> ## 마치며
+
+지금까지 인텔리제이 플러그인을 직접 개발하고 JetBrains의 플러그인 저장소에 업로드하는 방법에 대해 알아보았습니다.
+개인적인 취미로 <a href="https://github.com/madplay/Mad-jEnv" target="_blank" rel="nofollow">
+Intellij IDEA에서 jEnv를 사용할 수 있는 플러그인(링크: Mad-jEnv)</a>을 개발중인데... 쉽지 않네요.
+새벽시간에 코딩하다보니 저세상 코드가 되가는 듯한... 유니크 다운로드 수는 50회 정도!?
