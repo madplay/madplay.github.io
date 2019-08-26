@@ -15,7 +15,7 @@ comments: true
 앞선 포스팅에서 Intellij IDEA에서 플러그인 프로젝트를 생성하고 그 구조에 대해서 살펴보았습니다.
 이번에는 플러그인을 실행하기 위한 액션(Action)을 정의하는 방법에 대해서 알아봅니다.
 
-- <a href="/post/creating-intellij-plugin-project" target="_blank">이전 포스팅: Intellij 플러그인 만들기 - 1. 환경 구성</a>
+- <a href="/post/creating-intellij-plugin-project" target="_blank">이전 포스팅: 인텔리제이(Intellij) 플러그인 만들기 - 1. 환경 구성</a>
 
 <br/><br/>
 
