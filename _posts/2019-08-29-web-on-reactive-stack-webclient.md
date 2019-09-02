@@ -22,7 +22,7 @@ comments: true
 # 목차
 번역이 완료된 문서는 링크가 생성됩니다.
 
-- 2.1. Configuration
+- <a href="/post/webclient-references-configuration">2.1. Configuration</a>
 - 2.2. retrieve()
 - 2.3. exchange()
 - 2.4. Request Body
