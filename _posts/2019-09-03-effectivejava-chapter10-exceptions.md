@@ -63,6 +63,21 @@ for (Mountain m : range)
 # 아이템 70. 복구할 수 있는 상황에는 검사 예외를, 프로그래밍 오류에는 런타임 예외를 사용하라
 > Use checked exceptions for recoverable conditions and runtime exceptions for programming errors
 
+**검사 예외(Checked Exception)**와 **비검사 예외(Unchecked Exception)**를 구분하는 기본 규칙은 간단하다. 호출하는 쪽에서 복구할 것이라 여겨지면
+검사 예외를 사용하면 된다. 검사 예외를 던지면 `try-catch`로 처리하거나 `throw`를 이용하여 더 바깥으로 전파하도록 강제하게 된다.
+따라서 메서드를 호출했을 때 발생할 수 있는 유력한 결과임을 API 사용자에게 알려주는 것이다.
+
+비검사 예외는 런타임 에러와 에러가 있다. 프로그램에서 잡을 필요가 없거나 잡아도 득보다 실이 많은 경우다. 아예 복구가 불가능할 수도 있다.
+
+- <a href="/post/java-checked-unchecked-exceptions" target="_blank">
+참고 링크: "자바 예외 구분: Checked Exception, Unchecked Exception"</a>
+
+한편 `throwable`을 직접 구현할 수 있는데, Exception, RuntimeException, Error 클래스를 상속하지 않는 구현은 정상적인 검사 예외보다 나은 것도
+없고 API 사용자에게 혼동을 줄 수 있어 권장되지 않는다. 끝으로 throwable 클래스는 JVM이나 릴리스에 따라 포맷이 달라질 수 있어 오류 메시지 포맷을 상세하게
+기술하지 않는다.
+
+<div class="post_caption">복구할 수 있다면 검사 예외, 프로그래밍 오류는 비검사 예외를 던지자.</div>
+
 <br/>
 
 # 아이템 71. 필요 없는 검사 예외 사용은 피하라
