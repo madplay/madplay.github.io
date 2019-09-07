@@ -153,6 +153,36 @@ UnsupportedOpertionException | 호출한 메서드를 지원하지 않을 때
 # 아이템 73. 추상화 수준에 맞는 예외를 던지라
 > Throw exceptions appropriate to the abstraction
 
+예를 들어 기사 제목을 가져오는 메서드를 실행했는데, IndexOutOfBoundsException이 발생하면 당황스러울 것이다. 메서드가 저수준 예외를 처리하지 않고
+상위로 전파했을 때 종종 일어난다. 이를 피하려면 예외 번역(exception translation) 기법을 사용하면 된다. 상위 계층에서 저수준의 예외를 잡아 자신의
+추상화 수준에 맞는 예외로 바꿔 던지는 것을 말한다.
+
+```java
+try {
+    // 저수준 추상화를 이용한다.
+} catch (LowerLevelException e) {
+    // 추상화 수준에 맞게 번역한다.
+    throw new HigherLevelException(...);
+}
+```
+
+여기서 저수준의 예외가 디버깅에 도움된다면 원인을 고수준 예외에 실어 보낸다. 이를 예외 연쇄(exception chaining)이라고 한다.
+
+```java
+try {
+    // 저수준 추상화를 이용한다.
+} catch (LowerLevelException e) {
+    // 저수준 예외를 고수준 예외에 실어 보낸다.
+    throw new HigherLevelException(e);
+}
+```
+
+무턱대고 예외를 전파하는 것보다 예외 번역이 더 좋지만 남용하는 것은 좋지 않다. 가능하다면 저수준 메서드가 반드시 성공하도록 해야 한다.
+따라서 저수준에서 오류가 발생하지 않도록 상위에서 매개변수 값을 미리 검사하는 것도 방법이다. 차선책으로 아래 계층에서의 예외를 피할 수 없다면
+로깅을 하고 API 호출자에게까지 문제를 전파하지 않는 방법도 있다. 사용자에게 문제를 전파하지 않으면서도 개발자가 로그를 분석할 수 있게 하는 것이다.
+
+<div class="post_caption">예외 번역과 예외 연쇄를 적절하게 이용하자.</div>
+
 <br/>
 
 # 아이템 74. 메서드가 던지는 모든 예외를 문서화하라
