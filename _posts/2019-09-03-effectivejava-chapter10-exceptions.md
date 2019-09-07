@@ -188,6 +188,13 @@ try {
 # 아이템 74. 메서드가 던지는 모든 예외를 문서화하라
 > Document all exceptions thrown by each method
 
+메서드가 던지는 예외는 그 메서드를 올바르게 사용하게 하는 중요한 정보다. 따라서 문서화하는데 충분한 시간을 써야 한다.
+
+- <a href="/post/document-all-exceptions-thrown-by-each-method" target="_blank">
+더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 74. 메서드가 던지는 모든 예외를 문서화하라</a>
+
+<div class="post_caption">메서드가 던질 가능성이 있는 모든 예외는 문서화하자.</div>
+
 <br/>
 
 # 아이템 75. 예외의 상세 메시지에 실패 관련 정보를 담으라
