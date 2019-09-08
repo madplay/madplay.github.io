@@ -200,6 +200,25 @@ try {
 # 아이템 75. 예외의 상세 메시지에 실패 관련 정보를 담으라
 > Include failure-capture information in detail messages
 
+예외를 잡지 못하여 프로그램이 실패하면 시스템에서 자동으로 스택 추적(stack trace) 정보를 출력해준다. 이때 출력되는 문자열은 `Throwable` 클래스의
+toString 메서드에서 반환하는 클래스 이름과 상세 메시지이다.
+
+```java
+public String toString() {
+    String s = getClass().getName();
+    String message = getLocalizedMessage();
+    return (message != null) ? (s + ": " + message) : s;
+}
+```
+
+실패 순간을 적절히 포착하려면 발생한 예외예 관여된 모든 매개변수와 필드의 값을 실패 메시지에 담아야 한다. 예를 들어, IndexOutOfBoundsException 이라면
+범위의 최솟값, 최댓값 그리고 범위를 벗어난 인덱스의 값을 담아야 한다.
+
+하지만 주의할 점도 있다. 관련 데이터를 모두 담아야 하지만 장황할 필요는 없듯이 실패 원인을 분석할 때 도움이 되는 정보만을 담아야 한다.
+또한 보안과 관련한 정보는 포함해서는 안된다. 상세 메시지에 비밀번호나 암호화 키 같은 정보까지 담을 필요는 없다.
+
+<div class="post_caption">예외를 메시지를 보고 실패 원인을 알 수 있어야 한다.</div>
+
 <br/>
 
 # 아이템 76. 가능한 한 실패 원자적으로 만들라
