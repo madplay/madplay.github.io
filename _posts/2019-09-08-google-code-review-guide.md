@@ -90,3 +90,7 @@ control or which is undergoing code review." 여기서 self-contained를 indepen
 
 좋은 코드 리뷰를 해줄 수 있는 사람과 페어 프로그래밍(Pair Programming)을 했다면, 그 코드는 리뷰를 받은 것으로 간주됩니다.
 또한, 당신은 직접 리뷰(in-person, 대면 리뷰, 오프라인 리뷰)를 진행할 수 있는데, 리뷰어가 질문을 하고 코드 작성자는 질문을 받았을 때만 발언을 합니다.
+
+<br/><br/>
+
+- <a href="/post/google-code-review-guide-for-reviewers"><b>이어지는 글: 코드를 리뷰하는 방법, 코드 리뷰어를 위한 가이드</b></a>
