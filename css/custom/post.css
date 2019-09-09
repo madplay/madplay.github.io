@@ -101,3 +101,24 @@ blockquote p {
         font-size: 15px;
     }
 }
+
+.post_comments {
+    color: #808080;
+    font-style: italic;
+    padding: 1px 10px;
+    font-size: 14px;
+}
+
+@media only screen and (min-width: 768px) {
+    .post_comments {
+        color: #808080;
+        font-style: italic;
+        padding: 1px 10px;
+        font-size: 15px;
+    }
+}
+
+a {
+    color: #707070;
+    text-decoration: underline;
+}
