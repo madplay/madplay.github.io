@@ -17,10 +17,10 @@ comments: true
 오역이 있을 수 있는 부분에 대해서는 각 섹션 하단에 역주를 첨부했습니다. 오역이 있다면 언제든지 이슈 등록 또는
 풀 리퀘스트(Pull Request) 주시면 감사드립니다. 원문을 확인하시려면 아래 링크를 참고해주세요.
 
-- <a href="https://google.github.io/eng-practices" target="_blank" rel="nofollow">참고 링크: 
-Code Review Developer Guide</a>
-- <a href="https://github.com/google/eng-practices" target="_blank" rel="nofollow">참고 링크:
-eng-practices(github)</a>
+- <a href="https://google.github.io/eng-practices" target="_blank" rel="nofollow"><b>참고 링크: 
+Code Review Developer Guide</b></a>
+- <a href="https://github.com/google/eng-practices" target="_blank" rel="nofollow"><b>참고 링크:
+eng-practices(github)</b></a>
 
 <br/><br/>
 
@@ -44,7 +44,7 @@ control or which is undergoing code review." 여기서 self-contained를 indepen
 이 문서는 구글의 코드 리뷰 절차와 정책에 대한 일반적인 설명입니다.
 이 페이지는 코드 리뷰 절차에 대한 개요입니다. 코드 리뷰에 대한 2가지의 문서로 나눌 수 있습니다.
 
-- <a href="/post/google-code-review-guide-for-reviewers">코드 리뷰를 하는 방법: 코드 리뷰어를 위한 가이드</a>
+- <a href="/post/google-code-review-guide-for-reviewers"><b>코드 리뷰를 하는 방법: 코드 리뷰어를 위한 가이드</b></a>
 - 코드 변경사항 작성자 가이드: 코드 작성자를 위한 가이드(준비중)
 
 
@@ -63,7 +63,8 @@ control or which is undergoing code review." 여기서 self-contained를 indepen
 - **스타일(Style)**: 스타일 가이드(코딩 컨벤션)를 따르고 있는가?
 - **문서화(Documentation)**: 개발자가 관련 문서도 업데이트 했는가?
 
-자세한 내용은 <a href="/post/google-code-review-guide-for-reviewers">코드 리뷰를 하는 방법: 코드 리뷰어를 위한 가이드</a>를 참고하세요.
+자세한 내용은 <a href="/post/google-code-review-guide-for-reviewers"><b>코드 리뷰를 하는 방법: 코드 리뷰어를 위한 가이드
+</b></a>를 참고하세요.
 
 <br/><br/>
 
@@ -81,7 +82,7 @@ control or which is undergoing code review." 여기서 self-contained를 indepen
 원문 일부를 보면 "This usually means the owner(s) of the code, who may or may not be the people in the OWNERS file"<br/>
 직역이 모호한 것 같아서 "기존 코드의 작성자" 라고 번역하였습니다. Code Owner에 대한 github 가이드는
 <a href="https://help.github.com/en/articles/about-code-owners" target="_blank" rel="nofollow">
-About code owners(링크)</a>를 참고하세요.</div>
+<b>About code owners(링크)</b></a>를 참고하세요.</div>
 
 <br/><br/>
 
