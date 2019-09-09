@@ -22,6 +22,6 @@ comments: true
 - <a href="/post/navigating-a-cl-in-review"><b>리뷰중인 코드 변경사항 탐색</b></a>
 - <a href="/post/speed-of-code-reviews"><b>코드 리뷰의 속도</b></a>
 - <a href="/post/how-to-write-code-review"><b>코드 리뷰에 의견을 작성하는 방법</b></a>
-- <a href="/post/handling-pushback-in-code-reviews><b>코드 리뷰에서 반대 의견을 다루는 방법</b></a>
+- <a href="/post/handling-pushback-in-code-reviews"><b>코드 리뷰에서 반대 의견을 다루는 방법</b></a>
 
 <br/><br/>
