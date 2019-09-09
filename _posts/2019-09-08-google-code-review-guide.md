@@ -22,6 +22,12 @@ Code Review Developer Guide</b></a>
 - <a href="https://github.com/google/eng-practices" target="_blank" rel="nofollow"><b>참고 링크:
 eng-practices(github)</b></a>
 
+본격적인 구글의 코드 리뷰 가이드에 대한 내용은 아래의 <a href="#소개"><b>"소개"</b></a> 섹션에서 시작되며,
+아래 링크를 통해서도 바로 접근 가능합니다.
+
+- <a href="/post/google-code-review-guide-for-reviewers"><b>구글의 코드 리뷰 가이드: 리뷰어 편</b></a>
+- 구글의 코드 리뷰 가이드: 작성자 편(준비중  )
+
 <br/><br/>
 
 > ## 용어 정리
