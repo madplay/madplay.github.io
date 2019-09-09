@@ -19,7 +19,7 @@ comments: true
 
 - <a href="/post/the-standard-of-code-review">코드 리뷰의 표준</a>
 - <a href="/post/what-to-look-for-in-a-code-review">코드 리뷰에서 봐야하는 것</a>
-- 리뷰 속 변경사항 살펴보기(준비중)
+- 리뷰중인 코드 변경사항 탐색(준비중)
 - 코드 리뷰의 속도(준비중)
 - 코드 리뷰에 의견을 작성하는 방법(준비중)
 - 코드 리뷰에서 반대 의견을 다루는 방법(준비중)
