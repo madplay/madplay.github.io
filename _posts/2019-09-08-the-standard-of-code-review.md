@@ -82,4 +82,4 @@ Nit은 Nitpick을 뜻합니다. 우리말로 번역하면 "트집 잡다"
  
 <br/><br/>
 
-<a href="/post/what-to-look-for-in-a-code-review">다음: 코드 리뷰에서 보아야 하는 것</a>
+- <a href="/post/what-to-look-for-in-a-code-review">이어지는 글: 코드 리뷰에서 보아야 하는 것</a>

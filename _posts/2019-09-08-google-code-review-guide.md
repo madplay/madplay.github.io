@@ -14,8 +14,8 @@ comments: true
 > ## 들어가기에 앞서
 
 이번 포스팅은 2019년 9월 5일에 구글에서 공개한 코드리뷰 가이드를 한글로 번역, 요약한 글입니다.
-오역이 있을 수 있는 부분에 대해서는 각 섹션 하단에 역주를 첨부했습니다.
-원문을 확인하시려면 아래 링크를 참고해주세요. 
+오역이 있을 수 있는 부분에 대해서는 각 섹션 하단에 역주를 첨부했습니다. 오역이 있다면 언제든지 이슈 등록 또는
+풀 리퀘스트(Pull Request) 주시면 감사드립니다. 원문을 확인하시려면 아래 링크를 참고해주세요.
 
 - <a href="https://google.github.io/eng-practices" target="_blank" rel="nofollow">참고 링크: 
 Code Review Developer Guide</a>
@@ -33,7 +33,8 @@ eng-practices(github)</a>
 
 <div class="post_comments">&lt;역주&gt;<br/>
 원문 일부를 보면 "Stands for “changelist,” which means one self-contained change that has been submitted to version
-control or which is undergoing code review." 여기서 self-contained를 independent와 동의로 번역하였습니다. </div>
+control or which is undergoing code review." 여기서 self-contained를 independent와 동의로 번역하였습니다. 
+이어지는 포스팅에서는 CL을 "코드 변경사항" 으로 번역합니다.</div>
 
 <br/><br/>
 
@@ -88,5 +89,3 @@ About code owners(링크)</a>를 참고하세요.</div>
 
 좋은 코드 리뷰를 해줄 수 있는 사람과 페어 프로그래밍(Pair Programming)을 했다면, 그 코드는 리뷰를 받은 것으로 간주됩니다.
 또한, 당신은 직접 리뷰(in-person, 대면 리뷰, 오프라인 리뷰)를 진행할 수 있는데, 리뷰어가 질문을 하고 코드 작성자는 질문을 받았을 때만 발언을 합니다.
-
-<br/><br/>
