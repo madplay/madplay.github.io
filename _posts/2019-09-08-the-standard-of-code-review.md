@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    "구글의 코드 리뷰 가이드: 리뷰어-코드 리뷰의 표준"
+title:    "구글의 코드 리뷰 가이드: 코드 리뷰의 표준"
 author:   Kimtaeng
 tags: 	  google codereview reviewer
 subtitle: 구글의 코드 리뷰 가이드. 리뷰어를 위한 코드 리뷰의 표준 원칙에 대해서 알아봅시다.
@@ -43,6 +43,10 @@ comments: true
 _주의: 이 문서에서 코드의 품질을 악화시키는 코드 변경사항 승인을 정당화하지 않습니다.
 이는 오직 긴급상황일 경우에만 가능합니다._
 
+<div class="post_comments">&lt;역주&gt;<br/>
+Nit은 Nitpick을 뜻합니다. 우리말로 번역하면 "트집 잡다"
+</div>
+
 <br/><br/>
 
 > ## 멘토링
@@ -78,6 +82,4 @@ _주의: 이 문서에서 코드의 품질을 악화시키는 코드 변경사�
  
 <br/><br/>
 
-> ## 역주
-
-- Nit: Nitpick을 뜻합니다. 우리말로 번역하면 "트집 잡다"
+<a href="/post/what-to-look-for-in-a-code-review">다음: 코드 리뷰에서 보아야 하는 것</a>

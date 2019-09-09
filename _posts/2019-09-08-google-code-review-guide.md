@@ -28,9 +28,12 @@ eng-practices(github)</a>
 
 이 문서 중 일부에서는 구글 내 용어가 사용되며 외부 독자를 위해 명확하게 설명합니다.
 
-- **CL**: changelist의 약어로 버전 관리(Version Control)에 제출되었거나 코드 리뷰가 진행중인 독립된 변경 단위
+- **CL***: changelist의 약어로 버전 관리(Version Control)에 제출되었거나 코드 리뷰가 진행중인 독립된 변경 단위
 - **LGTM**: Looks Good to Me의 약어입니다. 위의 코드 리뷰를 승인할 때, 리뷰어가 사용합니다.    
 
+<div class="post_comments">&lt;역주&gt;<br/>
+원문 일부를 보면 "Stands for “changelist,” which means one self-contained change that has been submitted to version
+control or which is undergoing code review." 여기서 self-contained를 independent와 동의로 번역하였습니다. </div>
 
 <br/><br/>
 
@@ -41,7 +44,7 @@ eng-practices(github)</a>
 이 페이지는 코드 리뷰 절차에 대한 개요입니다. 코드 리뷰에 대한 2가지의 문서로 나눌 수 있습니다.
 
 - <a href="/post/google-code-review-guide-for-reviewers">코드 리뷰를 하는 방법: 코드 리뷰어를 위한 가이드</a>
-- CL 작성자 가이드: 코드 작성자를 위한 가이드(번역중)
+- 코드 변경사항 작성자 가이드: 코드 작성자를 위한 가이드(준비중)
 
 
 <br/><br/>
@@ -68,9 +71,16 @@ eng-practices(github)</a>
 일반적으로 여러분은 합리적인 시간 내에 당신의 리뷰를 확인할 수 있는 가장 적합한 리뷰어를 찾고자 합니다.
 
 가장 적합한 리뷰어는 당신의 코드에 대해 가장 철저하고 정확한 리뷰를 제공할 수 있는 사람입니다.
-이것은 일반적으로 기존 코드의 작성자일 것입니다. 때로는 각 부분마다 다른 리뷰어에게 요청해야할 수도 있습니다.
+이것은 일반적으로 기존 코드의 작성자*일 것입니다. 때로는 각 부분마다 다른 리뷰어에게 요청해야할 수도 있습니다.
 
 이상적인 리뷰어를 찾았지만, 리뷰를 할 수 없는 경우에는 변경 사항에 대해서 적어도 참조(CC, Carbon Copy)는 해두어야 합니다.
+
+<div class="post_comments">
+&lt;역주&gt;<br/>
+원문 일부를 보면 "This usually means the owner(s) of the code, who may or may not be the people in the OWNERS file"<br/>
+직역이 모호한 것 같아서 "기존 코드의 작성자" 라고 번역하였습니다. Code Owner에 대한 github 가이드는
+<a href="https://help.github.com/en/articles/about-code-owners" target="_blank" rel="nofollow">
+About code owners(링크)</a>를 참고하세요.</div>
 
 <br/><br/>
 
@@ -80,15 +90,3 @@ eng-practices(github)</a>
 또한, 당신은 직접 리뷰(in-person, 대면 리뷰, 오프라인 리뷰)를 진행할 수 있는데, 리뷰어가 질문을 하고 코드 작성자는 질문을 받았을 때만 발언을 합니다.
 
 <br/><br/>
-
-> ## 역주
-
-- CL에 대한 설명에서 원문 일부를 보면 아래와 같습니다.
-  - _Stands for “changelist,” which means one self-contained change that has been submitted to version control or
-  which is undergoing code review._
-  - 여기서 self-contained를 independent와 동의로 번역하였습니다.
-- '가장 적합한 리뷰어 선정' 부분에서 원문 일부를 보면 아래와 같습니다.
-  - _This usually means the owner(s) of the code, who may or may not be the people in the OWNERS file_
-  - 직역이 모호한 것 같아서 '기존 코드의 작성자'라고 번역하였습니다.
-  - Code Owner에 대한 github 가이드는 <a href="https://help.github.com/en/articles/about-code-owners" 
-  target="_blank" rel="nofollow">About code owners</a>를 참고하세요.
