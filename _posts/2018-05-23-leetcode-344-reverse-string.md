@@ -2,15 +2,15 @@
 layout:   post
 title:    LeetCode 344. Reverse String
 author:   Kimtaeng
-tags: 	  Algotithm LeetCode
+tags: 	  algotithm leetCode
 description: 입력한 문자열을 거꾸로 출력하기
 category: Algorithm
 comments: true
 ---
 
 # Description
-
 Write a function that takes a string as input and returns the string reversed.
+
 Example:
 Given s = "hello", return "olleh".
 
@@ -22,12 +22,12 @@ public class Solution {
 }
 ```
 
-<a href="https://leetcode.com/problems/reverse-string/description/" target="_blank">Reference link (Click!)</a>
+<a href="https://leetcode.com/problems/reverse-string/description/"
+target="_blank" rel="nofollow">Reference link (Click!)</a>
 
 <br/>
 
 # Solution
-
 ```java
 /**
  * 344. Reverse String

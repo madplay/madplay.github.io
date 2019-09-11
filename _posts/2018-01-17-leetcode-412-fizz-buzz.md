@@ -2,21 +2,21 @@
 layout:   post
 title:    LeetCode 412. Fizz Buzz
 author:   Kimtaeng
-tags: 	  Algotithm LeetCode
+tags: 	  algotithm leetcode
 description: 1부터 N까지의 숫자에서 3의 배수는 Fizz, 5의 배수는 Buzz, 모두일 경우 FizzBuzz 출력하기
 category: Algorithm
 comments: true
 ---
 
 # Description
-
 Write a program that outputs the string representation of numbers from 1 to n.
 
-But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.
+But for multiples of three it should output "Fizz" instead of the number and for the multiples of five output "Buzz".
+For numbers which are multiples of both three and five output "FizzBuzz".
 
 Example:
 
-```
+```bash
 n = 15,
 
 Return:
@@ -39,12 +39,12 @@ Return:
 ]
 ```
 
-<a href="https://leetcode.com/problems/fizz-buzz/description/" target="_blank">Reference link (Click!)</a>
+- <a href="https://leetcode.com/problems/fizz-buzz/description/"
+target="_blank" rel="nofollow">Reference link (Click!)</a>
 
 <br/>
 
 # Solution
-
 ```java
 import java.util.ArrayList;
 import java.util.List;
