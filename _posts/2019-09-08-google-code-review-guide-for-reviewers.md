@@ -24,4 +24,5 @@ comments: true
 - <a href="/post/how-to-write-code-review"><b>코드 리뷰에 의견을 작성하는 방법</b></a>
 - <a href="/post/handling-pushback-in-code-reviews"><b>코드 리뷰에서 반대 의견을 다루는 방법</b></a>
 
-<br/><br/>
+코드 변경사항을 리뷰받는 개발자를 위한 가이드는 
+<a href="/post/google-code-review-guide-for-authors"><b>코드 변경사항 작성자 가이드</b></a>를 참고하세요.
