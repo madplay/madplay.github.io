@@ -14,8 +14,10 @@ comments: true
 > ## 들어가기에 앞서
 
 이번 포스팅은 2019년 9월 5일에 구글에서 공개한 코드리뷰 가이드를 한글로 번역, 요약한 글입니다.
-오역이 있을 수 있는 부분에 대해서는 각 섹션 하단에 역주를 첨부했습니다. 오역이 있다면 언제든지 이슈 등록 또는
-풀 리퀘스트(Pull Request) 주시면 감사드립니다. 원문을 확인하시려면 아래 링크를 참고해주세요.
+오역이 있을 수 있는 부분에 대해서는 각 섹션 하단에 역주를 첨부했습니다. 오역이 있다면 언제든지
+<a href="https://github.com/madplay/madplay.github.io/issues" target="_blank" rel="nofollow"><b>이슈 등록</b></a> 또는
+<a href="https://github.com/madplay/madplay.github.io/pulls" target="_blank" rel="nofollow"><b>Pull Request</b></a>
+주시면 감사드립니다. 원문을 확인하시려면 아래 링크를 참고해주세요.
 
 - <a href="https://google.github.io/eng-practices" target="_blank" rel="nofollow"><b>참고 링크: 
 Code Review Developer Guide</b></a>
@@ -26,7 +28,7 @@ eng-practices(github)</b></a>
 아래 링크를 통해서도 바로 접근 가능합니다.
 
 - <a href="/post/google-code-review-guide-for-reviewers"><b>구글의 코드 리뷰 가이드: 리뷰어 편</b></a>
-- 구글의 코드 리뷰 가이드: 작성자 편(준비중  )
+- <a href="/post/google-code-review-guide-for-authors"><b>구글의 코드 리뷰 가이드: 작성자 편</b></a>
 
 <br/><br/>
 
@@ -51,7 +53,7 @@ control or which is undergoing code review." 여기서 self-contained를 indepen
 이 페이지는 코드 리뷰 절차에 대한 개요입니다. 코드 리뷰에 대한 2가지의 문서로 나눌 수 있습니다.
 
 - <a href="/post/google-code-review-guide-for-reviewers"><b>코드 리뷰를 하는 방법: 코드 리뷰어를 위한 가이드</b></a>
-- 코드 변경사항 작성자 가이드: 코드 작성자를 위한 가이드(준비중)
+- <a href="/post/google-code-review-guide-for-authors"><b>코드 변경사항 작성자 가이드: 코드 작성자를 위한 가이드</b></a>
 
 
 <br/><br/>

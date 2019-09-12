@@ -11,6 +11,11 @@ comments: true
 
 <hr/>
 
+<div class="post_comments">역주: 리뷰어 편에서는 CL(Change List)을 "변경사항 또는 코드 변경사항" 으로 번역했으나,
+이번 코드 작성자편에서는 번역하지 않고 그대로 사용합니다.</div>
+
+<br/><br/>
+
 > ## 코드 리뷰를 통과하기 위한 코드 작성자 가이드
 
 이 섹션의 페이지에는 코드 리뷰를 수행받는 개발자를 위한 좋은 사례들을 담고 있습니다. 이 지침은 코드 리뷰를 더 빠르게
@@ -19,7 +24,7 @@ comments: true
 
 - <a href="/post/writing-good-cl-descriptions"><b>좋은 CL 설명을 작성하는 방법</b></a>
 - <a href="/post/small-cls"><b>변경사항을 작게 나누기</b></a>
-- 리뷰어의 의견을 대처하는 방법
+- <a href="/post/how-to-handle-reviewer-comments><b>리뷰어의 의견을 다루는 방법</b></a>
 
 코드 리뷰어를 위한 가이드는 <a href="/post/google-code-review-guide-for-reviewers"><b>코드 리뷰를 하는 방법</b></a>을
 참고하세요.
