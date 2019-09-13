@@ -5,7 +5,7 @@ author:   Kimtaeng
 tags: 	  google codereview
 subtitle: 구글에서는 어떻게 코드 리뷰를 할까? 구글에서 사용하는 코드 리뷰 가이드를 살펴봅시다.
 category: Knowledge
-date: "2019-09-08 00:00:00 +0900"
+date: "2019-09-08 00:00:00"
 comments: true
 ---
 
