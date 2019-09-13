@@ -67,7 +67,7 @@ bash 쉘을 정상적으로 실행했으면 이제 몇가지 명령어만 입력
 
 다음으로 Ruby Gems를 업데이트하고 Jekyll을 설치하는 명령어를 순차적으로 입력합니다.
 
-- ```sudo gem update –system```
+- ```sudo gem update --system```
 - ```sudo gem install jekyll bundler```
 
 이후 ```jekyll {폴더명}``` 명령어로 신규 디렉터리 생성 후 시작하시면 됩니다.
