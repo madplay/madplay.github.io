@@ -280,3 +280,27 @@ default void sort(Comparator<? super E> c) {
 
 # 아이템 77. 예외를 무시하지 말라
 > Don’t ignore exceptions
+
+예외가 선언된 API는 그 메서드를 사용할 때 적절한 조치를 해야 한다는 뜻이다. 따라서 catch 블록을 비워두면 예외가 존재할 이유가 없다.
+
+```java
+try {
+    ...
+} catch (SomeException e) { }
+```
+
+물론 예외를 무시해야 할 때도 있다. 예를 들어 `FileInputStream`을 닫을 때 그렇다. 파일의 상태를 변경하지 않았으니 복구할 것도 없고,
+스트림을 닫는 것은 필요한 내용은 모두 다 읽었다는 뜻이기 때문이다.
+
+그래도 예외를 무시하기로 했다면 `catch` 블록 안에서 그렇게 결정한 이유를 주석으로 남기고 예외 변수의 이름도 변경하자.
+
+```java
+try {
+    ...
+} catch (SomeException ignored) {
+    // 변수 이름은 ignored 등으로 바꾸고,
+    // 예외를 무시하되 관련 로그를 남겨둔다.
+}
+```
+
+<div class="post_caption">catch 블록을 비워두면 예외가 존재할 이유가 없다.</div>
