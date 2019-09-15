@@ -69,8 +69,8 @@ high는 pivot인 < 요소 6 >보다 작은 < 요소 1 >을 발견했고, low는 
 위의 퀵 정렬 과정을 소스 코드로 살펴봅시다.
 
 ```cpp
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+#include <stdio.h>
+#include <stdlib.h>
 
 void Swap(int arr[], int firstIndex, int secondIndex)
 {
