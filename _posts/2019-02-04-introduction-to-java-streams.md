@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 목차
+# 목차
 
 - 자바 스트림 정리 - 1. 소개와 스트림 생성
 - <a href="/post/java-streams-intermediate-operations" target="_blank">자바 스트림 정리 - 2. 중간 연산 (링크)</a>
@@ -18,9 +18,9 @@ comments: true
 - <a href="/post/java-streams-examples" target="_blank">자바 스트림 정리 - 4. 예제 (링크)</a>
 - <a href="/post/mistakes-when-using-java-streams" target="_blank">자바 스트림 정리 - 5. 주의할 점 (링크)</a>
 
-<br/><br/>
+<br/>
 
-> ## 스트림이란?
+# 스트림이란?
 
 스트림(Stream)은 **자바 8**에서 추가된 기능으로 함수형 인터페이스인 **람다(lambda)**를 활용할 수 있는 기술입니다. 
 예전에는 배열이나 컬렉션을 반복문을 순회하면서 요소를 하나씩 꺼내 여러가지 코드를(예를 들어 if 조건문 등) 섞어서 작성했다면
@@ -34,9 +34,9 @@ comments: true
 컬렉션이나 배열 등으로부터 **스트림을 생성**하는 작업(Stream Source), 스트림을 필터링하거나 **요소를 알맞게 변환**하는 
 중간 연산(Intermediate Operations), 마지막으로 최종적인 **결과를 도출**하는 단말 연산(Terminal Operations)으로 나뉩니다.
 
-<br/><br/>
+<br/>
 
-> ## 컬렉션(Collection)으로 생성
+# 컬렉션(Collection)으로 생성
 
 기본적으로 컬렉션 구현 클래스의 ```stream``` 메서드를 이용하여 스트림을 생성할 수 있습니다.
 
@@ -45,9 +45,9 @@ List&lt;String> list = List.of("mad", "play");
 Stream&lt;String> stream = list.stream();
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 배열(Array)로 생성
+# 배열(Array)로 생성
 
 ```Arrays.stream``` 메서드를 사용하여 배열로 스트림을 생성할 수 있습니다.
 
@@ -61,9 +61,9 @@ Stream&lt;String> specificStream = Arrays.stream(arr, 0, 1);
 specificStream.forEach(System.out::println);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 병렬 스트림 생성
+# 병렬 스트림 생성
 
 위의 컬렉션과 배열을 생성할 때 사용한 ```stream``` 메서드 대신에 ```parallelStream``` 메서드를 호출하면 병렬 스트림을
 생성할 수 있습니다. 각각의 스레드에서 작업을 처리할 수 있도록 스트림 요소를 여러 **청크(chunk)**로 분할합니다.
@@ -72,9 +72,9 @@ specificStream.forEach(System.out::println);
 Stream&lt;String> stream = list.parallelStream();
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 기본 타입에 특화된 스트림 생성
+# 기본 타입에 특화된 스트림 생성
 
 오토 박싱과 언박싱의 비효율적인 측면을 줄이기 위해 기본 타입에 특화된 스트림을 사용할 수 있습니다.
 자바에서는 기본적으로 ```IntStream```, ```LongStream```, ```DoubleStream```이 제공됩니다. 
@@ -102,9 +102,9 @@ IntStream intStream = new Random().ints().limit(3);
 DoubleStream doubles = new Random().doubles(3);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 파일(Files)로 생성
+# 파일(Files)로 생성
 
 ```java.nio.Files``` 클래스를 이용하여 스트림을 생성할 수 있습니다. ```list``` 메서드은 path 스트림을,
 ```lines``` 메서드는 파일 내의 각 라인을 문자열 스트림으로 생성합니다.
@@ -116,9 +116,9 @@ Path filePath = Paths.get("~.txt");
 Stream&lt;String> lines = Files.lines(path);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## BufferedReader의 lines()로 생성
+# BufferedReader의 lines()로 생성
 
 ```java.io.BufferedReader``` 클래스의 ```lines``` 메서드로도 문자열 스트림을 생성할 수 있습니다.
 
@@ -131,9 +131,9 @@ try (BufferedReader br = new BufferedReader(new FileReader("test.txt"))) {
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## Pattern으로 스트림 생성
+# Pattern으로 스트림 생성
 
 <pre class="line-numbers"><code class="language-java" data-start="1">Stream&lt;String> stream = Pattern.compile(",")
     .splitAsStream("mad,play");
@@ -142,9 +142,9 @@ stream.forEach(System.out::println);
 // play
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## Stream.builder() 로 생성
+# Stream.builder() 로 생성
 
 ```Stream.builder``` 메서드를 이용하여 스트림을 생성할 수 있습니다. 메서드 체이닝의 마지막으로 ```build``` 메서드를
 호출하면 스트림을 얻을 수 있습니다.
@@ -158,9 +158,9 @@ Stream&lt;String> stream = Stream.&lt;String>builder()
     .add("mad").add("play").build();
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## Stream.iterate() 로 생성
+# Stream.iterate() 로 생성
 
 ```iterate``` 메서드를 이용하면 초기값과 람다를 인수로 받아 스트림을 생성할 수 있습니다.
 요청할 때마다 값을 생산할 수 있으며 무한 스트림을 만들기 때문에 ```limit``` 메서드로 크기를 제한해야 합니다.
@@ -169,9 +169,9 @@ Stream&lt;String> stream = Stream.&lt;String>builder()
 Stream&lt;Integer> stream = Stream.iterate(0, x -> x + 1).limit(3);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## Stream.generate() 로 생성
+# Stream.generate() 로 생성
 
 ```generate``` 메서드는 위에서 살펴본 **iterate** 메서드와 다르게 생산된 각 값을 연속적으로 생산하지 않으며
 인자가 없고 리턴값만 있는 ```Supplier<T>```를 인수로 받습니다. 역시나 무한 스트림을 만들기 때문에 크기 제한이 필요합니다.
@@ -183,9 +183,9 @@ Stream&lt;Integer> stream = Stream.generate(() -> 1).limit(3);
 Stream&lt;Double> randomStream = Stream.generate(Math::random).limit(3);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## Stream.concat() 으로 스트림을 연결하여 생성
+# Stream.concat() 으로 스트림을 연결하여 생성
 
 ```Stream.concat``` 메서드를 사용하면 두 개의 스트림을 연결하여 새로운 스트림을 생성할 수 있습니다.
 
@@ -197,7 +197,7 @@ Stream&lt;String> stream = Stream.concat(list1.stream(), list2.stream());
 
 <br/>
 
-> ## 비어있는 스트림 생성
+# 비어있는 스트림 생성
 
 ```Stream.empty()``` 메서드로 비어있는 스트림을 생성할 수 있습니다. 요소가 존재하지 않을 때 ```null```과 같이
 유효성 검사에서 사용할 수 있습니다.
@@ -206,9 +206,9 @@ Stream&lt;String> stream = Stream.concat(list1.stream(), list2.stream());
 Stream&lt;Object> empty = Stream.empty();
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 이어서
+# 이어서
 
 여러 가지 방법으로 스트림을 생성하는 방법에 대해 알아보았습니다.
 이어지는 포스팅에서는 만들어진 스트림을 알맞은 형태로 가공하거나 필요한 값들만 필터링할 수 있는

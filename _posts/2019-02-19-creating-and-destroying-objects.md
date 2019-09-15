@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 목록
+# 목록
 
 - <a href="#아이템-1-생성자-대신-정적-팩터리-메서드를-고려하라">아이템 1. 생성자 대신 정적 팩터리 메서드를 고려하라</a>
 - <a href="#아이템-2-생성자에-매개변수가-많다면-빌더를-고려하라">아이템 2. 생성자에 매개변수가 많다면 빌더를 고려하라</a> 
@@ -22,9 +22,9 @@ comments: true
 - <a href="#아이템-8-finalize와-cleaner-사용을-피하라">아이템 8. finalize와 cleaner 사용을 피하라</a>
 - <a href="#아이템-9-try-finally보다는-try-with-resources를-사용하라">아이템 9. try-finally보다는 try-with-resources를 사용하라</a>
 
-<br/><br/>
+<br/>
 
-> ## 아이템 1. 생성자 대신 정적 팩터리 메서드를 고려하라
+# 아이템 1. 생성자 대신 정적 팩터리 메서드를 고려하라
 Consider static factory methods instead of constructors
 
 클래스의 인스턴스는 기본적으로 **public 생성자**를 통해서 얻을 수 있다.
@@ -33,7 +33,7 @@ Consider static factory methods instead of constructors
 - **첫 번째, 이름을 가질 수 있다.** 
 즉, 생성자처럼 클래스의 이름과 동일하지 않아도 된다. 예를 들어서 ```BigInteger(int, int, Random)``` 생성자와
 정적 팩터리 메서드인 ```BigInteger.probablePrime``` 중에서 어느 쪽이 소수인 BigInteger 인스턴스를 반환한다는 의미를
-더 잘 설명하는가? <br/><br/>
+더 잘 설명하는가? <br/>
 또한 하나의 클래스에서 시그니처가 같은 생성자가 여러 개 필요할 것 같은 경우에는 생성자를 정적 팩터리 메서드로 바꿔보자.
 여기서 **시그니처란 메서드의 이름과 매개변수의 리스트**를 말한다. 만약 A, B 메서드가 매개변수의 개수와 타입 그리고 순서가
 모두 같으면 두 메서드의 시그니처는 같다고 말할 수 있다. 
@@ -81,9 +81,9 @@ Consider static factory methods instead of constructors
 
 
 
-<br/><br/>
+<br/>
 
-> ## 아이템 2. 생성자에 매개변수가 많다면 빌더를 고려하라
+# 아이템 2. 생성자에 매개변수가 많다면 빌더를 고려하라
 Consider a builder when faced with many constructor parameters
 
 정적 팩터리와 생성자는 선택적 매개변수가 많을 때 적절하게 대응하기 어렵다.
@@ -114,9 +114,9 @@ person.setEmail("hello@gmail.com");
 <div class="post_caption">생성자나 정적 팩터리에 매개변수가 많다면 빌더 패턴을 선택하는 게 더 낫다.
 매개변수 중 대부분이 필수가 아니거나 같은 타입이면 더욱 그렇다. </div>
 
-<br/><br/>
+<br/>
 
-> ## 아이템 3. private 생성자나 열거 타입으로 싱글턴임을 보증하라
+# 아이템 3. private 생성자나 열거 타입으로 싱글턴임을 보증하라
 Enforce the singleton property with a private constructor or an enum type
 
 싱글톤(singleton)이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말하며 아래처럼 3가지 방법이 있다.
@@ -160,9 +160,9 @@ private 생성자는 ```MadPlay.INSTANCE```를 초기화할 때 딱 한번만 �
 
 <div class="post_caption">private 생성자나 열거 타입으로 싱글턴임을 보증하라</div>
 
-<br/><br/>
+<br/>
 
-> ## 아이템 4. 인스턴스화를 막으려거든 private 생성자를 사용하라
+# 아이템 4. 인스턴스화를 막으려거든 private 생성자를 사용하라
 Enforce noninstantiability with a private constructor
 
 생성자를 명시하지 않으면 컴파일러가 자동으로 기본 생성자를 만들어낸다. 따라서 인스턴스화를 막으려면 ```private 생성자```를
@@ -182,9 +182,9 @@ Enforce noninstantiability with a private constructor
 
 <div class="post_caption">인스턴스화를 막는 최고의 방법은 private 생성자를 만드는 것이다.</div>
 
-<br/><br/>
+<br/>
 
-> ## 아이템 5. 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라
+# 아이템 5. 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라
 Prefer dependency injection to hardwiring resources
 
 대부분의 클래스가 하나 이상의 자원에 의존한다. 이런 클래스를 정적 유틸리티 클래스로 구현하면 유연하지 않고 테스트하기도 어렵다.
@@ -225,9 +225,9 @@ Prefer dependency injection to hardwiring resources
 <div class="post_caption">클래스가 하나 이상의 동작에 영향을 주는 자원에 의존한다면,
 자원을 생성자(또는 정적 팩터리나 빌더)에 넘겨주자</div>
 
-<br/><br/>
+<br/>
 
-> ## 아이템 6. 불필요한 객체 생성을 피하라
+# 아이템 6. 불필요한 객체 생성을 피하라
 Avoid creating unnecessary objects
 
 생성자로 문자열을 만들어내는 경우 매번 새로운 String 인스턴스를 생성하게 된다.
@@ -293,9 +293,9 @@ for (long i = 0; i <= Integer.MAX_VALUE; i++) {
 
 <div class="post_caption">불필요한 객체 생성을 피하자.</div>
 
-<br/><br/>
+<br/>
 
-> ## 아이템 7. 다 쓴 객체 참조를 해체하라
+# 아이템 7. 다 쓴 객체 참조를 해체하라
 Eliminate obsolete object references
 
 자바는 C, C++ 처럼 직접 메모리를 관리하지 않는다. GC가 알아서 사용이 끝난 객체를 회수한다.
@@ -374,9 +374,9 @@ Heap
 
 <div class="post_caption">메모리 누수에 주의하고 예방법을 익혀두자.</div>
 
-<br/><br/>
+<br/>
 
-> ## 아이템 8. finalize와 cleaner 사용을 피하라
+# 아이템 8. finalize와 cleaner 사용을 피하라
 Avoid finalizers and cleaners
 
 자바에서는 2가지의 객체 소멸자를 제공한다. 첫 번째로 ```finalizer```인데, 예측할 수 없고 상황에 따라 위험할 수 있어
@@ -398,9 +398,9 @@ finalizer가 언제, 어떠한 스레드에서 실행되는지 알 수도 없고
 
 <div class="post_caption">그냥 사용하지 않는 것이 나은 것 같다.</div>
 
-<br/><br/>
+<br/>
 
-> ## 아이템 9. try-finally보다는 try-with-resources를 사용하라
+# 아이템 9. try-finally보다는 try-with-resources를 사용하라
 Prefer try-with-resources to try-finally
 
 자바 라이브러리에는 ```close()``` 메서드를 통해 닫아야 하는 자원들이 있다. 자바 7이전에는 ```try-finally```를 이용했다.

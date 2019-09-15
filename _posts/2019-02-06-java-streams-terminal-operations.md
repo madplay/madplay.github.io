@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 목차
+# 목차
 
 - <a href="/post/introduction-to-java-streams" target="_blank">자바 스트림 정리 - 1. 소개와 스트림 생성 (링크)</a>
 - <a href="/post/java-streams-intermediate-operations" target="_blank">자바 스트림 정리 - 2. 중간 연산 (링크)</a>
@@ -18,16 +18,16 @@ comments: true
 - <a href="/post/java-streams-examples" target="_blank">자바 스트림 정리 - 4. 예제 (링크)</a>
 - <a href="/post/mistakes-when-using-java-streams" target="_blank">자바 스트림 정리 - 5. 주의할 점 (링크)</a>
 
-<br/><br/>
+<br/>
 
-> ## 스트림 종료 연산
+# 스트림 종료 연산
 
 이제 마지막으로 가공한 스트림을 결과로 만들어내는 단말 연산(Terminal Operations)입니다.
 다양한 형태로 결과 값을 구할 수 있습니다. 어떤 연산이 있는지 알아봅시다.
 
-<br/><br/>
+<br/>
 
-> ## 순회(iterate)
+# 순회(iterate)
 
 ```forEach``` 메서드를 사용하여 스트림을 순회할 수 있습니다. 
 
@@ -47,9 +47,9 @@ list.parallelStream().forEach(System.out::println);
 list.parallelStream().forEachOrdered(System.out::println);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 결과 합치기(reduce)
+# 결과 합치기(reduce)
 
 ```reduce``` 연산을 이용해 모든 스트림 요소를 처리하여 결과를 구할 수 있습니다.
 이 메서드는 아래와 같이 세 가지 형태로 오버로딩(overloading)되어 있습니다.
@@ -105,9 +105,9 @@ System.out.println(result);
 초기값 1에 스트림의 요소 값을 더한 값을 계산합니다. (1+3=4, 1+9=10, 1+7=8) 그리고 다음 과정에서 combiner 연산에서는
 여러 스레드에서 나누어 연산한 값을 합칩니다. (8+10=18, 4+18=22)
 
-<br/><br/>
+<br/>
 
-> ## 계산하기: 최솟값, 총합, 평균 등
+# 계산하기: 최솟값, 총합, 평균 등
 
 스트림 API에서 값을 구하는 연산을 이용하면 간단하게 최솟값 또는 최댓값을 구할 수 있습니다.
 
@@ -138,9 +138,9 @@ OptionalDouble average = IntStream.of(3, 2, 1).average();
 average.ifPresent(System.out::println);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 결과 모으기(Collect)
+# 결과 모으기(Collect)
 
 스트림을 List, Set 그리고 Map과 같은 다른 형태의 결과로 변환해줍니다.
 아래와 같은 클래스가 있다고 가정하고 여러 가지 collect 연산을 진행해봅시다.
@@ -350,9 +350,9 @@ String foodNames = list.stream().collect(foodNameCollector);
 System.out.println(foodNames);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 조건 체크(Matching)
+# 조건 체크(Matching)
 
 Predicate 조건식을 인자로 받아서 해당 조건을 만족하는 요소가 있는지 체크할 수 있습니다.
 
@@ -378,9 +378,9 @@ boolean noneMatch = list.stream()
         .noneMatch(food -> food.getCal() < 1000);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 이어서
+# 이어서
 
 여러 가지 연산을 적용한 스트림으로부터 원하는 결과를 얻는 방법을 알아보았습니다. 
 이어지는 포스팅에서는 스트림 API를 사용하는 여러가지 예제에 대해서 알아봅니다.

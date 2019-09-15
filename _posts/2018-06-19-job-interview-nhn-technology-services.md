@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## NHN Technology Services 필기전형 후기
+# NHN Technology Services 필기전형 후기
 
 서류전형의 경우 역시나 다른 IT 회사와 크게 다르지 않은 형식이었습니다.
 사실 뭐랄까요. 서류전형이나 면접전형들도 계속 겪다보면 조금씩 노하우가 생기는 거 같은 느낌이에요.

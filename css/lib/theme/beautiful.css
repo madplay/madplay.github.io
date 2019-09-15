@@ -16,9 +16,14 @@ p {
     line-height: 1.8;
     margin: 20px 0 20px 0;
 }
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4 {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 800;
+    line-height: 1.5;
+}
+h5, h6{
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
     line-height: 1.5;
 }
 h1,
@@ -39,11 +44,11 @@ h4,
 }
 h5,
 .h5 {
-    font-size: 12px;
+    font-size: 14px;
 }
 h6,
 .h6 {
-    font-size: 10px;
+    font-size: 12px;
 }
 @media only screen and (min-width: 768px) {
     h1,
@@ -64,11 +69,11 @@ h6,
     }
     h5,
     .h5 {
-        font-size: 18px;
+        font-size: 16px;
     }
     h6,
     .h6 {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
 a {

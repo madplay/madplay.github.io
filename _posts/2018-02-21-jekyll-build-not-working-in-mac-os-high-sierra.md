@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## High Sierra 업데이트 이후 Jekyll 실행이 안된다.
+# High Sierra 업데이트 이후 Jekyll 실행이 안된다.
 
 기대반 걱정반의 심정으로 진행한 High Sierra 업데이트를 진행했는데요.
 재시동까지 완료한 후에 블로그 관리를 하려고 ```jekyll serve --watch``` 를 타이핑한 순간, 아래와 같은 오류 메시지를 만났습니다.
@@ -23,9 +23,9 @@ comments: true
 검색을 통해 이것저것 찾아본 결과 Ruby 2.0을 더이상 지원하지 않기 때문이었습니다.
 따라서 MAC OS High Sierra 에서는 몇가지의 업데이트가 필요합니다.
 
-<br/><br/>
+<br/>
 
-> ## 아래와 같은 과정을 실행합니다.
+# 아래와 같은 과정을 실행합니다.
 
 <b>Step 1. Homebrew를 설치하도록 합니다.(이미 설치되어 있다면 Skip)</b>
 ```
@@ -33,7 +33,7 @@ comments: true
 ```
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-03-08-jekyll-build-not-working-in-mac-os-high-sierra-1.png" width="600" height="200" alt="install homebrew"/>
 
-<br/><br/>
+<br/>
 
 <b>Step 2. ruby 관련 설치를 진행합니다.</b>
 ```
@@ -56,7 +56,7 @@ Downloading ruby-2.4.3.tar.bz2...
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-03-08-jekyll-build-not-working-in-mac-os-high-sierra-2.png" width="600" height="200" alt="install ruby"/>
 
-<br/><br/>
+<br/>
 
 <b>Step 3. ruby가 정상 설치되었는지 확인해봅시다.</b>
 ```

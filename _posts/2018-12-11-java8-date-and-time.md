@@ -10,16 +10,16 @@ comments: true
 
 <hr/>
 
-> ## java.time 패키지
+# java.time 패키지
 
 JDK 1.8 버전에서 ```java.time``` 패키지에 ```LocalDateTime```과 타임존 개념까지 포함할 수 있는 ```ZonedDateTime```가 
 추가되었습니다. 따라서 이전보다 안전하고 편하게 날짜를 계산할 수 있습니다.
 
 <div class="post_caption">타임존에 관한 부분은 이어지는 글에서 다룰 예정입니다.</div>
 
-<br/><br/>
+<br/>
 
-> ## 날짜 가져오기
+# 날짜 가져오기
 
 ```LocalDate``` 클래스는 년, 월, 일 정보만을 가지며 ```LocalTime```은 시, 분, 초 정보만을 가집니다.
 그리고 ```LocalDateTime``` 클래스는 이름으로부터 유추되는 것처럼 두 개의 클래스가 각각 갖는 정보를 모두 가지고 있습니다. 
@@ -37,9 +37,9 @@ LocalDateTime nowDateTime = LocalDateTime.now();
 LocalDateTime ofDateTime = LocalDateTime.of(2018, 12, 11, 15, 23, 32);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 특정 날짜/시간 가져오기
+# 특정 날짜/시간 가져오기
 
 - 오늘 자정(0시 0분 0초) 가져온 후 문자열 변환
 <pre class="line-numbers"><code class="language-java" data-start="1">// 오늘 날짜의 자정(midnight)
@@ -67,9 +67,9 @@ LocalDateTime.now().plusDays(1).with(LocalTime.MAX);
 LocalDateTime.now().with(LocalTime.NOON);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 날짜 변환하기
+# 날짜 변환하기
 
 - 날짜 정보를 문자열로 변환하거나 ```Date```와 같은 구 버전의 날짜 클래스를 java 8 클래스로 변환할 수 있습니다.
 
@@ -113,9 +113,9 @@ LocalDateTime.parse("2018-12-11 13:43:21.221",
 LocalDate.parse("2018-12-11");
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 요일 다루기
+# 요일 다루기
 
 가장 가까운 요일, N 번째 요일 등을 간단한 코드로 가져올 수 있습니다.
 
@@ -134,9 +134,9 @@ LocalDate.of(2018, 12, 11).with(TemporalAdjusters.dayOfWeekInMonth(4, DayOfWeek.
 LocalDate.of(2018, 12, 11).with(TemporalAdjusters.firstInMonth(DayOfWeek.SUNDAY));
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 언어별 표기 출력
+# 언어별 표기 출력
 
 굉장히 신기했던 것 중 하나인데... 언어별로 월이나 요일 표기도 가능합니다.
 

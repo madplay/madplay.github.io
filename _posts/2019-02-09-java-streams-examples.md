@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 목차
+# 목차
 
 - <a href="/post/introduction-to-java-streams" target="_blank">자바 스트림 정리 - 1. 소개와 스트림 생성 (링크)</a>
 - <a href="/post/java-streams-intermediate-operations" target="_blank">자바 스트림 정리 - 2. 중간 연산 (링크)</a>
@@ -18,9 +18,9 @@ comments: true
 - 자바 스트림 정리 - 4. 예제
 - <a href="/post/mistakes-when-using-java-streams" target="_blank">자바 스트림 정리 - 5. 주의할 점 (링크)</a>
 
-<br/><br/>
+<br/>
 
-> ## 스트림 API 예제
+# 스트림 API 예제
 
 이번 포스팅에서는 스트림 API를 사용하는 여러 가지 예제들을 살펴봅니다.
 예제에서 사용하는 ```Person``` 클래스는 아래와 같이 미리 작성되있음을 가정합니다.
@@ -40,9 +40,9 @@ comments: true
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## ```List<V> to Map<K, V>```
+# ```List<V> to Map<K, V>```
 
 List 형태를 Map 형태로 바꿔봅시다. ```List<V>``` 형태와 같이 특정 오브젝트 타입의 리스트를
 오브젝트의 한 필드를 키로 하는 ```Map<K, V>``` 형태로 변경합니다.
@@ -100,9 +100,9 @@ Map&lt;Integer, List&lt;Person>> duplicatedMap = personList.stream()
         .collect(Collectors.groupingBy(Person::getAge));
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 스트림 내에서 null 제외하기
+# 스트림 내에서 null 제외하기
 
 위에서 살펴본 ```filter``` 메서드를 적절하게 사용하면 스트림 내의 null 값을 제외시킬 수 있습니다.
 
@@ -111,9 +111,9 @@ List&lt;String> filteredList = stream.filter(Objects::nonNull)
         .collect(Collectors.toList());        
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 조건에 일치한 요소 찾기
+# 조건에 일치한 요소 찾기
 
 ```filter``` 메서드와 ```findFirst``` 메서드로 조건에 일치한 가장 첫 요소를 찾을 수 있습니다. 
 
@@ -138,9 +138,9 @@ Person person = personList.parallelStream()
         .findAny().get();
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 스트림 정렬하기
+# 스트림 정렬하기
 
 스트림을 주어진 조건으로 정렬할 수 있습니다. 예를 들어 나이(age) 값을 기준으로 오름차순 정렬을 한다면,
 
@@ -165,9 +165,9 @@ personList.stream()
         .forEach(p -> System.out.println(p.getName()));
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## reduce로 결과 구하기
+# reduce로 결과 구하기
 
 ```reduce``` 메서드로 스트림을 하나의 결과로 연산할 수 있습니다.
 예를 들어 아래와 같이 숫자로 구성된 리스트 내의 요소를 모두 더해 합계(sum)를 구할 수 있습니다.
@@ -199,9 +199,9 @@ String result = list.stream()
                 val1.length() >= val2.length() ? val1 : val2);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 단일 컬렉션 만들기
+# 단일 컬렉션 만들기
 
 2차원 배열과 같은 요소를 ```flatmap``` 메서드를 사용하여 중첩 구조를 제거하고 단일 컬렉션으로 만들 수 있습니다.
 
@@ -219,9 +219,9 @@ String[] flattedNames = Arrays.stream(names)
         .flatMap(Stream::of).toArray(String[]::new);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 이어서
+# 이어서
 
 스트림 API를 이용한 여러가지 예제에 대해서 알아보았습니다. 
 이어지는 포스팅에서는 스트림 API를 사용하면서 주의할 점에 대해서 알아봅니다. 

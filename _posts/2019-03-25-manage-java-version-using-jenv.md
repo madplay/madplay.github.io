@@ -10,14 +10,14 @@ comments: true
 
 <hr/>
 
-> ## jEnv가 무엇일까?
+# jEnv가 무엇일까?
 
 jEnv는 JDK 버전 관리 도구인데요. 여러 개의 jdk를 설치해두고 손쉽게 버전을 변경해가며 사용할 수 있습니다.
 이번 포스팅에서는 Mac OS에서 jEnv를 설치하고 사용하는 방법을 알아봅니다. 
 
-<br/><br/>
+<br/>
 
-> ## jEnv 설치 및 설정하기
+# jEnv 설치 및 설정하기
 
 Mac OS 기준으로 brew를 이용하면 바로 설치 가능합니다.
 <pre class="line-numbers"><code class="language-bash" data-start="1">$ brew install jenv
@@ -63,9 +63,9 @@ if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 <pre class="line-numbers"><code class="language-bash" data-start="1">$ source ~/.bash_profile
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## jEnv 사용하기
+# jEnv 사용하기
 
 드디어 jEnv를 사용할 차례입니다. 먼저 관리할 자바 버전들을 추가해야 하는데요. ```jenv add``` 명령어를 통해서 버전을 추가하면 됩니다.
 그런데 포스팅을 위해서 다른 환경에서 다시 설치를 해보니, jEnv의 버전 관리 디렉터리(~/.jenv/versions)가 없더군요.
@@ -133,9 +133,9 @@ Java(TM) SE Runtime Environment (build 1.8.0_73-b02)
 Java HotSpot(TM) 64-Bit Server VM (build 25.73-b02, mixed mode)
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 마치며
+# 마치며
 
 jEnv를 이용해서 자바 버전을 조금 더 편리하게 관리하는 법을 알아보았습니다. 사실 jEnv가 없어도 환경변수 설정을 바꿔가며 사용할 수도 있습니다.
 하지만 에디터 화면을 여는 것 보다 더 빠르지요. 

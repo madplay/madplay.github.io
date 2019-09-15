@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 동기화? 그것은 무엇일까?
+# 동기화? 그것은 무엇일까?
 
 동기화(Synchronization)는 작업들 사이의 수행 시기를 맞추는 것을 말합니다.
 
@@ -23,9 +23,9 @@ comments: true
 위의 그림처럼 자바에서는 수많은 Collection 인터페이스의 구현 클래스를 제공하고 있습니다.
 너무 많으니까 대표적으로 List, Set 그리고 Map에 대해 살펴보도록 합시다.
 
-<br/><br/>
+<br/>
 
-> ## 리스트(List)
+# 리스트(List)
 
 리스트는 자체적으로 순서가 있는 구성이며 리스트에 추가되는 요소(Element)의 중복을 허용합니다.
 위의 그림에서 보면 알수있듯이 List 인터페이스를 구현하는 클래스는 ArrayList, Vector 그리고 LinkedList가 있습니다.
@@ -50,7 +50,7 @@ public class ArrayList&lt;E&gt; extends AbstractList&lt;E&gt;
 
 ```ArrayList``` 클래스는 동기화를 제공하지 않습니다.
 위의 요소를 추가하는 add 메서드를 살펴보면 알 수 있듯이 동기화를 위한 코드가 보이지 않습니다.
-<br/><br/>
+<br/>
 
 다음으로 ```Vector```를 살펴봅시다.
 
@@ -94,7 +94,7 @@ public void SomeMethod() {
     }
 }
 </code></pre>
-<br/><br/>
+<br/>
 
 ArrayList와 Vector외에 ```LinkedList```도 있습니다.
 데이터의 노드가 연겨되어 순서대로 늘어져 있는 구조이기 때문에 노드와 노드 사이에 값을 추가하거나
@@ -104,9 +104,9 @@ ArrayList와 Vector외에 ```LinkedList```도 있습니다.
 특정 위치에 대한 접근이 가능한 장점이 있지만 데이터의 추가를 진행할 때는 내부적으로 임시 배열을 생성한 후
 복사하는 방법을 사용하기 때문에 대량의 요소를 추가하는 연산을 수행하는 경우 성능 저하가 발생합니다.
 
-<br/><br/>
+<br/>
 
-> ## 집합(Set)
+# 집합(Set)
 
 집합(Set)은 순서를 유지하지 않는 데이터들의 집합이며, 먼저 살펴본 리스트(List)와는 다르게 요소들의
 중복을 허용하지 않습니다. 대표적으로는 HashSet과 TreeSet 클래스가 있습니다.
@@ -141,7 +141,7 @@ public class HashSet&lt;E&gt; extends AbstractSet&lt;E&gt;
     ...
 }
 </code></pre>
-<br/><br/>
+<br/>
 
 그러니까 LinkedHashSet은 상위 클래스인 HashSet을 만들고 내부적으로는 LinkedHashMap을
 만들고 있는 모습입니다. 
@@ -188,7 +188,7 @@ class MadPlay {
     }
 }
 </code></pre>
-<br/><br/>
+<br/>
 
 위 코드의 출력은 입력된 &lt;3, 1, 2&gt; 의 순서와 다르게 정렬된 &lt;1, 2, 3&gt;의 순서로 출력됩니다.
 
@@ -212,9 +212,9 @@ public class MadPlay {
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 맵(Map)
+# 맵(Map)
 
 Map은 Key와 Value의 쌍으로 이루어진 데이터를 저장합니다.
 HashMap, TreeMap, Hashtable 클래스 등이 있고 순서를 보장하는 LinkedHashMap도 있습니다.
@@ -236,7 +236,7 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     ...
 }
 </code></pre>
-<br/><br/>
+<br/>
 
 내부적으로 정렬을 진행하기 때문에 값을 추가할 때 상대적으로 시간이 더 소요됩니다.
 앞서 살펴본 TreeSet과 마찬가지로 Comparator를 직접 구현하여 정렬 순서를 지정할 수도 있습니다.
@@ -247,7 +247,7 @@ public interface NavigableMap<K,V> extends SortedMap<K,V> {
     );
 }
 </code></pre>
-<br/><br/>
+<br/>
 
 마지막으로 Hashtable은 마찬가지로 중복을 허용하지 않지만 HashMap과는 다르게 Key와 Value의 값으로
 null을 허용하지 않는 특징을 가지고 있습니다. HashMap보다는 느리지만 ```동기화를 제공``` 하지요.
@@ -270,7 +270,7 @@ public class Hashtable&lt;K,V&gt; extends Dictionary&lt;K,V&gt;
     }
 }
 </code></pre>
-<br/><br/>
+<br/>
 
 동기화를 제공하지 않는 HashMap의 경우 KeySet을 순회하다가 새로운 값이 추가되는 경우에
 이슈가 생기겠지만 동기화를 지원하는 컬렉션은 이러한 경우에 문제가 되지 않겠죠?
@@ -278,9 +278,9 @@ public class Hashtable&lt;K,V&gt; extends Dictionary&lt;K,V&gt;
 Map의 경우에도 동기화 기능을 위해 Collections.SynchroniezdMap 메서드를 사용할 수 있지만
 이번에는 조금 다른 방법을 소개하려고 합니다.
 
-<br/><br/>
+<br/>
 
-> ## Concurrent
+# Concurrent
 
 Java 1.5 버전부터 등장한 ```java.util.concurrent``` 패키지는 다양한 동시성 기능을 제공합니다.
 <a href="https://docs.oracle.com/javase/1.5.0/docs/api/java/util/concurrent/package-summary.html" target="_blank">
@@ -369,7 +369,7 @@ class MadPlay {
     }
 }
 </code></pre>
-<br/><br/>
+<br/>
 
 위와 같이 다중스레드 환경에서 Hashtable, ConcurrentHashMap, SynchronizedMap의 성능테스트를 위한 코드는 준비되었습니다.
 이제 실행만 시키면 되는데요. 위 코드를 복사하여 IDE에서 직접 수행해도 그대로 동작이 될겁니다. 
@@ -408,9 +408,9 @@ class java.util.Collections$SynchronizedMap's average time is 1233ms
 
 직접 코드를 수행하니까 속도의 차이가 보입니다.
 
-<br/><br/>
+<br/>
 
-> ## 끝으로 정리해보면
+# 끝으로 정리해보면
 
 
 ```List Interface```<br/>

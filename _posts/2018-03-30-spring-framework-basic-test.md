@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 테스트란 무엇일까?
+# 테스트란 무엇일까?
 
 테스트란 무엇일까요.
 단어 그 자체처럼 의도하고 예상한 것처럼 그대로 동작하는지를 확인해보는 것을 말합니다.
@@ -60,9 +60,9 @@ target="_blank">**스프링 프레임워크 기초 - Inversion of Control의 마
 또한, 현재의 코드로는 DB에 추가한 후에 다시 가져왔을 때 정상적으로 추가되었는지 확인해주지 않습니다.
 물론 코드의 마지막 부분에 가져온 User 객체의 id를 입력할 때 사용한 id와 비교하는 조건문으로 간단하게 확인은 가능합니다.
 
-<br/><br/>
+<br/>
 
-> ## JUnit
+# JUnit
 
 <div class="post_caption">JUnit은 자바로 단위 테스트를 만들 때 유용하게 쓸 수 있습니다.</div>
 
@@ -117,9 +117,9 @@ Maven 프로젝트를 사용한다면 pom.xml에 의존성을 추가하셔도 �
 이 메서드를 사용하기 위해서는 아래와 같이 import문 선언이 필요합니다.
 ```import static org.hamcrest.CoreMatchers.is;``` ```import static org.junit.Assert.assertThat;```
 
-<br/><br/>
+<br/>
 
-> ## Test Driven Development
+# Test Driven Development
 
 <div class="post_caption">먼저 테스트 코드를 작성하고 테스트를 성공하게 해주는 코드를 작성한다.</div>
 
@@ -134,9 +134,9 @@ TDD라고 짧게 줄여서 말하기도 하지요? Test Driven Development를 �
 
 물론 시간적인 여유가 있어야 필요할 것 같긴 합니다.
 
-<br/><br/>
+<br/>
 
-> ## 테스트 코드의 개선
+# 테스트 코드의 개선
 
 main 메서드를 이용한 테스트 코드를 JUnit 프레임워크를 이용하도록 개선했지만
 아직도 코드의 중복이라는 개선 포인트가 보입니다. 이를 한번 더 개선해봅시다.
@@ -213,9 +213,9 @@ public class UserDAOTest {
 
 클래스의 인스턴스 변수에 선언해두고 ```@Before``` 메서드에서 생성하면 편리하지요.
 
-<br/><br/>
+<br/>
 
-> ## 스프링 테스트
+# 스프링 테스트
 
 앞서 살펴본 내용에서 조금 더 나아가 스프링에서 제공하는 기능들을 통해 테스트를 진행할 수 있습니다.
 스프링 테스트를 위해서는 아래와 같은 어노테이션이 필요합니다.
@@ -297,9 +297,9 @@ public class YourDAOTest {
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 기타 테스트
+# 기타 테스트
 
 그 외의 살펴볼 내용으로는 학습 테스트와 버그 테스트가 있습니다.
 
