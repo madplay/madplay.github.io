@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## SyntaxError: Non-ASCII character
+# SyntaxError: Non-ASCII character
 
 파이썬에서 한글로 주석을 입력하면 아래와 같은 오류를 볼 수 있습니다.
 

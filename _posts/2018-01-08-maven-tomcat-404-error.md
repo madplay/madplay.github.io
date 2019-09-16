@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 그만 보고 싶다. 404 Not Found.
+# 그만 보고 싶다. 404 Not Found.
 
 톰캣과 같은 (또는 아파치) 서버를 이용하여 웹 프로젝트를 많이 설계하실텐데요.
 
@@ -29,9 +29,9 @@ IDE로 Intellij를 주로 사용하지만 이번 포스팅에서는 사용자가
 
 <div class="post_caption">그...그래 반갑다.</div>
 
-<br/><br/>
+<br/>
 
-> ## 톰캣 설정(server.xml)
+# 톰캣 설정(server.xml)
 
 가장 기본적으로 톰캣의 설정을 확인해보는 것이 좋습니다. 바로 server.xml 파일을 말이지요.<br/>
 ```Server Runtime Environments를 등록해두고 NEW -> Server``` 과정을 통해서 톰캣 서버를 생성했다면
@@ -53,9 +53,9 @@ web.xml 또는 Servlet 설정에서 매핑과 일치한 지 확인해봐야 겠�
 docBase의 경우도 이클립스에서는 Servers의 View 화면에서 해당 톰캣을 오른 클릭하여
 ```Add and Remove```를 통해 추가 또는 삭제할 수 있지만 터미널로 직접 실행하는 경우 경로를 잘 체크해야 합니다.
 
-<br/><br/>
+<br/>
 
-> ## IDE 설정
+# IDE 설정
 
 web.xml을 못 찾는 경우도 있습니다.
 다른 Git remote Repository에서 clone을 한 후에 Maven으로 변환하는 경우에서도 겪은 적이 있네요.
@@ -70,9 +70,9 @@ Maven의 pom.xml 설정이 잘 되있으면 참 좋았을텐데 말이지요.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-08-maven-tomcat-404-error-3.png" width="400" height="100" alt="Directory Path 설정"/>
 
-<br/><br/>
+<br/>
 
-> ## Java의 문제
+# Java의 문제
 
 개발 환경에 설치된 자바의 버전과 톰캣의 버전에서 문제가 있을 수 있습니다.
 
@@ -112,7 +112,7 @@ source ~/.bash_profile
 java -version
 ```
 
-> ## 번외, 로그를 잘 보자!
+# 번외, 로그를 잘 보자!
 
 지금까지 살펴본 ```404 Not Found.``` 에러를 직접적으로 발생시키지는 않지만
 톰캣이 실행될 때 남겨지는 로그 중 흔하게 '경고'를 표기하는 메시지가 있습니다.

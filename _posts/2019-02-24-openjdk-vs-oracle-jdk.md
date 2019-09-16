@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## Java SE Subscription
+# Java SE Subscription
 
 2018년 6월 21일, 오라클은 Java SE에 대한 유료 구독 모델인 **Java SE Subscription**을 발표했다.
 자바 서브스크립션은 데스크탑, 서버 또는 클라우드 환경에서 사용을 목적으로 하는 자바 라이선스와 기술 지원을
@@ -21,9 +21,9 @@ comments: true
 데스크탑 기준 사용자당 월 2.50 달러의 가격을 지불해야 한다. 대신 패키지의 소프트웨어 사용권, 업그레이드, 
 기술 지원 등의 혜택을 받을 수 있다.
 
-<br/><br/>
+<br/>
 
-> ## JDK 유료화?
+# JDK 유료화?
 
 우선 JDK(Java Development Kit)에 대해서 알아야 한다. 자바 프로그램을 실행하기 위해서는 **JVM(Java Virtual Machine)**이 필요하지만
 사전 단계인 바이트 코드로 만들기 위한 컴파일 과정에서는 JDK가 필요하다.
@@ -47,9 +47,9 @@ comments: true
 **TCK(Technology Compatibility Kit)**라는 인증을 통해서 검증된 것만 인정된다고 한다.
 
 
-<br/><br/>
+<br/>
 
-> ## 그럼 어떻게 해야하나?
+# 그럼 어떻게 해야하나?
 
 이 부분이 제일 궁금했다. 과거에 학교에서, 지금은 집에서 자바를 잘 사용하고 있는데 말이다. 사람들이 무료라고 말하는
 OpenJDK로 다시 설치해야 하나 싶었다. 처음 자바를 다운로드할 때 무료라고 쓰여있는 걸 분명히 본 것 같은데 말이다.

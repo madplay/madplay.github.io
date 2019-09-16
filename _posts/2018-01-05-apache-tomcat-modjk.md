@@ -10,15 +10,15 @@ comments: true
 
 <hr/>
 
-> ## 아파치(Apache)란 무엇일까?
+# 아파치(Apache)란 무엇일까?
 
 1995년 처음 발표된 WWW(World Wide Web) 서버용 소프트웨어를 말합니다.
 대부분의 운영체제에서 운용이 가능하며 오픈소스 라이선스를 가지고 있어 자유롭게 사용할 수 있습니다.
 쉽게 말해서 표현한다면 웹 서버(Web Server)라고 표현하면 되겠네요.
 
-<br/><br/>
+<br/>
 
-> ## 톰캣(Tomcat)이란 무엇일까?
+# 톰캣(Tomcat)이란 무엇일까?
 
 그렇다면 톰캣은 무엇일까요? 아파치 소프트웨어 재단에서 개발한 서블릿 컨테이너만 있는 웹 애플리케이션 서버를 말합니다.
 WAS(Web Application Server)라고 말하는데, 이는 웹 서버와 웹 컨테이너의 결합으로
@@ -26,9 +26,9 @@ WAS(Web Application Server)라고 말하는데, 이는 웹 서버와 웹 컨테�
 (Tomcat을 WAS라고 보면 안 된다는 의견도 있지만! 우선 WAS라는 관점으로 봅시다.)
 클라이언트의 요청이 들어오면 내부의 실행 결과를 만들어내고 이를 다시 전달해주는 역할을 합니다.
 
-<br/><br/>
+<br/>
 
-> ## 그렇다면 왜 아파치와 톰캣을 연동할까?
+# 그렇다면 왜 아파치와 톰캣을 연동할까?
 
 <div class="post_caption">"왜 WAS만 사용하지 않고 웹 서버와 같이 사용할까?"</div>
 
@@ -48,9 +48,9 @@ HTML 파일이나 이미지 파일과 같은 정적 컨텐츠들은 WAS까지 �
 <br/>
 <div class="post_caption">"그럼 지금부터 아파치와 톰캣을 연결해봅시다.<br/>OSX El Capitan 환경을 기준으로 합니다."</div>
 
-<br/><br/>
+<br/>
 
-> ## 아파치와 톰캣 설치
+# 아파치와 톰캣 설치
 
 아파치와 톰캣을 연동하는 작업을 진행할 것인데 설치도 안 하고 진행하면 이상하겠지요.
 아파치의 경우 Mac 환경을 기준으로 했기에 자체적으로 설치되어있는 아파치를 사용해도 됩니다.
@@ -61,9 +61,9 @@ OSX El Capitan 기준으로 터미널에서 ```cd /etc/apache2 ``` 명령어를 
 
 톰캣은 간단하게 직접 <a href="http://tomcat.apache.org/" target="_blank">다운로드(링크)</a>하시면 됩니다.
 
-<br/><br/>
+<br/>
 
-> ## JK Connector 설치하기
+# JK Connector 설치하기
 
 톰캣 홈페이지에서 <a href="http://tomcat.apache.org/download-connectors.cgi" target="_blank">다운로드(링크)</a>하거나 curl을 통해서 다운로드하셔도 됩니다.
 
@@ -119,9 +119,9 @@ sudo find / -name "apr_lib.h"
 <b>아파치가 설치된 경로의 modules 디렉터리 밑에 mod_jk를 넣도록 합니다.</b><br/>
 modules가 없다면 생성하면 됩니다. 다른 이름으로 하는 경우 httpd.conf의 mod_jk.so 위치와 일치해야 합니다.
 
-<br/><br/>
+<br/>
 
-> ## 톰캣 설정하기
+# 톰캣 설정하기
 
 톰캣에서는 설정할 부분이 적습니다. 설치 후에 변경이 없었다면 이 과정은 진행하지 않아도 됩니다.
 그래도 혹시 모르니 확인은 해봅시다. 다음 명령어를 통해 톰캣의 설정 부분으로 진입합니다.
@@ -145,9 +145,9 @@ vi server.xml
 # 아예 위 부분이 통째로 주석처리 되있다면 해제해주면 되겠지요.
 ```
 
-<br/><br/>
+<br/>
 
-> ## 아파치 설정하기
+# 아파치 설정하기
 
 이제 아파치를 설정하면 됩니다. 연동할 톰캣의 리스트를 나타낼 workers.properties 파일을 하나 만들어줍니다.
 위치는 아파치가 설치된 디렉터리 하위의 conf 디렉터리 밑으로 하지요.
@@ -183,9 +183,9 @@ worker.worker2.lbfactor=1 # 서버 밸런스 비율
 여기서 worker의 이름은 임의로 지정한 것입니다. 바꾸셔도 됩니다. 서버 밸런스 비율을 뜻하는 lbfactor의 경우도 마찬가지입니다.
 또한 port 번호의 경우도 worker끼리 중첩되지 않으면 됩니다.
 
-<br/><br/>
+<br/>
 
-> ## 아파치 httpd.conf 수정
+# 아파치 httpd.conf 수정
 
 명령어 ```cd /etc/apache2```를 통해 apache가 설치된 디렉터리로 이동합니다.
 디렉터리 이동 후 ```vi httpd.conf``` 명령어를 통해서 httpd.conf에 mod_jk를 추가합니다.
@@ -217,9 +217,9 @@ JkMount /* worker1
 ```/*.jsp```도 설정할 수 있고 ```/*.php```도 가능합니다.
 톰캣을 여러 대 설정하였다면 workers.properties에서 설정한 worker.list의 각 worker 이름에 따라서 설정합니다.
 
-<br/><br/>
+<br/>
 
-> ## 확인해보기
+# 확인해보기
 
 설정은 모두 끝났고 이제 브라우저를 열어서 확인해보면 됩니다.
 Tomcat의 포트는 8080이고 Apache는 80포트입니다.

@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 스프링 부트(Spring Boot)
+# 스프링 부트(Spring Boot)
 스프링 프레임워크를 조금 더 빠르게!
 
 ```스프링 프레임워크```는 J2EE로 알려진 자바 엔터프라이즈 환경을 경량화하기 위해 등장했는데요.
@@ -26,9 +26,9 @@ POJO(Plain Old Java Object) 기반으로 개발을 하더라도 **가볍게** �
 ```Intellij```에서는 공식적으로 SpringBoot를 지원하고 있으며 이번 포스트에서는 프로젝트를 생성하고
 간단하게 개발의 시작인 ```Hello World```부터 찍어보겠습니다.
 
-<br/><br/>
+<br/>
 
-> ## 프로젝트 생성
+# 프로젝트 생성
 Mac OS 기준으로 진행되었습니다.
 
 먼저 ```Intellij```를 실행하여 순차적으로 File > New > Project를 클릭하여 프로젝트 템플릿을 엽니다.(Create New Project)
@@ -127,7 +127,7 @@ public class HelloController {
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-07-22-create-springboot-project-in-intellij-8.png" width="500" height="300" alt="call using postman"/>
 
-<br/><br/>
+<br/>
 
 중단점(Break Point)를 걸어서 한줄씩 살펴보면 20번 라인의 코드로 인해 PostMan에서 입력한 문자열이 출력되는 것을 볼 수 있습니다.
 

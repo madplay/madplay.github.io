@@ -10,16 +10,16 @@ comments: true
 
 <hr/>
 
-> ## 들어가기 앞서
+# 들어가기 앞서
 
 이번 포스팅은 스트림 클래스를 기준으로 **map 메서드와 flatMap 메서드의 차이**를 소개합니다. 따라서 자바 8에서 새롭게 추가된 스트림에 대한 지식이 
 조금 필요할 수 있습니다. 혹시나 자바의 스트림이 처음이시라면, 아래의 스트림 관련 포스팅을 먼저 보고 오시면 더 좋습니다.
 
 - <a href="/post/introduction-to-java-streams" target="_blank">참고 링크: 자바 스트림 정리 - 1. 소개와 스트림 생성</a>
 
-<br/><br/>
+<br/>
 
-> ## map 메서드 살펴보기
+# map 메서드 살펴보기
 
 ```map``` 메서드를 사용하면 단일 스트림 안의 요소를 원하는 특정 형태로 변환할 수 있습니다. 
 아래 코드로 살펴봅시다. Person 이라는 클래스의 객체가 담긴 리스트에서 문자열인 name 필드만
@@ -73,9 +73,9 @@ personList.stream().map(Person::getName)
     .collect(Collectors.toSet());
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## flatMap 메서드 살펴보기
+# flatMap 메서드 살펴보기
 
 ```flatMap``` 메서드는 스트림의 형태가 배열과 같을 때, 모든 원소를 단일 원소 스트림으로 반환할 수 있습니다.
 아래 코드로 살펴봅시다. 2차원 배열에서 문자열의 길이가 3 보다 큰 문자열을 출력하는 코드입니다.
@@ -96,10 +96,10 @@ namesWithFlatMap.forEach(System.out::println);
 ```flatMap```의 결과로 단일 원소 스트림을 반환하기 때문에 ```filter``` 메서드를 바로 체이닝하여 사용할 수 있습니다.
 초기에 생성된 스트림이 배열인 경우에 매우 유용합니다. 
 
-<br/><br/>
+<br/>
 
 
-> ## 어떻게 다른지 비교해보자!
+# 어떻게 다른지 비교해보자!
 
 이제 조금 더 자세히 ```map```메서드와 ```flatMap``` 메서드가 어떻게 다른지 살펴봅시다.
 먼저 바로 위에서 살펴본 ```flatMap``` 메서드 예제 코드를 다시 살펴봅시다.
@@ -149,9 +149,9 @@ Set&lt;String> namesWithMap = Arrays.stream(namesArray)
     .collect(Collector.of(HashSet::new, Set::addAll, (oldValue, newValue) -> oldValue));
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 다른 예제로 또 비교해보자!
+# 다른 예제로 또 비교해보자!
 
 다른 예제를 가지고 **map메서드와 flatMap메서드의 차이**를 비교해봅시다. 2차원으로 이루어진 문자열 배열에서 특정 문자만 출력하는 코드입니다.
 
@@ -193,9 +193,9 @@ Arrays.stream(namesArray)
     .forEach(names -> names.forEach(System.out::println));
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 마치며
+# 마치며
 
 지금까지 자바 8에서 추가된 **map 메서드와 flatMap 메서드**를 살펴보았는데요. ```Stream``` 클래스를 기준으로 설명했지만
 ```Optional``` 클래스에도 map과 flatMap 메서드가 있습니다. 역할도 동일하고요. 

@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## Description
+# Description
 
 Write a function that takes a string as input and returns the string reversed.
 Example:
@@ -26,9 +26,9 @@ public class Solution {
 
 <a href="https://leetcode.com/problems/reverse-string/description/" target="_blank">Reference link (Click!)</a>
 
-<br/><br/>
+<br/>
 
-> ## Solution
+# Solution
 
 ```java
 /**

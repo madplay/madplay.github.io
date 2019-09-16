@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## Getting Started With Kafka!
+# Getting Started With Kafka!
 
 Kafka Producer와 Consumer를 자바로 직접 구현하는 것은 생각보다 간단합니다.
 하지만 코드를 실행하여 결과까지 확인하기 위해서는 아래와 같이 Kafka 설치 과정이 필요합니다.
@@ -37,9 +37,9 @@ $ kafka-topics --create --zookeeper localhost:2181 \
 실제 실무에서는 지금과 같이 단일 시스템으로 사용하지는 않습니다.
 그리고 본격적인 구현에 앞서! 이번 포스팅에서는 kafka나 zookeeper에 대한 이론적인 부분은 자세히 다루지 않습니다.
 
-<br/><br/>
+<br/>
 
-> ## 구현해보자! Kafka Producer
+# 구현해보자! Kafka Producer
 
 예제는 간단합니다. 단순하게 키보드 입력을 받아 전송하는 것이지요.
 실무에서는 kafka 전송에 있어서 연결을 끊거나 유지하는 것이 엄격하게 관리되겠지만
@@ -93,9 +93,9 @@ public class MyKafkaProducer {
 </code></pre>
 
 
-<br/><br/>
+<br/>
 
-> ## 구현해보자! Kafka Consumer
+# 구현해보자! Kafka Consumer
 
 Consumer의 경우는 구독(subscribe)을 시작한 후 poll을 통해 레코드를 처리합니다.
 topic의 경우에 List로 설정 가능합니다. 단일 topic이 아니라는 것이지요.
@@ -142,9 +142,9 @@ public class MyKafkaConsumer {
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 실행해보자!
+# 실행해보자!
 
 먼저 Consumer를 미리 실행한 후에 Producer를 실행해야 합니다.
 Producer를 실행한 후 키보드 입력으로 메시지를 입력하면 Consumer의 콘솔 화면에서 전송된 메시지를 확인할 수 있습니다. 

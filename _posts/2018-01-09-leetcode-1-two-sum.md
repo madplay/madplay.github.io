@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## Description
+# Description
 
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
@@ -34,9 +34,9 @@ public class Solution {
 
 <a href="https://leetcode.com/problems/two-sum/description/" target="_blank">Reference link (Click!)</a>
 
-<br/><br/>
+<br/>
 
-> ## Solution
+# Solution
 
 ```java
 import java.util.HashMap;

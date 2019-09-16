@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 예외(Exception)란?
+# 예외(Exception)란?
 
 ```Checked Exception```과 ```Unchecked Exception```의 차이를 알아보기 전에 먼저 예외와 에러가 무엇인지
 알아볼 필요가 있습니다. 프로그래밍에서 **예외(Exception)**이란 입력 값에 대한 처리가 불가능하거나, 프로그램 실행 중에 참조된
@@ -41,9 +41,9 @@ public class SomeTest {
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 예외 구분
+# 예외 구분
 
 이번 포스팅의 주제처럼 Exception은 Checked Exception과 Unchecked Exception으로 구분할 수 있습니다.
 간단하게 **RuntimeException을 상속**하지 않는 클래스는 Checked Exception, 반대로 상속한 클래스는 Unchecked Exception으로
@@ -51,16 +51,16 @@ public class SomeTest {
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2019-03-02-java-checked-unchecked-exceptions-1.png" width="640" height="500" alt="exceptions"/>
 
-<br/><br/>
+<br/>
 
 여기서 **RuntimeException**은 **Exception** 클래스의 서브 클래스이기 때문에 **Exception의 일종**이기도 하지만 자바에서는
 **RuntimeException**과 이를 상속한 클래스를 조금 특별하게 취급합니다. 명시적으로 예외처리를 하지 않아도 되기 때문이지요.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2019-03-02-java-checked-unchecked-exceptions-2.png" width="700" height="560" alt="checked unchecked exceptions"/>
 
-<br/><br/>
+<br/>
 
-> ## 예외 처리
+# 예외 처리
 
 예외를 처리하는 방법에는 **예외 복구, 예외처리 회피, 예외 전환** 방법이 있습니다.
 
@@ -137,9 +137,9 @@ public void someMethod() {
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 정리하며
+# 정리하며
 
 자바에서 예외는 **RuntimeException을 상속**하지 않고 꼭 처리해야하는 **Checked Exception**과
 반대로 명시적으로 처리하지 않아도 되는 **Unchecked Exception**로 구분할 수 있습니다.  
