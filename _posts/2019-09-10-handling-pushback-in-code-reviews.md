@@ -71,3 +71,8 @@ comments: true
 
 위의 모든 내용을 다 지켰음에도 리뷰어와 개발자 사이의 갈등이 있다면, 갈등을 해결하는데 도움이 되는 지침과 원칙은
 <a href="/post/the-standard-of-code-review"><b>코드 리뷰의 표준 원칙</b></a>을 참고하세요.
+
+<br/>
+
+**"구글의 코드 리뷰 가이드: 리뷰어 편"** 의 마지막 글입니다.
+처음으로 돌아가려면 <a href="/post/google-code-review-guide"><b>여기를 클릭</b></a>해주세요.

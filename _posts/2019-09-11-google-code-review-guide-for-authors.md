@@ -24,7 +24,7 @@ comments: true
 
 - <a href="/post/writing-good-cl-descriptions"><b>좋은 CL 설명을 작성하는 방법</b></a>
 - <a href="/post/small-cls"><b>변경사항을 작게 나누기</b></a>
-- <a href="/post/how-to-handle-reviewer-comments><b>리뷰어의 의견을 다루는 방법</b></a>
+- <a href="/post/how-to-handle-reviewer-comments"><b>리뷰어의 의견을 다루는 방법</b></a>
 
 코드 리뷰어를 위한 가이드는 <a href="/post/google-code-review-guide-for-reviewers"><b>코드 리뷰를 하는 방법</b></a>을
 참고하세요.
