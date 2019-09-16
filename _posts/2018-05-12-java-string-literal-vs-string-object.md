@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 문자열을 생성해보자. new String("Hello"); vs "Hello";
+# 문자열을 생성해보자. new String("Hello"); vs "Hello";
 
 Java에서 문자열(String)을 선언하는 방법은 아래와 같습니다.
 
@@ -24,9 +24,9 @@ String str2 = "madplay";
 new 연산자를 통해 문자열 객체를 생성하는 경우 메모리의 ```Heap```영역에 할당되어지고
 두 번째 방법인 리터럴을 이용한 경우에는 ```String Constant Pool``` 이라는 영역에 할당되어집니다. 
 
-<br/><br/>
+<br/>
 
-> ## 문자열을 비교해보자. equals vs == 
+# 문자열을 비교해보자. equals vs == 
 
 다음의 문자열을 비교하는 간단한 코드를 살펴봅시다.
 
@@ -96,9 +96,9 @@ public boolean equals(Object anObject) {
 반면에 == 연산의 경우 객체의 주소값을 비교합니다. 그렇기때문에 new 연산자를 통해 Heap 영역에 생성된
 String과 리터럴을 이용해 String Constant Pool 영역에 위치한 String과의 주소값은 같을 수가 없지요.
 
-<br/><br/>
+<br/>
 
-> ## 왜 그럴까?
+# 왜 그럴까?
 
 String의 equals와 == 연산의 차이에 대한 질문을 IT기업 면접문제에서 많이 봤던 것 같습니다. (요즘은 이런 질문은 출제도 안되는 듯한...)
 그만큼 이 둘의 동작 방식에 대한 차이를 조금 더 명확하게 알야할 필요도 있겠지요.
@@ -164,9 +164,9 @@ public class MadPlay {
 앞서 말한것처럼 "kimtaeng" 이라는 문자열이 String Constant Pool에 존재하는 지 확인하는 과정에서
 이미 있으므로 동일한 주소값이 반환되었고 비교 연산 결과 주소값이 같게 된 것이지요. 
 
-<br/><br/>
+<br/>
 
-> ## Immutable 하다. 
+# Immutable 하다. 
 
 문자열 리터럴도 상수로서 불변합니다. 이러한 특성때문에 참조하려는 문자열이 같다면 동일한 객체(상수풀)을 참조할 수 있습니다.
 아래의 코드의 2번 라인을 new 연산자가 아닌 리터럴 방식으로 선언한다면 someLiteral과 동일한 객체를 참조하게 될 것입니다. 
@@ -182,9 +182,9 @@ JVM은 String Constant Pool에 동일한 문자열(위 코드에서는 kimtaeng)
 없는 경우에는 새로운 문자열을 만들게 됩니다. 이러한 관점에서 여러 레퍼런스가 같은 문자열 리터럴을 참조하더라도
 서로 영향이 없도록 Immutable 해야할 것 같습니다.
 
-<br/><br/>
+<br/>
 
-> ## Spring Constant Pool
+# Spring Constant Pool
 
 상수풀(Spring Constant Pool)의 위치는 ```Java 7``` 부터 ```Perm```영역에서 ```Heap``` 영역으로 옮겨졌습니다.
 Perm영역은 실행시간(Runtime)에 가변적으로 변경할 수 없는 고정된 사이즈이기 때문에 intern 메서드의 호출은

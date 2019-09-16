@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 자바에서 상수 선언
+# 자바에서 상수 선언
 
 자바 언어의 열거 타입(enum type)은 ```Java 1.5```에 등장했습니다. 그 버전에서 상수 선언은 아래와 같이 했지요.
 
@@ -32,9 +32,9 @@ public static final int ORANGE_BLOOD = 2; // 붉은색 오렌지?
 
 그렇다면 열거 타입(enum type)을 사용하면 어떻게 될까요?
 
-<br/><br/>
+<br/>
 
-> ## 열거 타입의 등장
+# 열거 타입의 등장
 
 열거 타입의 등장으로 아래와 같이 간편하게 사용할 수 있습니다.
 
@@ -54,9 +54,9 @@ public enum Orange { NAVEL, TEMPLE, BLOOD }
 - 열거 타입의 toString 메서드는 출력하기에 적합한 문자열을 제공합니다.
 - 임의의 메서드나 필드를 추가할 수 있고 임의의 인터페이스를 구현하게 할 수 있습니다.
 
-<br/><br/>
+<br/>
 
-> ## 열거 타입의 예시
+# 열거 타입의 예시
 
 - 아래와 같이 태양계의 여덞 행성에 대한 열거 타입을 만드는 것도 그리 어렵지 않습니다.
 <pre class="line-numbers"><code class="language-java" data-start="1">enum Planet {
@@ -105,9 +105,9 @@ public enum Orange { NAVEL, TEMPLE, BLOOD }
 } 
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 상수가 더 다양한 기능을 제공하길 원한다면?
+# 상수가 더 다양한 기능을 제공하길 원한다면?
 
 예를 들어 사칙연산 계산기의 연산 종류를 열거 타입으로 선언하고, 실제 연산까지 열거 타입 상수가 직접 수행하게 된다면 어떨까요?
 
@@ -132,9 +132,9 @@ public enum Orange { NAVEL, TEMPLE, BLOOD }
 
 그렇다면 상수에서 알맞게 재정의하는 방법을 쓰는 것은 어떨까요?
 
-<br/><br/>
+<br/>
 
-> ## 상수별 메서드 구현
+# 상수별 메서드 구현
 
 상수별 메서드 구현(constant-specific method implementation)은 상수에서 자신에 맞게 재정의하는 것을 말합니다.
 
@@ -274,9 +274,9 @@ public static Optional&lt;Operation&gt; fromString(String symbol) {
 휴가와 같이 새로운 값을 열거 타입에 추가하려면 그 값을 처리하는 case 문을 넣어야 합니다.
 그렇지 않으면 휴가 기간에 일해도 평일과 똑같은 임금을 받게 되겠죠... 그럼 어떻게 해야 할까요?
 
-<br/><br/>
+<br/>
 
-> ## 전략 열거 타입 패턴
+# 전략 열거 타입 패턴
 
 안전성과 유연함을 고려한다면 **전략 열거 타입 패턴**을 고려해볼 수 있습니다. switch 문이나 상수별 메서드 구현이
 필요 없어지지요. 새로운 상수를 추가할 때마다 잔업수당 **전략**을 선택하도록 하는 것입니다.
@@ -325,9 +325,9 @@ public static Optional&lt;Operation&gt; fromString(String symbol) {
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 그래서 정리해보면
+# 그래서 정리해보면
 
 열거 타입은 확실히 정수 상수보다 효율적입니다. 읽기도 쉽고 강력합니다. 물론 메서드도 쓸 수 있고요.
 필요한 원소를 컴파일 타임에 모두다 알 수 있는 상수의 집합이라면 열거 타입을 강력히 추천합니다.

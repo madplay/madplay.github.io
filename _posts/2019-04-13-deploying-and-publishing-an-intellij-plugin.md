@@ -10,16 +10,16 @@ comments: true
 
 <hr/>
 
-> ## 인텔리제이 플러그인 만들기, 세 번째 포스팅
+# 인텔리제이 플러그인 만들기, 세 번째 포스팅
 
 이전 포스팅에서는 플랫폼 UI를 커스텀하는 과정인 **액션(Action)**을 정의하는 방법에 대해 알아보았습니다.
 이번에는 만들어진 플러그인은 JetBrains의 플러그인 저장소에 배포하는 방법을 알아봅니다.
 
 - <a href="/post/creating-an-intellij-plugin-action" target="_blank">이전 포스팅: 인텔리제이(Intellij) 플러그인 만들기 - 2. Action 정의</a>
 
-<br/><br/>
+<br/>
 
-> ## 프로젝트 빌드, 배포하기
+# 프로젝트 빌드, 배포하기
 
 직접 개발한 플러그인을 사용하려면 먼저 **빌드를 진행**해야 합니다. 아래와 같이 진행하면 됩니다.
 
@@ -49,9 +49,9 @@ comments: true
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-13-deploying-and-publishing-an-intellij-plugin-2.png" width="350" height="200" alt="jar file was created"/>
 
-<br/><br/>
+<br/>
 
-> ## 플러그인 사용하기
+# 플러그인 사용하기
 
 만들어진 jar 파일을 이용하면 플러그인을 설치하여 사용할 수 있습니다. 
 
@@ -68,9 +68,9 @@ Intellij IDEA의 **Preferences** 메뉴로 들어가서 **Plugin** 탭을 선택
 직접 업로드를 해야 하기 때문이지요. 지금 과정은 자신의 IDE에만 설치됩니다. 그렇기 때문에 다른 사용자가 설치하려면 
 플러그인 jar 파일이 필요합니다.
 
-<br/><br/>
+<br/>
 
-> ## 플러그인 저장소에 업로드하기
+# 플러그인 저장소에 업로드하기
 
 빌드&배포 과정에서 생성된 jar 파일로 JetBrains의 플러그인 저장소<a href="https://plugins.jetbrains.com" target="_blank" rel="nofollow">
 (https://plugins.jetbrains.com)</a>에 등록해봅시다. 당연히 JetBrains 계정이 필요합니다. 로그인 한 후에 우측 상단에 내 계정이 표기된 부분을 클릭한 후
@@ -105,9 +105,9 @@ JetBrains의 플러그인 검토(또는 심사) 관련 내용은 계정에 등�
 이슈 트래커, 코드 저장소에 대한 링크도 설정할 수 있습니다.
 
 
-<br/><br/>
+<br/>
 
-> ## 플러그인 호환성 검증
+# 플러그인 호환성 검증
 
 ```plugin.xml```에서 설정한 빌드 버전들에 대해서 호환성 검증(Compatibility verification)도 할 수 있습니다.
 아래 이미지처럼 버전을 선택하고 검증(Verify)할 수 있습니다.
@@ -126,9 +126,9 @@ JetBrains의 플러그인 검토(또는 심사) 관련 내용은 계정에 등�
 이번 포스팅 시리즈에서는 Intellij IDEA, Android Studio를 타겟으로 개발했기 때문에 해당 IDE에서만 플러그인이 검색됩니다.
 물론 ```plugin.xml```에 명시한 지원 버전도 맞아야 합니다.
 
-<br/><br/>
+<br/>
 
-> ## 마치며
+# 마치며
 
 지금까지 인텔리제이 플러그인을 직접 개발하고 JetBrains의 플러그인 저장소에 업로드하는 방법에 대해 알아보았습니다.
 개인적인 취미로 <a href="https://github.com/madplay/Mad-jEnv" target="_blank" rel="nofollow">

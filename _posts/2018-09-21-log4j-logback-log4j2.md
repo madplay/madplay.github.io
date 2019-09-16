@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## Java의 여러가지 Logger들
+# Java의 여러가지 Logger들
 
 Java 진영에는 여러가지 로깅 관련 프레임워크가 있습니다. 흔히 접하기 어려운 commons logging과
 JUL(Java Uitl Logging)도 있고요. 이번에 비교할 대상인 log4j, logback 그리고 log4j2가 있습니다.
@@ -24,9 +24,9 @@ JUL(Java Uitl Logging)도 있고요. 이번에 비교할 대상인 log4j, logbac
 자바로 따지면 인터페이스와 비슷한 역할을 하며 사용중인 **로깅 프레임워크가 변경되더라도
 소스 코드 자체의 변경을 막을 수 있습니다.**
 
-<br/><br/>
+<br/>
 
-> ## Logger 추상체 slf4j
+# Logger 추상체 slf4j
 
 slf4j는 말그대로 로깅에 대한 추상체를 제공하는 것이며 그 자체를 사용하는 편은 적습니다.
 간단하게 예제를 살펴보면 아래와 같습니다. 먼저 아래와 같이 dependency를 추가해야 겠지요?
@@ -82,9 +82,9 @@ SLF4J: Defaulting to no-operation (NOP) logger implementation...생략<br/>
 대부분 logback이나 log4j2와 같은 프레임워크와 같이 사용하지요. slf4j가 인터페이스의 역할을 해주기 때문에
 로깅 구현체가 바뀌더라도 생각보다 어렵지않게 변경할 수 있습니다.
 
-<br/><br/>
+<br/>
 
-> ## 이제 안녕 log4j
+# 이제 안녕 log4j
 
 Apache의 log4j는 꽤 오래된 로깅 프레임워크입니다. **2015년에 개발팀의 log4j 개발 중단** 발표가 있었고요.
 이제는 새 프로젝트에 적용하려면 다른 로깅 프레임워크를 사용해야 합니다.
@@ -134,9 +134,9 @@ public class LoggingSample {
 하지만 역시나 2015년에 개발이 중단되었기 때문에 기존 시스템이 아니라면 사용할 이유가 없습니다.
 사실 오랫동안 개발되어온 시스템이어도 바꿀 수 있는 기회가 있다면 바꾸는 것이 좋겠지요.
 
-<br/><br/>
+<br/>
 
-> ## log4j를 잇는다. logback
+# log4j를 잇는다. logback
 
 log4j를 구현한 개발자가 logback을 개발했습니다. log4j와 유사하면서도 향상된 성능과 필터링 옵션을 제공하며
 slf4j도 지원합니다. 그리고 참 편리한 자동 리로드도 가능합니다.
@@ -195,9 +195,9 @@ public class LoggingSample {
 
 출력할 로그 포맷이나 특정 패키지에 적용하는 방법 등 찾아보면 다양한 logback 설정 방법이 있습니다.
 
-<br/><br/>
+<br/>
 
-> ## 가장 최신이다. log4j2
+# 가장 최신이다. log4j2
 
 log4j2는 앞서 살펴본 log4j와 logback과 비교했을 때 가장 최근에 등장했습니다.
 logback과 동일하게 자동 리로드 기능과 필터링 기능을 제공합니다.
@@ -271,9 +271,9 @@ public class LoggingSample {
 앞서 언급한 것처럼 slf4j가 있기때문에 logback과 log4j2를 비교적 간단하게 전환할 수 있습니다.
 dependency 선언만 변경했을뿐 실제 어플리케이션 코드를 수정한 부분은 없습니다.
 
-<br/><br/>
+<br/>
 
-> ## 그럼 뭐가 좋을까?
+# 그럼 뭐가 좋을까?
 
 log4j는 개발이 중단되었으므로 비교 대상에서 제외한다면 logback과 log4j2가 남았는데요.
 과연 어느 로깅 프레임워크가 더 좋을까? 라는 질문의 글을 많이 본 것 같습니다.

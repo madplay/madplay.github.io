@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## Java Architecture for XML Binding
+# Java Architecture for XML Binding
 
 JAXB는 XML Schema를 읽어서 자바 오브젝트로 만드는 언마샬링(Unmarshaling)과
 반대로 자바 오브젝트를 XML로 변환하는 마샬링(Marshalling)을 가능하도록 하는 Java API를 말합니다.
@@ -19,9 +19,9 @@ JAXB는 XML Schema를 읽어서 자바 오브젝트로 만드는 언마샬링(Un
 또한 JSON을 다룰 때 자주 사용하는 ```Jackson```을 통해서도 XML 파싱이 가능합니다. 하지만 이번 포스팅에서는 
 단순히 JAXB API를 이용하여 자바 오브젝트를 XML 형태로 변환하거나, XML을 읽어서 자바 오브젝트로 변환하는 방법을 살펴봅니다.
 
-<br/><br/>
+<br/>
 
-> ## Marshal 예제(POJO to XML)
+# Marshal 예제(POJO to XML)
 
 POJO(Plain Old Java Object)를 XML로 변환하는 마샬링(Marshalling)을 해봅시다.
 먼저 아래와 같은 Person 클래스가 있다고 가정합시다. 이 클래스는 이번 마샬링 예제뿐만 아니라 언마샬링 예제에서도 사용됩니다.
@@ -81,9 +81,9 @@ public class JaxbText {
 &lt;/person>
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## Unmarshal 예제(XML to POJO)
+# Unmarshal 예제(XML to POJO)
 
 다음으로는 XML을 자바 오브젝트로 변환하는 언마샬링(Unmarshalling)을 해봅시다.
 먼저, 아래와 같은 XML 파일이 있다고 가정합시다.
@@ -148,9 +148,9 @@ public class Person {
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 정리하면
+# 정리하면
 
 JAXB API를 이용하면 간단하게 XML 파싱을 진행할 수 있습니다. 다만 ```JaxbContext```를 초기화하고 마샬러, 언마샬러를 생성하는
 부분에서 **주의할 점**이 있는데요. 스레드 안전한(thread-safe) JAXBContext의 경우는 **1회 생성 후 재사용을 권장**하고 있습니다.

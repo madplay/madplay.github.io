@@ -8,7 +8,7 @@ category: Script
 comments: true
 ---
 
-> ## var, let, const
+# var, let, const
 
 ES5까지는 변수를 선언할 때는 아래와 같이 코드를 작성했습니다.
 
@@ -23,9 +23,9 @@ var foo = '2';
 한편 ECMAScript 2015(ES6)에서는 변수 선언에 사용할 수 있는 ```let```과 ```const``` 키워드가 추가되었는데요.
 각 선언마다 어떻게 다른지 하나씩 살펴봅시다.
 
-<br/><br/>
+<br/>
 
-> ## 스코프
+# 스코프
 
 스코프(Scope)의 차이를 먼저 알아볼까 합니다. ```var``` 변수는 기본적으로 ```Function Scope```를 가집니다.
 이와 다르게 ```let```과 ```const```는 ```Block Scope```를 가집니다. 조금 더 정확하게 아래 코드로 살펴봅시다.
@@ -74,9 +74,9 @@ console.log('foo : ' + foo);
 ```let```은 ```Block Scope```이므로 블록내에서 재선언하는 경우 새로운 변수로 인식합니다.
 그러니까 블록 내에서만 유효하게 되지요.
 
-<br/><br/>
+<br/>
 
-> ## 재선언, 재할당
+# 재선언, 재할당
 
 ```var```는 상당히 유연합니다. 동일한 변수 이름으로 다시 선언해도 아무런 문제가 되지 않습니다.
 상단에서 선언한 변수를 잊고 다시 선언한 경우에 문제가 발생할 수 있습니다.
@@ -113,9 +113,9 @@ foo = 'b'; // VM456:1 Uncaught TypeError: Assignment to constant variable.
 const foo = 'c'; // Uncaught SyntaxError: Identifier 'foo' has already been declared
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 호이스팅
+# 호이스팅
 
 호이스팅(hoisting)은 개인적으로 코드를 읽기 난해하게 만들 수 있다고 봅니다. **끌어올리다**라는 뜻을 가진 호이스팅은
 아래와 같은 코드로 설명할 수 있습니다.
@@ -156,9 +156,9 @@ let foo = 'a';
 console.log(foo);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 정리하면?
+# 정리하면?
 
 **스코프(Scope)** 관점으로 보면 ```var```는 ```Function Scope```이다. 따라서 함수 블록으로 스코프가 생성되고
 반면에 ```let```과 ```const```는 ```Block Scope```이므로 지정한 블록으로 스코프가 유효합니다.

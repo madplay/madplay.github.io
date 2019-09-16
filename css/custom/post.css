@@ -106,7 +106,7 @@ blockquote p {
     color: #808080;
     font-style: italic;
     padding: 1px 10px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -114,11 +114,17 @@ blockquote p {
         color: #808080;
         font-style: italic;
         padding: 1px 10px;
-        font-size: 15px;
+        font-size: 13px;
     }
 }
 
 a {
     color: #707070;
     text-decoration: underline;
+}
+
+.post_container h1, .post_container h2 {
+    border-bottom: 1px solid #eaecef;
+    margin-top: 30px;
+    margin-bottom: 10px;
 }

@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## TCP/IP 란 무엇일까?
+# TCP/IP 란 무엇일까?
 
 TCP와 UDP에 대해서 알아보기 전에 TCP/IP를 먼저 알아야할 필요성이 있습니다.<br/>
 < Transfer Control Protocol / Internet Protocol > 를 줄여서 TCP/IP라고 하는데요.
@@ -31,11 +31,11 @@ TCP/IP는 DARPA 모델(TCP/IP를 개발한 미 정보 조직의 이름에서 유
 위 TCP/IP의 전송(Transport) 계층은 IP에 의해 전달되는 패킷의 오류를 검사하고 재전송 요구 등의 제어를 담당하는 계층입니다.
 바로 이곳에서 TCP와 UDP라는 두 종류의 프로토콜이 사용됩니다.
 
-<br/><br/>
+<br/>
 
-> ##  TCP vs UDP 
+#  TCP vs UDP 
 
-그림으로 비교하는 게 가장 명확하고 빠를 것 같습니다.<br/><br/>
+그림으로 비교하는 게 가장 명확하고 빠를 것 같습니다.<br/>
 
 <div class="post_caption">"먼저 TCP의 모습을 살펴봅시다."</div>
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-02-04-network-tcp-udp-tcpip-2.png" width="400" height="370" alt="TCP"/>
@@ -47,9 +47,9 @@ TCP/IP는 DARPA 모델(TCP/IP를 개발한 미 정보 조직의 이름에서 유
 
 즉, 신뢰성이 요구되는 애플리케이션에서는 TCP를 사용하고 간단한 데이터를 빠른 속도로 전송하고자 하는 애플리케이션에서는 UDP를 사용합니다.
 
-<br/><br/>
+<br/>
 
-> ## TCP 헤더 정보
+# TCP 헤더 정보
 
 아직 조금 더 자세히 살펴볼 필요가 있어요. TCP를 경유할 때 어떤 일이 진행되는지 살펴봅시다.<br/>
 응용 계층으로부터 데이터를 받은 TCP는 TCP 헤더를 추가한 후에 이를 IP(Internet Protocol)로 보냅니다.
@@ -102,7 +102,7 @@ TCP/IP는 DARPA 모델(TCP/IP를 개발한 미 정보 조직의 이름에서 유
 
 <br/>
 
-> ## UDP 헤더 정보
+# UDP 헤더 정보
 
 응용 계층으로부터 데이터 받은 UDP도 UDP 헤더를 추가한 후에 이를 IP(Internet Protocol)로 보냅니다.
 
@@ -116,9 +116,9 @@ TCP/IP는 DARPA 모델(TCP/IP를 개발한 미 정보 조직의 이름에서 유
 TCP 헤더와 다르게 UDP 헤더에는 포함된 정보가 부실한 느낌마저 듭니다.<br/>
 UDP는 수신자가 데이터를 받는지 마는지 관심 없습니다. 즉, 신뢰성을 보장해주지 않지만 간단하고 속도가 빠르지요.
 
-<br/><br/>
+<br/>
 
-> ## 정리해보면..
+# 정리해보면...
 
 이들의 공통점은 포트 번호를 이용하여 주소를 지정한다는 점과 데이터 오류 검사를 위한 체크섬이 있다는 점입니다.
 반대로 TCP와 UDP의 차이점은 아래와 같습니다.

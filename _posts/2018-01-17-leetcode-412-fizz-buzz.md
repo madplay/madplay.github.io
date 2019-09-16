@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## Description
+# Description
 
 Write a program that outputs the string representation of numbers from 1 to n.
 
@@ -43,9 +43,9 @@ Return:
 
 <a href="https://leetcode.com/problems/fizz-buzz/description/" target="_blank">Reference link (Click!)</a>
 
-<br/><br/>
+<br/>
 
-> ## Solution
+# Solution
 
 ```java
 import java.util.ArrayList;

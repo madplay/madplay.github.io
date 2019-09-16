@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 자바 레퍼런스의 객체 참조
+# 자바 레퍼런스의 객체 참조
 
 우리는 보통 아래 코드와 같이 객체를 생성합니다. 그리고 이러한 전형적인 객체 참조 방식을 <b>Strong Reference</b> 라고 말합니다.
 
@@ -45,9 +45,9 @@ class MadPlay {
 그리고 위에서 언급한 레퍼런스(Reference) 클래스에 의해 생겨난 객체를
 <a href="http://www.pawlan.com/monica/articles/refobjs/" target="_blank">Reference Object(링크)</a> 라고 부릅니다.
 
-<br/><br/>
+<br/>
 
-> ## 가비지 판단 기준
+# 가비지 판단 기준
 
 가비지 컬렉션(Garbage Collection)은 특정 객체가 가비지인지 아닌지 판단하기 위해서 ```도달성, 도달능력(Reachability)``` 이라는
 개념을 적용합니다. 객체에 유효한 레퍼런스가 없다면 Unreachable로 구분해버리고 수거하지요. 레퍼런스가 있다면 Reachable 이겠지요
@@ -64,21 +64,21 @@ class MadPlay {
 그림도 참 복잡하게 엮어있습니다만, 우선 여기서 유효한 참조가 있는 Reachable과 가비지 컬렉터의 먹잇감이 되는 Unreachable을 분류하면 어떻게 될까요?
 바로 아래에 정답이 있지만 스크롤을 내리기 전에 한 번 고민해봅시다.
 
-<br/><br/>
+<br/>
 
 색을 입혀 구분해보면 다음과 같습니다. 녹색은 Reachable이고 적색은 Unreachable 입니다.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-04-02-java-garbage-collection-and-java-reference-2.png" width="600" height="250" alt="Reachable과 Unreachable"/>
 
-<br/><br/>
+<br/>
 여기서 또 한 가지! Unreachable 객체가 가비지 컬렉터에 수거되지 않으려고 Reachable 객체를 참조하더라도
 정작 자신이 참조를 받지 못한다면 여전히 Unreachable로 분류됩니다.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-04-02-java-garbage-collection-and-java-reference-3.png" width="600" height="250" alt="Unreachable"/>
 
-<br/><br/>
+<br/>
 
-> ## java.lang.ref 패키지
+# java.lang.ref 패키지
 
 그렇다면 앞에서 언급한 ```java.lang.ref 패키지```가 제공한다는 ```Weak Reference, Soft Reference, Phantom Reference는 무엇을 말할까요?
 먼저, Weak Reference를 살펴봅시다.
@@ -155,7 +155,7 @@ class MadPlay {
 
 <br/>
 
-> ## Reachability
+# Reachability
 
 그럼 각각의 도달 능력(Reachability)은 무엇을 뜻할까요?<br/>
 ```Strongly Reachable``` 은 Root Set과 바로 연결된 것을 말합니다.

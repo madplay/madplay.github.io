@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## Inversion of Control : Object Factory
+# Inversion of Control : Object Factory
 
 지난 <a href="/post/spring-framework-basic-design-pattern" target="_blank">
 스프링 프레임워크 기초 - 디자인패턴(링크)</a> 에서는 ```책임의 분리```를 통해서 클라이언트에서 인터페이스 ConnectionMaker의
@@ -74,9 +74,9 @@ public class Main {
 하지만, UserDAO 오브젝트를 반환하는 ```userDAO 메서드```에 이슈가 있습니다.
 만일, UserDAO가 아닌 다른 DAO의 오브젝트 생성 기능이 추가되면 어떻게 될까요?
 
-<br/><br/>
+<br/>
 
-> ## Inversion of Control : 오브젝트 팩토리의 활용
+# Inversion of Control : 오브젝트 팩토리의 활용
 
 <div class="post_caption">중복된 코드를 메서드로 분리해서 중복되는 부분을 제거한다.</div>
 
@@ -113,9 +113,9 @@ public class DAOFactory {
 
 정리해보자면, ```모든 제어의 권한을 자기 자신이 아닌 다른 대상에게 위임```한다는 것!
 
-<br/><br/>
+<br/>
 
-> ## Inversion of Control : 적용 사례
+# Inversion of Control : 적용 사례
 
 제어의 역전의 개념은 이미 다양한 곳에서 사용되고 있습니다. (벌써 예제코드에서 쓰기도 했네요...)
 
@@ -146,9 +146,9 @@ public class DAOFactory {
   - 프레임워크 : 디자인 패턴, 라이브러리 요소를 포함하여 제어의 흐름이 내재되있다.
   가져다가 사용한다기보다 그 안에 들어가서 사용하는 개념이 적절하다.
 
-<br/><br/>
+<br/>
 
-> ## 스프링의 Inversion of Control
+# 스프링의 Inversion of Control
 
 <div class="post_caption">그렇다면 스프링 프레임워크에서의 제어의 역전은 어떤가?</div>
 
@@ -222,9 +222,9 @@ public class Main {
 
 그러니까, 유연하게 IoC 기능을 확장하기 위하여 애플리케이션 컨텍스트를 주로 사용하겠지요?
 
-<br/><br/>
+<br/>
 
-> ## 싱글톤 레지스트리
+# 싱글톤 레지스트리
 
 <div class="post_caption">자바에서 두 개의 오브젝트가 '같다' 라는 말은 짚고 넘어갈 필요가 있습니다.</div>
 
@@ -305,7 +305,7 @@ contextDAO1과 contextDAO2는 같은 레퍼런스 값이 출력되는 것을 알
 또한 스프링이 관리하는 빈(Bean)이 생성되며 적용 범위인 스코프(scope) 개념도 있습니다.
 그러니까 무작정으로 싱글톤 스코프로 생성되는 것이 아니라 경우에 따라서는 싱글톤 외의 스코프를 가질 수 있다는 것입니다.
 
-> ## Dependency Injection
+# Dependency Injection
 
 오브젝트 레퍼런스를 외부로부터 제공받고 이러한 과정을 통해서 동적으로 다른 오브젝트와 의존하는 관계가
 만들어지는 것을 **의존관계 주입(Dependency Injection)**이라고 합니다.
@@ -346,9 +346,9 @@ contextDAO1과 contextDAO2는 같은 레퍼런스 값이 출력되는 것을 알
 런타임 시점의 의존관계는 컨테이너나 팩토리같은 제 3의 존재가 결정합니다.
 의존관계는 사용할 오브젝트에 대한 레퍼런스를 외부에서 주입함으로서 생성됩니다.
 
-<br/><br/>
+<br/>
 
-> ## 예제와 함께 Dependency Injection
+# 예제와 함께 Dependency Injection
 
 진행했던  예제를 조금 더 자세히 살펴보며 의존관계 주입에 대해서 알아봅시다.
 
@@ -387,9 +387,9 @@ DI 컨테이너인 DAOFactory는 자신이 결정한 의존관계를 맺을 클�
 예제에서는 생성자 메서드를 통해서 의존관계 주입을 진행하였지만 수정자(Setter) 메서드를 통해서도 가능합니다.
 물론 일반 메서드도 가능합니다. 수정자 메서드처럼 set이라는 prefix로 시작하지 않아도 되고 한 개 이상의 파라미터를 가져도 됩니다.
 
-<br/><br/>
+<br/>
 
-> ## 의존관계 검색
+# 의존관계 검색
 
 <div class="post_caption">자신이 필요로 하는 오브젝트를 능동적으로 찾는다.<br/>
 하지만 자신이 어떤 클래스의 오브젝트를 이용할지 결정하지는 않는다.</div>
@@ -413,9 +413,9 @@ getBean 메서드를 보면 스프링 IoC와 DI 컨테이너를 적용했다고 
 고정되어 있다면 스프링이 말하는 Dependency Injection은 일어날 수 없습니다.
 그러니까, DI가 말하는 주입은 동적으로 구현 클래스를 결정해서 제공받을 수 있도록 인터페이스 타입의 파라미터를 통해 진행되어야 합니다.
 
-<br/><br/>
+<br/>
 
-> ## 설정 방법에 XML 사용하기
+# 설정 방법에 XML 사용하기
 
 스프링의 애플리케이션 컨텍스트는 어노테이션을 설정한 자바 코드가 아닌 XML에 담긴 정보를 DI 정보로 이용할 수 있습니다.
 DI 구성이 바뀔 때마다 코드를 수정하는 일에서 조금은 해방해봅시다.

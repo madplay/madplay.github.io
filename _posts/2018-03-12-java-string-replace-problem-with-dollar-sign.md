@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## Java 에서 특정 문자열 내의 패턴을 치환하기
+# Java 에서 특정 문자열 내의 패턴을 치환하기
 
 자바 언어에서는 아래와 같이 간단하게 문자열 내의 특정 문자열을 치환할 수 있습니다.
 참고로 자바 1.5 버전 이상에서는 한 글자로 제한되었던 String의 replace 메서드가
@@ -69,10 +69,10 @@ replaceAllResult : DEFc
 replace의 경우는 첫 번째 파라미터를 단순 문자열로 인식하지 두 번째 replaceAll의 경우는
 첫 번째 파라미터를 단순 문자열이 아닌 정규 표현식으로 인식합니다. <a href="https://regex101.com/" target="_blank">정규표현식 테스트(링크)</a>
 
-<br/><br/>
+<br/>
 
 
-> ## replaceAll 메서드를 사용하다가 만날 수 있는 이슈
+# replaceAll 메서드를 사용하다가 만날 수 있는 이슈
 
 한편 replaceAll 메서드를 아래 코드와 같이 사용하면 에러 로그를 만날 수 있습니다.
 ```java
