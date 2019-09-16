@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## jQuery UI Sortable
+# jQuery UI Sortable
 
 제이쿼리를 이용하여 드래그 & 드랍 이벤트를 통한 정렬을 구현해봅시다.
 
@@ -37,9 +37,9 @@ jQuery User Interface Library에 있는 Sortable 이라는 것을 사용할 것�
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" type="text/javascript"/>
 ```
 
-<br/><br/>
+<br/>
 
-> ## Sortable 구현해보기
+# Sortable 구현해보기
 
 그럼 jQuery UI Sortable을 이용해봅시다. 사용 방법은 다음과 같습니다.
 

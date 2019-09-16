@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## Kafka Producer configs 설정
+# Kafka Producer configs 설정
 
 - **bootstrap.servers**
   - 연결할 서버 정보입니다. ```host1:port1,host2:port2```와 같이 여러개를 나열할 수 있습니다.
@@ -54,9 +54,9 @@ comments: true
   - 메시지를 동기(sync), 비동기(async)로 보낼지 선택할 수 있습니다.
   - 비동기를 사용하는 경우 메시지를 일정 시간동안 쌓은 후 전송하므로 처리 효율을 향상시킬 수 있습니다.
 
-<br/><br/>
+<br/>
 
-> ## Kafka Consumer configs 설정
+# Kafka Consumer configs 설정
 
 - **group.id**
   - 컨슈머 그룹을 식별하는 고유 아이디입니다. 메시지를 전송할 때 지정하는 topic 이름과 다릅니다.
@@ -88,10 +88,10 @@ comments: true
   컨슈머는 실패된 것으로 간주됩니다.
   - 컨슈머 그룹은 다른 구성원에게 파티션을 재할당하기 위해 재조정됩니다.
 
-<br/><br/>
+<br/>
 
 
-> ## 그 외의 더 자세한 Kafka configs 설정 방법
+# 그 외의 더 자세한 Kafka configs 설정 방법
 
 - <a href="https://kafka.apache.org/documentation/#producerconfigs" target="_blank">Kafka Apache - Producer Configs</a>
 - <a href="https://kafka.apache.org/documentation/#consumerconfigs" target="_blank">Kafka Apache - Consumer Configs</a>

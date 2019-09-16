@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## Node.js 설치하기
+# Node.js 설치하기
 
 ```Node.js```를 사용하려면 먼저 설치해야 합니다.
 **Mac 환경 기준**으로 설치는 <a href="https://nodejs.org/ko/" target="_blank">Node.js 공식 다운로드 페이지(링크)</a>를 통해서
@@ -71,9 +71,9 @@ $ nvm ls-remote
 nvm install v10.15.0
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## Node.js 예제 작성하기
+# Node.js 예제 작성하기
 
 노드 설치도 끝났으므로 이제 간단한 예제를 진행해봅시다. 혹시나 여러 버전의 노드를 설치했다면
 아래와 같은 명령어로 자신이 사용할 버전을 선택할 수 있습니다.

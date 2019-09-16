@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 목차
+# 목차
 
 - <a href="/post/introduction-to-java-streams">자바 스트림 정리 - 1. 소개와 스트림 생성 (링크)</a>
 - 자바 스트림 정리 - 2. 중간 연산
@@ -18,9 +18,9 @@ comments: true
 - <a href="/post/java-streams-examples" target="_blank">자바 스트림 정리 - 4. 예제 (링크)</a>
 - <a href="/post/mistakes-when-using-java-streams" target="_blank">자바 스트림 정리 - 5. 주의할 점 (링크)</a>
 
-<br/><br/>
+<br/>
 
-> ## 중간 연산
+# 중간 연산
 
 이제 생성된 스트림을 필터링하거나 원하는 형태에 알맞게 가공하는 연산에 대해서 알아볼 차례입니다.
 중간 연산의 특징은 반환 값으로 다른 스트림을 반환하기 때문에 이어서 호출하는 메서드 체이닝이 가능합니다.
@@ -51,9 +51,9 @@ System.out.println(result);
 
 이제 중간 연산(Intermediate Operations)에는 어떠한 것들이 있는지 알아봅시다.
 
-<br/><br/>
+<br/>
 
-> ## filter 메서드로 필터링
+# filter 메서드로 필터링
 
 ```filter``` 메서드로 스트림 내 요소들을 조건에 맞게 필터링할 수 있습니다. 메서드의 인자인 ```Predicate<T>``` 인터페이스는
 ```test``` 라는 추상 메서드를 정의하는데, 이는 제네릭 형식의 객체를 인수로 받아 boolean 값을 반환합니다.
@@ -71,9 +71,9 @@ list.stream().filter(new Predicate&lt;String>() {
 });
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## map 메서드로 특정 형태로 변환
+# map 메서드로 특정 형태로 변환
 
 ```map``` 메서드를 사용하여 스트림 내 요소를 원하는 특정 형태로 변환할 수 있습니다.
 
@@ -90,9 +90,9 @@ list.stream().map(new Function&lt;String, String>() {
 });
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 기본 타입에 특화된 스트림으로 변환
+# 기본 타입에 특화된 스트림으로 변환
 
 박싱(Boxing) 비용을 피할 수 있도록 기본 데이터 타입에 특화된 스트림으로 변환할 수 있습니다.
 ```mapToInt```, ```mapToLong```, ```mapToDouble``` 메서드를 사용하면 각각 ```IntStream```, ```LongStream```,
@@ -114,9 +114,9 @@ list.stream().mapToInt(new ToIntFunction&lt;String>() {
 });
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## flatmap 메서드로 단일 스트림 변환
+# flatmap 메서드로 단일 스트림 변환
 
 ```flatmap``` 메서드는 중첩된 구조를 한 단계 없애고 단일 원소 스트림으로 만들어줍니다.
 
@@ -144,9 +144,9 @@ List&lt;String> streamByArr = Arrays.stream(arrs)
 System.out.println(streamByArr);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## distinct 메서드로 중복 제거
+# distinct 메서드로 중복 제거
 
 ```distinct``` 메서드는 스트림 내의 요소의 중복을 제거합니다. 기본형 타입의 경우 값(value)으로 비교하지만
 객체의 경우 ```Object.equals``` 메서드로 비교합니다.
@@ -182,9 +182,9 @@ public void someMethod() {
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## sorted 메서드로 정렬하기
+# sorted 메서드로 정렬하기
 
 ```sorted``` 메서드를 이용하여 스트림 내 요소를 정렬할 수 있습니다.
 
@@ -208,9 +208,9 @@ IntStream.range(0, 3)
         
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## peek 메서드로 각각의 요소에 연산 수행하기
+# peek 메서드로 각각의 요소에 연산 수행하기
 
 ```peek``` 메서드는 스트림 내의 각각의 요소를 대상으로 특정 연산을 수행하게 합니다.
 원본 스트림에서 요소를 소모하지 않기 때문에 중간 연산 사이의 결과를 확인할 때 유용합니다.
@@ -231,9 +231,9 @@ System.out.println(otherList);
 // 단말 연산인 forEach가 없으면 otherList는 비어있다.  
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## limit 메서드로 개수 제한하기
+# limit 메서드로 개수 제한하기
 
 ```limit``` 메서드를 사용하면 스트림 내의 요소 개수를 제한할 수 있습니다.
 
@@ -244,9 +244,9 @@ System.out.println(otherList);
 System.out.println(list);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## skip 메서드로 특정 요소 생략하기
+# skip 메서드로 특정 요소 생략하기
 
 ```skip``` 메서드를 사용하면 스트림 내의 첫 번째 요소부터 인자로 전달된 개수 만큼의 요소를 제외한
 나머지 요소로 구성된 새로운 스트림을 리턴합니다.
@@ -258,9 +258,9 @@ System.out.println(list);
 System.out.println(list);
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## boxed 메서드로 객체 스트림으로 변환하기
+# boxed 메서드로 객체 스트림으로 변환하기
 
 ```IntStream```, ```LongStream```, ```DoubleStream```과 같은 기본 타입에 특화된 스트림을
 일반 스트림으로 변환할 수 있습니다.
@@ -271,11 +271,11 @@ System.out.println(list);
 Stream&lt;Integer> boxedStream = intStream.boxed();
 </code></pre>
 
-<br/><br/>
+<br/>
 
-<br/><br/>
+<br/>
 
-> ## 이어서
+# 이어서
 
 스트림 내 요소를 알맞게 변환하거나 특정 조건에 맞게 요소를 필터링 하는 방법에 대해서 알아보았습니다.
 이어지는 포스팅에서는 가공한 스트림을 통해 결과 값을 구할 수 있는 단말 연산(Terminal Operations)에 대해서 알아봅니다.

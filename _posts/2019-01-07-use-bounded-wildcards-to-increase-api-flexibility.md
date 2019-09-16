@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 제네릭은 불공변
+# 제네릭은 불공변
 
 <a href="/post/prefer-lists-to-arrays" target="_blank">
 이펙티브 자바 28: 배열보다는 리스트를 사용하라(링크)</a>에서 살펴본 것처럼 매개변수화 타입은 불공변(invariant) 입니다.
@@ -23,9 +23,9 @@ comments: true
 
 <a href="/post/java-generic" target="_blank">링크: 자바 제네릭(Java Generic)</a>
 
-<br/><br/>
+<br/>
 
-> ## 생산자(Producer)와 와일드카드
+# 생산자(Producer)와 와일드카드
 
 ```Stack 클래스```의 public API로 매개변수의 모든 원소를 넣는 메서드를 추가한다고 가정해봅시다.
 
@@ -108,9 +108,9 @@ public void pushAll(Iterable&lt;? extends E> src) {
 따라서 타입 안전성은 확인되지만 elements 배열은 런타임 시에 ```E[]```가 아닌 ```Object[]```가 됩니다.
 역시나 이부분도 런타임 시에 제네릭 타입이 소거되기 때문이지요.
 
-<br/><br/>
+<br/>
 
-> ## 소비자(Consumer)와 와일드카드
+# 소비자(Consumer)와 와일드카드
 
 그럼 이번에는 Stack 인스턴스의 모든 원소를 매개변수로 받은 컬렉션으로 모두 옮기는 ```popAll``` 메서드를 작성해봅시다.
 
@@ -204,9 +204,9 @@ public void popAll(Collection&lt;? super E> dst) {
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2019-01-07-use-bounded-wildcards-to-increase-api-flexibility-2.png" width="600" height="300" alt="consumer with wildcard"/>
 
-<br/><br/>
+<br/>
 
-> ## PECS
+# PECS
 
 예제로 살펴본 것처럼 코드의 유연성을 높이려면 적절한 와일드카드 타입을 사용해야 합니다.
 앞에서 생산자(Producer)와 와일드카드, 소비자(Consumer)와 와일드카드를 살펴본 것처럼 상황에 따라서 어떠한 와일드카드 타입을
@@ -241,9 +241,9 @@ public void popAll(Collection&lt;? super E> dst) {
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## Advanced
+# Advanced
 
 메서드의 **리턴값에는 와일드카드 타입을 사용하면 안됩니다.** 메서드를 사용하는 클라이언트 코드에서도
 메서드 반환 값으로 와일드카드 자료형을 써야하기 때문입니다.

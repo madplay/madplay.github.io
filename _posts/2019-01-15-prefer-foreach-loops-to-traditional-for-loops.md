@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 배열과 컬렉션 순회
+# 배열과 컬렉션 순회
 
 보통 배열과 컬렉션의 요소를 탐색할 때 아래와 같이 사용합니다.
 
@@ -42,9 +42,9 @@ for (int index = 0; index < arr.length; index++) {
 실제로 필요한 원소(element)를 얻기 위한 부수적인 코드일 뿐입니다. 혹시라도 잘못된 변수 사용으로 인해
 예상치 못한 오류가 발생할 수 있습니다.
 
-<br/><br/>
+<br/>
 
-> ## for-each
+# for-each
 
 실제로 필요한 것은 컬렉션 또는 배열의 원소(element)이므로 대부분 ```for-each```문을 사용하면 좋습니다.
 **for-each** 문은 향상된 for 문(enhanced for statement)이라는 정식 명칭을 가지고 있으며
@@ -73,9 +73,9 @@ for (Suit suit : suits) {
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## for-each를 사용할 수 없는 상황
+# for-each를 사용할 수 없는 상황
 
 아쉽게도 ```for-each``` 문장을 사용할 수 없는 상황이 있습니다.
 

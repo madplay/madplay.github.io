@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## Java에서 Swing 이란?
+# Java에서 Swing 이란?
 
 스윙(Swing)은 자바 언어에서 GUI의 구현하기 위해 제공되는 라이브러리입니다.
 자바에서 추구하는 WORE(Wirte Once, Run Everywhere)을 구현하기 위해 JDK 1.2 버전부터 사용되었습니다.
@@ -19,9 +19,9 @@ comments: true
 컴포넌트들을 자바에서 직접 그려 구현하였습니다. 다만, 이러한 동일하게 구현된 부분으로 인해 해당 시스템의
 고유한 모습을 보여줄 수 없게된 단점도 있습니다.
 
-<br/><br/>
+<br/>
 
-> ## LookAndFeel 이란?
+# LookAndFeel 이란?
 
 환경에 상관없이 동일하게 구현된 모습으로 인하여 시스템의 고유한 모습을 잃은 단점을 보완하기 위해 등장했습니다.
 LookAndFeel을 이용하면 프로그램 전체의 UI 모습을 변경할 수 있습니다.
@@ -68,15 +68,14 @@ LookAndFeel을 이용하면 프로그램 전체의 UI 모습을 변경할 수 �
 
 룩앤필을 적용하여 UI 디자인만 조금 바뀌었을 뿐인데 프로그램의 전체적인 느낌이 생각보다 많이 달라진 것 같습니다.
 
-<br/><br/>
+<br/>
 
-> ## LookAndFeel 사용법
+# LookAndFeel 사용법
 
 사용법은 정말 간단합니다. ```UIManager.setLookAndFeel("클래스이름 또는 경로")``` 간단하죠?
 하지만 예외처리가 필요합니다. 경로를 찾지 못해 ClassNotFoundException이 발생할 수 있거든요.
 
-```java
-try {
+<pre class="line-numbers"><code class="language-java" data-start="1">try {
     UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
 } catch (Exception e) {
     /*
@@ -86,8 +85,7 @@ try {
         UnsupportedLookAndFeelException e
      */
 }
-
-```
+</code></pre>
 
 예전에는 포털 검색을 통해서 더 많은 룩앤필 테마들을 찾아 변경할 수 있었는데, 링크들이 대부분 사라졌네요.
 그래도 아직 <a href="https://docs.oracle.com/javase/tutorial/uiswing/lookandfeel/index.html" target="_blank">
