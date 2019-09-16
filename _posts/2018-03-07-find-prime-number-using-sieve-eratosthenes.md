@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 에라토스테네스의 체?
+# 에라토스테네스의 체?
 
 에라토스테네스의 체는 원리를 발견한 고대 그리스 수학자 에라토스테네스(Eratosthenes)의 이름에서 유래했습니다.
 이름 그대로 자연수를 '체' 라는 것을 이용하여 소수(Prime Number)만을 걸러내겠다는 것이지요.
@@ -20,9 +20,9 @@ comments: true
 
 그래서 이번에는 조금 생소한 에라토스테네스의 체 라는 것을 이용해서 소수를 구해보고자 합니다.
 
-<br/><br/>
+<br/>
 
-> ## 어떤 방법일까?
+# 어떤 방법일까?
 
 <div class="post_caption">우선, 소수(Prime Number)는 양의 양수를 두 개만 갖는 자연수를 소수라고 말합니다.<br/>
 그러니까 2, 3, 5, 7, 11과 같은 수를 소수라고 합니다.</div>
@@ -49,13 +49,13 @@ comments: true
 5의 배수를 체를 쳐서 걸러냅니다. 그러면 남은 숫자는 7, 11, 13, 17, ... 등이 되고 가장 작은 숫자는 7 입니다.<br/>
 7의 배수를 체를 쳐서 걸러냅니다. 이제 남은 숫자는 11, 13, 17, 19, ... 등이 됩니다.<br/>
 
-<div class="post_caption">아래와 같은 그림처럼 말이지요.<br>- Wikipedia -</div>
+<div class="post_caption">아래와 같은 그림처럼 말이지요.<br/>- Wikipedia -</div>
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-07-find-prime-number-using-sieve-eratosthenes-2.gif" width="500" height="220" alt="애니메이션"/>
 
-<br/><br/>
+<br/>
 
-> ## 코드로 직접 구현해보자.
+# 코드로 직접 구현해보자.
 
 원리는 살펴보았으니 이제 코드로 구현해봅시다.
 
@@ -115,9 +115,9 @@ int main(void)
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-07-find-prime-number-using-sieve-eratosthenes-1.jpeg" width="400" height="220" alt="실행결과"/>
 
-<br/><br/>
+<br/>
 
-> ## 소수를 구하는 데 있어서 성능은?
+# 소수를 구하는 데 있어서 성능은?
 
 에라토스테네스의 체를 적용한 코드의 시간 복잡도는 $$O(n\log { \log { n } ) }$$ 이 됩니다.<br/>
 

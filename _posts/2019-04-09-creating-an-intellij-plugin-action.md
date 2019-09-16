@@ -10,17 +10,17 @@ comments: true
 
 <hr/>
 
-> ## 인텔리제이 플러그인 만들기, 두 번째 포스팅
+# 인텔리제이 플러그인 만들기, 두 번째 포스팅
 
 앞선 포스팅에서 Intellij IDEA에서 플러그인 프로젝트를 생성하고 그 구조에 대해서 살펴보았습니다.
 이번에는 플러그인을 실행하기 위한 액션(Action)을 정의하는 방법에 대해서 알아봅니다.
 
 - <a href="/post/creating-intellij-plugin-project" target="_blank">이전 포스팅: 인텔리제이(Intellij) 플러그인 만들기 - 1. 환경 구성</a>
 
-<br/><br/>
+<br/>
 
 
-> ## 액션(Action) 생성하기
+# 액션(Action) 생성하기
 
 다음으로 Intellij IDEA의 상단 툴바 등에서 보여질 수 있도록 플랫폼 UI를 커스텀하는 과정입니다.
 그러니까 플러그인을 실행하기 위해서 특정 메뉴를 클릭해야 하는데요. 그것을 만드는 겁니다!
@@ -59,9 +59,9 @@ comments: true
 &lt;/actions&gt;
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 액션의 행동(코드) 정의하기 
+# 액션의 행동(코드) 정의하기 
 
 이제 액션의 세부 행동을 정의할 차례입니다. 앞서 소개한 것처럼 인텔리제이에서는 ``AnAction`` 클래스를 제공하며
 이 클래스를 상속한 액션 클래스를 정의하면 개발자가 직접 이후 행동을 커스텀할 수 있습니다.
@@ -86,9 +86,9 @@ public class MadAction extends AnAction {
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## 플러그인 실행해서 확인해보기
+# 플러그인 실행해서 확인해보기
 
 위에서 정의한 액션이 정상적으로 동작하는지 플러그인을 실행해봅시다.  이 포스팅을 작성하면서 다시 생성해보았을 때,
 실행 환경이 자동 구성되는 것을 확인하긴 했는데, 혹시 보이지 않는다면 아래와 같이 설정하면 됩니다.
@@ -110,9 +110,9 @@ public class MadAction extends AnAction {
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2019-04-09-creating-an-intellij-plugin-action-5.png" width="650" height="500" alt="show dialog"/>
 
-<br/><br/>
+<br/>
 
-> ## 이어서
+# 이어서
 
 지금까지 플러그인의 액션을 생성하고 정의하는 방법에 대해서 알아보았습니다.
 그리고 정상 동작하는지 확인하기 위해서 개발한 플러그인을 직접 실행해보기도 했고요.

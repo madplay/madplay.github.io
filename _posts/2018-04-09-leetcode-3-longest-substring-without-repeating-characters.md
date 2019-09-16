@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## Description
+# Description
 
 Given a string, find the length of the longest substring without repeating characters.
 
@@ -33,9 +33,9 @@ public class Solution {
 
 <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/description/" target="_blank">Reference link (Click!)</a>
 
-<br/><br/>
+<br/>
 
-> ## Solution
+# Solution
 
 ```java
 /**

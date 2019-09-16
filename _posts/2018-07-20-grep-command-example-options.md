@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## grep 명령어
+# grep 명령어
 
 grep 명령어는 특정 파일 내에서 정규표현식으로 문자열을 탐색해 그 문자열이 포함된 라인을 출력합니다.
 명령어 사용법(usage)는 아래와 같고요.
@@ -22,9 +22,9 @@ usage: grep [-abcDEFGHhIiJLlmnOoqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
 	[--null] [pattern] [file ...]
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## grep 옵션
+# grep 옵션
 
 grep 명령어와 같이 사용할 수 있는 옵션들이 있습니다.
 
@@ -37,9 +37,9 @@ grep 명령어와 같이 사용할 수 있는 옵션들이 있습니다.
 - -n : 일치한 문자열이 포함된 라인 번호를 출력합니다.
 - -w : 입력한 문자열이 독립된 단어로 존재하는 경우만 출력
 
-<br/><br/>
+<br/>
 
-> ## grep 예제들
+# grep 예제들
 
 여러가지의 경우를 통해 사용 방법을 익혀봅시다. 아래와 같이 예시 파일(test.txt)이 있다고 가정하고 진행합니다.
 

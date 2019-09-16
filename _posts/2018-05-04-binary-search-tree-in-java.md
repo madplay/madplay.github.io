@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 이진 탐색 트리를 구현해보자.
+# 이진 탐색 트리를 구현해보자.
 
 앞서 살펴보았던 <a href="/post/binary-search-tree" target="_blank">이진 탐색 트리 Part I - 이론(클릭시 이동)</a>를 기억해가며 자바(Java) 언어로
 이진 탐색 트리(Binary Search Tree)를 구현해봅시다. 먼저 노드(Node)를 나타낼 클래스를 정의합니다. 노드의 값(Value)을 나타내는 멤버 변수와 왼쪽과 오른쪽 자식 노드는 생성자로 초기화합니다.
@@ -35,7 +35,7 @@ class Node {
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
 다음으로 이진 탐색 트리를 구현할텐데요. 기본적으로 삽입과 삭제 연산을 가지고 있고
 트리의 탐색은 전위(pre-order), 후위(post-order) 그리고 중위(in-order) 순회가 있습니다.
@@ -253,7 +253,7 @@ class BinaryTree {
 }
 </code></pre>
 
-<br/><br/>
+<br/>
 
 마지막으로 위에서 구현한 이진 탐색 트리를 실행하는 테스트 코드를 작성합시다.
 

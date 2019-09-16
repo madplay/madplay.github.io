@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 스택을 이용한 괄호 짝 검사
+# 스택을 이용한 괄호 짝 검사
 
 Java로 구현한 괄호의 짝이 맞는 지 확인하는 코드입니다. 자료구조 중에서 스택을 사용했습니다.
 
@@ -23,7 +23,7 @@ Java로 구현한 괄호의 짝이 맞는 지 확인하는 코드입니다. 자�
 
 /**
  * Customized Stack
- * @author Kimtaeng <itsmetaeng@gmail.com>
+ * @author kimtaeng
  * Created on 2018. 1. 1.
  */
 class Stack {
@@ -55,7 +55,7 @@ class Stack {
  * input example
  * "public static void main(String[] args){}"
  * 
- * @author Kimtaeng <itsmetaeng@gmail.com>
+ * @author kimtaeng
  * Created on 2018. 1. 1.
  */
 public class MadPlay {

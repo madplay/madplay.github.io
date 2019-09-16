@@ -10,16 +10,16 @@ comments: true
 
 <hr/>
 
-> ## urllib
+# urllib
 
 파이썬에서는 웹과 관련된 데이터를 쉽게 다룰 수 있도록 ```urllib```모듈을 제공합니다.
 사용하는 파이썬 버전에 따라서 조금씩 다른 부분이 있긴합니다.
 예를 들어 URL을 파싱하는 모듈의 경우 ```python2``` 버전에서는 ```urlparse``` 라는 이름의 모듈로 제공되었으나
 ```python3```에서는 ```urllib.parse```로 변경되었습니다.
 
-<br/><br/>
+<br/>
 
-> ## urllib.request 
+# urllib.request 
 
 ```urllib.request``` 모듈을 이용하여 간단하게 웹 페이지 요청 및 데이터를 가져올 수 있습니다.
 
@@ -56,9 +56,9 @@ comments: true
 200
 </code></pre>
 
-<br/><br/>
+<br/>
 
-> ## urllib.parse
+# urllib.parse
 
 ```urllib.parse``` 모듈을 이용하면 간단하게 URL과 파라미터를 다룰 수 있습니다.
 

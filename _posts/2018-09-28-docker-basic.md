@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## Docker란 무엇일까?
+# Docker란 무엇일까?
 
 간단하게 말하자면 가상화된 컨테이너입니다. 필요한 프로그램과 라이브러리를
 설치한 뒤 만들어낸 **파일**을 도커(Docker)를 통해서 실행하게 되는데요.
@@ -22,9 +22,9 @@ comments: true
 
 <div class="post_caption">차후 이 영역에 링크가 생성될 예정입니다.</div>
 
-<br/><br/>
+<br/>
 
-> ## Docker 설치하기
+# Docker 설치하기
 
 Docker는 설치 환경에 따라서 설치 방법이 다릅니다.
 환경별로 Linux, CentOS 등으로 나눌 수 있고 실행에 있어서도 curl, yum 등 설치할 수 있는 방법은 많은데요.
@@ -42,9 +42,9 @@ Docker는 설치 환경에 따라서 설치 방법이 다릅니다.
 만일 ```docker``` 명령어를 입력했는데 실행되지 않는다면 ```sudo docker```와 같이 root 권한으로
 실행해보시기 바랍니다.
 
-<br/><br/>
+<br/>
 
-> ## Docker 명령어 실행하기
+# Docker 명령어 실행하기
 
 그렇습니다! 설치한지 얼마 되지도 않았는데 벌써 실행합니다.
 이번 포스팅의 목표는 무작정 설치하고 실행해보는 것이니까요!
@@ -53,7 +53,7 @@ Docker는 기본적으로 ```docker + 명령어``` 형태로 동작합니다.
 
 <br/>
 
-#### @ docker search
+#### docker search
 
 Docker 이미지를 검색할 수 있는 명령어입니다.
 
@@ -73,7 +73,7 @@ mysql이라는 이름으로 꽤 많은 도커 이미지가 공유되어 있습�
 
 <br/>
 
-#### @ docker pull
+#### docker pull
 
 도커 이미지를 다운받을 수 있는 명령어입니다.
 
@@ -108,7 +108,7 @@ Status: Downloaded newer image for mysql:latest
 
 <br/>
 
-#### @ docker images
+#### docker images
 
 다운받은 이미지를 살펴볼 때 사용하면 됩니다.
 
@@ -123,7 +123,7 @@ mysql               latest              f991c20cb508        2 weeks ago         
 
 <br/>
 
-#### @ docker run
+#### docker run
 
 이제 다운받은 도커 이미지를 실행할 차례입니다. 실행 명령은 아래와 같이 구성됩니다.
 
@@ -151,7 +151,7 @@ mysql
 
 <br/>
 
-#### @ docker ps
+#### docker ps
 
 taeng_mysql 이라는 이름을 가진 컨테이너가 실제로 동작하고 있는지 확인해봅시다.
 
@@ -165,7 +165,7 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 
 <br/>
 
-#### @ docker exec
+#### docker exec
 
 외부에서 컨테이너에 특정 명령을 줄 수 있습니다.
 
@@ -224,7 +224,7 @@ exit
 
 <br/>
 
-#### @ docker stop
+#### docker stop
 
 컨테이너를 정지시킬 수 있습니다.
 
@@ -243,7 +243,7 @@ CONTAINER ID        IMAGE               ...
 
 <br/>
 
-#### @ docker rm
+#### docker rm
 
 실행이 끝난 도커 컨테이너를 삭제할 수 있습니다.
 
@@ -251,15 +251,15 @@ CONTAINER ID        IMAGE               ...
 
 <br/>
 
-#### @ docker rmi
+#### docker rmi
 
 도커 이미지를 삭제할 수 있습니다.
 
 ```docker rmi [OPTIONS] IMAGE [IMAGE...]```
 
-<br/><br/>
+<br/>
 
-> ## 지금은 정말 맛보기!
+# 지금은 정말 맛보기!
 
 이번에 살펴본 것은 도커(Docker)에 대한 맛보기에 불과합니다.
 이어지는 글들을 통해서 도커에 대한 이론과 도커의 이미지를 생성하고 빌드까지!

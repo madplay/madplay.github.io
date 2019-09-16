@@ -9,7 +9,7 @@ comments: true
 ---
 
 <hr/>
-> ## Java의 데이터 타입
+# Java의 데이터 타입
 
 자바에서는 변수의 타입에 따라 저장할 수 있는 값의 범위와 종류가 드립니다.<br/>
 
@@ -36,14 +36,13 @@ comments: true
 그리고 new 키워드를 통하여 객체를 생성, 초기화 해야 합니다. <br/>
 		
 예를 들면, 아래와 같습니다.
-```java
-클래스이름 레퍼런스명 = new 클래스이름(); 
+<pre class="line-numbers"><code class="language-java" data-start="1">클래스이름 레퍼런스명 = new 클래스이름(); 
 /* MadPlay instance = new MadPlay(); */		
-```
+</code></pre>
 
-<br/><br/>
+<br/>
 
-> ## String 클래스의 특징
+# String 클래스의 특징
 
 한편, String 클래스는 실질적으로 말하면 참조형이지만 기본형처럼 사용이 가능합니다.<br/>
 즉, String str = "madplay"; 이렇게 사용이 가능하지요.<br/>

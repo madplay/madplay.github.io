@@ -10,7 +10,7 @@ comments: true
 
 <hr/>
 
-> ## 설정해보자
+# 설정해보자
 
 먼저, ```pom.xml```에 아래와 같이 dependency를 설정해줍니다.
 
