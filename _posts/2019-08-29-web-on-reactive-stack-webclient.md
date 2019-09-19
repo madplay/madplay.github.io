@@ -25,7 +25,7 @@ comments: true
 - <a href="/post/webclient-references-configuration">2.1. Configuration</a>
 - <a href="/post/webclient-references-retrieve">2.2. retrieve()</a>
 - <a href="/post/webclient-references-exchange">2.3. exchange()</a>
-- 2.4. Request Body
+- <a href="/post/webclient-references-request-body">2.4. Request Body</a>
 - 2.5. Client Filters
 - 2.6. Synchronous Use
 - 2.7. Testing
