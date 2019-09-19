@@ -8,6 +8,13 @@ category: Spring
 comments: true
 ---
 
+# 목차
+- 스프링 프레임워크 정리: 디자인 패턴
+- <a href="/post/spring-framework-basic-inversion-of-control" target="_blank">스프링 프레임워크 정리: 제어의 역전 (링크)</a>
+- <a href="/post/spring-framework-basic-test" target="_blank">스프링 프레임워크 정리: 테스트 (링크)</a>
+
+<br/>
+
 # 스프링 프레임워크란?
 스프링(Spring)은 자바 엔터프라이즈 애플리케이션 개발에 사용되는 프레임워크이다. 그럼 프레임워크(Framework)란 무엇일까? 프레임워크의 정의를 살펴보면
 소프트웨어 애플리케이션이나 솔루션의 **개발을 수월하게 하기 위해** 구체적 기능들에 해당하는 부분의 설계와 구현을 **재사용 가능하도록** 협업화된 형태로
@@ -479,8 +486,3 @@ ConnectionMaker를 구현한 클래스가 전략이 되어 필요에 따라 전�
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-03-15-spring-framework-basic-design-pattern-6.png"
 width="700" alt="coupling"/>
-
-# 목차
-- 스프링 프레임워크 정리: 디자인 패턴
-- <a href="/post/spring-framework-basic-inversion-of-control" target="_blank">스프링 프레임워크 정리: 제어의 역전 (링크)</a>
-- <a href="/post/spring-framework-basic-test" target="_blank">스프링 프레임워크 정리: 테스트 (링크)</a>

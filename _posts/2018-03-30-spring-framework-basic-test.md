@@ -8,6 +8,13 @@ category: Spring
 comments: true
 ---
 
+# 목차
+- <a href="/post/spring-framework-basic-design-pattern" target="_blank">스프링 프레임워크 정리: 디자인 패턴 (링크)</a>
+- <a href="/post/spring-framework-basic-inversion-of-control" target="_blank">스프링 프레임워크 정리: 제어의 역전 (링크)</a>
+- 스프링 프레임워크 정리: 테스트
+
+<br/>
+
 # 테스트란 무엇일까?
 테스트는 단어 그 자체처럼 의도하고 예상한 것처럼 그대로 동작하는지를 확인해보는 것을 말한다.
 
@@ -290,8 +297,3 @@ public class YourDAOTest {
 
 **버그 테스트**는 버그가 원인으로서 테스트가 실패하는 코드를 만들고 테스트가 성공할 수 있도록 코드를 수정하는 목적을 갖고 있다.
 **테스트가 성공한다면 버그는 해결**된다고 볼 수 있습니다.
-
-# 목차
-- <a href="/post/spring-framework-basic-design-pattern" target="_blank">스프링 프레임워크 정리: 디자인 패턴 (링크)</a>
-- <a href="/post/spring-framework-basic-inversion-of-control" target="_blank">스프링 프레임워크 정리: 제어의 역전 (링크)</a>
-- 스프링 프레임워크 정리: 테스트
