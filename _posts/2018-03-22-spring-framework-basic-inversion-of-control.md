@@ -8,6 +8,13 @@ category: Spring
 comments: true
 ---
 
+# 목차
+- <a href="/post/spring-framework-basic-design-pattern" target="_blank">스프링 프레임워크 정리: 디자인 패턴 (링크)</a>
+- 스프링 프레임워크 정리: 제어의 역전
+- <a href="/post/spring-framework-basic-test" target="_blank">스프링 프레임워크 정리: 테스트 (링크)</a>
+
+<br/>
+
 # Inversion of Control : Object Factory
 지난 글에서는 **책임의 분리**를 통해서 클라이언트에서 인터페이스 ConnectionMaker의 구현 클래스를 결정하도록 변경했다.
 
@@ -456,8 +463,3 @@ ApplicationContext context =
 
 XML을 설정 정보로 이용했으니 기존에 DAOFactory에 선언했던 어노테이션은 제거해도 된다.
 차후에 알아보겠지만 Database 설정 정보 또한 XML에 정의할 수 있다.
-
-# 목차
-- <a href="/post/spring-framework-basic-design-pattern" target="_blank">스프링 프레임워크 정리: 디자인 패턴 (링크)</a>
-- 스프링 프레임워크 정리: 제어의 역전
-- <a href="/post/spring-framework-basic-test" target="_blank">스프링 프레임워크 정리: 테스트 (링크)</a>
