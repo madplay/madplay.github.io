@@ -21,7 +21,6 @@ comments: true
 
 <br/>
 
-
 # 아이템 49. 매개변수가 유효한지 검사하라
 > Check parameters for validity
 
