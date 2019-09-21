@@ -21,6 +21,8 @@ comments: true
 - <a href="#아이템-76-가능한-한-실패-원자적으로-만들라">아이템 76. 가능한 한 실패 원자적으로 만들라</a>
 - <a href="#아이템-77-예외를-무시하지-말라">아이템 77. 예외를 무시하지 말라</a>
 
+<br/>
+
 # 아이템 69. 예외는 진짜 예외 상황에만 사용하라
 > Use exceptions only for exceptional conditions
 
