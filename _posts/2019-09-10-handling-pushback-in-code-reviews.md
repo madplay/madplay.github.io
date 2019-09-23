@@ -24,7 +24,7 @@ comments: true
 그러나 개발자가 항상 옳은 것은 아닙니다. 리뷰어인 당신이 더 옳다고 생각이 든다면 그 이유를 추가적으로 설명해야 합니다.
 그 설명에는 코드 작성자의 답변에 대한 이해와 변경 요청 이유이 포함되어 있어야 좋습니다. 특히, 당신의 제안이 코드 품질을
 향상시킨다면 더욱 더 의견을 적극적으로 주장해야 합니다. **코드 품질 향상은 작은 단계에서 이루어지는 경향이 있습니다.**
-항상 <a href="/post/how-to-write-code-review#정중하게" target="_blank"><b>정중하며</b></a> 당신은 리뷰어가 하는 말을 듣고 있다는 것을 알게 하십시오.
+항상 <a href="/post/how-to-write-code-review#정중하게" target="_blank">**정중하며**</a> 당신은 리뷰어가 하는 말을 듣고 있다는 것을 알게 하십시오.
 무조건 리뷰를 승인하지 않습니다.
 
 <br/>
@@ -33,9 +33,9 @@ comments: true
 
 때때로 리뷰어들은 자신이 코드 개선을 요청하면 개발자의 기분이 나빠질거라고 생각합니다. 때로는 개발자가 기분 나빠할 수 있지만
 나중에는 당신이 그들의 코드 품질을 향상시키는데 도움을 준 것을 매우 고마워합니다.
-당신이 <a href="/post/how-to-write-code-review#정중하게" target="_blank"><b>정중한</b></a> 의견을 남긴다면,
+당신이 <a href="/post/how-to-write-code-review#정중하게" target="_blank">**정중한**</a> 의견을 남긴다면,
 일반적으로 개발자는 기분 나빠하지 않습니다. 개발자는 보통 코드 품질에 대한 리뷰어의 주장보다는
-<a href="/post/how-to-write-code-review" target="_blank"><b>의견을 작성하는 방식</b></a>이 정중하지 않을 때 기분이 상합니다.
+<a href="/post/how-to-write-code-review" target="_blank">**의견을 작성하는 방식**</a>이 정중하지 않을 때 기분이 상합니다.
 
 <br/>
 
@@ -49,7 +49,7 @@ comments: true
 따라서 코드 리뷰가 완료되기 전에 지금 코드 정리를 해야 한다고 주장하는 것이 가장 좋습니다. "나중에 정리하도록" 하는 것은
 코드의 품질을 떨어뜨리는 일반적인 원인이 됩니다.
 
-코드 변경사항에서 새로운 복잡한 로직이 있다면, <a href="/post/what-is-an-emergency" target="_blank"><b>긴급상황</b></a>이 아닌 한
+코드 변경사항에서 새로운 복잡한 로직이 있다면, <a href="/post/what-is-an-emergency" target="_blank">**긴급상황**</a>이 아닌 한
 반영 전에 정리해야 합니다. 만약 지금 당장 진행할 수 없다면 이슈를 제기하고, 생성한 후 자신에게 할당해야 합니다.
 또한 선택적으로 제기된 이슈를 참조하는 코드에 ```TODO``` 코멘트를 작성할 수도 있습니다. 
 
@@ -58,7 +58,7 @@ comments: true
 # 엄격한 리뷰에 대한 일반적인 불만
 
 유연한 코드 리뷰를 중단하고 엄격한 리뷰를 적용하면, 일부 개발자들은 매우 크게 불만을 가질 수 있습니다.
-<a href="/post/speed-of-code-reviews" target="_blank"><b>코드 리뷰 속도</b></a>를 높이 일반적으로 이러한 불만은 사라집니다.
+<a href="/post/speed-of-code-reviews" target="_blank">**코드 리뷰 속도**</a>를 높이 일반적으로 이러한 불만은 사라집니다.
 
 이러한 불만이 사라지는데 몇 개월이 걸릴 수 있지만, 결국 좋은 코드를 만드는데 도움이 된다는 것을 알게되며
 때로는 가장 큰 불만을 가졌던 사람들이 엄격한 코드 리뷰를 더 지지하기도 합니다.
@@ -68,9 +68,9 @@ comments: true
 # 갈등 해결
 
 위의 모든 내용을 다 지켰음에도 리뷰어와 개발자 사이의 갈등이 있다면, 갈등을 해결하는데 도움이 되는 지침과 원칙은
-<a href="/post/the-standard-of-code-review" target="_blank"><b>코드 리뷰의 표준 원칙</b></a>을 참고하세요.
+<a href="/post/the-standard-of-code-review" target="_blank">**코드 리뷰의 표준 원칙**</a>을 참고하세요.
 
 <br/>
 
 **"구글의 코드 리뷰 가이드: 리뷰어 편"** 의 마지막 글입니다.
-처음으로 돌아가려면 <a href="/post/google-code-review-guide" target="_blank"><b>여기를 클릭</b></a>해주세요.
+처음으로 돌아가려면 <a href="/post/google-code-review-guide" target="_blank">**여기를 클릭**</a>해주세요.
