@@ -62,4 +62,4 @@ _**좋은 예시**: "작성한 동시성 모델은 성능상의 이점없이 시
 
 <br/>
 
-- <a href="/post/handling-pushback-in-code-reviews" target="_blank"><b>이어지는 글: 코드 리뷰에서 반대 의견을 다루는 방법</b></a>
+- <a href="/post/handling-pushback-in-code-reviews" target="_blank">**이어지는 글: 코드 리뷰에서 반대 의견을 다루는 방법**</a>

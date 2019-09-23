@@ -13,20 +13,20 @@ comments: true
 
 이번 포스팅은 2019년 9월 5일에 구글에서 공개한 코드리뷰 가이드를 한글로 번역, 요약한 글입니다.
 오역이 있을 수 있는 부분에 대해서는 각 섹션 하단에 역주를 첨부했습니다. 오역이 있다면 언제든지
-<a href="https://github.com/madplay/madplay.github.io/issues" target="_blank" rel="nofollow"><b>이슈 등록</b></a> 또는
-<a href="https://github.com/madplay/madplay.github.io/pulls" target="_blank" rel="nofollow"><b>Pull Request</b></a>
+<a href="https://github.com/madplay/madplay.github.io/issues" target="_blank" rel="nofollow">**이슈 등록**</a> 또는
+<a href="https://github.com/madplay/madplay.github.io/pulls" target="_blank" rel="nofollow">**Pull Request**</a>
 주시면 감사드립니다. 원문을 확인하시려면 아래 링크를 참고해주세요.
 
-- <a href="https://google.github.io/eng-practices" target="_blank" rel="nofollow"><b>참고 링크: 
-Code Review Developer Guide</b></a>
-- <a href="https://github.com/google/eng-practices" target="_blank" rel="nofollow"><b>참고 링크:
-eng-practices(github)</b></a>
+- <a href="https://google.github.io/eng-practices" target="_blank" rel="nofollow">**참고 링크: 
+Code Review Developer Guide**</a>
+- <a href="https://github.com/google/eng-practices" target="_blank" rel="nofollow">**참고 링크:
+eng-practices(github)**</a>
 
-본격적인 구글의 코드 리뷰 가이드에 대한 내용은 아래의 <a href="#소개"><b>"소개"</b></a> 섹션에서 시작되며,
+본격적인 구글의 코드 리뷰 가이드에 대한 내용은 아래의 <a href="#소개">**"소개"**</a> 섹션에서 시작되며,
 아래 링크를 통해서도 바로 접근 가능합니다.
 
-- <a href="/post/google-code-review-guide-for-reviewers" target="_blank"><b>구글의 코드 리뷰 가이드: 리뷰어 편</b></a>
-- <a href="/post/google-code-review-guide-for-authors" target="_blank"><b>구글의 코드 리뷰 가이드: 작성자 편</b></a>
+- <a href="/post/google-code-review-guide-for-reviewers" target="_blank">**구글의 코드 리뷰 가이드: 리뷰어 편**</a>
+- <a href="/post/google-code-review-guide-for-authors" target="_blank">**구글의 코드 리뷰 가이드: 작성자 편**</a>
 
 <br/>
 
@@ -50,8 +50,8 @@ control or which is undergoing code review." 여기서 self-contained를 indepen
 이 문서는 구글의 코드 리뷰 절차와 정책에 대한 일반적인 설명입니다.
 이 페이지는 코드 리뷰 절차에 대한 개요입니다. 코드 리뷰에 대한 2가지의 문서로 나눌 수 있습니다.
 
-- <a href="/post/google-code-review-guide-for-reviewers" target="_blank"><b>코드 리뷰를 하는 방법: 코드 리뷰어를 위한 가이드</b></a>
-- <a href="/post/google-code-review-guide-for-authors" target="_blank"><b>코드 변경사항 작성자 가이드: 코드 작성자를 위한 가이드</b></a>
+- <a href="/post/google-code-review-guide-for-reviewers" target="_blank">**코드 리뷰를 하는 방법: 코드 리뷰어를 위한 가이드**</a>
+- <a href="/post/google-code-review-guide-for-authors" target="_blank">**코드 변경사항 작성자 가이드: 코드 작성자를 위한 가이드**</a>
 
 
 <br/>
@@ -70,7 +70,7 @@ control or which is undergoing code review." 여기서 self-contained를 indepen
 - **문서화(Documentation)**: 개발자가 관련 문서도 업데이트 했는가?
 
 자세한 내용은 <a href="/post/google-code-review-guide-for-reviewers" target="_blank">
-<b>코드 리뷰를 하는 방법: 코드 리뷰어를 위한 가이드</b></a>를 참고하세요.
+**코드 리뷰를 하는 방법: 코드 리뷰어를 위한 가이드**</a>를 참고하세요.
 
 <br/>
 
@@ -88,7 +88,7 @@ control or which is undergoing code review." 여기서 self-contained를 indepen
 원문 일부를 보면 "This usually means the owner(s) of the code, who may or may not be the people in the OWNERS file"<br/>
 직역이 모호한 것 같아서 "기존 코드의 작성자" 라고 번역하였습니다. Code Owner에 대한 github 가이드는
 <a href="https://help.github.com/en/articles/about-code-owners" target="_blank" rel="nofollow">
-<b>About code owners(링크)</b></a>를 참고하세요.</div>
+**About code owners(링크)**</a>를 참고하세요.</div>
 
 <br/>
 
@@ -100,4 +100,4 @@ control or which is undergoing code review." 여기서 self-contained를 indepen
 <br/>
 
 - <a href="/post/google-code-review-guide-for-reviewers" target="_blank">
-<b>이어지는 글: 코드를 리뷰하는 방법, 코드 리뷰어를 위한 가이드</b></a>
+**이어지는 글: 코드를 리뷰하는 방법, 코드 리뷰어를 위한 가이드**</a>

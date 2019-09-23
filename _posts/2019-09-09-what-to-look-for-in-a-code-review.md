@@ -10,7 +10,7 @@ comments: true
 ---
 
 <div class="post_caption">아래 사항들을 고려할 때는 항상 <a href="/post/the-standard-of-code-review" target="_blank">
-<b>코드 리뷰의 표준 원칙</b></a>을 고려해야 합니다.</div>
+**코드 리뷰의 표준 원칙**</a>을 고려해야 합니다.</div>
 
 <br/>
 
@@ -177,4 +177,4 @@ comments: true
 
 <br/>
 
-- <a href="/post/navigating-a-cl-in-review" target="_blank"><b>이어지는 글: 리뷰중인 코드 변경사항 탐색</b></a>
+- <a href="/post/navigating-a-cl-in-review" target="_blank">**이어지는 글: 리뷰중인 코드 변경사항 탐색**</a>

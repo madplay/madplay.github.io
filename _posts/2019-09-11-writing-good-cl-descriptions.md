@@ -114,4 +114,4 @@ CL은 코드 리뷰를 하면서 많이 변경될 수 있습니다. CL이 반영
 
 <br/>
 
-- <a href="/post/small-cls" target="_blank"><b>이어지는 글: 변경사항을 작게 나누기</b></a>
+- <a href="/post/small-cls" target="_blank">**이어지는 글: 변경사항을 작게 나누기**</a>

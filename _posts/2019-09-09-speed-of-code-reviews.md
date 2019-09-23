@@ -105,10 +105,10 @@ comments: true
 # 긴급상황
 
 전체 리뷰 프로세스를 빠르게 통과시키거나 코드 품질 규칙을 완화시켜야 하는 경우도 있습니다.
-<a href="/post/what-is-an-emergency" target="_blank"><b>긴급상황</b></a>에 대한 설명을 참고하고
+<a href="/post/what-is-an-emergency" target="_blank">**긴급상황**</a>에 대한 설명을 참고하고
 어떤 상황이 실제로 긴급상황에 해당되는지 확인합니다.
 
 <br/>
 
-- <a href="/post/how-to-write-code-review" target="_blank"><b>이어지는 글: 코드 리뷰에 의견을 작성하는 방법</b></a>  
+- <a href="/post/how-to-write-code-review" target="_blank">**이어지는 글: 코드 리뷰에 의견을 작성하는 방법**</a>  
 

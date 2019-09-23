@@ -11,7 +11,7 @@ comments: true
 # 리플렉션(Reflection)이란?
 
 자바에서 제공하는 리플렉션(Reflection)은 C, C++과 같은 언어를 비롯한 다른 언어에서는 볼 수 없는 기능입니다.
-이미 로딩이 완료된 클래스에서 <b>또 다른 클래스를 동적으로 로딩(Dynamic Loading)</b>하여 생성자(Constructor), 멤버 필드(Member Variables)
+이미 로딩이 완료된 클래스에서 **또 다른 클래스를 동적으로 로딩(Dynamic Loading)**하여 생성자(Constructor), 멤버 필드(Member Variables)
 그리고 멤버 메서드(Member Method) 등을 사용할 수 있도록 합니다.
 
 그러니까, 컴파일 시간(Compile Time)이 아니라 실행 시간(Run Time)에 동적으로 특정 클래스의 정보를
@@ -231,6 +231,6 @@ public class MadPlay {
 
 # 주의할 점은 없을까?
 
-다른 언어에서는 찾아볼 수 없는 강력한 기능이지만, <b>주의해야할 점도 있습니다.</b>
+다른 언어에서는 찾아볼 수 없는 강력한 기능이지만, **주의해야할 점도 있습니다.**
 외부에 공개되지 않는 private 멤버도 접근과 조작이 가능하므로 주의해야 합니다.
 (private 멤버는 ```Field.setAccessible()``` 메서드를 true 지정하면 접근이 가능합니다)
