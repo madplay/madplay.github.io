@@ -25,7 +25,7 @@ comments: true
 
 # 아래와 같은 과정을 실행합니다.
 
-<b>Step 1. Homebrew를 설치하도록 합니다.(이미 설치되어 있다면 Skip)</b>
+**Step 1. Homebrew를 설치하도록 합니다.(이미 설치되어 있다면 Skip)**
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
@@ -33,7 +33,7 @@ comments: true
 
 <br/>
 
-<b>Step 2. ruby 관련 설치를 진행합니다.</b>
+**Step 2. ruby 관련 설치를 진행합니다.**
 ```
 curl https://gist.githubusercontent.com/DirtyF/5d2bde5c682101b7b5d90708ad333bf3/raw/bbac59647ac66016cf443caf7d48c6ae173ae57f/setup-rbenv.sh | bash
 ```
@@ -56,13 +56,13 @@ Downloading ruby-2.4.3.tar.bz2...
 
 <br/>
 
-<b>Step 3. ruby가 정상 설치되었는지 확인해봅시다.</b>
+**Step 3. ruby가 정상 설치되었는지 확인해봅시다.**
 ```
 MadPlayui-MacBook-Pro:~ madplay$ ruby -v
 ruby 2.4.3p205 (2017-12-14 revision 61247) [x86_64-darwin17]
 ```
 
-<b>Step 4. RubyGems을 이용한 jekyll과 bundler 설치</b>
+**Step 4. RubyGems을 이용한 jekyll과 bundler 설치**
 ```
 gem install jekyll bundler
 Fetching: jekyll-3.6.2.gem (100%)
@@ -74,7 +74,7 @@ Successfully installed bundler-1.16.0
 
 <br/>
 
-<b>Step 5. RubyGems 업데이트</b>
+**Step 5. RubyGems 업데이트**
 ```
 gem update --system
 Updating rubygems-update
