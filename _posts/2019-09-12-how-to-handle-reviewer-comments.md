@@ -58,9 +58,9 @@ CL을 작성하려면 많은 작업이 필요합니다. 리뷰를 요청하고�
 # 의견 충돌 해결하기
 
 갈등 해결의 첫 번째 단계는 항상 리뷰어와 합의를 시도하는 것입니다. 합의점을 찾을 수 없다면, 이러한 상황에서 따라야할
-<a href="/post/the-standard-of-code-review"><b>코드 리뷰의 표준 원칙</b></a>을 참고하세요.
+<a href="/post/the-standard-of-code-review">**코드 리뷰의 표준 원칙**</a>을 참고하세요.
 
 <br/>
 
 **"구글의 코드 리뷰 가이드: 코드 작성자편"** 의 마지막 글입니다.
-처음으로 돌아가려면 <a href="/post/google-code-review-guide" target="_blank"><b>여기를 클릭</b></a>해주세요.
+처음으로 돌아가려면 <a href="/post/google-code-review-guide" target="_blank">**여기를 클릭**</a>해주세요.
