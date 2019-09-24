@@ -120,5 +120,5 @@ val client = webClient.mutate()
 ---
 
 > ### 목차 가이드
-> - 다음글 "2.6. Synchronous Use" 로 이동
+> - <a href="/post/webclient-references-synchronous-use">다음글 "2.6. Synchronous Use" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>

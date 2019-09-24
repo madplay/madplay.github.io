@@ -43,7 +43,7 @@ rel="nofollow" target="_blank" >참고 링크: Web on Reactive Stack</a>
 - <a href="/post/webclient-references-exchange">2.3. exchange()</a>
 - <a href="/post/webclient-references-request-body">2.4. Request Body</a>
 - <a href="/post/webclient-references-client-filters">2.5. Client Filters</a>
-- 2.6. Synchronous Use
+- <a href="/post/webclient-references-synchronous-use">2.6. Synchronous Use</a>
 - 2.7. Testing
 
 ### 3. WebSockets
