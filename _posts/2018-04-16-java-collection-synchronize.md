@@ -3,7 +3,7 @@ layout:   post
 title:    자바 컬렉션과 동기화(Java Collection Synchronization)
 author:   Kimtaeng
 tags: 	  Java Collection Synchronization
-description: 동기화는 중요하다. 내가 의도한 것이 다른 사람에게 다르게 보일 수 있다.
+description: 동기화는 중요하다. 내가 의도한 것이 다른 사람에게 다르게 보일 수 있다. 컬렉션을 사용할 때의 동기화에 대해서 알아보자
 category: Java
 comments: true
 ---
@@ -104,7 +104,6 @@ ArrayList와 Vector외에 `LinkedList`도 있습니다.
 <br/>
 
 # 집합(Set)
-
 집합(Set)은 순서를 유지하지 않는 데이터들의 집합이며, 먼저 살펴본 리스트(List)와는 다르게 요소들의
 중복을 허용하지 않습니다. 대표적으로는 HashSet과 TreeSet 클래스가 있습니다.
 
@@ -128,7 +127,6 @@ public class LinkedHashSet<E> extends HashSet<E>
 }
 /* 여기서 부모 클래스의 생성인 super, 즉 HashSet의 오버로딩 생성자로 진입해보면 */
     
-    
 public class HashSet<E> extends AbstractSet<E>
     implements Set<E>, Cloneable, java.io.Serializable {
     
@@ -141,8 +139,7 @@ public class HashSet<E> extends AbstractSet<E>
 ```
 <br/>
 
-그러니까 LinkedHashSet은 상위 클래스인 HashSet을 만들고 내부적으로는 LinkedHashMap을
-만들고 있는 모습입니다. 
+그러니까 LinkedHashSet은 상위 클래스인 HashSet을 만들고 내부적으로는 LinkedHashMap을 만들고 있는 모습입니다. 
 TreeSet의 경우는 정렬 방법을 지정하여 순서대로 저장할 수 있습니다.
 
 ```java
@@ -215,7 +212,6 @@ public class MadPlay {
 <br/>
 
 # 맵(Map)
-
 Map은 Key와 Value의 쌍으로 이루어진 데이터를 저장합니다.
 HashMap, TreeMap, Hashtable 클래스 등이 있고 순서를 보장하는 LinkedHashMap도 있습니다.
 
@@ -411,7 +407,6 @@ class java.util.Collections$SynchronizedMap's average time is 1233ms
 <br/>
 
 # 끝으로 정리해보면
-
 - List Interface
   - **ArrayList** : 상대적으로 빠르고 요소에 대해 순차적으로 접근할 수 있다.
   - **Vector** : ArrayList의 이전 버전이며 모든 메서드가 동기화 되어 있다.
