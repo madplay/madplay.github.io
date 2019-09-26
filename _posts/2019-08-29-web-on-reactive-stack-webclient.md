@@ -28,7 +28,7 @@ comments: true
 - <a href="/post/webclient-references-request-body">2.4. Request Body</a>
 - <a href="/post/webclient-references-client-filters">2.5. Client Filters</a>
 - <a href="/post/webclient-references-synchronous-use">2.6. Synchronous Use</a>
-- 2.7. Testing
+- <a href="/post/webclient-references-testing">2.7. Testing</a>
 
 <br>
 

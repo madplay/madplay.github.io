@@ -86,5 +86,5 @@ val data = runBlocking {
 ---
 
 > ### 목차 가이드
-> - 다음글 "2.7. Testing" 로 이동
+> - <a href="/post/webclient-references-testing">다음글 "2.7. Testing" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>
