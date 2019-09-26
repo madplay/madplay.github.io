@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    인텔리제이(Intellij) 플러그인 만들기 - 2. Action 정의
+title:    "인텔리제이(Intellij) 플러그인 만들기: 2. Action 정의"
 author:   Kimtaeng
 tags: 	  intellij plugin 
 description: 인텔리제이(Intellij) 플러그인(Plugin)를 실행하기 위한 액션(Action) 정의하기
@@ -8,21 +8,23 @@ category: Knowledge
 comments: true
 ---
 
-# 인텔리제이 플러그인 만들기, 두 번째 포스팅
-
-앞선 포스팅에서 Intellij IDEA에서 플러그인 프로젝트를 생성하고 그 구조에 대해서 살펴보았습니다.
-이번에는 플러그인을 실행하기 위한 액션(Action)을 정의하는 방법에 대해서 알아봅니다.
-
-- <a href="/post/creating-intellij-plugin-project" target="_blank">이전 포스팅: 인텔리제이(Intellij) 플러그인 만들기 - 1. 환경 구성</a>
+# 목차
+- <a href="/post/creating-intellij-plugin-project" target="_blank">인텔리제이(Intellij) 플러그인 만들기: 1. 환경 구성</a>
+- 인텔리제이(Intellij) 플러그인 만들기: 2. Action 정의
+- <a href="/post/deploying-and-publishing-an-intellij-plugin" target="_blank">인텔리제이(Intellij) 플러그인 만들기: 3. 빌드 & 배포하기</a>
 
 <br/>
 
+# 인텔리제이 플러그인 만들기, 두 번째 포스팅
+앞선 포스팅에서 Intellij IDEA에서 플러그인 프로젝트를 생성하고 그 구조에 대해서 살펴보았습니다.
+이번에는 플러그인을 실행하기 위한 액션(Action)을 정의하는 방법에 대해서 알아봅니다.
+
+<br/>
 
 # 액션(Action) 생성하기
-
 다음으로 Intellij IDEA의 상단 툴바 등에서 보여질 수 있도록 플랫폼 UI를 커스텀하는 과정입니다.
 그러니까 플러그인을 실행하기 위해서 특정 메뉴를 클릭해야 하는데요. 그것을 만드는 겁니다!
-이를 **액션(Action)**을 정의한다고 하며, 인텔리제이에서는 ```AnAction``` 클래스를 제공하여 이를 상속하여 구현하면
+이를 **액션(Action)**을 정의한다고 하며, 인텔리제이에서는 `AnAction` 클래스를 제공하여 이를 상속하여 구현하면
 개발자가 직접 액션을 정의할 수 있습니다. 
 
 액션은 아래와 같이 소스 디렉터리를 오른 클릭한 후에 바로 생성할 수 있습니다. 
@@ -38,7 +40,7 @@ comments: true
 
 액션을 생성할 때 입력하는 항목은 아래와 같습니다.
 
-- **Action ID**: 액션의 고유한 값입니다. ```플러그인이름.액션아이디``` 형태를 추천합니다.
+- **Action ID**: 액션의 고유한 값입니다. `플러그인이름.액션아이디` 형태를 추천합니다.
 - **Class Name**: 액션 클래스의 이름입니다.
 - **Name**: 메뉴에 보여질 이름입니다. 툴바 버튼에 이 이름이 표기됩니다.
 - **Description**: 액션에 대한 설명이며 선택 옵션입니다.
@@ -47,26 +49,27 @@ comments: true
   - 선택하지 않고 First 또는 Last를 클릭한 경우 해당 그룹의 맨 앞 또는 뒤에 위치합니다.
   - Before와 After는 해당 그룹 내의 선택한 액션의 바로 앞 또는 뒤에 위치합니다.
 
-위 과정을 진행하면 자동으로 액션 클래스를 자동 생성되고 액션의 정의가 ```META-INF/plugin.xml```에 자동 기재되는 것을 볼 수 있습니다.
+위 과정을 진행하면 자동으로 액션 클래스를 자동 생성되고 액션의 정의가 `META-INF/plugin.xml`에 자동 기재되는 것을 볼 수 있습니다.
 물론 직접 클래스를 생성하고 plugin.xml 파일을 수정해도 됩니다.
 
-<pre class="line-numbers"><code class="language-xml" data-start="1">&lt;actions&gt;
-  &lt;action id=&quot;MadPlay.MadAction&quot; class=&quot;MadAction&quot; text=&quot;Hello Madplay&quot;&gt;
-    &lt;add-to-group group-id=&quot;ToolsMenu&quot; anchor=&quot;first&quot;/&gt;
-  &lt;/action&gt;
-&lt;/actions&gt;
-</code></pre>
+```xml
+<actions>
+  <action id="MadPlay.MadAction" class="MadAction" text="Hello Madplay">
+    <add-to-group group-id="ToolsMenu" anchor="first"/>
+  </action>
+</actions>
+```
 
 <br/>
 
 # 액션의 행동(코드) 정의하기 
-
-이제 액션의 세부 행동을 정의할 차례입니다. 앞서 소개한 것처럼 인텔리제이에서는 ``AnAction`` 클래스를 제공하며
+이제 액션의 세부 행동을 정의할 차례입니다. 앞서 소개한 것처럼 인텔리제이에서는 `AnAction` 클래스를 제공하며
 이 클래스를 상속한 액션 클래스를 정의하면 개발자가 직접 이후 행동을 커스텀할 수 있습니다.
 
 이번 예제에서는 간단하게 다이얼로그를 띄워볼 예정입니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">import com.intellij.openapi.actionSystem.AnAction;
+```java
+import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.ui.Messages;
 
@@ -82,7 +85,7 @@ public class MadAction extends AnAction {
         Messages.showInputDialog("짜장면이 좋아요 짬뽕이 좋아요?", "당신의 선택은", Messages.getQuestionIcon());
     }
 }
-</code></pre>
+```
 
 <br/>
 
@@ -111,9 +114,10 @@ public class MadAction extends AnAction {
 <br/>
 
 # 이어서
-
 지금까지 플러그인의 액션을 생성하고 정의하는 방법에 대해서 알아보았습니다.
 그리고 정상 동작하는지 확인하기 위해서 개발한 플러그인을 직접 실행해보기도 했고요.
 
 이어지는 포스팅에서는 플러그인을 실제로 JetBrains의 플러그인 저장소에 배포하는 방법에 대해서 알아봅니다.
-(글은 아직 작성중입니다 :D)
+
+- <a href="/post/deploying-and-publishing-an-intellij-plugin" target="_blank">
+다음 포스팅: 인텔리제이(Intellij) 플러그인 만들기: 2. Action 정의</a>
