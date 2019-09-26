@@ -2,7 +2,7 @@
 layout:   post
 title:    자바의 데이터 타입
 author:   Kimtaeng
-tags: 	  Java DataType
+tags: 	  java datatype
 description: 자바 언어의 데이터 타입에는 무엇이 있을까?
 category: Java
 comments: true
@@ -10,7 +10,7 @@ comments: true
 
 # Java의 데이터 타입
 
-자바에서는 변수의 타입에 따라 저장할 수 있는 값의 범위와 종류가 드립니다.<br/>
+자바에서는 변수의 타입에 따라 저장할 수 있는 값의 범위와 종류가 다릅니다.<br/>
 
 변수의 타입은 크게 기본형(Primitive)과 참조형(Reference)으로 분류할 수 있는데<br/>
 기본형 변수는 실제 값을, 참조형 변수는 값이 저장되어 있는 주소를 저장합니다.<br/>
