@@ -35,6 +35,14 @@ comments: true
 # 아이템 79. 과도한 동기화는 피하라
 > Avoid excessive synchronization
 
+동기화를 하지 않으면 문제가 된다. 하지만 과도한 동기화도 적지 않은 문제가 된다. 성능을 떨어뜨리고, 교착 상태에 빠뜨리고, 심지어는 예측할 수 없는
+결과를 만들기도 한다.
+
+- <a href="/post/avoid-excessive-synchronization" target="_blank">
+더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 79. 과도한 동기화는 피하라</a>
+
+<div class="post_caption">동기화 메서드나 블록 안에서는 클라이언트에게 제어를 양도해선 안 된다.</div>
+
 <br/>
 
 # 아이템 80. 스레드보다는 실행자, 태스크, 스트림을 애용하라
