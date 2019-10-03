@@ -20,8 +20,6 @@ comments: true
 <br>
 
 # 목차
-번역이 완료된 문서는 링크가 생성됩니다.
-
 - <a href="/post/webclient-references-configuration">2.1. Configuration</a>
 - <a href="/post/webclient-references-retrieve">2.2. retrieve()</a>
 - <a href="/post/webclient-references-exchange">2.3. exchange()</a>
@@ -32,5 +30,8 @@ comments: true
 
 <br>
 
+---
+
 > ### 목차 가이드
+> - <a href="/post/web-on-reactive-stack-websockets">다음장 "3. WebSockets"으로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>

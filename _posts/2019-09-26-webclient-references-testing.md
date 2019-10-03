@@ -20,8 +20,10 @@ comments: true
 - <a href="https://github.com/square/okhttp#mockwebserver" rel="nofollow" target="_blank">참조 링크: 목 웹서버 OkHttpMockWebServer</a>
 - <a href="https://github.com/square/okhttp/tree/master/samples/static-server" target="_blank" rel="nofollow">참조 링크: OkHttp 저장소의 static-server</a>
 
+<br>
+
 ---
 
 > ### 목차 가이드
-> - 다음장 "3. WebSockets" 로 이동
+> - <a href="/post/web-on-reactive-stack-websockets">다음장 "3. WebSockets" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>
