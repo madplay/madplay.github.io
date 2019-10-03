@@ -293,6 +293,79 @@ synchronized (obj) {
 # 아이템 83. 지연 초기화는 신중히 사용하라
 > Use lazy initialization judiciously
 
+결론부터 얘기하면, "필요할 때까지는 하지말라" 이다. 지연 초기화는 양날의 검이다. 
+지연 초기화(lazy initialization)는 필드의 초기화 시점을 그 값이 처음 필요해질 때까지 늦추는 기법인데 주로 최적화 용도로 사용된다.
+
+초기화가 이뤄지는 비율에 따라, 초기화에 드는 비용에 따라, 초기화된 각 필드를 얼마나 빈번히 호출하느냐에 따라 지연 초기화가 성능을 더 느리게 할 수도 있다.
+그리고 대부분 일반적인 초기화가 지연 초기화가 낫다.
+
+```java
+// 일반적인 인스턴스 필드 초기화 방법
+private final FieldType field = computeFieldValue();
+```
+
+지연 초기화가 초기화 순환성을 깨뜨릴 것 같으면 `synchronized`를 단 접근자를 이용하자.
+
+```java
+private FieldType field;
+
+private synchronized FieldType getField() {
+    if (field == null)
+        field = computeFieldValue();
+    return field;
+}
+```
+
+성능 때문에 정적 필드를 초기화해야 한다면 **지연 초기화 홀더 클래스**를 사용하자.
+
+```java
+private static class FieldHolder {
+    static final FieldType field = computeFieldValue();
+}
+
+private static FieldType getField() { 
+    return FieldHolder.field;
+}
+```
+
+성능 때문에 인스턴스 필드를 지연 초기화해야 한다면 **이중검사(double-check)** 관용구를 사용하자.
+중간에 result라는 지역변수를 사용한 이유는 필드가 이미 초기화된 상황에서는 그 필드를 한 번만 읽도록 보장해준다. 필수는 아니지만 성능을 높여준다.
+
+```java
+// 반드시 volatile 로 선언
+private volatile FieldType field;
+
+private FieldType getField() {
+    FieldType result = field;
+    if (result != null) // 첫 번째 검사(락 사용 안함)
+        return result;
+
+    synchronized(This) {
+        if (field == null) // 두 번째 검사(락 사용)
+            field = computeFieldValue();
+        return field;
+    }
+}
+```
+
+반복해서 초기화해도 상관없는 인스턴스 필드를 지연 초기화할 때가 있는데 이럴 때는 두 번째 검사를 생략하면 된다. (단일검사)
+
+```java
+// volatile는 필요하다.
+private volatile FieldType field;
+
+private FieldType getField() {
+    FieldType result = field;
+    if (result == null)
+        field = result = computeFieldValue();
+    return result;
+}
+```
+
+더 나아가 필드의 타입이 long과 double을 제외한 다른 기본 타입이면 단일검사의 필드 선언에서 `volatile`을 없앨 수 있다.
+
+<div class="post_caption">지연 초기화가 오히려 성능을 저하시킬 수 있다.</div>
+
 <br/>
 
 # 아이템 84. 프로그램의 동작을 스레드 스케줄러에 기대지 말라
