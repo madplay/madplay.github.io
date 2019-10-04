@@ -1,8 +1,8 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 3. WebSockets: 3.1. 웹소켓 소개"
+title:    "[Web on Reactive Stack] 3. WebSockets: 3.1. 웹소켓 소개(Introduction to WebSocket)"
 author:   Kimtaeng
-tags: 	  spring webflux reactive
+tags: 	  spring reactive websocket
 description: "한글로 번역한 Web on Reactive Stack, 3. WebSockets: 3.1. Introduction to WebSocket"
 category: Spring
 date: "2019-10-04 23:41:53"

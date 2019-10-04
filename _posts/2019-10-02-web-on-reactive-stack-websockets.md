@@ -2,7 +2,7 @@
 layout:   post
 title:    "[Web on Reactive Stack] 3. 웹소켓(WebSockets)"
 author:   Kimtaeng
-tags: 	  spring websockets
+tags: 	  spring reactive websocket
 description: "한글로 번역한 Web on Reactive Stack, 3. WebSockets"
 category: Spring
 date: "2019-10-02 01:22:51"
@@ -20,7 +20,7 @@ comments: true
 # 목차
 번역이 완료된 문서는 링크가 생성됩니다.
 
-- 3.1 Introduction to WebSocket
+- <a href="/post/websockets-references-introduction-to-websocket">3.1 Introduction to WebSocket</a>
 - 3.2 WebSocket API
 
 <br>

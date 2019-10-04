@@ -46,8 +46,8 @@ rel="nofollow" target="_blank" >참고 링크: Web on Reactive Stack</a>
 - <a href="/post/webclient-references-synchronous-use">2.6. Synchronous Use</a>
 - <a href="/post/webclient-references-testing">2.7. Testing</a>
 
-### 3. WebSockets
-- 3.1 Introduction to WebSocket
+### <a href="/post/web-on-reactive-stack-websockets">3. WebSockets</a>
+- <a href="/post/websockets-references-introduction-to-websocket">3.1 Introduction to WebSocket</a>
 - 3.2 WebSocket API
 
 ### 4. Testing
