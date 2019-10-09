@@ -1,16 +1,15 @@
 ---
 layout:   post
-title:    자바 제네릭(Java Generic) 
+title:    자바 제네릭(Java Generic)
 author:   Kimtaeng
 tags: 	  java generic generic-class generic-interface generic-method
-description: 자바 제네릭과 제네릭 클래스, 제네릭 인터페이스 그리고 제네릭 메서드에 대해서 알아봅니다.  
+description: 자바 제네릭과 제네릭 클래스, 제네릭 인터페이스 그리고 제네릭 메서드에 대해서 알아봅니다.
 category: Java
 comments: true
 ---
 
 # 제네릭
-
-자바의 제네릭(Generic)이란 ```Java 5```에 추가된 스펙입니다. 다양한 타입을 다룰 수 있는 메서드 또는 컬렉션 클래스를
+자바에서 제네릭(Generic)은 `Java 5`에 추가된 스펙입니다. 다양한 타입을 다룰 수 있는 메서드 또는 컬렉션 클래스를
 컴파일 타임에 타입 체크(Type Check)할 수가 있어 특정 타입에 얽매이지 않고 개발을 할 수 있도록 도움을 줍니다.
 쉽게 말하면 특정 클래스 내부에서 사용할 타입을 인스턴스를 생성할 시점에 확정 짓는 것이라고 말할 수 있겠네요. 
  
@@ -20,11 +19,11 @@ comments: true
 <br/>
 
 # 제네릭 클래스
-
 제네릭 클래스를 선언하는 방법은 기존의 클래스나 인터페이스를 선언하는 방법과 매우 유사합니다.
-다른 점이라면 ```타입 매개변수 T```를 선언한다는 것인데요. 코드로 확인해보면 아래와 같습니다.
+다른 점이라면 `타입 매개변수 T`를 선언한다는 것인데요. 코드로 확인해보면 아래와 같습니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">class MadPlay&lt;T> {
+```java
+class MadPlay<T> {
     private T val; // 멤버 변수 val의 타입은 T 이다.
 
     public T getVal() {
@@ -37,52 +36,55 @@ comments: true
         this.val = val;
     }
 }
-</code></pre>
+```
 
 생각보다 간단합니다. 이어서 제네릭 클래스의 레퍼런스 변수를 선언할 때는 아래와 같이 타입 매개변수에
 구체적인 타입을 명시하면 됩니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public void someMethod() {
-    MadPlay&lt;String> stringObject;
-    MadPlay&lt;Integer> integerObject;
+```java
+public void someMethod() {
+    MadPlay<String> stringObject;
+    MadPlay<Integer> integerObject;
 }
-</code></pre>
+```
 
 이제 **구체화(Specialization)**를 해야합니다. 이는 제네릭 타입을 가진 제네릭 클래스에 구체적인 타입을 대입하여
 구체적인 행위를 할 수 있는 객체를 생성하는 과정을 말합니다. 그렇다면, 제네릭 클래스를 이용하여 객체를 생성해봅시다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public void someMethod() {
-    MadPlay&lt;String> stringObject = new MadPlay&lt;>();
+```java
+public void someMethod() {
+    MadPlay<String> stringObject = new MadPlay<>();
     stringObject.setVal("Hello, MadPlay!");
 
     // Hello, MadPlay! 출력
     System.out.println(stringObject.getVal());
 
-    MadPlay&lt;Integer> integerObject = new MadPlay&lt;>();
+    MadPlay<Integer> integerObject = new MadPlay<>();
     integerObject.setVal(29);
     
     // 29 출력
     System.out.println(integerObject.getVal());
 }
-</code></pre>
+```
 
 위 코드에서 String 타입으로 구체화된 객체 stringObject의 모습을 그림으로 보면 아래와 같습니다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2018-12-13-java-generic-1.png" width="600" height="400" alt="generic class with string"/>
+<img class="post_image" src="{{ site.baseurl }}/img/post/2018-12-13-java-generic-1.png"
+width="600" alt="generic class with string"/>
 
 <br/>
 
 # 제네릭 인터페이스
-
 인터페이스에도 제네릭을 적용할 수 있습니다. 제네릭 인터페이스를 선언하고 이를 구현하는 제네릭 클래스는
 아래와 같이 작성할 수 있습니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">interface MadLife&lt;T> {
+```java
+interface MadLife<T> {
     void addElement(T t, int index);
     T getElement(int index);
 }
 
-class MadPlay&lt;T> implements MadLife&lt;T> {
+class MadPlay<T> implements MadLife<T> {
     private T[] array;
 
     public MadPlay() {
@@ -100,7 +102,7 @@ class MadPlay&lt;T> implements MadLife&lt;T> {
 
 public class GenericTest {
     public static void main(String[] args) {
-        MadPlay&lt;String> strObject = new MadPlay<>();
+        MadPlay<String> strObject = new MadPlay<>();
         strObject.addElement("Hello", 0);
         strObject.getElement(0);
         
@@ -108,26 +110,27 @@ public class GenericTest {
         strObject.addElement(1, 1);
     }
 }
-</code></pre>
+```
 
-참고로 우리가 ```String``` 정렬을 할 때 사용하는 ```compareTo```와 같은 메서드는 ```Comparable``` 인터페이스의 추상 메서드인데요.
-이 Comparable 인터페이스의 코드를 보면 아래와 같이 제네릭으로 구현되어 있습니다. 따라서 이를 ```implements``` 하는 타입은
+참고로 우리가 `String` 정렬을 할 때 사용하는 `compareTo`와 같은 메서드는 `Comparable` 인터페이스의 추상 메서드인데요.
+이 Comparable 인터페이스의 코드를 보면 아래와 같이 제네릭으로 구현되어 있습니다. 따라서 이를 `implements` 하는 타입은
 값 비교를 통한 정렬을 간편하게 사용할 수 있지요.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public interface Comparable&lt;T> {
+```java
+public interface Comparable<T> {
     // ... 생략
     public int compareTo(T o);
 }
-</code></pre>
+```
 
 <br/>
 
 # 제네릭 메서드
-
 메서드 단위에만 제네릭을 적용할 수 있습니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">class MadPlay {
-    public static &lt;T> void arrayToStack(T[] arr, Stack&lt;T> stack) {
+```java
+class MadPlay {
+    public static <T> void arrayToStack(T[] arr, Stack<T> stack) {
         // 만일 위 2개의 타입이 다르면 컴파일 오류
         for (T element : arr) {
             stack.push(element);
@@ -140,13 +143,13 @@ public class GenericTest {
 public class GenericTest {
     public static void main(String[] args) {
         String[] array = new String[10];
-        Stack&lt;String> stack = new Stack&lt;>();
+        Stack<String> stack = new Stack<>();
 
         // 타입 매개변수 T를 String 으로 유추
         MadPlay.arrayToStack(array, stack);
     }
 }
-</code></pre>
+```
 
 <br/>
 
