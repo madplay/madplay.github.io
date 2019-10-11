@@ -24,6 +24,14 @@ comments: true
 # 아이템 85. 자바 직렬화의 대안을 찾으라
 > Prefer alternatives to Java serialization
 
+직렬화는 공격 소지가 많아 위험하다. 이러한 직렬화의 위험을 피하는 가장 좋은 방법은 "아무 것도 역직렬화하지 않는 것이다."
+꼭 이용해야 한다면 객체 역직렬화 필터링 등을 사용해보자.
+
+- <a href="/post/prefer-alternatives-to-java-serialization" target="_blank">
+더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 85. 자바 직렬화의 대안을 찾으라</a>
+
+<div class="post_caption">자바 직렬화는 JSON과 같은 대체 수단을 이용해 변경하자.</div>
+
 <br>
 
 # 아이템 86. Serializable을 구현할지는 신중히 결정하라
