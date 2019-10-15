@@ -265,12 +265,16 @@ class ExampleHandler : WebSocketHandler {
 네티에서 애플리케이션을 실행하는 경우, 입력 데이터 버퍼가 해제되지 않고 유지해야 한다면 `DataBufferUtils.retain(dataBuffer)`를
 사용하고, 버퍼에 있는 데이터를 소비했다면 `DataBufferUtils.release(dataBuffer)`를 호출해야 한다.
 
+<br>
+
+## 3.2.4. Handshake
 `WebSocketHandlerAdapter`는 `WebSocketService`에 처리를 위임한다. 기본 구현체 `HandshakeWebSocketService`는
 웹소켓 요청에 대한 기본적인 검사를 한 다음에 구동중인 서버에 대해서 `RequestUpgradeStrategy`를 사용한다.
 현재 리액터 네티(Reactor Netty), 톰캣(Tomcat), 제티(Jetty) 그리고 언더토우(Undertow)를 기본적으로 지원한다.
 
 `HandshakeWebSocketService`는 `sessionAttributePredicate` 속성을 가지고 있으며, `Predicate<String>`를 설정하여
 `WebSession`으로부터 속성을 추출하고 `WebSocketSession`의 속성으로 입력한다.
+
 
 
 
