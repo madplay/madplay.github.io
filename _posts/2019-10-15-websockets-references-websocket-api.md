@@ -85,6 +85,8 @@ class WebConfig {
 }
 ```
 
+<br>
+
 ## 3.2.2. `WebSocketHandler`
 `WebSocketHandler`의 `handle` 메서드는 `WebSocketSession`을 받아서 세션 처리가 완료된 것을 나타내기 위해 `Mono<Void>`를
 반환한다. 세션은 두 개의 스트림을 통해 처리되는데, 각각 인바운드 메시지와 아웃바운드 메시지를 위한 것이다. 다음 표는 스트림을 처리하는 두 가지
@@ -251,6 +253,27 @@ class ExampleHandler : WebSocketHandler {
 > (1) 인바운드 메시지 스트림을 처리한다.<br>
 > (2) 발신 메시지를 전송한다.<br>
 > (3) 스트림을 결합하고 두 스트림이 모두 끝나면 종료하는 `Mono<Void>`를 반환한다.
+
+<br>
+
+## 3.2.3. `DataBuffer`
+`DataBuffer`는 웹플럭스의 바이트 버퍼다. 관련해서는 스프링 코어 레퍼런스의
+<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#databuffers" target="_blank" rel="nofollow">데이터 버퍼와 코덱(Data Buffers and Codecs)</a> 섹션에서 더 자세히 설명한다.
+중요한 점은 네티(Netty)와 같은 일부 서버에서는 바이트 버퍼를 메모리 풀을 사용하여 처리하고 참조를 카운트하기 때문에 메모리 누수를
+피하려면 소비(consume)한 다음에는 메모리를 해제해야 한다는 것이다.
+
+네티에서 애플리케이션을 실행하는 경우, 입력 데이터 버퍼가 해제되지 않고 유지해야 한다면 `DataBufferUtils.retain(dataBuffer)`를
+사용하고, 버퍼에 있는 데이터를 소비했다면 `DataBufferUtils.release(dataBuffer)`를 호출해야 한다.
+
+`WebSocketHandlerAdapter`는 `WebSocketService`에 처리를 위임한다. 기본 구현체 `HandshakeWebSocketService`는
+웹소켓 요청에 대한 기본적인 검사를 한 다음에 구동중인 서버에 대해서 `RequestUpgradeStrategy`를 사용한다.
+현재 리액터 네티(Reactor Netty), 톰캣(Tomcat), 제티(Jetty) 그리고 언더토우(Undertow)를 기본적으로 지원한다.
+
+`HandshakeWebSocketService`는 `sessionAttributePredicate` 속성을 가지고 있으며, `Predicate<String>`를 설정하여
+`WebSession`으로부터 속성을 추출하고 `WebSocketSession`의 속성으로 입력한다.
+
+
+
 
 ---
 
