@@ -329,6 +329,40 @@ CORS를 설정하고 웹소켓 엔드포인트로의 접근을 제한하는 가�
 `SimpleUrlHandler`의 `corsConfigurations` 속성에 URL 패턴 별로 CORS 설정을 넣을 수 있다. 만일 두 방법 모두 사용한다면,
 `CorsConfiguration`의 `comine` 메서드에서 두 설정은 결합된다.
 
+<br>
+
+## 3.2.7. 클라이언트(Client)
+스프링 웹플럭스는 리액터 네티(Reactor Netty), 톰캣(Tomcat), 제티(Jetty), 언더토우(Undertow) 그리고 표준 자바(JSR-356)에
+대한 구현체로 `WebSocketClient` 인터페이스를 제공한다.
+
+웹소켓 세션을 시작하기 위해 클라이언트의 인스턴스를 생성하고 해당 `execute` 메서드를 사용한다.
+
+#### Java:
+```java
+WebSocketClient client = new ReactorNettyWebSocketClient();
+
+URI url = new URI("ws://localhost:8080/path");
+client.execute(url, session ->
+        session.receive()
+                .doOnNext(System.out::println)
+                .then());
+```
+
+#### Kotlin:
+```kotlin
+val client = ReactorNettyWebSocketClient()
+
+        val url = URI("ws://localhost:8080/path")
+        client.execute(url) { session ->
+            session.receive()
+                    .doOnNext(::println)
+            .then()
+        }
+```
+
+제티(Jetty)와 같은 `LifeCycle` 인터페이스를 구현하는 일부 클라이언트는 사용하기 전에 중지하고 시작해야 한다. 모든 클라이언트는 기본적으로
+기본 웹소켓 클라이언트의 설정과 관련된 생성자 옵션이 있다.
+
 ---
 
 > ### 목차 가이드
