@@ -275,9 +275,59 @@ class ExampleHandler : WebSocketHandler {
 `HandshakeWebSocketService`는 `sessionAttributePredicate` 속성을 가지고 있으며, `Predicate<String>`를 설정하여
 `WebSession`으로부터 속성을 추출하고 `WebSocketSession`의 속성으로 입력한다.
 
+<br>
 
+## 3.2.5. 서버 설정(Server Configuration)
+각 서버의 `RequestUpgradeStrategy` 구현체를 이용하여 웹소켓 엔진 관련한 웹소켓 관련 설정을 할 수 있다. 다음 예제는 톰캣에서 실행되는
+웹소켓 옵션을 설정한다:
 
+#### Java:
+```java
+@Configuration
+class WebConfig {
 
+    @Bean
+    public WebSocketHandlerAdapter handlerAdapter() {
+        return new WebSocketHandlerAdapter(webSocketService());
+    }
+
+    @Bean
+    public WebSocketService webSocketService() {
+        TomcatRequestUpgradeStrategy strategy = new TomcatRequestUpgradeStrategy();
+        strategy.setMaxSessionIdleTimeout(0L);
+        return new HandshakeWebSocketService(strategy);
+    }
+}
+```
+
+#### Kotlin:
+```kotlin
+@Configuration
+class WebConfig {
+
+    @Bean
+    fun handlerAdapter() =
+            WebSocketHandlerAdapter(webSocketService())
+
+    @Bean
+    fun webSocketService(): WebSocketService {
+        val strategy = TomcatRequestUpgradeStrategy().apply {
+            setMaxSessionIdleTimeout(0L)
+        }
+        return HandshakeWebSocketService(strategy)
+    }
+}
+```
+
+사용 가능한 옵션을 확인하려면 서버의 업그레이드 전략(upgrade strategy)을 확인하라. 현재 톰캣과 제티만이 이 옵션을 제공한다.
+
+<br>
+
+## 3.2.6. CORS
+CORS를 설정하고 웹소켓 엔드포인트로의 접근을 제한하는 가장 간단한 방법은 `WebSocketHandler`가 `CorsConfigurationSource`를
+구현하여 허용할 origin, 헤더 그리고 다른 상세 설정등을 가진 `CorsConfiguration`을 반환하는 것이다. 만일 이렇게 할 수 없다면,
+`SimpleUrlHandler`의 `corsConfigurations` 속성에 URL 패턴 별로 CORS 설정을 넣을 수 있다. 만일 두 방법 모두 사용한다면,
+`CorsConfiguration`의 `comine` 메서드에서 두 설정은 결합된다.
 
 ---
 
