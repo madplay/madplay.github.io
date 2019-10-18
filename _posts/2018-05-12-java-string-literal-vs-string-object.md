@@ -19,9 +19,9 @@ String str2 = "madplay";
 첫 번째는 **생성자인 new 연산자를 이용한 문자열 생성** 방식, 두 번째는 **문자열 리터럴 생성** 방식인데,
 겉으로 보았을 때의 문법 차이도 있지만 실제 메모리에 할당되는 영역에도 차이가 있습니다.
 
-new 연산자를 통해 문자열 객체를 생성하는 경우 메모리의 ```Heap``` 영역에 할당되고
-두 번째 방법인 리터럴을 이용한 경우에는 ```String Constant Pool``` 이라는 영역에 할당됩니다.
-참고로 문자열이 담기는 상수풀의 위치는 자바 7부터 ```Heap``` 영역으로 옮겨졌습니다.
+new 연산자를 통해 문자열 객체를 생성하는 경우 메모리의 `Heap` 영역에 할당되고
+두 번째 방법인 리터럴을 이용한 경우에는 `String Constant Pool` 이라는 영역에 할당됩니다.
+참고로 문자열이 담기는 상수풀의 위치는 자바 7부터 `Heap` 영역으로 옮겨졌습니다.
 
 아래와 같이 문자열을 선언해봅시다.
 
@@ -45,7 +45,6 @@ src="{{ site.baseurl }}/img/post/2018-05-12-java-string-literal-vs-string-object
 <br/>
 
 # 문자열을 비교해보자. equals vs == 
-
 다음의 문자열을 비교하는 간단한 코드를 살펴봅시다.
 
 ```java
@@ -70,7 +69,7 @@ public class MadPlay {
 <br/>
 
 동일하게 'kimtaeng'이라는 문자열을 선언하였는데 String의 eqauls 메서드로 비교한 경우는 true,
-```==``` 연산으로 비교한 경우는 false가 반환되었습니다. 이유가 뭘까요?
+`==` 연산으로 비교한 경우는 false가 반환되었습니다. 이유가 뭘까요?
 
 String의 eqauls 메서드를 조금 더 살펴보면 아래와 같습니다. 단순 문자열 값을 비교하게 되있지요.
 
@@ -113,38 +112,37 @@ public boolean equals(Object anObject) {
 }
 ```
 
-반면에 ```== 연산```의 경우 객체의 주소값을 비교합니다. 그렇기 때문에 ```new 연산자```를 통해 Heap 영역에 생성된
+반면에 `== 연산`의 경우 객체의 주소값을 비교합니다. 그렇기 때문에 `new 연산자`를 통해 Heap 영역에 생성된
 String과 리터럴을 이용해 String Constant Pool 영역에 위치한 String의 주소값은 같을 수가 없지요.
 
 <br/>
 
 # 왜 그럴까?
-
 String의 **equals와 == 연산의 차이**에 대한 질문을 IT기업 면접 문제에서 많이 봤던 것 같습니다. (요즘은 이런 질문은 출제도 안되는 듯한...)
 그만큼 이 둘의 동작 방식에 대한 차이를 조금 더 명확하게 알야할 필요도 있겠지요.
 
-문자열 리터럴의 경우 내부적으로 String의 ```intern``` 메서드를 호출하게 됩니다. Java API를 통해 메서드를 살펴보면
+문자열 리터럴의 경우 내부적으로 String의 `intern` 메서드를 호출하게 됩니다. Java API를 통해 메서드를 살펴보면
 
 ```java
 /**
 * Returns a canonical representation for the string object.
-* &lt;p&gt;
+* <p>
 * A pool of strings, initially empty, is maintained privately by the
-* class &lt;code&gt;String&lt;/code&gt;.
-* &lt;p&gt;
+* class <code>String</code>.
+* <p>
 * When the intern method is invoked, if the pool already contains a
-* string equal to this &lt;code&gt;String&lt;/code&gt; object as determined by
-* the {@link #equals(Object)} method, then the string from the pool is
-* returned. Otherwise, this &lt;code&gt;String&lt;/code&gt; object is added to the
-* pool and a reference to this &lt;code&gt;String&lt;/code&gt; object is returned.
-* &lt;p&gt;
-* It follows that for any two strings &lt;code&gt;s&lt;/code&gt; and &lt;code&gt;t&lt;/code&gt;,
-* &lt;code&gt;s.intern()&amp;nbsp;==&amp;nbsp;t.intern()&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;
-* if and only if &lt;code&gt;s.equals(t)&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;.
-* &lt;p&gt;
+* string equal to this <code>String</code> object as determined by
+* the {@link #equals(Object)} method, then the string from the pool is`
+* returned. Otherwise, this <code>String</code> object is added to the
+* pool and a reference to this <code>String</code> object is returned.
+* <p>
+* It follows that for any two strings <code>s</code> and <code>t</code>,
+* <code>s.intern() == t.intern()</code> is <code>true</code>
+* if and only if <code>s.equals(t)</code> is <code>true</code>.
+* <p>
 * All literal strings and string-valued constant expressions are
 * interned. String literals are defined in section 3.10.5 of the
-* &lt;cite&gt;The Java&amp;trade; Language Specification&lt;/cite&gt;.
+* <cite>The Java&trade; Language Specification</cite>.
 *
 * @return  a string that has the same contents as this string, but is
 *          guaranteed to be from a pool of unique strings.
@@ -157,7 +155,7 @@ public native String intern();
 간단하게 요약해보자면 intern 메서드는 해당 문자열이 String Constant Pool에 이미 있는 경우에는
 그 문자열의 주소값을 반환하고 없다면 새로 집어넣고 그 주소값을 반환합니다.
 
-아래의 ```intern``` 메서드를 이용한 문자열을 비교하는 코드를 살펴봅시다.
+아래의 `intern` 메서드를 이용한 문자열을 비교하는 코드를 살펴봅시다.
 
 ```java
 /**
@@ -166,7 +164,6 @@ public native String intern();
  * @author kimtaeng
  * created on 2018. 5. 12.
  */
- 
 public class MadPlay {
     public static void main(String[] args) {
         String someLiteral = "kimtaeng";
@@ -192,7 +189,6 @@ src="{{ site.baseurl }}/img/post/2018-05-12-java-string-literal-vs-string-object
 <br/>
 
 # Immutable 하다. 
-
 문자열 리터럴도 상수로서 불변합니다. 이러한 특성 때문에 참조하려는 문자열이 같다면 동일한 객체(상수풀)을 참조할 수 있습니다.
 아래의 코드에서 someObject를 new 연산자가 아닌 리터럴 방식으로 선언한다면 someLiteral과 동일한 객체를 참조하게 될 것입니다. 
 
@@ -207,14 +203,13 @@ String weAreSameRef = "kimtaeng"; // someLiteral과 같은 객체 참조
 JVM은 String Constant Pool에 동일한 문자열(위 코드에서는 kimtaeng)이 있는지 확인하고 이미 존재한다면 재사용을 하고 없는 경우에는
 새로운 문자열을 만들게 됩니다.
 
-이러한 관점에서 여러 레퍼런스가 같은 문자열 리터럴을 참조하더라도 서로 영향이 없도록 ```불변(immutable)``` 해야 하는데
+이러한 관점에서 여러 레퍼런스가 같은 문자열 리터럴을 참조하더라도 서로 영향이 없도록 `불변(immutable)` 해야 하는데
 다행히 thread-safe 하기 때문에 멀티 스레드 환경에서 공유하여 사용할 수 있습니다.
 
 <br/>
 
 # Spring Constant Pool
-
-상수풀(String Constant Pool)의 위치는 ```Java 7``` 부터 ```Perm``` 영역에서 ```Heap``` 영역으로 옮겨졌습니다.
+상수풀(String Constant Pool)의 위치는 `Java 7` 부터 `Perm` 영역에서 `Heap` 영역으로 옮겨졌습니다.
 Perm 영역은 실행 시간(Runtime)에 가변적으로 변경할 수 없는 고정된 사이즈이기 때문에 intern 메서드의 호출은
 저장할 공간이 부족하게 만들 수 있었습니다. 즉 OOM(Out Of Memory) 문제가 발생할 수 있었지요.
 Heap 영역으로 변경된 이후에는 상수풀에 들어간 문자열도 Garbage Collection 대상이 됩니다. 
@@ -222,5 +217,5 @@ Heap 영역으로 변경된 이후에는 상수풀에 들어간 문자열도 Gar
 <a href="https://bugs.java.com/view_bug.do?bug_id=6962931" rel="nofollow" target="_blank">
 관련 링크) JDK-6962931 : move interned strings out of the perm gen(Oracle Java Bug Database)</a>
 
-```Java 7```버전에서 상수풀의 위치가 Perm영역(정확히 풀어서 써보면 Permanent Generation)에서 Heap으로 옮겨지고
-이후에 ```Java 8``` 버전에서는 Perm 영역은 완전히 사라지고 이를 MetaSpace라는 영역이 대신하고 있습니다.
+`Java 7`버전에서 상수풀의 위치가 Perm영역(정확히 풀어서 써보면 Permanent Generation)에서 Heap으로 옮겨지고
+이후에 `Java 8` 버전에서는 Perm 영역은 완전히 사라지고 이를 MetaSpace라는 영역이 대신하고 있습니다.
