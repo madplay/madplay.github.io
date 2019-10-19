@@ -9,17 +9,17 @@ comments: true
 ---
 
 # 자바에서 상수 선언
+자바 언어의 열거 타입(enum type)은  `Java 1.5 `에 등장했습니다. 그 버전에서 상수 선언은 아래와 같이 했지요.
 
-자바 언어의 열거 타입(enum type)은 ```Java 1.5```에 등장했습니다. 그 버전에서 상수 선언은 아래와 같이 했지요.
-
-<pre class="line-numbers"><code class="language-java" data-start="1">public static final int APPLE_FUJI = 0; // 부사?
+```java
+public static final int APPLE_FUJI = 0; // 부사?
 public static final int APPLE_PIPPIN = 1; // ..!?
 public static final int APPLE_GRANNY_SMITH = 2; // 풋사과..?
 
 public static final int ORANGE_NAVEL = 0; // 귤인가...
 public static final int ORANGE_TEMPLE = 1; // 귤인듯...
 public static final int ORANGE_BLOOD = 2; // 붉은색 오렌지?
-</code></pre>
+```
 
 위와 방식을 정수 열거 패턴(int enum pattern)이라고 하는데, 보기만해도 단점이 많아 보입니다.
 먼저 **타입 안전성을 보장하기가 어렵습니다.** 예를 들어서 오렌지를 건네야 하는 메서드에 사과를 보낸다면 어떻게 될까요?
@@ -33,16 +33,16 @@ public static final int ORANGE_BLOOD = 2; // 붉은색 오렌지?
 <br/>
 
 # 열거 타입의 등장
-
 열거 타입의 등장으로 아래와 같이 간편하게 사용할 수 있습니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public enum Apple {
+```java
+public enum Apple {
     FUJI, PIPPIN, GRANNY_SMITH
 }
 public enum Orange {
     NAVEL, TEMPLE, BLOOD
 }
-</code></pre>
+```
 
 그렇다면 열거 타입에는 어떠한 장점들이 있을까요?
 
@@ -58,9 +58,10 @@ public enum Orange {
 <br/>
 
 # 열거 타입의 예시
-
 - 아래와 같이 태양계의 여덞 행성에 대한 열거 타입을 만드는 것도 그리 어렵지 않습니다.
-<pre class="line-numbers"><code class="language-java" data-start="1">enum Planet {
+
+```java
+enum Planet {
     MERCURY(3.302e+23, 2.439e6),
     VENUS(4.869e+24, 6.052e6),
     EARTH(5.975e+24, 6.378e6);
@@ -87,13 +88,14 @@ public enum Orange {
         return mass * surfaceGravity; // F = ma
     }
 }
-</code></pre>
+```
 
 열거 타입 상수 각각을 특정 데이터와 연결지으려면 생성자에서 데이터를 받아 인스턴스 필드에 저장하면 됩니다.
-한편 열거 타입은 근본적으로 불변이므로 모든 필드는 ```final``` 이어야 합니다. 열거 타입은 자신 안에 정의된
-상수들의 값을 배열에 담아 반환하는 정적 메서드 ```values``` 를 제공합니다.
+한편 열거 타입은 근본적으로 불변이므로 모든 필드는  `final ` 이어야 합니다. 열거 타입은 자신 안에 정의된
+상수들의 값을 배열에 담아 반환하는 정적 메서드  `values ` 를 제공합니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public class EffectiveJava34 {
+```java
+public class EffectiveJava34 {
     public static void main(String []args) {
         double earthWeight = Double.parseDouble("150");
         double mass = earthWeight / Planet.EARTH.surfaceGravity();
@@ -104,15 +106,15 @@ public enum Orange {
         }
      }
 }
-</code></pre>
+```
 
 <br/>
 
 # 상수가 더 다양한 기능을 제공하길 원한다면?
-
 예를 들어 사칙연산 계산기의 연산 종류를 열거 타입으로 선언하고, 실제 연산까지 열거 타입 상수가 직접 수행하게 된다면 어떨까요?
 
-<pre class="line-numbers"><code class="language-java" data-start="1">enum Operation {
+```java
+enum Operation {
     PLUS, MINUS, TIMES, DIVIDE;
     
     public double apply(double x, double y) {
@@ -125,7 +127,7 @@ public enum Orange {
         throw new AssertionError("알 수 없는 연산: " + this);
     }
 }
-</code></pre>
+```
 
 위 코드는 정상적으로 실행되나 그리 적절한 코드라고 보기는 어렵습니다.
 마지막에 선언된 throw 문은 실제로 실행될 경우가 적지만 기술적으로는 도달할 수 있습니다.
@@ -136,10 +138,10 @@ public enum Orange {
 <br/>
 
 # 상수별 메서드 구현
-
 상수별 메서드 구현(constant-specific method implementation)은 상수에서 자신에 맞게 재정의하는 것을 말합니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">enum Operation {
+```java
+enum Operation {
     PLUS {
         public double apply(double x, double y) {
             return x + y;
@@ -153,7 +155,7 @@ public enum Orange {
     // ...
     public abstract double apply(double x, double y);
 }
-</code></pre>
+```
 
 apply 메서드가 상수 선언 바로 밑에 있으니 새로운 상수를 추가할 때도 apply 메서드를 항상 재정의해야 한다는
 사실을 까먹기 어렵습니다. 그리고 apply 메서드가 추상 메서드이므로 재정의하지 않았다면 컴파일 오류도 알려줍니다.
@@ -161,7 +163,8 @@ apply 메서드가 상수 선언 바로 밑에 있으니 새로운 상수를 추
 상수별 메서드 구현을 상수별 데이터와 결합할 수도 있습니다. 예를 들어 아래와 같이 Operation의 toString을
 재정의하여 해당 연산을 뜻하는 기호를 반환하도록 해봅시다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public class EffectiveJava34 {
+```java
+public class EffectiveJava34 {
     public static void main(String []args){
         double x = Double.parseDouble("2");
         double y = Double.parseDouble("3");
@@ -212,19 +215,20 @@ enum Operation {
 2.000000 - 3.000000 = -1.000000
 2.000000 * 3.000000 = 6.000000
 2.000000 / 3.000000 = 6.000000
-</code></pre>
+```
 
-열거 타입에는 상수 이름을 입력받아 그 이름에 해당하는 상수를 반환해주는 ```valueOf(String)``` 메서드가
-자동 생성됩니다. 열거 타입의 toString 메서드를 재정의했다면, ```toString```이 반환하는 문자열을 해당 열거 타입 상수로
-변환해주는 ```fromString``` 메서드도 고려해볼 수 있습니다.
+열거 타입에는 상수 이름을 입력받아 그 이름에 해당하는 상수를 반환해주는  `valueOf(String) ` 메서드가
+자동 생성됩니다. 열거 타입의 toString 메서드를 재정의했다면,  `toString `이 반환하는 문자열을 해당 열거 타입 상수로
+변환해주는  `fromString ` 메서드도 고려해볼 수 있습니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">private static final Map&lt;String, Operation&gt; stringToEnum =
-		Stream.of(values()).collect(Collectors.toMap(Object::toString, e -&gt; e));
+```java
+private static final Map<String, Operation> stringToEnum =
+		Stream.of(values()).collect(Collectors.toMap(Object::toString, e -> e));
 
 /*
  * 가끔 안 읽혀서... 풀어보면ㅎ
-private static final Map&lt;String, Operation&gt; stringToEnum =
-    Stream.of(values()).collect(Collectors.toMap(new Function&lt;Operation, String&gt;() {
+private static final Map<String, Operation> stringToEnum =
+    Stream.of(values()).collect(Collectors.toMap(new Function<Operation, String>() {
         @Override
         public String apply(Operation o) {
             return o.toString();
@@ -236,15 +240,16 @@ private static final Map&lt;String, Operation&gt; stringToEnum =
         }
     }));
 */
-public static Optional&lt;Operation&gt; fromString(String symbol) {
+public static Optional<Operation> fromString(String symbol) {
     return Optional.ofNullable(stringToEnum.get(symbol));
 }
-</code></pre>
+```
 
 그런데, 이런 상수별 메서드에도 단점은 있습니다. 열거 타입 상수끼리 코드를 공유하기가 어려운 점인데요.
 예를 들어서 살펴봅시다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">enum PayrollDay {
+```java
+enum PayrollDay {
 	MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY,
 	SATURDAY, SUNDAY;
 
@@ -268,7 +273,7 @@ public static Optional&lt;Operation&gt; fromString(String symbol) {
 		return basePay + overtimePay;
 	}
 }
-</code></pre>
+```
 
 휴가와 같이 새로운 값을 열거 타입에 추가하려면 그 값을 처리하는 case 문을 넣어야 합니다.
 그렇지 않으면 휴가 기간에 일해도 평일과 똑같은 임금을 받게 되겠죠... 그럼 어떻게 해야 할까요?
@@ -276,11 +281,11 @@ public static Optional&lt;Operation&gt; fromString(String symbol) {
 <br/>
 
 # 전략 열거 타입 패턴
-
 안전성과 유연함을 고려한다면 **전략 열거 타입 패턴**을 고려해볼 수 있습니다. switch 문이나 상수별 메서드 구현이
 필요 없어지지요. 새로운 상수를 추가할 때마다 잔업수당 **전략**을 선택하도록 하는 것입니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">enum PayrollDay {
+```java
+enum PayrollDay {
 	MONDAY(), TUESDAY, WEDNESDAY, THURSDAY, FRIDAY,
 	SATURDAY(PayType.WEEKEND), SUNDAY(PayType.WEEKEND);
 
@@ -322,12 +327,11 @@ public static Optional&lt;Operation&gt; fromString(String symbol) {
 		}
 	}
 }
-</code></pre>
+```
 
 <br/>
 
 # 그래서 정리해보면
-
 열거 타입은 확실히 정수 상수보다 효율적입니다. 읽기도 쉽고 강력합니다. 물론 메서드도 쓸 수 있고요.
 필요한 원소를 컴파일 타임에 모두다 알 수 있는 상수의 집합이라면 열거 타입을 강력히 추천합니다.
 바이너리 수준에서 호환되도록 설계되었기 때문에 열거 타입에 정의된 상수 개수가 영원히 고정 불변일 필요도 없습니다.
