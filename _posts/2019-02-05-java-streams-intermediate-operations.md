@@ -23,9 +23,9 @@ comments: true
 그리고 모든 중간 연산을 합친 다음에 합쳐진 연산을 마지막으로 한 번에 처리합니다. 예제 코드로 살펴봅시다.
 
 ```java
-List&lt;String> list = List.of("a", "ab", "abc", "abcd");
+List<String> list = List.of("a", "ab", "abc", "abcd");
 
-List&lt;String> result = list.stream()
+List<String> result = list.stream()
         .filter(x -> { // 중간 연산 1
             System.out.println(x + " in filter method");
             return x.length() >= 1;
@@ -55,12 +55,12 @@ System.out.println(result);
 `test` 라는 추상 메서드를 정의하는데, 이는 제네릭 형식의 객체를 인수로 받아 boolean 값을 반환합니다.
 
 ```java
-List&lt;String> list = List.of("kim", "taeng");
+List<String> list = List.of("kim", "taeng");
 list.stream().filter(s -> s.length() == 5);
 // "taeng"
 
 // without lambda expression
-list.stream().filter(new Predicate&lt;String>() {
+list.stream().filter(new Predicate<String>() {
     @Override
     public boolean test(String s) {
         return s.length() == 5;
@@ -74,12 +74,12 @@ list.stream().filter(new Predicate&lt;String>() {
 `map` 메서드를 사용하여 스트림 내 요소를 원하는 특정 형태로 변환할 수 있습니다.
 
 ```java
-List&lt;String> list = List.of("mad", "play");
+List<String> list = List.of("mad", "play");
 list.stream().map(s -> s.toLowerCase());
 // "MAD", "PLAY"
 
 // without lambda expression
-list.stream().map(new Function&lt;String, String>() {
+list.stream().map(new Function<String, String>() {
     @Override
     public String apply(String s) {
         return s.toLowerCase();
@@ -96,14 +96,14 @@ list.stream().map(new Function&lt;String, String>() {
 
 ```java
 // IntStream 예
-List&lt;String> list = List.of("0", "1");
+List<String> list = List.of("0", "1");
 IntStream intStream = list.stream()
         .mapToInt(value -> Integer.parseInt(value));
 intStream.forEach(System.out::println);
 // 숫자 0, 1 출력
 
 // without lambda expression
-list.stream().mapToInt(new ToIntFunction&lt;String>() {
+list.stream().mapToInt(new ToIntFunction<String>() {
     @Override
     public int applyAsInt(String value) {
         return Integer.parseInt(value);
@@ -117,11 +117,11 @@ list.stream().mapToInt(new ToIntFunction&lt;String>() {
 `flatmap` 메서드는 중첩된 구조를 한 단계 없애고 단일 원소 스트림으로 만들어줍니다.
 
 ```java
-List&lt;String> list1 = List.of("mad", "play");
-List&lt;String> list2 = List.of("kim", "taeng");
-List&lt;List&lt;String>> combinedList = List.of(list1, list2);
+List<String> list1 = List.of("mad", "play");
+List<String> list2 = List.of("kim", "taeng");
+List<List<String>> combinedList = List.of(list1, list2);
 
-List&lt;String> streamByList = combinedList.stream()
+List<String> streamByList = combinedList.stream()
         .flatMap(list -> list.stream())
         .collect(Collectors.toList());
 
@@ -133,7 +133,7 @@ String[][] arrs = new String[][]{
         {"mad", "play"}, {"kim", "taeng"}
 };
 
-List&lt;String> streamByArr = Arrays.stream(arrs)
+List<String> streamByArr = Arrays.stream(arrs)
         .flatMap(arr -> Arrays.stream(arr))
         .collect(Collectors.toList());
         
@@ -170,7 +170,7 @@ public void someMethod() {
 
     Foo foo1 = new Foo("123");
     Foo foo2 = new Foo("123");
-    List&lt;Foo> list = List.of(foo1, foo2, foo1);
+    List<Foo> list = List.of(foo1, foo2, foo1);
     
     // bar: 123
     // bar: 123
@@ -212,7 +212,7 @@ IntStream.range(0, 3)
 주의할 점은 `peek` 연산은 단말 연산이 수행되지 않으면 실행조차 되지 않습니다.
 
 ```java
-List&lt;Integer> otherList = new ArrayList&lt;>();
+List<Integer> otherList = new ArrayList<>();
 List.of(1, 2, 3).stream()
         .limit(2)
         .peek(i -> {
@@ -233,7 +233,7 @@ System.out.println(otherList);
 `limit` 메서드를 사용하면 스트림 내의 요소 개수를 제한할 수 있습니다.
 
 ```java
-List&lt;String> list = List.of("a", "b", "c").stream()
+List<String> list = List.of("a", "b", "c").stream()
         .limit(2).collect(Collectors.toList());
 
 // a, b
@@ -247,7 +247,7 @@ System.out.println(list);
 나머지 요소로 구성된 새로운 스트림을 리턴합니다.
 
 ```java
-List&lt;String> list = Arrays.stream(new String[]{"a", "b", "c"})
+List<String> list = Arrays.stream(new String[]{"a", "b", "c"})
         .skip(2).collect(Collectors.toList());
 
 // c
@@ -264,7 +264,7 @@ System.out.println(list);
 IntStream intStream = IntStream.range(0, 3);
 
 // 객체 타입의 일반 스트림으로 변환
-Stream&lt;Integer> boxedStream = intStream.boxed();
+Stream<Integer> boxedStream = intStream.boxed();
 ```
 
 <br/>
