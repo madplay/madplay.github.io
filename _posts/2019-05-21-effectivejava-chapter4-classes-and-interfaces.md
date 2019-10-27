@@ -10,7 +10,6 @@ comments: true
 ---
 
 # 목록
-
 - <a href="#아이템-15-클래스와-멤버의-접근-권한을-최소화하라">아이템 15. 클래스와 멤버의 접근 권한을 최소화하라</a>
 - <a href="#아이템-16-public-클래스에서는-public-필드가-아닌-접근자-메서드를-사용하라">아이템 16. public 클래스에서는 public 필드가 아닌 접근자 메서드를 사용하라</a>
 - <a href="#아이템-17-변경-가능성을-최소화하라">아이템 17. 변경 가능성을 최소화하라</a>
@@ -33,7 +32,6 @@ comments: true
 이를 **정보 은닉(information hiding) 혹은 캡슐화(encapsulation)** 라고 한다.
 
 ## 정보 은닉 혹은 캡슐화의 장점
-
 정보 은닉 혹은 캡슐화는 객체의 필드와 메서드를 하나로 묶고 실제 구현 내용 일부를 외부에 감추어 은닉하는 것을 말한다.
 즉, 외부에서 변수에 직접 접근할 수 없도록 하고 오직 메서드를 통해서만 값이 변경될 수 있도록 한다.
 
@@ -48,7 +46,6 @@ comments: true
 
 
 ## 어떻게 잘 설계된 컴포넌트를 만들까?
-
 핵심은 모든 클래스와 멤버의 접근성을 가능한 한 좁혀야 한다. 항상 가장 낮은 접근 지정자 수준을 부여해야 한다.
 
 > 접근 지정자의 종류(접근 범위가 좁은 순서대로)<br/>
@@ -75,7 +72,8 @@ public: 모든 곳에서 접근할 수 있다.
   - 다른 객체를 참조하도록 바꿀 수는 없지만 참조된 객체 자체가 수정될 수는 있다.
   - 길이가 0이 아닌 배열은 모두 변경 가능하다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">class Example {
+```java
+class Example {
     public static final Integer[] SOME_VALUES = {1, 2, 3};
 }
 
@@ -86,21 +84,23 @@ class Test {
         System.out.println(Example.SOME_VALUES[0]); // 5
     }
 }
-</code></pre>
+```
 
 이런 경우는 public 으로 선언한 배열을 private 접근 지정자로 변경하고 변경 불가능한 public 리스트로 만드는 방법이 있다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">private static final Integer[] SOME_VALUES = {1, 2, 3};
-public static final List&lt;Integer> VALUES = Collections.unmodifiableList(Arrays.asList(SOME_VALUES));
-</code></pre>
+```java
+private static final Integer[] SOME_VALUES = {1, 2, 3};
+public static final List<Integer> VALUES = Collections.unmodifiableList(Arrays.asList(SOME_VALUES));
+```
 
 아니면 배열은 private으로 선언하고 해당 배열을 복사해서 반환하는 public 메서드를 추가할 수도 있다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">private static final Integer[] SOME_VALUES = {1, 2, 3};
+```java
+private static final Integer[] SOME_VALUES = {1, 2, 3};
 public static final Integer[] values() {
     return SOME_VALUES.clone();
 }
-</code></pre>
+```
 
 <div class="post_caption">프로그램 요소의 접근성은 가능한 한 최소한으로 하라.</div>
 
@@ -111,18 +111,20 @@ public static final Integer[] values() {
 
 아래와 같은 클래스는 캡슐화의 이점이 없다. 데이터 필드에 직접적으로 접근할 수 있기 때문이다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">class Point {
+```java
+class Point {
     public double x;
     public double y;
 }
-</code></pre>
+```
 
 public 클래스의 멤버 필드가 public 으로 선언되었다면 클라이언트가 이를 사용할 소지가 있어 마음대로 변경하기 어려워진다.
-예를 들어, ```java.awt.package``` 패키지의 Point와 Dimension 클래스가 그렇다.
+예를 들어, `java.awt.package` 패키지의 Point와 Dimension 클래스가 그렇다.
 
 클래스의 멤버 변수는 private으로 바꾸고 public 접근자(getter)를 추가해서 사용하자.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">class Point {
+```java
+class Point {
     private double x;
     private double y;
 
@@ -137,12 +139,13 @@ public 클래스의 멤버 필드가 public 으로 선언되었다면 클라이�
     public void setX(double x) { this.x = x; }
     public void setY(double y) { this.y = y; }
 }
-</code></pre>
+```
 
 package-private 클래스 또는 private 중첩 클래스라면 public 으로 두어도 문제가 없다. 오히려 코드 작성 면에서 getter를
 사용하는 것보다 더 깔끔할 수 있다. 내부에서만 동작하기 때문이다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public class Example {
+```java
+public class Example {
     private static class InnerNested {
         public String memberField;
     }
@@ -152,7 +155,7 @@ package-private 클래스 또는 private 중첩 클래스라면 public 으로 �
         System.out.println(instance.memberField);
     }
 }
-</code></pre>
+```
 
 <div class="post_caption">public 클래스는 절대 가변 필드를 public 접근 지정자로 두어서는 안된다.</div>  
 
@@ -177,7 +180,8 @@ package-private 클래스 또는 private 중첩 클래스라면 public 으로 �
 클래스를 final로 선언하여 상속을 막을 수 있지만 모든 생성자를 private 또는 package-private으로 만들고
 public 정적 팩터리를 만드는 더 유연한 방법도 있다. 아래는 생성자 대신 정적 팩터리를 사용한 불변 클래스이다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public class Complex {
+```java
+public class Complex {
     private final double re;
     private final double im;
 
@@ -193,18 +197,18 @@ public 정적 팩터리를 만드는 더 유연한 방법도 있다. 아래는 �
     }
 	// 그 외 생략
 }
-</code></pre>
+```
 
 
 ## 불변 클래스와 불변 객체의 특징
-
 불변 클래스의 객체는 근본적으로 **스레드 안전하기 때문에 안심하고 공유할 수 있다.** 따라서 불변 클래스라면 한번 만든 인스턴스를 최대한 재활용하면 좋다.
 불변 객체는 그 자체로 **실패 원자성을 제공한다.**
 
 > 실패 원자성(failure atomicity)이란?<br/>
 > 메서드에서 예외가 발생한 후에도 그 객체는 여전히 메서드 호출 전과 똑같은 유효한 상태여야 한다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public class BigInteger extends Number implements Comparable&lt;BigInteger> {
+```java
+public class BigInteger extends Number implements Comparable<BigInteger> {
     final int signum;
     final int[] mag;
     ...
@@ -213,7 +217,7 @@ public 정적 팩터리를 만드는 더 유연한 방법도 있다. 아래는 �
     }
     ...
 }
-</code></pre>
+```
 
 한편 **불변 클래스의 단점도 있다.** 값이 다르다면 반드시 독립된 객체로 만들어야 한다.
 예를 들어 백만 비트짜리 BigInteger에서 비트 하나를 바꾸기 위해서 새로운 인스턴스를 만들어야 한다.
@@ -224,7 +228,6 @@ public 정적 팩터리를 만드는 더 유연한 방법도 있다. 아래는 �
 
 
 ## 정리하면?
-
 - 클래스는 꼭 필요한 경우가 아니라면 불변이어야 한다.
 - 불변으로 만들 수 없는 클래스라도 변경할 수 있는 부분을 최소한으로 줄여야 한다.
 - 다른 합당한 이유가 없다면 클래스의 모든 필드는 private final 이어야 한다.
@@ -255,13 +258,11 @@ public 정적 팩터리를 만드는 더 유연한 방법도 있다. 아래는 �
 
 
 ## 문서화
-
 상속용 클래스는 재정의할 수 있는 메서드들을 내부적으로 어떻게 이용하는지(자기 사용) 문서로 남겨야 한다.
 재정의 가능한 메서드를 호출할 수 있는 모든 상황을 문서로 남겨야 한다. 여기서 **재정의 가능이란** public과
 protected 메서드 중에서 final이 아닌 모든 메서드를 말한다.
 
 ## 상속을 고려한 설계를 할 때 주의할 점
-
 - 클래스 설계 시에 어떤 protected 메서드나 필드를 제공해야 하는지 심사숙고해야 한다.
   - 유지 보수 측면에서는 protected 메서드와 필드를 최소화하는 것이 좋으나, 아예 없는 경우 상속의 의미가 없다.
   - 상속용 클래스를 테스트하는 방법은 직접 하위 클래스를 만드는 것이다. 꼭 필요한 protected 멤버를 빼먹었다면, 하위 클래스를
@@ -273,7 +274,6 @@ protected 메서드 중에서 final이 아닌 모든 메서드를 말한다.
   - 단, private, final, static 메서드는 재정의가 불가능하니 생성자에서 호출해도 된다.
 
 ## 상속을 금지하는 방법
-
 클래스를 상속용으로 설계하는 것은 엄청난 노력이 필요하고 제약도 많은 것을 명심해야 한다. 상속용으로 설계되지 않은 클래스는
 상속을 금지하는 것이 좋다. **상속을 금지하는 방법** 으로는 클래스를 final로 선언하거나, 모든 생성자를 private이나
 package-private으로 선언하고 public 정적 팩터리를 만들어주는 방법이 있다.
@@ -290,17 +290,17 @@ package-private으로 선언하고 public 정적 팩터리를 만들어주는 �
 추가되어 두 매커니즘 모두 인스턴스 메서드를 구현 형태로 가질 수 있다. 이로써 조금 더 자유로운 확장이 가능해졌다.
 디폴트 메서드를 사용하면 인터페이스를 구현한 클래스에서 반드시 재정의를 하지 않아도 되기 때문이다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public interface SomeThings {
+```java
+public interface SomeThings {
     void walk();
     void sleep();
     default void eat() {
         System.out.println("I am eating the food");
     }
 }
-</code></pre>
+```
 
 ## 추상 클래스와 인터페이스의 차이는?
-
 그래도 둘의 차이는 분명하다. 추상 클래스가 정의한 타입을 구현한 클래스는 반드시 추상 클래스의 하위 클래스가 되어야 한다는
 점이다. 단일 상속만 지원하는 자바에서 추상 클래스를 상속한 채 새로운 타입을 정의하기는 어렵다. 반면에 인터페이스를 올바르게
 구현한(정의해야 하는 메서드를 모두 선언하는 등의 규약을 잘 지킨) 클래스는 어떤 클래스를 상속했든 같은 타입으로 취급된다.
@@ -310,23 +310,23 @@ package-private으로 선언하고 public 정적 팩터리를 만들어주는 �
 정의해야 하는 메서드를 선언하기만 하면 된다.
 
 ## 인터페이스는 믹스인(mixin) 정의에 알맞다.
-
 믹스인은 대상 타입의 주된 기능에 선택적 기능을 혼합(mixed in)하는 것을 말한다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">package java.io;
+```java
+package java.io;
 
-public class File implements Serializable, Comparable&lt;File> {
+public class File implements Serializable, Comparable<File> {
     ...
 }
-</code></pre>
+```
 
 여기서 File 클래스가 Comparable을 구현(implements)했다는 것은 File 클래스의 인스턴스끼리는 순서를 정할 수 있다는 것을
 뜻한다. 추상 클래는 기존 클래스에 덧씌우기 어렵고 여러 부모 클래스를 가질 수 없는 클래스의 계층 구조에는 믹스인을
 사용하기 합리적인 위치가 없다.
 
 ## 인터페이스는 계층구조가 없는 타임 프레임워크를 만들 수 있다.
-
-<pre class="line-numbers"><code class="language-java" data-start="1">public interface Singer { // 가수
+```java
+public interface Singer { // 가수
     AudioClip sing(Song s);
 }
 
@@ -339,10 +339,9 @@ public interface SingerSongWriter extends Singer, Songwriter {
     AudioClip strum();
     void actSensitive();
 }
-</code></pre>
+```
 
 ## 인터페이스 + 추상 골격 구현 클래스
-
 인터페이스와 추상 골격 구현 클래스를 함께 제공하여 인터페이스와 추상 클래스의 장점을 모두 갖는 방법도 있다.
 인터페이스로는 타입을 정의하고 필요한 경우 디폴트 메서드도 정의한다. 그리고 골격 구현 클래스에는 나머지 메서드들까지 구현한다.
 주로 이런 구조는 템플릿 메서드 패턴(Template Method Pattern)에 많이 이용된다.
@@ -361,12 +360,13 @@ AbstractMap 등이 핵심 컬렉션 인터페이스의 골격 구현 클래스�
 자바 8에서 디폴트 메서드가 추가되었지만 모든 상황에서의 불변식을 해치지 않는 디폴트 메서드를 작성하기는 쉽지 않다.
 
 예제를 통해 기존 구현체와 잘 어우러지지 않는 경우를 살펴보자.
-아래는 자바8의 Collection 인터페이스에 추가된 디폴트 메서드 ```removeIf```이다.
+아래는 자바8의 Collection 인터페이스에 추가된 디폴트 메서드 `removeIf`이다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">default boolean removeIf(Predicate&lt;? super E> filter) {
+```java
+default boolean removeIf(Predicate<? super E> filter) {
     Objects.requireNonNull(filter);
     boolean removed = false;
-    final Iterator&lt;E> each = iterator();
+    final Iterator<E> each = iterator();
     while (each.hasNext()) {
         if (filter.test(each.next())) {
             each.remove();
@@ -375,10 +375,10 @@ AbstractMap 등이 핵심 컬렉션 인터페이스의 골격 구현 클래스�
     }
     return removed;
 }
-</code></pre>
+```
 
-Collection 구현체 중 아파치 라이브러리의 ```SynchronizedCollection```에서는 이 메서드를 재정의하고 있지 않다.
-기존 컬렉션 대신 클라이언트가 제공한 객체로 락(Lock)을 거는 기능들을 추가로 제공하지만 ```removeIf``` 메서드를 재정의하고
+Collection 구현체 중 아파치 라이브러리의 `SynchronizedCollection`에서는 이 메서드를 재정의하고 있지 않다.
+기존 컬렉션 대신 클라이언트가 제공한 객체로 락(Lock)을 거는 기능들을 추가로 제공하지만 `removeIf` 메서드를 재정의하고
 있지 않기 때문에 이 메서드 수행과 관련해서는 스레드 공유 상황에서 오류가 발생할 수 있다.
 
 이처럼 디폴트 메서드가 컴파일에 성공하더라도 기존 구현체에 런타임 오류를 일으킬 수 있다. 기존 인터페이스에 디폴트 메서드로
@@ -399,7 +399,8 @@ Collection 구현체 중 아파치 라이브러리의 ```SynchronizedCollection`
 잘못 사용된 경우도 있다. 한 가지 예로 상수 인터페이스가 있다. 메서드 없이 상수를 뜻하는 static final 필드로만 구성된
 인터페이스를 말한다. 모습은 아래와 같다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public interface PhysicalConstants {
+```java
+public interface PhysicalConstants {
     // 아보가드로 수 (1/몰)
     static final double AVOGADROS_NUMBER = 6.022_140_857e23;
     // 볼츠만 상수 (J/K)
@@ -407,16 +408,17 @@ Collection 구현체 중 아파치 라이브러리의 ```SynchronizedCollection`
     // 전자 질량(kg)
     static final double ELECTRON_MASS = 9.109_383_56e-31;
 }
-</code></pre>
+```
 
 위와 같은 구현은 인터페이스를 잘못 사용한 예시다. 상수는 클래스의 내부에서 사용하는 것인데,
 인터페이스로 구현했기 때문에 내부 구현을 API로 노출한 셈이다.
 
 상수를 공개할 목적이라면 다른 방안을 고려해보자. **클래스나 인터페이스 자체에 추가하는 방법도 있다.** 예를 들어, Integer와
-Double 클래스의 ```MIN_VALUE```와 ```MAX_VALUE``` 상수가 있다. 또 다른 방법으로 **열거(enum) 타입으로** 표기할 수도 있고,
+Double 클래스의 `MIN_VALUE`와 `MAX_VALUE` 상수가 있다. 또 다른 방법으로 **열거(enum) 타입으로** 표기할 수도 있고,
 아래와 같이 인스턴스화할 수 없는 **유틸리티 클래스** 를 구현하여 제공하는 것도 좋다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public class PhysicalConstants {
+```java
+public class PhysicalConstants {
     private PhysicalConstants() {
         // 인스턴스화 하지 못하도록 한다.
         throw new AssertionError("Cannot instantiate !!!");
@@ -425,7 +427,7 @@ Double 클래스의 ```MIN_VALUE```와 ```MAX_VALUE``` 상수가 있다. 또 다
     static final double BOLTZMANN_NUMBER = 1.380_648_52e-23;
     static final double ELECTRON_NUMBER = 9.109_383_56e-31;
 }
-</code></pre>
+```
 
 <div class="post_caption">인터페이스는 타입을 정의하는 용도로만 사용하자</div>
 
@@ -437,7 +439,8 @@ Double 클래스의 ```MIN_VALUE```와 ```MAX_VALUE``` 상수가 있다. 또 다
 태그 달린 클래스란 두 가지 이상의 기능을 갖고 있으며, 그 중에서 어떠한 기능을 갖고 있는지 나타내는 태그(tag) 필드가 있는
 클래스를 말한다. 아래와 같은 형태를 가지고 있다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">class Figure {
+```java
+class Figure {
     enum Shape { RECTANGLE, CIRCLE };
 
     final Shape shape; // 태그 필드 - 현재 모양을 나타낸다.
@@ -473,7 +476,7 @@ Double 클래스의 ```MIN_VALUE```와 ```MAX_VALUE``` 상수가 있다. 또 다
         }
     }
 }
-</code></pre>
+```
 
 이와 같은 태그 달린 클래스는 안 좋다. 이유는 많다.
 
@@ -487,7 +490,8 @@ Double 클래스의 ```MIN_VALUE```와 ```MAX_VALUE``` 상수가 있다. 또 다
 
 **태그 달린 클래스 형태를 클래스 계층 구조로 바꿔보자.**
 
-<pre class="line-numbers"><code class="language-java" data-start="1">abstract class Figure {
+```java
+abstract class Figure {
     abstract double area();
 }
 
@@ -506,17 +510,21 @@ class Rectangle extends Figure {
     }
     @Override double area() { return length * width; }
 }
-</code></pre>
+```
 
-**간결하고 명확해졌으며, 쓸데없는 코드들이 모두 사라졌다.** 각 의미를 독립된 클래스에 담았기 때문에 관련 없던 데이터 필드는 모두 제거 되었다. 게다가 실수로 빼먹은 switch 구문의 case 문장 때문에 런타임 오류가 발생할 이유도 없다.
+**간결하고 명확해졌으며, 쓸데없는 코드들이 모두 사라졌다.** 각 의미를 독립된 클래스에 담았기 때문에 관련 없던 데이터 필드는 모두 제거 되었다.
+게다가 실수로 빼먹은 switch 구문의 case 문장 때문에 런타임 오류가 발생할 이유도 없다.
 
-타입 사이의 자연스러운 계층 관계를 반영할 수 있어서 유연성은 물론 컴파일 타임에서의 타입 검사 능력도 높여준다. 또한 클래스 계층 구조라면, 아래와 같이 정사각형(Square)가 추가될 때도 간단하게 반영할 수 있다.
-<pre class="line-numbers"><code class="language-java" data-start="1">class Square extends Rectangle {
+타입 사이의 자연스러운 계층 관계를 반영할 수 있어서 유연성은 물론 컴파일 타임에서의 타입 검사 능력도 높여준다.
+또한 클래스 계층 구조라면, 아래와 같이 정사각형(Square)가 추가될 때도 간단하게 반영할 수 있다.
+
+```java
+class Square extends Rectangle {
     Square(double side) {
         super(side, side);
     }
 }
-</code></pre>
+```
 
 <div class="post_caption">태그 달린 클래스를 쓰는 상황은 거의 없다.</div>
 
@@ -531,17 +539,17 @@ class Rectangle extends Figure {
 중첩 클래스의 종류는 정적 멤버 클래스, 비정적 멤버 클래스, 익명 클래스, 지역 클래스가 있다.
 
 ## 정적 멤버 클래스와 비정적 멤버 클래스
-
 **정적 멤버 클래스는** 다른 클래스 안에 선언되며 바깥 클래스의 private 멤버에도 접근 가능한 것을 제외하면 일반 클래스와 동일하다.
 정적 멤버 클래스와 비정적 멤버 클래스는 코드 상에서 static의 유무만 보일 수 있으나 의미상의 차이는 더 크다.
 
 **비정적 멤버 클래스의 인스턴스는** 바깥 클래스의 인스턴스와 암묵적으로 연결된다. 그래서 비정적 멤버 클래스의 인스턴스 메서드에서 정규화된 this를 통해
 바깥 인스턴스의 메서드를 호출한다거나 바깥 인스턴스를 참조할 수 있다.
-여기서 정규화된 this란, ```클래스명.this``` 형태로 바깥 클래스의 이름을 명시하는 용법을 말한다.
+여기서 정규화된 this란, `클래스명.this` 형태로 바깥 클래스의 이름을 명시하는 용법을 말한다.
 
 예제를 통해 이들의 차이를 살펴볼 수 있다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">class A {
+```java
+class A {
     int a = 10;
 
     public void run() {
@@ -585,30 +593,31 @@ Run A
 Run B
 Run C: 10
 Run C: 10
-</code></pre>
+```
 
 **멤버 클래스에서 바깥에 위치한 인스턴스에 접근할 필요가 있다면 무조건 static을 추가하여 정적 멤버 클래스로 만드는 것이 좋다.**
 static을 생략하면 바깥 인스턴스로의 숨은 외부 참조를 갖게 되는데, 이 참조를 저장하려면 시간과 공간적인 리소스가 소비된다.
 더 심각한 문제로 가비지 컬렉션이 바깥 클래스의 인스턴스를 정리하지 못할 수 있다.
 
 ## 익명 클래스와 지역 클래스
-
 **익명 클래스는** 이름이 없으며 바깥 클래스의 멤버가 되지도 않는다. 사용되는 시점에 선언과 동시에 인스턴스가 만들어지며 코드 어디에서든 만들 수 있다.
 상수 변수만 멤버로 가질 수 있으며, instanceof 연산자를 통한 타입 검사가 불가능하고 여러 개의 인터페이스를 구현할 수 없고,
 인터페이스 구현과 동시에 다른 클래스를 상속할 수도 없다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">Thread th = new Thread() { // 익명 클래스
+```java
+Thread th = new Thread() { // 익명 클래스
     final int value = 5;
     public void run() {
         System.out.println("Hello Thread: " + value);
     }
 };
-</code></pre>
+```
 
 **지역 클래스는** 지역 변수를 선언할 수 있는 곳이면 어디서든 선언할 수 있으며 유효 범위(scope)도 지역변수와 같다.
 이름이 있으며 반복해서 사용할 수 있다. 또한 비정적 문맥에서만 바깥 인스턴스를 참조할 수 있으며, 정적 멤버는 가질 수 없고 가독성을 위해 짧게 작성되어야 한다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">class Test {
+```java
+class Test {
     public void say() {
         class LocalInnerClass { // 지역 클래스
             public void sayHello() {
@@ -619,7 +628,7 @@ static을 생략하면 바깥 인스턴스로의 숨은 외부 참조를 갖게 
         lic.sayHello();
     }
 }
-</code></pre>
+```
 
 <div class="post_caption">중첩 클래스에는 네 가지가 있으며, 각각의 쓰임이 다르다.</div>
 
