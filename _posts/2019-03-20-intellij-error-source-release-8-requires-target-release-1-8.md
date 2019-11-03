@@ -9,7 +9,6 @@ comments: true
 ---
 
 # 이것은 무슨 오류인가?
-
 Intellij IDE를 사용하여 코드를 작성하고 실행하려는 순간, 아래와 같은 에러 메시지를 만났다.
 
 <div class="post_caption">Error:java: javacTask: source release 8 requires target release 1.8</div>
@@ -20,7 +19,6 @@ Intellij IDE를 사용하여 코드를 작성하고 실행하려는 순간, 아�
 <br/>
 
 # 문제 해결하기
-
 **인텔리제이의 설정을 변경**해주면 된다. Mac OS 버전을 기준으로 아래와 같이 설정 경로로
 들어가서 모듈이 사용하는 Target bytecode의 버전을 변경해주면 된다.
 
@@ -30,24 +28,24 @@ Intellij IDE를 사용하여 코드를 작성하고 실행하려는 순간, 아�
 
 **Maven을 사용하는 경우**에는 인텔리제이의 설정을 변경할 필요없이 **pom.xml**에 몇가지 내용을 추가해주면 해결된다.
 
-<pre class="line-numbers"><code class="language-xml" data-start="1">&lt;build>
-    &lt;plugins>
-        &lt;plugin>
-            &lt;groupId>org.apache.maven.plugins</groupId>
-            &lt;artifactId>maven-compiler-plugin</artifactId>
-            &lt;configuration>
-                &lt;source>1.8</source>
-                &lt;target>1.8</target>
-            &lt;/configuration>
-        &lt;/plugin>
-    &lt;/plugins>
-&lt;/build>
-</code></pre>
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+                <source>1.8</source>
+                <target>1.8</target>
+            </configuration>
+        </plugin>
+    </plugins>
+</build>
+```
 
 <br/>
 
 # 마치며
-
 추가적으로 인텔리제이는 **프로젝트의 SDK와 Language Level을 설정**할 수 있다. 그러니까 프로젝트에 속한 모듈에는 프로젝트의 설정을
 기본값으로 적용할 수 있다. 물론 **개별 모듈에 대해서도 SDK와 Language Level을 설정**할 수 있다.
 
