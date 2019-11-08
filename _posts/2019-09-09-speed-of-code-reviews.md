@@ -75,9 +75,7 @@ comments: true
 리뷰어와 코드 작성자가 다른 시간대에 있는 경우 특히 고려할 가치가 있습니다. 그렇지 않은 경우 코드 작성자는
 리뷰 승인을 얻기 위해 하루 종일 기다려야 합니다.
 
-<div class="post_comments">
-&lt;역주&gt;<br/>
-"LGTM"은 Looks Good to Me의 약어입니다. 코드 리뷰를 승인할 때 리뷰어가 사용합니다.</div>
+<div class="post_comments">[역주] "LGTM"은 Looks Good to Me의 약어입니다. 코드 리뷰를 승인할 때 리뷰어가 사용합니다.</div>
 
 <br/>
 

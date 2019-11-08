@@ -42,9 +42,7 @@ comments: true
 
 기타 등등
 
-<div class="post_comments">
-&lt;역주&gt;<br/>
-원문 일부를 보면 "soft deadline" 이라는 용어가 등장하는데요.
+<div class="post_comments">[역주] 원문 일부를 보면 "soft deadline" 이라는 용어가 등장하는데요.
 포스팅에서는 "변경할 수 있는 마감기한"으로 번역하였습니다. 반대로는 유연하게 변경할 수 없는 "hard deadline"이 있습니다.</div>
 
 <br/>
@@ -65,7 +63,5 @@ comments: true
 그러나 이러한 경우가 반복되면, 감당할 수 없는 기술부채를 만들게 됩니다. 개발자의 코드 변경사항이 매번 출시 주기가 끝날 때쯤
 제출되는 경우, 프로세스 초기에 변경 사항이 발생하고, 충분한 리뷰 시간을 가질 수 있도록 프로세스를 수정해야 합니다. 
 
-<div class="post_comments">
-&lt;역주&gt;<br/>
-원문 일부를 보면 "hard deadline" 이라는 용어가 등장하는데요.
+<div class="post_comments">[역주] 원문 일부를 보면 "hard deadline" 이라는 용어가 등장하는데요.
 포스팅에서는 "엄격한 마감기한"으로 번역하였습니다. 반대로는 변경 가능한 "soft deadline"이 있습니다.</div>
