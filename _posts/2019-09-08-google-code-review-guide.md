@@ -37,10 +37,9 @@ eng-practices(github)**</a>
 - **CL**: changelist의 약어로 버전 관리(Version Control)에 제출되었거나 코드 리뷰가 진행중인 독립된 변경 단위
 - **LGTM**: Looks Good to Me의 약어입니다. 위의 코드 리뷰를 승인할 때, 리뷰어가 사용합니다.    
 
-<div class="post_comments">&lt;역주&gt;<br/>
-원문 일부를 보면 "Stands for "changelist, which means one self-contained change that has been submitted to version
-control or which is undergoing code review." 여기서 self-contained를 independent와 동의로 번역하였습니다. 
-이어지는 포스팅에서는 CL을 "코드 변경사항" 으로 번역합니다.</div>
+<div class="post_comments">[역주] 원문 일부를 보면 "Stands for "hangelist, which means one self-contained change that
+has been submitted to version control or which is undergoing code review." 여기서 self-contained를 independent와
+동의로 번역하였습니다.  이어지는 포스팅에서는 CL을 "코드 변경사항" 으로 번역합니다.</div>
 
 <br/>
 
@@ -83,12 +82,10 @@ control or which is undergoing code review." 여기서 self-contained를 indepen
 
 이상적인 리뷰어를 찾았지만, 리뷰를 할 수 없는 경우에는 변경 사항에 대해서 적어도 참조(CC, Carbon Copy)는 해두어야 합니다.
 
-<div class="post_comments">
-&lt;역주&gt;<br/>
-원문 일부를 보면 "This usually means the owner(s) of the code, who may or may not be the people in the OWNERS file"<br/>
-직역이 모호한 것 같아서 "기존 코드의 작성자" 라고 번역하였습니다. Code Owner에 대한 github 가이드는
+<div class="post_comments">[역주] 원문 일부를 보면 "This usually means the owner(s) of the code, who may or may not be
+the people in the OWNERS file" 직역이 모호한 것 같아서 "기존 코드의 작성자" 라고 번역하였습니다. Code Owner에 대한 github 가이드는
 <a href="https://help.github.com/en/articles/about-code-owners" target="_blank" rel="nofollow">
-**About code owners(링크)**</a>를 참고하세요.</div>
+About code owners(링크)</a>를 참고하세요.</div>
 
 <br/>
 
