@@ -48,3 +48,6 @@ exclude: ["README.md", ".jekyll-cache"]
 permalink: /post/:title
 paginate: 10
 paginate_path: /page:num
+
+# Time Zone
+timezone: Asia/Seoul
