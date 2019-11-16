@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "이펙티브 자바 17: 변경 가능성을 최소화하라"
+title:    "[이펙티브 자바 3판] 아이템 17. 변경 가능성을 최소화하라"
 author:   Kimtaeng
-tags: 	  java
-subtitle: "Effective Java 17: Minimize mutability" 
+tags: 	  java effectivejava
+subtitle: "[Effective Java 3th Edition] Item 17. Minimize mutability" 
 category: Java
 comments: true
 ---
@@ -33,7 +33,7 @@ comments: true
 - 자신 외에는 내부의 가변 컴포넌트에 접근할 수 없도록 한다.
   - 클래스에서 가변 객체를 참조하는 필드가 하나라도 있으면 클라이언트에서 그 객체의 참조를 얻지 못하도록 해야 합니다.
   - 접근자 메서드가 그 필드를 그대로 반환해서도 안됩니다.
-  - <a href="/post/make-defensive-copies-when-needed" target="_blank">이펙티브 자바 50: 적시에 방어적 복사본을 만들라(링크)</a>
+  - <a href="/post/make-defensive-copies-when-needed" target="_blank">[이펙티브 자바 3판] 아이템 50. 적시에 방어적 복사본을 만들라(링크)</a>
 
 <br/>
 
