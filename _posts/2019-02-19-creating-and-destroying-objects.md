@@ -3,7 +3,7 @@ layout:   post
 title:    "[이펙티브 자바 3판] 2장. 객체 생성과 파괴"
 author:   Kimtaeng
 tags: 	  java effectivejava
-subtitle: "Effective Java 3th Edition: Chapter2. Creating and Destroying Objects"  
+subtitle: "[Effective Java 3th Edition] Chapter 2. Creating and Destroying Objects"  
 category: Java
 comments: true
 ---
@@ -109,7 +109,7 @@ person.setEmail("hello@gmail.com");
 </code></pre>
 
 - <a href="/post/builder-when-faced-with-many-constructor-parameters">
-더 상세한 내용은 링크 참고: 이펙티브 자바 2: 생성자에 매개변수가 많다면 빌더를 고려하라</a>
+더 상세한 내용은 링크 참고: [이펙티브 자바  3판] 아이템 2. 생성자에 매개변수가 많다면 빌더를 고려하라</a>
 
 <div class="post_caption">생성자나 정적 팩터리에 매개변수가 많다면 빌더 패턴을 선택하는 게 더 낫다.
 매개변수 중 대부분이 필수가 아니거나 같은 타입이면 더욱 그렇다. </div>

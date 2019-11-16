@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "이펙티브 자바 31: 한정적 와일드카드를 사용해 API 유연성을 높이라"
+title:    "[이펙티브 자바 3판] 아이템 31. 한정적 와일드카드를 사용해 API 유연성을 높이라"
 author:   Kimtaeng
-tags: 	  java
-subtitle: "Effective Java 31: Use bounded wildcards to increase API flexibility" 
+tags: 	  java effectivejava
+subtitle: "[Effective Java 3th Edition] Item 31. Use bounded wildcards to increase API flexibility" 
 category: Java
 comments: true
 ---
@@ -13,7 +13,7 @@ comments: true
 # 제네릭은 불공변
 
 <a href="/post/prefer-lists-to-arrays" target="_blank">
-이펙티브 자바 28: 배열보다는 리스트를 사용하라(링크)</a>에서 살펴본 것처럼 매개변수화 타입은 불공변(invariant) 입니다.
+[이펙티브 자바 3판] 아이템 28. 배열보다는 리스트를 사용하라(링크)</a>에서 살펴본 것처럼 매개변수화 타입은 불공변(invariant) 입니다.
 예를 들어 Type1과 Type2가 있을 때, ```List<Type1>```은 ```List<Type2>```의 하위 타입 또는 상위 타입이라는 관계가 성립될 수 없습니다.
 
 ```List<Object>```에는 어떠한 객체도 넣을 수 있지만 ```List<String>```에는 문자열만 넣는 것을 보면
@@ -391,7 +391,7 @@ class Item28Test {
 더 편리하지만 리스트의 타입이 와일드카드 형태인 ```List<?>```에는 null 외에는 어떤 값도 넣을 수 없는 문제가 있습니다.
 
 <a href="/post/dont-use-raw-types#원소의-타입을-모른채-쓰고-싶다면" target="_blank">
-"이펙티브 자바 26: 로 타입은 쓰지 말라" 링크의 하단 부분 참고</a>
+"[이펙티브 자바 3판] 아이템 26. 로 타입은 쓰지 말라" 링크의 하단 부분 참고</a>
 
 따라서 와일드 카드 타입의 실제 타입을 알기 위하여 제네릭 메서드(위 코드에서 wildcardSwapHelper)의 도움이 필요합니다. 
 이 메서드는 매개변수로 넘어오는 리스트가 ```List<E>```에서 꺼낸 값의 타입이 항상 E 임을 알고 있으며 이는 리스트에 넣어도

@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "이펙티브 자바 2: 생성자에 매개변수가 많다면 빌더를 고려하라"
+title:    "[이펙티브 자바 3판] 아이템 2. 생성자에 매개변수가 많다면 빌더를 고려하라"
 author:   Kimtaeng
-tags: 	  java
-subtitle: "Effective Java 2: Consider a builder when faced with many constructor parameters" 
+tags: 	  java effectivejava
+subtitle: "[Effective Java 3th Edition] Item 2. Consider a builder when faced with many constructor parameters" 
 category: Java
 comments: true
 ---

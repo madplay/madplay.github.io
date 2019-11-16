@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "이펙티브 자바 42: 익명 클래스보다는 람다를 사용하라"
+title:    "[이펙티브 자바 3판] 아이템 42. 익명 클래스보다는 람다를 사용하라"
 author:   Kimtaeng
-tags: 	  java
-subtitle: "Effective Java 42: Prefer lambdas to anonymous classes" 
+tags: 	  java effectivejava
+subtitle: "[Effective Java 3th Edition] Item 42. Prefer lambdas to anonymous classes" 
 category: Java
 comments: true
 ---
@@ -102,7 +102,7 @@ public class Main {
 </code></pre>
 
 그리고 <a href="/post/use-enums-instead-of-int-constants" target="_blank">
-이펙티브 자바 34: INT 상수 대신 열거 타입을 사용하라(링크)
+[이펙티브 자바 3판] 아이템 34. INT 상수 대신 열거 타입을 사용하라(링크)
 </a> 에서 살펴본 ```enum```을 예로 들어 조금 더 간결하고 깔끔하게 만들 수 있습니다. 우선 기존 코드를 보면 아래와 같습니다.
 
 <pre class="line-numbers"><code class="language-java" data-start="1">enum Operation {
