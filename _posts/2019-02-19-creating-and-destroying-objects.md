@@ -100,8 +100,7 @@ person.setPhoneNumber("010-1234-1234");
 person.setEmail("hello@gmail.com");
 ```
 
-**빌더 패턴**을 사용하면 점층적인 생성자 패턴의 안정성과 자바빈 패턴의 가독성을 함께할 수 있다.
-
+- **빌더 패턴**을 사용하면 점층적인 생성자 패턴의 안정성과 자바빈 패턴의 가독성을 함께할 수 있다.
 ```java
 Person person = new Person().Builder("탱", 29)
             .phoneNumber("010-1234-1234")
