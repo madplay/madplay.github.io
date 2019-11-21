@@ -22,67 +22,76 @@ comments: true
 <br/>
 
 # 아이템 1. 생성자 대신 정적 팩터리 메서드를 고려하라
-Consider static factory methods instead of constructors
+> Consider static factory methods instead of constructors
 
 클래스의 인스턴스는 기본적으로 **public 생성자**를 통해서 얻을 수 있다.
 하지만 생성자와 별도로 정적 팩터리 메서드(static factory method)를 사용하면 아래와 같은 장점을 얻을 수 있다.
 
-- **첫 번째, 이름을 가질 수 있다.** 
+## 정적 팩터리 메서드의 장점
+### 이름을 가질 수 있다.
 즉, 생성자처럼 클래스의 이름과 동일하지 않아도 된다. 예를 들어서 `BigInteger(int, int, Random)` 생성자와
 정적 팩터리 메서드인 `BigInteger.probablePrime` 중에서 어느 쪽이 소수인 BigInteger 인스턴스를 반환한다는 의미를
-더 잘 설명하는가? <br/>
+더 잘 설명하는가?
+
 또한 하나의 클래스에서 시그니처가 같은 생성자가 여러 개 필요할 것 같은 경우에는 생성자를 정적 팩터리 메서드로 바꿔보자.
 여기서 **시그니처란 메서드의 이름과 매개변수의 리스트**를 말한다. 만약 A, B 메서드가 매개변수의 개수와 타입 그리고 순서가
 모두 같으면 두 메서드의 시그니처는 같다고 말할 수 있다. 
 
-- **두 번째, 매번 인스턴스를 새로 만들지 않아도 된다.**
+<br>
+
+### 매번 인스턴스를 새로 만들지 않아도 된다.
 인스턴스를 미리 만들어두거나 생성된 인스턴스를 캐싱하여 재활용하는 방식으로 불필요한 객체 생성을 줄일 수 있다.
 즉, 어느 시점에 어떤 인스턴스가 유효한지 제어할 수 있는 인스턴스 통제(instance-controlled) 클래스로 만들 수 있다.
 
-- **세 번째, 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.** 
+<br>
+
+### 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.
 반환할 객체의 클래스를 자유롭게 선택할 수 있는 ‘엄청난 유연성’을 선물한다. API를 만들 때 이 유연성을 응용하면 구현 클래스를
 공개하지 않고도 그 객체를 반환할 수 있어 API를 작게 유지할 수 있다. API가 작아진 것은 물론 개념적인 무게,
 즉 프로그래머가 API를 사용하기 위해 익혀야 하는 개념의 수와 난이도도 낮췄다.
 
-- **네 번째, 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.**
+<br>
+
+### 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.
 대표적으로 `EnumSet` 클래스의 경우 원소가 64개 이하면 long 변수 하나로 관리하는 `RegularEnumSet`을 반환하고
 65개 이상이면 long 배열로 관리하는 `JumboEnumSet`을 반환한다.
 
-그렇다면 정적 팩터리 메서드를 사용하는 데 있어서 단점은 없을까?
+<br>
 
-- **첫 번째, 정적 팩터리 메서드만 제공하는 클래스는 상속할 수 없다.**
+## 정적 팩터리 메서드의 단점
+### 정적 팩터리 메서드만 제공하는 클래스는 상속할 수 없다.
 상속을 하려면 public 또는 protected 생성자가 필요하다.
 
-- **두 번째, 생성자처럼 명확히 드러나지 않는다.**
+<br>
+
+### 생성자처럼 명확히 드러나지 않는다.
 정적 팩터리 메서드는 일반 메서드일뿐 생성자처럼 Java docs에 명확히 표현되지 않는다.
 따라서 인스턴스화를 하려고 했을 때 생성자가 없으면 정적 팩터리 메서드를 찾는 등의 개발자의 불편함이 생긴다. 
 알려진 규약에 따라 짓는 식으로 문제를 완해해줘야 한다.
 
-  - **from:** 매개변수를 받아서 해당 타입의 인스턴스를 반환
-    - `Date date = Date.from(instant);`
-  - **of:** 여러 매개변수를 받아서 인스턴스 반환
-    - `Set<Rank> cards = EnumSet.of(JACK, QUEEN, KING);`
-  - **valueOf:** from과 of의 더 자세한 버전
-    - `BigInteger prime = BigInteger.valueOf(Integer.MAX_VALUE);`
-  - **instance / getInstance:** 인스턴스를 반환하지만, 같은 인스턴스임을 보장하지 않는다.
-    - `StackWalker luke = StackWalker.getInstance(options);`
-  - **create / newInstance:** 매번 새로운 인스턴스를 생성해 반환한다.
-    - `Object newArray = Array.newInstance(classObject, arrayLen);`
-  - **getType:** getInstance와 같으나 생성할 클래스가 아닌 다른 클래스에 팩터리 메서드를 정의할 때 사용
-    - `FileStore fs = Files.getFileStore(path);`
-  - **newType:** newInstance와 같으나 생성할 클래스가 아닌 다른 클래스에 팩터리 메서드를 정의할 때 사용
-    - `BufferedReader br = Files.newBufferedReader(path);`
-  - **type:** getType과 newType의 간결한 버전
-    - `List<Complaint> litany = Collections.list(someList);`
+- **from:** 매개변수를 받아서 해당 타입의 인스턴스를 반환
+  - `Date date = Date.from(instant);`
+- **of:** 여러 매개변수를 받아서 인스턴스 반환
+  - `Set<Rank> cards = EnumSet.of(JACK, QUEEN, KING);`
+- **valueOf:** from과 of의 더 자세한 버전
+  - `BigInteger prime = BigInteger.valueOf(Integer.MAX_VALUE);`
+- **instance / getInstance:** 인스턴스를 반환하지만, 같은 인스턴스임을 보장하지 않는다.
+  - `StackWalker luke = StackWalker.getInstance(options);`
+- **create / newInstance:** 매번 새로운 인스턴스를 생성해 반환한다.
+  - `Object newArray = Array.newInstance(classObject, arrayLen);`
+- **getType:** getInstance와 같으나 생성할 클래스가 아닌 다른 클래스에 팩터리 메서드를 정의할 때 사용
+  - `FileStore fs = Files.getFileStore(path);`
+- **newType:** newInstance와 같으나 생성할 클래스가 아닌 다른 클래스에 팩터리 메서드를 정의할 때 사용
+  - `BufferedReader br = Files.newBufferedReader(path);`
+- **type:** getType과 newType의 간결한 버전
+  - `List<Complaint> litany = Collections.list(someList);`
 
 <div class="post_caption">정리하면, 무작정 public 생성자를 사용하는 습관은 버리자.</div>
 
-
-
-<br/>
+<br><br>
 
 # 아이템 2. 생성자에 매개변수가 많다면 빌더를 고려하라
-Consider a builder when faced with many constructor parameters
+> Consider a builder when faced with many constructor parameters
 
 정적 팩터리와 생성자는 선택적 매개변수가 많을 때 적절하게 대응하기 어렵다.
 
@@ -109,20 +118,22 @@ Person person = new Person().Builder("탱", 29)
 ```
 
 - <a href="/post/builder-when-faced-with-many-constructor-parameters" target="_blank">
-더 상세한 내용은 링크 참고: [이펙티브 자바  3판] 아이템 2. 생성자에 매개변수가 많다면 빌더를 고려하라</a>
+더 자세한 내용은 링크 참고: [이펙티브 자바  3판] 아이템 2. 생성자에 매개변수가 많다면 빌더를 고려하라</a>
 
 <div class="post_caption">생성자나 정적 팩터리에 매개변수가 많다면 빌더 패턴을 선택하는 게 더 낫다.
 매개변수 중 대부분이 필수가 아니거나 같은 타입이면 더욱 그렇다. </div>
 
-<br/>
+<br><br>
 
 # 아이템 3. private 생성자나 열거 타입으로 싱글턴임을 보증하라
-Enforce the singleton property with a private constructor or an enum type
+> Enforce the singleton property with a private constructor or an enum type
 
-싱글톤(singleton)이란 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말하며 아래처럼 3가지 방법이 있다.
+**싱글톤(singleton)이란** 인스턴스를 오직 하나만 생성할 수 있는 클래스를 말하며 아래처럼 3가지 방법이 있다.
 
-- **public static final 필드**를 사용하는 방식이 있다. 생성자는 private 으로 감춰둔다.
-private 생성자는 `MadPlay.INSTANCE`를 초기화할 때 딱 한번만 호출된다.
+<br>
+
+### public static final 필드를 사용하는 방식
+생성자는 private 으로 감춰둔다. private 생성자는 `MadPlay.INSTANCE`를 초기화할 때 딱 한번만 호출된다.
 ```java
 public class MadPlay {
     public static final MadPlay INSTANCE = new MadPlay();
@@ -130,7 +141,9 @@ public class MadPlay {
 }
 ```
 
-- **정적 팩터리 메서드**를 제공하는 방식이 있다.
+<br>
+
+### 정적 팩터리 메서드를 제공하는 방식
 싱글턴이라는 것이 명백하게 드러나고 차후 변경에도 매우 유연하다.
 또한 정적 팩터리를 제네릭 싱글턴 팩터리로 만들 수 있으며 `MadPlay::getInstance`처럼 메서드 참조 방식으로 사용할 수 있다.
 ```java
@@ -145,7 +158,10 @@ public class MadPlay {
 또한 역직렬화할 때 여러 인스턴스가 생성될 수 있는데, 모든 필드를 `transient` 키워드로 선언하고 무조건 싱글톤 인스턴스인
 `INSTANCE`를 반환하도록 `readResolve` 메서드(역직렬화시에 호출된다)를 수정하는 대처가 필요하다.
 
-- **Enum**을 사용하는 방식이 있다.  `public static final` 필드 방식과 비슷하지만 매우 간결하며,
+<br>
+
+### Enum을 사용하는 방식
+`public static final` 필드 방식과 비슷하지만 매우 간결하며,
 위에서 살펴본 리플렉션, 직렬화로 인한 문제를 막아준다.
 ```java
 public enum MadPlay {
@@ -153,14 +169,14 @@ public enum MadPlay {
 }
 ```
 
-- <a href="/post/singleton-pattern" target="_blank">링크: 싱글톤 패턴(Singleton Pattern)</a>
+- <a href="/post/singleton-pattern" target="_blank">상세한 내용은 링크 참고: 싱글톤 패턴(Singleton Pattern)</a>
 
 <div class="post_caption">private 생성자나 열거 타입으로 싱글턴임을 보증하라</div>
 
-<br/>
+<br><br>
 
 # 아이템 4. 인스턴스화를 막으려거든 private 생성자를 사용하라
-Enforce noninstantiability with a private constructor
+> Enforce noninstantiability with a private constructor
 
 생성자를 명시하지 않으면 컴파일러가 자동으로 기본 생성자를 만들어낸다. 따라서 인스턴스화를 막으려면 `private 생성자`를
 명시적으로 생성해주어야 한다. 혹시라도 클래스 내부에서 생성자를 호출하지 않도록 오류를 던지는 것도 좋다.
@@ -180,10 +196,10 @@ public class MadUtil {
 
 <div class="post_caption">인스턴스화를 막는 최고의 방법은 private 생성자를 만드는 것이다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 5. 자원을 직접 명시하지 말고 의존 객체 주입을 사용하라
-Prefer dependency injection to hardwiring resources
+> Prefer dependency injection to hardwiring resources
 
 대부분의 클래스가 하나 이상의 자원에 의존한다. 이런 클래스를 정적 유틸리티 클래스로 구현하면 유연하지 않고 테스트하기도 어렵다.
 
@@ -223,12 +239,12 @@ public SpellChecker(Supplier<? extends Lexicon> dicFactory) {
 }
 ```
 
-<div class="post_caption">클래스가 하나 이상의 동작에 영향을 주는 자원에 의존한다면, 자원을 생성자(또는 정적 팩터리나 빌더)에 넘겨주자</div>
+<div class="post_caption">클래스가 하나 이상의 동작에 영향을 주는 자원에 의존한다면, 자원을 생성자 또는 정적 팩터리나 빌더에 넘겨주자</div>
 
-<br/>
+<br><br>
 
 # 아이템 6. 불필요한 객체 생성을 피하라
-Avoid creating unnecessary objects
+> Avoid creating unnecessary objects
 
 생성자로 문자열을 만들어내는 경우 매번 새로운 String 인스턴스를 생성하게 된다.
 
@@ -297,10 +313,10 @@ for (long i = 0; i <= Integer.MAX_VALUE; i++) {
 
 <div class="post_caption">불필요한 객체 생성을 피하자.</div>
 
-<br/>
+<br><br>
 
 # 아이템 7. 다 쓴 객체 참조를 해체하라
-Eliminate obsolete object references
+> Eliminate obsolete object references
 
 자바는 C, C++ 처럼 직접 메모리를 관리하지 않는다. GC가 알아서 사용이 끝난 객체를 회수한다.
 그렇다고 메모리 관리에 신경 쓰지 않아도 되는 것은 아니다. 특히 자기 메모리를 직접 관리하는 클래스면 메모리 누수에 주의해야 한다.
@@ -377,14 +393,14 @@ Heap
 ```
 
 <a href="/post/java-garbage-collection-and-java-reference" target="_blank">
-링크: 자바 레퍼런스와 가비지 컬렉션(Java Reference & Garbage Collection)</a>
+더 자세한 내용은 링크 참고: 자바 레퍼런스와 가비지 컬렉션(Java Reference & Garbage Collection)</a>
 
 <div class="post_caption">메모리 누수에 주의하고 예방법을 익혀두자.</div>
 
-<br/>
+<br><br>
 
 # 아이템 8. finalize와 cleaner 사용을 피하라
-Avoid finalizers and cleaners
+> Avoid finalizers and cleaners
 
 자바에서는 2가지의 객체 소멸자를 제공한다. 첫 번째로 `finalizer`인데, 예측할 수 없고 상황에 따라 위험할 수 있어
 일반적으로 불필요하다. 두 번째로 `cleaner`가 있다. **Deprecated된 finalizer**의 대안으로 등장하여 덜 위험하지만,
@@ -401,14 +417,14 @@ finalizer가 언제, 어떠한 스레드에서 실행되는지 알 수도 없고
 이럴 때 cleaner나 finalizer가 나서서 처리하기에 적당하다. 물론 성능 저하를 감당할 수 있고 네이티브 객체가 심각한 자원을
 가지고 있지 않을 때에만 해당된다.
 
-<a href="/post/java-finalize" target="_blank">참고 링크: 자바 소멸자 finalize</a>
+- <a href="/post/java-finalize" target="_blank">더 자세한 내용은 링크 참고: 자바 소멸자 finalize</a>
 
 <div class="post_caption">그냥 사용하지 않는 것이 나은 것 같다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 9. try-finally보다는 try-with-resources를 사용하라
-Prefer try-with-resources to try-finally
+> Prefer try-with-resources to try-finally
 
 자바 라이브러리에는 `close()` 메서드를 통해 닫아야 하는 자원들이 있다. 자바 7이전에는 `try-finally`를 이용했다.
 
