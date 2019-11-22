@@ -16,7 +16,7 @@ comments: true
 
 # 목차
 - <a href="/post/rsocket-references-overview">5.1. Overview</a>
-- 5.2. RSocketRequester
+- <a href="/post/rsocket-references-rsocketrequester">5.2. RSocketRequester</a>
 - 5.3. Annotated Responders
 - 5.4. MetadataExtractor
 
