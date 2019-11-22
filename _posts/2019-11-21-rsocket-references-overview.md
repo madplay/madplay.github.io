@@ -43,6 +43,69 @@ RSocket은 여러 언어로 구현되어 있다. <a href="https://github.com/rso
 <a href="https://github.com/reactor/reactor-netty" rel="nofollow" target="_blank">Reactor Netty</a>를 기반으로 한다.
 즉, 애플리케이션에서 리액티브 스트림 Publisher의 신호가 Roskcet을 통해 네트워크를 가로질러 투명하게 전파된다는 뜻이다.
 
+<br>
+
+## 5.1.1. 프로토콜(The Protocol)
+RSocket의 장점 중 하나는 네트워크망에서의 동작이 잘 정의되어 있고 일부 프로토콜
+<a href="https://github.com/rsocket/rsocket/tree/master/Extensions" rel="nofollow" target="_blank">확장</a>과
+함께 읽기 쉬운  <a href="https://rsocket.io/docs/Protocol" rel="nofollow" target="_blank">스펙(specification)</a>이라는 것이다.
+따라서 언어 구현 및 상위 레벨 프레임워크 API와 상관없이 스펙사항을 읽어보는 것이 좋다. 이 섹션에서는 맥락을 정립하기 위한 간결한 개요를 제공한다.
+
+### Connecting
+초기에 클라이언트는 TCP 또는 웹소켓과 같은 저수준 스트리밍 전송을 통해 서버와 연결하고, 커넥션 파라미터 설정을 위해 `SETUP` 프레임을
+서버로 전송한다.
+
+서버는 `SETUP` 프레임을 거부할 수 있지만, 일반적으로 이 프레임을 전송(클라이언트가)하고 수신(서버가)했다면, 양쪽에서 요청을 시작할 수 있다.
+하지만 `SETUP` 프레임이 요청 수를 제한하기 위해 leasing 시맨틱스를 사용했다면, 요청을 하기 위해 양쪽 모두에서는 다른 쪽이 `LEASE`
+프레임을 보내 요청을 수락할 때까지 기다려야 한다.
+
+### Making Requests
+한 번 커넥션이 맺어지면, 양쪽은 `REQUEST_RESPONSE`, `REQUEST_STREAM`, `REQUEST_CHANNEL`, `REQUEST_FNF` 프레임 중 하나를
+통해 요청을 시작할 수 있다. 각 프레임은 요청자로부터 응답자에게 메시지 하나를 전송한다.
+
+응답자는 `PAYLOAD` 프레임을 응답 메시지와 함께 보내고, `REQUEST_CHANNEL` 요청인 경우, 요청자는 `PAYLOAD` 프레임과 함께 요청 메시지를
+더 보낼 수 있다.
+
+요청에 `Request-Stream`과 `Channel`과 같은 메시지 스트림에 포함된 경우, 응답자는 요청자가 보낸 요구 신호(Demand signals)를
+준수해야 한다. 요구사항은 메시지 수로 표현된다. 초기 요구사항은 `REQUEST_STREAM`, `REQUEST_CHANNEL` 프레임에 지정한다.
+후속 요구사항은 `REQUEST_N` 프레임을 통한다.
+
+각 측은 `METADATA_PUSH` 프레임을 개별 요청이 아닌 전체 연결과 관련된 메타 데이터 알림을 전송할 수도 있다.
+
+### Message Format
+RSocket 메시지에는 데이터와 메타 데이터가 포함된다. 메타 데이터는 라우팅, 보안 토큰 등을 전송하는데 사용될 수 있다. 데이터와 메타 데이터는
+다른 포맷을 사용한다. 각각에 대한 MIME 유형은 `SETUP` 프레임에 선언되어 지정된 커넥션의 모든 요청에 적용된다.
+
+모든 메시지는 메타 데이터를 가질 수 있지만 일반적으로 라우팅과 같은 메타 데이터는 보통 요청 당 하나만 필요하므로, 요청의 첫 번째 메시지에만
+포함시킨다. 예를 들어, `REQUEST_RESPONSE`, `REQUEST_STREAM`, `REQUEST_CHANNEL`, `REQUEST_FNF`.
+
+프로토콜 확장은 애플리케이션에서 사용하기 위한 일반적인 공통 메타 데이터 포맷을 정의한다:
+
+- <a href="https://github.com/rsocket/rsocket/blob/master/Extensions/CompositeMetadata.md" rel="nofollow" target="_blank">Composite Metadata</a> - 다수의 독립적으로 포맷팅된 메타데이터 엔트리
+- <a href="https://github.com/rsocket/rsocket/blob/master/Extensions/Routing.md" rel="nofollow" target="_blank">Routing</a> - 요청에 대한 라우팅
+
+<br>
+
+## 5.1.2. 자바 구현(Java Implementation)
+RSocket <a href="https://github.com/rsocket/rsocket-java" rel="nofollow" target="_blank">자바 구현체</a>
+는<a href="https://projectreactor.io/" rel="nofollow" target="_blank">Project Reactor</a>를 기반으로 한다.
+TCP와 웹소켓 전송은 <a href="https://github.com/reactor/reactor-netty" rel="nofollow" target="_blank">Reactor
+Netty</a>를 기반으로 한다. 리액티브 스트림 라이브러리로서, 리액터는 프로토콜 구현 구현을 단순하게 한다.
+애플리케이션에서는 선언적인(declarative) 연산자와 투명한 백프레셔 지원 기능을 갖춘 `Flux`와 `Mono`를 사용하는 것이 자연스럽다.
+
+RSocket 자바 API는 의도적으로 최소적이고 기본적이다. API는 프로토콜 기능에만 중점을 두고 애플리케이션 프로그래밍 모델(예를 들어,
+RPC codegen, 다른 코드 등)은 더 높은 수준의 독립된 관심사만 보면 된다.
+
+구현체인 <a href="https://github.com/rsocket/rsocket-java/blob/master/rsocket-core/src/main/java/io/rsocket/RSocket.java" rel="nofollow" target="_blank">
+io.rsocket.RSocket</a>의 주요 역할은 네 가지 상호동작 타입을 만드는 것이다. 단일 메시지는 `Mono`, 메시지 스트림은 `Flux`,
+바이트 버퍼로 데이터와 메타 데이터에 접근하는 실제 메시지는 `io.rsocket.Payload`가 있다. `RSocket`의 역할은 대칭적으로 사용된다.
+요청에 대해서는 애플리케이션에 요청을 위한 `RSocket`이 주어지고, 응답에 대해서는 `RSocket`을 구현하여 요청을 핸들링한다.
+
+이것들은 완전한 소개가 아니다. 대부분 스프링 애플리케이션이 API를 직접 사용할 필요가 없다.
+그러나 스프링과 독립적으로 RSocket을 보거나 테스트하는 것이 중요할 수 있다. RSocket 자바 저장소에는 API와 프로토콜 기능을 보여주는
+많은 <a href="https://github.com/rsocket/rsocket-java/tree/master/rsocket-examples" rel="nofollow" target="_blank">샘플 앱</a>이 포함되어 있다.
+
+
 ---
 
 > ### 목차 가이드
