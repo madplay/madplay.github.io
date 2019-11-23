@@ -166,14 +166,14 @@ Mono<RSocketRequester> requesterMono = RSocketRequester.builder()
 import org.springframework.messaging.rsocket.connectTcpAndAwait
 
 val strategies = RSocketStrategies.builder()
-        .routeMatcher(PathPatternRouteMatcher())  
+        .routeMatcher(PathPatternRouteMatcher())  (1)
         .build()
 
 val responder =
-    RSocketMessageHandler.responder(strategies, new ClientHandler()); 
+    RSocketMessageHandler.responder(strategies, new ClientHandler()); (2)
 
 val requester = RSocketRequester.builder()
-        .rsocketConnector { it.acceptor(responder) } 
+        .rsocketConnector { it.acceptor(responder) } (3)
         .connectTcpAndAwait("localhost", 7000)
 ```
 
@@ -238,6 +238,142 @@ val requester = RSocketRequester.builder()
             //...
         }.connectTcpAndAwait("localhost", 7000)
 ```
+
+<br>
+
+## 5.2.2. Server Requester
+서버에서 연결된 클라이언트로 요청하는 것은 서버에서 연결된 클라이언트에 대한 requester를 얻는 일이다.
+
+
+어노테이션 응답자<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#rsocket-annot-responders" rel="nofollow" target="_blank">
+(Annotated Responders)</a>에서는 `@ConnectMapping`과 `@MessageMapping` 메서드는 `RSocketRequester`를 인자로 받는다.
+이를 사용하여 커넥션을 맺은 requester에 접근한다. `@ConnectMapping` 메서드는 요청 시작 전에 반드시 처리해야하는 `SETUP` 프레임의
+기본적인 핸들러이다. 따라서 요청은 시작할 때 핸들링과 분리되어야 한다.
+
+#### Java:
+```java
+@ConnectMapping
+Mono<Void> handle(RSocketRequester requester) {
+    requester.route("status").data("5")
+        .retrieveFlux(StatusReport.class)
+        .subscribe(bar -> { (1)
+            // ...
+        });
+    return ... (2)
+}
+```
+
+> (1) 처리와 무관하게 독립적으로 비동기 요청을 시작한다.<br>
+> (2) 처리를 완료하고 `Mono<Void>`를 반환한다.
+
+#### Kotlin:
+```kotlin
+@ConnectMapping
+suspend fun handle(requester: RSocketRequester) {
+    GlobalScope.launch {
+        requester.route("status").data("5").retrieveFlow<StatusReport>().collect { (1)
+            // ...
+        }
+    }
+    /// ... (2)
+}
+```
+
+> (1) 처리와 무관하게 독립적으로 비동기 요청을 시작한다.<br>
+> (2) suspend 함수에서 처리한다.
+
+<br>
+
+### 5.2.3. Requests
+클라이언트<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#rsocket-requester-client" rel="nofollow" target="_blank">
+(client)</a> 또는 서버<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#rsocket-requester-server" rel="nofollow" target="_blank">(server)</a>
+요청자를 가지면, 다음과 같이 요청할 수 있다:
+
+#### Java:
+```java
+ViewBox viewBox = ... ;
+
+Flux<AirportLocation> locations = requester.route("locate.radars.within") (1)
+        .data(viewBox) (2)
+        .retrieveFlux(AirportLocation.class); (3)
+```
+
+#### Kotlin:
+```kotlin
+val viewBox: ViewBox = ...
+
+val locations = requester.route("locate.radars.within") (1)
+        .data(viewBox) (2)
+        .retrieveFlow<AirportLocation>() (3)
+```
+
+> (1) 요청 메시지의 메타 데이터에 라우팅 정보를 지정한다.<br>
+> (2) 요청 메시지에 대한 데이터를 제공한다.<br>
+> (3) 예상되는 응답을 선언한다.
+
+상호작용 타입은 입력과 출력의 카디널리티로부터 암묵적으로 결정된다. 위 예제는 하나의 값이 전송되고 하나의 스트림 값을 수신하기 때문에
+`Request-Stream` 이다. 사용하는 입력 및 출력 선택이 RSocket 인터랙션 타입과 rsponder가 예상하는 입력 및 출력 타입과 일치하다면
+이를 고려할 필요는 없다. 유효하지 않은 조합의 유일한 예는 다대일(many-to-one)인 경우다.
+
+`data(Object)` 메서드는 리액티브 스트림 `Publisher`를 받을 수 있다. Publisher는 `Flux`와 `Mono`를 포함,
+`ReactiveAdapterRegistry`에 등록된 다른 producer도 포함한다. 동일한 타입의 값을 생성하는 `Flux`와 같은
+다중값(multi-value) `Publisher`에 대해서는, 오버로드한 `data` 메서드 중 하나를 사용하여 타입 체크와 모든 요소에 대한
+`Encoder` 검색을 방지를 고려하라.
+
+```java
+data(Object producer, Class<?> elementClass);
+data(Object producer, ParameterizedTypeReference<?> elementTypeRef);
+```
+
+`data(Object)` 단계는 선택적이다. 데이터를 보내지 않는 요청인 경우 생략하자:
+
+#### Java:
+```java
+Mono<AirportLocation> location = requester.route("find.radar.EWR"))
+    .retrieveMono(AirportLocation.class);
+```
+
+#### Kotlin:
+```kotlin
+import org.springframework.messaging.rsocket.retrieveAndAwait
+
+val location = requester.route("find.radar.EWR")
+    .retrieveAndAwait<AirportLocation>()
+```
+
+<a href="https://github.com/rsocket/rsocket/blob/master/Extensions/CompositeMetadata.md" rel="nofollow" target="_blank">composite metadata(기본값)</a>를 사용하고 등록한 `Encoder`가 지원하는 값인 경우, 메타 데이터를 추가할 수 있다.
+예를 들면 다음과 같다:
+
+#### Java:
+```java
+String securityToken = ... ;
+ViewBox viewBox = ... ;
+MimeType mimeType = MimeType.valueOf("message/x.rsocket.authentication.bearer.v0");
+
+Flux<AirportLocation> locations = requester.route("locate.radars.within")
+        .metadata(securityToken, mimeType)
+        .data(viewBox)
+        .retrieveFlux(AirportLocation.class);
+```
+
+#### Kotlin:
+```kotlin
+import org.springframework.messaging.rsocket.retrieveFlow
+
+val requester: RSocketRequester = ...
+
+val securityToken: String = ...
+val viewBox: ViewBox = ...
+val mimeType = MimeType.valueOf("message/x.rsocket.authentication.bearer.v0")
+
+val locations = requester.route("locate.radars.within")
+        .metadata(securityToken, mimeType)
+        .data(viewBox)
+        .retrieveFlow<AirportLocation>()
+```
+
+`Fire-and-Forget`의 경우 `Mono<Void>`를 반환하는 `send()` 메서드를 사용한다. `Mono`는 메시지가 성공적으로 전송되었다는 뜻일 뿐,
+처리되지 않았음을 나타낸다.
 
 ---
 
