@@ -105,6 +105,28 @@ io.rsocket.RSocket</a>의 주요 역할은 네 가지 상호동작 타입을 만
 그러나 스프링과 독립적으로 RSocket을 보거나 테스트하는 것이 중요할 수 있다. RSocket 자바 저장소에는 API와 프로토콜 기능을 보여주는
 많은 <a href="https://github.com/rsocket/rsocket-java/tree/master/rsocket-examples" rel="nofollow" target="_blank">샘플 앱</a>이 포함되어 있다.
 
+<br>
+
+## 5.1.3. 스프링 지원(Spring Support)
+`spring-messaging` 모듈은 다음을 포함한다:
+
+- <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#rsocket-requester" rel="nofollow" target="_blank">RSocketRequester</a> - `io.rsocket.RSocket`과 데이터,
+메타 데이터와 인코딩/디코딩을 통해 요청을 생성하는 유연한 API
+- <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#rsocket-annot-responders" rel="nofollow" target="_blank">Annotated Responders</a> - 응답을 위한 `@RequestMapping` 어노테이션이 적용된 핸들러 메서드
+
+`spring-web` 모듈에는 RSocket 애플리케이션이 필요할 수도 있는 Jackson, CBOR/JSON, Protobuf와 같은 `Encoder`와 `Decoder`
+구현체가 포함되어 있다. 또한 효과적으로 라우팅 매칭을 하기 위한 `PathPatternParser`도 포함되어 있다.
+
+스프링부트 2.2는 TCP나 웹소켓을 사용하여 RSocket 서버를 지원하고, 웹플럭스 서버에서 웹소켓을 통한 RSocket을 노출하는 옵션을 포함한다.
+또한 `RSocketRequester.Builder`와 `RSocketStrategies`에 대한 클라이언트 지원 및 자동 설정도 있다. 자세한 내용은
+스프링 부트 레퍼런스의 <a href="https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#boot-features-rsocket">RSocket</a> 섹션을 참조하라.
+
+스프링 시큐리티(Spring Security) 5.2는 RSocket을 지원한다.
+
+스프링 Integration 5.2는 인바운드와 아웃바운드 게이트 웨이를 제공하여 RSocket 클라이언트와 서버와 상호작용한다. 자세한 내용은
+Spring Integration Reference Manual을 참조하라.
+
+스프링 클라우드 게이트웨이는(Spring Cloud Gateway)는 RSocket 커넥션을 지원한다.
 
 ---
 
