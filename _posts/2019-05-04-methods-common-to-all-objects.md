@@ -146,6 +146,36 @@ public class Example {
 # 아이템 12. toString을 항상 재정의하라
 > Always override toString
 
+```toString``` 메서드는 간결하고 읽기 쉬운 형태의 유익한 정보를 반환해야 한다. 
+이를 잘 구현한 클래스는 사용하기 좋고 디버깅을 쉽게 해준다.
+
+### 좋은 toString 재정의 방법
+
+- 객체가 가진 주요 정보 모두를 반환해야 한다.
+- 주석으로 ```toString```이 반환하는 포맷을 명시하든 아니든 의도를 명확하게 해야 한다.
+- ```toString```이 반환한 값에 포함된 정보를 얻어올 수 있는 API를 제공하자.
+  - 없다면 이 정보가 필요한 개발자는 ```toString```의 반환값을 파싱할 수 밖에 없다.
+
+### toString 재정의가 필요 없는 경우
+
+- 대부분의 정적 유틸리티 클래스
+- 대부분의 열거(enum) 타입
+- 수퍼 클래스에서 이미 적절하게 재정의한 경우
+
+### 실무에서는 ToStringBuilder을 추천
+
+```apache-commons-lang3``` 라이브러리를 사용하면 간편하게 ```toString``` 포맷을 이용할 수 있습니다. 
+
+<pre class="line-numbers"><code class="language-java" data-start="1">public String toString() {
+    /*
+     * 두 번째 인자를 변경하여 포맷을 바꿀 수 있다.
+     * ToStringStyle.JSON_STYLE 등
+     */
+    return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
+}
+</code></pre>
+
+<div class="post_caption">toString은 해당 객체에 관해 명확하고 유용한 정보를 반환해야 한다.</div>
 
 <br/>
 
