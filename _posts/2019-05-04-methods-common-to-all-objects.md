@@ -231,3 +231,52 @@ public static MadPlay newInstance(MadPlay madPlay) {
 
 # 아이템 14. Comparable을 구현할지 고려하라
 > Consider implementing Comparable
+
+Comparable 인터페이스의 메서드는 ```CompareTo``` 뿐이다. Comparable 인터페이스를 구현(implements)했다는 것은
+그 클래스의 인스턴들에는 자연적인 순서가 있음을 뜻한다. Object 클래스의 ```equals```와 비슷하지만 단순 동치성 비교와
+순서도 비교할 수 있으며 제네릭하다.
+
+### compareTo 메서드의 일반 규약
+
+- 이 객체와 주어진 객체의 순서 비교
+  - 이 객체가 주어진 객체보다 작으면 음의 정수를 반환한다.
+  - 이 객체가 주어진 객체와 같으면 0을 반환한다.
+  - 이 객체가 주어진 객체보다 크면 양의 정수를 반환한다.
+  - 이 객체와 비교할 수 없는 타입의 객체면 ClassCastException 예외를 던진다.
+  
+아래 설명에서의 sgn(표현식) 표기는 수학에서 말하는 부호 함수(signum function)이며,
+표현식의 값이 음수, 0, 양수일때 -1, 0, 1을 반환하도록 정의했다.
+
+- 대칭성: Comparable을 구현한 클래스는 모든 x, y에 대해 sng(x.compareTo(y)) == -sgn(y.compareTo(x)) 이다.
+- 추이성: Comparable을 구현한 클래스는 x.compareTo(y) > 0 && y.compareTo(z)이면, x.compareTo(z) > 0 이다.
+- 반사성: Comparable을 구현한 클래스는 모든 z에 대해 x.compareTo(y) == 0이면, sgn(x.compareTo(z)) == sgn(y.compareTo(z)) 이다.
+- 동치성: 필수는 아니지만 좋기면 좋다. (x.compareTo(y) == 0) == (x.equals(y)) 여야 한다.
+  - Comparable을 구현했지만 이 사항을 지키지 않은 모든 클래스는 그 내용을 명시하면 좋다.
+
+### compareTo 메서드 작성법
+
+```equals```와 비슷하지만 몇 가지 차이점이 있다.
+
+- 인자의 타입을 확인한다거나 형변환할 필요가 없다. 제네릭 인터페이스이기 때문이다.
+  - 타입이 잘못됐다면 컴파일 시점에 오류가 발생한다. null을 입력한 경우 NullPointerException 예외를 던져야 한다.
+- 각 필드가 동치인지를 비교하는 게 아니라 그 순서를 비교한다.
+- 객체 참조 필드를 비교하려면 compareTo 메서드를 재귀적으로 호출한다.
+- Comparable을 구현하지 않은 필나 표준이 아닌 순서로 비교해야 한다면 비교자(Comparator)를 대신 사용한다.
+  - 직접 만들거나 자바에서 제공하는 것을 골라서 사용한다.
+- 자바 7부터는 기본 정수 타입을 비교할 때 관계 연산자 <와 > 을 사용하지 않고 compare를 사용하라.
+- 핵심적인 피륻부터 비교한다. 비교 결과가 바로 나온다면, 즉 순서가 바로 결정되면 거기서 결과를 곧바로 반환하자.
+
+### Comparator 인터페이스
+
+자바 8부터는 Comparator 인터페이스가 많은 비교자 생성 메서드를 갖게 되었다. 간결하게 사용할 수 있지만 약간의 성능 저하도 있다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">private static final Comparator&lt;User> COMPARATOR =
+    comparingInt((User user) -> user.age)
+        .thenComparingInt(user -> user.id);
+
+public int compareTo(User user) {
+    return COMPARATOR.compare(this, user);
+}
+</code></pre>
+
+<div class="post_caption">순서를 고려해야 하는 값 클래스를 작성한다면 Comparable 인터페이스를 구현하자.</div>
