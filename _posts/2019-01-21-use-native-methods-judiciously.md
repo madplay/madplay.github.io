@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "이펙티브 자바 66: 네이티브 메서드는 신중히 사용하라"
+title:    "[이펙티브 자바 3판] 아이템 66. 네이티브 메서드는 신중히 사용하라"
 author:   Kimtaeng
-tags: 	  java
-subtitle: "Effective Java 66: Use native methods judiciously" 
+tags: 	  java effectivejava
+subtitle: "[Effective Java 3th Edition] Item 66. Use native methods judiciously" 
 category: Java
 comments: true
 ---
@@ -53,7 +53,7 @@ OS 프로세스도 접근할 수 있습니다. 하지만 대체할만한 자바 
 
 안전하지 않습니다. 네이티브 메서드를 사용하는 애플리케이션도 메모리 훼손 오류로부터 안전하지 않습니다.
 <a href="/post/make-defensive-copies-when-needed" target="_blank">
-(참고 링크: 이펙티브 자바 50: 적시에 방어적 복사본을 만들라)</a>
+(참고 링크: [이펙티브 자바 3판] 아이템 50. 적시에 방어적 복사본을 만들라)</a>
 
 자바보다 플랫폼 종속성이 높고 이식성도 낮으며 디버깅하기도 어렵습니다. 성능적인 측면으로는 오히려 속도가 더 느릴 수 있으며
 가비지 컬렉터가 네이티브 메모리는 자동 회수하지 못하며 심지어 추적할 수도 없습니다.
