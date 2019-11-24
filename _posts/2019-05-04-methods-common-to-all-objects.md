@@ -182,6 +182,50 @@ public class Example {
 # 아이템 13. clone 재정의는 주의해서 진행하라
 > Override clone judiciously
 
+```Cloneable```은 복제해도 되는 클래스임을 명시하는 용도의 믹스인 인터페이스(mixin interface)이다.
+하지만 의도한 목적에 조금 어긋난다. ```clone``` 메서드가 선언된 곳이 Cloneable이 아닌 ```Object``` 클래스이고
+그마저도 protected 접근 지정자이다. ```Cloneable``` 인터페이스는 메서드도 하나 없지만,
+Object 클래스의 clone의 동작 방식을 결정한다.
+
+<pre class="line-numbers"><code class="language-java" data-start="1">package java.lang;
+
+public interface Cloneable {
+    // 아무 것도 없음
+}
+</code></pre>
+
+```Cloneable```을 구현한 클래의 인스턴스에서 clone 메서드를 호출하면, 객체의 필드들을 모두 복사한 객체를 반환하고
+구현하지 않은 클래스의 인스턴스에서 호출하면 예외를 던진다.
+
+### '복사'의 일반적인 의도
+
+- ```x.clone() != x``` 필수로 참이어야 한다.
+- ```x.clone().getClass() == x.getClass()``` 필수는 아니다.
+- ```x.clonde().equals(x)``` 필수는 아니다.
+
+clone 메서드를 조작하는 경우 하위 클래스에서 의도하지 않은 결과를 받을 수 있음으로 주의해야 한다.
+클래스 B가 클래스 A를 상속한다고 할 때, 하위 클래스인 B의 clone 메서드는 B 타입 객체를 반환해야 한다.
+그런데 클래스 A의 clone이 자신의 생성자로 생성한 객체를 반환한다면, 클래스 B의 clone도 A 타입 객체를 반환할 수 밖에 없다.
+그렇기 때문에 ```super.clone```을 연쇄적으로 호출하도록 구현하면, 의도와 알맞는 객체를 만들 수 있다.
+
+### clone 보다는 복사 생성자와 복자 팩터리를 사용하자.
+
+```Cloneable```을 복잡하게 사용할 필요가 없으니 다른 방식으로 하는 것도 좋다. 
+복사 생성자와 복사 팩터리를 사용하면 clone 방식의 단점에서 자유롭다. 
+
+<pre class="line-numbers"><code class="language-java" data-start="1">// 복사 생성자
+public MadPlay(MadPlay madPlay) { 
+    // ...
+};
+
+// 복사 팩터리
+public static MadPlay newInstance(MadPlay madPlay) {
+    // ...
+};
+
+</code></pre>
+
+<div class="post_caption">배열을 제외하고 복제 기능은 생성자와 팩터리를 이용하는 게 최고다</div>
 
 <br/>
 
