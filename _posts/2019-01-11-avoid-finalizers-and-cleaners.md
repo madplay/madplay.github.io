@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "이펙티브 자바 8: FINALIZER와 CLEANER 사용을 피하라"
+title:    "[이펙티브 자바 3판] 아이템 8. FINALIZER와 CLEANER 사용을 피하라"
 author:   Kimtaeng
-tags: 	  java
-subtitle: "Effective Java 8: Avoid finalizers and cleaners" 
+tags: 	  java effectivejava
+subtitle: "[Effective Java 3th Edition] Item 8. Avoid finalizers and cleaners" 
 category: Java
 comments: true
 ---

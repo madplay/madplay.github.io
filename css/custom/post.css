@@ -136,3 +136,7 @@ a {
         margin-bottom: 10px;
     }
 }
+
+ol {
+    padding-left: 25px;
+}

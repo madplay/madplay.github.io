@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "이펙티브 자바 28: 배열보다는 리스트를 사용하라"
+title:    "[이펙티브 자바 3판] 아이템 28. 배열보다는 리스트를 사용하라"
 author:   Kimtaeng
-tags: 	  java
-subtitle: "Effective Java 28: Prefer lists to arrays" 
+tags: 	  java effectivejava
+subtitle: "[Effective Java 3th Edition] Item 28. Prefer lists to arrays" 
 category: Java
 comments: true
 ---
@@ -39,7 +39,7 @@ objectList.add("Kimtaeng");
 런타임 시점에는 알 수 없습니다. 타입 정보가 소거된 ```로 타입(Raw type)```의 경우 제네릭이 지원되기 전의 레거시 코드와
 제네릭 타입을 함께 사용할 수 있도록 해줍니다. 
 <a href="/post/dont-use-raw-types" target="_blank">
-(참고 링크 - 이펙티브 자바 26: 로 타입은 사용하지 말라)
+(참고 링크 - [이펙티브 자바 3판] 26: 로 타입은 사용하지 말라)
 </a> 
 
 이처럼 결국 배열과 제네릭은 친해지기 어려운 관계입니다. 배열은 아래와 같이 제네릭 타입, 매개변수화 타입,

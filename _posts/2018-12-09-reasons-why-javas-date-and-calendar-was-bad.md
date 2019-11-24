@@ -103,7 +103,7 @@ public final static int MARCH = 2;
 자세한 내용은 아래 링크를 참조하시기 바랍니다.
 
 <a href="/post/obey-the-general-contract-when-overriding-equals" target="_blank">
-이펙티브 자바 10: equals는 일반 규약을 지켜 재정의하라(링크)</a>
+[이펙티브 자바 3판] 아이템 10. equals는 일반 규약을 지켜 재정의하라(링크)</a>
 
 <br/>
 
