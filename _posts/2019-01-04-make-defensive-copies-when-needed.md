@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "이펙티브 자바 50: 적시에 방어적 복사본을 만들라"
+title:    "[이펙티브 자바 3판] 아이템 50. 적시에 방어적 복사본을 만들라"
 author:   Kimtaeng
-tags: 	  java
-subtitle: "Effective Java 50: Make defensive copies when needed" 
+tags: 	  java effectivejava
+subtitle: "[Effective Java 3th Edition] Item 50. Make defensive copies when needed" 
 category: Java
 comments: true
 ---
