@@ -128,6 +128,76 @@ class ServerConfig {
 }
 ```
 
+<br>
+
+### 5.3.2. Client Responders
+클라이언트 측의 어노테이션 응답자는 `RSocketRequester.Builder`에서 설정해야 한다. 자세한 내용은
+<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#rsocket-requester-client-responder" rel="nofollow" target="_blank">Client Responders</a>을 참조하라.
+
+<br>
+
+### 5.3.3. @MessageMapping
+<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#rsocket-annot-responders-server" rel="nofollow" target="_blank">
+서버</a> 또는 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#rsocket-annot-responders-client" rel="nofollow" target="_blank">
+클라이언트 responder 설정이 완료되면 `@MessageMapping` 메서드를 다음과 같이 사용할 수 있다:
+
+#### Java:
+```java
+@Controller
+public class RadarsController {
+
+    @MessageMapping("locate.radars.within")
+    public Flux<AirportLocation> radars(MapRequest request) {
+        // ...
+    }
+}
+```
+
+#### Kotlin:
+```kotlin
+@Controller
+class RadarsController {
+
+    @MessageMapping("locate.radars.within")
+    fun radars(request: MapRequest): Flow<AirportLocation> {
+        // ...
+    }
+}
+```
+
+위의 `@MessageMapping` 메서드는 "locate.radars.within" 라우팅을 가진 Request-Stream 상호작용에 응답한다. 이 메서드는
+다음 메서드 인자를 사용하는 유연한 메서드 시그니처를 지원한다:
+
+| 메서드 인자 | 설명 |
+| -- | -- |
+`@Payload` | 요청의 페이로드. `Mono` 또는 `Flux`와 같이 비동기 타입의 구체적인 값이 될 수 있다. <br><br> **참고**: 어노테이션 사용은 선택사항이다. 단순 타입이 아니면서 지원되는 인자가 아닌 경우에는 페이로드로 간주된다.
+`RSocketRequester` | 원격 종료 요청을 보낸 요청자(requester)
+`@DestinationVariable` | 매핑 패턴의 변수에 기반한 라우팅으로부터 추출된 값. 예로, `@MessageMapping("find.radar.{id}")`
+`@Header` | 등록된 메타 데이터를 추출한 값. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#rsocket-metadata-extractor" rel="nofollow" target="_blank">MetadataExtractor</a> 참고
+`@Headers Map<String, Object>` | 등록된 모든 메타 데이터를 추출한 값. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#rsocket-metadata-extractor" rel="nofollow" target="_blank">MetadataExtractor</a> 참고
+
+반환값은 응답 페이로드로 직렬화될 하나 이상의 객체로 예상된다. 반환값은 `Mono` 또는 `Flux`와 같은 비동기 타입이거나, 구체적인 값 또는
+`void` 또는 `Mono<Void>`와 같은 값이 없는(no-value) 비동기 타입일 수 있다.
+
+`@MessageMapping` 메서드가 지원하는 RSocket 상호작용 타입은 입력(예: `@Payload` 인자) 및 출력의 카디널리티로부터 결정된다.
+여기서 카디널리티는 다음을 의미한다:
+
+| 카디널리티(Cardinality) | 설명 |
+| -- | -- |
+1 | 명시적인 값, 혹은 `Mono<T>`와 같은 단일값(single-value) 비동기 타입
+Many | `Flux<T>`와 같은 다중값(multi-value) 비동기 타입
+0 | 입력에서는 메서드에 `@Payload` 인자가 없음을 의미한다. <br><br> 출력의 경우 `void` 또는 `Mono<Void>`와 같은 값이 없는(no-value) 비동기 타입
+
+다음은 모든 입력과 출력 카디널리티 조합과 그에 따른 상호작용 타입 유형이다:
+
+입력 카디널리티<br>(Input Cardinality) | 출력 카디널리티<br>(Output Cardinality) | 상호동작 유형<br>(Interaction Types)
+| -- | -- |
+0, 1 | 0 | Fire-and-Forget, Request-Response
+0, 1 | 1 | Request-Response
+0, 1 | Many | Request-Stream
+Many | 0, 1, Many | Request-Channel
+
+
 ---
 
 > ### 목차 가이드
