@@ -378,5 +378,5 @@ val locations = requester.route("locate.radars.within")
 ---
 
 > ### 목차 가이드
-> - 다음글 "5.3. Annotated Responders" 로 이동
+> - <a href="/post/rsocket-references-annotated-responders">다음글 "5.3. Annotated Responders" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>
