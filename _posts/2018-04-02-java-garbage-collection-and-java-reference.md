@@ -64,7 +64,7 @@ width="600" alt="바쁘겠다. 가비지 컬렉터"/>
 
 <br/>
 
-색을 입혀 구분해보면 다음과 같다. 녹색은 Reachable이고 적색은 Unreachable 입다.
+색을 입혀 구분해보면 다음과 같다. 녹색은 Reachable이고 적색은 Unreachable 이다.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-04-02-java-garbage-collection-and-java-reference-2.png"
 width="600" alt="Reachable과 Unreachable"/>
@@ -173,4 +173,4 @@ width="500" alt="assign null to Weak Reference"/>
 
 - **Phantom Reachable**
   - Strongly, Softly, Weakly Reachable 객체에 모두 해당하지 않는 객체를 말한다.
-  - 그러니까 finalize 되었지만 아직 메모리가 회수하지 않은 상태를 말합니다.
+  - 그러니까 finalize 되었지만 아직 메모리가 회수하지 않은 상태이다.
