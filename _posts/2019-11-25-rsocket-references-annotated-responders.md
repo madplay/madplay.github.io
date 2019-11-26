@@ -197,6 +197,19 @@ Many | `Flux<T>`와 같은 다중값(multi-value) 비동기 타입
 0, 1 | Many | Request-Stream
 Many | 0, 1, Many | Request-Channel
 
+<br>
+
+### 5.3.4. @ConnectMapping
+`@ConnectMapping`은 RSocket 커넥션 시작시 `SETUP` 프레임을 핸들링한다. 그리고 `METADATA_PUSH` 프레임
+(예: `io.rsocket.RSocket`의 `metadataPush(payload)`)으로 이어지는 메타 데이터 푸시 알림을 핸들링한다.
+
+`@ConnectMapping` 메서드는 `@MessageMapping`과 동일한 인자를 지원하지만 `SETUP`과 `METADATA_PUSH` 프레임의 메타 데이터와
+데이터를 기반으로 한다. `@ConnectMapping`에 패턴을 지정하면 특정 라우팅 정보가 있는 커넥션만 처리한다. 아무 패턴도 선언되지
+않은 경우라면 모든 커넥션이 매칭된다.
+
+`@ConnectMapping` 메서드는 데이터를 반환할 수 없으며 `void` 또는 `Mono<Void>`를 반환 타입으로 선언해야 한다.
+만일 신규 커넥션에 대해 오류를 반환하면 커넥션은 거절된다. `RSocketRequester`에 커넥션을 요청하기 위해 처리를 보류해서는
+안 된다. 자세한 내용은 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#rsocket-requester-server" rel="nofollow" target="_blank">Server Requester</a>를 참조하라.
 
 ---
 
