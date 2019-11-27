@@ -19,7 +19,7 @@ comments: true
 - <a herf="#아이템-32-제네릭과-가변인수를-함께-쓸-때는-신중하라">아이템 32. 제네릭과 가변인수를 함께 쓸 때는 신중하라</a>
 - <a href="#아이템-33-타입-안전-이종-컨테이너를-고려하라">아이템 33. 타입 안전 이종 컨테이너를 고려하라</a>
 
-<br/>
+<br>
 
 # 아이템 26. 로 타입은 사용하지 말라
 > Don’t use raw types
@@ -32,7 +32,7 @@ comments: true
 
 <div class="post_caption">로 타입을 사용하지 말자. 오직 하위 버전과 호환하기 위해서 남아있다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 27. 비검사 경고를 제거하라
 > Eliminate unchecked warnings
@@ -46,7 +46,7 @@ comments: true
 
 <div class="post_caption">할 수 있는 한 모든 비검사 경고를 모두 제거하자.</div>
 
-<br/>
+<br><br>
 
 # 아이템 28. 배열보다는 리스트를 사용하라
 > Prefer lists to arrays
@@ -104,7 +104,7 @@ String s = stringLists[0].get(0);                   // (5)
 
 <div class="post_caption">배열보다 리스트를 사용하면 컴파일 시점에 오류를 확인할 수 있다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 29. 이왕이면 제네릭 타입으로 만들라
 > Favor generic types
@@ -112,6 +112,8 @@ String s = stringLists[0].get(0);                   // (5)
 클라이언트에서 직접적으로 형변환을 해야 하는 타입보다는 **제네릭 타입이 더 안전하고 사용하기에도 편리하다.** 그러므로 새로운 타입을 설계할 때는
 형변환 없이도 사용할 수 있도록 하는 것이 좋다. 그렇게 하기 위해서는 제네릭 타입으로 만들어야 하는 경우가 있다. 기존 타입 중에서 제네릭이었어야
 하는 것이 있다면 제네릭 타입으로 변경해보자.
+
+- <a href="/post/java-generic" target="_blank">관련 링크 참고: 자바 제네릭(Java Generic)</a>
 
 다음은 제네릭 클래스로 변경하는 과정이다. 먼저, **(1) 클래스 선언에 타입 매개 변수를 추가한다.**
 그리고 **(2) 일반 타입을 타입 매개변수로 바꾸면 된다.** 끝으로 이 과정에서 발생하는 비검사 경고를 해결해준다.
@@ -172,7 +174,7 @@ class DelayQueue<E extends Delayed> implements BlockingQueue<E>
 
 <div class="post_caption">직접 형변환하는 것보다 제네릭 타입이 더 안전하고 간편하다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 30. 이왕이면 제네릭 메서드로 만들라
 > Favor generic methods
@@ -206,7 +208,7 @@ public static <E extends Comparable<E>> E max(Collection<E> c);
 
 <div class="post_caption">명시적으로 형변환해야 하는 메서드보다는 제네릭 메서드가 더 안전하고 사용하기 쉽다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 31. 한정적 와일드카드를 사용해 API 유연성을 높이라
 > Use bounded wildcards to increase API flexibility
@@ -219,7 +221,7 @@ public static <E extends Comparable<E>> E max(Collection<E> c);
 
 <div class="post_caption">조금 복잡하더라도 와일드카드 타입을 적용하면 API가 훨씬 유연해지는 장점이 있다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 32. 제네릭과 가변인수를 함께 쓸 때는 신중하라
 > Combine generics and varargs judiciously
@@ -287,7 +289,7 @@ public static <E extends Enum<E>> EnumSet<E> of(E first, E... rest) {
 
 <div class="post_caption">가변인수와 제네릭은 잘 어울리지 않는다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 33. 타입 안전 이종 컨테이너를 고려하라
 > Consider typesafe heterogeneous containers
