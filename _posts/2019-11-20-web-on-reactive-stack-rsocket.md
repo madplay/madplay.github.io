@@ -18,7 +18,7 @@ comments: true
 - <a href="/post/rsocket-references-overview">5.1. Overview</a>
 - <a href="/post/rsocket-references-rsocketrequester">5.2. RSocketRequester</a>
 - <a href="/post/rsocket-references-annotated-responders">5.3. Annotated Responders</a>
-- 5.4. MetadataExtractor
+- <a href="/post/rsocket-references-metadataextractor">5.4. MetadataExtractor</a>
 
 <br>
 
