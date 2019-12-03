@@ -214,5 +214,5 @@ Many | 0, 1, Many | Request-Channel
 ---
 
 > ### 목차 가이드
-> - 다음글 "5.4. MetadataExtractor" 로 이동
+> - <a href="/post/rsocket-references-metadataextractor">다음글 "5.4. MetadataExtractor" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>
