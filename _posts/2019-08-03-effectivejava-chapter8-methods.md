@@ -19,15 +19,16 @@ comments: true
 - <a href="#아이템-55-옵셔널-반환은-신중히-하라">아이템 55. 옵셔널 반환은 신중히 하라</a>
 - <a href="#아이템-56-공개된-api-요소에는-항상-문서화-주석을-작성하라">아이템 56. 공개된 API 요소에는 항상 문서화 주석을 작성하라</a>
 
-<br/>
+<br>
 
 # 아이템 49. 매개변수가 유효한지 검사하라
 > Check parameters for validity
 
-매개변수의 유효성 검사는 메서드 몸체가 시작되기 전에 해야 한다. 그리고 매개변수에 대한 제약사항은 문서화가 필요하다.
-유효성 검사를 제대로 하지 못하는 경우에는 어떻게 될까? 메서드가 수행되는 중간에 모호한 오류가 발생할 수 있으며
-행여나 수행되더라도 잘못된 결과가 반환될 수 있다. 최악의 경우에는 잘 수행되다가 다른 객체의 상태 변경으로 인해
-미래의 알 수 없는 시점에 오류가 발생할 수도 있다.
+매개변수의 유효성 검사는 메서드 몸체가 시작되기 전에 해야하며 매개변수에 대한 제약사항은 문서화가 필요하다.
+만일 유효성 검사를 제대로 하지 못하는 경우에는 어떻게 될까? 
+
+메서드가 수행되는 중간에 모호한 오류가 발생할 수 있으며 행여나 수행되더라도 잘못된 결과가 반환될 수 있을 것이다.
+최악의 경우에는 잘 수행되다가 다른 객체의 상태 변경으로 인해 미래의 알 수 없는 시점에 오류가 발생할 수도 있다.
 
 `public`과 `protected` 메서드는 매개변수 값이 잘못됐을 때 던지는 예외를 문서화해야 한다. 클래스 수준 주석은
 그 클래스의 모든 public 메서드에 적용되므로 훨씬 깔끔하다. `@Nullable`과 같은 어노테이션을 사용할 수도 있지만 표준은 아니다.
@@ -82,7 +83,7 @@ private void someMethod(int arr[], int length) {
 
 <div class="post_caption">매개변수는 메서드 코드 시작 부분에서 검사하자</div>
 
-<br/>
+<br><br>
 
 # 아이템 50. 적시에 방어적 복사본을 만들라
 > Make defensive copies when needed
@@ -95,7 +96,7 @@ private void someMethod(int arr[], int length) {
 
 <div class="post_caption">경우에 따라서 방어적 복사본을 만들어야 한다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 51. 메서드 시그니처를 신중히 설계하라
 > Design method signatures carefully
@@ -181,12 +182,12 @@ public void setProgram(ProgramType type) {
 
 <div class="post_caption">메서드의 이름과 매개변수 리스트는 신중히 설계해야 한다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 52: 다중정의는 신중히 사용하라
 > Use overloading judiciously
 
-재정의(overriding, 오버라이딩)를 한 메서드는 실행 중에 동적으로 선택되지만 다중 정의(overloading, 오버로딩)된 메서드의
+**재정의(overriding, 오버라이딩)**를 한 메서드는 실행 중에 동적으로 선택되지만 **다중 정의(overloading, 오버로딩)**된 메서드의
 호출 여부는 컴파일 타임에 정해진다. 그리고 이러한 다중 정의 메서드는 개발자가 기대한 것처럼 동작하지 않는 경우가 있다.
 
 - <a href="/post/method-overriding-vs-method-overloading-in-java" target="_blank">참고 링크: 자바 오버라이딩과 오버로딩</a>
@@ -232,7 +233,7 @@ class ColectionClassifier {
 
 <div class="post_caption">일반적으로 매개변수 개수가 같을 때는 다중 정의를 피하는 것이 좋다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 53. 가변인수는 신중히 사용하라
 > Use varargs judiciously
@@ -267,7 +268,7 @@ public void foo(int arg1, arg2, arg3, int... restArg) {}
 
 <div class="post_caption">가변인수는 성능에 문제가 있을 수 있다. 신중히 사용하자.</div>
 
-<br/>
+<br><br>
 
 # 아이템 54. null이 아닌, 빈 컬렉션이나 배열을 반환하라
 > Return empty collections or arrays, not nulls
@@ -322,7 +323,7 @@ public Cheese[] getCheeses() {
 
 <div class="post_caption">null이 아닌, 빈 배열이나 컬렉션을 반환하라.</div>
 
-<br/>
+<br><br>
 
 # 아이템 55. 옵셔널 반환은 신중히 하라
 > Return optionals judiciously
@@ -396,7 +397,7 @@ Connection conn = getConnection(dataSource).orElseGet(() -> getLocalConn());
 
 <div class="post_caption">성능에 민감한 메서드라면 null을 반환하거나 예외를 던지는 것이 낫다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 56. 공개된 API 요소에는 항상 문서화 주석을 작성하라
 > Write doc comments for all exposed API elements
