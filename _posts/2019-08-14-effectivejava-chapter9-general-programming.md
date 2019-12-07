@@ -23,7 +23,7 @@ comments: true
 - <a href="#아이템-67-최적화는-신중히-하라">아이템 67. 최적화는 신중히 하라</a>
 - <a href="#아이템-68-일반적으로-통용되는-명명-규칙을-따르라">아이템 68. 일반적으로 통용되는 명명 규칙을 따르라</a>
 
-<br/>
+<br>
 
 # 아이템 57. 지역변수의 범위를 최소화하라
 > Minimize the scope of local variables
@@ -60,7 +60,7 @@ for (Iterator<Element> i = c.iterator(); i.hasNext(); ) {
 
 <div class="post_caption">지역변수의 범위를 최소화해야 잠재적인 오류를 줄일 수 있다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 58. 전통적인 for 문보다는 for-each 문을 사용하라
 > Prefer for-each loops to traditional for loops
@@ -75,7 +75,7 @@ for (Iterator<Element> i = c.iterator(); i.hasNext(); ) {
 
 <div class="post_caption">for-each 문은 명료하고 유연하며 버그를 예방해주며 성능 저하도 없다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 59. 라이브러리를 익히고 사용하라
 > Know and use the libraries
@@ -94,7 +94,7 @@ for (Iterator<Element> i = c.iterator(); i.hasNext(); ) {
 
 <div class="post_caption">직접 작성하는 것보다 라이브러리를 쓰는 것이 좋은 경우가 많다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 60. 정확한 답이 필요하다면 float와 double은 피하라
 > 60: Avoid float and double if exact answers are required
@@ -118,7 +118,7 @@ System.out.println(1.03 - 0.42);
 
 <div class="post_caption">정확한 계산이 필요할 때는 float와 double은 피하자.</div>
 
-<br/>
+<br><br>
 
 # 아이템 61. 박싱된 기본 타입보다는 기본 타입을 사용하라
 > Prefer primitive types to boxed primitives
@@ -177,7 +177,7 @@ private static long sum() {
 
 <div class="post_caption">박싱된 기본 타입을 사용해야 한다면 주의를 기울이자.</div>
 
-<br/>
+<br><br>
 
 # 아이템 62. 다른 타입이 적절하다면 문자열 사용을 피하라
 > Avoid strings where other types are more appropriate
@@ -189,7 +189,7 @@ private static long sum() {
 
 <div class="post_caption">문자열은 잘못 사용하면 번거롭고, 느리고, 오류 가능성도 크다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 63. 문자열 연결은 느리니 주의하라
 > Beware the performance of string concatenation
@@ -202,7 +202,7 @@ private static long sum() {
 
 <div class="post_caption">많은 문자열을 연결할 때는 StringBuilder를 사용하자.</div>
 
-<br/>
+<br><br>
 
 # 아이템 64. 객체는 인터페이스를 사용해 참조하라
 > Refer to objects by their interfaces
@@ -230,7 +230,7 @@ LinkedHashSet<Fruit> fruitSet = new LinkedHashSet<>();
 
 <div class="post_caption">가능하면 인터페이스 타입으로 선언해 사용하자.</div>
 
-<br/>
+<br><br>
 
 # 아이템 65. 리플렉션보다는 인터페이스를 사용하라
 > Prefer interfaces to reflection
@@ -251,7 +251,7 @@ LinkedHashSet<Fruit> fruitSet = new LinkedHashSet<>();
 
 <div class="post_caption">리플렉션은 강력하지만 단점도 많다.</div>
 
-<br/>
+<br><br>
 
 # 아이템 66. 네이티브 메서드는 신중히 사용하라
 > Use native methods judiciously
@@ -264,7 +264,7 @@ LinkedHashSet<Fruit> fruitSet = new LinkedHashSet<>();
 
 <div class="post_caption">반드시 네이티브 메서드를 사용해야 한다면 최소한만 사용하자.</div>
 
-<br/>
+<br><br>
 
 # 아이템 67. 최적화는 신중히 하라
 > Optimize judiciously
@@ -286,7 +286,7 @@ public 메서드에서 내부 데이터를 변경할 수 있게 한다면 불필
 
 <div class="post_caption">최적화는 신중히 해야 한다. 왠만해서는 하지 말자.</div>
 
-<br/>
+<br><br>
 
 # 아이템 68. 일반적으로 통용되는 명명 규칙을 따르라
 > Adhere to generally accepted naming conventions
