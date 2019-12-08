@@ -88,5 +88,5 @@ val strategies = RSocketStrategies.builder()
 ---
 
 > ### 목차 가이드
-> - 다음장 "6. Reactive Libraries" 로 이동
+> - <a href="/post/web-on-reactive-stack-reactive-libraries">다음장 "6. Reactive Libraries" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>
