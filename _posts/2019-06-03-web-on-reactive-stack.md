@@ -56,4 +56,4 @@ rel="nofollow" target="_blank" >참고 링크: Web on Reactive Stack</a>
 - <a href="/post/rsocket-references-annotated-responders">5.3. Annotated Responders</a>
 - <a href="/post/rsocket-references-metadataextractor">5.4. MetadataExtractor</a>
 
-### 6. Reactive Libraries
+### <a href="/post/web-on-reactive-stack-reactive-libraries">6. Reactive Libraries</a>

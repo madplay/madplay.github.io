@@ -25,5 +25,5 @@ comments: true
 ---
 
 > ### 목차 가이드
-> - 다음장 "6. 리액티브 라이브러리(Reactive Libraries)"으로 이동
+> - <a href="/post/web-on-reactive-stack-reactive-libraries">다음장 "6. 리액티브 라이브러리(Reactive Libraries)"으로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>
