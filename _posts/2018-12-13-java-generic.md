@@ -3,7 +3,7 @@ layout:   post
 title:    자바 제네릭(Java Generic) 
 author:   Kimtaeng
 tags: 	  java generic generic-class generic-interface generic-method
-subtitle: 자바의 제네릭과 클래스, 인터페이스 그리고 메서드에 제네릭을 적용하는 방법에 대해서 알아봅니다.  
+subtitle: 자바 제네릭과 제네릭 클래스, 제네릭 인터페이스 그리고 제네릭 메서드에 대해서 알아봅니다.  
 category: Java
 comments: true
 ---
