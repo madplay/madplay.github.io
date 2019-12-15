@@ -5,6 +5,7 @@ author:   Kimtaeng
 tags: 	  motivation stackoverflow community
 subtitle: 개발자라면 한 번쯤은 방문해봤을 스택오버플로(StackOverflow) 커뮤니티를 통해 얻을 수 있는 성장과 경험 포인트
 category: Knowledge
+date: "2019-12-15 15:38:20"
 comments: true
 ---
 
