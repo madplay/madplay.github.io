@@ -126,7 +126,7 @@ a {
 .post_container h1, .post_container h2 {
     border-bottom: 1px solid #eaecef;
     margin-top: 25px;
-    margin-bottom: -5px;
+    margin-bottom: 5px;
 }
 
 @media only screen and (min-width: 768px) {
