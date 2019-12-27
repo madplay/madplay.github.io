@@ -270,6 +270,8 @@ fun addPet(@RequestBody pet: Pet) {
 
 > `MediaType`은 일반적으로 사용되는 미디어 타입(예를 들어, `APPLICATION_JSON_VALUE`와 `APPLICATION_XML_VALUE`)에 대한 상수를 제공한다.
 
+<br>
+
 ### 생산 가능한 미디어 타입(Producible Media Types)
 다음 예제와 같이 `Accept` 요청 헤더와 컨트롤러 메서드가 생성하는 컨텐츠 타입 목록을 기반으로 요청 매핑을 좁힐 수 있다:
 
@@ -296,6 +298,8 @@ fun getPet(@PathVariable String petId): Pet {
 클래스 레벨에서의 선언을 확장하기보다는 속성을 재정의한다.
 
 > `MediaType`은 일반적으로 사용되는 미디어 타입(예를 들어, `APPLICATION_JSON_VALUE`와 `APPLICATION_XML_VALUE`)에 대한 상수를 제공한다.
+
+<br>
 
 ### 파라미터와 헤더(Parameters and Headers)
 쿼리 파라미터 조건으로 요청 매핑 범위를 좁힐 수 있다. 쿼리 파라미터(myParam)가 있는지, 없는지(!myParam) 또는 특정값(myParam=myValue)을
@@ -414,6 +418,52 @@ class MyConfig {
 > (2) 요청 매핑 데이터를 준비한다.
 > (3) 핸들러 메서드를 얻는다.
 > (4) 등록을 추가한다.
+
+<br>
+
+## 1.4.3. 핸들러 메서드(Handler Methods)
+`@RequestMapping` 핸들러 메서드는 유연한 시그니처를 가지며, 지원되는 다양한 컨트롤러 메서드 인자와 반환값을 선택할 수 있다.
+
+<br>
+
+### 메서드 인자(Method Arguments)
+다음 표는 지원되는 컨트롤러 메서드 인자를 보여준다.
+
+리액티브 타입(Reactor, RxJava, 기타 등) 블로킹 I/O(예를 들어, request body 읽기)를 요구하는 인자를 지원한다.
+이는 설명(Description) 열에 표시되어 있다. 블로킹이 필요하지 않은 인자는 리액티브 타입을 필요로 하지 않는다.
+
+JDK 1.8의 `java.util.Optional`은 필수(`required`) 속성(예를 들어, `@RequestParam`, `@RequestHeader` 등)이 있는
+어노테이션과 함께 메서드 인자로 지원되며 `required=false`와 같다.
+
+컨트롤러 메서드 시그니처 | 설명(Description)
+| -- | -- |
+`ServerWebExchange` | `ServerWebExchange` 전체에 접근한다. - 이는 HTTP 요청과 응답, 세션 속성, `checkNotModified` 메서드 등을 포함하고 있는 컨테이너다.
+`ServerHttpRequest`, `ServerHttpResponse` | HTTP 요청 또는 응답에 접근한다.
+`WebSession` | 세션에 접근한다. 따로 추가한 속성이 없다면 새로운 세션을 강제로 열지 않는다. 리액티브 타입을 지원한다. 
+`java.security.Principal` | 현재 인증된 사용자 - 특정 `Principal` 구현 클래스일 수 있다. 리액티브 타입을 지원한다.
+`org.springframework.http.HttpMethod` | 요청 HTTP 메서드
+`java.util.Locale` | 현재 요청의 locale 정보다. 사용 가능한 가장 구체적인 `LocaleResolver`에 의해 결정된다. 사실상 설정된 `LocaleResolver`/`LocaleContextResolver`
+`java.util.TimeZone` + `java.time.ZoneId` | `LocaleContextResolver`에 의해 결정된 현재 요청과 관련된 타임존
+`@PathVariable` | URI 템플릿 변수로 접근하기 위해 사용. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-ann-requestmapping-uri-templates" rel="nofollow" target="_blank">URI Patterns</a> 참조.
+`@MatrixVariable` | URI 경로 세그먼트의 이름-값(name-value) 쌍에 접근하기 위해 사용. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-ann-matrix-variables" rel="nofollow" target="_blank">Matrix Variables</a> 참조.
+`@RequestParam` | 서블릿 요청 파라미터에 접근한다. 파라미터 값은 선언된 메서드 인자 타입으로 변환된다. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-ann-requestparam" rel="nofollow" target="_blank">`@RequestParam`</a> 참조<br><br>`@RequestParam` 사용은 선택적이다. - 예를 들어, 속성을 설정하기 위해 사용할 수 있다. 이 표의 "그 외의 인자"를 참조.
+`@RequestHeader` | 요청 헤더에 접근한다. 헤더 값은 선언된 메서드 인자 타입으로 변환된다. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-ann-requestheader" rel="nofollow" target="_blank">`@RequestHeader`</a> 참조
+`@CookieValue` | 쿠키에 접근한다. 쿠키 값은 선언된 메서드 인자 타입으로 변환된다. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-ann-cookievalue" rel="nofollow" target="_blank">`@CookieValue`</a> 참조
+`@RequestBody` | HTTP request body에 접근한다. 본문 콘텐츠는 `HttpMessageReader` 인스턴스를 사용하여 선언된 메서드 인자 타입으로 변환된다. 리액티브 타입을 지원한다. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-ann-requestbody" rel="nofollow" target="_blank">`@RequestBody`</a> 참조
+`@HttpEntity<B>` | 요청 헤더와 본문에 접근한다. body는 `HttpMessageReader` 인스턴스로 변환된다. 리액티브 타입을 지원한다. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-ann-httpentity" rel="nofollow" target="_blank">`HttpEntity`</a> 참조
+`@RequestPart` | 멀티파트 / 폼 데이터 요청에서 part에 접근한다. 리액티브 타입을 지원한다. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-multipart-forms" rel="nofollow" target="_blank">Multipart Content</a>와 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-multipart" rel="nofollow" target="_blank">Multipart Data</a> 참조
+`java.util.Map`, `org.springframework.ui.Model`, `org.springframework.ui.ModelMap` | HTML 컨트롤러에서 사용되며 뷰 렌더링의 일부로 템플릿이 되는 모델에 접근한다.
+`@ModelAttribute` | 데이터 바인딩과 유효성 검사가 적용된 모델(없다면 인스턴스화)의 기존 속성에 접근한다. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-ann-modelattrib-method-args" rel="nofollow" target="_blank">`@ModelAttribute`</a>, <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-ann-modelattrib-methods" rel="nofollow" target="_blank">`Model`</a>, <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-ann-initbinder" rel="nofollow" target="_blank">`DataBinder`</a> 참조<br><br>`@ModelAttribute`를 사용하는 것은 선택적이다. 예를 들어, 이 어노테이션의 속성을 설정하기 위해 사용할 수 있다. 이 표의 "그 외 인자" 부분을 참조하라.
+`Erros`, `BindingResult` | 커맨드 객체에 대한 유효성 검사와 데이터 바인딩에서의 오류에 접근한다. (예: `@ModelAttribute` 인자) `Erros` 또는 `BindingResult` 인자는 유효성 검증 대상 메서드 인자 바로 뒤에 선언돼야 한다.
+`SessionStatus` + 클래스레벨 `@SessionAttributes` | 요청 처리 완료를 위해 사용한다. 클래스 레벨 `@SessionAttributes` 어노테이션을 통해서 선언된 세션 속성을 비운다. 더 자세한 정보는 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-ann-sessionattributes" rel="nofollow" target="_blank">`@SessionAttributes`</a>
+`UriComponentsBuilder` | 현재 요청의 호스트, 포트, 스키마, 경로와 관련된 URL을 준비한다. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-uri-building" rel="nofollow" target="_blank">URI Links</a> 참조
+`@SessionAttribute` | 모든 세션 속성에 접근하기 위해 사용한다. 클래스 레벨 `@SessionAttributes` 선언하면 세션에 모델 속성을 저장하는 것과 다르다. 자세한 내용은 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-ann-sessionattribute" rel="nofollow" target="_blank">`@SessionAttribute`</a> 참조
+`@RequestAttribute` | 요청 속성에 접근한다. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-ann-requestattrib" rel="nofollow" target="_blank">`@RequestAttribute`</a> 참조
+그 외의 인자 | 메서드 인자가 위의 어떤 것과도 일치하지 않을 때, <a href="https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/beans/BeanUtils.html#isSimpleProperty-java.lang.Class-" rel="nofollow" target="_blank">BeanUtils#isSimpleProperty</a>에 의해 결정된 간단한 타입인 경우 기본적으로 `@RequestParam`을 통해 리졸브되고, 아닌 경우에는 `@ModelAttribute`로 리졸브된다.
+
+
+
+
 
 ---
 
