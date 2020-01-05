@@ -14,12 +14,16 @@ body {
 }
 p {
     line-height: 1.8;
-    margin: 20px 0 20px 0;
+    margin: 15px 0 15px 0;
 }
-h1,h2,h3 {
+h1,h2 {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 800;
     line-height: 1.5;
+}
+h3 {
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 800;
 }
 h4,h5,h6 {
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -95,11 +99,11 @@ ul {
     padding-left: 25px;
 }
 ul ul {
-    padding-top: 5px;
+    padding-top: 2px;
 }
 li {
-    line-height: 1.8;
-    padding-bottom: 10px;
+    line-height: 1.6;
+    padding-bottom: 5px;
 }
 hr.small {
     max-width: 100px;
