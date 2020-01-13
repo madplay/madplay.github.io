@@ -134,7 +134,7 @@ code[class*="language-"], pre[class*="language-"] {
 
 @media only screen and (min-width: 768px) {
     code[class*="language-"], pre[class*="language-"] {
-        font-size: 14px;
+        font-size: 13px;
         margin-bottom: 4.5rem;
     }
 }
