@@ -11,9 +11,10 @@ comments: true
 
 <hr/>
 
-# 자바 9 버전으로 업그레이드 했는데...
+# 자바 9로 업그레이드 했는데...
 
-기존에 사용하던 Java 8을 사용하여 스프링 부트 프로젝트를 개발할 때는 문제가 없는데, Java 9로 업그레이드를 한 후에는 실행시 아래와 같은 오류가 발생했다.
+Java 8을 사용하여 스프링 부트 프로젝트를 개발할 때는 문제가 없는데, Java 9로 업그레이드를 한 후에는 실행시 아래와 같은 오류가 발생했다.
+핵심만 뽑아본다면 java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException... 그리고 java.lang.ClassNotFoundException: javax.xml.bind.JAXBException...
 
 ```bash
 org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'org.springframework.boot.context.properties.ConfigurationPropertiesBindingPostProcessor': Invocation of init method failed; nested exception is java.lang.NoClassDefFoundError: javax/xml/bind/JAXBException
@@ -57,7 +58,7 @@ Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
 ```
 
 더 높은 자바 11로 변경해서 실행해보았으나 오류는 사라지지 않았다. 그래도 오류 메시지는 명확하다.
-```java.lang.ClassNotFoundException``` 무언가 JAXB 관련 클래스를 찾을 수 없는 것이다.
+```java.lang.ClassNotFoundException```이다. 어떤 클래스를(여기서는 JAXB) 찾을 수 없는 것이다.
 
 <br/>
 
@@ -66,7 +67,7 @@ Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException
 관련해서 찾아보니, JAXB API는 Java EE(Enterprise Edition) API로 간주되며 자바 9버전부터는 더 이상 포함되지 않는다.
 게다가 자바 11부터는 JDK에서 완전히 삭제되었다고 한다.
 
-- <a herf="https://stackoverflow.com/a/43574427/9212562" rel="nofollow" target="_blank">
+- <a href="https://stackoverflow.com/a/43574427/9212562" rel="nofollow" target="_blank">
 관련 참고: 스택오버플로우(Stackoverflow) 커뮤니티</a>
 
 <br/>
