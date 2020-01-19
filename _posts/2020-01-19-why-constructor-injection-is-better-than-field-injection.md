@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "생성자 주입을 사용해야 하는 이유"
+title:    "생성자 주입을 @Autowired를 사용하는 필드 주입보다 권장하는 하는 이유"
 author:   Kimtaeng
-tags: 	  spring dependencyinjection
-subtitle: "@Autowired를 사용하는 의존성 주입 방법보다 생성자 주입(Constructor Injection)을 권장하는 이유는 무엇일까?"
+tags: 	  spring dependencyinjection constructorinjection
+subtitle: "@Autowired를 사용하는 의존성 주입보다 생성자 주입(Constructor Injection)을 더 권장하는 이유는 무엇일까?"
 category: Spring
 date: "2020-01-19 19:26:12"
 comments: true
@@ -14,8 +14,8 @@ comments: true
 # 의존성을 주입하는 방법
 > 스프링 프레임워크에서 의존성을 주입하는 방법은 무엇이 있을까?
 
-```@Autowired``` 를 사용하는 필드 주입이나 수정자 주입보다 생성자 주입이 권장하는 이유를 알아보기 전에 스프링에서 사용할 수 있는 의존성 주입 방법에
-대해서 알아보자. 등록된 빈을 사용하기 위해서 DI(Dependency Injection) 하는 방법은 3가지가 있다.
+```@Autowired``` 를 사용하는 필드 주입이나 수정자 주입 방법보다 생성자 주입을 더 권장하는 이유를 알아보자. 하지만 그전에 스프링 프레임워크에서
+사용하는 의존성 주입 방법에 대해서 알아볼 필요가 있다. 우선 등록된 빈을 사용하기 위한 스프링 프레임워크의 DI(Dependency Injection) 방법은 3가지다.
 
 ### 생성자 주입(Constructor Injection)
 
@@ -144,8 +144,8 @@ public class DemoApplication implements CommandLineRunner {
 }
 ```
 
-실행 결과는 어떻게 나올까? 사실 애플리케이션이 구동조차 안되어 메서드가 호출 안 되는 것을 기대했지만 아무런 오류 없이 정상적으로 구동되었다.
-물론 run 메서드가 수행되어 서로 호출하면서 아래와 같은 오류와 함께 종료되었다.
+실행 결과는 어떻게 될까? 사실 애플리케이션이 구동조차 안되어 메서드가 호출 안 되는 것을 기대했지만 아무런 오류 없이 정상적으로 구동되었다.
+물론 run 메서드의 내용이 수행되면서 아래와 같은 오류와 함께 종료되었다.
 
 ```bash
 java.lang.StackOverflowError: null
@@ -156,8 +156,8 @@ java.lang.StackOverflowError: null
 	at com.example.demo.GreetService.sayGreet(GreetService.java:12) ~[classes/:na]
 ```
 
-문제는 애플리케이션이 잘 구동된다는 것이다. 실제 코드가 호출되기 전까지 문제를 발견할 수 없다.
-그렇다면 생성자 주입인 경우는 어떻게 될까? 코드를 바꿔보자.
+문제는 애플리케이션이 아무런 오류나 경고없이 구동된다는 것이다. 실제 코드가 호출되기 전까지 문제를 발견할 수 없다.
+그렇다면 생성자 주입을 사용한 경우는 어떻게 될까? 코드를 바꿔보자.
 
 ```java
 @Service
@@ -221,7 +221,7 @@ The dependencies of some of the beans in the application context form a cycle:
 ## 테스트에 용이하다.
 
 생성자 주입을 사용하게 되면 테스트 코드를 조금 더 편리하게 작성할 수 있다. 이부분은 테스트 코드 작성을 좋아한다면 조금 더 빠르게 체감할 수 있다.
-DI의 핵심은 관리되는 클래스가 DI 컨테이너에 의존성이 없어야 한다는 것이다. 즉, **독립적으로 인스턴스화가 가능한** POJO(Plain Old Java Ojbect) 여야
+DI의 핵심은 관리되는 클래스가 DI 컨테이너에 의존성이 없어야 한다는 것이다. 즉, **독립적으로 인스턴스화가 가능한 POJO(Plain Old Java Ojbect)** 여야
 한다는 것이다. DI 컨테이너를 사용하지 않고서도 단위 테스트에서 인스턴스화할 수 있어야 한다.
 
 이 부분은 생성자 주입을 사용하면 테스트 방법이 없다기보다는 조금 더 편리하다고 생각하면 좋을 것 같다. Mockito(```@Mock```과 ```@spy``` 같은)를
