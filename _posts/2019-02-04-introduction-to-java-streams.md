@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    자바 스트림 정리 - 1. 소개와 스트림 생성 
+title:    "자바 스트림 정리: 1. API 소개와 스트림 생성 연산"
 author:   Kimtaeng
 tags: 	  java stream
-subtitle: Java 8에서 도입된 스트림(Stream)은 무엇일까? 그리고 어떻게 생성할까?
+subtitle: Java 8에서 도입된 스트림(Stream)은 무엇일까? 자바 스트림 API 소개와 스트림을 생성하는 방법에 대해 알아보자.
 category: Java
 comments: true
 ---
@@ -12,11 +12,11 @@ comments: true
 
 # 목차
 
-- 자바 스트림 정리 - 1. 소개와 스트림 생성
-- <a href="/post/java-streams-intermediate-operations" target="_blank">자바 스트림 정리 - 2. 중간 연산 (링크)</a>
-- <a href="/post/java-streams-terminal-operations" target="_blank">자바 스트림 정리 - 3. 결과 구하기 (링크)</a>
-- <a href="/post/java-streams-examples" target="_blank">자바 스트림 정리 - 4. 예제 (링크)</a>
-- <a href="/post/mistakes-when-using-java-streams" target="_blank">자바 스트림 정리 - 5. 주의할 점 (링크)</a>
+- 자바 스트림 정리: 1. API 소개와 스트림 생성 연산
+- <a href="/post/java-streams-intermediate-operations">자바 스트림 정리: 2. 스트림의 중간 연산 (링크)</a>
+- <a href="/post/java-streams-terminal-operations">자바 스트림 정리: 3. 스트림 결과 구하기 (링크)</a>
+- <a href="/post/java-streams-examples">자바 스트림 정리: 4. 자바 스트림 예제 (링크)</a>
+- <a href="/post/mistakes-when-using-java-streams">자바 스트림 정리: 5. 스트림을 사용할 때 주의할 점 (링크)</a>
 
 <br/>
 
@@ -214,5 +214,4 @@ Stream&lt;Object> empty = Stream.empty();
 이어지는 포스팅에서는 만들어진 스트림을 알맞은 형태로 가공하거나 필요한 값들만 필터링할 수 있는
 중간 연산(Intermediate Operations)에 대해서 알아봅니다.
 
-- <a href="/post/java-streams-intermediate-operations" target="_blank">
-자바 스트림 정리 - 2. 중간 연산 (링크)</a>
+- <a href="/post/java-streams-intermediate-operations">자바 스트림 정리: 2. 스트림의 중간 연산 (링크)</a>
