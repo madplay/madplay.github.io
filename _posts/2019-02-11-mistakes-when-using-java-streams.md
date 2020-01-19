@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    자바 스트림 정리 - 5. 주의할 점
+title:    "자바 스트림 정리: 5. 스트림을 사용할 때 주의할 점"
 author:   Kimtaeng
 tags: 	  java stream
 subtitle: 자바 스트림 API를 사용할 때 실수할 수 있는 부분과 고민해볼 점은 무엇이 있을까?
@@ -12,11 +12,11 @@ comments: true
 
 # 목차
 
-- <a href="/post/introduction-to-java-streams" target="_blank">자바 스트림 정리 - 1. 소개와 스트림 생성 (링크)</a>
-- <a href="/post/java-streams-intermediate-operations" target="_blank">자바 스트림 정리 - 2. 중간 연산 (링크)</a>
-- <a href="/post/java-streams-terminal-operations" target="_blank">자바 스트림 정리 - 3. 결과 구하기 (링크)</a>
-- <a href="/post/java-streams-examples" target="_blank">자바 스트림 정리 - 4. 예제 (링크)</a>
-- 자바 스트림 정리 - 5. 주의할 점
+- <a href="/post/introduction-to-java-streams">자바 스트림 정리: 1. API 소개와 스트림 생성 연산 (링크)</a>
+- <a href="/post/java-streams-intermediate-operations">자바 스트림 정리: 2. 스트림의 중간 연산 (링크)</a>
+- <a href="/post/java-streams-terminal-operations">자바 스트림 정리: 3. 스트림 결과 구하기 (링크)</a>
+- <a href="/post/java-streams-examples">자바 스트림 정리: 4. 자바 스트림 예제 (링크)</a>
+- 자바 스트림 정리: 5. 스트림을 사용할 때 주의할 점
 
 <br/>
 
