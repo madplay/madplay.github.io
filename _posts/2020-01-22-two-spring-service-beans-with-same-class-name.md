@@ -13,8 +13,7 @@ comments: true
 
 # 이런 경우는 어떻게 할까?
 
-아래와 같이 패키지 구조가 되어있다고 가정해보자. 서로 다른 패키지에 있지만 ```HelloService``` 라는 동일한 이름을 가진 클래스 2개가 있고
-두 클래스 모두 빈 등록을 위한 ```@Service``` 어노테이션이 선언되어 있다.
+아래와 같이 패키지 구조가 되어있다고 가정해보자. 서로 다른 패키지에 있지만 ```HelloService``` 라는 동일한 이름을 가진 클래스 2개가 있다.
 
 ```bash
 com
@@ -26,15 +25,7 @@ com
     ├── HelloController.java
 ```
 
-그리고 ```applicationContext.xml```에는 등록할 빈을 자동으로 찾을 수 있도록 ```component-scan```이 설정되어 있다.
-
-```xml
-<beans>
-    <context:component-scan base-package="com.madplay">
-</beans>
-```
-
-따라서 두 개의 클래스 모두 ```@Service``` 어노테이션에 의해 빈으로 등록된다.
+두 개의 클래스에는 동일하게 빈 등록을 위한 ```@Service``` 어노테이션이 선언되어 있다.
 
 ```java
 @Service
@@ -43,9 +34,20 @@ public class HelloService {
 }
 ```
 
-그런데 기본적으로 스프링 프레임워크는 기본적으로 빈의 이름을 기반으로 id를 결정한다. 그렇기 때문에 클래스 이름이 HelloService 라면 id는
-helloService 으로 결정된다. 그렇기 때문에 위와 같은 패키지 구조에서는 동일한 이름을 가진 클래스(빈 등록할 컴포넌트)가 중복으로 존재하기 때문에
-```ConflictingBeanDefinitionException```와 같은 오류 메시지를 만날 수 있다.
+그리고 ```applicationContext.xml```에는 등록할 빈을 자동으로 찾을 수 있도록 ```component-scan```이 설정되어 있다.
+따라서 두 개의 클래스 모두 ```@Service``` 어노테이션에 의해 빈으로 등록된다.
+
+```xml
+<beans>
+    <context:component-scan base-package="com.madplay">
+</beans>
+```
+
+그런데 기본적으로 스프링 프레임워크는 기본적으로 빈의 이름을 기반으로 id를 결정한다.
+예를 들어 클래스 이름이 HelloService 라면 id는 helloService 으로 결정된다.
+
+따라서 다른 패키지에 있더라도 동일한 이름을 가진 클래스(빈 등록할 컴포넌트)가 중복으로 존재하기 때문에
+애플리케이션 구동 시에 ```ConflictingBeanDefinitionException```와 같은 오류 메시지를 만날 수 있다.
 
 ```bash
 Caused by: 
@@ -62,8 +64,8 @@ org.springframework.context.annotation.ConflictingBeanDefinitionException:
 
 # 그러면 어떻게 해야할까?
 
-먼저 빈 등록시에 고유 이름을 부여하는 방법이 있다. ```@Service("madplay")``` 처럼 어노테이션에 빈 이름을 넣어주면 된다.
-아래는 패키지 명까지 직접 명시한 예제다.
+먼저 빈 등록시에 고유 이름을 부여하는 방법이 있다. ```@Service("madplay")``` 처럼 어노테이션에 고유하게 식별할 수 있도록
+특정 이름(아이디)을 지정해주면 된다.
 
 ```java
 package com.madplay.abc
@@ -87,7 +89,7 @@ public class HelloService {
 
 # 또 다른 방법은 없을까?
 
-스프링의 ```BeanNameGenerator``` 를 직접 구현하는 방법도 있다. 빈 이름을 짓는 기본 전략을 이용하고 싶지 않다면, 직접 전략을 세울 수 있다.
+스프링의 빈 이름을 짓는 기본 전략을 이용하고 싶지 않다면 ```BeanNameGenerator``` 를 직접 구현하면 된다.
 아래는 ```@Service``` 어노테이션을 가진 클래스에만 적용되도록 작성한 코드이다.
 
 ```java
