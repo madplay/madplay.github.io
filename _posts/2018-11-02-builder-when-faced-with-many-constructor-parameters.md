@@ -17,7 +17,8 @@ comments: true
 
 예를 들어서 코드로 살펴보면 아래와 같습니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public class Person {
+```java
+public class Person {
     private final String name;  // 필수
     private final int age;  // 필수
     private final String phoneNumber;
@@ -44,7 +45,7 @@ comments: true
             "010-1234-5678", "itsmetaeng@gmail.com");
     }
 }
-</code></pre>
+```
 
 지금은 매개변수가 4개밖에 없어서 간단하지만, 연락처와 이메일 외에 집주소, SNS주소 등과 같이
 다른 정보들이 추가된다면 어떨까요? 또, 위와 같은 형태는 타입과 인자의 순서를 바꾸는 실수를 하게 되면
@@ -58,7 +59,8 @@ comments: true
 코드로 살펴보면 아래와 같습니다.
 
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public class Person {
+```java
+public class Person {
     private String name;  // 필수
     private int age;  // 필수
     private String phoneNumber;
@@ -84,7 +86,7 @@ comments: true
         // ... 생략
     }
 }
-</code></pre>
+```
 
 점층적으로 증가하는 생성자 패턴의 문제점도 보이지 않고 읽기에도 더 좋아보입니다.
 하지만! 1회의 메서드 호출로 객체 생성을 완료할 수 없게 되는데요. 그러니까 객체의 일관성(consistency)가 무너집니다.
@@ -101,13 +103,19 @@ comments: true
 
 아래와 같이 코드로 나타내보면!
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public class Person {
+```java
+public class Person {
     private String name;  // 필수
     private int age;  // 필수
     private String phoneNumber;
     private String email;
 
     public static class Builder {
+        private String name;
+        private int age;
+        private String phoneNumber;
+        private String email;
+
         public Builder(String name, int age) {
             this.name = name;
             this.age = age;
@@ -134,33 +142,27 @@ comments: true
         phoneNumber = builder.phoneNumber;
         email = builder.email;
     }
-
-    // 생성할 때는 이렇게
-    public void someMethod() {
-        Person person = new Person().Builder("탱", 29)
-            .phoneNumber("010-1234-5678")
-            .email("itsmetaeng@gmail.com")
-            .build();
-    }
 }
-</code></pre>
+```
 
 Person 클래스는 불변이며 빌더의 setter 메서드들은 빌더 자신을 반환하기 때문에 연쇄적인 호출을 하게 되는데요.
 이런 방식을 메서드 호출이 흐르듯 연결된다하여 플루언트 API(fluent API) 또는 메서드 연쇄(method chaining)이라고 합니다.
 
-클래스의 객체를 생성하는 메서드를 다시 살펴봅시다.
+클래스의 객체를 생성하는 메서드를 살펴봅시다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public void someMethod() {
-    Person person = new Person().Builder("탱", 29)
+```java
+public void someMethod() {
+    Person person = new Person.Builder("탱", 29)
         .phoneNumber("010-1234-5678")
         .email("itsmetaeng@gmail.com")
         .build();
 }
-</code></pre>
+```
 
 우선 **읽기 쉽습니다.** 그리고 build 메서드 안에서 인자들의 유효성 검사도 할 수 있습니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public Builder phoneNumber(String value) {
+```java
+public Builder phoneNumber(String value) {
     if(value == null || value.equals("")) {
         throw new IllegalStateException("phoneNumber must be not empty!");
     } else {
@@ -168,17 +170,18 @@ Person 클래스는 불변이며 빌더의 setter 메서드들은 빌더 자신�
     }
     return this;
 }
-</code></pre>
+```
 
 또한 **유연합니다.** 하나의 빌더 객체로 여러 객체를 만들 수도 있고요. 자동 증가(auto increment)가 필요한 필드는
 자동으로 값을 채울 수도 있습니다. 그리고 아래와 같이 생성자 대비 장점으로 여러 개의 가변 인자 매개변수를 가질 수도 있습니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public Builder someMethod(String ... values) {
+```java
+public Builder someMethod(String ... values) {
     phoneNumber = values[0];
     email = values[1]; 
     // ... 생략
 }
-</code></pre>
+```
 
 <br/>
 
@@ -188,7 +191,8 @@ Person 클래스는 불변이며 빌더의 setter 메서드들은 빌더 자신�
 코드가 많아지면 빌더의 코드만해도 꽤 길어질 것 같습니다. 이런 경우에는 롬복(lombok)의 @Builder 어노테이션을 쓰면 간편하긴 합니다.
 필수적으로 만들어야하는 코드를 자동 생성해주는 고마운 라이브러리입니다!
 
-<pre class="line-numbers"><code class="language-java" data-start="1">@Builder
+```java
+@Builder
 public class Person {
     private String name;
     private int age;
@@ -199,7 +203,7 @@ public class Person {
     @Builder.Default
     private int age = 29;
 }
-</code></pre>
+```
 
 초기값을 지정하고 싶다면 위와 같이 추가적인 어노테이션과 함께 사용하면 됩니다. 참고로 final 필드에 대해서는 
 자동으로 메서드를 생성해주지 않습니다. 
