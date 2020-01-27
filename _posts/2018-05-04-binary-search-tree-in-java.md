@@ -3,7 +3,7 @@ layout:   post
 title:    이진 탐색 트리 Part II - 구현 
 author:   Kimtaeng
 tags: 	  BST BinarySearchTree DataStructure Algorithm
-subtitle: 이진 탐색 트리를 구현해보자.
+description: 이진 탐색 트리를 구현해보자.
 category: Algorithm
 comments: true
 ---

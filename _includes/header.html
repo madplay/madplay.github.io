@@ -8,11 +8,11 @@
                         {% if include.type == "page" %}
                         <hr class="small">
                         {% endif %}
-                        {% if page.subtitle %}
+                        {% if page.description %}
                         {% if include.type == "page" %}
-                        <span class="{{ include.type }}-subheading">{{ page.subtitle }}</span>
+                        <span class="{{ include.type }}-subheading">{{ page.description }}</span>
                         {% else %}
-                        <h2 class="{{ include.type }}-subheading">{{ page.subtitle }}</h2>
+                        <h2 class="{{ include.type }}-subheading">{{ page.description }}</h2>
                         {% endif %}
                         {% endif %}
 

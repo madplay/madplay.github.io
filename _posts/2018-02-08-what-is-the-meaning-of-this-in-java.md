@@ -3,7 +3,7 @@ layout:   post
 title:    자바의 this 키워드
 author:   Kimtaeng
 tags: 	  java this
-subtitle: "자바에서 객체 자기 자신을 가리키는 this 키워드를 알아보자"
+description: "자바에서 객체 자기 자신을 가리키는 this 키워드를 알아보자"
 category: Java
 comments: true
 ---

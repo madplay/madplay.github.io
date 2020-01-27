@@ -3,7 +3,7 @@ layout:   post
 title:    "구글의 코드 리뷰 가이드: 코드 작성자 편"
 author:   Kimtaeng
 tags: 	  google codereview author
-subtitle: 구글의 코드 리뷰 가이드. 코드 작성자의 입장에서 어떻게 해야 코드 리뷰를 통과할 수 있을까?
+description: 구글의 코드 리뷰 가이드. 코드 작성자의 입장에서 어떻게 해야 코드 리뷰를 통과할 수 있을까?
 category: Knowledge
 date: "2019-09-11 00:00:00"
 comments: true

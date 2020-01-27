@@ -3,7 +3,7 @@ layout:   post
 title:    "[이펙티브 자바 3판] 아이템 18. 상속보다는 컴포지션을 사용하라"
 author:   Kimtaeng
 tags: 	  java effectivejava
-subtitle: "[Effective Java 3th Edition] Item 18. Favor composition over inheritance" 
+description: "[Effective Java 3th Edition] Item 18. Favor composition over inheritance" 
 category: Java
 comments: true
 ---

@@ -3,7 +3,7 @@ layout:   post
 title:    파이썬 switch 
 author:   Kimtaeng
 tags: 	  python
-subtitle: Python에서 switch 문을 사용하려면 어떻게 해야할까? 
+description: Python에서 switch 문을 사용하려면 어떻게 해야할까? 
 category: Python
 comments: true
 ---

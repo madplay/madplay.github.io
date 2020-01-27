@@ -3,7 +3,7 @@ layout:   post
 title:    자바 접근 지정자(Java Access Modifier)
 author:   Kimtaeng
 tags: 	  java accessmodifier
-subtitle: "자바의 접근 지정자는 무엇이 있을까? public protected private 그리고 default 접근 지정자의 차이는?"
+description: "자바의 접근 지정자는 무엇이 있을까? public protected private 그리고 default 접근 지정자의 차이는?"
 category: Java
 comments: true
 ---

@@ -3,7 +3,7 @@ layout:   post
 title:    에라토스테네스의 체로 빠르게 소수 구하기
 author:   Kimtaeng
 tags: 	  Algorithm PrimeNumber
-subtitle: 에라토스테네스의 체로 소수를 빠르게 구해보자!
+description: 에라토스테네스의 체로 소수를 빠르게 구해보자!
 category: Algorithm
 comments: true
 ---

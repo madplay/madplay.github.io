@@ -3,7 +3,7 @@ layout:   post
 title:    자바 직렬화(Java Serialize) 
 author:   Kimtaeng
 tags: 	  java serialize deserialize
-subtitle: 자바에서 직렬화(serialize)와 역직렬화(deserialize)란 무엇일까?
+description: 자바에서 직렬화(serialize)와 역직렬화(deserialize)란 무엇일까?
 category: Java
 comments: true
 ---

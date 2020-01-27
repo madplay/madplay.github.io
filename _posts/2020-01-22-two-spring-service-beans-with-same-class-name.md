@@ -3,7 +3,7 @@ layout:   post
 title:    "스프링에서 빈을 생성할 때 패키지 이름까지 식별자로 포함할 수 있을까?"
 author:   Kimtaeng
 tags: 	  spring bean
-subtitle: "같은 이름이지만 다른 패키지에 있는 클래스를 스프링 빈으로 등록할 수 있을까? 패키지 이름까지 스프링 빈의 이름으로 포함시키는 방법은?"
+description: "같은 이름이지만 다른 패키지에 있는 클래스를 스프링 빈으로 등록할 수 있을까? 패키지 이름까지 스프링 빈의 이름으로 포함시키는 방법은?"
 category: Spring
 date: "2020-01-22 23:11:10"
 comments: true

@@ -3,7 +3,7 @@ layout:   post
 title:    합병 정렬(Merge Sort)
 author:   Kimtaeng
 tags: 	  Algorithm mergesort divide
-subtitle: 합병 정렬 알고리즘에 대해서 알아보자.
+description: 합병 정렬 알고리즘에 대해서 알아보자.
 category: Algorithm
 comments: true
 ---

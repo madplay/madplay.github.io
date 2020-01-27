@@ -3,7 +3,7 @@ layout:   post
 title:    자바의 데이터 타입
 author:   Kimtaeng
 tags: 	  Java DataType
-subtitle: 자바 언어의 데이터 타입에는 무엇이 있을까?
+description: 자바 언어의 데이터 타입에는 무엇이 있을까?
 category: Java
 comments: true
 ---

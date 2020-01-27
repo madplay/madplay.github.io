@@ -3,7 +3,7 @@ layout:   post
 title:    git commit author 변경 (커밋 작성자 변경하기)
 author:   Kimtaeng
 tags: 	  git commit rebase
-subtitle: committer를 잘못 입력하여 push까지 해버렸다. 바꿀 수 있을까?
+description: committer를 잘못 입력하여 push까지 해버렸다. 바꿀 수 있을까?
 category: Knowledge
 comments: true
 ---
