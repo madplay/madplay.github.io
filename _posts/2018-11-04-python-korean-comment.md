@@ -3,7 +3,7 @@ layout:   post
 title:    "파이썬 한글 주석 입력하기(SyntaxError: Non-ASCII character)"
 author:   Kimtaeng
 tags: 	  python
-subtitle: Python에서 한글로 주석을 입력하는 방법에 대해 알아봅시다.
+description: Python에서 한글로 주석을 입력하는 방법에 대해 알아봅시다.
 category: Python
 comments: true
 ---

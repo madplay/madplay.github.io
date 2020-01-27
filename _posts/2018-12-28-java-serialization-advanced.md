@@ -3,7 +3,7 @@ layout:   post
 title:    자바 직렬화와 SerialVersionUID 
 author:   Kimtaeng
 tags: 	  java serialize deserialize suid
-subtitle: 자바에서의 직렬화와 역직렬화 그리고 SerialVersionUID 대해서 알아봅니다.
+description: 자바에서의 직렬화와 역직렬화 그리고 SerialVersionUID 대해서 알아봅니다.
 category: Java
 comments: true
 ---

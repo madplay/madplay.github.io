@@ -3,7 +3,7 @@ layout:   post
 title:    "[이펙티브 자바 3판] 아이템 82. 스레드 안전성 수준을 문서화하라"
 author:   Kimtaeng
 tags: 	  java effectivajava
-subtitle: "[Effective Java 3th Edition] Item 82. Document thread safety" 
+description: "[Effective Java 3th Edition] Item 82. Document thread safety" 
 category: Java
 comments: true
 ---

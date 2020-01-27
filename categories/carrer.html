@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Carrer"
-subtitle: "개발자가 되고 싶어요."
+description: "개발자가 되고 싶어요."
 type: category
 permalink: "/carrer"
 ---
@@ -11,8 +11,8 @@ permalink: "/carrer"
     <article class="post-preview">
         <a href="{{ post.url | prepend: site.baseurl }}">
             <h2 class="post-title">{{ post.title }}</h2>
-            {% if post.subtitle %}
-            <h3 class="post-subtitle">{{ post.subtitle }}</h3>
+            {% if post.description %}
+            <h3 class="post-subtitle">{{ post.description }}</h3>
             {% endif %}
         </a>
         <p class="post-meta">Posted on {{ post.date | date: "%B %-d, %Y" }}</p>

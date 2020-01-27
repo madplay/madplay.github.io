@@ -3,7 +3,7 @@ layout:   post
 title:    "[이펙티브 자바 3판] 4장. 클래스와 인터페이스"
 author:   Kimtaeng
 tags: 	  java effectivejava
-subtitle: "[Effective Java 3th Edition] Chapter4: Classes and Interfaces"  
+description: "[Effective Java 3th Edition] Chapter4: Classes and Interfaces"  
 category: Java
 date: "2019-05-21 02:12:22"
 comments: true

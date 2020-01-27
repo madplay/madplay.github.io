@@ -3,7 +3,7 @@ layout:   post
 title:    빅 엔디안과 리틀 엔디안(Big Endian & Little Endian)
 author:   Kimtaeng
 tags: 	  Knowledge 바이트오더
-subtitle: 바이트를 배열하는 방법을 알아보자.
+description: 바이트를 배열하는 방법을 알아보자.
 category: Knowledge
 comments: true
 ---

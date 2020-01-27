@@ -3,7 +3,7 @@ layout:   post
 title:    싱글톤 패턴(Singleton Pattern)
 author:   Kimtaeng
 tags: 	  DesignPattern
-subtitle: 안티 패턴이라고도 하는 싱글톤 패턴을 알아보자.
+description: 안티 패턴이라고도 하는 싱글톤 패턴을 알아보자.
 category: DesignPattern
 comments: true
 ---

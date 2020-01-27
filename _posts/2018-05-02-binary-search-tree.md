@@ -3,7 +3,7 @@ layout:   post
 title:    이진 탐색 트리 Part I - 이론 
 author:   Kimtaeng
 tags: 	  BST BinarySearchTree DataStructure Algorithm
-subtitle: 나무와 유사한 계층적인 구조인 트리와 이진 탐색이 함께한다.
+description: 나무와 유사한 계층적인 구조인 트리와 이진 탐색이 함께한다.
 category: Algorithm
 comments: true
 ---

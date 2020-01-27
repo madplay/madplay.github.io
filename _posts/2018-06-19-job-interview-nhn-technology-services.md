@@ -3,7 +3,7 @@ layout:   post
 title:    NHN Technology Services 필기전형 후기(SW개발, NTS pretest)  
 author:   Kimtaeng
 tags: 	  Job Career Interview
-subtitle: NHN Technology Services 필기전형 후기
+description: NHN Technology Services 필기전형 후기
 category: Carrer
 comments: true
 ---

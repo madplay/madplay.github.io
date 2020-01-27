@@ -3,7 +3,7 @@ layout:   post
 title:    자바의 String 객체와 String 리터럴 
 author:   Kimtaeng
 tags: 	  Java String Literal Object
-subtitle: 자바에서 문자열을 선언하는 방법에 차이가 있다.
+description: 자바에서 문자열을 선언하는 방법에 차이가 있다.
 category: Java
 comments: true
 ---

@@ -18,7 +18,7 @@ baseurl: ""
 markdown: kramdown
 highlighter: rouge
 
-# Constatns
+# Constants
 max_description_length: 50
 
 # Colors in CSS

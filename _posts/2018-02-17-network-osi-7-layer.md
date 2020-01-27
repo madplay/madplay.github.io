@@ -3,7 +3,7 @@ layout:   post
 title:    OSI 7계층 (OSI 7 Layer)
 author:   Kimtaeng
 tags: 	  Network OSI7
-subtitle: Open System Interconnection 7 Layer
+description: Open System Interconnection 7 Layer
 category: Network
 comments: true
 ---

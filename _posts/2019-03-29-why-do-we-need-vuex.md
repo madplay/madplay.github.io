@@ -3,7 +3,7 @@ layout:   post
 title:    "왜 Vuex가 필요할까?"
 author:   Kimtaeng
 tags: 	  vuejs vuex
-subtitle: "Vuex는 무엇일까? 그리고 Vuex가 필요한 이유는 무엇일까?"
+description: "Vuex는 무엇일까? 그리고 Vuex가 필요한 이유는 무엇일까?"
 category: Vuejs
 comments: true
 ---

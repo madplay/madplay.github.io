@@ -3,7 +3,7 @@ layout:   post
 title:    "생성자 주입을 @Autowired를 사용하는 필드 주입보다 권장하는 하는 이유"
 author:   Kimtaeng
 tags: 	  spring dependencyinjection constructorinjection
-subtitle: "@Autowired를 사용하는 의존성 주입보다 생성자 주입(Constructor Injection)을 더 권장하는 이유는 무엇일까?"
+description: "@Autowired를 사용하는 의존성 주입보다 생성자 주입(Constructor Injection)을 더 권장하는 이유는 무엇일까?"
 category: Spring
 date: "2020-01-19 19:26:12"
 comments: true
