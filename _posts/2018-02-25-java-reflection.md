@@ -3,7 +3,7 @@ layout:   post
 title:    자바 리플렉션(Java Reflection) 동적로딩
 author:   Kimtaeng
 tags: 	  Java Reflection 동적로딩
-subtitle: 클래스 내에서 다른 클래스를 Dynamic Load 한다.
+description: 클래스 내에서 다른 클래스를 Dynamic Load 한다.
 category: Java
 comments: true
 ---

@@ -3,7 +3,7 @@ layout:   post
 title:    "[이펙티브 자바 3판] 3장. 모든 객체의 공통 메서드"
 author:   Kimtaeng
 tags: 	  java effectivejava
-subtitle: "[Effective Java 3th Edition] Chapter3: Methods Common to All Objects"  
+description: "[Effective Java 3th Edition] Chapter3: Methods Common to All Objects"  
 category: Java
 comments: true
 ---

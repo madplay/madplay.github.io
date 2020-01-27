@@ -3,7 +3,7 @@ layout:   post
 title:    "[이펙티브 자바 3판] 6장. 열거 타입과 애너테이션"
 author:   Kimtaeng
 tags: 	  java effectivejava
-subtitle: "[Effective Java 3th Edition] Chapter6: Enums and Annotations"
+description: "[Effective Java 3th Edition] Chapter6: Enums and Annotations"
 category: Java
 date: "2019-06-03 00:02:55"
 comments: true

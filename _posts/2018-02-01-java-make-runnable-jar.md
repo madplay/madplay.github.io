@@ -3,7 +3,7 @@ layout:   post
 title:    자바 실행파일 만들기
 author:   Kimtaeng
 tags: 	  Java JSmooth
-subtitle: JSmooth를 이용하여 자바 실행 파일을 만들어보자.
+description: JSmooth를 이용하여 자바 실행 파일을 만들어보자.
 category: Java
 comments: true
 ---

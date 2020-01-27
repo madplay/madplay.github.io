@@ -3,7 +3,7 @@ layout:   post
 title:    자바 언어의 특징
 author:   Kimtaeng
 tags: 	  Java
-subtitle: 자바 언어는 어떤 특성을 가지고 있을까?
+description: 자바 언어는 어떤 특성을 가지고 있을까?
 category: Java
 comments: true
 ---

@@ -3,7 +3,7 @@ layout:   post
 title:    자바와 행위 매개변수화(Behavior Parameterization)
 author:   Kimtaeng
 tags: 	  java parameterization lambda 
-subtitle: 어떻게 실행할 것인지 결정하지 않은 코드, 메서드에 코드를 전달해보자.
+description: 어떻게 실행할 것인지 결정하지 않은 코드, 메서드에 코드를 전달해보자.
 category: Java
 comments: true
 ---

@@ -3,7 +3,7 @@ layout:   post
 title:    자바 가비지 컬렉션(Java Garbage Collection)
 author:   Kimtaeng
 tags: 	  Java Garbage GC
-subtitle: Java에서의 가비지와 가비지 컬렉션에 대해서 알아보자.
+description: Java에서의 가비지와 가비지 컬렉션에 대해서 알아보자.
 category: Java
 comments: true
 ---

@@ -3,7 +3,7 @@ layout:   post
 title:    자바의 final 키워드
 author:   Kimtaeng
 tags: 	  java final
-subtitle: "자바에서 사용하는 final 키워드는 무엇일까? 어떻게 활용할 수 있는지 알아보자"
+description: "자바에서 사용하는 final 키워드는 무엇일까? 어떻게 활용할 수 있는지 알아보자"
 category: Java
 comments: true
 ---

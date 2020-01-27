@@ -3,7 +3,7 @@ layout:   post
 title:    스프링 프레임워크 기초 - 디자인패턴
 author:   Kimtaeng
 tags: 	  spring framework 
-subtitle: 스프링 프레임워크와 디자인패턴에 대해서 공부하자!
+description: 스프링 프레임워크와 디자인패턴에 대해서 공부하자!
 category: Spring
 comments: true
 ---
