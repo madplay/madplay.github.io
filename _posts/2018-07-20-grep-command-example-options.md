@@ -3,7 +3,7 @@ layout:   post
 title:    grep 예제와 옵션
 author:   Kimtaeng
 tags: 	  grep 
-subtitle: grep 명령어로 파일 내의 특정 문자열들을 찾아보자
+description: grep 명령어로 파일 내의 특정 문자열들을 찾아보자
 category: Knowledge
 comments: true
 ---

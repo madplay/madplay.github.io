@@ -3,7 +3,7 @@ layout:   post
 title:    "구글의 코드 리뷰 가이드: 코드 리뷰에서 보아야 하는 것"
 author:   Kimtaeng
 tags: 	  google codereview reviewer
-subtitle: 구글의 코드 리뷰 가이드. 리뷰어가 코드 리뷰에서 중점적으로 보아야 하는 것은 무엇일까?
+description: 구글의 코드 리뷰 가이드. 리뷰어가 코드 리뷰에서 중점적으로 보아야 하는 것은 무엇일까?
 category: Knowledge
 date: "2019-09-09 00:00:01"
 comments: true

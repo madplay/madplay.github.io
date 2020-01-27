@@ -3,7 +3,7 @@ layout:   post
 title:    "Java 9로 스프링 부트 프로젝트를 실행할 때 ClassNotFoundException: JAXBException 오류 해결하기"
 author:   Kimtaeng
 tags: 	  java9 springboot exception
-subtitle: Java 9로 업그레이드 했더니, 스프링 부트 프로젝트를 실행시 오류가 발생한다. 어떻게 해야 할까?
+description: Java 9로 업그레이드 했더니, 스프링 부트 프로젝트를 실행시 오류가 발생한다. 어떻게 해야 할까?
 category: Spring
 date: "2020-01-13 21:38:20"
 comments: true

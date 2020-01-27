@@ -3,7 +3,7 @@ layout:   post
 title:    "[이펙티브 자바 3판] 아이템 74. 메서드가 던지는 모든 예외를 문서화하라"
 author:   Kimtaeng
 tags: 	  java effectivejava
-subtitle: "[Effective Java 3th Edition] Item 74. Document all exceptions thrown by each method" 
+description: "[Effective Java 3th Edition] Item 74. Document all exceptions thrown by each method" 
 category: Java
 comments: true
 ---

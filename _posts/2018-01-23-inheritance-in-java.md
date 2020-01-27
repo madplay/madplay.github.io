@@ -3,7 +3,7 @@ layout:   post
 title:    자바 상속(Java Inheritance)
 author:   Kimtaeng
 tags: 	  java inheritance
-subtitle: "자바의 상속에 대한 개념과 사용 예제를 살펴보자"
+description: "자바의 상속에 대한 개념과 사용 예제를 살펴보자"
 category: Java
 comments: true
 ---

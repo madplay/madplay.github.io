@@ -5,7 +5,7 @@ a.category_link {
 
 /* Pager */
 .pager li a {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Noto Sans KR', 'Nanum Gothic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 800;
@@ -26,7 +26,7 @@ a.category_link {
 }
 
 .pager li span {
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Noto Sans KR', 'Nanum Gothic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 800;
@@ -290,7 +290,7 @@ pre.highlight {
 
 .timeline_date {
     font-size: 20px;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Noto Sans KR', 'Nanum Gothic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 800;
     line-height: 1;
     margin-top: 10px;
@@ -307,7 +307,7 @@ pre.highlight {
     line-height: 1.1;
     display: block;
     font-weight: 600;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Noto Sans KR', 'Nanum Gothic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-align: center;
     margin-bottom: 30px;
 }
@@ -340,7 +340,7 @@ pre.highlight {
 
     .timeline_date {
         font-size: 18px;
-        font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-family: 'Noto Sans KR', 'Nanum Gothic', 'Helvetica Neue', Helvetica, Arial, sans-serif;
         font-weight: 800;
         line-height: 1;
         margin-top: 10px;

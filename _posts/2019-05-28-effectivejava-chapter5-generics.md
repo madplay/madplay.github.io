@@ -3,7 +3,7 @@ layout:   post
 title:    "[이펙티브 자바 3판] 5장. 제네릭"
 author:   Kimtaeng
 tags: 	  java effectivejava
-subtitle: "[Effective Java 3th Edition] Chapter5: Generics"  
+description: "[Effective Java 3th Edition] Chapter5: Generics"  
 category: Java
 date: "2019-05-28 01:33:05"
 comments: true

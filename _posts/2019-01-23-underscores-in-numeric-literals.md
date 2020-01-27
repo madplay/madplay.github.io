@@ -3,7 +3,7 @@ layout:   post
 title:    자바의 숫자 표현과 언더스코어(_)
 author:   Kimtaeng
 tags: 	  java
-subtitle: 자바7 부터는 숫자 리터럴에 언더스코어(또는 언더바)를 사용하여 가독성을 높일 수 있습니다.
+description: 자바7 부터는 숫자 리터럴에 언더스코어(또는 언더바)를 사용하여 가독성을 높일 수 있습니다.
 category: Java
 comments: true
 ---
