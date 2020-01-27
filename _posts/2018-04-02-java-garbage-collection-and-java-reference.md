@@ -3,7 +3,7 @@ layout:   post
 title:    자바 레퍼런스와 가비지 컬렉션(Java Reference & Garbage Collection)
 author:   Kimtaeng
 tags: 	  Java Garbage GC Reference
-subtitle: 가비지 컬렉션에 이어서 자바 레퍼런스의 객체 참조에 대해서 알아보자.
+description: 가비지 컬렉션에 이어서 자바 레퍼런스의 객체 참조에 대해서 알아보자.
 category: Java
 comments: true
 ---

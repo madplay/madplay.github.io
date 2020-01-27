@@ -3,7 +3,7 @@ layout:   post
 title:    "[이펙티브 자바 3판] 아이템 4. 인스턴스화를 막으려거든 private 생성자를 사용하라"
 author:   Kimtaeng
 tags: 	  java effectivejava
-subtitle: "[Effective Java 3th Edition] Item 4. Enforce noninstantiability with a private constructor" 
+description: "[Effective Java 3th Edition] Item 4. Enforce noninstantiability with a private constructor" 
 category: Java
 comments: true
 ---

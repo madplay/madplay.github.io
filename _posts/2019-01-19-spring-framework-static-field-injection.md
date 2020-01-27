@@ -3,7 +3,7 @@ layout:   post
 title:    static 변수에 autowired 설정하려면 어떻게 해야 할까?
 author:   Kimtaeng
 tags: 	  spring framework
-subtitle: 스프링 프레임워크에서 정적 필드(static field)에 빈을 주입(injection) 해보자.
+description: 스프링 프레임워크에서 정적 필드(static field)에 빈을 주입(injection) 해보자.
 category: Spring
 comments: true
 ---

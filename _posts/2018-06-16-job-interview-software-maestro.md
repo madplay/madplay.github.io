@@ -3,7 +3,7 @@ layout:   post
 title:    소프트웨어 마에스트로 면접 후기(집단토의평가, 코딩테스트) 
 author:   Kimtaeng
 tags: 	  Job Career Interview
-subtitle: 소프트웨어 마에스트로(SW Maestro) 면접 후기
+description: 소프트웨어 마에스트로(SW Maestro) 면접 후기
 category: Carrer
 comments: true
 ---

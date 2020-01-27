@@ -3,7 +3,7 @@ layout:   post
 title:    "[이펙티브 자바 3판] 아이템 42. 익명 클래스보다는 람다를 사용하라"
 author:   Kimtaeng
 tags: 	  java effectivejava
-subtitle: "[Effective Java 3th Edition] Item 42. Prefer lambdas to anonymous classes" 
+description: "[Effective Java 3th Edition] Item 42. Prefer lambdas to anonymous classes" 
 category: Java
 comments: true
 ---

@@ -3,7 +3,7 @@ layout:   post
 title:    한국전력 면접 후기(IT 정보통신) 
 author:   Kimtaeng
 tags: 	  Job Career Interview
-subtitle: 한국전력 IT(정보통신) 면접 후기
+description: 한국전력 IT(정보통신) 면접 후기
 category: Carrer
 comments: true
 ---

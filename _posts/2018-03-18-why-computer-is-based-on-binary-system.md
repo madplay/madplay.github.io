@@ -3,7 +3,7 @@ layout:   post
 title:    컴퓨터는 왜 2진수를 기반으로 할까?
 author:   Kimtaeng
 tags: 	  Knowledge Binary 
-subtitle: 컴퓨터가 2진법 체계를 사용하는 이유를 알아보자.
+description: 컴퓨터가 2진법 체계를 사용하는 이유를 알아보자.
 category: Knowledge
 comments: true
 ---

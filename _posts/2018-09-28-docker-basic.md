@@ -3,7 +3,7 @@ layout:   post
 title:    쉽게 따라하는 도커 - 설치하고 명령어 따라하기 
 author:   Kimtaeng
 tags: 	  docker
-subtitle: 컨테이너 기반의 오픈소스 가상화 플랫폼인 도커! 일단 해보자!
+description: 컨테이너 기반의 오픈소스 가상화 플랫폼인 도커! 일단 해보자!
 categories: Docker
 comments: true
 ---

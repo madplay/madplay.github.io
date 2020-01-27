@@ -3,7 +3,7 @@ layout:   post
 title:    var, let, const 변수의 차이점은 무엇일까?
 author:   Kimtaeng
 tags: 	  javascript variable scope
-subtitle: ECMAScript 2015(ES6)에 추가된 var, let, const 선언의 차이점에 대해서 알아보자. 
+description: ECMAScript 2015(ES6)에 추가된 var, let, const 선언의 차이점에 대해서 알아보자. 
 category: Script
 comments: true
 ---
