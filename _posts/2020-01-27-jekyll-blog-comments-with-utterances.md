@@ -30,7 +30,7 @@ comments: true
 
 - <a href="https://github.com/apps/utterances" target="_blank" rel="nofollow">https://github.com/apps/utterances</a>
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-25-jekyll-blog-comments-with-utterances-1.png"
+<img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-27-jekyll-blog-comments-with-utterances-1.png"
 width="550" height="450" alt="install utterances"/>
 
 <br/>
@@ -39,7 +39,7 @@ width="550" height="450" alt="install utterances"/>
 대부분 사용자들이 ```사용자명/blog-comment``` 이런식으로 별도의 저장소를 이용하는 것을 확인했는데, 필자는 그냥 블로그와 동일한 저장소를 선택했다.
 한 곳에서 모든 것을 관리하고 싶기 때문이다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-25-jekyll-blog-comments-with-utterances-2.png"
+<img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-27-jekyll-blog-comments-with-utterances-2.png"
 width="300" height="450" alt="selet authorization types"/>
 
 <br/>
@@ -47,7 +47,7 @@ width="300" height="450" alt="selet authorization types"/>
 이제 ```utterances```를 설정할 차례다. **Repository** 항목에 동일하게 저장소 이름을 넣어준다. 중요한 것은 public 저장소여야 한다.
 ```사용자명/저장소이름``` 형태로 입력하면 된다. 앞서 언급한 것처럼 필자는 블로그 저장소를 입력했다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-25-jekyll-blog-comments-with-utterances-3.png"
+<img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-27-jekyll-blog-comments-with-utterances-3.png"
 width="500" height="400" alt="choose the repository"/>
 
 <br/>
@@ -62,7 +62,7 @@ width="500" height="400" alt="choose the repository"/>
 - 이슈 번호를 기반으로 매핑한다. 직접 입력해야 한다.
 - 특정 단어를 기반으로 매핑한다. 직접 입력해야 한다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-25-jekyll-blog-comments-with-utterances-4.png"
+<img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-27-jekyll-blog-comments-with-utterances-4.png"
 width="500" height="400" alt="choose the mapping"/>
 
 그리고 기타 설정을 할 수 있다. 댓글을 남겨서 이슈가 생성될 때 레이블이 자동으로 달리도록 설정할 수 있다.
@@ -71,7 +71,7 @@ width="500" height="400" alt="choose the mapping"/>
 마지막으로 블로그에 적용하기 위한 스크립트 코드를 확인할 수 있다. ```Copy``` 버튼을 클릭해서 복사한 후에 블로그에 포함시키면 된다.
 포스트 레이아웃에 ```include``` 하면 된다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-25-jekyll-blog-comments-with-utterances-5.png"
+<img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-27-jekyll-blog-comments-with-utterances-5.png"
 width="500" height="400" alt="enable utterances"/>
 
 <br/>
@@ -82,7 +82,7 @@ width="500" height="400" alt="enable utterances"/>
 그리고 매핑 기준을 처음에는 제목 기준으로 했었는데, 블로그 제목(MadPlay's MadLife)가 연달아 붙는게 마음에 들진 않았다. 
 나중에는 결국 OG 태그의 제목 정보 기준으로 바꿨다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-25-jekyll-blog-comments-with-utterances-6.png"
+<img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-27-jekyll-blog-comments-with-utterances-6.png"
 width="600" height="400" alt="utterances result"/>
 
 테스트해보면서 _"이슈를 닫으면 어떻게 될까~?"_ 하는 궁금함이 생겨서 직접 해보았는데, 이슈를 닫아도 댓글은 달 수 있다. 그런데 닫힌 이슈에 대해서
