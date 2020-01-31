@@ -274,7 +274,7 @@ public void foo(int arg1, arg2, arg3, int... restArg) {}
 <br/>
 
 # 아이템 54. null이 아닌, 빈 컬렉션이나 배열을 반환하라
-> Return empty collections or arrays, not nulls
+> Return empty collections or arrays, not nulls
 
 컬렉션이 빈 경우에 null을 반환하는 메서드를 자주 보았을 것이다.
 
