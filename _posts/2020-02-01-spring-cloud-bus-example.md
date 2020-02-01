@@ -32,7 +32,7 @@ width="650" alt="spring cloud bus structure"/>
 
 <br/>
 
-이제 직접 코드를 통해 Spring Cloud Bus를 사용해보자. 앞선 글에서 사용한 프로젝트를 그대로 이용할 예정이다.
+이제 직접 코드를 통해 Spring Cloud Bus를 사용해보자. 앞선 글에서 사용한 프로젝트를 그대로 이용할 예정이다.
 다만 이번 예제에서 Github의 ```Webhook```은 URL 직접 호출로 대체한다.
 
 <br/><br/>
