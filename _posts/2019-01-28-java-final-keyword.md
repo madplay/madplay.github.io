@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # final
 
 ```final``` 키워드는 클래스, 메서드, 변수에 사용할 수 있는데 의미는 단어 그대로 마지막이라는 뜻이다.

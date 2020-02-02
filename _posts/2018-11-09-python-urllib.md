@@ -8,8 +8,6 @@ category: Python
 comments: true
 ---
 
-<hr/>
-
 # urllib
 
 파이썬에서는 웹과 관련된 데이터를 쉽게 다룰 수 있도록 ```urllib```모듈을 제공합니다.

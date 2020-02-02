@@ -8,8 +8,6 @@ category: Spring
 comments: true
 ---
 
-<hr/>
-
 # 스프링 프레임워크란?
 
 스프링(Spring)은 프레임워크입니다. 자바 엔터프라이즈 애플리케이션 개발에 사용되는 프레임워크지요.
@@ -489,8 +487,6 @@ ConnectionMaker를 구현한 클래스가 전략이 되어 필요에 따라 전�
 
 스프링 프레임워크에 대해서 공부하기 전에 객체지향에 대한 부분을 더 많이 공부한 것 같은데요.
 이러한 기초를 탄탄히 다져야 차후에 본격적인 내용이 등장했을 때 당황하지 않겠죠?
-
-<hr/>
 
 <div class="post_caption">본 포스팅은 직접 개발을 하면서 겪었던 내용들과 "토비의 스프링",
 "Spring in Action", "Head First Design Pattern", "Wikipedia" 등 좋은 참고 자료들을 기반으로 직접 작성했습니다.</div>

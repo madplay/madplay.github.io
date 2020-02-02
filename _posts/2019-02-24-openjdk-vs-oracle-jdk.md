@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # Java SE Subscription
 
 2018년 6월 21일, 오라클은 Java SE에 대한 유료 구독 모델인 **Java SE Subscription**을 발표했다.

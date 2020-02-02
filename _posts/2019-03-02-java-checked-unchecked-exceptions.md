@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 예외(Exception)란?
 
 ```Checked Exception```과 ```Unchecked Exception```의 차이를 알아보기 전에 먼저 예외와 에러가 무엇인지

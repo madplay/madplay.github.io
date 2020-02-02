@@ -9,8 +9,6 @@ date: "2020-01-31 01:38:12"
 comments: true
 ---
 
-<hr/>
-
 # 왜 Spring Cloud Config?
 
 Spring Cloud Config는 분산된 환경에서 **설정 파일을 외부로 분리할 수 있도록** 해준다. 개발, 테스트 그리고 운영 환경에서까지

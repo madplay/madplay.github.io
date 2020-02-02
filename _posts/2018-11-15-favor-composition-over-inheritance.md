@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 상속(extends)
 
 상속은 코드를 재사용할 수 있는 강력한 수단이지만, 항상 최선이라고 할 수는 없습니다.

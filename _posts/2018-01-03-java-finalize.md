@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # finalize 메서드란 
 
 자바의 모든 클래스는 최상위 클래스인 Object 클래스의 여러 메서드를 포함하고 있는데요.<br/>

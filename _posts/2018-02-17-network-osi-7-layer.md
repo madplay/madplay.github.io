@@ -8,8 +8,6 @@ category: Network
 comments: true
 ---
 
-<hr/>
-
 # OSI 7 계층이란 무엇일까?
 
 정보처리기사 시험에서도, IT 회사 필기 또는 면접 전형에서도 가끔 등장하죠! OSI 7 계층에 대해서 알아봅시다. <br/> 

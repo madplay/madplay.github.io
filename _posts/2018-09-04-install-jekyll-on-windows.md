@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 아... Windows
 
 주로 맥북으로 블로그 포스팅을 진행하는데, 오늘 하필 **회사에 맥북을 두고** 왔습니다.

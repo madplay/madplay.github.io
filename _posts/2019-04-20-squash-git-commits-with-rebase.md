@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 개발을 하다보니...
 
 개발을 하다보면 작업한 코드를 여러 커밋으로 나누어서 진행하게 되는 경우가 많습니다.

@@ -8,8 +8,6 @@ category: Algorithm
 comments: true
 ---
 
-<hr/>
-
 # 알고리즘 성능 분석의 필요성
 
 프로그램의 규모는 시간이 지날수록 방대해지고 있습니다.

@@ -9,8 +9,6 @@ date: "2019-12-15 15:38:20"
 comments: true
 ---
 
-<hr/>
-
 개발을 하다가 한 번쯤은 방문해보셨을 커뮤니티가 있습니다
 바로 스택오버플로(<a href="https://stackoverflow.com" target="_blank" rel="nofollow">https://stackoverflow.com</a>) 인데요.
 

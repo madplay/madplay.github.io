@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 톰캣(Tomcat)
 
 여러 개의 톰캣을 띄우기 전에 먼저 톰캣의 구조에 대해서 알아봅시다.

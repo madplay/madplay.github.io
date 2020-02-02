@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 자바 레퍼런스의 객체 참조
 
 우리는 보통 아래 코드와 같이 객체를 생성합니다. 그리고 이러한 전형적인 객체 참조 방식을 <b>Strong Reference</b> 라고 말합니다.

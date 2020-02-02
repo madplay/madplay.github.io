@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 왜 그럴까?
 
 우리는 자바에서 메인(main) 메서드를 작성할 때 아래와 같이 작성한다.

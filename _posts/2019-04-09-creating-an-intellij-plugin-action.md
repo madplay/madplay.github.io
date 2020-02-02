@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 인텔리제이 플러그인 만들기, 두 번째 포스팅
 
 앞선 포스팅에서 Intellij IDEA에서 플러그인 프로젝트를 생성하고 그 구조에 대해서 살펴보았습니다.

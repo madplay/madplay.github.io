@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # grep 명령어
 
 grep 명령어는 특정 파일 내에서 정규표현식으로 문자열을 탐색해 그 문자열이 포함된 라인을 출력합니다.

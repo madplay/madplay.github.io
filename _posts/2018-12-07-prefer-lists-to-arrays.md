@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 배열과 제네릭 타입의 차이
 
 첫 번째로 배열은 공변(covariant)입니다. 예를들어 ```Sub```가 ```Super```의 하위 타입이라면

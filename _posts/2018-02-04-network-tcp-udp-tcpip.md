@@ -8,8 +8,6 @@ category: Network
 comments: true
 ---
 
-<hr/>
-
 # TCP/IP 란 무엇일까?
 
 TCP와 UDP에 대해서 알아보기 전에 TCP/IP를 먼저 알아야할 필요성이 있습니다.<br/>

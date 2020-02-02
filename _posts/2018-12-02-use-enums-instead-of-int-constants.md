@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 자바에서 상수 선언
 
 자바 언어의 열거 타입(enum type)은 ```Java 1.5```에 등장했습니다. 그 버전에서 상수 선언은 아래와 같이 했지요.

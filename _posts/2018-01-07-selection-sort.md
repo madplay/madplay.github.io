@@ -8,8 +8,6 @@ category: Algorithm
 comments: true
 ---
 
-<hr/>
-
 # 선택 정렬이란 무엇일까?
 
 선택 정렬이란 정렬이 되지 않은 전체 데이터 중에서 해당 위치에 맞는 데이터를 선택하여

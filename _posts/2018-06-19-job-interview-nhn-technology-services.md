@@ -8,8 +8,6 @@ category: Carrer
 comments: true
 ---
 
-<hr/>
-
 # NHN Technology Services 필기전형 후기
 
 서류전형의 경우 역시나 다른 IT 회사와 크게 다르지 않은 형식이었습니다.
@@ -32,7 +30,5 @@ String의 선언 방법과 비교하는 방법의 차이, 특정 알고리듬이
 문자열 속의 특정 단어의 존재 여부를 빠르게 탐색하는 방법 등 문제는 다양했네요.
 
 최근에는 N Tech Service 로 사명을 변경했더라고요.
-
-<hr/>
 
 <div class="post_caption">블로그를 이관하면서 옮겨온 글입니다. 해당 면접은 작성일자 기준으로 2~3년전에 진행되었습니다.</div>

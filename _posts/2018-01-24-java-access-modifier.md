@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 접근 지정자
 
 자바에서는 ```public```, ```protected```, ```private``` 그리고 접근 지정자를 생략하는 ```default```, 이렇게 총 4개의

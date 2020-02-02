@@ -8,8 +8,6 @@ category: Vuejs
 comments: true
 ---
 
-<hr/>
-
 # Vuex란 무엇일까?
 
 **Vuex**는 Vue.js 애플리케이션에 대한 상태 관리 패턴 + 라이브러리를 말합니다. 애플리케이션 내의 모든 컴포넌트에 대해서

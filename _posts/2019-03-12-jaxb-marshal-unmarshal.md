@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # Java Architecture for XML Binding
 
 JAXB는 XML Schema를 읽어서 자바 오브젝트로 만드는 언마샬링(Unmarshaling)과

@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 자바에서의 파일 압축과 해제
 
 Java 언어에서도 기본적으로 파일 압축과 해제에 대한 기능을 제공합니다.

@@ -9,8 +9,6 @@ date: "2019-09-09 00:00:02"
 comments: true
 ---
 
-<hr/>
-
 # 요약
 
 <a href="/post/what-to-look-for-in-a-code-review"><b>무엇을 찾아야 하는지</b></a> 알게 되었으므로 여러 파일에 걸쳐

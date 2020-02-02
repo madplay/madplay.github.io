@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # jEnv가 무엇일까?
 
 jEnv는 JDK 버전 관리 도구인데요. 여러 개의 jdk를 설치해두고 손쉽게 버전을 변경해가며 사용할 수 있습니다.

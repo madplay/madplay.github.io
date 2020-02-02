@@ -9,8 +9,6 @@ date: "2019-09-11 00:00:00"
 comments: true
 ---
 
-<hr/>
-
 <div class="post_comments">역주: 리뷰어 편에서는 CL(Change List)을 "변경사항 또는 코드 변경사항" 으로 번역했으나,
 이번 코드 작성자편에서는 번역하지 않고 그대로 사용합니다.</div>
 

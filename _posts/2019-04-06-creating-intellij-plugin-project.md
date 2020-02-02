@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 인텔리제이 플러그인 만들기
 
 이번 포스팅에서는 Mac OS 환경에서 인텔리제이 플러그인을 직접 개발하는 방법을 알아봅니다.

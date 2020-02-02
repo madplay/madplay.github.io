@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 다른 사람의 이름으로 commit 해버렸어...
 
 개발을 진행할 때, 특히 여러 사람들과 같이 개발을 진행할 때 버전 관리는 참 중요합니다.

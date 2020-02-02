@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # Java의 여러가지 Logger들
 
 Java 진영에는 여러가지 로깅 관련 프레임워크가 있습니다. 흔히 접하기 어려운 commons logging과

@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 제네릭은 불공변
 
 <a href="/post/prefer-lists-to-arrays">[이펙티브 자바 3판] 아이템 28. 배열보다는 리스트를 사용하라(링크)</a> 에서 살펴본 것처럼

@@ -8,8 +8,6 @@ category: Network
 comments: true
 ---
 
-<hr/>
-
 # FTP란 무엇일까
 
 FTP는 **File Transfer Protocol**의 약자로 말그대로 파일을 전송하는 통신 규약입니다. FTP 서버에 파일들을 업로드, 다운로드할 수

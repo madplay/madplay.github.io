@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 캐스팅
 
 **캐스팅(casting)**이란 타입을 변환하는 것을 말하며 **형변환**이라고도 합니다.

@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # Getting Started With Kafka!
 
 Kafka Producer와 Consumer를 자바로 직접 구현하는 것은 생각보다 간단합니다.

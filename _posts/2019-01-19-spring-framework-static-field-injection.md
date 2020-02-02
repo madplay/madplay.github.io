@@ -8,8 +8,6 @@ category: Spring
 comments: true
 ---
 
-<hr/>
-
 # 코드 예시
 
 스프링 프레임워크에서 정적(static) 멤버에 ```@autowired``` 어노테이션으로

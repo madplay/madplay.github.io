@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 문자열을 생성해보자. new String("Hello"); vs "Hello";
 
 Java에서 문자열(String)을 선언하는 방법은 아래와 같습니다.

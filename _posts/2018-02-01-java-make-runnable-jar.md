@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 JSmooth를 이용하여 자바 실행파일을 만들어보겠습니다.<br/>
 다운로드는 <a href="https://sourceforge.net/projects/jsmooth/files/jsmooth/" target="_blank">여기를 클릭</a> 해서 받으면 됩니다.
 

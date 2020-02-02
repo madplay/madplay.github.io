@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 배열과 컬렉션 순회
 
 보통 배열과 컬렉션의 요소를 탐색할 때 아래와 같이 사용합니다.

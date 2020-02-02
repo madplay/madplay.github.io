@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 아파치(Apache)란 무엇일까?
 
 1995년 처음 발표된 WWW(World Wide Web) 서버용 소프트웨어를 말합니다.

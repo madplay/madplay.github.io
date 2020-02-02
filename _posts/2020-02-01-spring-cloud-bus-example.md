@@ -9,8 +9,6 @@ date: "2020-02-01 03:51:59"
 comments: true
 ---
 
-<hr/>
-
 # Spring Cloud Bus가 왜 필요할까?
 
 앞선 글에서는 스프링 설정이 바뀌었을 때, 배포 없이 갱신할 수 있도록하는 **Spring Cloud Config**를 적용했었다.

@@ -8,8 +8,6 @@ category: Nodejs
 comments: true
 ---
 
-<hr/>
-
 # Node.js 설치하기
 
 ```Node.js```를 사용하려면 먼저 설치해야 합니다.

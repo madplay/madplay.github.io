@@ -9,8 +9,6 @@ date: "2019-09-09 00:00:01"
 comments: true
 ---
 
-<hr/>
-
 <div class="post_caption">아래 사항들을 고려할 때는 항상 <a href="/post/the-standard-of-code-review">
 <b>코드 리뷰의 표준 원칙</b></a>을 고려해야 합니다.</div>
 

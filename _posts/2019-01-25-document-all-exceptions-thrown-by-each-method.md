@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 메서드가 던지는 예외
 
 메서드가 던지는 예외(Exception)는 그 메서드를 올바르게 사용하도록 하는 중요한 정보가 됩니다.

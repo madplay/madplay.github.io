@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 함수형 프로그래밍이란?
 
 함수형 프로그래밍은 1930년대 미국의 수학자 알론조 처치(Alonzo Church)가
