@@ -4,25 +4,19 @@ layout: default
 
 {% include header.html type="post" %}
 
+{% include topAdSense.html %}
+
 <article class="post_container">
     <div id="content" class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-
-                <hr>
-
-                {% include topAdSense.html %}
-
-				{{ content | markdownify }}
-
-                <hr>
-
-                {% include bottomAdSense.html %}
-
+                {{ content | markdownify }}
             </div>
         </div>
     </div>
 </article>
+
+{% include bottomAdSense.html %}
 
 <hr>
 
