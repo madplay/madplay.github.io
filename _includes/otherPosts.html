@@ -13,12 +13,10 @@
                 {% if post_count < 6 %}
                 <tr>
                     <th class="other_posts_title">
-                        <a href="{{ site.url }}{{ post.url }}" rel="nofollow">{{ post.title }}</a>
+                        <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
                     </th>
                 </tr>
-                {% endif %}
-                {% endif %}
-                {% endfor %}
+                {% endif %}{% endif %}{% endfor %}
             </tbody>
         </table>
     </div>
