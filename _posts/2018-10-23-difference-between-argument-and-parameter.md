@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 같은 것 아니었나?
 
 가끔 전달인자(argument)와 매개변수(parameter)를 섞어서 큰 구분없이 사용하기도 합니다.

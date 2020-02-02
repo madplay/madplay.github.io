@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 목차
 
 - 자바 스트림 정리: 1. API 소개와 스트림 생성 연산

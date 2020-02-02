@@ -8,8 +8,6 @@ category: Nodejs
 comments: true
 ---
 
-<hr/>
-
 # Node.js?
 
 **Node.js**는 2009년 라이언 달(Ryan Dahl)이 처음 발표한 구글의 V8 Javascript 엔진을 기반으로 만들어진 서버 플랫폼입니다. 

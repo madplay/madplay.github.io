@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 먼저 결론은,
 
 재정의하지 않는다. 아래의 기본 equals 메서드를 쓰자.

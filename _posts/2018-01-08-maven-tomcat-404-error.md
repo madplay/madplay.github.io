@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 그만 보고 싶다. 404 Not Found.
 
 톰캣과 같은 (또는 아파치) 서버를 이용하여 웹 프로젝트를 많이 설계하실텐데요.

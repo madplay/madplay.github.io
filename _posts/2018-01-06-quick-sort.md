@@ -8,8 +8,6 @@ category: Algorithm
 comments: true
 ---
 
-<hr/>
-
 # 퀵 정렬이란 무엇일까?
 
 퀵 정렬에 사용되는 용어부터 살펴봅시다.

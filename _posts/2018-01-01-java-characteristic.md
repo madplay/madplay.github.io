@@ -7,7 +7,6 @@ description: 자바 언어는 어떤 특성을 가지고 있을까?
 category: Java
 comments: true
 ---
-<hr/>
 
 # Java 언어와 시스템의 특징
 

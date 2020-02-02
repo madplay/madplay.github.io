@@ -8,8 +8,6 @@ category: Algorithm
 comments: true
 ---
 
-<hr/>
-
 # Description
 
 Write a function that takes a string as input and returns the string reversed.

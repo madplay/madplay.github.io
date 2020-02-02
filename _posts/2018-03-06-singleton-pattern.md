@@ -8,8 +8,6 @@ category: DesignPattern
 comments: true
 ---
 
-<hr/>
-
 # 싱글톤 패턴이란?
 
 싱글톤 패턴이란 클래스의 객체 개수를 제한시키는 방법입니다.

@@ -8,8 +8,6 @@ category: Algorithm
 comments: true
 ---
 
-<hr/>
-
 # 에라토스테네스의 체?
 
 에라토스테네스의 체는 원리를 발견한 고대 그리스 수학자 에라토스테네스(Eratosthenes)의 이름에서 유래했습니다.

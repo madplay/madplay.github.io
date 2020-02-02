@@ -8,8 +8,6 @@ category: Spring
 comments: true
 ---
 
-<hr/>
-
 # 테스트란 무엇일까?
 
 테스트란 무엇일까요.

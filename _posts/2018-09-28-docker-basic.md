@@ -8,8 +8,6 @@ categories: Docker
 comments: true
 ---
 
-<hr/>
-
 # Docker란 무엇일까?
 
 간단하게 말하자면 가상화된 컨테이너입니다. 필요한 프로그램과 라이브러리를

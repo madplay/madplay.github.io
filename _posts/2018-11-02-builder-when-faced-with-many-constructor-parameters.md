@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 정적 팩토리나 생성자의 문제
 
 선택적인 매개변수가 많을 때 적절하게 대응하기 어려운 점이 있습니다. 대부분 **점층적 생성자 패턴(telescoping constructor pattern)**을 사용할텐데요.

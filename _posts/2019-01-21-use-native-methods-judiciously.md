@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 네이티브 메서드
 
 네이티브 메서드(Native Method)는 **C, C++**와 같은 네이티브 프로그래밍 언어로 작성한 메서드를 말합니다.

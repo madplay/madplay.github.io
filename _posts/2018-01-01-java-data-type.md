@@ -8,7 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
 # Java의 데이터 타입
 
 자바에서는 변수의 타입에 따라 저장할 수 있는 값의 범위와 종류가 드립니다.<br/>

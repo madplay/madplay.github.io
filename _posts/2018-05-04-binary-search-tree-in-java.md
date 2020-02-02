@@ -8,8 +8,6 @@ category: Algorithm
 comments: true
 ---
 
-<hr/>
-
 # 이진 탐색 트리를 구현해보자.
 
 앞서 살펴보았던 <a href="/post/binary-search-tree" target="_blank">이진 탐색 트리 Part I - 이론(클릭시 이동)</a>를 기억해가며 자바(Java) 언어로

@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # API 문서에 synchronized 가 보인다?
 
 Java API 문서에 **synchronized** 키워드가 보이는 메서드는 스레드에 안전하다고 말할 수 있습니다.

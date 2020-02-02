@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 인텔리제이 플러그인 만들기, 세 번째 포스팅
 
 이전 포스팅에서는 플랫폼 UI를 커스텀하는 과정인 **액션(Action)**을 정의하는 방법에 대해 알아보았습니다.

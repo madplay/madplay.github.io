@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # Kafka Producer configs 설정
 
 - **bootstrap.servers**

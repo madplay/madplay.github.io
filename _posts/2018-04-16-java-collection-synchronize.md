@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 동기화? 그것은 무엇일까?
 
 동기화(Synchronization)는 작업들 사이의 수행 시기를 맞추는 것을 말합니다.

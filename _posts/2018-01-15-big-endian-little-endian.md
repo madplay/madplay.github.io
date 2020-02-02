@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 엔디안(Endian)이란 무엇일까?
 
 엔디안은 컴퓨터의 메모리와 같은 1차원 공간에 여러 개의 연속된 대상을 배열하는 방법을 말합니다.<br/>

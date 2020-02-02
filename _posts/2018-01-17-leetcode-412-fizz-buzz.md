@@ -8,8 +8,6 @@ category: Algorithm
 comments: true
 ---
 
-<hr/>
-
 # Description
 
 Write a program that outputs the string representation of numbers from 1 to n.

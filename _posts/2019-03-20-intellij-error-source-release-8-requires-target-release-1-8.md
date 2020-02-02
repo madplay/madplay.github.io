@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 이것은 무슨 오류인가?
 
 Intellij IDE를 사용하여 코드를 작성하고 실행하려는 순간, 아래와 같은 에러 메시지를 만났다.

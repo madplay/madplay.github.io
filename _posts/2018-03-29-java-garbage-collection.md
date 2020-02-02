@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 가비지(Garbage)란 무엇일까?
 
 가비지란 무효영역(無效嶺域) 이라고도 하며, 더 이상 사용되지 않는 메모리를 뜻합니다.

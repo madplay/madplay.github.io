@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # High Sierra 업데이트 이후 Jekyll 실행이 안된다.
 
 기대반 걱정반의 심정으로 진행한 High Sierra 업데이트를 진행했는데요.

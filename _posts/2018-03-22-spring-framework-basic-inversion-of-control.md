@@ -8,8 +8,6 @@ category: Spring
 comments: true
 ---
 
-<hr/>
-
 # Inversion of Control : Object Factory
 
 지난 <a href="/post/spring-framework-basic-design-pattern" target="_blank">
@@ -467,8 +465,6 @@ ApplicationContext context =
 
 XML을 설정 정보로 이용했으니 기존에 DAOFactory에 선언했던 어노테이션은 제거해도 됩니다.
 차후에 알아보겠지만 Database 설정 정보 또한 XML에 정의할 수 있습니다. 
-
-<hr/>
 
 <div class="post_caption">본 포스팅은 직접 개발을 하면서 겪었던 내용들과 "토비의 스프링",
 "Spring in Action", "Head First Design Pattern", "Wikipedia" 등 좋은 참고 자료들을 기반으로 직접 작성했습니다.</div>

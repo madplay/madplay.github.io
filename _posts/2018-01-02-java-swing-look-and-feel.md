@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # Java에서 Swing 이란?
 
 스윙(Swing)은 자바 언어에서 GUI의 구현하기 위해 제공되는 라이브러리입니다.

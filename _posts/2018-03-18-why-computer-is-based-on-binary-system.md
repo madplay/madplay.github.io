@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 왜 0과 1만 사용할까?
 
 왜 컴퓨터는 0과 1로만 이루어진 2진수 체계를 사용할까요?<br/>

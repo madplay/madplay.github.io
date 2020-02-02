@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 자바의 Date API
 
 자바에서는 기본적으로 날짜와 시간을 계산하는 많은 클래스를 제공합니다. 오랫동안 제공된 ```JDK 1.0의 java.util.Date```와

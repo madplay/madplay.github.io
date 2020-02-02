@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 제네릭
 
 자바의 제네릭(Generic)이란 ```Java 5```에 추가된 스펙입니다. 다양한 타입을 다룰 수 있는 메서드 또는 컬렉션 클래스를

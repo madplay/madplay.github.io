@@ -8,8 +8,6 @@ category: Algorithm
 comments: true
 ---
 
-<hr/>
-
 # 합병 정렬이란 무엇일까?
 
 합병 정렬은 분할(Divide), 정복(Conquer), 결합Combine) 이라는 과정으로 진행됩니다.<br/>

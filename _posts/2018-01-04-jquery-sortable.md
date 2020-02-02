@@ -8,8 +8,6 @@ category: Script
 comments: true
 ---
 
-<hr/>
-
 # jQuery UI Sortable
 
 제이쿼리를 이용하여 드래그 & 드랍 이벤트를 통한 정렬을 구현해봅시다.

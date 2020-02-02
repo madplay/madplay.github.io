@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 어디서 오류가 났는지 알 수 있을까?
 
 이번 포스팅에서는 XML을 자바 오브젝트로 변환하는 언마샬(Unmarshal) 과정에서 XML 파일 내용에 포맷 오류가 있을 때

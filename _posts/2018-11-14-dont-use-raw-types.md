@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 로(raw) 타입이란?
 
 **로 타입**이란 제네릭(Generic) 타입에서 타입 매개변수를 전혀 사용하지 않은 때를 말합니다.

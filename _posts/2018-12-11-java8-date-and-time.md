@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # java.time 패키지
 
 JDK 1.8 버전에서 ```java.time``` 패키지에 ```LocalDateTime```과 타임존 개념까지 포함할 수 있는 ```ZonedDateTime```가 

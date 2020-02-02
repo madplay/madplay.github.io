@@ -8,8 +8,6 @@ category: Algorithm
 comments: true
 ---
 
-<hr/>
-
 # 이진 트리
 
 이진 탐색 트리(Binary Search Tree)를 알아보기 전에 우선 이진 트리(Binary Tree)가 무엇인지 알아야합니다.

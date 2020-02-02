@@ -8,8 +8,6 @@ category: Database
 comments: true
 ---
 
-<hr/>
-
 # MySQL 비밀번호 변경 오류
 
 Mac OS 환경에서 MySQL을 설치하여 최초 접속을 시도할 때 흔히 발생하는 에러 메시지가 있습니다.<br/>

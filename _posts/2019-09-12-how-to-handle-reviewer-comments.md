@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 <div class="post_caption">리뷰를 위해 CL을 제출했다면, 리뷰어가 CL에 몇 개의 의견을 남길 가능성이 높습니다.
 리뷰어의 의견을 다루는 유용한 방법들을 소개합니다.</div>
 

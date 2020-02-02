@@ -8,8 +8,6 @@ category: Spring
 comments: true
 ---
 
-<hr/>
-
 # 스프링 부트(Spring Boot)
 스프링 프레임워크를 조금 더 빠르게!
 

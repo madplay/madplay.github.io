@@ -8,8 +8,6 @@ category: Knowledge
 comments: true
 ---
 
-<hr/>
-
 # 렌더링
 
 **렌더링(Rendering)**은 요청을 받은 웹 페이지의 내용을 화면에 그려주는 것을 말합니다.

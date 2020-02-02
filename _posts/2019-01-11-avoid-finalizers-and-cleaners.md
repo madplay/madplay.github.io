@@ -8,8 +8,6 @@ category: Java
 comments: true
 ---
 
-<hr/>
-
 # 객체 소멸자
 
 자바에서는 2가지의 객체 소멸자를 제공합니다. 바로 최상위 오브젝트 클래스에 포함된 ```finalize``` 메서드와
