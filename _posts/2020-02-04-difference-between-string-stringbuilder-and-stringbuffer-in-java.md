@@ -4,7 +4,7 @@ title:    "자바 String, StringBuilder 그리고 StringBuffer 차이 비교"
 author:   Kimtaeng
 tags: 	  java string stringbuilder stringbuffer
 description: "자바에서 String과 StringBuilder 그리고 StringBuffer의 차이는 무엇일까? 그리고 제일 빠른 연산 속도는 어떤 것일까?"
-category: Spring
+category: Java
 date: "2020-02-04 00:06:02"
 comments: true
 ---
