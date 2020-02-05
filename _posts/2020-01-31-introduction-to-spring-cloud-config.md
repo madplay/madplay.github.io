@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    "Spring Cloud Config 예제"
+title:    "Spring Cloud Config: 소개와 예제"
 author:   Kimtaeng
 tags: 	  spring springcloud
 description: "스프링 설정이 바뀌었을 때 빌드, 배포없이 갱신하려면 어떻게 해야할까? 스프링의 설정 파일들을 어떻게 외부로 분리시킬 수 있을까?"
@@ -418,12 +418,12 @@ $ curl -X POST "http:localhost:8089/actuator/refresh"
 번거로운 작업이 될 수 있다. Spring에서는 이러한 문제를 극복하기 위해 **Spring Cloud Bus** 라는 해결책을 가지고 있다.
 이어지는 포스팅에서 어떤 방식인지 살펴보자.
 
-- <a href="/post/spring-cloud-bus-example" target="_blank">링크: Spring Cloud Bus 예제</a>
+- <a href="/post/spring-cloud-bus-example" target="_blank">Spring Cloud Config: Spring Cloud Bus 예제 (링크)</a>
 
 <br/><br/>
 
 # 예제 소스 코드
-포스팅에 사용한 예제 소스 코드는 모두 아래 저장소에 있습니다.
+이번 글의 예제에서 사용한 소스 코드는 모두 아래 코드 저장소에 있습니다.
 
 - <a href="https://github.com/madplay/spring-cloud-config-server" target="_blank" rel="nofollow">
 https://github.com/madplay/spring-cloud-config-server</a>
