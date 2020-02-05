@@ -6,31 +6,33 @@ description: "공부하는 개발자의 이야기를 담고 있습니다."
 
 {% for category in site.categories %}
 <a href="#{{ category | first }}" class="btn btn-primary tag-btn">
-    <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;{{ category | first }}&nbsp;({{ category[1].size }})</a>
+    <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;{{ category | first }}&nbsp;({{ category[1].size }})
+</a>
 {% endfor %}
 
-<hr/>
+<hr />
 
 <div class="category_container">
     {% for category in site.categories %}
     <h2 id="{{ category | first }}" class="linked-section">
         <i class="fa fa-tag" aria-hidden="true"></i>
-            <a class="category_link" href="/{{ category | first | downcase }}">{{ category | first }}&nbsp;({{ category[1].size }})</a>
+        <div class="category_link">{{ category | first }}&nbsp;({{ category[1].size }})</div>
         {% for posts in category %}
     </h2>
     <div class="post-list">
         {% for post in posts %}
-            {% if post.url != category.name %}
+        {% if post.url != category.name %}
         <div class="tag-entry">
             <a href="{{ post.url }}">{{ post.title }}</a>
             <div class="entry-date">
-                <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%b %d, %Y" }}</time>
+                <time datetime="{{ post.date | date_to_xmlschema }}"
+                itemprop="datePublished">{{ post.date | date: "%b %d, %Y" }}</time>
             </div>
         </div>
-            {% endif %}
+        {% endif %}
         {% endfor %}
     </div>
     {% endfor %}
-<hr>
-{% endfor %}
+    <hr>
+    {% endfor %}
 </div>
