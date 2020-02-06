@@ -10,25 +10,26 @@ comments: true
 ---
 
 # 왜 Spring Cloud Config?
-Spring Cloud Config는 분산된 환경에서 **설정 파일을 외부로 분리할 수 있도록** 해준다. 개발, 테스트 그리고 운영 환경에서까지
-모든 환경 구성을 간편하게 관리할 수 있다.
+특정 확률에 따라 광고를 내보내는 기능을 개발한다고 하자. 그리고 확률 값의 변경될 때마다 수익이 어떻게 변하는지 확인해보는 **A/B 테스트**를 진행할 것이다.
+예를 들면 처음에는 5%로 설정했다가 테스트가 끝난 후 다시 10%로 바꿔야 한다. 확률 값을 프로젝트 설정 파일에서 읽어오거나 특정 변수에 대입하여 사용할 텐데
+이러한 경우 값을 변경할 때마다 **다시 빌드 후에 배포하는 과정**이 필요하다. 그러니까 테스트마다 확률 값 설정한 후 다시 빌드하고 배포해야 한다.
 
-그런데 이렇게만 보면 감이 잘 오지 않는다. **조금 더 풀어서 생각해보자.** 특정 확률에 따라 광고를 내보내도록 하는 기능을 개발한다고 하자.
-그리고 그 확률이 변경됨에 따라 수익이 어떻게 변하는지 확인해보는 테스트를 진행할 것이다. 처음에는 5%로 설정했다가 테스트가 끝난 후 다시 10%로 바꿔야 한다.
-**보통이라면 다시 빌드 후에 배포하는 과정**을 겪게 될 것이다. 그리고 다음 테스트가 끝나면 또다시 확률 설정값을 변경해서 빌드하고 배포한다.
-
-이런 경우에 Spring Cloud Config가 도움을 줄 수 있다. 별도의 설정을 위한 서버를 구성하기 때문에 실행 중인 애플리케이션이 설정 서버에서
-설정을 받아와 갱신하는 방식이다. 그러니까 실행 중에 설정값 변경이 필요해지면, 설정 서버만 변경하고 애플리케이션은 갱신하도록 해주기만 하면 된다.
-**설정이 바뀔 때마다 빌드와 배포가 필요 없는 구조**이다.
+이럴 때 Spring Cloud Config가 도움을 줄 수 있다. 분산된 환경에서 **설정 파일을 외부로 분리할 수 있도록** 해준다.
+개발/테스트 환경 그리고 운영 환경에서까지 모든 환경 구성을 간편하게 관리할 수 있다. 설정을 위한 별도의 서버를 구성하기 때문에 실행 중인 애플리케이션이
+서버에서 설정 정보를 받아와 갱신하는 방식이다. 즉 실행 중에 설정값 변경이 필요해지면, 설정 서버만 변경하고 애플리케이션은 갱신하도록 해주기만 하면 된다.
+따라서 **설정이 바뀔 때마다 빌드와 배포가 필요 없는 구조**이다.
 
 <br/>
 
 # 어떤 구조일까?
-아래 이미지는 Spring Cloud Config의 기본 구조다. 코드와 설정을 분리하기 위해서 **설정 파일은 Git Repository에** 위치한다.
-그리고 Config(설정) 서버는 Git 저장소를 바라보고 애플리케이션이자 Config 클라이언트는 Config 서버를 바라본다.
+아래 이미지는 Spring Cloud Config의 기본 구조다. 동작 순서대로 과정을 살펴보자.
+
+먼저 클라이언트는 서버로 설정값을 요청하면 서버는 설정 파일이 위치한 Git 저장소에 접근한다. 서버는 Git 저장소로부터 최신 설정값을 받고 클라이언트는 다시
+서버를 통해 최신 설정값을 받는다. 만일, 사용자가 설정 파일을 변경하고 Git 저장소를 업데이트했다면 애플리케이션(클라이언트)의 `actuator/refresh`
+엔드 포인트를 호출하여 설정값을 변경하도록 한다. 여기서의 설정값 갱신을 위한 엔드 포인트 호출은 각각의 클라이언트를 호출해야 하며 호출된 클라이언트만 반영된다.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-30-introduction-to-spring-cloud-config-1.png"
-width="550" height="400" alt="spring cloud config structure"/>
+width="800" alt="spring cloud config architecture"/>
 
 <br/>
 
@@ -41,7 +42,7 @@ width="550" height="400" alt="spring cloud config structure"/>
 <br/><br/>
 
 # Spring Cloud Config Server
-먼저 Config 서버를 구성해보자. 나중에 다시 언급하겠지만 클라이언트를 구동할 때는 config 서버가 구동돼있어야 한다.
+먼저 Config 서버를 구성해보자. 나중에 다시 언급하겠지만 클라이언트를 구동할 때는 지금 구성하고 있는 config 서버가 구동돼있어야 한다.
 
 ## 프로젝트 생성
 스프링 부트 프로젝트를 생성한다. 물론 <a href="https://start.spring.io" target="_blank" rel="nofollow">
@@ -123,33 +124,71 @@ config 서버 설정은 끝이다. 다음으로 설정 파일들을 저장하는
 이번에는 설정 파일들만 만들어주면 되서 간단하다.
 
 ## 설정 파일 생성
-새 프로젝트를 생성해서 루트 경로에 아래와 같이 설정 파일을 만들면 된다. 
+새 프로젝트를 생성해서 루트 경로에 아래와 같이 설정 파일들을 만들면 된다. 
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-30-introduction-to-spring-cloud-config-3.png"
 width="700" alt="config files"/>
 
-다만 `{애플리케이션 이름}-{환경별 이름}.yml` 패턴으로 만들어야 한다. 즉, 여기서는 애플리케이션 이름이 config가 되는 것이다.
-이 이름은 config 클라이언트 설정에도 사용하게 되므로 기억해두자. 
+파일 이름은 보통 `{애플리케이션 이름}-{환경별 이름}.yml` 형태로 만든다. 그러니까 여기서는 애플리케이션 이름이 config가 되는 것이다.
+지정한 `{application}` 값은 클라이언트 설정에도 사용해야 하므로 기억해두자.
 
-준비는 끝났다. 하지만 앞서 언급한 것처럼 설정 파일들은 `Git Repository`에 저장된다. 자신의 깃허브 계정으로 로그인하여 저장소를 하나 생성해보자.
-중요한 것은 설정 파일 저장소의 주소는 config 서버의 `application.yml`에 선언된 주소와 동일해야 한다.
+이제 설정 파일 준비는 끝났다. 앞서 언급한 것처럼 설정 파일들은 **Git Repository**에 저장된다. 자신의 깃허브 계정으로 로그인하여 저장소를 하나 생성해보자.
+중요한 것은 git 저장소의 주소는 config 서버의 ****application.yml**에 선언된 주소와 동일해야 한다.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-30-introduction-to-spring-cloud-config-4.png"
 width="450" alt="config repository"/>
 
 <br/>
 
+## 설정 파일 테스트
 설정 정보 관련한 작업은 끝났다. Client를 구성하기 전에 Server가 정상적으로 구동되는지 한 번 실행해보자.
-Server의 포트를 8088로 설정했기 때문에 아래와 같이 확인할 수 있다. 물론 GET이기 때문에 브라우저를 이용하여 바로 접속해도 확인할 수 있다.
+Server의 포트를 8088로 설정했기 때문에 아래와 같이 확인할 수 있다. 물론 GET이기 때문에 간단하게 브라우저로 접속하여 바로 확인할 수도 있다.
 
 ```bash
 # dev, test, real 모두 확인 가능하다.
 $ curl -X GET "http://localhost:8088/config/dev"
 ```
 
+<br/>
+
 <img class="post_image" src="{{ site.baseurl }}/img/post/2020-01-30-introduction-to-spring-cloud-config-5.png"
 width="700" alt="dev config result"/>
 
+참고로 Spring Cloud Config Server는 아래와 같은 엔드 포인트를 가진다.
+
+```bash
+GET /{application}/{profile}[/{label}]
+GET /{application}-{profile}.yml
+GET /{label}/{application}-{profile}.yml
+GET /{application}-{profile}.properties
+GET /{label}/{application}-{profile}.properties
+```
+
+`{application}` 값은 애플리케이션 이름을 나타내고, `{profile}`은 `active.profile`과 매칭된다.
+`label` 값의 경우에는 선택적인 값인데, git 저장소의 브랜치 정보다. 예상한 것처럼 기본값은 master 이다.
+
+각 환경별로 파일이 늘어나는 것을 선호하지 않는다면 한 파일에 모두 작성해도 된다.
+
+```yaml
+spring.profiles: dev
+taeng:
+  profile: I'm dev taeng
+  comment: Hello! dev taeng
+
+---
+spring.profiles: test
+taeng:
+  profile: I'm dev taeng
+  comment: Hello! test taeng
+
+---
+spring.profiles: real
+taeng:
+  profile: I'm real taeng
+  comment: Hello! real taeng
+```
+
+파일 내용이 길어지는 단점이 있겠지만 Git 저장소에서 관리되는 파일의 개수가 적어지는 큰 장점이 있다.
 
 <br/><br/>
 
@@ -370,11 +409,20 @@ $ curl -X POST "http:localhost:8089/actuator/refresh"
 }
 ```
 
-짧은 예제였지만 이처럼 **Spring Cloud Config** 를 사용하면 설정 파일을 외부로 분리할 수 있고 실행중에 빌드, 배포 없이 동적으로 변경시킬 수 있다.
+<br/><br/>
+
+# 마치며
+간단한 예제였지만 이처럼 **Spring Cloud Config** 를 사용하면 설정 파일을 외부로 분리할 수 있고 실행중에 빌드, 배포 없이 동적으로 변경시킬 수 있다.
+
+그런데 설정값이 변경될 때마다 모든 애플리케이션이 갱신하도록 수동 요청하는 것이 번거롭다고 느껴지지 않는가? 많은 수의 클라이언트가 존재한다면 이것또한
+번거로운 작업이 될 수 있다. Spring에서는 이러한 문제를 극복하기 위해 **Spring Cloud Bus** 라는 해결책을 가지고 있다.
+이어지는 포스팅에서 어떤 방식인지 살펴보자.
+
+- <a href="/post/spring-cloud-bus-example" target="_blank">링크: Spring Cloud Bus 예제</a>
 
 <br/><br/>
 
-# 예제 코드
+# 예제 소스 코드
 포스팅에 사용한 예제 소스 코드는 모두 아래 저장소에 있습니다.
 
 - <a href="https://github.com/madplay/spring-cloud-config-server" target="_blank" rel="nofollow">
