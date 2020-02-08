@@ -297,5 +297,5 @@ String s5 = (new StringBuilder()).append(s).append(s1).append(s2).append(s3).app
 
 끝으로 이번 글의 주제와 관련된, 같이 읽으면 좋은 글도 전달드립니다.
 
-- <a href="/post/java-string-literal-vs-string-object">자바의 String 객체와 String 리터럴(링크)</a>
-- <a href="/post/java-garbage-collection-and-java-reference">자바 레퍼런스와 가비지 컬렉션(링크)</a>
+- <a href="/post/java-string-literal-vs-string-object" target="_blank">자바의 String 객체와 String 리터럴(링크)</a>
+- <a href="/post/java-garbage-collection-and-java-reference" target="_blank">자바 레퍼런스와 가비지 컬렉션(링크)</a>

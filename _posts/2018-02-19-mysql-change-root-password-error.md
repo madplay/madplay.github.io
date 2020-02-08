@@ -27,8 +27,9 @@ Mac OS 환경에서 MySQL을 설치하여 최초 접속을 시도할 때 흔히 
 분명히 일치하지만 접속이 안되는 경우도 있겠지요. 이런 경우에 패스워드를 새로 지정하여 접속해야 합니다.<br/>
 구글링해보면 UPDATE 명령어를 통해 변경하라고 제안합니다. 우선 그렇게 해봅시다.
 
-먼저, MySQL를 중단시킵니다. 
-<a href="https://coolestguidesontheplanet.com/start-stop-mysql-from-the-command-line-terminal-osx-linux" target="_blank">(MySQL 중단 방법 참고)</a>
+먼저, MySQL를 중단시킵니다. 중단 방법은 아래 링크를 참고하면 됩니다.
+- <a href="https://coolestguidesontheplanet.com/start-stop-mysql-from-the-command-line-terminal-osx-linux"
+rel="nofollow" target="_blank">링크: MySQL 중단 방법 참고</a>
 
 그리고 아래 명령어를 통해 잠시 동안 패스워드 없이 동작하도록 조정합니다.
 ```bash

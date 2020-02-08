@@ -55,7 +55,7 @@ I/O 요청을 보내놓고 자신의 작업을 진행합니다. 그리고 이후
 
 nodejs의 내부 구조(Architecture)를 살펴보면 아래 그림과 같습니다. 상위 레벨은 자바스크립트로 되어있고 하위 레벨은 C, C++로 되어있습니다.
 관련된 사이트들을 찾다가보니 ```libev``` 가 보이는데 v0.9.0 버전에서 종속성이 제거되었다고 합니다. 
-<a href="https://stackoverflow.com/a/34566312/9212562" target="_blank">(관련링크: Stack overflow)</a>
+<a href="https://stackoverflow.com/a/34566312/9212562" rel="nofollow" target="_blank">(관련링크: Stack overflow)</a>
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-12-30-introduction-to-nodejs-1.png" width="600" height="480" alt="nodejs architecture"/>
 
@@ -86,6 +86,9 @@ nodejs는 **V8 Engine** 위에서 동작합니다. 이 자바스크립트 엔진
 
 <div class="post_caption">이 포스트는 아래의 링크들을 참고하여 직접 작성하였습니다.</div>
 
-- <a href="https://medium.freecodecamp.org/what-exactly-is-node-js-ae36e97449f5" target="_blank">What exactly is Node.js?</a>
-- <a href="https://stackoverflow.com/questions/36766696/which-is-correct-node-js-architecture" target="_blank">Which is correct Node.js architecture?</a>
-- <a href="https://medium.freecodecamp.org/understanding-node-js-event-driven-architecture-223292fcbc2d" target="_blank">Understanding Node.js Event-Driven Architecture</a>
+- <a href="https://medium.freecodecamp.org/what-exactly-is-node-js-ae36e97449f5"
+rel="nofollow" target="_blank">What exactly is Node.js?</a>
+- <a href="https://stackoverflow.com/questions/36766696/which-is-correct-node-js-architecture"
+rel="nofollow" target="_blank">Which is correct Node.js architecture?</a>
+- <a href="https://medium.freecodecamp.org/understanding-node-js-event-driven-architecture-223292fcbc2d"
+rel="nofollow" target="_blank">Understanding Node.js Event-Driven Architecture</a>

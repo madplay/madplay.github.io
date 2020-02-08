@@ -11,8 +11,8 @@ comments: true
 # Node.js 설치하기
 
 ```Node.js```를 사용하려면 먼저 설치해야 합니다.
-**Mac 환경 기준**으로 설치는 <a href="https://nodejs.org/ko/" target="_blank">Node.js 공식 다운로드 페이지(링크)</a>를 통해서
-간단하게 설치할 수 있습니다.
+**Mac 환경 기준**으로 설치는 <a href="https://nodejs.org/ko/" rel="nofollow" target="_blank">
+Node.js 공식 다운로드 페이지(링크)</a>를 통해서 간단하게 설치할 수 있습니다.
 
 하지만 직접 설치해서 사용해보았을 때 여러 버전을 용이하게 테스트를 하기 위해서는 **Node Version Manager(nvm)**를
 사용하여 설치하고 관리하는 것이 더 편했던 것 같습니다.

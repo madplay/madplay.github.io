@@ -10,8 +10,8 @@ comments: true
 
 # 제네릭은 불공변
 
-<a href="/post/prefer-lists-to-arrays">[이펙티브 자바 3판] 아이템 28. 배열보다는 리스트를 사용하라(링크)</a> 에서 살펴본 것처럼
-매개변수화 타입은 불공변(invariant) 입니다. 예를 들어 Type1과 Type2가 있을 때, ```List<Type1>```은 ```List<Type2>```의
+<a href="/post/prefer-lists-to-arrays" target="_blank">[이펙티브 자바 3판] 아이템 28. 배열보다는 리스트를 사용하라(링크)</a> 에서
+살펴본 것처럼 매개변수화 타입은 불공변(invariant) 입니다. 예를 들어 Type1과 Type2가 있을 때, ```List<Type1>```은 ```List<Type2>```의
 하위 타입 또는 상위 타입이라는 관계가 성립될 수 없습니다.
 
 조금 더 풀어보면 ```List<Object>```에는 어떠한 객체도 넣을 수 있지만 ```List<String>```에는 문자열만 넣을 수 있습니다.

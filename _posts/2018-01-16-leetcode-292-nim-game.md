@@ -27,8 +27,7 @@ public class Solution {
 }
 ```
 
-- <a href="https://leetcode.com/problems/nim-game/description/"
-target="_blank" rel="nofllow">Reference link (Click!)</a>
+- <a href="https://leetcode.com/problems/nim-game/description/" target="_blank" rel="nofllow">Reference link</a>
 
 <br/>
 

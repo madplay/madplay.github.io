@@ -9,7 +9,7 @@ date: "2019-09-09 00:00:01"
 comments: true
 ---
 
-<div class="post_caption">아래 사항들을 고려할 때는 항상 <a href="/post/the-standard-of-code-review">
+<div class="post_caption">아래 사항들을 고려할 때는 항상 <a href="/post/the-standard-of-code-review" target="_blank">
 <b>코드 리뷰의 표준 원칙</b></a>을 고려해야 합니다.</div>
 
 <br/>
@@ -62,7 +62,7 @@ comments: true
 # 테스트(Tests)
 
 변경사항에 적합한 단위, 통합, 종단 테스트를 요청하세요. 
-일반적으로 코드 변경사항이  <a href="/post/what-is-an-emergency">**긴급상황**</a>을 처리하는 경우가 아니라면
+일반적으로 코드 변경사항이  <a href="/post/what-is-an-emergency" target="_blank">**긴급상황**</a>을 처리하는 경우가 아니라면
 서비스 되는 프로덕션 코드와 테스트 코드가 같은 변경사항에 있어야 합니다.
 변경 사항의 테스트가 올바르고, 분별력있고, 유용한지 확인하십시오.
 테스트를 위한 테스트 코드를 만들지 않기 때문에 반드시 사람이 테스트가 유효한지 확인해야 합니다.
@@ -177,4 +177,4 @@ comments: true
 
 <br/>
 
-- <a href="/post/navigating-a-cl-in-review"><b>이어지는 글: 리뷰중인 코드 변경사항 탐색</b></a>
+- <a href="/post/navigating-a-cl-in-review" target="_blank"><b>이어지는 글: 리뷰중인 코드 변경사항 탐색</b></a>

@@ -219,7 +219,8 @@ Perm 영역은 실행 시간(Runtime)에 가변적으로 변경할 수 없는 �
 저장할 공간이 부족하게 만들 수 있었습니다. 즉 OOM(Out Of Memory) 문제가 발생할 수 있었지요.
 Heap 영역으로 변경된 이후에는 상수풀에 들어간 문자열도 Garbage Collection 대상이 됩니다. 
  
-<a href="https://bugs.java.com/view_bug.do?bug_id=6962931" target="_blank">관련 링크) JDK-6962931 : move interned strings out of the perm gen(Oracle Java Bug Database)</a><br/>
+<a href="https://bugs.java.com/view_bug.do?bug_id=6962931" rel="nofollow" target="_blank">
+관련 링크) JDK-6962931 : move interned strings out of the perm gen(Oracle Java Bug Database)</a>
 
 ```Java 7```버전에서 상수풀의 위치가 Perm영역(정확히 풀어서 써보면 Permanent Generation)에서 Heap으로 옮겨지고
 이후에 ```Java 8``` 버전에서는 Perm 영역은 완전히 사라지고 이를 MetaSpace라는 영역이 대신하고 있습니다.
