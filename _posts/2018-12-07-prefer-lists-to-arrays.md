@@ -82,8 +82,8 @@ Integer 타입이므로 런타임에 ```ClassCastException``` 이 발생합니�
 
 ```E, List<E>, List<String>``` 같은 타입을 실체화 불가 타입(non-reifiable type)이라 합니다.
 제네릭 소거로 인해 실체화되지 않아서 런타임 시점에 컴파일타임보다 타입 정보를 적게 가지는 타입을 말합니다.
-<a href="https://docs.oracle.com/javase/tutorial/java/generics/nonReifiableVarargsType.html#non-reifiable-types" target="_blank">
-(참조 링크 - Oracle Docs: Non-Reifiable Types)</a>
+<a href="https://docs.oracle.com/javase/tutorial/java/generics/nonReifiableVarargsType.html#non-reifiable-types"
+rel="nofollow" target="_blank">(참조 링크 - Oracle Docs: Non-Reifiable Types)</a>
 
 소거로 인해 매개변수화 타입 가운데 실체화될 수 있는 타입은 ```List<?>```와 ```Map<?,?>``` 같은 비한정적 와일드카드 타입뿐입니다.
 

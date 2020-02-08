@@ -30,8 +30,8 @@ comments: true
 또 다른 하나는 오픈 소스(Open Source) 기반의 OpenJDK다. Oracle JDK의 빌드 프로세스는 OpenJDK 소스 코드를 기반으로 하며
 모든 기능은 OpenJDK를 통해서 제공되지만 차이는 있다. 대표적으로 Oracle JDK에만 있는 폰트 라이브러리 등을 말할 수 있는데
 버전이 올라갈수록 OpenJDK와 Oracle JDK의 기능 상의 차이는 점차 줄어들고 있다.
-<a href="https://stackoverflow.com/questions/22358071/differences-between-oracle-jdk-and-openjdk" target="_blank" rel="nofollow">
-링크: Stackoverflow - Differences between Oracle JDK and OpenJDK</a>
+<a href="https://stackoverflow.com/questions/22358071/differences-between-oracle-jdk-and-openjdk"
+target="_blank" rel="nofollow">링크: Stackoverflow - Differences between Oracle JDK and OpenJDK</a>
 
 <div class="post_caption">Oracle JDK 8 기준으로 jre/lib/fonts 경로를 보면 폰트 파일들이 포함되어 있다.</div> 
 

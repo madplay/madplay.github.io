@@ -29,7 +29,8 @@ comments: true
 로(raw) 타입이란 제네릭 타입에서 타입 매개 변수를 전혀 사용하지 않은 타입을 말한다. 현재로서는 제네릭 이전의 코드와 호환하기 위해서 사용될 뿐,
 런타임 시점에 오류를 발생할 소지가 많다.
 
-- <a href="/post/dont-use-raw-types">더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 26. 로 타입은 사용하지 말라</a>
+- <a href="/post/dont-use-raw-types" target="_blank">
+더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 26. 로 타입은 사용하지 말라</a>
 
 <div class="post_caption">로 타입을 사용하지 말자. 오직 하위 버전과 호환하기 위해서 남아있다.</div>
 
@@ -210,7 +211,7 @@ public static &lt;E extends Comparable&lt;E>> E max(Collection&lt;E> c);
 매개변수화 타입은 불공변(invariant)이다. 자바에서는 타입의 유연성을 극대화하기 위해 한정적 와일드카드 타입이라는
 특별한 매개변수화 타입을 지원한다.
 
-- <a href="/post/use-bounded-wildcards-to-increase-api-flexibility">
+- <a href="/post/use-bounded-wildcards-to-increase-api-flexibility" target="_blank">
 더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 31. 한정적 와일드카드를 사용해 API 유연성을 높이라</a>
 
 <div class="post_caption">조금 복잡하더라도 와일드카드 타입을 적용하면 API가 훨씬 유연해지는 장점이 있다.</div>

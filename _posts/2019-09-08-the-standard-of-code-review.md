@@ -21,7 +21,7 @@ comments: true
 그들의 목표를 달성하기 위해 손쉬운 방법을 택할 때, 시간이 지남에 따라 코드의 품질은 낮아지기 때문에 까다로울 수 있습니다.
 
 또한, 리뷰어는 리뷰 중인 코드에 대한 소유권과 책임이 있습니다. 그래서 그들은 코드가 일관성있고, 유지보수 가능하며
-<a href="/post/what-to-look-for-in-a-code-review"><b>코드 리뷰에서 봐야하는 것</b></a>에서 언급된 것들을
+<a href="/post/what-to-look-for-in-a-code-review" target="_blank"><b>코드 리뷰에서 봐야하는 것</b></a>에서 언급된 것들을
 잘 유지해야 합니다. 따라서, 코드 리뷰에 기대하는 표준으로서 아래와 같은 규칙을 세웠습니다.
 
 **코드 리뷰어는 코드 변경점(changelist)이 완벽하지 않더라도 코드 품질이 확실히 개선되는 상태가 되었다면, 리뷰어는 해당 변경점을
@@ -39,7 +39,7 @@ comments: true
 ```"Nit:"``` 과 같은 접두어를 붙여 코드 작성자가 선택할 수 있도록 해야 합니다. 
  
 주의: 이 문서에서 코드의 품질을 악화시키는 코드 변경사항 승인을 정당화하지 않습니다.
-이는 오직 <a href="/post/what-is-an-emergency"><b>긴급상황</b></a>일 경우에만 가능합니다.
+이는 오직 <a href="/post/what-is-an-emergency" target="_blank"><b>긴급상황</b></a>일 경우에만 가능합니다.
 
 <div class="post_comments">&lt;역주&gt;<br/>
 Nit은 Nitpick을 뜻합니다. 우리말로 번역하면 "트집 잡다"
@@ -80,4 +80,4 @@ Nit은 Nitpick을 뜻합니다. 우리말로 번역하면 "트집 잡다"
  
 <br/>
 
-- <a href="/post/what-to-look-for-in-a-code-review"><b>이어지는 글: 코드 리뷰에서 보아야 하는 것</b></a>
+- <a href="/post/what-to-look-for-in-a-code-review" target="_blank"><b>이어지는 글: 코드 리뷰에서 보아야 하는 것</b></a>

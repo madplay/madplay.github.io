@@ -125,5 +125,5 @@ Console과 File에 모두 로그가 남도록 설정했기 때문에 아래의 �
 ```
 
 이처럼 ```log4j2```를 설정하고 이용하는 방법은 생각보다 꽤 간단합니다. 물론 콘솔과 파일에 출력하는 것 외에
-<a href="http://home.apache.org/~rpopma/log4j/2.6/manual/appenders.html" target="_blank">다양한 Appender(링크)</a>들을
-추가할 수도 있고 각 Logger에 대해서 보다 세부적인 설정을 할 수 있습니다.
+<a href="http://home.apache.org/~rpopma/log4j/2.6/manual/appenders.html" rel="nofollow" target="_blank">
+다양한 Appender(링크)</a>들을 추가할 수도 있고 각 Logger에 대해서 보다 세부적인 설정을 할 수 있습니다.

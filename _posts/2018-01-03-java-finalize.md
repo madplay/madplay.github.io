@@ -22,8 +22,8 @@ comments: true
 아래 예제 코드로 C++의 동적 할당과 해제를 살펴봅시다.
 
 ```cpp
-#include &lt;iostream&gt;
-#include &lt;string&gt;
+#include <iostream>
+#include <string>
 
 using namespace std;
 

@@ -80,6 +80,5 @@ comments: true
 **SPA가 클라이언트 사이드 렌더링을 사용한다**는 것과 기존의 **전통적인 웹 페이지 방식이 서버 사이드 렌더링을 사용한다**는 것!
 
 <div class="post_caption">해당 내용은
-<a href="https://medium.com/@adamzerner/client-side-rendering-vs-server-side-rendering-a32d2cf3bfcc" target="_blank">
-Adam Zerner - Client-side rendering vs. server-side rendering
-</a>을 참고하여 작성하였습니다.</div>
+<a href="https://medium.com/@adamzerner/client-side-rendering-vs-server-side-rendering-a32d2cf3bfcc"
+rel="nofollow" target="_blank"> Adam Zerner - Client-side rendering vs. server-side rendering </a>을 참고하여 작성하였습니다.</div>

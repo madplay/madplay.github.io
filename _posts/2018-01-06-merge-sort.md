@@ -61,8 +61,8 @@ comments: true
 위 과정을 소스 코드를 통해 살펴봅시다.
 
 ```cpp
-#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
+#include <stdio.h>
+#include <stdlib.h>
 
 void Merge(int arr[], int left, int mid, int right)
 {
