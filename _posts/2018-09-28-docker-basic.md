@@ -28,8 +28,8 @@ Docker는 설치 환경에 따라서 설치 방법이 다릅니다.
 환경별로 Linux, CentOS 등으로 나눌 수 있고 실행에 있어서도 curl, yum 등 설치할 수 있는 방법은 많은데요.
 이번 글에서는 Mac OS 기준으로 진행합니다.
 
-다음 링크를 참조하여 <a href="https://docs.docker.com/docker-for-mac/install/" target="_blank">Install Docker for Mac(링크)</a>
-설치하면 됩니다.
+다음 링크를 참조하여 <a href="https://docs.docker.com/docker-for-mac/install/" rel="nofollow" target="_blank">
+Install Docker for Mac(링크)</a> 설치하면 됩니다.
 다운로드가 끝나고 별다른 설정 작업없이도 설치가 완료됩니다.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-09-28-docker-basic-1.png" width="400" height="280" alt="Docker for Mac"/>
@@ -66,8 +66,8 @@ Docker 이미지를 검색할 수 있는 명령어입니다.
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-09-28-docker-basic-2.png" width="1200" height="800" alt="docker search result"/>
 
 mysql이라는 이름으로 꽤 많은 도커 이미지가 공유되어 있습니다.
-<a href="https://hub.docker.com/" target="_blank">Docker Hub(링크)</a>에서 직접 검색해보면 알 수 있지만 공식(Official) 이미지의 경우 별도 표기가 있습니다.
-그 외에는 사용자들이 직접 만들어서 공유한 도커 이미지입니다.
+<a href="https://hub.docker.com/" rel="nofollow" target="_blank">Docker Hub(링크)</a>에서 직접 검색해보면 알 수 있지만
+공식(Official) 이미지의 경우 별도 표기가 있습니다. 그 외에는 사용자들이 직접 만들어서 공유한 도커 이미지입니다.
 
 <br/>
 

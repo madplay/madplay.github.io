@@ -92,7 +92,8 @@ gem update jekyll
 ... "cannot load such file -- jekyll-paginate“
 ```
 최초 에러를 수정하려고 이것저것 Gem 업데이트를 진행하다가 디펜던시가 꼬인듯한 느낌!
-<a href="https://github.com/jekyll/jekyll/issues/4518" target="_blank">Jekyll Github Issue(링크)</a>
+
+<a href="https://github.com/jekyll/jekyll/issues/4518" rel="nofollow" target="_blank">Jekyll Github Issue(링크)</a>
 
 아래와 같이 2단계의 명령어를 실행해서 해결했습니다.
 ```gem uninstall --all``` 그리고 이후에 ```gem install github-pages``` 명령어 실행!

@@ -2,7 +2,7 @@
 layout:   post
 title:    Java Swing 라이브러리 꾸미기(LookAndFeel 라이브러리)
 author:   Kimtaeng
-tags: 	  Java Swing LookAndFeel
+tags: 	  java swing lookandfeel
 description: LookAndFeel을 이용하여 Swing 라이브러리를 꾸며보자.
 category: Java
 comments: true

@@ -39,8 +39,7 @@ Return:
 ]
 ```
 
-- <a href="https://leetcode.com/problems/fizz-buzz/description/"
-target="_blank" rel="nofollow">Reference link (Click!)</a>
+- <a href="https://leetcode.com/problems/fizz-buzz/description/" target="_blank" rel="nofollow">Reference link<a>
 
 <br/>
 

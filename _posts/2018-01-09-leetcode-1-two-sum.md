@@ -28,8 +28,7 @@ public class Solution {
 }
 ```
 
-- <a href="https://leetcode.com/problems/two-sum/description/"
-target="_blank" rel="nofollow">Reference link (Click!)</a>
+- <a href="https://leetcode.com/problems/two-sum/description/" target="_blank" rel="nofollow">Reference link</a>
 
 <br/>
 

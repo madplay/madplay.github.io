@@ -224,7 +224,7 @@ public enum MadPlay {
 
 자바서에는 기본적으로 싱글톤으로 구현된 것도 있습니다.
 <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/Runtime.html" target="_blank" rel="nofollow">java.lang.Runtime(링크)</a>,
-<a href="https://docs.oracle.com/javase/7/docs/api/java/awt/Desktop.html" target="_blank" rel="nofollow"java.awt.Desktop(링크)</a>
+<a href="https://docs.oracle.com/javase/7/docs/api/java/awt/Desktop.html" target="_blank" rel="nofollow">java.awt.Desktop(링크)</a>
 
 한편, OOP의 개념이 생기면서 객체 자체에 대한 많은 연구와 패턴이 생겨난 것인데,
 싱글톤 패턴은 오히려 흔히 사용되면서도 지양해야하는 **안티 패턴(Anti Pattern)**으로 인식되기도 합니다.
