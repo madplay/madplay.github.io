@@ -2,7 +2,7 @@
 layout:   post
 title:    아파치 톰캣 연동하기(apache, tomcat, mod_jk)
 author:   Kimtaeng
-tags: 	  Apache Tomcat modjk ajp
+tags: 	  apache tomcat modjk ajp
 description: 웹서버 아파치와 WAS 톰캣을 modjk를 통해 연동해보자. 그리고 아파치와 톰캣을 연동하는 이유는 무엇일까?
 category: Knowledge
 comments: true
@@ -61,7 +61,7 @@ HTML 파일이나 이미지 파일과 같은 정적 컨텐츠들은 WAS까지 �
 # JK Connector 설치하기
 아래의 톰캣 홈페이지에서 하거나 curl을 통해서 다운로드하셔도 됩니다.
 
-- <a href="http://tomcat.apache.org/download-connectors.cgi" target="_blank">링크: JK Connector 다운로드</a>
+- <a href="http://tomcat.apache.org/download-connectors.cgi" target="_blank" rel="nofollow">링크: JK Connector 다운로드</a>
 
 ```bash
 curl -O http://archive.apache.org/dist/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.41-src.tar.gz

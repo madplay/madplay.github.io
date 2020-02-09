@@ -71,6 +71,6 @@ long형 타입인 것을 명시적으로 선언해주어야 합니다.
 참고로 언더스코어가 가장 앞에 등장하는 경우 변수의 이름으로 인식될 수 있습니다. 그리고 앞서 소개드린 것처럼 
 **자바7 버전부터 사용이 가능**합니다. 혼동될 수도 있겠지만 이전보다 큰 수를 읽기에는 더 편한 것 같습니다.
 
-<a href="https://docs.oracle.com/javase/7/docs/technotes/guides/language/underscores-literals.html" target="_blank">
-Oracle Java Docs: Underscores in Numeric Literals(참고링크)
+<a href="https://docs.oracle.com/javase/7/docs/technotes/guides/language/underscores-literals.html"
+rel="nofollow" target="_blank">Oracle Java Docs: Underscores in Numeric Literals(참고링크)
 </a>

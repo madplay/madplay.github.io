@@ -91,5 +91,7 @@ comments: true
 
 # 그 외의 더 자세한 Kafka configs 설정 방법
 
-- <a href="https://kafka.apache.org/documentation/#producerconfigs" target="_blank">Kafka Apache - Producer Configs</a>
-- <a href="https://kafka.apache.org/documentation/#consumerconfigs" target="_blank">Kafka Apache - Consumer Configs</a>
+- <a href="https://kafka.apache.org/documentation/#producerconfigs" rel="nofollow" target="_blank">
+Kafka Apache - Producer Configs</a>
+- <a href="https://kafka.apache.org/documentation/#consumerconfigs" rel="nofollow" target="_blank">
+Kafka Apache - Consumer Configs</a>

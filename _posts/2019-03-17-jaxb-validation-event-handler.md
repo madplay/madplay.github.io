@@ -166,5 +166,5 @@ ValidationEvent의 위치 정보가 정확하게 표기되지 않다거나, 이�
 관련해서는 스택오버플로우(Stackoverflow)에도 질문을 올린 적이 있었는데, Eclipse Moxy + JAXBContextFactory 조합을 사용했을 때
 재현되는 것을 확인할 수 있었습니다.
 
-- <a href="https://stackoverflow.com/questions/56191255/jaxb-validationeventhandlers-handleevent-method-not-being-called" target="_blank">
+- <a href="https://stackoverflow.com/questions/56191255/jaxb-validationeventhandlers-handleevent-method-not-being-called" rel="nofollow" target="_blank">
 참고 링크: JAXB ValidationEventHandler's handleEvent method not being called(Stackoverflow)</a>

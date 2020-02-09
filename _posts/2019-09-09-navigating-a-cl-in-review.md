@@ -11,7 +11,7 @@ comments: true
 
 # 요약
 
-<a href="/post/what-to-look-for-in-a-code-review"><b>무엇을 찾아야 하는지</b></a> 알게 되었으므로 여러 파일에 걸쳐
+<a href="/post/what-to-look-for-in-a-code-review" target="_blank"><b>무엇을 찾아야 하는지</b></a> 알게 되었으므로 여러 파일에 걸쳐
 분산된 리뷰를 관리하는 가장 효율적인 방법은 무엇인가요?
 
 1. 변화가 의미가 있습니까? 좋은 설명이 있습니까?
@@ -62,4 +62,4 @@ comments: true
 
 <br/>
 
-- <a href="/post/speed-of-code-reviews"><b>이어지는 글: 코드 리뷰의 속도</b></a>
+- <a href="/post/speed-of-code-reviews" target="_blank"><b>이어지는 글: 코드 리뷰의 속도</b></a>

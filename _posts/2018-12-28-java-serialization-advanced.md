@@ -23,8 +23,8 @@ comments: true
 내부에서 자동으로 유니크한 번호를 생성하여 관리하게 됩니다. 이 SUID는 직렬화와 역직렬화 과정에서 값이 서로 맞는지 확인 후에
 처리를 하기 때문에 이 값이 맞지 않다면 ```InvalidClassException``` 예외가 발생합니다. 
 
-자바의 직렬화 스펙을 <a href="https://docs.oracle.com/javase/10/docs/specs/serialization/class.html" target="_blank">
-Oracle Docs(링크)</a>를 통해 살펴보면 SUID 값은 필수가 아니며 선언되어 있지 않으면 클래스의 기본 해시값을 사용한다고 합니다.
+자바의 직렬화 스펙을 <a href="https://docs.oracle.com/javase/10/docs/specs/serialization/class.html" rel="nofollow"
+target="_blank">Oracle Docs(링크)</a>를 통해 살펴보면 SUID 값은 필수가 아니며 선언되어 있지 않으면 클래스의 기본 해시값을 사용한다고 합니다.
 
 따라서 **직접 SUID를 명시하지 않아도 내부에서 자동으로 값이 추가**되며 이 값들은 클래스의 이름, 생성자 등과 같이
 클래스의 구조를 이용해서 생성합니다. 앞선 예제에서도 직렬화 가능한 클래스(Article)를 선언할 때 SUID 값을 생략했지만
