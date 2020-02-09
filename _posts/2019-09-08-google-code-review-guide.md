@@ -25,8 +25,8 @@ eng-practices(github)</b></a>
 본격적인 구글의 코드 리뷰 가이드에 대한 내용은 아래의 <a href="#소개"><b>"소개"</b></a> 섹션에서 시작되며,
 아래 링크를 통해서도 바로 접근 가능합니다.
 
-- <a href="/post/google-code-review-guide-for-reviewers"><b>구글의 코드 리뷰 가이드: 리뷰어 편</b></a>
-- <a href="/post/google-code-review-guide-for-authors"><b>구글의 코드 리뷰 가이드: 작성자 편</b></a>
+- <a href="/post/google-code-review-guide-for-reviewers" target="_blank"><b>구글의 코드 리뷰 가이드: 리뷰어 편</b></a>
+- <a href="/post/google-code-review-guide-for-authors" target="_blank"><b>구글의 코드 리뷰 가이드: 작성자 편</b></a>
 
 <br/>
 
@@ -38,7 +38,7 @@ eng-practices(github)</b></a>
 - **LGTM**: Looks Good to Me의 약어입니다. 위의 코드 리뷰를 승인할 때, 리뷰어가 사용합니다.    
 
 <div class="post_comments">&lt;역주&gt;<br/>
-원문 일부를 보면 "Stands for “changelist,” which means one self-contained change that has been submitted to version
+원문 일부를 보면 "Stands for "changelist, which means one self-contained change that has been submitted to version
 control or which is undergoing code review." 여기서 self-contained를 independent와 동의로 번역하였습니다. 
 이어지는 포스팅에서는 CL을 "코드 변경사항" 으로 번역합니다.</div>
 
@@ -50,8 +50,8 @@ control or which is undergoing code review." 여기서 self-contained를 indepen
 이 문서는 구글의 코드 리뷰 절차와 정책에 대한 일반적인 설명입니다.
 이 페이지는 코드 리뷰 절차에 대한 개요입니다. 코드 리뷰에 대한 2가지의 문서로 나눌 수 있습니다.
 
-- <a href="/post/google-code-review-guide-for-reviewers"><b>코드 리뷰를 하는 방법: 코드 리뷰어를 위한 가이드</b></a>
-- <a href="/post/google-code-review-guide-for-authors"><b>코드 변경사항 작성자 가이드: 코드 작성자를 위한 가이드</b></a>
+- <a href="/post/google-code-review-guide-for-reviewers" target="_blank"><b>코드 리뷰를 하는 방법: 코드 리뷰어를 위한 가이드</b></a>
+- <a href="/post/google-code-review-guide-for-authors" target="_blank"><b>코드 변경사항 작성자 가이드: 코드 작성자를 위한 가이드</b></a>
 
 
 <br/>
@@ -69,8 +69,8 @@ control or which is undergoing code review." 여기서 self-contained를 indepen
 - **스타일(Style)**: 스타일 가이드(코딩 컨벤션)를 따르고 있는가?
 - **문서화(Documentation)**: 개발자가 관련 문서도 업데이트 했는가?
 
-자세한 내용은 <a href="/post/google-code-review-guide-for-reviewers"><b>코드 리뷰를 하는 방법: 코드 리뷰어를 위한 가이드
-</b></a>를 참고하세요.
+자세한 내용은 <a href="/post/google-code-review-guide-for-reviewers" target="_blank">
+<b>코드 리뷰를 하는 방법: 코드 리뷰어를 위한 가이드</b></a>를 참고하세요.
 
 <br/>
 
@@ -99,4 +99,5 @@ control or which is undergoing code review." 여기서 self-contained를 indepen
 
 <br/>
 
-- <a href="/post/google-code-review-guide-for-reviewers"><b>이어지는 글: 코드를 리뷰하는 방법, 코드 리뷰어를 위한 가이드</b></a>
+- <a href="/post/google-code-review-guide-for-reviewers" target="_blank">
+<b>이어지는 글: 코드를 리뷰하는 방법, 코드 리뷰어를 위한 가이드</b></a>

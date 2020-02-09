@@ -27,7 +27,7 @@ comments: true
 예전에는 자바에서 함수 타입을 표현할 때 추상 메서드 하나만을 담고 있는 인터페이스 또는 추상 클래스를 사용했다.
 이러한 인터페이스를 함수 객체(function object)라고 하며, 특정 함수나 동작을 표현하는데 사용했다.
 
-- <a href="post/prefer-lambdas-to-anonymous-classes">
+- <a href="post/prefer-lambdas-to-anonymous-classes" target="_blank">
 더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 42. 익명 클래스보다는 람다를 사용하라</a>
 
 <div class="post_caption">익명 클래스는 함수형 인터페이스가 아닌 타입의 인스턴스를 만들 때만 사용하자.</div>
@@ -88,7 +88,7 @@ class GoshThisClassNameIsHumongous {
 필요에 따라서 함수형 인터페이스를 직접 구현할 수 있겠지만, 대부분 ```java.util.function``` 패키지가 제공하는
 표준 함수형 인터페이스로 해결할 수 있다.
 
-- <a href="/post/favor-the-use-of-standard-functional-interfaces">
+- <a href="/post/favor-the-use-of-standard-functional-interfaces" target="_blank">
 더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 44. 표준 함수형 인터페이스를 사용하라</a>
 
 <div class="post_caption">표준 함수형 인터페이스를 사용하는 것이 대부분 가장 좋은 선택이다.</div>
@@ -100,7 +100,7 @@ class GoshThisClassNameIsHumongous {
 
 스트림은 데이터 원소의 유한 또는 무한 시퀀스(sequence)를 뜻한다. 컬렉션, 배열, 파일 등을 통해서 만들 수 있다.
 
-- <a href="/post/introduction-to-java-streams">자바 스트림 정리: 1. API 소개와 스트림 생성 연산</a>
+- <a href="/post/introduction-to-java-streams" target="_blank">자바 스트림 정리: 1. API 소개와 스트림 생성 연산</a>
 
 ## 스트림 파이프라인
 
@@ -114,7 +114,7 @@ class GoshThisClassNameIsHumongous {
 
 스트림을 남발하게 되면 오히려 읽기 어려운 코드가 된다.
 
-- <a href="/post/mistakes-when-using-java-streams">자바 스트림 정리: 5. 스트림을 사용할 때 주의할 점</a>
+- <a href="/post/mistakes-when-using-java-streams" target="_blank">자바 스트림 정리: 5. 스트림을 사용할 때 주의할 점</a>
 
 ```java
 public class Anagrams {
@@ -211,7 +211,7 @@ try (Stream<String> words = new Scanner(file).tokens()) {
 
 > 책의 ```Collectors``` 사용 예제는 아래 링크로 대체합니다.
 
-- <a href="/post/java-streams-terminal-operations">자바 스트림 정리: 3. 스트림 결과 구하기</a>
+- <a href="/post/java-streams-terminal-operations" target="_blank">자바 스트림 정리: 3. 스트림 결과 구하기</a>
 
 <div class="post_caption">스트림과 더불어 스트림 관련 객체에 건네지는 모든 함수 객체가 부작용이 없어야 한다.</div>
 

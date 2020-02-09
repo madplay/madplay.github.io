@@ -39,8 +39,8 @@ Ruby 다운로드... 환경변수 설정 등등... 설치하는 것은 뭐가 �
 
 <br/>
 
-<a href="https://aka.ms/wslstore" target="_blank">Microsoft Store(클릭시 이동)</a> 또는 직접 Microsoft Store 앱을 실행하셔서 Linux 배포판을 받으시면 됩니다.
-저는 우분투(Ubuntu)로 설치했습니다.
+<a href="https://aka.ms/wslstore" rel="nofollow" target="_blank">Microsoft Store(클릭시 이동)</a> 또는
+직접 Microsoft Store 앱을 실행하셔서 Linux 배포판을 받으시면 됩니다. 저는 우분투(Ubuntu)로 설치했습니다.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-09-04-install-jekyll-on-windows-2.jpg" width="560" height="400" alt="linux in microsoft store"/>
 
@@ -82,7 +82,8 @@ $ cd /mnt/c/Users/${사용자 유저명}/Desktop/
 ```--no-watch``` 옵션은 Windows 버전에서 ```watch``` 옵션이 적용이 안된다고 하네요.
 경고(Warning) 레벨의 메시지가 뜨면서 동작을 하지 않는다는 가이드가 나옵니다.
 
-<a href="https://github.com/Microsoft/BashOnWindows/issues/216" target="_blank">관련 링크) Microsoft Github Issue (클릭시 이동)</a>
+<a href="https://github.com/Microsoft/BashOnWindows/issues/216" rel="nofollow" target="_blank">
+관련 링크) Microsoft Github Issue (클릭시 이동)</a>
 
 중간에 삽질이 조금 있었는데... 특히 jekyll 설치부분에서 오류를 만났습니다.
 이것저것 찾아보니 중간과정에서 ```sudo apt-get install build-essential``` 명령어 누락이 있었네요.
