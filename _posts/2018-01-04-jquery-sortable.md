@@ -2,7 +2,7 @@
 layout:   post
 title:    jQuery Sortable (드래그앤드롭으로 정렬 구현하기)
 author:   Kimtaeng
-tags: 	  jQuery jQueryUI
+tags: 	  jquery jqueryui
 description: jQuery UI로 드래그 & 드랍 정렬을 구현해보자!
 category: Script
 comments: true
@@ -12,7 +12,7 @@ comments: true
 제이쿼리를 이용하여 드래그 & 드랍 이벤트를 통한 정렬을 구현해봅시다.
 jQuery User Interface Library에 있는 Sortable 이라는 것을 사용할 것인데요. 자세한 소개는 아래 링크를 참조하시기 바랍니다. 
 
-- <a href="https://jqueryui.com/sortable" target="_blank">링크: jQuery-UI 가이드 페이지로 이동</a>
+- <a href="https://jqueryui.com/sortable" target="_blank" rel="nofollow">링크: jQuery-UI 가이드 페이지로 이동</a>
 
 우선, 해당 라이브러리를 사용하려면 관련 스크립트 파일이 필요합니다. 링크를 연결하거나 직접 다운로드를 받으셔도 됩니다.
 (직접 다운로드하시는 경우 node.js 설치 후 bower를 통해서 받으면 편리합니다)

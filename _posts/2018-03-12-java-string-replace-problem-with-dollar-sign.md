@@ -64,8 +64,8 @@ replaceResult : abc
 replaceAllResult : DEFc
 ```
 
-replace의 경우는 첫 번째 파라미터를 단순 문자열로 인식하지 두 번째 replaceAll의 경우는
-첫 번째 파라미터를 단순 문자열이 아닌 정규 표현식으로 인식합니다. <a href="https://regex101.com/" target="_blank">정규표현식 테스트(링크)</a>
+replace의 경우는 첫 번째 파라미터를 단순 문자열로 인식하지 두 번째 replaceAll의 경우는 첫 번째 파라미터를 단순 문자열이 아닌 정규 표현식으로 인식합니다.
+<a href="https://regex101.com/" rel="nofollow" target="_blank">정규표현식 테스트(링크)</a>
 
 <br/>
 

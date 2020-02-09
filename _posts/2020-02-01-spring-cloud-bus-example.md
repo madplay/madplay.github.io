@@ -13,7 +13,7 @@ comments: true
 
 앞선 글에서는 스프링 설정이 바뀌었을 때, 배포 없이 갱신할 수 있도록하는 **Spring Cloud Config**를 적용했었다.
 
-- <a href="/post/introduction-to-spring-cloud-config">이전 글: Spring Cloud Config 예제 (링크)</a>
+- <a href="/post/introduction-to-spring-cloud-config" target="_blank">이전 글: Spring Cloud Config 예제 (링크)</a>
 
 그런데 설정이 갱신되는 애플리케이션인 Client는 설정 정보 갱신이 필요할 때마다 ```/actuator/refresh``` 와 같은 endpoint를 호출하여
 설정을 갱신하도록 해야 했다. 그런데 여기에 **Spring Cloud Bus**를 적용하면 설정 정보가 변경될 때마다 바로 서비스에서 반영되도록 할 수 있다.

@@ -106,7 +106,7 @@ person.setEmail("hello@gmail.com");
             .build();
 </code></pre>
 
-- <a href="/post/builder-when-faced-with-many-constructor-parameters">
+- <a href="/post/builder-when-faced-with-many-constructor-parameters" target="_blank">
 더 상세한 내용은 링크 참고: [이펙티브 자바  3판] 아이템 2. 생성자에 매개변수가 많다면 빌더를 고려하라</a>
 
 <div class="post_caption">생성자나 정적 팩터리에 매개변수가 많다면 빌더 패턴을 선택하는 게 더 낫다.

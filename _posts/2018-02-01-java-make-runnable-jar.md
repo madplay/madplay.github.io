@@ -8,8 +8,8 @@ category: Java
 comments: true
 ---
 
-JSmooth를 이용하여 자바 실행파일을 만들어보겠습니다.<br/>
-다운로드는 <a href="https://sourceforge.net/projects/jsmooth/files/jsmooth/" target="_blank">여기를 클릭</a> 해서 받으면 됩니다.
+JSmooth를 이용하여 자바 실행파일을 만들어보겠습니다. 다운로드는 아래 링크를 클릭해서 받으면 됩니다.
+- <a href="https://sourceforge.net/projects/jsmooth/files/jsmooth/" target="_blank" rel="nofollow">JSmooth 다운로드</a>
 
 그렇다면 이제 모든 준비 과정이 끝났다는 가정하에 JSmooth를 이용하여 자바 exe파일을 만들어봅시다.
 
