@@ -8,7 +8,7 @@ category: Java
 comments: true
 ---
 
-# 목록
+# 목차
 - <a href="#아이템-10-equals는-일반-규약을-지켜-재정의하라">아이템 10. equals는 일반 규약을 지켜 재정의하라</a>
 - <a href="#아이템-11-equals를-재정의하려거든-hashcode도-재정의하라">아이템 11. equals를 재정의하려거든 hashCode도 재정의하라</a> 
 - <a href="#아이템-12-tostring을-항상-재정의하라">아이템 12. toString을 항상 재정의하라</a>
