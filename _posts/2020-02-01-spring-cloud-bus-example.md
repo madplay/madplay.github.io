@@ -3,34 +3,43 @@ layout:   post
 title:    "Spring Cloud Bus 예제"
 author:   Kimtaeng
 tags: 	  spring springcloud springcloudbus
-description: "Spring Cloud Bus를 이용하여 Spring Cloud Config가 변경될 때마다 클라이언트 호출 없이 자동 갱신하는 방법"
+description: "Spring Cloud Config가 변경될 때마다 모든 클라이언트 호출해야만 할까? Spring Cloud Bus를 이용하여 모든 클라이언트를 연결해보자."
 category: Spring
 date: "2020-02-01 03:51:59"
 comments: true
 ---
 
 # Spring Cloud Bus가 왜 필요할까?
-앞선 글에서는 스프링 설정이 바뀌었을 때, 배포 없이 갱신할 수 있도록하는 **Spring Cloud Config**를 적용했었다.
+앞선 글에서는 스프링 설정이 바뀌었을 때 배포 없이 갱신할 수 있도록 하는 **Spring Cloud Config**를 적용했었다.
+그런데 클라이언트의 설정 정보 갱신이 필요할 때마다 `/actuator/refresh` 와 같은 endpoint를 호출하는 단점이 있다.
+마이크로 서비스 환경과 같은 독립된 수많은 클라이언트가 존재한다면, 설정 정보의 갱신을 위해 모든 클라이언트를 호출하는 것도 버거울 것이다.
 
 - <a href="/post/introduction-to-spring-cloud-config" target="_blank">이전 글: Spring Cloud Config 예제 (링크)</a>
 
-그런데 설정이 갱신되는 애플리케이션인 Client는 설정 정보 갱신이 필요할 때마다 `/actuator/refresh` 와 같은 endpoint를 호출하여
-설정을 갱신하도록 해야 했다. 그런데 여기에 **Spring Cloud Bus**를 적용하면 설정 정보가 변경될 때마다 바로 서비스에서 반영되도록 할 수 있다.
+그런데 여기에 **Spring Cloud Bus**를 적용하면 설정 정보가 변경될 때마다 연결된 모든 클라이언트가 한 번에 갱신되도록 할 수 있다.
+모든 서버에 대해 `refresh`를 호출하는 것이 아닌 단 한 개의 클라이언트에만 호출하면 모든 클라이언트가 갱신된다는 것이다.
 
 <br/><br/>
 
-# 구조
-간단하게 구조를 살펴보자. 먼저 `Git Repository`의 변경사항이 있으면 Github의 `Webhook`을 통해 Config 서버의 갱신을 위한 endpoint를 호출한다.
-그리고 이를 통해 변경 통보를 받은 **Config Server**는 설정 정보를 갱신한 후에 `RabbitMQ`에게 등록된 서버들의 설정을 갱신하도록 한다.
-그 결과로 **Config Client**는 설정 정보를 업데이트가 된다. 
+# 어떤 구조일까?
+간단하게 구조를 살펴보자. 앞선 글의 구조와 동일하게 설정 파일은 Git 저장소에 위치한다. config 서버는 Git 저장소에서 최신 설정 정보를 검색하여
+클라이언트를 위한 중앙 집중식 서비스로서의 역할을 수행하며 클라이언트는 구동될 때 config 서버로부터 설정 정보를 받아온다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2020-02-01-how-to-use-spring-cloud-bus-1.png"
-width="650" alt="spring cloud bus structure"/>
+그리고 클라이언트는 **Spring Cloud Bus**를 통해 서로 연결된다. 스프링 클라우드는 **RabbitMQ**와 **Kafka** 같은 경량 메시지 브로커를 사용하는데
+이번 예제에서는 ``RabbitMQ``를 사용하며 연결된 모든 클라이언트로 이벤트를 브로드캐스트(broadcast) 한다.
+
+<img class="post_image" src="{{ site.baseurl }}/img/post/2020-02-01-spring-cloud-bus-example-1.png"
+width="800" alt="spring cloud bus structure"/>
 
 <br/>
 
+한편 설정 파일을 변경한 후 Git 저장소로 `push` 했다면, 설정값을 갱신하기 위해서 클라이언트의 `actuator/bus-refresh` 엔드 포인트를 호출한다.
+여기서 기존 구성과의 차이는 단 하나의 클라이언트만 호출해도 **RabbitMQ로 연결된 모든 클라이언트에서 설정값이 갱신**된다는 것이다.
+
+config 서버는 Git 저장소에서 최신 설정 정보를 가져와 config 서버 자체를 갱신한다. 이후 클라이언트가 설정 정보를 요청하면
+최신으로 업데이트된 설정 정보가 제공된다.
+
 이제 직접 코드를 통해 Spring Cloud Bus를 사용해보자. 앞선 글에서 사용한 프로젝트를 그대로 이용할 예정이다.
-다만 이번 예제에서 Github의 `Webhook`은 URL 직접 호출로 대체한다.
 
 <br/><br/>
 
@@ -50,80 +59,53 @@ $ docker run -d --name rabbitmq \
 정상적으로 구동되었다면 브라우저를 열고 `http://localhost:8087`로 접속해보자. 아래와 같은 화면이 보일 텐데 컨테이너를 띄울 때 사용한
 계정 정보를 입력해서 로그인하면 된다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2020-02-01-how-to-use-spring-cloud-bus-2.png"
+<img class="post_image" src="{{ site.baseurl }}/img/post/2020-02-01-spring-cloud-bus-example-2.png"
 width="650" alt="rabbitmq admin page"/>
 
 <br/><br/>
 
-# Spring Cloud Config Server 수정
-Config 서버를 수정해야 한다. `pom.xml`에 아래 의존성을 추가해준다.
+# Spring Cloud Config Client 수정
+클라이언트의 코드를 수정해야 한다. 아래와 같이 `pom.xml`에 의존성을 추가해준다. **Spring Cloud Bus**를 위한 의존성이다.
 
 ```xml
 <dependency>
     <groupId>org.springframework.cloud</groupId>
     <artifactId>spring-cloud-starter-bus-amqp</artifactId>
 </dependency>
-
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-config-monitor</artifactId>
-</dependency>
 ```
 
-그리고 `application.yml` 파일을 아래처럼 수정한다.
+그리고 `application.yml`라는 이름으로 **새로운 파일을 생성**하고 아래와 같이 입력한다.
+물론 기존에 만들어둔 `bootstrap.yml`에 두어도 정상 실행되지만 기능에 따라 구분하는 것도 좋다.
 
 ```yaml
 server:
-  port: 8088
-
+  port: 8089
 spring:
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/madplay/spring-cloud-config-repository
   rabbitmq: # 이 부분을 추가해준다. (RabbitMQ 관련 설정)
     host: localhost
     port: 5672
     username: madplay
     password: madplay
 
-management: # 이 부분을 추가해준다. (기존에는 client 파일에 있었음)
+management:
   endpoints:
     web:
       exposure:
         include: bus-refresh
 ```
 
-<br/><br/>
-
-# Spring Cloud Config Client 수정
-Config 클라이언트도 수정해주어야 한다. 마찬가지로 `pom.xml`에 아래 의존성을 추가해준다.
-
-```xml
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-bus-amqp</artifactId>
-</dependency>
-```
-
-그리고 `bootstrap.yml` 파일을 아래와 같이 수정한다.
+다음으로 `bootstrap.yml`을 아래와 같이 수정한다. 설정값을 갱신하는 엔드 포인트 설정은 위의 `application.yml` 파일로 옮겼다.
 
 ```yaml
-server:
-  port: 8089
 spring:
   application:
     name: config
   cloud:
     config:
       uri: http://localhost:8088
-  rabbitmq: # 이 부분을 추가해준다. (RabbitMQ 관련 설정)
-    host: localhost
-    port: 5672
-    username: madplay
-    password: madplay
 ```
+
+수정은 끝났다. **config 서버는 수정하지 않아도 된다.**
 
 <br/><br/>
 
@@ -132,26 +114,48 @@ spring:
 클라이언트를 실행할 때는 `-Dspring.profiles.active=dev` 값을 주면 된다. Intellij IDE를 사용한다면 **Run/Debug Configuration**의
 Active Profiles에 `dev`만 입력하면 된다.
 
-Config 서버와 클라이언트가 모두 정상적으로 구동되면 RabbitMQ 어드민 페이지를 통해서 정상 연결됐는지 확인할 수 있다.
+다만 `RabbitMQ`에 연결된 모든 클라이언트가 갱신되는지 확인하기 위해 **2개의 클라이언트**를 띄워보자. 클라이언트를 띄운 후에 `application.yml`의
+`server.port` 부분을 8086번 포트로 수정하여 또 다른 클라이언트를 구동시켜 보자. 즉, 아래와 같이 포트를 사용하게 된다.
+
+| 포트 | 구분 |
+|:--:|:--:|
+| 8086 | Config 클라이언트 2 |
+| 8087 | RabbitMQ |
+| 8088 | Config 서버 |
+| 8089 | Config 클라이언트 1 |
+
+<br/>
+
+2개의 클라이언트가 모두 정상적으로 구동되면 RabbitMQ 어드민 페이지를 통해서 정상 연결됐는지 확인할 수 있다.
 먼저 `Exchanges` 탭에서 `springCloudBus`가 추가된 것과 `Connection` 탭에서 연결 상태를 확인할 수 있다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2020-02-01-how-to-use-spring-cloud-bus-3.png"
+<img class="post_image" src="{{ site.baseurl }}/img/post/2020-02-01-spring-cloud-bus-example-3.png"
 width="850" alt="rabbitmq"/>
 
 <br/>
 
-설정값 변경을 테스트하기 전에 클라이언트를 호출해서 현재의 값을 확인해보자.
+설정값 변경을 테스트하기 전에 클라이언트를 각각 호출해서 현재의 값을 확인해보자.
 
 ```bash
 $ curl -X GET "http://localhost:8089/dynamic"
 
+# 결과
+{
+  "profile": "I'm dev taeng",
+  "comment": "Hello! updated dev taeng!!!"
+}
+
+$ curl -X GET "http://localhost:8085/dynamic"
+
+# 결과
 {
   "profile": "I'm dev taeng",
   "comment": "Hello! updated dev taeng!!!"
 }
 ```
 
-값을 확인했다면 `Spring Cloud Config`를 변경했을 때처럼 Git Repository에 있는 `config-dev.yml` 파일의 내용을 수정해보자.
+두 개의 클라이언트 모두 동일한 결과를 보이고 있다. 값을 확인했다면 Git Repository에 있는 `config-dev.yml` 파일의 내용을 수정해보자.
+github를 통해서 바로 진행해도 되고, 로컬에서 파일을 수정한 후에 commit 후 push 해도 된다.
 
 ```yaml
 taeng:
@@ -159,11 +163,13 @@ taeng:
   comment: Hello! updated by Spring Bus.
 ```
 
-그리고 `Config Server`에 아래와 같은 요청을 보내면 된다. 기존에는 클라이언트에 갱신 요청을 보냈으나 이제는 설정 서버만 호출하면 된다.
-실제 현업이라면 여러 대로 구성된 클라이언트에 일일이 호출할 필요가 없다는 뜻이다. 설정 서버에만 호출하면 된다는 것이다.
+그리고 클라이언트 하나에만 아래와 같은 요청을 보내면 된다. 기존 방식이라면 모든 클라이언트에 갱신 요청을 해야 하지만
+이제는 하나의 클라이언트만 호출해도 `RabbitMQ`로 연결된 모든 클라이언트가 갱신된다.
+
+여러 대로 구성된 클라이언트를 하나씩 모두 호출할 필요가 없다는 뜻이다.
 
 ```bash
-$ curl -X POST "http://localhost:8088/actuator/bus-refresh"
+$ curl -X POST "http://localhost:8089/actuator/bus-refresh"
 ```
 
 이제 다시 클라이언트를 호출해서 값이 변경되었는지 확인해보자.
@@ -171,38 +177,69 @@ $ curl -X POST "http://localhost:8088/actuator/bus-refresh"
 ```bash
 $ curl -X GET "http://localhost:8089/dynamic"
 
+# 결과
+{
+  "profile": "I'm dev taeng",
+  "comment": "Hello! updated by Spring Bus."
+}
+
+$ curl -X GET "http://localhost:8086/dynamic"
+
+# 결과
 {
   "profile": "I'm dev taeng",
   "comment": "Hello! updated by Spring Bus."
 }
 ```
 
-`Spring Cloud Bus`를 통해 설정값이 갱신될 때, 서버와 클라이언트에는 어떤 로그가 남는지 확인해보자.
+그렇다! 하나의 클라이언트에만 갱신 요청을 했지만 다른 클라이언트까지 참조하고 있는 설정값이 최신으로 변경되었다.
+
+이번 글 도입부에서 보았던 구조처럼 Spring Cloud Bus에 연결된 모든 클라이언트에서 설정값 갱신을 위한 이벤트를 받으며
+`@RefreshScope` 어노테이션이 달린 모든 빈(Bean)은 갱신 이벤트에 의해 config 서버로부터 최신 설정값을 받는다.
+
+이 과정은 `Spring Cloud Bus`를 통해 설정값이 갱신될 때, 서버와 클라이언트의 로그를 통해서도 알 수 있다.
 
 ```bash
 # Server 로그
-No active profile set, falling back to default profiles: default
-Started application in 0.122 seconds (JVM running for 1015.25)
-Adding property source: file:/var/folders/7b/4vlwnfvd5r54h9fdd89qtnqm0000gn/T/config-repo-10206987896593312288/config-dev.yml
-Received remote refresh request. Keys refreshed []
+Fetched for remote master and found 1 updates
+The local repository is dirty or ahead of origin. Resetting it to origin/master.
+Reset label master to version AnyObjectId[52c3482316dd84c80f3a29fb7ba899548c7a4b2b]
+Adding property source: file:/var/folders/7b/4vlwnfvd5r54h9fdd89qtnqm0000gn/T/config-repo-10779098978969336911/config-dev.yml
+Adding property source: file:/var/folders/7b/4vlwnfvd5r54h9fdd89qtnqm0000gn/T/config-repo-10779098978969336911/config-dev.yml
 
-# Client 로그
+# Client1 로그
 Fetching config from server at : http://localhost:8088
-Located environment: name=config, profiles=[dev], label=null, version=3230c6b6e68299e3ce5993e596de4e1e301740b5, state=null
+Located environment: name=config, profiles=[dev], label=null, version=52c3482316dd84c80f3a29fb7ba899548c7a4b2b, state=null
 Located property source: [BootstrapPropertySource {name='bootstrapProperties-configClient'},
     BootstrapPropertySource {name='bootstrapProperties-https://github.com/madplay/spring-cloud-config-repository/config-dev.yml'}]
 The following profiles are active: dev
-Started application in 0.857 seconds (JVM running for 1171.394)
-Received remote refresh request. Keys refreshed []
+Started application in 1.982 seconds (JVM running for 316.229)
+Received remote refresh request. Keys refreshed [config.client.version, taeng.comment]
+
+# Client2 로그
+Fetching config from server at : http://localhost:8088
+Located environment: name=config, profiles=[dev], label=null, version=52c3482316dd84c80f3a29fb7ba899548c7a4b2b, state=null
+Located property source: [BootstrapPropertySource {name='bootstrapProperties-configClient'},
+    BootstrapPropertySource {name='bootstrapProperties-https://github.com/madplay/spring-cloud-config-repository/config-dev.yml'}]
+The following profiles are active: dev
+Started application in 1.06 seconds (JVM running for 794.7)
+Received remote refresh request. Keys refreshed [config.client.version, taeng.comment]
 ```
 
 <br/><br/>
 
 # 마치며
-이렇게 Config 서버만 호출해서 모든 클라이언트의 설정값을 변경할 수 있는 것을 확인했다.
-실제로는 GitHub의 `Webhook`을 사용하기 때문에 직접적으로 갱신하기 위한 엔드 포인트를 호출하는 작업도 필요 없다.
+처음 글에서는 **Spring Cloud Config**를 이용하여 설정 파일을 외부로 분리하여 빌드, 배포 없이도 갱신할 수 있도록 하였다.
+그리고 이번 글에서는 **Spring Cloud Bus**를 통해 설정값을 갱신하기 위해 모든 클라이언트를 호출하는 불편함을 없애보았다.
 
-- 예제에 사용된 소스 코드
+그런데 설정값이 갱신될 때마다 호출하는 것조차 불편하다고 느낄 수 있다. 이러한 호출조차 없앨 수 있지 않을까?
+이어지는 글에서 설정 파일이 변경될 때마다 자동으로 이벤트를 발생시킬 수 있는 방법에 대해서 알아본다.
+
+<br/><br/>
+
+# 예제 소스 코드
+포스팅에 사용한 예제 소스 코드는 모두 아래 저장소에 있습니다.
+
   - <a href="https://github.com/madplay/spring-cloud-config-server" target="_blank" rel="nofollow">
 https://github.com/madplay/spring-cloud-config-server</a>
   - <a href="https://github.com/madplay/spring-cloud-config-repository" target="_blank" rel="nofollow">
