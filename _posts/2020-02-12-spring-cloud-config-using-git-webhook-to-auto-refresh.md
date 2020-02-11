@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    "Spring Cloud Config: Git Webhook을 이용한 설정 자동 갱신"
+title:    "Spring Cloud Config: Git Webhook을 이용한 자동 갱신"
 author:   Kimtaeng
 tags: 	  spring springcloud springcloudbus webhook
 description: "Git Webhook을 이용하여 Spring Cloud Config 설정이 변경될 때마다 자동으로 갱신되도록 해보자"
@@ -13,7 +13,7 @@ comments: true
 앞선 글에서는 **Spring Cloud Bus**를 이용하여 설정값 갱신할 때 모든 클라이언트를 호출해야만 하는 불편함을 없앴다. 그런데 만일 설정 파일을 수정한 후에
 최신 업데이트를 위한 액츄에이터의 엔드 포인트 호출을 깜빡한다면 어떻게 될까?
 
-- <a href="/post/spring-cloud-bus-example" target="_blank">이전 글: Spring Cloud Bus 예제 (링크)</a>
+- <a href="/post/spring-cloud-bus-example" target="_blank">이전 글: "Spring Cloud Config: Spring Cloud Bus 예제" (링크)</a>
 
 당연히 참조하고 있는 설정값이 최신 데이터로 갱신되지 않을 것이다. 이런 경우를 대비하여 Git의 `Webhook`을 이용하면 설정 파일이 변경될 때마다
 갱신 이벤트를 발생시키기 위한 트리거를 발생시키도록 할 수 있다. 수동으로 엔드 포인트를 호출하지 않아도 된다.
