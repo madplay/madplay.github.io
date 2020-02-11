@@ -29,15 +29,15 @@ comments: true
 물론 명성이 없더라도 게시글을 읽거나 답변을 작성할 수 있고요.
 
 ## 언제 점수를 획득하는가?
-- 내가 다른 사용자의 질문을 채택한 경우: +2점
-- 내 질문이 다른 사용자의 찬성 투표를 받으면: +5점
-- 내 답변이 다른 사용자의 찬성 투표를 받으면: +10점
-- 내 답변을 질문자가 채택한 경우: +15점
+* 내가 다른 사용자의 질문을 채택한 경우: +2점
+* 내 질문이 다른 사용자의 찬성 투표를 받으면: +5점
+* 내 답변이 다른 사용자의 찬성 투표를 받으면: +10점
+* 내 답변을 질문자가 채택한 경우: +15점
 
 ## 언제 점수를 잃는가?
-- 내가 다른 사용자의 답변에 반대 투표를 하면: -1점
-- 내 질문이 다른 사용자의 반대 투표를 받으면: -2점
-- 내 답변이 다른 사용자의 반대 투표를 받으면: -2점
+* 내가 다른 사용자의 답변에 반대 투표를 하면: -1점
+* 내 질문이 다른 사용자의 반대 투표를 받으면: -2점
+* 내 답변이 다른 사용자의 반대 투표를 받으면: -2점
 
 그리고 이 체계에 따라서 커뮤니티 내의 **특권(Privilege)** 을 가질 수 있습니다. 특권 단계에 따라서 다른 사람의 질문이나
 답변을 수정할 수 있고, 심지어는 다른 사람이 올린 게시글의 삭제를 건의하는 투표를 할 수도 있습니다.
@@ -81,9 +81,9 @@ width="500" alt="stackoverflow privilege"/>
 
 한편, 현업을 하다가 막히는 부분이 있어서 JAXB 이벤트 핸들러 사용에 대한 이슈(아래 링크 참고)가 있어 직접 질문도 올려보았는데요.
 문제 해결을 위한 힌트뿐만 아니라 여러 개발자들과 같이 논의할 수 있는 기회를 얻을 수 있어 좋았습니다.
-
-- <a href="https://stackoverflow.com/questions/56191255/jaxb-validationeventhandlers-handleevent-method-not-being-called" 
+* <a href="https://stackoverflow.com/questions/56191255/jaxb-validationeventhandlers-handleevent-method-not-being-called"
 target="_blank" rel="nofollow">링크: JAXB ValidationEventHandler's handleEvent method not being called</a>
+
 
 ## 두 번째로 "영어 학습 효과" 입니다.
 새로운 개발 기술을 공부할 때, 책에 있는 코드를 읽기만 하는 것보다는 직접 코드를 작성하며 실행해봐야
