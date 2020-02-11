@@ -31,13 +31,12 @@ comments: true
 행여나 수행되더라도 잘못된 결과가 반환될 수 있다. 최악의 경우에는 잘 수행되다가 다른 객체의 상태 변경으로 인해
 미래의 알 수 없는 시점에 오류가 발생할 수도 있다.
 
-```public```과 ```protected``` 메서드는 매개변수 값이 잘못됐을 때 던지는 예외를 문서화해야 한다. 클래스 수준 주석은
-그 클래스의 모든 public 메서드에 적용되므로 훨씬 깔끔하다. ```@Nullable```과 같은 어노테이션을 사용할 수도 있지만 표준은 아니다.
+`public`과 `protected` 메서드는 매개변수 값이 잘못됐을 때 던지는 예외를 문서화해야 한다. 클래스 수준 주석은
+그 클래스의 모든 public 메서드에 적용되므로 훨씬 깔끔하다. `@Nullable`과 같은 어노테이션을 사용할 수도 있지만 표준은 아니다.
 더불어 생성자 매개변수 검사도 클래스 불변식을 어기는 객체가 생성되지 않게 하기 위하여 꼭 필요하다. 
 
 ## 유효성 검사 방법
-
-자바 7에 추가된 ```requireNonNull``` 메서드를 이용하면 조금 더 유연한 null 검사가 가능하다.
+자바 7에 추가된 `requireNonNull` 메서드를 이용하면 조금 더 유연한 null 검사가 가능하다.
 
 ```java
 public void someMethod(Integer val) {
@@ -46,14 +45,14 @@ public void someMethod(Integer val) {
 }
 ```
 
-위 메서드에 ```null```을 입력하면 아래와 같은 오류가 발생한다.
+위 메서드에 `null`을 입력하면 아래와 같은 오류가 발생한다.
 
 ```bash
 Exception in thread "main" java.lang.NullPointerException: 매개변수가 null 이네요?
 	at java.base/java.util.Objects.requireNonNull(Objects.java:246)
 ```
 
-자바 9에서는 Objects에 범위 검사 기능도 가능해졌다. ```checkFromIndexSize```, ```checkFromToIndex```, ```checkIndex``` 라는
+자바 9에서는 Objects에 범위 검사 기능도 가능해졌다. `checkFromIndexSize`, `checkFromToIndex`, `checkIndex` 라는
 메서드인데 null 검사 메서드만큼 유연하지는 않다. 예외 메시지를 지정할 수 없고 리스트와 배열 전용으로 설계됐다.
 
 ```java
@@ -64,9 +63,9 @@ List<String> list = List.of("a", "b", "c");
 Objects.checkIndex(4, list.size());
 ```
 
-private으로 공개되지 않은 메서드라면 개발자가 직접 호출되는 상황을 통제할 수 있다. 이럴 때는 ```assert```를 사용하여
-매개변수 유효성을 검사할 수 있다. 실행시에 assert를 수행하려면 인텔리제이 기준으로 VM Options에 ```-ea``` 또는 ```--enableassertions```
-를 넘겨주어야 한다. 값을 넘겨주지 않으면 무시된다. 넘어온 매개변수가 조건식을 참으로 만들지 않으면 ```AssertionError```를 던진다.
+private으로 공개되지 않은 메서드라면 개발자가 직접 호출되는 상황을 통제할 수 있다. 이럴 때는 `assert`를 사용하여
+매개변수 유효성을 검사할 수 있다. 실행시에 assert를 수행하려면 인텔리제이 기준으로 VM Options에 `-ea` 또는 `--enableassertions`
+를 넘겨주어야 한다. 값을 넘겨주지 않으면 무시된다. 넘어온 매개변수가 조건식을 참으로 만들지 않으면 `AssertionError`를 던진다.
 
 ```java
 private void someMethod(int arr[], int length) {
@@ -78,10 +77,9 @@ private void someMethod(int arr[], int length) {
 ```
 
 ## 유효성 검사가 필요 없는 경우
-
 매개변수에 대한 유효성 검사가 꼭 필요하지 않는 경우도 있다. 유효성을 검사하는 비용이 지나치게 큰 경우 또는 계산 과정에서 암묵적으로
-유효성 검사가 진행될 때이다. 예를 들어 ```Collections.sort(List)```처럼 리스트를 정렬할 때는 정렬 과정에서 모든 객체가 상호 비교된다.
-만일 비교할 수 없는 타입의 객체가 있으면 ```ClassCastException```이 발생할 것이기 때문에 비교하기에 앞서 모든 원소를 검증하는 것은
+유효성 검사가 진행될 때이다. 예를 들어 `Collections.sort(List)`처럼 리스트를 정렬할 때는 정렬 과정에서 모든 객체가 상호 비교된다.
+만일 비교할 수 없는 타입의 객체가 있으면 `ClassCastException`이 발생할 것이기 때문에 비교하기에 앞서 모든 원소를 검증하는 것은
 불필요한 과정이 된다.
 
 <div class="post_caption">매개변수는 메서드 코드 시작 부분에서 검사하자</div>
@@ -112,7 +110,7 @@ private void someMethod(int arr[], int length) {
 매개변수를 줄일 수 있는 방법들을 살펴보자.
 
 **여러 메서드로 나눠본다.** 예를 들어 리스트에서 특정 요소를 찾는다고 가정해보자. 이 기능을 하나의 메서드로 구현하려면
-리스트의 시작과 끝 그리고 찾을 요소까지 총 3개의 매개변수가 필요하다. 하지만 List 인터페이스는 ```subList```와 ```indexOf```
+리스트의 시작과 끝 그리고 찾을 요소까지 총 3개의 매개변수가 필요하다. 하지만 List 인터페이스는 `subList`와 `indexOf`
 메서드를 별개로 제공한다. 이들을 조합하면 원하는 기능을 구현할 수 있다.
 
 ```java
@@ -148,7 +146,7 @@ public void someMethod(SomeHelper someHelper) {
 - <a href="/post/creating-and-destroying-objects#아이템-2-생성자에-매개변수가-많다면-빌더를-고려하라" target="_blank">
 링크 참고: [이펙티브 자바 3판] 아이템 2. 생성자에 매개변수가 많다면 빌더를 고려하라</a>
 
-한편 **파라미터의 타입으로는 클래스보다는 인터페이스 형태가 낫다.** 예를 들어 ```HashMap``` 보다는 ```Map```을 사용하는
+한편 **파라미터의 타입으로는 클래스보다는 인터페이스 형태가 낫다.** 예를 들어 `HashMap` 보다는 `Map`을 사용하는
 편이 좋다. 클래스를 사용하는 것은 클라이언트에게 특정 구현체만 사용하도록 제한하는 것이다.
 그리고 **boolean 보다는 원소 2개짜리 enum이 더 낫다.** 물론 이름상 boolean 형태가 명확한 경우는 예외다.
 
@@ -190,8 +188,10 @@ public void setProgram(ProgramType type) {
 # 아이템 52: 다중정의는 신중히 사용하라
 > Use overloading judiciously
 
-재정의(overriding, 오버라이딩)를 한 메서드는 실행 중에 동적으로 선택되지만  다중 정의(overloading, 오버로딩)된 메서드의
+재정의(overriding, 오버라이딩)를 한 메서드는 실행 중에 동적으로 선택되지만 다중 정의(overloading, 오버로딩)된 메서드의
 호출 여부는 컴파일 타임에 정해진다. 그리고 이러한 다중 정의 메서드는 개발자가 기대한 것처럼 동작하지 않는 경우가 있다.
+
+- <a href="/post/method-overriding-vs-method-overloading-in-java" target="_blank">참고 링크: 자바 오버라이딩과 오버로딩</a>
 
 ```java
 class ColectionClassifier {
@@ -221,13 +221,13 @@ class ColectionClassifier {
 }
 ```
 
-위 코드의 출력 결과는 "그 외" 만 연달아 세 번 출력한다. 컴파일 타임에서는 for 문 안의 c는 항상 ```Collection<?>``` 타입이다.
+위 코드의 출력 결과는 "그 외" 만 연달아 세 번 출력한다. 컴파일 타임에서는 for 문 안의 c는 항상 `Collection<?>` 타입이다.
 이처럼 오버로딩이 혼란을 일으키지 않도록 프로그래밍해야 한다. 특히, 매개변수가 같은 다중정의는 피해야 한다. 헷갈릴 소지가 많다.
 더불어 가변인수를 사용하는 메서드는 다중정의를 아예 하면 안된다.
 
-다중정의를 하는 대신에 메서드 이름을 다르게 짓는 방법도 있다. ```ObjectOutputStream``` 클래스를 보면 다중정의 대신에 메서드의
-이름을 다르게 지었다. ```writeBoolean(boolean)```, ```writeInt(int)``` 처럼 말이다. 짝꿍 클래스인 ```ObjectInputStream```은
-```readBoolean()```, ```readInt()``` 처럼 짝에 맞는 메서드를 가지고 있다.
+다중정의를 하는 대신에 메서드 이름을 다르게 짓는 방법도 있다. `ObjectOutputStream` 클래스를 보면 다중정의 대신에 메서드의
+이름을 다르게 지었다. `writeBoolean(boolean)`, `writeInt(int)` 처럼 말이다. 짝꿍 클래스인 `ObjectInputStream`은
+`readBoolean()`, `readInt()` 처럼 짝에 맞는 메서드를 가지고 있다.
 
 한편, 생성자의 경우는 이름을 다르게 지을 수 없다. 그렇기 때문에 두 번째 생성자부터는 무조건 다중정의를 하게 되는 셈이다.
 생성자는 정적 팩터리를 사용하는 대안을 활용할 수 있다.
@@ -330,9 +330,9 @@ public Cheese[] getCheeses() {
 > Return optionals judiciously
 
 메서드가 특정 조건에서 값을 반환할 수 없을 때를 생각해보자. 자바 8 전에는 예외를 던지거나 null을 반환했다.
-하지만 예외는 진짜 예외적인 경우에만 사용해야 하며, null은 ```NullPointerException```과 null 처리 코드를 만들게 한다.
+하지만 예외는 진짜 예외적인 경우에만 사용해야 하며, null은 `NullPointerException`과 null 처리 코드를 만들게 한다.
 
-하지만 자바 8 이후로는 조금 다르다. ```Optional<T>```이 등장했기 때문인데, null이 아닌 T 타입 참조를 하나 담거나 또는
+하지만 자바 8 이후로는 조금 다르다. `Optional<T>`이 등장했기 때문인데, null이 아닌 T 타입 참조를 하나 담거나 또는
 아무것도 담지 않는 객체이다. 원소를 최대 1개 가질 수 있는 '불변' 컬렉션이며, 보다 null-safe한 코드를 작성할 수 있다.
 
 ```java
@@ -358,9 +358,7 @@ public static <E extends Comparable<E>>
 ```
 
 ## Optional 활용
-
 ### 기본값을 설정한다.
-
 옵셔널을 반환하는 메서드로부터 원하는 값을 받지 못했을 때, 기본 값을 설정할 수 있다.
 
 ```java
@@ -368,7 +366,6 @@ String lastWordInLexicon = max(words).orElse("단어 없음...");
 ```
 
 ### 원하는 예외를 던진다.
-
 값이 없는 경우 원하는 예외를 던질 수 있다. 한편 여기서는 실제 예외가 아니라 예외 팩터리를 건넸다.
 이렇게 하면 예외가 실제 발생하지 않는 한 예외 생성 비용이 들지 않는다.
 
@@ -377,16 +374,14 @@ Toy myToy = max(toys).orElseThrow(TemperTantrumException::new);
 ```
 
 ### 항상 값이 채워짐을 가정한다.
-
-옵셔널에 항상 값이 있음을 확신할 때 사용해야 한다. 값이 없다면 ```NoSuchElementException```이 발생한다.
+옵셔널에 항상 값이 있음을 확신할 때 사용해야 한다. 값이 없다면 `NoSuchElementException`이 발생한다.
 
 ```java
 Element lastNobleGas = max(Elements.NOBLE_GASES).get();
 ```
 
 ### 기본값 설정 비용이 큰 경우
-
-기본값 설정 비용이 커서 부담이라면 ```orElseGet```을 사용해보자. 값이 처음 필요할 때 ```Supplier<T>```를 사용하여 생성하므로
+기본값 설정 비용이 커서 부담이라면 `orElseGet`을 사용해보자. 값이 처음 필요할 때 `Supplier<T>`를 사용하여 생성하므로
 초기 설정 비용을 낮출 수 있다.
 
 ```java
@@ -394,12 +389,11 @@ Connection conn = getConnection(dataSource).orElseGet(() -> getLocalConn());
 ```
 
 ## 사용시 주의점
-
-컬렉션, 스트림, 배열, 옵셔널 같은 컨테이너를 옵셔널로 감싸면 안된다. 그러니까 ```Optional<List<T>>```를 반환하는 것보다
-그저 빈 리스트 ```List<T>```를 반환하는 것이 낫다. 빈 컨테이너를 그대로 반환하면 클라이언트에서는 옵셔널 처리 코드를 만들지
+컬렉션, 스트림, 배열, 옵셔널 같은 컨테이너를 옵셔널로 감싸면 안된다. 그러니까 `Optional<List<T>>`를 반환하는 것보다
+그저 빈 리스트 `List<T>`를 반환하는 것이 낫다. 빈 컨테이너를 그대로 반환하면 클라이언트에서는 옵셔널 처리 코드를 만들지
 않아도 되기 때문이다.
 
-한편 옵셔널을 컬렉션의 키, 값, 원소 그리고 배열의 원소로 사용하는 것은 좋지 않다. ```Map```에 사용하는 것을 예로 들어보자.
+한편 옵셔널을 컬렉션의 키, 값, 원소 그리고 배열의 원소로 사용하는 것은 좋지 않다. `Map`에 사용하는 것을 예로 들어보자.
 맵 안에 키가 없다는 정의가 2가지가 된다. "키 자체가 없는 경우"와 "키는 있지만 속이 빈 옵셔널인 경우" 이렇게 모호해진다.
 
 <div class="post_caption">성능에 민감한 메서드라면 null을 반환하거나 예외를 던지는 것이 낫다.</div>
@@ -430,12 +424,11 @@ API의 사용성을 높이려면 잘 작성된 문서도 있어야 한다. 자�
 @summary | 요약 설명 | 해당 설명에 대한 요약(자바 10부터)
 
 ## 일반 가이드
-
 - 가독성 좋게 작성해야 한다.
-  - ```{@literal |r| < 1}``` VS ```|r| {@literal < } 1```
-  - ```@literal```이 필요한 곳은 ```<``` 한 곳이지만 가독성을 위해 문장 전체를 감싼다.
-- 패키지 설명 문서 주석은 ```package-info.java```에 작성한다.
-- 모듈 설명은 ```module-info.java``` 파일에 작성한다.
+  - `{@literal |r| < 1}` VS `|r| {@literal < } 1`
+  - `@literal`이 필요한 곳은 `<` 한 곳이지만 가독성을 위해 문장 전체를 감싼다.
+- 패키지 설명 문서 주석은 `package-info.java`에 작성한다.
+- 모듈 설명은 `module-info.java` 파일에 작성한다.
 - 제네릭 타입은 모든 타입 매개변수에 주석을 달아준다.
 - 열거형 타입은 상수에도 주석을 달아준다.
 - 애너테이션 타입은 멤버들에도 주석을 달아준다.
