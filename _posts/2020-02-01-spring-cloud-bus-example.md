@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    "Spring Cloud Bus 예제"
+title:    "Spring Cloud Config: Spring Cloud Bus 예제"
 author:   Kimtaeng
 tags: 	  spring springcloud springcloudbus
 description: "Spring Cloud Config가 변경될 때마다 모든 클라이언트 호출해야만 할까? Spring Cloud Bus를 이용하여 모든 클라이언트를 연결해보자."
@@ -14,7 +14,7 @@ comments: true
 그런데 클라이언트의 설정 정보 갱신이 필요할 때마다 `/actuator/refresh` 와 같은 endpoint를 호출하는 단점이 있다.
 마이크로 서비스 환경과 같은 독립된 수많은 클라이언트가 존재한다면, 설정 정보의 갱신을 위해 모든 클라이언트를 호출하는 것도 버거울 것이다.
 
-- <a href="/post/introduction-to-spring-cloud-config" target="_blank">이전 글: Spring Cloud Config 예제 (링크)</a>
+- <a href="/post/introduction-to-spring-cloud-config" target="_blank">이전 글: "Spring Cloud Config: 소개와 예제" (링크)</a>
 
 그런데 여기에 **Spring Cloud Bus**를 적용하면 설정 정보가 변경될 때마다 연결된 모든 클라이언트가 한 번에 갱신되도록 할 수 있다.
 모든 서버에 대해 `refresh`를 호출하는 것이 아닌 단 한 개의 클라이언트에만 호출하면 모든 클라이언트가 갱신된다는 것이다.
@@ -235,10 +235,13 @@ Received remote refresh request. Keys refreshed [config.client.version, taeng.co
 그런데 설정값이 갱신될 때마다 호출하는 것조차 불편하다고 느낄 수 있다. 이러한 호출조차 없앨 수 있지 않을까?
 이어지는 글에서 설정 파일이 변경될 때마다 자동으로 이벤트를 발생시킬 수 있는 방법에 대해서 알아본다.
 
+- <a href="/post/spring-cloud-config-using-git-webhook-to-auto-refresh" target="_blank">
+다음 글: "Spring Cloud Config: Git Webhook을 이용한 자동 갱신" (링크)</a>
+
 <br/><br/>
 
 # 예제 소스 코드
-포스팅에 사용한 예제 소스 코드는 모두 아래 저장소에 있습니다.
+이번 글에서 사용한 소스 코드는 모두 아래 저장소에 있습니다.
 
   - <a href="https://github.com/madplay/spring-cloud-config-server" target="_blank" rel="nofollow">
 https://github.com/madplay/spring-cloud-config-server</a>
