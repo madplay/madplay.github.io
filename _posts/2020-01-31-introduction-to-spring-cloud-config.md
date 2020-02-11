@@ -396,7 +396,7 @@ taeng:
 잘못된 push 등을 위한 대비책이 아닐까 싶다. 그런데 바로 업데이트 되도록 하는 Spring Cloud Bus가 있다.
 
 ```bash
-$ curl -X POST "http:localhost:8089/actuator/refresh"
+$ curl -X POST "http://localhost:8089/actuator/refresh"
 ```
 
 그 다음에 다시 `/static`과 `/dynamic`의 결과를 확인해보자. 예상한 것처럼 `dynamimc`의 결과만 갱신되었다.
@@ -425,9 +425,9 @@ $ curl -X POST "http:localhost:8089/actuator/refresh"
 # 예제 소스 코드
 이번 글의 예제에서 사용한 소스 코드는 모두 아래 코드 저장소에 있습니다.
 
-- <a href="https://github.com/madplay/spring-cloud-config-server" target="_blank" rel="nofollow">
-https://github.com/madplay/spring-cloud-config-server</a>
-- <a href="https://github.com/madplay/spring-cloud-config-repository" target="_blank" rel="nofollow">
+- config server & config client
+  - <a href="https://github.com/madplay/spring-cloud-config-example" target="_blank" rel="nofollow">
+https://github.com/madplay/spring-cloud-config-example</a>
+- config repository
+  - <a href="https://github.com/madplay/spring-cloud-config-repository" target="_blank" rel="nofollow">
 https://github.com/madplay/spring-cloud-config-repository</a>
-- <a href="https://github.com/madplay/spring-cloud-config-client" target="_blank" rel="nofollow">
-https://github.com/madplay/spring-cloud-config-client</a>
