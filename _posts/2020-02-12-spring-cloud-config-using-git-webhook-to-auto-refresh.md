@@ -38,12 +38,13 @@ src="{{ site.baseurl }}/img/post/2020-02-12-spring-cloud-config-using-git-webhoo
 최신으로 업데이트된 설정값이 제공된다.
 
 그럼 이제 직접 코드를 수정하여 적용해보자.
+> 예제에서 사용한 코드는 모두 github에 있습니다. 글 하단 링크를 참고해주세요.
 
 <br/><br/>
 
 # 메시지 브로커 설정
 이번에도 동일하게 메시지 브로커를 사용한다. 앞선 글에서 도커(Docker)를 이용하여 구동한 `RabbitMQ`를 그대로 이용하면 된다.
-동일하게 연동에는 5672번 포트, 관리 페이지는 8087번 포트를 사용한다. 로그인 아이디는 `madplay`이고 비밀번호도 같다.
+포트 설정도 똑같다. 연동에는 5672번 포트, 관리 페이지는 8087번 포트를 사용한다.
 
 ```bash
 $ docker run -d --name rabbitmq \
@@ -58,7 +59,7 @@ $ docker run -d --name rabbitmq \
 <br/><br/>
 
 # Spring Cloud Config Server 수정
-이번에는 클라이언트에 필요한 수정 작업은 없다. Config 서버의 설정만 수정하면 된다. 
+이번에는 Config 클라이언트에 대한 수정 작업은 없다. Config 서버의 설정만 수정하면 된다. 
 먼저 `pom.xml`에 아래 의존성을 추가하자.
 
 ```xml
@@ -73,7 +74,7 @@ $ docker run -d --name rabbitmq \
 </dependency>
 ```
 
-## spring-cloud-config-monitor
+## spring-cloud-config-monitor 의존성
 위에서 `pom.xml`에 추가한 **spring-cloud-config-monitor** 의존성은 Git 저장소에서 push 등으로 변경사항이 발생될 때마다 config 서버가
 이벤트를 받을 수 있도록 `/monitor`라는 엔드 포인트를 제공한다. 다만 `spring.cloud.bus` 설정이 활성화된 경우에만 변경 이벤트를 처리한다.
 값을 지정하지 않은 경우 기본값이 `false`로 설정되기 때문에 `true`로 지정하여 Git의 push 이벤트를 처리할 수 있도록 해야 한다.
@@ -269,9 +270,9 @@ Received remote refresh request. Keys refreshed [config.client.version, taeng.co
 
 이번 글에서 사용한 모든 예제 코드는 아래 Git 저장소에 있습니다.
 
-- <a href="https://github.com/madplay/spring-cloud-config-server" target="_blank" rel="nofollow">
-https://github.com/madplay/spring-cloud-config-server</a>
-- <a href="https://github.com/madplay/spring-cloud-config-repository" target="_blank" rel="nofollow">
+- config server & config client
+  - <a href="https://github.com/madplay/spring-cloud-bus-using-git-webhook-example" target="_blank" rel="nofollow">
+https://github.com/madplay/spring-cloud-bus-using-git-webhook-example</a>
+- config repository
+  - <a href="https://github.com/madplay/spring-cloud-config-repository" target="_blank" rel="nofollow">
 https://github.com/madplay/spring-cloud-config-repository</a>
-- <a href="https://github.com/madplay/spring-cloud-config-client" target="_blank" rel="nofollow">
-https://github.com/madplay/spring-cloud-config-client</a>

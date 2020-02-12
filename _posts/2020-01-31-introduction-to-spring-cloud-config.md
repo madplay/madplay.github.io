@@ -33,11 +33,8 @@ width="800" alt="spring cloud config architecture"/>
 
 <br/>
 
-이제 직접 코드를 작성하여 Spring Cloud Config를 사용해보자. 아래와 같이 단계별로 나누어 구성할 예정이다.
-
-- Spring Cloud Config Server
-- Spring Cloud Config Repository
-- Spring Cloud Config Client
+이제 직접 코드를 작성하여 Spring Cloud Config를 사용해보자.
+> 예제에서 사용한 코드는 모두 github에 있습니다. 글 하단 링크를 참고해주세요.
 
 <br/><br/>
 
