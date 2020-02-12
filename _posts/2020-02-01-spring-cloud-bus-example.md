@@ -11,7 +11,7 @@ comments: true
 
 # Spring Cloud Bus가 왜 필요할까?
 앞선 글에서는 스프링 설정이 바뀌었을 때 배포 없이 갱신할 수 있도록 하는 **Spring Cloud Config**를 적용했었다.
-그런데 클라이언트의 설정 정보 갱신이 필요할 때마다 `/actuator/refresh` 와 같은 endpoint를 호출하는 단점이 있다.
+그런데 클라이언트의 설정 정보 갱신이 필요할 때마다 `/actuator/refresh` 와 같은 엔드 포인트를 호출하는 단점이 있다.
 마이크로 서비스 환경과 같은 독립된 수많은 클라이언트가 존재한다면, 설정 정보의 갱신을 위해 모든 클라이언트를 호출하는 것도 버거울 것이다.
 
 - <a href="/post/introduction-to-spring-cloud-config" target="_blank">이전 글: "Spring Cloud Config: 소개와 예제" (링크)</a>
@@ -39,7 +39,7 @@ width="800" alt="spring cloud bus structure"/>
 config 서버는 Git 저장소에서 최신 설정 정보를 가져와 config 서버 자체를 갱신한다. 이후 클라이언트가 설정 정보를 요청하면
 최신으로 업데이트된 설정 정보가 제공된다.
 
-이제 직접 코드를 통해 Spring Cloud Bus를 사용해보자. 앞선 글에서 사용한 프로젝트를 그대로 이용할 예정이다.
+이제 직접 코드 작성해보며 Spring Cloud Bus를 파악해보자.
 
 <br/><br/>
 
@@ -74,14 +74,14 @@ width="650" alt="rabbitmq admin page"/>
 </dependency>
 ```
 
-그리고 `application.yml`라는 이름으로 **새로운 파일을 생성**하고 아래와 같이 입력한다.
-물론 기존에 만들어둔 `bootstrap.yml`에 두어도 정상 실행되지만 기능에 따라 구분하는 것도 좋다.
+그리고 `application.yml` 파일을 아래와 같이 작성한다. 물론 앞선 예제처럼 `bootstrap.yml`로 사용해도 실행되지만 기능과 필요에 따라 구분해보자.
+따라서 이번 예제에서는 설정값을 갱신하는 엔드 포인트 설정은 `application.yml` 에 작성한다.
 
 ```yaml
 server:
   port: 8089
 spring:
-  rabbitmq: # 이 부분을 추가해준다. (RabbitMQ 관련 설정)
+  rabbitmq: # RabbitMQ 관련 설정
     host: localhost
     port: 5672
     username: madplay
@@ -94,10 +94,12 @@ management:
         include: bus-refresh
 ```
 
-다음으로 `bootstrap.yml`을 아래와 같이 수정한다. 설정값을 갱신하는 엔드 포인트 설정은 위의 `application.yml` 파일로 옮겼다.
+다음으로 `bootstrap.yml` 파일에는 아래와 같이 작성한다.
 
 ```yaml
 spring:
+  profiles: # 여기에 지정해도 되고, 실행할 때 지정해도 된다.
+      active: dev
   application:
     name: config
   cloud:
@@ -110,19 +112,18 @@ spring:
 <br/><br/>
 
 # 확인해보기
-테스트를 위한 준비는 모두 끝났다. RabbitMQ와 Config 서버 그리고 Config 클라이언트 모두를 실행해보자.
-클라이언트를 실행할 때는 `-Dspring.profiles.active=dev` 값을 주면 된다. Intellij IDE를 사용한다면 **Run/Debug Configuration**의
-Active Profiles에 `dev`만 입력하면 된다.
+테스트를 위한 준비는 모두 끝났다. RabbitMQ와 Config 서버 그리고 Config 클라이언트 모두를 실행해보자. `bootstrap.yml`에 active profiles을
+지정했기 때문에 별다른 옵션없이 실행해도 된다. 직접 지정하고 싶은 경우에는 `-Dspring.profiles.active=dev` 처럼 값을 주면 된다.
+또는 Intellij IDE를 사용한다면 **Run/Debug Configuration**의 Active Profiles에 지정할 값을 넣어주면 된다.
 
-다만 `RabbitMQ`에 연결된 모든 클라이언트가 갱신되는지 확인하기 위해 **2개의 클라이언트**를 띄워보자. 클라이언트를 띄운 후에 `application.yml`의
-`server.port` 부분을 8086번 포트로 수정하여 또 다른 클라이언트를 구동시켜 보자. 즉, 아래와 같이 포트를 사용하게 된다.
+이번 테스트에서는 `RabbitMQ`에 연결된 모든 클라이언트가 갱신되는지 확인하기 위해 **2개의 클라이언트**를 구동할 것이다.
+클라이언트를 띄운 후에 `application.yml`의 `server.port` 부분을 8086번 포트로 수정하여 또 다른 클라이언트를 구동시켜 보자.
+즉, 아래와 같이 포트를 사용하게 된다.
 
-| 포트 | 구분 |
-|:--:|:--:|
-| 8086 | Config 클라이언트 2 |
-| 8087 | RabbitMQ |
-| 8088 | Config 서버 |
-| 8089 | Config 클라이언트 1 |
+- 8086번 포트: Config 클라이언트 2
+- 8087번 포트: RabbitMQ
+- 8088번 포트: Config 서버
+- 8089번 포트: Config 클라이언트 1
 
 <br/>
 
@@ -145,7 +146,7 @@ $ curl -X GET "http://localhost:8089/dynamic"
   "comment": "Hello! updated dev taeng!!!"
 }
 
-$ curl -X GET "http://localhost:8085/dynamic"
+$ curl -X GET "http://localhost:8086/dynamic"
 
 # 결과
 {
@@ -243,9 +244,9 @@ Received remote refresh request. Keys refreshed [config.client.version, taeng.co
 # 예제 소스 코드
 이번 글에서 사용한 소스 코드는 모두 아래 저장소에 있습니다.
 
-  - <a href="https://github.com/madplay/spring-cloud-config-server" target="_blank" rel="nofollow">
-https://github.com/madplay/spring-cloud-config-server</a>
+- config server & config client
+  - <a href="https://github.com/madplay/spring-cloud-bus-example" target="_blank" rel="nofollow">
+https://github.com/madplay/spring-cloud-bus-example</a>
+- config repository
   - <a href="https://github.com/madplay/spring-cloud-config-repository" target="_blank" rel="nofollow">
 https://github.com/madplay/spring-cloud-config-repository</a>
-  - <a href="https://github.com/madplay/spring-cloud-config-client" target="_blank" rel="nofollow">
-https://github.com/madplay/spring-cloud-config-client</a>
