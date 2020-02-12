@@ -256,6 +256,14 @@ LinkedHashSet<Fruit> fruitSet = new LinkedHashSet<>();
 # 아이템 66. 네이티브 메서드는 신중히 사용하라
 > Use native methods judiciously
 
+자바 네이티브 인터페이스(Java Native Interface)는 자바 프로그램이 네이티브 메서드를 호출하는 기술이다.
+여기서 네이티브 메서드란 네이티브 프로그래밍 언어로 작성된 메서드를 말한다.
+
+- <a href="/post/use-native-methods-judiciously" target="_blank">
+더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 66. 네이티브 메서드는 신중히 사용하라</a>
+
+<div class="post_caption">반드시 네이티브 메서드를 사용해야 한다면 최소한만 사용하자.</div>
+
 <br/>
 
 # 아이템 67. 최적화는 신중히 하라
