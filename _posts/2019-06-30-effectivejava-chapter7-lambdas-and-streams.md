@@ -26,7 +26,7 @@ comments: true
 예전에는 자바에서 함수 타입을 표현할 때 추상 메서드 하나만을 담고 있는 인터페이스 또는 추상 클래스를 사용했다.
 이러한 인터페이스를 함수 객체(function object)라고 하며, 특정 함수나 동작을 표현하는데 사용했다.
 
-- <a href="post/prefer-lambdas-to-anonymous-classes" target="_blank">
+- <a href="/post/prefer-lambdas-to-anonymous-classes" target="_blank">
 더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 42. 익명 클래스보다는 람다를 사용하라</a>
 
 <div class="post_caption">익명 클래스는 함수형 인터페이스가 아닌 타입의 인스턴스를 만들 때만 사용하자.</div>
