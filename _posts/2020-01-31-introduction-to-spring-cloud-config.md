@@ -255,6 +255,8 @@ alt="config client with spring initializr"/>
 server:
   port: 8089
 spring:
+  profiles: # 여기에 지정해도 되고, 실행할 때 지정해도 된다.
+    active: dev
   application:
     name: config
   cloud:
@@ -349,11 +351,12 @@ public class ConfigController {
 ```
 
 ## Config Client 실행 해보기
-이제 config client를 실행해보자. 물론 config server도 실행된 상태여야 한다. 그리고 실행할 때는 `-Dspring.profiles.active=dev` 값을
-주어야 한다. 인텔리제이를 사용한다면 `Run/Debug Configuration`에서 Active Profiles에 dev만 입력해주면 된다.
+이제 config client를 실행해보자. `bootstrap.yml`에 실행할 profile 옵션을 넣었기 때문에 아무런 설정없이 실행해도 된다.
+실행하면서 직접 환경을 지정하고 싶은 경우는 `-Dspring.profiles.active=dev` 처럼 옵션을 넣어주면 된다.
+만일 인텔리제이를 사용한다면 `Run/Debug Configuration`에서 Active Profiles에 dev만 입력해주면 된다.
 
 client가 구동될 때 시작 로그가 중요하다. 실제로 설정 정보를 어디서 가져오는지 확인해볼 수 있다.
-아래와 같이 출력되는지 확인해보자.
+아래와 같이 출력되는지 확인해보자. 참고로 config server도 실행된 상태여야 한다.
 
 ```bash
 Fetching config from server at : http://localhost:8088
