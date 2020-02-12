@@ -10,22 +10,22 @@ comments: true
 ---
 
 # refresh 호출을 잊어버리면 어떻게 될까?
-앞선 글에서는 **Spring Cloud Bus**를 이용하여 설정값 갱신할 때 모든 클라이언트를 호출해야만 하는 불편함을 없앴다. 그런데 만일 설정 파일을 수정한 후에
-최신 업데이트를 위한 액츄에이터의 엔드 포인트 호출을 깜빡한다면 어떻게 될까?
+앞선 글에서는 **Spring Cloud Bus**를 이용하여 설정값 갱신할 때 모든 클라이언트를 호출해야만 하는 불편함을 없앴다.
+그런데 만약에 설정 파일을 수정한 후에 설정값 갱신을 위한 엔드 포인트 호출을 잊어버리면 어떻게 될까?
 
 - <a href="/post/spring-cloud-bus-example" target="_blank">이전 글: "Spring Cloud Config: Spring Cloud Bus 예제" (링크)</a>
 
-당연히 참조하고 있는 설정값이 최신 데이터로 갱신되지 않을 것이다. 이런 경우를 대비하여 Git의 `Webhook`을 이용하면 설정 파일이 변경될 때마다
-갱신 이벤트를 발생시키기 위한 트리거를 발생시키도록 할 수 있다. 수동으로 엔드 포인트를 호출하지 않아도 된다.
+당연히 참조하고 있는 설정값이 최신 데이터로 갱신되지 않을 것이다. Git의 `Webhook`을 이용하면 이런 경우를 대비할 수 있다.
+설정 파일이 변경될 때마다 갱신 이벤트를 발생시키기 위한 트리거를 발생시키는 것이다. 즉, 수동으로 엔드 포인트를 호출하지 않아도 된다.
 
 <br/><br/>
 
 # 어떤 구조일까?
-구조를 살펴보자. 설정 파일의 변경이 Git 저장소로 `push` 될 때마다 `webhook` 이벤트가 등록된 애플리케이션으로 전송된다.
-이는 Spring Cloud Config 서버의 `/monitor` 엔드 포인트를 사용한다. 그런 다음에 config 서버는 Git 저장소에서 최신 설정을 검색하고
+개발을 시작하기 전에 구조를 먼저 살펴보자. 설정 파일의 변경이 Git 저장소로 `push` 될 때마다 `webhook` 이벤트가 등록된 애플리케이션으로 전송된다.
+여기서는 Spring Cloud Config 서버의 `/monitor` 엔드 포인트를 사용할 것이다. 이벤트를 받은 Config 서버는 Git 저장소에서 최신 설정을 검색하고
 **Spring Cloud Bus**에 갱신 이벤트를 전달한다.
 
-한편 모든 클라이언트는 **Spring Cloud Bus**에 연결되며 Config 서버가 전달한 갱신 이벤트를 수신합니다. 클라이언트는 `actuator`를 가지고 있기 때문에
+한편 모든 클라이언트는 **Spring Cloud Bus**에 연결되며 Config 서버가 전달한 갱신 이벤트를 수신한다. 클라이언트는 `actuator`를 가지고 있기 때문에
 아무 문제없이 새로 고침 이벤트를 수신하고 처리할 수 있다.
 
 <img class="post_image" width="800" alt="spring cloud bus with git webhook structure"
@@ -58,7 +58,8 @@ $ docker run -d --name rabbitmq \
 <br/><br/>
 
 # Spring Cloud Config Server 수정
-config 서버의 코드를 수정해야 한다. 먼저 `pom.xml`에 아래 의존성을 추가하자.
+이번에는 클라이언트에 필요한 수정 작업은 없다. Config 서버의 설정만 수정하면 된다. 
+먼저 `pom.xml`에 아래 의존성을 추가하자.
 
 ```xml
 <dependency>
@@ -90,8 +91,8 @@ spring:
 **Spring Cloud Stream**은 메시지 주도(message-driven) 또는 이벤트 주도(event-driven)의 마이크로 서비스 개발을 지원하는 프레임워크다.
 RabbitMQ와 Kafka 같은 기본 메시지 브로커를 사용하여 애플리케이션(클라이언트)에 이벤트를 전달하는 역할을 한다.
 
-여기서 **Spring Cloud Bus**와의 미묘한 차이를 알 수 있는데 Spring Cloud Bus는 메시지 브로커를 통하여 애플리케이션을 연결한다.
-따라서 전달된 이벤트를 브로드 캐스팅하여 관련 서비스에 전달한다. Spring Cloud Bus는 이번에 사용하는 **Spring Cloud Stream**을 기반으로 한다.
+여기서 **Spring Cloud Bus와의 미묘한 차이**를 알 수 있는데 Spring Cloud Bus는 메시지 브로커를 통하여 애플리케이션을 연결한다.
+따라서 전달된 이벤트를 브로드 캐스팅하여 관련 서비스에 전달한다. Spring Cloud Bus는 이번에 사용하는 **Spring Cloud Stream을 기반**으로 한다.
 
 한편 `pom.xml`에 새롭게 추가한 **spring-cloud-starter-stream-rabbit** 의존성은 `RabbitMQ`를 기본 메시지 브로커를 사용하는
 Spring Cloud Stream의 구현체를 사용하기 위한 선언이다.
@@ -179,7 +180,7 @@ taeng:
 직접 `/monitor` 엔드 포인트를 호출해보자.
 
 ```bash
-curl -v -X POST "http://localhost:8088/monitor" \
+$ curl -v -X POST "http://localhost:8088/monitor" \
 -H "Content-Type: application/json" \
 -H "X-Event-Key: repo:push" \
 -H "X-Hook-UUID: webhook-uuid" \
