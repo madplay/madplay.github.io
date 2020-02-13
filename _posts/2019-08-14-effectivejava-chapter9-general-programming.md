@@ -290,3 +290,11 @@ public 메서드에서 내부 데이터를 변경할 수 있게 한다면 불필
 
 # 아이템 68. 일반적으로 통용되는 명명 규칙을 따르라
 > Adhere to generally accepted naming conventions
+
+표준 명명 규칙을 습관화해야 한다. 자바는 명명 규칙이 잘 정립되어 있다.
+다만 오랫동안 따라온 규칙과 충돌한다면 그 규칙을 무조건 따라서는 안된다. 상식이 이끄는 대로 따르자.
+
+- <a href="/post/adhere-to-generally-accepted-naming-conventions" target="_blank">
+더 상세한 내용은 링크 참고: [이펙티브 자바 3판] 아이템 68. 일반적으로 통용되는 명명 규칙을 따르라</a>
+
+<div class="post_caption">표준 명명 규칙을 적절히 따르자.</div>
