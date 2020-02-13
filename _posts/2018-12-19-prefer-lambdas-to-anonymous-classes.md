@@ -254,5 +254,3 @@ public class Main {
 `Comparator`처럼 직렬화해야만 하는 함수 객체가 있다면 `private 정적 중첩 클래스`의 인스턴스를 사용하면 됩니다.
 
 <a href="/post/java-serialization" target="_blank">참고 링크: 자바 직렬화(Serialization)</a>
-
-<div class="post_caption">해당 내용은 Effective Java 3th Edition을 기반으로 작성되었습니다.</div>

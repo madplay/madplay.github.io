@@ -54,5 +54,3 @@ comments: true
 
 finalizer 기능이 필요한 경우에는 ```AutoCloseable``` 인터페이스를 구현하여
 ```try-catch-resource```를 사용하거나 ```close``` 메서드를 구현하여 호출하도록 하면 됩니다. 
-
-<div class="post_caption">해당 내용은 Effective Java 3th Edition을 기반으로 작성되었습니다.</div>

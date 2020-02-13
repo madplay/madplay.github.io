@@ -115,5 +115,3 @@ class SubDateUtility extends DateUtility {
     }
 }
 </code></pre>
-
-<div class="post_caption">해당 내용은 Effective Java 3th Edition을 기반으로 작성되었습니다.</div>
