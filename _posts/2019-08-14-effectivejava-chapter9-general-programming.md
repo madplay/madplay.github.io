@@ -194,6 +194,14 @@ private static long sum() {
 # 아이템 63. 문자열 연결은 느리니 주의하라
 > Beware the performance of string concatenation
 
+문자열 연결 연산자로 문자열 n개를 잇는 시간은 $${ n }^{ 2 }$$ 에 비례한다. 문자열은 불변이기 때문에 두 문자열을 연결하는 경우에
+양쪽의 내용을 모두 복사해야 하기 때문에 성능 저하가 발생한다.
+
+- <a href="/post/difference-between-string-stringbuilder-and-stringbuffer-in-java" target="_blank">
+링크 참고: 자바 String, StringBuilder 그리고 StringBuffer 차이 비교</a>
+
+<div class="post_caption">많은 문자열을 연결할 때는 StringBuilder를 사용하자.</div>
+
 <br/>
 
 # 아이템 64. 객체는 인터페이스를 사용해 참조하라
