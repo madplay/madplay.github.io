@@ -31,7 +31,7 @@ import java.util.zip.ZipOutputStream;
 /**
  * 자바 파일 압축 예제
  *
- * @author Kimtaeng <itsmetaeng@gmail.com>
+ * @author Kimtaeng
  * Created on 2018. 1. 3
  */
 public class MadPlay {
@@ -104,7 +104,7 @@ import java.util.zip.ZipInputStream;
 /**
  * 자바 파일 압축 해제 예제
  *
- * @author Kimtaeng <itsmetaeng@gmail.com>
+ * @author Kimtaeng
  * Created on 2018. 1. 3
  */
 public class MadPlay {

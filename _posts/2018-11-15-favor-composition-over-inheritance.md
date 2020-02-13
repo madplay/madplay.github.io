@@ -128,5 +128,3 @@ public class ForwardingSet<E> implements Set<E> {
 
 그 조건이 아니라면 A를 클래스 B의 private 인스턴스로 두면 됩니다.
 그러니까, A는 B의 필수 구성요소가 아니라 구현하는 방법 중 하나일 뿐입니다.
-
-<div class="post_caption">해당 내용은 Effective Java 3th Edition을 기반으로 작성되었습니다.</div>

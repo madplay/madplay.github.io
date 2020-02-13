@@ -179,5 +179,3 @@ if( o instanceof Set) {
 
 **정리하자면**, 로 타입은 되도록 쓰지 않는 것이 좋으며 아직 남아 있는 이유는 하위 버전과의 호환때문입니다.
 물론 `클래스 리터럴`과 `instanceof 연산자`에는 무조건 로 타입을 사용해야 합니다.
-
-<div class="post_caption">해당 내용은 Effective Java 3th Edition을 기반으로 작성되었습니다.</div>

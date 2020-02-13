@@ -9,30 +9,21 @@ comments: true
 ---
 
 # 리벤슈테인 거리?
-
-러시아 과학자 블라디미르 리벤슈테인(Vladimir Levenshtein)가 고안한 알고리즘입니다.
-편집 거리(Edit Distance) 라는 이름으로도 불립니다.
-
-Levenshtein Distance는 두 개의 문자열 A, B가 주어졌을 때, 두 문자열이 얼마나 유사한 지를
-알아낼 수 있는 알고리즘입니다.
+러시아 과학자 블라디미르 리벤슈테인(Vladimir Levenshtein)가 고안한 알고리즘입니다. 편집 거리(Edit Distance) 라는 이름으로도 불립니다.
+Levenshtein Distance는 두 개의 문자열 A, B가 주어졌을 때 두 문자열이 얼마나 유사한 지를 알아낼 수 있는 알고리즘입니다.
 그러니까, 문자열 A가 문자열 B와 같아지기 위해서는 몇 번의 연산을 진행해야 하는 지 계산할 수 있습니다.
 
-<div class="post_caption">여기서의 연산이란<br/>
-삽입(Insertion), 삽입(Deletion), 대체(Replacement)를 말합니다.</div>
+<div class="post_caption">여기서의 연산이란, 삽입(Insertion), 삽입(Deletion), 대체(Replacement)를 말합니다.</div>
 
 <br/>
 
 # 간단한 예시로 이해해보자.
-
-간단한 예시를 통해 리벤슈테인 거리를 이해해봅시다.<br/>
-문자열 A가 '대표자' 라는 뜻을 가진 'delegate' 라고 가정하고
+간단한 예시를 통해 리벤슈테인 거리를 이해해봅시다. 문자열 A가 '대표자' 라는 뜻을 가진 'delegate' 라고 가정하고
 문자열 B는 '삭제' 라는 뜻을 가진 'delete' 라고 가정합니다.
 
-문자열 A에서 5번 째 문자 g와 6번 째의 문자 a가 삭제되면 문자열 B가 동일해집니다.<br/>
-즉, 여기서의 연산 횟수는 2가 되는 것이지요.
+문자열 A에서 5번 째 문자 g와 6번 째의 문자 a가 삭제되면 문자열 B가 동일해집니다. 즉, 여기서의 연산 횟수는 2가 되는 것이지요.
 
-다른 문자열을 이용해서 또 다른 예를 들어봅시다.<br/>
-문자열 A가 '과정' 을 뜻하는 'process' 라고 가정하고
+다른 문자열을 이용해서 또 다른 예를 들어봅시다. 문자열 A가 '과정' 을 뜻하는 'process' 라고 가정하고
 문자열 B가 '교수' 를 뜻하는 'professor' 라고 가정해봅시다.
 
 먼저, 문자열 A에서 4번 째에 위치한 **문자 c를 문자 f로 대체**합니다. 그 결과는 profess가 됩니다.
@@ -44,7 +35,6 @@ Levenshtein Distance는 두 개의 문자열 A, B가 주어졌을 때, 두 문�
 <br/>
 
 # 어디에 사용할까요?
-
 예시로 살펴본 문자열 간의 유사도 측정처럼 기본적으로는 두 데이터 사이의 유사도를 알아내기 위해 사용할 수 있습니다.
 특히 프로그램의 표절 여부, 철자 오류 검사 등에 사용할 수 있지요.
 사용할 수 있는 분야들을 찾아보니 자연어 번역뿐만 아니라 유전 및 의료 공학에서의 유전자 유사도 판별에도 사용한다고 합니다.
@@ -53,10 +43,10 @@ Levenshtein Distance는 두 개의 문자열 A, B가 주어졌을 때, 두 문�
 <br/>
 
 # 의사 코드(Pseudo code)
-
 의사 코드로 리벤슈테인 거리(또는 편집거리)를 살펴봅시다.
 
-<pre class="line-numbers"><code class="language-c" data-start="1">int LevenshteinDistance(char s[1..m], char t[1..m])
+```c
+int LevenshteinDistance(char s[1..m], char t[1..m])
 {
     declare int d[0..m, 0..n]
     clear all emenets in d // set each element to zero
@@ -77,11 +67,9 @@ Levenshtein Distance는 두 개의 문자열 A, B가 주어졌을 때, 두 문�
     }
     return d[m, n]
 }
-</code></pre>
+```
 
-주의깊게 살펴야 하는 부분은 17번 라인의 코드입니다.<br/>
-동일한 인덱스에서 문자열 A와 B를 탐색했을 때 값이 서로 같지 않은 경우에 연산 횟수가 더해지는 부분입니다.
-
+주의깊게 살펴야 하는 부분은 17번 라인의 코드입니다. 동일한 인덱스에서 문자열 A와 B를 탐색했을 때 값이 서로 같지 않은 경우에 연산 횟수가 더해지는 부분입니다.
 아래와 같이 매트릭스(행렬)로 진행 과정을 살펴볼 수 있습니다.
   
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-15-levenshtein-distance-edit-distance-1.png" width="650" height="150" alt="편집거리 알고리즘 예시1"/>
@@ -101,10 +89,10 @@ Levenshtein Distance는 두 개의 문자열 A, B가 주어졌을 때, 두 문�
 <br/>
 
 # 자바 코드로 구현하기
-
 마지막으로 편집 거리(또는 리벤슈테인) 알고리즘을 Java 코드로 구현해봅시다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public class MadLife {
+```java
+public class MadLife {
 
     public int getMinimum(int val1, int val2, int val3) {
         int minNumber = val1;
@@ -151,4 +139,4 @@ Levenshtein Distance는 두 개의 문자열 A, B가 주어졌을 때, 두 문�
         new MadLife().runAlgorithm();
     }
 }
-</code></pre>
+```

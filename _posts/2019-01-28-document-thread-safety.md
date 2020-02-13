@@ -87,6 +87,3 @@ public void someMethod() {
 여기서 lock 멤버를 final로 선언한 이유는 우연히라도 락 객체가 교체되는 상황을 방지하기 위함입니다.
 일반적인 락이든 ```java.util.concurrent.locks``` 패키지에서 가져온 락이든 동일합니다.
 이러한 방법은 클라이언트 또는 이를 상속하는 하위 클래스에서 동기화 로직을 깨뜨리는 것을 예방할 수 있습니다.
-
-
-<div class="post_caption">해당 내용은 Effective Java 3th Edition을 기반으로 작성되었습니다.</div>
