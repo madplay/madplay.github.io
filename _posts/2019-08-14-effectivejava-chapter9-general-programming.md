@@ -36,7 +36,7 @@ comments: true
 지역변수의 **선언은 try 문장 밖에서** 진행하고 초기화는 **try 문장 안에서** 해야 한다.
 
 ## 반복문은 while 보다 for 문을 권장한다.
-while 문을 사용하면 반복문 밖으로 불필요한 변수가 선언된다.
+while 문을 사용하면 반복문 밖으로 불필요한 변수가 선언된다.
 
 ```java
 Iterator<Element> i = c.iterator(); // 불필요하다.
