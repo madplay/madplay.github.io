@@ -18,9 +18,9 @@ public boolean equals(Object obj) {
 ```
 
 특히 아래와 같은 경우에는 재정의하지 않는 것이 최선일 수 있다.
-- 값을 표현하는 것이 아니라 **동작하는 개체를 표현하는 클래스인 경우**
+- 값을 표현하는 것이 아니라 **동작하는 개체를 표현하는 클래스인 경우**ㅔ
   - 예를 들어 Thread 클래스가 있을 때, Object의 equals 메서드로도 충분하다.
-  - 인스턴스가 가지는 값보다 동작하는 개체임을 나타내는 것이 더 중요하ㄷㅏ.
+  - 인스턴스가 가지는 값보다 동작하는 개체임을 나타내는 것이 더 중요하다.
 - **논리적 동치성(logical equality)을 검사할 필요가 없는 경우**
   - 예를 들어서 두 개의 Random 객체가 같은 난수열을 만드는지 확인하는 것은 의미가 없다.
 - **private이나 패키지 전용 클래스**라서 클래스의 equals 메서드가 절대 호출되지 않아야하는 경우
@@ -79,11 +79,11 @@ public boolean equals(Object obj) {
 동치 관계를 구현하며 아래의 조건을 만족한다.
 
 ### **반사성(reflexivity)**
-- null이 아닌 모든 참조 값 x에 대해 `x.equals(x)`는 true다.
+- `null`이 아닌 모든 참조 값 x에 대해 `x.equals(x)`는 true다.
 - 이건 위반하는 것이 더 어렵다.
 
 ### **대칭성(symmertry)**
-- null이 아닌 모든 참조 값 x, y에 대해 `x.equals(y)`가 true면, `y.equals(x)`도 true다.
+- `null`이 아닌 모든 참조 값 x, y에 대해 `x.equals(y)`가 true면, `y.equals(x)`도 true다.
 - 그래도 위반해보고 싶다면 아래와 같이 하면 된다.
 
 ```java
@@ -113,13 +113,13 @@ s.equals(cis); // false
 ```
 
 ### **추이성(transitivity)**
-- null이 아닌 모든 참조 값 x, y, z에 대해 `x.equals(y)`가 true이고, `y.equals(z)`가 true 이면, `x.equals(z)`도 true다.
+- `null`이 아닌 모든 참조 값 x, y, z에 대해 `x.equals(y)`가 true이고, `y.equals(z)`가 true 이면, `x.equals(z)`도 true다.
 
 ### **일관성(consistency)**
-- null이 아닌 모든 참조 값 x, y에 대해 `x.equals(y)`를 반복해서 호출하면 항상 true를 반환하거나 항상 false를 반환한다.
+- `null`이 아닌 모든 참조 값 x, y에 대해 `x.equals(y)`를 반복해서 호출하면 항상 true를 반환하거나 항상 false를 반환한다.
 
 ### **null이 아니다**
-- null이 아닌 모든 참조 값 x에 대해서 `x.equals(null)`은 false다.
+- `null`이 아닌 모든 참조 값 x에 대해서 `x.equals(null)`은 false다.
 
 ```java
 @Override
@@ -186,8 +186,8 @@ public int compare(File f1, File f2) {
 }
 ```
 
-**잘못 재정의된 사례**를 들자면 `java.sql.Timestamp` 클래스의 equals 메서드를 볼 수 있다.
-이 클래스는 `java.util.Date` 클래스를 상속하여 만들어진 클래스인데 두 클래스의 equals 메서드를 살펴보면 아래와 같다.
+**잘못 재정의된 사례**를 들자면 `java.sql` 패키지의 Timestamp 클래스의 equals 메서드를 볼 수 있다.
+이 클래스는 `java.util` 패키지의 Date 클래스를 상속하여 만들어진 클래스인데 두 클래스의 equals 메서드를 살펴보면 아래와 같다.
 
 ```java
 // java.sql.Timestamp
