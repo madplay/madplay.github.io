@@ -78,7 +78,7 @@ public boolean equals(Object obj) {
 # equals 메서드는...
 동치 관계를 구현하며 아래의 조건을 만족합니다.
 
-- **반사성(reflexivity)** : null이 아닌 모든 참조 값 x에 대해 `x.equals(x)`는 true
+- **반사성(reflexivity)** : null이 아닌 모든 참조 값 x에 대해 `x.equals(x)`는 true다.
   - 이건 위반하는 것이 더 어려워보입니다.
 - **대칭성(symmertry)** : null이 아닌 모든 참조 값 x, y에 대해 `x.equals(y)`가 true면, `y.equals(x)`도 true다.
   - 그래도 위반해보고 싶다면 아래와 같이 하면 됩니다.
@@ -109,7 +109,8 @@ cis.equals(s); // true
 s.equals(cis); // false
 ```
 
-- **추이성(transitivity)** : null이 아닌 모든 참조 값 x, y, z에 대해 `x.equals(y)`가 true면, `y.equals(x)`도 true다.
+- **추이성(transitivity)** : null이 아닌 모든 참조 값 x, y, z에 대해 `x.equals(y)`가 true이고,
+  `y.equals(z)`가 true 이면, `x.equals(z)`도 true다.
 - **일관성(consistency)** : null이 아닌 모든 참조 값 x, y에 대해 `x.equals(y)`를 반복해서 호출하면 항상 true를 반환하거나 항상 false를 반환한다.
 - **null이 아니다** : null이 아닌 모든 참조 값 x에 대해서 `x.equals(null)`은 false다.
 
