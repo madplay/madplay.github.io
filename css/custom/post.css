@@ -85,7 +85,8 @@ a.post_heading_link:active {
 }
 
 table {
-    width: 100%;
+    width: auto;
+    margin: auto;
 }
 
 th, td {
