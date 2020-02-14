@@ -15,8 +15,8 @@ comments: true
 
 - <a href="/post/spring-cloud-bus-example" target="_blank">이전 글: "Spring Cloud Config: Spring Cloud Bus 예제" (링크)</a>
 
-당연히 참조하고 있는 설정값이 최신 데이터로 갱신되지 않을 것이다. Git의 `Webhook`을 이용하면 이런 경우를 대비할 수 있다.
-설정 파일이 변경될 때마다 갱신 이벤트를 발생시키기 위한 트리거를 발생시키는 것이다. 즉, 수동으로 엔드 포인트를 호출하지 않아도 된다.
+당연히 참조하고 있는 설정값이 최신 데이터로 갱신되지 않는다. 이러한 불편함은 Git의 `Webhook`을 이용하면 간단히 해결할 수 있다.
+설정 파일이 변경될 때마다 갱신 이벤트 트리거를 발생시키는 것이다. 즉, 수동으로 엔드 포인트를 호출하지 않아도 된다.
 
 <br/><br/>
 
@@ -266,7 +266,8 @@ Received remote refresh request. Keys refreshed [config.client.version, taeng.co
 
 # 마치며
 앞선 글에서는 **Spring Cloud Bus**를 이용하여 한 번의 엔드 포인트 호출로 연결된 모든 클라이언트를 갱신하도록 개선하였다.
-그리고 더 나아가 이러한 수동 호출조차 Git 저장소의 `Webhook`을 이용하여 자동화하였다.
+그리고 더 나아가 이러한 수동 호출조차 Git 저장소의 `Webhook`을 이용하여 자동화하였다. 물론 엔드 포인트 호출까지 자동화하는 단계가
+필요 없을 수 있다. 필요에 따라 적절하게 사용하면 될 것 같다.
 
 이번 글에서 사용한 모든 예제 코드는 아래 Git 저장소에 있습니다.
 
