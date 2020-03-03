@@ -156,7 +156,7 @@ CONTAINER ID   IMAGE   COMMAND                  CREATED         STATUS         P
 
 ```bash
 # 컨테이너의 shell 접속
-$ docker exec -i -t taeng_mysql bash
+$ docker exec -it taeng_mysql bash
 
 # 접속한 이후 mysql 명령어 실행
 root@3342a578b8e2:/# mysql -u root -p
