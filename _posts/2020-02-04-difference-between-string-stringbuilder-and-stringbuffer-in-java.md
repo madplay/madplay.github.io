@@ -195,7 +195,7 @@ String s = "mad";
 String s1 = (new StringBuilder()).append(s).append("hello").append(s).append("play").toString();
 ```
 
-디컴파일 결과처럼 `StringBuilder`를 사용하도록 개선되었지만 **반복문 안에서 문자열을 더하는 연산울 한다면** StringBuilder가 반복문 횟수만큼
+디컴파일 결과처럼 `StringBuilder`를 사용하도록 개선되었지만 **반복문 안에서 문자열을 더하는 연산을 한다면** StringBuilder가 반복문 횟수만큼
 생성되기 때문에 상대적으로 느릴 수밖에 없다.
 
 이것도 직접 비교해보자. 앞서 진행했던 테스트 코드에서 반복문 안의 코드만 변경하여 수행 시간을 측정하면 된다.
