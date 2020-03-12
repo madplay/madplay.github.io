@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    "자바 String, StringBuilder 그리고 StringBuffer 차이 비교"
+title:    "자바 String, StringBuilder 그리고 StringBuffer 성능 차이 비교"
 author:   Kimtaeng
 tags: 	  java string stringbuilder stringbuffer
 description: "자바에서 String과 StringBuilder 그리고 StringBuffer의 차이는 무엇일까? 그리고 제일 빠른 연산 속도는 어떤 것일까?"
@@ -15,7 +15,7 @@ comments: true
 
 그러니까 문자열에 `+ 연산자` 등을 이용하여 다른 문자열을 추가할 때 기존 문자열에 새로운 문자열이 추가되는 것이 아니라
 새로운 **문자열 객체를 만들고 그 객체를 참조**하게 한다. 따라서 레퍼런스가 가리키고 있던 문자열이 다른 문자열로 대체되면,
-기존 문자열은 레퍼런스의 참조가 사라져 `Unreachable`  상태가 되어 가비지 컬렉션(Garbage Collection)의 수집 대상이 된다.
+기존 문자열은 레퍼런스의 참조가 사라져 `Unreachable`  상태가 되어 가비지 컬렉션(Garbage Collection) 대상이 된다.
 
 이러한 이유로 String을 조작하는 연산은 시간과 자원(메모리)를 사용한다.
 
