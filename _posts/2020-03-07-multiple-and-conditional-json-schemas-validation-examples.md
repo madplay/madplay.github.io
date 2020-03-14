@@ -284,3 +284,11 @@ comments: true
    }
 }
 ```
+
+<br>
+
+# 이어서
+이번 글에서는 조금 더 복합적인 스키마를 선언하거나 스키마를 재사용할 수 있는 방법에 대해서 알아보았다.
+다음 글에서는 **JSON 스키마**를 자바(Java) 코드로 구현하여 사용하는 방법에 대해서 알아본다.
+
+- <a href="/post/how-to-validate-json-schema-in-java" target="_blank">다음 글: "JSON Schema: 자바 코드로 Validator 구현"</a>
