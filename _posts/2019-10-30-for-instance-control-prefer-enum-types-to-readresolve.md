@@ -31,6 +31,9 @@ public class Elvis {
 이때 `readResolve` 메서드를 이용하면 `readObject` 메서드가 만든 인스턴스를 다른 것으로 대체할 수 있다. 이때 `readObject` 가
 만들어낸 인스턴스는 가비지 컬렉션의 대상이 된다.
 
+- <a href="/post/what-is-readresolve-method-and-writereplace-method" target="_blank">
+참고 링크: 자바 직렬화: readResolve와 writeReplace</a>
+
 ```java
 private Object readResolve() {
     // 기존에 생성된 인스턴스를 반환한다.
