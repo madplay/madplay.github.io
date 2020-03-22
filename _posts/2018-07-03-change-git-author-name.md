@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    git commit author 변경 (커밋 작성자 변경하기)
+title:    git commit author 변경 (커밋 작성자 이름 변경하기)
 author:   Kimtaeng
 tags: 	  git commit rebase
-description: committer를 잘못 입력하여 push까지 해버렸다. 바꿀 수 있을까?
+description: committer를 잘못 입력하여 push까지 해버렸다. 커밋 작성자의 이름을 다시 바꿀 수 있을까?
 category: Knowledge
 comments: true
 ---
@@ -72,7 +72,7 @@ $ git log
 `변경할 커밋의 hash 값은 b813011` 입니다. 이번 작업은 이 커밋의 바로 `직전 커밋을 대상으로 시작`되므로
 `찾아야하는 커밋의 hash 값은 80be237` 입니다. 위의 터미널 결과는 제가 진행하는 환경을 기준으로 하므로 사용자마다 다르게 값이 생성됩니다.
 
-<br/>
+<br>
 
 # rebase 이용하기
 자 이제 시작해봅시다. 아래와 같이 터미널에 입력합니다. 물론 터미널 상의 현재 위치는 Git 프로젝트라고 가정합니다.
