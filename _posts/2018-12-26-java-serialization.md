@@ -105,7 +105,7 @@ class Article implements Serializable {
 ```
 
 한편 직렬화가 가능한 클래스 내부에 **다른 클래스의 객체를 멤버 변수**로 가지고 있는 경우에는
-해당 클래스도 자바 직렬화가 가능하도록 `Serializable``인터페이스를 구현하고 있어야 한다.
+해당 클래스도 자바 직렬화가 가능하도록 `Serializable`인터페이스를 구현하고 있어야 한다.
 
 ```java
 class Article implements Serializable {
