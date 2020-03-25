@@ -4,6 +4,17 @@
     padding-top: 10px;
 }
 
+.introduce_wrap a {
+    text-decoration: none;
+    color: #086dc3;
+    background-color: transparent;
+}
+
+.introduce_wrap a:hover {
+    color: #606060;
+    text-decoration: underline;
+}
+
 .introduce_head {
     font-size: 20px;
     text-align: center;
