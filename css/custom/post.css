@@ -158,12 +158,14 @@ blockquote h1, blockquote h2, blockquote h3 {
     }
 }
 
-a {
+.post_container a {
     text-decoration: none;
+    color: #086dc3;
+    background-color: transparent;
 }
 
 a:hover {
-    color: #707070;
+    color: #086dc3;
     text-decoration: underline;
 }
 
