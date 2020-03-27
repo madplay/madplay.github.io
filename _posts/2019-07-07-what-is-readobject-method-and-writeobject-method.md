@@ -3,7 +3,7 @@ layout:   post
 title:    "자바 직렬화: writeObject와 readObject"
 author:   Kimtaeng
 tags: 	  java readobject writeobject serialization
-description: "자바 직렬화에 사용되는 writeObject와 메서드와 readObject 메서드의 역할은 무엇일까? 그리고 왜 private 일까?"
+description: "자바 직렬화에 사용되는 writeObject 메서드와 readObject 메서드의 역할은 무엇일까? 그리고 왜 private 일까?"
 category: Java
 date: "2019-07-07 00:36:21"
 comments: true
