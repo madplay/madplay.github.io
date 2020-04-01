@@ -93,6 +93,10 @@ th, td {
     border: 1px solid rgba(80, 80, 80, 0.25);
 }
 
+.post_container th {
+    background-color: rgba(200, 200, 200, 0.5);
+}
+
 blockquote p {
     font-size: 14px;
 }
