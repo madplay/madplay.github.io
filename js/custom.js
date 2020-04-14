@@ -13,13 +13,13 @@ const blogHelper = {
         this._runHelper();
     },
 
-    _initVar() {
+    _initVar: function() {
         this.welTextList = $(this.PLAIN_TEXT_SELECTOR);
         this.welOtherPostBox = $(this.OTHER_POST_BOX_SELECTOR);
         this.welOtherPostList = $(this.OTHER_POST_CLASS_SELECTOR);
     },
 
-    _runHelper() {
+    _runHelper: function() {
         this._removeTextClass();
         this._checkOtherPost();
     },
