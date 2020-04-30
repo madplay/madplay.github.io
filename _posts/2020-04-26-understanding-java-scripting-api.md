@@ -13,7 +13,7 @@ comments: true
 이전 글에서는 자바에서 자바스크립트 코드를 실행시킬 수 있는 `Java Scripting API`에 대한 소개와
 간단한 사용 방법에 대해서 알아보았다.
 
-- 이전 글: <a href="/post/how-to-call-javascript-function-from-java" target="_blank">
+- 이전 글: <a href="/post/how-to-call-javascript-function-from-java">
 "Java Scripting API: 자바에서 자바스크립트의 함수를 호출할 수 있을까?"</a>
 
 이번 글에서는 스크립트를 실행할 때 상태를 저장하거나 읽도록 도와주는 바인딩(Bindings) 인터페이스와 자바 코드와 자바스크립트 엔진을 연결시키는

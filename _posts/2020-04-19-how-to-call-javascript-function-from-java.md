@@ -315,8 +315,7 @@ accumulator: 3.0
 지금까지 자바에서 자바스크립트 코드를 호출할 수 있는 방법인 `Java Scripting API`에 대해서 알아보았다.
 이어지는 글에서는 객체의 상태를 저장하고 가져올 수 있게 해주는 **바인딩**과 자바 코드와 자바스크립트 엔진을 결합시키는 **스크립트 컨텍스트**에 대해서 알아본다.
 
-- 이어지는 글: <a href="/post/understanding-java-scripting-api" target="_blank">
-"Java Scripting API: 바인딩과 컨텍스트 그리고 성능 개선"</a>
+- 이어지는 글: <a href="/post/understanding-java-scripting-api">"Java Scripting API: 바인딩과 컨텍스트 그리고 성능 개선"</a>
 
 참고로 예제에 사용한 모든 소스 코드는 <a href="https://github.com/madplay/java-scripting-api" target="_blank">
 "github 저장소 (링크)"</a>에 있습니다.
