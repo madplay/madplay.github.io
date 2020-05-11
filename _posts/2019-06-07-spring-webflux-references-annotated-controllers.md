@@ -400,5 +400,5 @@ class MyConfig {
 ---
 
 > ### 목차 가이드
-> - <a href="/post/spring-webflux-references-functional-endpoints" target="_blank">다음글 "1.5. Functional Endpoints" 로 이동</a>
-> - <a href="/post/web-on-reactive-stack" target="_blank">전체 목차 페이지로 이동</a>
+> - <a href="/post/spring-webflux-references-functional-endpoints">다음글 "1.5. Functional Endpoints" 로 이동</a>
+> - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>

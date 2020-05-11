@@ -23,18 +23,18 @@ comments: true
 # 목차
 번역이 완료된 문서는 링크가 생성됩니다.
 
-- <a href="/post/spring-webflux-references-overview" target="_blank">1.1. Overview</a>
-- <a href="/post/spring-webflux-references-reactive-core" target="_blank">1.2. Reactive Core</a>
-- <a href="/post/spring-webflux-references-dispatcherhandler" target="_blank">1.3. DispatcherHandler</a>
-- <a href="/post/spring-webflux-references-annotated-controllers" target="_blank">1.4. Annotated Controllers</a>
-- <a href="/post/spring-webflux-references-functional-endpoints" target="_blank">1.5. Functional Endpoints</a>
-- <a href="/post/spring-webflux-references-url-links" target="_blank">1.6. URI Links</a>
-- <a href="/post/spring-webflux-references-cors" target="_blank">1.7. CORS</a>
-- <a href="/post/spring-webflux-references-web-security" target="_blank">1.8. Web Security</a>
-- <a href="/post/spring-webflux-references-view-technologies" target="_blank">1.9. View Technologies</a>
+- <a href="/post/spring-webflux-references-overview">1.1. Overview</a>
+- <a href="/post/spring-webflux-references-reactive-core">1.2. Reactive Core</a>
+- <a href="/post/spring-webflux-references-dispatcherhandler">1.3. DispatcherHandler</a>
+- <a href="/post/spring-webflux-references-annotated-controllers">1.4. Annotated Controllers</a>
+- <a href="/post/spring-webflux-references-functional-endpoints">1.5. Functional Endpoints</a>
+- <a href="/post/spring-webflux-references-url-links">1.6. URI Links</a>
+- <a href="/post/spring-webflux-references-cors">1.7. CORS</a>
+- <a href="/post/spring-webflux-references-web-security">1.8. Web Security</a>
+- <a href="/post/spring-webflux-references-view-technologies">1.9. View Technologies</a>
 - 1.10. HTTP Caching
 - 1.11. WebFlux Config
 - 1.12. HTTP/2
 
 > ### 목차 가이드
-> - <a href="/post/web-on-reactive-stack" target="_blank">전체 목차 페이지로 이동</a>
+> - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>
