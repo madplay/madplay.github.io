@@ -713,5 +713,5 @@ val route = router {
 ---
 
 > ### 목차 가이드
-> - <a href="/post/spring-webflux-references-url-links" target="_blank">다음글 "1.6. URI Links" 로 이동</a>
-> - <a href="/post/web-on-reactive-stack" target="_blank">전체 목차 페이지로 이동</a>
+> - <a href="/post/spring-webflux-references-url-links">다음글 "1.6. URI Links" 로 이동</a>
+> - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>

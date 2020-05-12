@@ -298,5 +298,5 @@ URI 변수를 적용할 때 인코딩 한다.
 ---
 
 > ### 목차 가이드
-> - <a href="/post/spring-webflux-references-cors" target="_blank">다음글 "1.7. CORS" 로 이동</a>
-> - <a href="/post/web-on-reactive-stack" target="_blank">전체 목차 페이지로 이동</a>
+> - <a href="/post/spring-webflux-references-cors">다음글 "1.7. CORS" 로 이동</a>
+> - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>
