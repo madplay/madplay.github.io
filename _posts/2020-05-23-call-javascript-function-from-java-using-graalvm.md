@@ -13,7 +13,7 @@ comments: true
 자바에서 자바스크립트 코드를 실행하고, 상태를 관리하는 등 전반적인 `Java Scripting API` 사용 방법에 대해 알아보았다.
 그리고 스크립트를 수행 속도를 개선시킬 수 있는 `Compilable` 인터페이스를 사용하여 성능을 개선시켰다.
 
-- 이전 글: <a href="/post/understanding-java-scripting-api">Java Scripting API: 바인딩과 스크립트 컨텍스트 그리고 실행 성능 개선</a>
+- 이전 글: <a href="/post/understanding-java-scripting-api">"Java Scripting API: 바인딩과 스크립트 컨텍스트 그리고 실행 성능 개선"</a>
 
 다만 `Java Scripting API` 시리즈의 첫 번째 글에서 언급한 것처럼 자바 11버전부터는 `Nashorn` 스크립트 엔진의 Deprecated가 확정되었고
 향후 릴리즈 버전에서 삭제될지 모르는 `forRemoval` 플래그도 어노테이션에 선언되어 있다.
