@@ -9,10 +9,10 @@ comments: true
 ---
 
 # 목차
-- <a href="/post/introduction-to-java-streams" target="_blank">자바 스트림 정리: 1. API 소개와 스트림 생성 연산 (링크)</a>
-- <a href="/post/java-streams-intermediate-operations" target="_blank">자바 스트림 정리: 2. 스트림의 중간 연산 (링크)</a>
-- <a href="/post/java-streams-terminal-operations" target="_blank">자바 스트림 정리: 3. 스트림 결과 구하기 (링크)</a>
-- <a href="/post/java-streams-examples" target="_blank">자바 스트림 정리: 4. 자바 스트림 예제 (링크)</a>
+- <a href="/post/introduction-to-java-streams">자바 스트림 정리: 1. API 소개와 스트림 생성 연산 (링크)</a>
+- <a href="/post/java-streams-intermediate-operations">자바 스트림 정리: 2. 스트림의 중간 연산 (링크)</a>
+- <a href="/post/java-streams-terminal-operations">자바 스트림 정리: 3. 스트림 결과 구하기 (링크)</a>
+- <a href="/post/java-streams-examples">자바 스트림 정리: 4. 자바 스트림 예제 (링크)</a>
 - 자바 스트림 정리: 5. 스트림을 사용할 때 주의할 점
 
 <br/>
