@@ -9,11 +9,11 @@ comments: true
 ---
 
 # 목차
-- <a href="/post/introduction-to-java-streams" target="_blank">자바 스트림 정리: 1. API 소개와 스트림 생성 연산 (링크)</a>
+- <a href="/post/introduction-to-java-streams">자바 스트림 정리: 1. API 소개와 스트림 생성 연산 (링크)</a>
 - 자바 스트림 정리: 2. 스트림의 중간 연산
-- <a href="/post/java-streams-terminal-operations" target="_blank">자바 스트림 정리: 3. 스트림 결과 구하기 (링크)</a>
-- <a href="/post/java-streams-examples" target="_blank">자바 스트림 정리: 4. 자바 스트림 예제 (링크)</a>
-- <a href="/post/mistakes-when-using-java-streams" target="_blank">자바 스트림 정리: 5. 스트림을 사용할 때 주의할 점 (링크)</a>
+- <a href="/post/java-streams-terminal-operations">자바 스트림 정리: 3. 스트림 결과 구하기 (링크)</a>
+- <a href="/post/java-streams-examples">자바 스트림 정리: 4. 자바 스트림 예제 (링크)</a>
+- <a href="/post/mistakes-when-using-java-streams">자바 스트림 정리: 5. 스트림을 사용할 때 주의할 점 (링크)</a>
 
 <br/>
 
@@ -273,4 +273,4 @@ Stream<Integer> boxedStream = intStream.boxed();
 스트림 내 요소를 알맞게 변환하거나 특정 조건에 맞게 요소를 필터링 하는 방법에 대해서 알아보았습니다.
 이어지는 포스팅에서는 가공한 스트림을 통해 결과 값을 구할 수 있는 단말 연산(Terminal Operations)에 대해서 알아봅니다.
  
-- <a href="/post/java-streams-terminal-operations" target="_blank">자바 스트림 정리: 3. 스트림 결과 구하기 (링크)</a>
+- <a href="/post/java-streams-terminal-operations">자바 스트림 정리: 3. 스트림 결과 구하기 (링크)</a>
