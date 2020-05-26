@@ -2,7 +2,7 @@
 layout:   post
 title:    "Java Scripting API: GraalVM 적용해보기"
 author:   Kimtaeng
-tags: 	  java scriptengine
+tags: 	  java scriptengine graalvm
 description: "자바 11에서 Deprecated된 Nashorn 스크립트 엔진을 GraalVM으로 대체해보자." 
 category: Java
 date: "2020-05-23 23:26:53"
