@@ -302,8 +302,11 @@ compiled script: 108 ms
 
 <br><br>
 
-# 마치며
-지금까지 자바에서 자바스크립트 코드를 실행할 수 있는 `Java Scripting API`에 대해서 알아보았습니다. 
-예제에 사용한 전체 소스 코드는 아래 github 저장소에 담아두었습니다.
+# 이어지는 글에서는
+지금까지 자바에서 자바스크립트 코드를 실행할 수 있는 `Java Scripting API`에 대해서 알아보았다.
+다음 이어지는 글을 통해서 자바 버전 11부터 Deprecated된 `Nashorn` 스크립트 엔진을 대응할 수 있는 방법에 대해서 확인해보자.
 
-- 참고 링크: <a href="https://github.com/madplay/java-scripting-api" target="_blank">예제에서 사용한 소스 코드(github)</a>
+- 이어지는 글: <a href="/post/call-javascript-function-from-java-using-graalvm">"Java Scripting API: GraalVM 사용해보기"</a>
+
+예제에서 사용한 전체 소스 코드는 <a href="https://github.com/madplay/java-scripting-api" target="_blank">github 저장소 (링크)</a>를
+참조하면 됩니다.

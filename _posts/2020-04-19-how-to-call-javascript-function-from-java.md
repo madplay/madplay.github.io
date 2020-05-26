@@ -24,9 +24,9 @@ JSR(Java Specification Request, 이하 JSR)의 223 명세 문서로 정의되었
 # 패키지 살펴보기
 Scripting API는 자바 11을 기준으로 `javax.script` 패키지에 있다. 패키지 안에는 스크립트 엔진의 팩토리를 찾는 `ScriptEngineManager` 클래스를
 비롯하여 여러 개의 클래스와 인터페이스가 있다. 이러한 스크립트를 위한 API뿐만 아니라 `jdk`에는 스크립트 엔진의 구현체도 포함되어 있다.
-최초 릴리즈 버전에서는 자바스크립트 엔진으로 Mozilla의 Rhino이 사용되었는데, **자바 8부터는 Narshorn 스크립트 엔진**으로 변경되었다.
+최초 릴리즈 버전에서는 자바스크립트 엔진으로 Mozilla의 Rhino이 사용되었는데, **자바 8부터는 Nashorn 스크립트 엔진**으로 변경되었다.
 
-그런데 오라클의 초안 스펙 프로세스인 JEP(JDK Enhancement Proposal, 이하 JEP)를 보면, Narshorn 엔진도 자바 11버전부터는 Deprecated 되었다.
+그런데 오라클의 초안 스펙 프로세스인 JEP(JDK Enhancement Proposal, 이하 JEP)를 보면, Nashorn 엔진도 자바 11버전부터는 Deprecated 되었다.
 이유는 다음과 같다. _"출시 당시 ECMAScript-262 5.1 표준을 완벽히 구현했으나, ECMAScript 스펙 변경마다 Nashorn의 유지 보수가 어렵다."_
 
 - 참고 링크: <a href="https://openjdk.java.net/jeps/335" target="_blank" rel="nofollow">
@@ -50,7 +50,8 @@ Scripting API는 자바 11을 기준으로 `javax.script` 패키지에 있다. �
 public final class NashornScriptEngine extends AbstractScriptEngine implements Compilable, Invocable {
 ```
 
-우선 대안은 나중에 살펴보고, 오늘의 주제인 자바에서 자바스크립트 함수를 실행하도록 도와주는 Scripting API에 대해서 살펴보자.
+우선 사라질 스크립트 엔진에 대한 대안은 나중에 알아보고, 이번 글의 주제인 "자바에서 자바스크립트 함수를 실행" 하도록 도와주는
+`Java Scripting API`에 대해서 살펴보자.
 
 <br><br>
 
