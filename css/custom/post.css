@@ -84,8 +84,19 @@ a.post_heading_link:active {
     color: #FFFFFF;
 }
 
+@media only screen and (max-width: 768px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        word-break: normal;
+        width: 95%;
+        margin: auto;
+    }
+}
+
 table {
-    width: auto;
+    word-break: normal;
+    width: 95%;
     margin: auto;
 }
 
@@ -93,18 +104,18 @@ th, td {
     border: 1px solid rgba(80, 80, 80, 0.25);
 }
 
+.post_container {
+    word-break: break-all;
+}
+
 .post_container th {
     background-color: rgba(200, 200, 200, 0.5);
 }
 
-blockquote p {
-    font-size: 14px;
-}
-
-@media only screen and (min-width: 768px) {
-    blockquote p {
-        font-size: 15px;
-    }
+.post_container h1, .post_container h2 {
+    border-bottom: 1px solid #eaecef;
+    margin-top: 25px;
+    margin-bottom: 5px;
 }
 
 .post_comments {
@@ -114,23 +125,13 @@ blockquote p {
     font-size: 12px;
 }
 
-@media only screen and (min-width: 768px) {
-    .post_comments {
-        color: #808080;
-        font-style: italic;
-        padding: 1px 10px;
-        font-size: 13px;
-    }
+blockquote p {
+    font-size: 14px;
 }
 
-a {
-    color: #707070;
-}
-
-.post_container h1, .post_container h2 {
-    border-bottom: 1px solid #eaecef;
-    margin-top: 25px;
-    margin-bottom: 5px;
+blockquote h1, blockquote h2, blockquote h3 {
+    margin-top: 0px;
+    margin-bottom: 10px;
 }
 
 @media only screen and (min-width: 768px) {
@@ -139,8 +140,37 @@ a {
         margin-top: 30px;
         margin-bottom: 10px;
     }
+
+    .post_comments {
+        color: #808080;
+        font-style: italic;
+        padding: 1px 10px;
+        font-size: 13px;
+    }
+    
+    blockquote p {
+        font-size: 15px;
+    }
+
+    blockquote h1, blockquote h2, blockquote h3 {
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+a {
+    color: #707070;
+    text-decoration: underline;
+}
+
+a:hover {
+    text-decoration: none;
 }
 
 ol {
     padding-left: 25px;
+}
+
+code {
+    font-size: 80%
 }
