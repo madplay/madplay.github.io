@@ -1,5 +1,5 @@
 .introduce_wrap {
-    font-family: 'Noto Sans KR', 'Nanum Gothic', 'Helvetica Neue', 'Dotum', '돋움', 'Helvetica', sans-serif;
+    font-family: 'Nanum Gothic', 'Helvetica Neue', 'Dotum', '돋움', 'Helvetica', sans-serif;
     margin-top: 10px;
     padding-top: 10px;
 }
@@ -29,11 +29,9 @@
     padding: 0;
     font-weight: bold;
     line-height: 1.6;
-    font-family: 'Noto Sans KR', 'Nanum Gothic', 'Helvetica Neue';
 }
 
 .introduce_summary {
-    font-family: 'Noto Sans KR', 'Nanum Gothic', 'Helvetica Neue';
     font-size: 18px;
 }
 
