@@ -89,4 +89,4 @@ Key와 Value의 쌍으로 구성된 `JSON` 데이터가 정해진 규칙에 따�
 이번 글에서는 **JSON 스키마**가 무엇인지, 기본적인 특성에 대해서 알아보았다.
 이어지는 글에서는 앞서 살펴본 검증 키워드를 기반으로 `JSON` 데이터를 검증하는 스키마를 선언 방법에 대해서 알아본다.
 
-- <a href="/post/json-schema-validation-examples" target="_blank">다음 글: "JSON Schema: 기본적인 스키마 선언과 검증 방법"</a>
+- <a href="/post/json-schema-validation-examples">다음 글: "JSON Schema: 기본적인 스키마 선언과 검증 방법"</a>
