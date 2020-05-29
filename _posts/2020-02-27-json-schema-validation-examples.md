@@ -10,9 +10,9 @@ comments: true
 ---
 
 # 앞선 글에서는
-****JSON 스키마**가 무엇인지에 대해서 알아보았다. 이번 글에서는 `JSON` 데이터를 검증하는 스키마를 선언하여 검증하는 방법에 대해서 알아본다.
+**JSON 스키마**가 무엇인지에 대해서 알아보았다. 이번 글에서는 `JSON` 데이터를 검증하는 스키마를 선언하여 검증하는 방법에 대해서 알아본다.
 
-- <a href="/post/understanding-json-schema" target="_blank">이전 글: "JSON Schema: JSON 스키마란 무엇일까?"</a>
+- <a href="/post/understanding-json-schema">이전 글: "JSON Schema: JSON 스키마란 무엇일까?"</a>
 
 <br><br>
 
@@ -376,4 +376,4 @@ comments: true
 이번 글에서는 `JSON` 데이터의 유효성 검증을 할 수 있는 **JSON 스키마**의 기본적인 선언 방법에 대해서 알아보았다.
 다음 글에서는 조금 더 심화적으로, 스키마의 여러 규칙을 결합하거나 스키마에 조건문을 넣는 방법에 대해서 알아본다.
 
-- <a href="/post/multiple-and-conditional-json-schemas-validation-examples" target="_blank">다음 글: "JSON Schema: 스키마 결합과 조건부 스키마 그리고 반복적인 스키마의 재사용"</a>
+- <a href="/post/multiple-and-conditional-json-schemas-validation-examples">다음 글: "JSON Schema: 스키마 결합과 조건부 스키마 그리고 반복적인 스키마의 재사용"</a>

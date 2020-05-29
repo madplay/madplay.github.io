@@ -13,7 +13,7 @@ comments: true
 `JSON` 데이터를 검증할 수 있는 **JSON 스키마**의 기본적인 사용 방법을 알아보았다. 이번 글에서는 조금 더 심화적인 "스키마를 결합하거나, 스키마에 조건을
 넣는 방법"에 대해서 알아본다.
 
-- <a href="/post/json-schema-validation-examples" target="_blank">이전 글: "JSON Schema: 기본적인 스키마 선언과 검증 방법"</a>
+- <a href="/post/json-schema-validation-examples">이전 글: "JSON Schema: 기본적인 스키마 선언과 검증 방법"</a>
 
 <br><br>
 
@@ -291,4 +291,4 @@ comments: true
 이번 글에서는 조금 더 복합적인 스키마를 선언하거나 스키마를 재사용할 수 있는 방법에 대해서 알아보았다.
 다음 글에서는 **JSON 스키마**를 자바(Java) 코드로 구현하여 사용하는 방법에 대해서 알아본다.
 
-- <a href="/post/how-to-validate-json-schema-in-java" target="_blank">다음 글: "JSON Schema: 자바 코드로 Validator 구현"</a>
+- <a href="/post/how-to-validate-json-schema-in-java">다음 글: "JSON Schema: 자바 코드로 Validator 구현"</a>

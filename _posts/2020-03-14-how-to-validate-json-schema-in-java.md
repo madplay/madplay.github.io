@@ -14,7 +14,7 @@ comments: true
 그리고 반복적인 스키마에 대한 재사용 방법에 대해서 알아보았다. 이번 글에서는 **JSON 스키마**를 검증할 수 있는 Validator를 자바 코드로 구현하는
 방법에 대해서 알아본다.
 
-- <a href="/post/multiple-and-conditional-json-schemas-validation-examples" target="_blank">
+- <a href="/post/multiple-and-conditional-json-schemas-validation-examples">
 이전 글: "JSON Schema: 스키마 결합과 조건부 스키마 그리고 반복적인 스키마의 재사용"</a>
 
 <br><br>
