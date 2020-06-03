@@ -121,6 +121,8 @@ blockquote h1, blockquote h2, blockquote h3 {
 a:hover {
     color: #086dc3;
     text-decoration: underline;
+    text-underline-position: under;
+
 }
 
 ol {
