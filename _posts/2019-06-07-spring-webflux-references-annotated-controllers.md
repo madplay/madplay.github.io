@@ -1,15 +1,15 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.4 어노테이션 컨트롤러"
+title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.4. 어노테이션 컨트롤러"
 author:   Kimtaeng
 tags: 	  spring webflux reactive
-description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.4 Annotated Controllers"
+description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.4. Annotated Controllers"
 category: Spring
 date: "2019-06-07 23:59:22"
 comments: true
 ---
 
-## 1.4. 어노테이션 컨트롤러(Annotated Controllers)
+# 1.4. 어노테이션 컨트롤러(Annotated Controllers)
 스프링 웹플럭스는 어노테이션 기반 프로그래밍 모델을 제공하며 `@Controller`와 `@RestController` 컴포넌트는 어노테이션을 사용하여 요청 매핑,
 요청 입력, 예외 처리 등의 기능을 제공한다. 어노테이션 컨트롤러는 유연한 메서드 시그니처를 가지며 기반 클래스를 확장하거나 특정 인터페이스를 구현할 필요가 없다.
 
@@ -39,7 +39,7 @@ class HelloController {
 
 앞선 예제에서 메서드는 응답 본문(Response body)에 사용할 문자열(String)을 반환한다.
 
-### 1.4.1. `@Controller`
+## 1.4.1. `@Controller`
 표준 스프링 빈 정의를 따라 컨트롤러 빈을 정의할 수 있다. `@Controller` 스트레오 타입은 클래스 패스에서 `@Component` 클래스를 감지하고 자동 빈 등록을
 허용한다. 또한 웹 컴포넌트의 역할임을 나타내는 어노테이션이 달린 클래스(annotated class)의 스트레오 타입 역할을 한다.
 
@@ -70,7 +70,7 @@ class WebConfig {
 `@RestController`는 `@Controller`와 `@ResponseBody`가 합쳐진 **조합 어노테이션(composed annotation)**로, 모든 메서드가 타입 레벨
 `@ResponseBody`가 적용되므로 뷰 리졸루션과 HTML 템플릿 렌더링 대신에 응답 본문(response body)에 직접 응답을 작성한다.
 
-### 1.4.2. 리퀘스트 매핑(Request Mapping)
+## 1.4.2. 리퀘스트 매핑(Request Mapping)
 `@RequestMapping` 어노테이션은 요청을 컨트롤러 메서드에 매핑하는데 사용된다. 이 어노테이션은 URL, HTTP 메서드, 요청 매개변수, 헤더 및 미디어 타입별로
 요청을 매칭할 수 있는 다양한 속성을 가지고 있다. 클래스 레벨에서 매핑을 공유할 수 있고, 메서드 레벨에서 특정 엔드 포인트 매핑으로 좁히기 위해 사용할 수도 있다.
 
@@ -126,7 +126,7 @@ class PersonController {
 }
 ```
 
-#### URI 패턴(URI Patterns)
+### URI 패턴(URI Patterns)
 글롭 패턴(glob pattern)과 와일드 카드를 사용하여 요청을 매핑할 수 있다:
 
 | 패턴 | 설명 | 예제
@@ -223,7 +223,7 @@ URI 경로 패턴에는 시작 시점에 로컬, 시스템, 환경 그리고 기
 스프링 MVC에서는 `/person`이 `/person.*`에 매칭되지만 스프링 웹플럭스에서는 이와 같은 접미사 패턴 매칭을 지원하지 않는다.
 URI 기반 컨텐츠 협상(content negotiation)의 경우, 필요하다면 더 간단하고 명시적이며 URL 경로를 악용에 대해 덜 취약한 쿼리 파라미터 사용을 권장한다.
 
-#### 패턴 비교(Pattern Comparison)
+### 패턴 비교(Pattern Comparison)
 여러 패턴이 URL과 매칭되면 가장 일치하는 패턴을 찾기 위해 패턴을 비교해야 한다. 이는 `PathPattern.SPECIFICITY_COMPARATOR`를 통해 보다 구체적인
 패턴을 찾는 작업이 수행된다.
 
@@ -233,7 +233,7 @@ URI 기반 컨텐츠 협상(content negotiation)의 경우, 필요하다면 더 
 포괄(Catch-all) 패턴(예를 들어, `**`, `{*varName}`)은 점수 계산에서 제외되며 항상 마지막 순위를 갖는다. 두 패턴이 모두 포괄적인 경우
 더 긴 패턴이 선택된다.
 
-#### 소비 가능한 미디어 타입(Consumable Media Types)
+### 소비 가능한 미디어 타입(Consumable Media Types)
 다음 예제와 같이 요청의 `Content-Type`을 기반으로 요청 매핑을 좁힐 수 있다.
 
 Java:
@@ -259,7 +259,7 @@ fun addPet(@RequestBody pet: Pet) {
 
 > `MediaType`은 일반적으로 사용되는 미디어 타입(예를 들어, `APPLICATION_JSON_VALUE`와 `APPLICATION_XML_VALUE`)에 대한 상수를 제공한다.
 
-#### 생산 가능한 미디어 타입(Producible Media Types)
+### 생산 가능한 미디어 타입(Producible Media Types)
 다음 예제와 같이 `Accept` 요청 헤더와 컨트롤러 메서드가 생성하는 컨텐츠 타입 목록을 기반으로 요청 매핑을 좁힐 수 있다:
 
 Java:
@@ -286,7 +286,7 @@ fun getPet(@PathVariable String petId): Pet {
 
 > `MediaType`은 일반적으로 사용되는 미디어 타입(예를 들어, `APPLICATION_JSON_VALUE`와 `APPLICATION_XML_VALUE`)에 대한 상수를 제공한다.
 
-#### 파라미터와 헤더(Parameters and Headers)
+### 파라미터와 헤더(Parameters and Headers)
 쿼리 파라미터 조건으로 요청 매핑 범위를 좁힐 수 있다. 쿼리 파라미터(myParam)가 있는지, 없는지(!myParam) 또는 특정값(myParam=myValue)을
 테스트 할 수 있다. 아래 예제에서는 값을 가진 파라미터를 테스트한다.
 
@@ -328,7 +328,7 @@ fun findPet(@PathVariable petId: String) {
 
 > (1) `myHeader`의 값이 `myValue`와 같은지 확인하라.
 
-#### HTTP HEAD, OPTIONS
+### HTTP HEAD, OPTIONS
 `@GetMapping`과 `@RequestMapping(method=HttpMethod.GET)`은 요청 매핑 목적의 HTTP HEAD를 투명하게 지원한다.
 컨트롤러 메서드는 변경할 필요가 없다. `HttpHandler` 서버 어댑터에 적용된 응답 래퍼는 `Content-Length` 헤더가 실제로 응답에 쓰이지 않고
 바이트 수로 설정되도록 한다.
@@ -340,7 +340,7 @@ HTTP 메서드 선언이 없는 `@RequestMapping`의 경우 Allow 헤더는 GET,
 
 `@RequestMapping` 메서드를 HTTP HEAD와 HTTP OPTIONS으로 명시적으로 매핑할 수 있지만 일반적으로 필요하지 않다.
 
-#### 사용자 정의 어노테이션(Custom Annotations)
+### 사용자 정의 어노테이션(Custom Annotations)
 스프링 웹플럭스는 요청 매핑을 위해 조합 어노테이션(composed annotations) 사용을 지원한다. 이러한 어노테이션들은 `@RequestMapping`으로 메타
 어노테이션이 달렸으며, 더 구체적인 목적으로 `@RequestMapping` 속성의 일부분(또는 모든)을 다시 선언하도록 구성되었다.
 
@@ -352,7 +352,7 @@ HTTP 메서드 선언이 없는 `@RequestMapping`의 경우 Allow 헤더는 GET,
 확장을 필요로 하고 `getCustomMethodCondition` 메서드를 재정의(override) 하는 고급 옵션으로서 사용자 지정 속성을 확인하고 사용자만의 고유한
 `RequestCondition`을 반환할 수 있다.
 
-#### 명시적 등록(Explicit Registrations)
+### 명시적 등록(Explicit Registrations)
 핸들러 메서드를 프로그래밍 방식으로 등록할 수 있다. 이 방법은 동적으로 등록하거나 동일한 핸들러의 서로 다른 인스턴스로 다른 URL을 처리하는 경우처럼
 보다 고급 사례에 사용할 수 있다. 아래 예제는 이를 수행하는 방법이다:
 
@@ -397,6 +397,8 @@ class MyConfig {
 > (3) 핸들러 메서드를 얻는다.
 > (4) 등록을 추가한다.
 
+---
+
 > ### 목차 가이드
-> - 다음글 "1.5 Functional Endpoints" 로 이동(준비중)
+> - <a href="/post/spring-webflux-references-functional-endpoints" target="_blank">다음글 "1.5. Functional Endpoints" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack" target="_blank">전체 목차 페이지로 이동</a>
