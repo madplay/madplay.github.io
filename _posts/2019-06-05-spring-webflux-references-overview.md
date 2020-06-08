@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.1 개요"
+title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.1. 개요"
 author:   Kimtaeng
 tags: 	  spring webflux reactive
-description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.1 Overview"
+description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.1. Overview"
 category: Spring
 date: "2019-06-05 00:01:24"
 comments: true
@@ -195,5 +195,5 @@ RxJava 또는 기타)을 직접 반환할 수 있다. 호출 당 대기 시간�
 ---
 
 > ### 목차 가이드
-> - <a href="/post/spring-webflux-references-reactive-core" target="_blank">다음글 "1.2 리액티브 코어" 로 이동</a>
+> - <a href="/post/spring-webflux-references-reactive-core" target="_blank">다음글 "1.2. 리액티브 코어" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack" target="_blank">전체 목차 페이지로 이동</a>
