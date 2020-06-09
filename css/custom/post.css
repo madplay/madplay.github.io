@@ -159,12 +159,12 @@ blockquote h1, blockquote h2, blockquote h3 {
 }
 
 a {
-    color: #707070;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 a:hover {
-    text-decoration: none;
+    color: #707070;
+    text-decoration: underline;
 }
 
 ol {
