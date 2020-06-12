@@ -304,7 +304,8 @@ comments: true
 
 ## 스키마 의존성 검증
 위에서 살펴본 속성 의존성 검증과 비슷하지만, `properties`를 지정하는 대신에 스키마를 확장해서 제약 조건을 걸 수 있다.
-아래는 `title`, `author` 필드를 포함하는 객체를 정의하되, `author` 필드가 있는 경우에는 `articleNumber` 라는 이름의 정수형 필드가 있어야만 한다.
+아래는 `title`, `author` 필드를 포함하는 객체를 정의하되, `author` 필드가 있는 경우에는 반드시 `articleNumber` 라는 이름의 정수형 필드가
+있어야만 검증에 통과한다.
 
 ```json
 {
