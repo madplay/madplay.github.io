@@ -39,7 +39,7 @@ rel="nofollow" target="_blank" >참고 링크: Web on Reactive Stack</a>
 
 ### <a href="/post/web-on-reactive-stack-webclient">2. WebClient</a>
 - <a href="/post/webclient-references-configuration">2.1. Configuration</a>
-- 2.2. retrieve()
+- <a href="/post/webclient-references-retrieve">2.2. retrieve()</a>
 - 2.3. exchange()
 - 2.4. Request Body
 - 2.5. Client Filters
