@@ -37,10 +37,10 @@ rel="nofollow" target="_blank" >참고 링크: Web on Reactive Stack</a>
 - <a href="/post/spring-webflux-references-webflux-config">1.11. WebFlux Config</a>
 - <a href="/post/spring-webflux-references-http2">1.12. HTTP/2</a>
 
-### 2. WebClient
-- 2.1. Configuration
-- 2.2. retrieve()
-- 2.3. exchange()
+### <a href="/post/web-on-reactive-stack-webclient">2. WebClient</a>
+- <a href="/post/webclient-references-configuration">2.1. Configuration</a>
+- <a href="/post/webclient-references-retrieve">2.2. retrieve()</a>
+- <a href="/post/webclient-references-exchange">2.3. exchange()</a>
 - 2.4. Request Body
 - 2.5. Client Filters
 - 2.6. Synchronous Use

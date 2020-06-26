@@ -80,5 +80,5 @@ JDK 8 환경 또는 최적화된 런타임 성능을 위해서, 제티는 네이
 ---
 
 > ### 목차 가이드
-> - 다음글 "2. WebClient" 로 이동
+> - <a href="/post/web-on-reactive-stack-webclient">다음장 "2. WebClient" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>
