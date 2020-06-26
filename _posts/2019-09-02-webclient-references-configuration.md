@@ -331,5 +331,5 @@ fun webClient(): WebClient {
 ---
 
 > ### 목차 가이드
-> - 다음글 "2.2. retrieve()" 로 이동
+> - <a href="/post/webclient-references-retrieve">다음글 "2.2. retrieve()" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>
