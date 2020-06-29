@@ -21,8 +21,6 @@ comments: true
 <br>
 
 # 목차
-번역이 완료된 문서는 링크가 생성됩니다.
-
 - <a href="/post/spring-webflux-references-overview">1.1. Overview</a>
 - <a href="/post/spring-webflux-references-reactive-core">1.2. Reactive Core</a>
 - <a href="/post/spring-webflux-references-dispatcherhandler">1.3. DispatcherHandler</a>
@@ -37,6 +35,8 @@ comments: true
 - <a href="/post/spring-webflux-references-http2">1.12. HTTP/2</a>
 
 <br>
+
+---
 
 > ### 목차 가이드
 > - <a href="/post/web-on-reactive-stack-webclient">다음장 "2. WebClient"로 이동</a>
