@@ -88,5 +88,5 @@ HTTP와 REST에서 애플리케이션은 여러 URL을 모델링하여 갖는다
 ---
 
 > ### 목차 가이드
-> - 다음글 "3.2. WebSocket API" 로 이동
+> - <a href="/post/websockets-references-websocket-api">다음글 "3.2. WebSocket API" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>
