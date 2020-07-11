@@ -21,7 +21,7 @@ comments: true
 번역이 완료된 문서는 링크가 생성됩니다.
 
 - <a href="/post/websockets-references-introduction-to-websocket">3.1 Introduction to WebSocket</a>
-- 3.2 WebSocket API
+- <a href="/post/websockets-references-websocket-api">3.2 WebSocket API</a>
 
 <br>
 
