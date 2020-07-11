@@ -50,7 +50,7 @@ rel="nofollow" target="_blank" >참고 링크: Web on Reactive Stack</a>
 - <a href="/post/websockets-references-introduction-to-websocket">3.1 Introduction to WebSocket</a>
 - <a href="/post/websockets-references-websocket-api">3.2 WebSocket API</a>
 
-### 4. Testing
+### <a href="/post/web-on-reactive-stack-testing">4. Testing</a>
 
 ### 5. RSocket
 - 5.1. Overview
