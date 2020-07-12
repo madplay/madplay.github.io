@@ -30,7 +30,7 @@ Thymeleaf 프로젝트 홈페이지를 참조하라.
 ### 뷰 설정(View Configuration)
 아래 예제는 프리마커를 뷰 기술로 설정하는 방법이다:
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -52,7 +52,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -79,7 +79,7 @@ class WebConfig : WebFluxConfigurer {
 직접 전달할 수 있다. `freemarkerSettings` 속성은 `java.util.Properties` 객체를, 그리고 `freemarkerVariables` 속성은 `java.util.Map`을
 사용한다. 아래 예제는 `FreeMarkerConfigurer`를 사용하는 방법이다.
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -100,7 +100,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -178,7 +178,7 @@ rel="nofollow">WebJars</a>를 사용하는 것이다.
 `ScriptTemplateConfigurer` 빈(bean)을 선언하여 사용할 스크립트 엔진, 로드할 스크립트 파일, 템플릿을 렌더링하기 위해 호출할 함수 등을 지정할 수 있다.
 다음 예제는 Mustache 템플릿과 Nashorn 자바스크립트 엔진을 사용한다:
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -201,7 +201,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -235,7 +235,7 @@ class WebConfig : WebFluxConfigurer {
 서버사이드 스크립트 엔진에서 사용할 수 없는 브라우저 기능을 사용하려면  <a href="https://en.wikipedia.org/wiki/Polyfill"
 target="_blank" rel="nofollow">polyfill</a>을 필요로 한다. 다음 예제는 커스텀 렌더 함수를 설정하는 방법이다:
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -258,7 +258,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux

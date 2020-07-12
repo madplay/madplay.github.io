@@ -15,7 +15,7 @@ comments: true
 
 아래는 기본적인 예제이다.
 
-Java:
+#### Java:
 ```java
 @RestController
 public class HelloController {
@@ -27,7 +27,7 @@ public class HelloController {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @RestController
 class HelloController {
@@ -45,7 +45,7 @@ class HelloController {
 
 이러한 `@Controller` 빈의 자동 감지를 사용하려면, 아래 예제와 같이 자바 설정에 컴포넌트 스캔을 추가한다.
 
-Java:
+#### Java:
 ```java
 @Configuration
 @ComponentScan("org.example.web") // (1)
@@ -55,7 +55,7 @@ public class WebConfig {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @ComponentScan("org.example.web") // (1)
@@ -88,7 +88,7 @@ HTTP 메서드에 대한 `@RequestMapping`의 변형도 있다:
 
 아래는 그 유형과 메서드 레벨 매핑을 사용한 예제다.
 
-Java:
+#### Java:
 ```java
 @RestController
 @RequestMapping("/persons")
@@ -107,7 +107,7 @@ class PersonController {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @RestController
 @RequestMapping("/persons")
@@ -140,7 +140,7 @@ class PersonController {
 
 캡쳐된 URI 변수는 아래 예제와 같이 `@PathVariable`을 사용하여 접근할 수 있다.
 
-Java:
+#### Java:
 ```java
 @GetMapping("/owners/{ownerId}/pets/{petId}")
 public Pet findPet(@PathVariable Long ownerId, @PathVariable Long petId) {
@@ -148,7 +148,7 @@ public Pet findPet(@PathVariable Long ownerId, @PathVariable Long petId) {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @GetMapping("/owners/{ownerId}/pets/{petId}")
 fun findPet(@PathVariable ownerId: Long, @PathVariable petId: Long): Pet {
@@ -158,7 +158,7 @@ fun findPet(@PathVariable ownerId: Long, @PathVariable petId: Long): Pet {
 
 아래 예제와 같이 클래스와 메서드 레벨에서 URI 변수를 선언할 수 있다.
 
-Java:
+#### Java:
 ```java
 @Controller
 @RequestMapping("/owners/{ownerId}") // (1)
@@ -171,7 +171,7 @@ public class OwnerController {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Controller
 @RequestMapping("/owners/{ownerId}") // (1)
@@ -198,7 +198,7 @@ URI 변수의 이름을 명시적으로 지정할 수 있지만(예를 들어, `
 `{varName:regex}` 구문은 URI 변수를 `{varName:regex}`인 정규식을 사용하여 선언한다. 예를 들어 `/spring-web-3.0.5 .jar`의 URL을 지정하면
 아래 이어지는 메서드와 같은 방법으로 이름, 버전 그리고 파일 확장자를 추출한다.
 
-Java:
+#### Java:
 ```java
 @GetMapping("/{name:[a-z-]+}-{version:\\d\\.\\d\\.\\d}{ext:\\.[a-z]+}")
 public void handle(@PathVariable String version, @PathVariable String ext) {
@@ -206,7 +206,7 @@ public void handle(@PathVariable String version, @PathVariable String ext) {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @GetMapping("/{name:[a-z-]+}-{version:\\d\\.\\d\\.\\d}{ext:\\.[a-z]+}")
 fun handle(@PathVariable version: String, @PathVariable ext: String) {
@@ -236,7 +236,7 @@ URI 기반 컨텐츠 협상(content negotiation)의 경우, 필요하다면 더 
 ### 소비 가능한 미디어 타입(Consumable Media Types)
 다음 예제와 같이 요청의 `Content-Type`을 기반으로 요청 매핑을 좁힐 수 있다.
 
-Java:
+#### Java:
 ```java
 @PostMapping(path = "/pets", consumes = "application/json")
 public void addPet(@RequestBody Pet pet) {
@@ -244,7 +244,7 @@ public void addPet(@RequestBody Pet pet) {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @PostMapping("/pets", consumes = ["application/json"])
 fun addPet(@RequestBody pet: Pet) {
@@ -262,7 +262,7 @@ fun addPet(@RequestBody pet: Pet) {
 ### 생산 가능한 미디어 타입(Producible Media Types)
 다음 예제와 같이 `Accept` 요청 헤더와 컨트롤러 메서드가 생성하는 컨텐츠 타입 목록을 기반으로 요청 매핑을 좁힐 수 있다:
 
-Java:
+#### Java:
 ```java
 @GetMapping(path = "/pets/{petId}", produces = "application/json")
 @ResponseBody
@@ -270,7 +270,7 @@ public Pet getPet(@PathVariable String petId) {
     // ...
 }
 ```
-Kotlin:
+#### Kotlin:
 ```kotlin
 @GetMapping("/pets/{petId}", produces = ["application/json"])
 @ResponseBody
@@ -290,7 +290,7 @@ fun getPet(@PathVariable String petId): Pet {
 쿼리 파라미터 조건으로 요청 매핑 범위를 좁힐 수 있다. 쿼리 파라미터(myParam)가 있는지, 없는지(!myParam) 또는 특정값(myParam=myValue)을
 테스트 할 수 있다. 아래 예제에서는 값을 가진 파라미터를 테스트한다.
 
-Java:
+#### Java:
 ```java
 @GetMapping(path = "/pets/{petId}", params = "myParam=myValue") (1)
 public void findPet(@PathVariable String petId) {
@@ -298,7 +298,7 @@ public void findPet(@PathVariable String petId) {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @GetMapping("/pets/{petId}", params = ["myParam=myValue"]) (1)
 fun findPet(@PathVariable petId: String) {
@@ -310,7 +310,7 @@ fun findPet(@PathVariable petId: String) {
 
 아래 예제와 같이 요청 헤더 조건에 동일하게 사용할 수도 있다.
 
-Java:
+#### Java:
 ```java
 @GetMapping(path = "/pets", headers = "myHeader=myValue") (1)
 public void findPet(@PathVariable String petId) {
@@ -318,7 +318,7 @@ public void findPet(@PathVariable String petId) {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @GetMapping("/pets", headers = ["myHeader=myValue"]) (1)
 fun findPet(@PathVariable petId: String) {
@@ -356,7 +356,7 @@ HTTP 메서드 선언이 없는 `@RequestMapping`의 경우 Allow 헤더는 GET,
 핸들러 메서드를 프로그래밍 방식으로 등록할 수 있다. 이 방법은 동적으로 등록하거나 동일한 핸들러의 서로 다른 인스턴스로 다른 URL을 처리하는 경우처럼
 보다 고급 사례에 사용할 수 있다. 아래 예제는 이를 수행하는 방법이다:
 
-Java:
+#### Java:
 ```java
 @Configuration
 public class MyConfig {
@@ -375,7 +375,7 @@ public class MyConfig {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 class MyConfig {

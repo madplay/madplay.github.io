@@ -26,7 +26,7 @@ WebFlux.fn에서 HTTP 요청은 `HandlerFunction`으로 핸들링한다: `Server
 
 `RouterFunctions.router()` 는 아래 예제와 같이 라우터 작성을 쉽게하는 라우터 빌더를 제공한다.
 
-Java:
+#### Java:
 ```java
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.web.reactive.function.server.RequestPredicates.*;
@@ -60,7 +60,7 @@ public class PersonHandler {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val repository: PersonRepository = ...
 val handler = PersonHandler(repository)
@@ -109,12 +109,12 @@ class PersonHandler(private val repository: PersonRepository) {
 
 아래는 `request body`를 `Mono<String>`으로 추출하는 예제다.
 
-Java:
+#### Java:
 ```java
 Mono<String> string = request.bodyToMono(String.class);
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val string = request.awaitBody<String>()
 ```
@@ -122,12 +122,12 @@ val string = request.awaitBody<String>()
 다음 예제는 본문을 `Flux<Person>` (또는 코틀린의 `Flow<Person>`)으로 추출한다. 여기서 Person 객체는 JSON이나 XML과 같은 직렬화된 데이터로부터
 디코딩된다.
 
-Java:
+#### Java:
 ```java
 Flux<Person> people = request.bodyToFlux(Person.class);
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val people = request.bodyToFlow<Person>()
 ```
@@ -135,13 +135,13 @@ val people = request.bodyToFlow<Person>()
 위의 예제는 함수형 전략 인터페이스인 `BodyExtractor`를 받는 `ServerRequest.body(BodyExtractor)` 메서드의 축약형 버전이다.
 유틸리티 클래스 `BodyExtractors`에 있는 여러 인스턴스에 대한 접근을 제공한다. 예를 들어 위의 예제는 아래와 같이 작성할 수도 있다.
 
-Java:
+#### Java:
 ```java
 Mono<String> string = request.body(BodyExtractors.toMono(String.class));
 Flux<Person> people = request.body(BodyExtractors.toFlux(Person.class));
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val string = request.body(BodyExtractors.toMono(String::class.java)).awaitFirst()
 val people = request.body(BodyExtractors.toFlux(Person::class.java)).asFlow()
@@ -149,36 +149,36 @@ val people = request.body(BodyExtractors.toFlux(Person::class.java)).asFlow()
 
 아래는 폼 데이터에 접근하는 예제다:
 
-Java:
+#### Java:
 ```java
 Mono<MultiValueMap<String, Part> map = request.multipartData();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val map = request.awaitFormData()
 ```
 
 아래는 맵 방식으로 멀티파트 데이터에 접근하는 예제다:
 
-Java:
+#### Java:
 ```java
 Mono<MultiValueMap<String, Part> map = request.multipartData();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val map = request.awaitMultipartData()
 ```
 
 아래 예제는 스트리밍 방식으로 한 번에 하나씩 멀티파트 데이터에 접근하는 예제다:
 
-Java:
+#### Java:
 ```java
 Flux<Part> parts = request.body(BodyExtractors.toParts());
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val parts = request.body(BodyExtractors.toParts()).asFlow()
 ```
@@ -187,13 +187,13 @@ val parts = request.body(BodyExtractors.toParts()).asFlow()
 `ServerResponse`는 HTTP 응답에 대한 접근을 제공하며, 불변형이므로 `build` 메서드를 사용하여 작성할 수 있다. 빌더를 사용하여 응답 상태를 설정하거나
 응답 헤더를 추가하거나 본문을 제공할 수 있다. 아래 예제는 JSON 컨텐츠로 200(OK) 응답을 작성한다.
 
-Java:
+#### Java:
 ```java
 Mono<Person> person = ...
 ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(person, Person.class);
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val person: Person = ...
 ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(person)
@@ -201,13 +201,13 @@ ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(person)
 
 아래는 본문(body) 없이 `Location` 헤더를 사용하여 201(CREATED) 응답을 작성하는 예제다:
 
-Java:
+#### Java:
 ```java
 URI location = ...
 ServerResponse.created(location).build();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val location: URI = ...
 ServerResponse.created(location).build()
@@ -216,12 +216,12 @@ ServerResponse.created(location).build()
 사용된 코덱에 따라 힌트 매개변수(hint parameters)를 전달하여 본문(body)이 직렬화 또는 역직렬화되는 방식을 지정할 수 있다.
 예를 들면 **Jackson JSON view**를 지정한다:
 
-Java:
+#### Java:
 ```java
 ServerResponse.ok().hint(Jackson2CodecSupport.JSON_VIEW_HINT, MyJacksonView.class).body(...);
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 ServerResponse.ok().hint(Jackson2CodecSupport.JSON_VIEW_HINT, MyJacksonView::class.java).body(...)
 ```
@@ -229,13 +229,13 @@ ServerResponse.ok().hint(Jackson2CodecSupport.JSON_VIEW_HINT, MyJacksonView::cla
 ### 핸들러 클래스(Handler Classes)
 핸들러 함수를 아래와 같이 람다로 만들 수 있다.
 
-Java:
+#### Java:
 ```java
 HandlerFunction<ServerResponse> helloWorld =
   request -> ServerResponse.ok().bodyValue("Hello World");
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val helloWorld = HandlerFunction<ServerResponse> { ServerResponse.ok().bodyValue("Hello World") }
 ```
@@ -243,7 +243,7 @@ val helloWorld = HandlerFunction<ServerResponse> { ServerResponse.ok().bodyValue
 편리하지만 애플리케이션에서 여러 개의 함수를 사용한다면, 인라인 람다가 지저분할 수도 있다. 따라서 핸들러 클래스로 그룹화하여 핸들러 함수를 묶을 수 있다.
 그러면 어노테이션 기반 애플리케이션에서의 `@Controller`와 비슷한 역할을 한다. 예를 들어 다음 클래스는 리액티브 `Person` 관련 처리를 한다:
 
-Java:
+#### Java:
 ```java
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
@@ -283,7 +283,7 @@ public class PersonHandler {
 찾으면 JSON 응답을 만든다. 하지만 찾지 못했다면 `switchIfEmpty(Mono<T>)`를 실행해 404 Not Found 응답을 반환한다.
 
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 class PersonHandler(private val repository: PersonRepository) {
 
@@ -317,7 +317,7 @@ class PersonHandler(private val repository: PersonRepository) {
 함수형 엔드포인트는 스프링의 검증(Validation) 기능을 사용하여 요청 본문(request body)를 검증할 수 있다. 예를 들어, 사용자가 정의한 스프링 Validator
 구현체로 `Person`을 검증하다:
 
-Java:
+#### Java:
 ```java
 public class PersonHandler {
 
@@ -340,7 +340,7 @@ public class PersonHandler {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 class PersonHandler(private val repository: PersonRepository) {
 
@@ -391,14 +391,14 @@ HTTP 메서드 기반 매핑 외에도 라우트 빌더는 요청에 매핑할 �
 직접 `RequestPredicate`를 작성할 수 있지만, `RequestPredicates` 유틸리티 클래스는 요청 경로, HTTP 메서드, 콘텐츠 유형 등을 기반으로 공통적으로
 사용되는 구현체들을 제공한다. 아래는 요청 술어(request predicates)를 사용하여 `Accept` 헤더에 기반한 조건을 생성하는 예제다.
 
-Java:
+#### Java:
 ```java
 RouterFunction<ServerResponse> route = RouterFunctions.route()
     .GET("/hello-world", accept(MediaType.TEXT_PLAIN),
         request -> ServerResponse.ok().bodyValue("Hello World")).build();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val route = coRouter {
     GET("/hello-world", accept(TEXT_PLAIN)) {
@@ -430,7 +430,7 @@ val route = coRouter {
 
 다음 예제는 4개의 라우팅 구성을 보여준다:
 
-Java:
+#### Java:
 ```java
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.web.reactive.function.server.RequestPredicates.*;
@@ -448,7 +448,7 @@ RouterFunction<ServerResponse> route = route()
     .build();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 import org.springframework.http.MediaType.APPLICATION_JSON
 
@@ -475,7 +475,7 @@ val route = coRouter {
 **WebFlux.fn**에서는 라우터 함수 빌더의 `path` 메서드로 경로 술어를 공유할 수 있다. 예를 들어, 위 예제의 마지막 몇 줄은 중첩된 라우팅을 사용하여
 아래와 같이 개선될 수 있다:
 
-Java:
+#### Java:
 ```java
 RouterFunction<ServerResponse> route = route()
     .path("/person", builder -> builder (1)
@@ -487,7 +487,7 @@ RouterFunction<ServerResponse> route = route()
 
 > (1) `path` 메서드의 두 번째 파라미터는 라우터 빌더를 사용하는 컨슈머다.
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val route = coRouter {
     "/person".nest {
@@ -501,7 +501,7 @@ val route = coRouter {
 경로 기반 중첩이 가장 일반적이지만 빌더에서 `nest` 메서드를 사용하여 모든 유형의 술어를 중첩할 수 있다. 위의 예제는 여전히 `Accept` 헤더가 중복이다.
 `accept`와 `nest` 메서드를 함께 사용하면 더 개선할 수 있다:
 
-Java:
+#### Java:
 ```java
 RouterFunction<ServerResponse> route = route()
     .path("/person", b1 -> b1
@@ -512,7 +512,7 @@ RouterFunction<ServerResponse> route = route()
     .build();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val route = coRouter {
     "/person".nest {
@@ -547,7 +547,7 @@ HTTP 서버에서 어떻게 라우터 기능을 실행할까? 간단한 옵션�
 
 다음 예제는 웹플럭스 자바 설정을 보여준다. (실행 방법은 `DispatcherHandler`를 참조하라):
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -582,7 +582,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -619,7 +619,7 @@ class WebConfig : WebFluxConfigurer {
 `ServletFilter` 또는 둘 다를 사용하여 유사한 기능을 수행할 수 있다. 필터는 빌더의 모든 라우팅에 적용된다. 그러니까, 중첩된 라우팅에 정의된 필터는
 "최상위" 라우팅에 적용되지 않는다는 것이다. 예를 들어, 아래 예제를 보라:
 
-Java:
+#### Java:
 ```java
 RouterFunction<ServerResponse> route = route()
     .path("/person", b1 -> b1
@@ -634,7 +634,7 @@ RouterFunction<ServerResponse> route = route()
     .build();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val route = router {
     "/person".nest {
@@ -662,7 +662,7 @@ val route = router {
 이제 특정 경로의 접근 여부를 결정할 수 있는 `SecurityManager`가 있다고 가정하고 간단한 보안 필터를 추가할 수 있다. 다음 예제는 이를 수행하는 방법을
 보여준다:
 
-Java:
+#### Java:
 ```java
 SecurityManager securityManager = ...
 
@@ -683,7 +683,7 @@ RouterFunction<ServerResponse> route = route()
     .build();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val securityManager: SecurityManager = ...
 

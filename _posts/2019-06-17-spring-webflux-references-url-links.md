@@ -26,7 +26,7 @@ UriComponents uriComponents = UriComponentsBuilder
 URI uri = uriComponents.expand("Westin", "123").toUri(); (5)
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val uriComponents = UriComponentsBuilder
         .fromUriString("https://example.com/hotels/{hotel}") (1)
@@ -45,7 +45,7 @@ val uri = uriComponents.expand("Westin", "123").toUri() (5)
 
 아래 예제와 같이 `buildAndExpand`를 사용하여 앞의 예제를 하나의 체인으로 통합할 수 있다.
 
-Java:
+#### Java:
 ```java
 URI uri = UriComponentsBuilder
         .fromUriString("https://example.com/hotels/{hotel}")
@@ -55,7 +55,7 @@ URI uri = UriComponentsBuilder
         .toUri();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val uri = UriComponentsBuilder
         .fromUriString("https://example.com/hotels/{hotel}")
@@ -67,7 +67,7 @@ val uri = UriComponentsBuilder
 
 아래 예제와 같이 URI(인코딩이 적용된)로 바로 만들면 더 단축시킬 수 있다.
 
-Java:
+#### Java:
 ```java
 URI uri = UriComponentsBuilder
         .fromUriString("https://example.com/hotels/{hotel}")
@@ -75,7 +75,7 @@ URI uri = UriComponentsBuilder
         .build("Westin", "123");
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val uri = UriComponentsBuilder
         .fromUriString("https://example.com/hotels/{hotel}")
@@ -85,14 +85,14 @@ val uri = UriComponentsBuilder
 
 아래 예제와 같이 전체를 URI 템플릿으로 사용해서 더 짧게 만들 수 있다.
 
-Java:
+#### Java:
 ```java
 URI uri = UriComponentsBuilder
         .fromUriString("https://example.com/hotels/{hotel}?q={q}")
         .build("Westin", "123");
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val uri = UriComponentsBuilder
         .fromUriString("https://example.com/hotels/{hotel}?q={q}")
@@ -110,7 +110,7 @@ URI를 빌드하는 플러그인과 같은 메커니즘을 제공한다.
 
 아래는 `RestTemplate`을 설정하는 예제다.
 
-Java:
+#### Java:
 ```java
 // import org.springframework.web.util.DefaultUriBuilderFactory.EncodingMode;
 
@@ -122,7 +122,7 @@ RestTemplate restTemplate = new RestTemplate();
 restTemplate.setUriTemplateHandler(factory);
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 // import org.springframework.web.util.DefaultUriBuilderFactory.EncodingMode
 
@@ -136,7 +136,7 @@ restTemplate.uriTemplateHandler = factory
 
 아래는 `WebClient`를 설정하는 예제다.
 
-Java:
+#### Java:
 ```java
 // import org.springframework.web.util.DefaultUriBuilderFactory.EncodingMode;
 
@@ -147,7 +147,7 @@ factory.setEncodingMode(EncodingMode.TEMPLATE_AND_VALUES);
 WebClient client = WebClient.builder().uriBuilderFactory(factory).build();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 // import org.springframework.web.util.DefaultUriBuilderFactory.EncodingMode
 
@@ -161,7 +161,7 @@ val client = WebClient.builder().uriBuilderFactory(factory).build()
 또한 `DefaultUriBuilderFactory`를 직접 사용할 수도 있다. 이는 `UriComponentsBuilder`를 사용하는 것과 유사하지만, 정적 팩토리 메서드 대신에
 아래 예제와 같이 설정을 가지고 있는 실제 인스턴스다.
 
-Java:
+#### Java:
 ```java
 String baseUrl = "https://example.com";
 DefaultUriBuilderFactory uriBuilderFactory = new DefaultUriBuilderFactory(baseUrl);
@@ -171,7 +171,7 @@ URI uri = uriBuilderFactory.uriString("/hotels/{hotel}")
         .build("Westin", "123");
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val baseUrl = "https://example.com"
 val uriBuilderFactory = DefaultUriBuilderFactory(baseUrl)
@@ -198,7 +198,7 @@ val uri = uriBuilderFactory.uriString("/hotels/{hotel}")
 
 아래는 첫 번째 옵션을 사용한 예제다:
 
-Java:
+#### Java:
 ```java
 URI uri = UriComponentsBuilder.fromPath("/hotel list/{city}")
         .queryParam("q", "{q}")
@@ -209,7 +209,7 @@ URI uri = UriComponentsBuilder.fromPath("/hotel list/{city}")
 // Result is "/hotel%20list/New%20York?q=foo%2Bbar"
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val uri = UriComponentsBuilder.fromPath("/hotel list/{city}")
         .queryParam("q", "{q}")
@@ -222,14 +222,14 @@ val uri = UriComponentsBuilder.fromPath("/hotel list/{city}")
 
 아래 예제와 같이 URI로 바로 만들면(인코딩을 포함하여) 앞의 예제를 더 줄일 수 있다:
 
-Java:
+#### Java:
 ```java
 URI uri = UriComponentsBuilder.fromPath("/hotel list/{city}")
         .queryParam("q", "{q}")
         .build("New York", "foo+bar")
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val uri = UriComponentsBuilder.fromPath("/hotel list/{city}")
         .queryParam("q", "{q}")
@@ -238,13 +238,13 @@ val uri = UriComponentsBuilder.fromPath("/hotel list/{city}")
 
 완전한 URL 템플릿으로 더 단축시킬 수 있다:
 
-Java:
+#### Java:
 ```java
 URI uri = UriComponentsBuilder.fromPath("/hotel list/{city}?q={q}")
         .build("New York", "foo+bar")
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val uri = UriComponentsBuilder.fromPath("/hotel list/{city}?q={q}")
         .build("New York", "foo+bar")
@@ -253,7 +253,7 @@ val uri = UriComponentsBuilder.fromPath("/hotel list/{city}?q={q}")
 `WebClient`와 `RestTemplate`은 `UriBuilderFactory` 전략을 통해 내부적으로 URI 템플릿을 확장하고 인코딩한다. 두 가지 모두 커스텀 전략으로
 아래 예제와 같이 설정할 수 있다:
 
-Java:
+#### Java:
 ```java
 String baseUrl = "https://example.com";
 DefaultUriBuilderFactory factory = new DefaultUriBuilderFactory(baseUrl)
@@ -267,7 +267,7 @@ restTemplate.setUriTemplateHandler(factory);
 WebClient client = WebClient.builder().uriBuilderFactory(factory).build();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val baseUrl = "https://example.com"
 val factory = DefaultUriBuilderFactory(baseUrl).apply {
