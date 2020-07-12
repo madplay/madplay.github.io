@@ -2,7 +2,7 @@
 layout:   post
 title:    "[Web on Reactive Stack] 4. 테스팅(Testing)"
 author:   Kimtaeng
-tags: 	  spring reactive websocket
+tags: 	  spring reactive
 description: "한글로 번역한 Web on Reactive Stack, 4. Testing"
 category: Spring
 date: "2019-10-19 02:34:10"
@@ -24,5 +24,5 @@ mock 객체에 대해서는
 ---
 
 > ### 목차 가이드
-> - 다음장 "5. RSocket"으로 이동
+> - <a href="/post/web-on-reactive-stack-rsocket">다음장 "5. RSocket"으로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>
