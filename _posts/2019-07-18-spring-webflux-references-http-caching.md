@@ -30,7 +30,7 @@ HTTP 캐싱은 웹 애플리케이션의 성능을 크게 향상시킬 수 있�
 
 <div class="post_comments">[역주] 자주 사용되는 케이스별로 미리 코드를 정의해둘 수 있다.</div>
 
-Java:
+#### Java:
 ```java
 // Cache for an hour - "Cache-Control: max-age=3600"
 CacheControl ccCacheOneHour = CacheControl.maxAge(1, TimeUnit.HOURS);
@@ -44,7 +44,7 @@ CacheControl ccNoStore = CacheControl.noStore();
 CacheControl ccCustom = CacheControl.maxAge(10, TimeUnit.DAYS).noTransform().cachePublic();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 // Cache for an hour - "Cache-Control: max-age=3600"
 val ccCacheOneHour = CacheControl.maxAge(1, TimeUnit.HOURS)
@@ -64,7 +64,7 @@ val ccCustom = CacheControl.maxAge(10, TimeUnit.DAYS).noTransform().cachePublic(
 컨트롤러는 HTTP 캐시를 명시할 수 있다. 요청 헤더와 비교하기 전에 리소스의 `lastModified` 또는 `ETag` 값을 계산해야 하므로,
 보통은 이 방법을 권장한다. 컨트롤러는 아래 예제와 같이 `ETag`와 `Cache-Control` 설정을 `ResponseEntity`에 추가할 수 있다.
 
-Java:
+#### Java:
 ```java
 @GetMapping("/book/{id}")
 public ResponseEntity<Book> showBook(@PathVariable Long id) {
@@ -80,7 +80,7 @@ public ResponseEntity<Book> showBook(@PathVariable Long id) {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @GetMapping("/book/{id}")
 fun showBook(@PathVariable id: Long): ResponseEntity<Book> {
@@ -101,7 +101,7 @@ fun showBook(@PathVariable id: Long): ResponseEntity<Book> {
 
 다음 예제와 같이 컨트롤러에서 요청 헤더를 검사할 수도 있다.
 
-Java:
+#### Java:
 ```java
 @RequestMapping
 public String myHandleMethod(ServerWebExchange exchange, Model model) {
@@ -117,7 +117,7 @@ public String myHandleMethod(ServerWebExchange exchange, Model model) {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @RequestMapping
 fun myHandleMethod(exchange: ServerWebExchange, model: Model): String? {

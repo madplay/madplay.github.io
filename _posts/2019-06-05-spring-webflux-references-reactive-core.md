@@ -51,14 +51,14 @@ Jetty | org.eclipse.jetty | jetty-server, jetty-servlet
 아래 코드 스니펫은 각 서버 API로 `HttpHandler` 어댑터를 사용하는 것을 보여준다.
 
 ### 리액터 네티(Reactor Netty)
-Java:
+#### Java:
 ```java
 HttpHandler handler = ...
 ReactorHttpHandlerAdapter adapter = new ReactorHttpHandlerAdapter(handler);
 HttpServer.create().host(host).port(port).handle(adapter).bind().block();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val handler: HttpHandler = ...
 val adapter = ReactorHttpHandlerAdapter(handler)
@@ -66,7 +66,7 @@ HttpServer.create().host(host).port(port).handle(adapter).bind().block()
 ```
 
 ### 언더토우(Undertow)
-Java:
+#### Java:
 ```java
 HttpHandler handler = ...
 UndertowHttpHandlerAdapter adapter = new UndertowHttpHandlerAdapter(handler);
@@ -74,7 +74,7 @@ Undertow server = Undertow.builder().addHttpListener(port, host).setHandler(adap
 server.start();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val handler: HttpHandler = ...
 val adapter = UndertowHttpHandlerAdapter(handler)
@@ -83,7 +83,7 @@ server.start()
 ```
 
 ### 톰캣(Tomcat)
-Java:
+#### Java:
 ```java
 HttpHandler handler = ...
 Servlet servlet = new TomcatHttpHandlerAdapter(handler);
@@ -98,7 +98,7 @@ server.setPort(port);
 server.start();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val handler: HttpHandler = ...
 val servlet = TomcatHttpHandlerAdapter(handler)
@@ -114,7 +114,7 @@ server.start()
 ```
 
 ### 제티(Jetty)
-Java:
+#### Java:
 ```java
 HttpHandler handler = ...
 Servlet servlet = new JettyHttpHandlerAdapter(handler);
@@ -131,7 +131,7 @@ server.addConnector(connector);
 server.start();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val handler: HttpHandler = ...
 val servlet = JettyHttpHandlerAdapter(handler)
@@ -184,12 +184,12 @@ server.start()
 ### 폼 데이터(Form Data)
 `ServerWebExchange`는 아래와 같은 폼 데이터 액세스 메서드를 제공한다.
 
-Java:
+#### Java:
 ```java
 Mono<MultiValueMap<String, String>> getFormData();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 suspend fun getFormData(): MultiValueMap<String, String>
 ```
@@ -202,12 +202,12 @@ suspend fun getFormData(): MultiValueMap<String, String>
 
 `ServerWebExchange`는 아래와 같은 멀티파트 데이터 액세스 메서드를 제공한다.
 
-Java:
+#### Java:
 ```java
 Mono<MultiValueMap<String, Part>> getMultipartData();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 suspend fun getMultipartData(): MultiValueMap<String, Part>
 ```
@@ -384,7 +384,7 @@ DEBUG와 TRACE 로깅은 민감한 정보를 기록할 수 있다. 그렇기 때
 
 다음 예제는 서버 측 요청에 대한 로깅 설정 방법이다:
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -411,7 +411,7 @@ class MyConfig : WebFluxConfigurer {
 
 다음 예제는 클라이언트 측 요청에 대한 로깅 설정 방법이다:
 
-Java:
+#### Java:
 ```java
 Consumer<ClientCodecConfigurer> consumer = configurer ->
         configurer.defaultCodecs().enableLoggingRequestDetails(true);
@@ -421,7 +421,7 @@ WebClient webClient = WebClient.builder()
         .build();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val consumer: (ClientCodecConfigurer) -> Unit  = { configurer -> configurer.defaultCodecs().enableLoggingRequestDetails(true) }
 
@@ -437,7 +437,7 @@ val webClient = WebClient.builder()
 
 아래 예제는 클라이언트측 요청에 대한 설정 방법이다.
 
-Java:
+#### Java:
 ```java
 WebClient webClient = WebClient.builder()
         .codecs(configurer -> {
@@ -447,7 +447,7 @@ WebClient webClient = WebClient.builder()
         .build();
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 val webClient = WebClient.builder()
         .codecs({ configurer ->

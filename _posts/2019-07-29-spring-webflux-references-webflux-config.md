@@ -23,7 +23,7 @@ comments: true
 
 아래 예제와 같이 자바 설정에 `@EnableWebFlux` 어노테이션을 사용할 수 있다.
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -31,7 +31,7 @@ public class WebConfig {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -46,7 +46,7 @@ class WebConfig
 ## 1.11.2. 웹플럭스 설정 API(WebFlux config API)
 아래 예제처럼 자바 설정에 `WebFluxConfigurer` 인터페이스를 구현할 수 있다:
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -56,7 +56,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -74,7 +74,7 @@ class WebConfig : WebFluxConfigurer {
 
 자바 설정에서 커스텀 포맷터(formatters)와 컨버터(converters)를 등록하려면 아래와 같이 하면 된다:
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -88,7 +88,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -104,7 +104,7 @@ class WebConfig : WebFluxConfigurer {
 표현했을 때 그렇다. 하지만 "date"와 "time" 필드의 경우 브라우저는 HTML 스펙에 정의된 고정 포맷을 사용한다. 이러한 경우 다음과 같이
 사용자 정의할 수 있다.
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -119,7 +119,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -145,7 +145,7 @@ class WebConfig : WebFluxConfigurer {
 
 자바 설정에서 아래 예제와 같이 전역 `Validator` 인스턴스를 사용자 정의할 수 있다:
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -159,7 +159,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -174,7 +174,7 @@ class WebConfig : WebFluxConfigurer {
 
 아래 예제와 같이 `Validator` 구현을 로컬 설정으로 할 수 있다:
 
-Java:
+#### Java:
 ```java
 @Controller
 public class MyController {
@@ -187,7 +187,7 @@ public class MyController {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Controller
 class MyController {
@@ -210,7 +210,7 @@ class MyController {
 
 다음은 요청된 콘텐츠 타입 매핑 방식을 사용자 정의하는 예제다.
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -223,7 +223,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -238,7 +238,7 @@ class WebConfig : WebFluxConfigurer {
 ## 1.11.6. HTTP 메시지 코덱(HTTP message codecs)
 다음 예제는 요청과 응답 본문(body)를 읽고 쓰는 방식을 사용자 정의하는 방법이다:
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -251,7 +251,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -284,7 +284,7 @@ Jackson JSON과 XML의 경우 `Jackson2ObjectMapperBuilder`를 사용을 고려�
 ## 1.11.7. 뷰 리졸버(View Resolvers)
 다음 예제는 뷰 리졸버 설정 방법이다.
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -297,7 +297,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -312,7 +312,7 @@ class WebConfig : WebFluxConfigurer {
 `ViewResolverRegistry`를 이용해서 스프링 프레임워크와 통합된 뷰(view) 기술을 등록할 수 있다. 다음 예제는 FreeMarker를 사용한다.
 (기본적인 FreeMarker 뷰 설정도 필요하다)
 
-Java:
+#### Java:
 
 ```java
 @Configuration
@@ -336,7 +336,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -357,7 +357,7 @@ class WebConfig : WebFluxConfigurer {
 
 또한 아래와 같이 `ViewResolver` 구현체를 직접 연결할 수도 있다.
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -372,7 +372,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -389,7 +389,7 @@ class WebConfig : WebFluxConfigurer {
 `spring-web` 모듈에 있는 어떤 코덱과도 호환되는 `HttpMessageWriterView` 구현체로 하나 이상의 디폴트 뷰를 설정하면 된다.
 다음 예제는 그 방법을 보여준다:
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -436,7 +436,7 @@ class WebConfig : WebFluxConfigurer {
 리소스의 캐시 만료 기간을 1년으로 설정했다. 또한 `Last-Modified` 헤더도 검사되며, (브라우저 캐시가 최신 상태라면) 304 상태 코드를
 반환한다. 다음은 그 예제다:
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -451,7 +451,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -474,7 +474,7 @@ class WebConfig : WebFluxConfigurer {
 
 다음은 자바 설정에서 `VersionResourceResolver`를 사용하는 예제다:
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -490,7 +490,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -527,7 +527,7 @@ class WebConfig : WebFluxConfigurer {
 경로 매칭 관련 옵션을 커스터마이징할 수 있다. 개별 옵션에 대한 자세한 내용은 `PathMatchConfigurer` javadoc을 참조하라.
 다음 예제는 `PathMatchConfigurer`를 사용하는 방법이다:
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -544,7 +544,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -579,7 +579,7 @@ class WebConfig : WebFluxConfigurer {
 더 많은 설정을 직접 설정하려면 다음 예제와 같이 `@EnableWebFlux`를 제거하고 `WebFluxConfigurer`를 구현하는 대신에
 `DelegatingWebFluxConfiguration`을 직접 확장하면 된다.
 
-Java:
+#### Java:
 ```java
 @Configuration
 public class WebConfig extends DelegatingWebFluxConfiguration {
@@ -588,7 +588,7 @@ public class WebConfig extends DelegatingWebFluxConfiguration {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 class WebConfig : DelegatingWebFluxConfiguration {

@@ -26,7 +26,7 @@ comments: true
 
 다음 예제와 같이 `WebHttpHandlerBuilder`에 처리 체인이 만들기 위한 설정이 제공된다.
 
-Java:
+#### Java:
 ```java
 ApplicationContext context = ...
 HttpHandler handler = WebHttpHandlerBuilder.applicationContext(context).build();

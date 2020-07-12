@@ -50,7 +50,7 @@ URL 패턴 기반 `CorsConfiguration` 매핑으로 각 `HandlerMapping`마다 �
 ## 1.7.3. @CrossOrigin
 `@CrossOrigin` 어노테이션은 아래 예제와 같이 어노테이션 컨트롤러 메서드에서 cross-origin 요청을 가능하게 한다:
 
-Java:
+#### Java:
 ```java
 @RestController
 @RequestMapping("/account")
@@ -69,7 +69,7 @@ public class AccountController {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @RestController
 @RequestMapping("/account")
@@ -102,7 +102,7 @@ class AccountController {
 `@CrossOrigin`은 클래스 수준에서도 지원되며 클래스에 적용한 경우 모든 메서드에서 상속된다. 아래 예제는 특정 도메인을 지정하고 `maxAge`를 1시간으로
 설정한다:
 
-Java:
+#### Java:
 ```java
 @CrossOrigin(origins = "https://domain2.com", maxAge = 3600)
 @RestController
@@ -121,7 +121,7 @@ public class AccountController {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @CrossOrigin("https://domain2.com", maxAge = 3600)
 @RestController
@@ -142,7 +142,7 @@ class AccountController {
 
 아래 예제처럼 `@CrossOrigin`을 클래스 레벨과 메서드 레벨 동시에 선언할 수도 있다.
 
-Java:
+#### Java:
 ```java
 @CrossOrigin(maxAge = 3600) (1)
 @RestController
@@ -162,7 +162,7 @@ public class AccountController {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @CrossOrigin(maxAge = 3600) (1)
 @RestController
@@ -202,7 +202,7 @@ class AccountController {
 
 웹플럭스 자바 설정으로 CORS를 사용하려면 아래 예제와 같이 `CorsRegistry` 콜백을 사용한다:
 
-Java:
+#### Java:
 ```java
 @Configuration
 @EnableWebFlux
@@ -223,7 +223,7 @@ public class WebConfig implements WebFluxConfigurer {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Configuration
 @EnableWebFlux
@@ -250,7 +250,7 @@ class WebConfig : WebFluxConfigurer {
 
 필터를 설정하기 위해 아래 예제와 같이 `CorsWebFilter` 빈을 선언하고 `CorsConfigurationSource`를 생성자에 전달한다:
 
-Java:
+#### Java:
 ```java
 @Bean
 CorsWebFilter corsFilter() {
@@ -272,7 +272,7 @@ CorsWebFilter corsFilter() {
 }
 ```
 
-Kotlin:
+#### Kotlin:
 ```kotlin
 @Bean
 fun corsFilter(): CorsWebFilter {
