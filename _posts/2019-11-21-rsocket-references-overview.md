@@ -24,22 +24,18 @@ RSocket은 TCP, 웹소켓 그리고 기타 다른 바이트 스트림 전송을 
 
 다음은 RSocket 프로토콜의 주요 기능과 이점이다:
 
-- 네트워크 경계를 가로지르는 리액티브 스트림 시맨틱스 - `Request-Stream`과 `Channel` 같은 스트리밍 요청을 위해서, 백프레셔 신호는
+- 네트워크 경계를 가로지르는 <a href="https://www.reactive-streams.org/" rel="nofollow" target="_blank">리액티브 스트림</a> 시맨틱스 - `Request-Stream`과 `Channel` 같은 스트리밍 요청을 위해서, 백프레셔 신호는
 요청자와 응답자 사이를 오가기 때문에 요청자가 응답자의 속도를 제어할 수 있다. 따라서 네트워크 계층의 혼잡 제어에 대한 의존을 줄이고
 네트워크 레벨 또는 어떤 레벨에서든지 버퍼링의 필요성을 줄인다.
-
 - 요청 조절(Request throttling) - 한 쪽에서 `LEASE` 프레임을 송신하면 지정된 시간동안 다른 쪽은 보낼 수 있는 요청이 제한된다.
 이 기능은 "Leasing" 이라고 부른다. 이는 주기적으로 갱신된다.
-
 - 세션 재개(Session resumption) - 커넥션이 끊어지더라도 일부 상태를 유지해준다. 애플리케이션에 명확하게 상태를 관리할 수 있으며,
 백프레셔와 함께 사용하는 경우 생산자(producer)를 중단하고, 필요한 상태의 양을 줄일 수 있다.
-
 - 큰 메시지의 단편화(fragmentation)와 재조립(re-assembly).
-
 - Keepalive (heartbeats).
 
-RSocket은 여러 언어로 구현되어 있다. <a href="https://github.com/rsocket/rsocket-java" rel="nofollow" target="_blank">자바 라이브러리</a>
-는 전송을 위한 <a href="https://projectreactor.io/" rel="nofollow" target="_blank">Project Reactor</a>와
+RSocket은 여러 언어로 구현되어 있다. <a href="https://github.com/rsocket/rsocket-java" rel="nofollow" target="_blank">자바 라이브러리</a>는
+전송을 위한 <a href="https://projectreactor.io/" rel="nofollow" target="_blank">Project Reactor</a>와
 <a href="https://github.com/reactor/reactor-netty" rel="nofollow" target="_blank">Reactor Netty</a>를 기반으로 한다.
 즉, 애플리케이션에서 리액티브 스트림 Publisher의 신호가 Roskcet을 통해 네트워크를 가로질러 투명하게 전파된다는 뜻이다.
 
@@ -47,7 +43,7 @@ RSocket은 여러 언어로 구현되어 있다. <a href="https://github.com/rso
 
 ## 5.1.1. 프로토콜(The Protocol)
 RSocket의 장점 중 하나는 네트워크망에서의 동작이 잘 정의되어 있고 일부 프로토콜
-<a href="https://github.com/rsocket/rsocket/tree/master/Extensions" rel="nofollow" target="_blank">확장</a>과
+<a href="https://github.com/rsocket/rsocket/tree/master/Extensions" rel="nofollow" target="_blank">확장(extensions)</a>과
 함께 읽기 쉬운  <a href="https://rsocket.io/docs/Protocol" rel="nofollow" target="_blank">스펙(specification)</a>이라는 것이다.
 따라서 언어 구현 및 상위 레벨 프레임워크 API와 상관없이 스펙사항을 읽어보는 것이 좋다. 이 섹션에서는 맥락을 정립하기 위한 간결한 개요를 제공한다.
 

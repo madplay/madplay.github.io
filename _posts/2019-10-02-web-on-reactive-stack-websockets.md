@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 3. 웹소켓(WebSockets)"
+title:    "[Web on Reactive Stack] 3. WebSockets"
 author:   Kimtaeng
 tags: 	  spring reactive websocket
 description: "한글로 번역한 Web on Reactive Stack, 3. WebSockets"

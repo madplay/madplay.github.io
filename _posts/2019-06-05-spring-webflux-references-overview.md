@@ -1,8 +1,8 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.1. 개요"
+title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.1. Overview"
 author:   Kimtaeng
-tags: 	  spring webflux reactive
+tags: 	  spring reactive webflux
 description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.1. Overview"
 category: Spring
 date: "2019-06-05 00:01:24"
@@ -13,70 +13,78 @@ comments: true
 스프링 웹플럭스는 왜 만들어졌을까?
 
 이 의문에 대한 답의 일부는 적은 수의 스레드로 동시성을 처리하고 더 적은 하드웨어 리소스로 확장하기 위해 논 블로킹 웹 스택이 필요하다는 것이다.
-서블릿 3.1은 논 블로킹 I/O를 위한 API를 제공했다. 하지만 이를 사용하면 Filter, Servlet과 같은 동기(synchronous)식과 `getParameter`,
-`getPart` 등의 블로킹(blocking) 방식 같은 다른 서블릿 API와의 어울리지 못한다. 이것이 논 블로킹 실행환경에서 기반 역할을 하는 새로운 공통 API가
-탄생하게 된 동기다. 이점은 비동기, 논 블로킹이 잘 확립된 서버(예를 들면 Netty) 때문에 중요하다.
+서블릿 3.1은 논 블로킹 I/O를 위한 API를 제공했다. 하지만 이를 사용하면 Filter, Servlet과 같은 동기(synchronous)식과
+`getParameter`, `getPart` 등의 블로킹(blocking) 방식 같은 다른 서블릿 API와의 어울리지 못한다. 이것이 논 블로킹 실행환경에서
+기반 역할을 하는 새로운 공통 API가 탄생하게 된 동기다. 이점은 비동기, 논 블로킹이 잘 확립된 서버(예를 들면 Netty) 때문에 중요하다.
 
-또 다른 탄생 배경은 함수형 프로그래밍(functional programming)이다. 자바 5에 어노테이션을 추가한 것처럼(어노테이션이 붙은 Rest 컨트롤러, 단위 테스트)
-자바 8에서 추가된 람다 표현식은 자바의 함수형 API를 위한 기회를 만들었다. 람다 표현식은 비동기 로직을 서술적으로 작성할 수 있게 하는 논 블로킹
-애플리케이션과 연속형 API(예를 들면 `CompletableFuture`, `ReactiveX`)에게 도움이 된다. 프로그래밍 모델 수준으로 보면, 자바 8은 스프링 웹플럭스가
-어노테이션 컨트롤러와 함수형 웹 엔드포인트를 사용할 수 있게 만들었다.
+또 다른 탄생 배경은 함수형 프로그래밍(functional programming)이다. 자바 5에 어노테이션을 추가한 것처럼(어노테이션이 붙은 Rest 컨트롤러,
+단위 테스트) 자바 8에서 추가된 람다 표현식은 자바의 함수형 API를 위한 기회를 만들었다. 람다 표현식은 비동기 로직을 서술적으로 작성할 수 있게
+하는 논 블로킹 애플리케이션과 연속형 API(예를 들면 `CompletableFuture`, `ReactiveX`)에게 도움이 된다. 프로그래밍 모델 수준으로 보면,
+자바 8은 스프링 웹플럭스가 어노테이션 컨트롤러와 함수형 웹 엔드포인트를 사용할 수 있게 만들었다.
 
 <br>
 
 ## 1.1.1. "리액티브" 정의(Define "Reactive")
 앞서 "논 블로킹(non-blocking)"과 "함수형(functional)"에 대해서 간단히 다뤘다. 그런데 리액티브는 무엇을 의미할까?
 
-"리액티브(reactive)"란 용어는 I/O 이벤트에 반응하는 네트워크 요소, 마우스 이벤트에 반응하는 UI 컨트롤러 등 변화에 반응하는 것을 중점으로 둔
-프로그래밍 모델을 말한다. 그런 의미에서 논 블로킹(non-blocking)은 리액티브다. 이유는 블로킹되지 않고 작업이 완료되거나 데이터가 사용 가능해짐 등과 같은
-알림에 반응하기 때문이다.
+"리액티브(reactive)"란 용어는 I/O 이벤트에 반응하는 네트워크 요소, 마우스 이벤트에 반응하는 UI 컨트롤러 등 변화에 반응하는 것을 중점으로
+둔 프로그래밍 모델을 말한다. 그런 의미에서 논 블로킹(non-blocking)은 리액티브다. 이유는 블로킹되지 않고 작업이 완료되거나 데이터가 사용
+가능해짐 등과 같은 알림에 반응하기 때문이다.
 
-스프링 팀이 "리액티브"와 연관시키는 또 다른 중요한 매커니즘이 있는데 그것은 논 블로킹 백프레셔(back pressure)다. 동기식(synchronous), 명령형 코드,
-블로킹 호출은 호출자를 대기하게 하는 자연스러운 형태의 백프레셔 역할을 한다. 논 블로킹 코드에서는 바른 생산자가 목적지(소비자)를 압도하지 않도록
-이벤트의 속도를 제어하는 것이 중요해진다.
+스프링 팀이 "리액티브"와 연관시키는 또 다른 중요한 매커니즘이 있는데 그것은 논 블로킹 백프레셔(back pressure)다. 동기식(synchronous),
+명령형 코드, 블로킹 호출은 호출자를 대기하게 하는 자연스러운 형태의 백프레셔 역할을 한다. 논 블로킹 코드에서는 바른 생산자가 목적지(소비자)를
+압도하지 않도록 이벤트의 속도를 제어하는 것이 중요해진다.
 
-리액티브 스트림은 백프레셔를 통해 비동기 컴포넌트 사이의 상호 작용을 정의하는 작은 스펙(자바 9에서 채택된)이다. 예를 들어, 데이터 저장소(발행자 역할)는
-HTTP 서버(구독자 역할)가 응답에 사용할 수 있는 데이터를 생성할 수 있다. 리액티브 스트림의 주요 목적은 구독자를 통해 발행자가 데이터를 얼마나 빠르게 또는
-얼마나 느리게 생산할지 제어하도록 하는 것이다.
+리액티브 스트림은 백프레셔를 통해 비동기 컴포넌트 사이의 상호 작용을 정의하는 <a href="https://github.com/reactive-streams/reactive-streams-jvm/blob/master/README.md#specification" rel="nofollow" target="_blank">작은 스펙</a>
+(자바 9에서 <a href="https://docs.oracle.com/javase/9/docs/api/java/util/concurrent/Flow.html" rel="nofollow" target="_blank">적용된</a>)이다.
+예를 들어, 데이터 저장소(<a href="https://www.reactive-streams.org/reactive-streams-1.0.1-javadoc/org/reactivestreams/Publisher.html" rel="nofollow" target="_blank">발행자</a> 역할)는
+HTTP 서버(<a href="https://www.reactive-streams.org/reactive-streams-1.0.1-javadoc/org/reactivestreams/Subscriber.html" rel="nofollow" target="_blank">구독자</a> 역할)가
+응답에 사용할 수 있는 데이터를 생성할 수 있다. 리액티브 스트림의 주요 목적은 구독자를 통해 발행자가 데이터를 얼마나 빠르게 또는 얼마나 느리게
+생산할지 제어하도록 하는 것이다.
 
 > **일반적인 질문: 만일 발행자가 속도를 늦출 수 없다면 어떻게 해야 할까?**<br>
-리액티브 스트림의 목적은 오직 매커니즘과 경계를 설정하는 것이다. 발행자가 속도를 늦출 수 없는 경우에는 버퍼 사용, 버림(drop) 또는 실패(fail)할지
-결정해야 한다.
+리액티브 스트림의 목적은 오직 매커니즘과 경계를 설정하는 것이다. 발행자가 속도를 늦출 수 없는 경우에는 버퍼 사용, 버림(drop) 또는
+실패(fail)할지 결정해야 한다.
 
 <br>
 
 ## 1.1.2. 리액티브 API(Reactive API)
 리액티브 스트림은 시스템의 상호 정보 교환성(interoperability)에 있어서 중요한 역할을 한다. 라이브러리 및 인프라 구성 요소에는 그렇지만
 너무 로우 레벨이기 때문에 애플리케이션 API로서 덜 유용하다. 애플리케이션은 비동기 로직을 구성하기 위하여 더 높고 풍부한 함수형 API를 필요하며,
-이는 자바 8 스트림 API와 유사하지만 컬렉션에 대해서만 필요한 것은 아니다. 이것이 리액티브 라이브러리의 역할이다.
+이는 자바 8 `Stream` API와 유사하지만 컬렉션에 대해서만 필요한 것은 아니다. 이것이 리액티브 라이브러리의 역할이다.
 
-리액터(Reactor)는 스프링 웹플럭스가 선택한 리액티브 라이브러리다. 리액터는 ReactiveX의 풍부한 연산자 세트를 통해 0..1(`Mono`)과 0..N(`Flux`) 형태의
-데이터를 작업할 수 있는 `Mono`와 `Flux` API 유형을 제공한다. 리액터는 리액티브 스트림 라이브러리이므로 모든 리액터 연산자는 논 블로킹 백프레셔를 지원한다.
-리액터는 서버 측 자바에 중점을 두고 있으며 스프링과 긴밀히 협력하여 개발되었다.
+리액터(<a href="https://github.com/reactor/reactor" rel="nofollow" target="_blank">Reactor</a>)는 스프링 웹플럭스가
+선택한 리액티브 라이브러리다. 리액터는 ReactiveX의 연산자의 어휘<a href="http://reactivex.io/documentation/operators.html" rel="nofollow" target="_blank">(vocabulary of operators)</a>와
+풍부한 연산자 세트를 통해 0..1<a href="https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Mono.html" rel="nofollow" target="_blank">(`Mono`)</a>과
+0..N<a href="https://projectreactor.io/docs/core/release/api/reactor/core/publisher/Flux.html" rel="nofollow" target="_blank">(`Flux`)</a>
+형태의 데이터를 작업할 수 있는 `Mono`와 `Flux` API 유형을 제공한다. 리액터는 리액티브 스트림 라이브러리이므로 모든 리액터 연산자는
+논 블로킹 백프레셔를 지원한다. 리액터는 서버 측 자바에 중점을 두고 있으며 스프링과 긴밀히 협력하여 개발되었다.
 
 웹플럭스는 리액터에 핵심 의존성을 갖지만 리액티브 스트림을 통해 다른 리액티브 라이브러리들과 상호 운용이 가능하다. 일반적으로 웹플럭스 API는 일반적인
 발행자를 입력으로 받고 이를 내부적으로 리액터 타입에 맞추어 적용하고, 이를 사용하고, `Flux` 또는 `Mono`를 출력으로 반환한다.
 
 따라서 어떤 발행자(`Publisher`)든 입력으로 전달하여 반환값에 대한 연산을 적용할 수 있지만 다른 리액티브 라이브러리와 사용하려면 반환 형태를 맞추어야 한다.
 웹플럭스는 가능할 때마다(예를 들어, 어노테이션이 붙은 컨트롤러) RxJava 또는 다른 리액티브 라이브러리와 쉽게 적용될 수 있다.
-자세한 내용은 리액티브 라이브러리를 참조하라.
+자세한 내용은 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-reactive-libraries" rel="nofollow" target="_blank">리액티브 라이브러리</a>를 참조하라.
 
-> 리액티브 API 외에도, 웹플럭스는 코틀린의 코루틴 API와 함께 사용되어 보다 명령형 스타일로 프로그래밍할 수 있다. 이후에 등장하는 코틀린 코드 샘플은
-코루틴 API와 함께 제공된다.
+> 리액티브 API 외에도, 웹플럭스는 코틀린의 코루틴<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/languages.html#coroutines" rel="nofollow" target="_blank">(Coroutines)</a>
+API와 함께 사용되어 보다 명령형 스타일로 프로그래밍할 수 있다. 이후에 등장하는 코틀린 코드 샘플은 코루틴 API와 함께 제공된다.
 
 <br>
 
 ## 1.1.3. 프로그래밍 모델(Programming Models)
-스프링 웹(`spring-web`) 모듈에는 HTTP 추상화, 지원되는 서버를 위한 리액티브 스트림 어댑터, 코덱 그리고 서블릿 API와 유사하지만 논 블로킹 계약을 포함하는
-핵심 웹 핸들러(`WebHandler`) API를 포함하여 스프링 웹 플럭스의 근본이 되는 리액티브 기반이 포함되어 있다.
+스프링 웹(`spring-web`) 모듈에는 HTTP 추상화, 지원되는 서버를 위한 리액티브 스트림 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-httphandler" rel="nofollow" target="_blank">어댑터</a>,
+코덱<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-codecs" rel="nofollow" target="_blank">(codecs)</a>
+그리고 서블릿 API와 유사하지만 논 블로킹 계약을 포함하는 핵심 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-web-handler-api" rel="nofollow" target="_blank">
+`WebHandler` API</a>를 포함하여 스프링 웹 플럭스의 근본이 되는 리액티브 기반이 포함되어 있다.
 
 이를 바탕으로 스프링 웹플럭스는 두 가지 프로그래밍 모델 중에서 선택할 수 있도록 한다.
 
-- **어노테이션 컨트롤러(Annotated Controller)**: 스프링 MVC와 일치하며, `spring-web` 모듈과 동일한 어노테이션을 기반으로 한다.
+- **어노테이션 컨트롤러<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-controller" rel="nofollow" target="_blank">(Annotated Controller)</a>**: 스프링 MVC와 일치하며, `spring-web` 모듈과 동일한 어노테이션을 기반으로 한다.
 스프링 MVC와 웹플럭스 컨트롤러는 리액티브(리액터와 RxJava) 반환 타입을 지원하므로 이를 구분하기가 쉽지 않다. 주목할만한 차이점 중 하나는 웹플럭스 또한
 리액티브 `@RequestBody` 인수(arguments)를 지원한다는 것이다.
 
-- **함수형 엔드포인트(Functional Endpoints)**: 람다 기반의 가벼운 함수형 프로그래밍 모델이다. 애플리케이션이 요청을 라우팅하고 처리하는데 사용할 수 있는
+- **함수형 엔드포인트<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-fn" rel="nofllow" target="_blank">(Functional Endpoints)</a>**: 람다 기반의 가벼운 함수형 프로그래밍 모델이다. 애플리케이션이 요청을 라우팅하고 처리하는데 사용할 수 있는
 작은 라이브러리 또는 유틸리티 집합이라고 생각할 수 있다. 어노테이션 컨트롤러와의 큰 차이점은 애플리케이션이 어노테이션을 통해 의도를 선언하고 콜백을 받는 것과
 다르게 요청을 처음부터 끝까지 처리한다는 점이다.
 
@@ -111,7 +119,8 @@ width="700" alt="the diagram for spring mvc and spring webflux"/>
 네트워킹 API를 사용하고 있다면 적어도 공통 아키텍처에는 스프링 MVC가 가장 적합하다. 스프링 MVC는 개별 스레드에 리액터(Reactor)와 RxJava를 사용하여 블로킹 호출을 실행할 수 있지만 논 블로킹 웹 스택을 최대한으로 활용하지 못한다.
 
 - 원격 서비스를 호출하는 스프링 MVC 애플리케이션인 경우 리액티브 `WebClient`를 사용해보라. 스프링 MVC 컨트롤러 메서드에서 리액티브 타입(Reactor,
-RxJava 또는 기타)을 직접 반환할 수 있다. 호출 당 대기 시간이 길거나 호출 간 상호 의존성도가 높을수록 더욱 극적인 이점을 얻을 수 있다.
+RxJava 또는 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-reactive-libraries" rel="nofollow" target="_blank">기타</a>)을
+직접 반환할 수 있다. 호출 당 대기 시간이 길거나 호출 간 상호 의존성도가 높을수록 더욱 극적인 이점을 얻을 수 있다.
 스프링 MVC 컨트롤러는 다른 리액티브 컴포넌트도 호출할 수 있다.
 
 - 팀의 규모가 크다면, 논 블로킹, 함수형과 선언적 프로그래밍으로의 전환에 따른 학습 곡선(learning curve)이 가파른 점을 명심해야 한다. 전체를 전환하지
@@ -123,10 +132,13 @@ RxJava 또는 기타)을 직접 반환할 수 있다. 호출 당 대기 시간�
 
 ## 1.1.5. 서버(Servers)
 스프링 웹플럭스는 톰캣, 제티, 서블릿 3.1+ 컨테이너뿐만 아니라 네티(Netty)와 언더토우(Undertow)와 같은 비 서블릿 런타임에서도 지원된다.
-모든 서버는 저수준(low-level)의 공통 API를 적용하여, 여러 서버에서 고급 프로그래밍 모델이 지원될 수 있도록 한다.
+모든 서버는 저수준(low-level)의 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-httphandler" rel="nofollow" target="_blank">공통 API</a>를
+적용하여, 여러 서버에서 고급 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-programming-models" rel="nofollow" target="_blank">프로그래밍 모델</a>이
+지원될 수 있도록 한다.
 
-스프링 웹플럭스는 서버 시작 또는 중지를 위한 내장형 지원 기능이 없다. 하지만 스프링 구성 및 웹플럭스 인프라 구조(infrastructure)에서 애플리케이션을
-조립하여 몇 줄의 코드로 실행할 수 있다.
+스프링 웹플럭스는 서버 시작 또는 중지를 위한 내장형 지원 기능이 없다. 하지만 스프링 구성 및 웹플럭스 인프라 구조<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-config" rel="nofollow" target="_blank">(WebFlux infrastructure)</a>에서
+애플리케이션을 조립<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-web-handler-api" rel="nofollow" target="_blank">(assemble)</a>하여
+몇 줄의 코드로 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-httphandler" rel="nofollow" target="_blank">실행</a>할 수 있다.
 
 스프링 부트에는 이러한 단계를 자동화하는 웹플럭스 스타터(starter)가 있다. 기본적으로 스타터는 네티(netty)를 사용하지만 메이븐(maven) 또는
 그래들(gradle) 의존성을 변경하여 톰캣(tomcat), 제티(jetty) 또는 언더토우(undertow)로 쉽게 전환할 수 있다. 스프링 부트는 기본적으로 네티를 설정한다.
@@ -190,10 +202,12 @@ RxJava 또는 기타)을 직접 반환할 수 있다. 호출 당 대기 시간�
 
 ### 설정(Configuring)
 스프링 프레임워크는 서버 시작, 중단시키는 기능을 지원하지 않는다. 서버의 스레딩 모델을 구성하려면, 서버 별 구성 API를 사용하거나 스프링 부트를 사용한다면
-각 서버의 스프링 부트 구성 옵션을 확인하라. `WebClient`는 직접 설정할 수 있다. 다른 모든 라이브러리에 대해서는 각각의 문서를 참조하라.
+각 서버의 스프링 부트 구성 옵션을 확인하라. `WebClient`는
+직접 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-client-builder" rel="nofollow" target="_blank">설정</a>할 수 있다.
+다른 모든 라이브러리에 대해서는 각각의 문서를 참조하라.
 
 ---
 
 > ### 목차 가이드
-> - <a href="/post/spring-webflux-references-reactive-core">다음글 "1.2. 리액티브 코어" 로 이동</a>
+> - <a href="/post/spring-webflux-references-reactive-core">다음글 "1.2. Reactive Core" 로 이동</a>
 > - <a href="/post/web-on-reactive-stack">전체 목차 페이지로 이동</a>

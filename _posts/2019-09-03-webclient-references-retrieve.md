@@ -2,7 +2,7 @@
 layout:   post
 title:    "[Web on Reactive Stack] 2. WebClient: 2.2. retrieve()"
 author:   Kimtaeng
-tags: 	  spring webflux reactive
+tags: 	  spring reactive webclient
 description: "한글로 번역한 Web on Reactive Stack, 2. WebClient: 2.2. retrieve()"
 category: Spring
 date: "2019-09-03 00:32:11"

@@ -2,7 +2,7 @@
 layout:   post
 title:    "[Web on Reactive Stack] 2. WebClient: 2.3. exchange()"
 author:   Kimtaeng
-tags: 	  spring webflux reactive
+tags: 	  spring reactive webclient
 description: "한글로 번역한 Web on Reactive Stack, 2. WebClient: 2.3. exchange()"
 category: Spring
 date: "2019-09-04 21:02:09"
@@ -10,8 +10,8 @@ comments: true
 ---
 
 # 2.3. `exchange()`
-`exchange()` 메서드는 `retrieve` 메서드보다 더 많은 기능을 제공한다. 다음 예제는 `retrieve()` 예제와 같지만, `ClientResponse`에
-접근한다.
+`exchange()` 메서드는 `retrieve` 메서드보다 더 많은 기능을 제공한다. 다음 예제는 `retrieve()` 예제와 같지만,
+`ClientResponse`에 접근한다.
 
 #### Java:
 ```java

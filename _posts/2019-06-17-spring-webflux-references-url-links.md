@@ -1,8 +1,8 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.6. URI 링크"
+title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.6. URI Links"
 author:   Kimtaeng
-tags: 	  spring webflux reactive
+tags: 	  spring reactive webflux
 description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.6. URI Links"
 category: Spring
 date: "2019-06-17 20:13:12"
@@ -11,6 +11,8 @@ comments: true
 
 # 1.6. URI 링크(URI Links)
 이 섹션에서는 스프링 프레임워크에서 URI를 구성할 때 사용할 수 있는 다양한 옵션에 대해 설명한다.
+
+<br>
 
 ## 1.6.1. UriComponents
 `UriComponentsBuilder`는 변수를 사용한 URI 템플릿에서 URI를 작성하는데 도움을 준다. 아래는 그 예제다.
@@ -100,10 +102,13 @@ val uri = UriComponentsBuilder
 
 ```
 
+<br>
+
 ## 1.6.2. UriBuilder
-`UriComponentsBuilder`는 `UriBuilder` 인터페이스를 구현한다. `UriBuilderFactory`를 사용하여 `UriBuilder`를 생성할 수 있다.
-`UriBuilderFactory`와 `UriBuilder`는 URI 템플릿으로부터 기본(base) URL, 인코딩 설정 그리고 기타 세부사항과 같은 공유 가능한 설정을 기반으로
-URI를 빌드하는 플러그인과 같은 메커니즘을 제공한다.
+<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#web-uricomponents" rel="nofollow" target="_blank">`UriComponentsBuilder`</a>는
+`UriBuilder` 인터페이스를 구현한다. `UriBuilderFactory`를 사용하여 `UriBuilder`를 생성할 수 있다. `UriBuilderFactory`와
+`UriBuilder`는 URI 템플릿으로부터 기본(base) URL, 인코딩 설정 그리고 기타 세부사항과 같은 공유 가능한 설정을 기반으로 URI를 빌드하는
+플러그인과 같은 메커니즘을 제공한다.
 
 `UriBuilderFactory`를 사용하여 `RestTemplate`와 `WebClient`를 설정하여 URI 준비 과정을 사용자 정의(커스텀마이징)할 수 있다.
 `DefaultUriBuilderFactory`는 내부적으로 `UriComponentsBuilder`를 사용하고 공유 설정 옵션을 제공하는 `UriBuilderFactory`의 기본 구현체다.
@@ -180,6 +185,8 @@ val uri = uriBuilderFactory.uriString("/hotels/{hotel}")
         .queryParam("q", "{q}")
         .build("Westin", "123")
 ```
+
+<br>
 
 ## 1.6.3. URI 인코딩(URI Encoding)
 `UriComponentsBuilder`는 두 가지 레벨로 인코딩 옵션을 제공한다.

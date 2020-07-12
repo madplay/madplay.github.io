@@ -1,8 +1,8 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 2. WebClient: 2.1. 설정(Configuration)"
+title:    "[Web on Reactive Stack] 2. WebClient: 2.1. Configuration"
 author:   Kimtaeng
-tags: 	  spring webflux reactive
+tags: 	  spring rective webclient
 description: "한글로 번역한 Web on Reactive Stack, 2. WebClient: 2.1. Configuration"
 category: Spring
 date: "2019-09-02 21:50:34"
@@ -28,7 +28,7 @@ comments: true
 - `exchangeStrategies`: HTTP 메시지 reader/writer 커스터마이징
 - `clientConnector`: HTTP 클라이언트 라이브러리 세팅
 
-다음 예제는 **HTTP 코덱**을 설정한다:
+다음 예제는 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-codecs" rel="nofollow" target="_blank">HTTP 코덱</a>을 설정한다:
 
 #### Java:
 ```java
@@ -81,9 +81,11 @@ val client2 = client1.mutate()
 // client2 has filterA, filterB, filterC, filterD
 ```
 
+<br>
+
 ## 2.1.1. MaxInMemorySize
-스프링 웹플럭스는 애플리케이션의 메모리 이슈를 피하기 위해 코덱의 메모리 버퍼 사이즈에 대한 **제한(limits)** 설정한다. 기본값으로 256KB로
-설정되어 있는데, 이 값으로 충분히 수용하지 못하는 경우 아래와 같은 메시지를 볼 수 있다.
+스프링 웹플럭스는 애플리케이션의 메모리 이슈를 피하기 위해 코덱의 메모리 버퍼 사이즈에 대한 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-codecs-limits" rel="nofollow" target="_blank">제한(limits)</a>을 설정한다.
+기본값으로 256KB로 설정되어 있는데, 이 값으로 충분히 수용하지 못하는 경우 아래와 같은 메시지를 볼 수 있다.
 
 ```bash
 org.springframework.core.io.buffer.DataBufferLimitException: Exceeded limit on max bytes to buffer

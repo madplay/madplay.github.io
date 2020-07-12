@@ -18,7 +18,7 @@ comments: true
 접근할 수 있다. 예를 들면, 핸들러 메서드에 적용된 `@Header`
 
 `DefaultMetadataExtractor`에 메타 데이터를 디코딩하기 위한 `Decoder`를 설정할 수 있다. 기본적으로 `String`으로 디코딩하여
-"route" 키에 저장하는 "message/x.rsocket.routing.v0" 에 대한 지원 기능이 내장되어 있다. 다른 mime 타입의 경우 `Decoder`를
+"route" 키에 저장하는 <a href="https://github.com/rsocket/rsocket/blob/master/Extensions/Routing.md" rel="nofollow" target="_blank">"message/x.rsocket.routing.v0"</a> 에 대한 지원 기능이 내장되어 있다. 다른 mime 타입의 경우 `Decoder`를
 제공하고 다음과 같이 mime 타입을 등록해야 한다.
 
 #### Java:

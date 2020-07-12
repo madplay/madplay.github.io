@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.5. 함수형 엔드포인트"
+title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.5. Functional Endpoints"
 author:   Kimtaeng
 tags: 	  spring webflux reactive
 description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.5. Functional Endpoints"
@@ -11,9 +11,11 @@ comments: true
 
 # 1.5 함수형 엔드포인트(Functional Endpoints)
 스프링 웹플럭스는 요청을 라우팅하고 핸들링하는데 사용하고 불변성을 위해 설계된 경량 함수형 프로그래밍 모델인 WebFlux.fn을 포함한다.
-어노테이션 기반 프로그래밍 모델의 대안이지만 동일한 리액티브 코어(Reactive Core) 기반에서 실행된다.
+어노테이션 기반 프로그래밍 모델의 대안이지만 동일한 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-reactive-spring-web" rel="nofollow" target="_blank">리액티브 코어(Reactive Core)</a> 기반에서 실행된다.
 
 <div class="post_comments">[역주] 웹플럭스는 기존의 MVC처럼 어노테이션 기반의 프로그래밍 모델도 지원합니다.</div>
+
+<br>
 
 ## 1.5.1. 개요(Overview)
 WebFlux.fn에서 HTTP 요청은 `HandlerFunction`으로 핸들링한다: `ServerRequest`를 인자로 받아 지연된 `ServerResponse`를 반환한다.
@@ -92,17 +94,21 @@ class PersonHandler(private val repository: PersonRepository) {
 }
 ```
 
-`RouterFunction`을 실행하는 한 가지 방법은 이를 `HttpHandler`로 바꾸고 내장 서버 어댑터 중 하나를 통해 설치하는 것이다.
+`RouterFunction`을 실행하는 한 가지 방법은 이를 `HttpHandler`로 바꾸고 내장 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-httphandler" rel="nofollow" target="_blank">서버 어댑터</a> 중 하나를 통해 설치하는 것이다.
 
 - `RouterFunctions.toHttpHandler(RouterFunction)`
 - `RouterFunctions.toHttpHandler(RouterFunction, HandlerStrategies)`
 
-대부분의 응용 프로그램은 웹플럭스 자바 설정을 통해 실행할 수 있다. **Running a Server**를 참조하라.
+대부분의 응용 프로그램은 웹플럭스 자바 설정을 통해 실행할 수 있다. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-fn-running" rel="nofollow" target="_blank">Running a Server</a>를 참조하라.
+
+<br>
 
 ## 1.5.2. HandlerFunction
 `ServerRequest`와 `ServerResponse`는 불변 인터페이스며, HTTP 요청과 응답에 대한 자바 8 친화적인 방식을 제공한다. 요청과 응답 모두 바디 스트림에
 대한 리액티브 스트림 벡프레셔를 제공한다. 요청 본문(request body)은 리액터 `Flux` 또는 `Mono`로 표현한다. 응답 본문(response body)은 `Flux`와
-`Mono`를 포함한 모든 리액티브 스트림 Publisher로 표현된다. 이에 대한 더 자세한 내용은 **Reactive Libraries**를 참조하라.
+`Mono`를 포함한 모든 리액티브 스트림 Publisher로 표현된다. 이에 대한 더 자세한 내용은 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-reactive-libraries" rel="nofollow" target="_blank">Reactive Libraries</a>를 참조하라.
+
+<br>
 
 ### ServerRequest
 `ServerRequest`는 HTTP 메서드, URI, 헤더와 쿼리 파라미터에 대한 접근을 제공하며, 본문(body)에 대한 접근은 메서드를 제공한다.
@@ -183,6 +189,8 @@ Flux<Part> parts = request.body(BodyExtractors.toParts());
 val parts = request.body(BodyExtractors.toParts()).asFlow()
 ```
 
+<br>
+
 ### ServerResponse
 `ServerResponse`는 HTTP 응답에 대한 접근을 제공하며, 불변형이므로 `build` 메서드를 사용하여 작성할 수 있다. 빌더를 사용하여 응답 상태를 설정하거나
 응답 헤더를 추가하거나 본문을 제공할 수 있다. 아래 예제는 JSON 컨텐츠로 200(OK) 응답을 작성한다.
@@ -214,7 +222,7 @@ ServerResponse.created(location).build()
 ```
 
 사용된 코덱에 따라 힌트 매개변수(hint parameters)를 전달하여 본문(body)이 직렬화 또는 역직렬화되는 방식을 지정할 수 있다.
-예를 들면 **Jackson JSON view**를 지정한다:
+예를 들면 <a href="https://www.baeldung.com/jackson-json-view-annotation" rel="nofollow" target="_blank">Jackson JSON view</a>를 지정한다:
 
 #### Java:
 ```java
@@ -225,6 +233,8 @@ ServerResponse.ok().hint(Jackson2CodecSupport.JSON_VIEW_HINT, MyJacksonView.clas
 ```kotlin
 ServerResponse.ok().hint(Jackson2CodecSupport.JSON_VIEW_HINT, MyJacksonView::class.java).body(...)
 ```
+
+<br>
 
 ### 핸들러 클래스(Handler Classes)
 핸들러 함수를 아래와 같이 람다로 만들 수 있다.
@@ -313,9 +323,11 @@ class PersonHandler(private val repository: PersonRepository) {
 > (3) `getPerson`은 `id` 경로 변수(path variable)로 식별되는 `Person` 객체 하나를 반환하는 핸들러 함수다. repository에서 `Person`을
 찾으면 JSON 응답을 만든다. 하지만 찾지 못했다면 404 Not Found 응답을 반환한다.
 
+<br>
+
 ### Validation
-함수형 엔드포인트는 스프링의 검증(Validation) 기능을 사용하여 요청 본문(request body)를 검증할 수 있다. 예를 들어, 사용자가 정의한 스프링 Validator
-구현체로 `Person`을 검증하다:
+함수형 엔드포인트는 스프링의 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validation" rel="nofollow" target="_blank">검증(Validation)</a> 기능을 사용하여 요청 본문(request body)를 검증할 수 있다.
+예를 들어, 사용자가 정의한 스프링 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validation" rel="nofollow" target="_blank">Validator</a> 구현체로 `Person`을 검증하다:
 
 #### Java:
 ```java
@@ -370,7 +382,9 @@ class PersonHandler(private val repository: PersonRepository) {
 > (3) 400으로 응답하는 예외를 발생시킨다.
 
 핸들러는 `LocationValidatorFactoryBean`을 기반으로 글로벌 `Validator` 인스턴스를 주입하여 표준 빈 유효성 검증 API(JSR-303)을
-사용할 수도 있다. **Spring Validation**를 참조하라.
+사용할 수도 있다. <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validation-beanvalidation" rel="nofollow" target="_blank">Spring Validation</a>를 참조하라.
+
+<br>
 
 ## 1.5.3. RouterFunction
 라우터 함수는 요청을 해당 `HandlerFunction`으로 라우팅하는데 사용된다. 일반적으로 라우터 함수를 직접 작성하지 말고 `RouterFunctions` 유틸리티
@@ -386,6 +400,8 @@ HTTP 메서드 기반 매핑 외에도 라우트 빌더는 요청에 매핑할 �
 
 <div class="post_comments">[역주] 'predicate'를 술어로 번역하였습니다. 주어에 대해 주장되는 개념으로 '스프링은 프레임워크다', '꽃은 아름답다'
 와 같은 문장이 있을 때, '프레임워크', '아름답다' 에 해당합니다.</div>
+
+<br>
 
 ### Predicates
 직접 `RequestPredicate`를 작성할 수 있지만, `RequestPredicates` 유틸리티 클래스는 요청 경로, HTTP 메서드, 콘텐츠 유형 등을 기반으로 공통적으로
@@ -415,6 +431,8 @@ val route = coRouter {
 `RequestPredicates`에는 많은 술어가 구성되어 있다. 예를 들어 `RequestPredicates.GET(String)`은
 `RequestPredicates.method(HttpMethod)`와 `RequestPredicates.path(String)`으로 구성된다. 위의 예제에서의 빌더도 내부적으로
 `RequestPredicates.GET`와 accept 술어(predicate)를 같이 구성한다.
+
+<br>
 
 ### Routes
 라우터 함수는 순서대로 실행된다: 첫 번째 경로가 일치하지 않으면 두 번째를 실행하는 방식이다. 따라서, 일반적인 경로보다 구체적인 경로를 먼저 선언해야 한다.
@@ -468,6 +486,8 @@ val route = coRouter {
 > (2) `GET /person`과 `Accept` 헤더가 JSON으로 매핑되면 `PersonHandler.listPeople`로 라우팅한다. <br>
 > (3) `POST /person`이 매핑되면 `PersonHandler.createPerson`으로 라우팅한다. 그리고 <br>
 > (4) `otherRoute`는 다른 곳에서 만들어진 라우터 함수다. 라우팅에 추가한다. (나머지 요청을 처리한다)
+
+<br>
 
 ### Nested Routes
 라우터 함수 그룹은 경로를 공유하는 것처럼 일반적으로 술어(predicate)를 공유한다. 위의 예제에서 공유된 술어는 3개의 라우팅에서 사용된 `/person`에
@@ -525,6 +545,8 @@ val route = coRouter {
 }
 ```
 
+<br>
+
 ## 1.5.4. 서버 실행(Running a Server)
 HTTP 서버에서 어떻게 라우터 기능을 실행할까? 간단한 옵션은 다음 중 하나를 사용하여 라우터 기능을 `HttpHandler`로 변환하는 것이다.
 
@@ -533,7 +555,8 @@ HTTP 서버에서 어떻게 라우터 기능을 실행할까? 간단한 옵션�
 
 반환된 `HttpHandler`를 서버 지사사항에 따라 서버 어댑터와 함께 사용할 수 있다.
 
-스프링 부트에서도 사용되는 보다 일반적인 옵션은 **Webflux Config**를 통해 `DispatcherHandler` 기반 설정으로 실행하는 것이다.
+스프링 부트에서도 사용되는 보다 일반적인 옵션은 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-config" rel="nofollow" target="_blank">Webflux Config</a>를
+통해 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-dispatcher-handler" rel="nofollow" target="_blank">`DispatcherHandler`</a> 기반 설정으로 실행하는 것이다.
 **WebFlux Config**는 스프링 설정을 사용하여 요청을 처리하는데 필요한 컴포넌트를 선언한다. 웹플럭스 자바 설정은 함수형 엔드포인트를 지원하기 위해
 아래와 같은 컴포넌트를 지원한다:
 
@@ -545,7 +568,7 @@ HTTP 서버에서 어떻게 라우터 기능을 실행할까? 간단한 옵션�
 위에서 살펴본 컴포넌트들은 함수형 엔드포인트가 `DispatcherHandler` 요청 처리 라이프 사이클에 적합하고 어노테이션 컨트롤러가 선언되어 있다면, 이와
 함께(잠재적으로) 실행될 수 있도록 한다. 이것은 또한 스프링 부트 웹플럭스 스타터(starter)가 함수형 엔드포인트를 적용하는 방식이다.
 
-다음 예제는 웹플럭스 자바 설정을 보여준다. (실행 방법은 `DispatcherHandler`를 참조하라):
+다음 예제는 웹플럭스 자바 설정을 보여준다. (실행 방법은 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-dispatcher-handler" rel="nofollow" target="_blank">DispatcherHandler</a>를 참조하라):
 
 #### Java:
 ```java
@@ -613,6 +636,8 @@ class WebConfig : WebFluxConfigurer {
     }
 }
 ```
+
+<br>
 
 ## 1.5.5. Filtering Handler Functions
 라우팅 함수 빌더의 `before`, `after` 또는 `filter` 메서드를 사용하여 핸들러 함수를 필터링할 수 있다. 어노테이션으로는 `@ControllerAdvice`,
@@ -709,6 +734,8 @@ val route = router {
 적용할 수 있다.
 
 > 함수형 엔드포인트에 대한 CORS 지원은 `CorsWebFilter`를 통해 제공된다.
+
+<br>
 
 ---
 

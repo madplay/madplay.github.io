@@ -341,7 +341,7 @@ val location = requester.route("find.radar.EWR")
     .retrieveAndAwait<AirportLocation>()
 ```
 
-<a href="https://github.com/rsocket/rsocket/blob/master/Extensions/CompositeMetadata.md" rel="nofollow" target="_blank">composite metadata(기본값)</a>를 사용하고 등록한 `Encoder`가 지원하는 값인 경우, 메타 데이터를 추가할 수 있다.
+<a href="https://github.com/rsocket/rsocket/blob/master/Extensions/CompositeMetadata.md" rel="nofollow" target="_blank">composite metadata</a>(기본값)를 사용하고 등록한 `Encoder`가 지원하는 값인 경우, 메타 데이터를 추가할 수 있다.
 예를 들면 다음과 같다:
 
 #### Java:
