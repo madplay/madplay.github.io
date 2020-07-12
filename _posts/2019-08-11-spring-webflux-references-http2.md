@@ -2,7 +2,7 @@
 layout:   post
 title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.12. HTTP/2"
 author:   Kimtaeng
-tags: 	  spring webflux reactive
+tags: 	  spring reactive webflux
 description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.12. HTTP/2"
 category: Spring
 date: "2019-08-11 21:35:09"

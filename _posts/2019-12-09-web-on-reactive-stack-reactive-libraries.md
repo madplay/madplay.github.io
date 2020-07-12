@@ -28,8 +28,6 @@ comments: true
 나타낸다면(예를 들어, `application/json+stream`), 개별적으로 작성(write)하고 플러시(flush) 한다. 그렇지 않으면 값이 목록으로
 버퍼링되어 JSON 배열로 렌더링된다.
 
-
-
 ---
 
 > ### 목차 가이드

@@ -1,8 +1,8 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.10. HTTP 캐싱"
+title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.10. HTTP Caching"
 author:   Kimtaeng
-tags: 	  spring webflux reactive
+tags: 	  spring reactive webflux
 description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.10. HTTP Caching"
 category: Spring
 date: "2019-07-18 01:25:54"
@@ -20,13 +20,14 @@ HTTP 캐싱은 웹 애플리케이션의 성능을 크게 향상시킬 수 있�
 <br>
 
 ## 1.10.1. CacheControl
-`CacheControl`은 `Cache-Control` 헤더와 관련된 설정을 지원하며, 다양한 곳에서 사용할 수 있다.
+<a href="https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/http/CacheControl.html" rel="nofollow" target="_blank">`CacheControl`</a>은 `Cache-Control` 헤더와 관련된 설정을 지원하며, 다양한 곳에서 사용할 수 있다.
 
-- 컨트롤러(Controllers)
-- 정적 자원(Static Resources)
+- 컨트롤러<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-caching-etag-lastmodified" rel="nofollow" target="_blank">(Controllers)</a>
+- 정적 자원<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-caching-static-resources" rel="nofollow" target="_blank">(Static Resources)</a>
 
-**RFC 7234**는 `Cache-Control` 응답 헤더의 모든 지시문(directive)을 설명하지만, `CacheControl` 타입은 아래 예제와 같이
-일반적인 시나리오에 중점을 둔, 사용 사례 지향적인(use case-oriented) 접근 방식을 취한다.
+<a href="https://tools.ietf.org/html/rfc7234#section-5.2.2" rel="nofollow" target="_blank">RFC 7234</a>는
+`Cache-Control` 응답 헤더의 모든 지시문(directive)을 설명하지만, `CacheControl` 타입은 아래 예제와 같이 일반적인 시나리오에
+중점을 둔, 사용 사례 지향적인(use case-oriented) 접근 방식을 취한다.
 
 <div class="post_comments">[역주] 자주 사용되는 케이스별로 미리 코드를 정의해둘 수 있다.</div>
 
@@ -144,7 +145,8 @@ fun myHandleMethod(exchange: ServerWebExchange, model: Model): String? {
 <br>
 
 ## 1.10.3. 정적 자원(Static Resources)
-정적 자원도 `Cache-Control`과 조건부 응답 헤더를 사용하여 최적의 성능을 낼 수 있다. 설정 방법은 **Static Resources**를 참고하라.
+정적 자원도 `Cache-Control`과 조건부 응답 헤더를 사용하여 최적의 성능을 낼 수 있다.
+설정 방법은 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-config-static-resources" rel="nofollow" target="_blank">Static Resources</a>를 참고하라.
 
 ---
 

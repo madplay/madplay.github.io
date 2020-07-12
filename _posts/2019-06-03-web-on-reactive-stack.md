@@ -2,7 +2,7 @@
 layout:   post
 title:    "[Web on Reactive Stack] 레퍼런스 한글 번역"
 author:   Kimtaeng
-tags: 	  spring webflux reactive
+tags: 	  spring reactive
 description: "한글로 번역한 레퍼런스 가이드, Web on Reactive Stack"
 category: Spring
 date: "2019-06-03 23:21:34"

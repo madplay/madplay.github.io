@@ -1,8 +1,8 @@
 ---
 layout:   post
-title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.11. 웹플럭스 설정"
+title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.11. WebFlux Config"
 author:   Kimtaeng
-tags: 	  spring webflux reactive
+tags: 	  spring reactive webflux
 description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.11. WebFlux Config"
 category: Spring
 date: "2019-07-29 23:11:49"
@@ -12,15 +12,13 @@ comments: true
 # 1.11. 웹플럭스 설정(WebFlux Config)
 웹플럭스 자바 설정은 어노테이션 컨트롤러 또는 함수형 엔드포인트로 요청을 처리하는데 필요한 컴포넌트를 선언하고, 설정을 사용자 정의(customize)
 하기 위한 API를 제공한다. 그러니까, 자바 설정으로 만들어지는 빈에 대해서 이해할 필요가 없다는 것이다. 하지만 이를 이해하고 싶다면,
-`WebFluxConfigurationSupport`를 참조하거나 **특수 빈 타입(Special Bean Types)**에 대해서 자세히 읽어보라.
+`WebFluxConfigurationSupport`를 참조하거나 특수 빈 타입<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-special-bean-types" rel="nofollow" target="_blank">(Special Bean Types)</a>에 대해서 자세히 읽어보라.
 
-설정 API에서 사용할 수 없는 고급 사용자 정의를 해야 하는 경우 **고급 설정 모드(Advanced Configuration Mode)**를 사용해서
-전체 설정을 제어할 수 있다.
+설정 API에서 사용할 수 없는 고급 사용자 정의를 해야 하는 경우 고급 설정 모드<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-config-advanced-java" rel="nofollow" target="_blank">(Advanced Configuration Mode)</a>를 사용해서 전체 설정을 제어할 수 있다.
 
 <br>
 
 ## 1.11.1. 웹플럭스 설정 활성화(Enabling WebFlux Config)
-
 아래 예제와 같이 자바 설정에 `@EnableWebFlux` 어노테이션을 사용할 수 있다.
 
 #### Java:
@@ -38,8 +36,8 @@ public class WebConfig {
 class WebConfig
 ```
 
-앞의 예제는 다수의 스프링 웹플럭스 **기반 빈(infrastructure beans)**을 등록하고 클래스 경로에서 사용할 수 있는
-의존성에 적용시킨다. - JSON, XML 및 기타 등
+앞의 예제는 다수의 스프링 웹플럭스 인프라 기반 빈<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-special-bean-types" rel="nofollow" target="_blank">(infrastructure beans)</a>을
+등록하고 클래스 경로에서 사용할 수 있는 의존성에 적용시킨다. - JSON, XML 및 기타 등
 
 <br>
 
@@ -133,15 +131,15 @@ class WebConfig : WebFluxConfigurer {
 }
 ```
 
-> `FormatterRegistrar` 구현체에 대한 자세한 정보는 **`FormatterRegistrar` SPI**와
-`FormattingConversionServiceFactoryBean` 를 참조하라.
+> `FormatterRegistrar` 구현체에 대한 자세한 정보는 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#format-FormatterRegistrar-SPI" rel="nofollow" target="_blank">`FormatterRegistrar` SPI</a>와 `FormattingConversionServiceFactoryBean` 를 참조하라.
 
 <br>
 
 # 1.11.4. 검증(Valiation)
-기본적으로 **빈 검증(Bean Validation)**이 클래스 경로(path)에 존재하면(예를 들어, Hibernate Validator) 
-`LocalValidatorFactoryBean`이 전역 **검증기(validator)**로 등록되어 `@Valid`와 `@Validated` 어노테이션을
-`@Controller` 메서드의 인자로 사용할 수 있다.
+기본적으로 빈 검증<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validation-beanvalidation-overview" rel="nofollow" target="_blank">(Bean Validation)</a>이
+클래스 경로(path)에 존재하면(예를 들어, Hibernate Validator) `LocalValidatorFactoryBean`이 전역 
+검증기<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/core.html#validator" rel="nofollow" target="_blank">(validator)</a>로
+등록되어 `@Valid`와 `@Validated` 어노테이션을 `@Controller` 메서드의 인자로 사용할 수 있다.
 
 자바 설정에서 아래 예제와 같이 전역 `Validator` 인스턴스를 사용자 정의할 수 있다:
 
@@ -266,18 +264,18 @@ class WebConfig : WebFluxConfigurer {
 `ServerCodecConfigurer`는 기본 reader, writer 셋을 제공하는데 이를 이용해서 더 많은 reader와 writer를 추가하거나 기본 설정을
 커스텀하거나 아예 다른 것으로 교체할 수 있다.
 
-Jackson JSON과 XML의 경우 `Jackson2ObjectMapperBuilder`를 사용을 고려해볼 수 있다. Jackson의 기본 속성을 아래와 같이
+Jackson JSON과 XML의 경우 <a href="https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/http/converter/json/Jackson2ObjectMapperBuilder.html" rel="nofollow" target="_blank">`Jackson2ObjectMapperBuilder`</a>를 사용을 고려해볼 수 있다. Jackson의 기본 속성을 아래와 같이
 사용자 정의할 수 있다.
 
-- `DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES`를 비활성화한다.
-- `MapperFeature.DEFAULT_VIEW_INCLUSION`를 비활성화한다.
+- <a href="https://fasterxml.github.io/jackson-databind/javadoc/2.6/com/fasterxml/jackson/databind/DeserializationFeature.html#FAIL_ON_UNKNOWN_PROPERTIES" rel="nofollow" target="_blank">`DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES`</a>를 비활성화한다.
+- <a href="https://fasterxml.github.io/jackson-databind/javadoc/2.6/com/fasterxml/jackson/databind/MapperFeature.html#DEFAULT_VIEW_INCLUSION" rel="nofollow" target="_blank">`MapperFeature.DEFAULT_VIEW_INCLUSION`</a>를 비활성화한다.
 
 또한 아래와 같은 모듈이 클래스 경로에서 감지되면 자동으로 등록한다.
 
-- `jackson-datatype-joda`: Joda-Time 타입을 지원한다.
-- `jackson-datatype-jsr310`: 자바 8의 Date와 Time API 타입을 지원한다.
-- `jackson-datatype-jdk8`: `Optional`과 같은 자바 8의 타입을 지원한다.
-- `jackson-module-kotlin`: 코틀린 클래스와 데이터 클래스를 지원한다.
+- <a href="https://github.com/FasterXML/jackson-datatype-joda" rel="nofollow" target="_blank">`jackson-datatype-joda`</a>: Joda-Time 타입을 지원한다.
+- <a href="https://github.com/FasterXML/jackson-datatype-jsr310" rel="nofollow" target="_blank">`jackson-datatype-jsr310`</a>: 자바 8의 Date와 Time API 타입을 지원한다.
+- <a href="https://github.com/FasterXML/jackson-datatype-jdk8" rel="nofollow" target="_blank">`jackson-datatype-jdk8`</a>: `Optional`과 같은 자바 8의 타입을 지원한다.
+- <a href="https://github.com/FasterXML/jackson-module-kotlin" rel="nofollow" target="_blank">`jackson-module-kotlin`</a>: 코틀린 클래스와 데이터 클래스를 지원한다.
 
 <br>
 
@@ -385,9 +383,9 @@ class WebConfig : WebFluxConfigurer {
 }
 ```
 
-**콘텐츠 협상(Content Negotiation)**과 뷰 리졸루션을 통한 다른 포맷(HTML이 아닌) 렌더링 지원을 위해,
-`spring-web` 모듈에 있는 어떤 코덱과도 호환되는 `HttpMessageWriterView` 구현체로 하나 이상의 디폴트 뷰를 설정하면 된다.
-다음 예제는 그 방법을 보여준다:
+콘텐츠 협상<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-multiple-representations" rel="nofollow" target="_blank">(Content Negotiation)</a>과
+뷰 리졸루션을 통한 다른 포맷(HTML이 아닌) 렌더링 지원을 위해, `spring-web` 모듈에 있는 어떤 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-codecs" rel="nofollow" target="_blank">코덱</a>과도
+호환되는 `HttpMessageWriterView` 구현체로 하나 이상의 디폴트 뷰를 설정하면 된다. 다음 예제는 그 방법을 보여준다:
 
 #### Java:
 ```java
@@ -426,15 +424,15 @@ class WebConfig : WebFluxConfigurer {
 }
 ```
 
-스프링 웹플럭스와 통합된 뷰 기술에 대한 자세한 내용은 **뷰 기술(View Technologies)**을 참조하라.
+스프링 웹플럭스와 통합된 뷰 기술에 대한 자세한 내용은 <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web-reactive.html#webflux-view" rel="nofollow" target="_blank">View Technologies</a>을 참조하라.
 
 <br>
 
 ## 1.11.8. 정적 자원(Static Resources)
-이 옵션은 정적 자원을 `Resource` 기반으로 제공하는 편리한 방법을 제공한다. 다음 예제에서는 `/resources`로 시작하는 요청은 상대 경로는
-클래스 경로에서 `/static`에 있는 정적 자원을 찾아서 제공하는데 사용된다. 브라우저 캐시를 최대한으로 사용하고 HTTP 요청을 감소시키기 위해
-리소스의 캐시 만료 기간을 1년으로 설정했다. 또한 `Last-Modified` 헤더도 검사되며, (브라우저 캐시가 최신 상태라면) 304 상태 코드를
-반환한다. 다음은 그 예제다:
+이 옵션은 정적 자원을 <a href="https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/core/io/Resource.html" rel="nofollow" target="_blank">`Resource`</a> 기반으로
+제공하는 편리한 방법을 제공한다. 다음 예제에서는 `/resources`로 시작하는 요청은 상대 경로는 클래스 경로에서 `/static`에 있는 정적 자원을
+찾아서 제공하는데 사용된다. 브라우저 캐시를 최대한으로 사용하고 HTTP 요청을 감소시키기 위해 리소스의 캐시 만료 기간을 1년으로 설정했다.
+또한 `Last-Modified` 헤더도 검사되며, (브라우저 캐시가 최신 상태라면) 304 상태 코드를 반환한다. 다음은 그 예제다:
 
 #### Java:
 ```java
@@ -465,7 +463,7 @@ class WebConfig : WebFluxConfigurer {
 }
 ```
 
-또한 자원 핸들러(resource handler)는 `ResourceResolver` 구현체와 `ResourceTransformer` 구현체의 체인을 지원하며,
+또한 자원 핸들러(resource handler)는 <a href="https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/web/reactive/resource/ResourceResolver.html" rel="nofollow" target="_blank">`ResourceResolver`</a> 구현체와 <a href="https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/web/reactive/resource/ResourceTransformer.html" rel="nofollow" target="_blank">`ResourceTransformer`</a> 구현체의 체인을 지원하며,
 최적화된 자원 제공을 위한 툴체인 생성에 사용된다.
 
 콘텐츠, 고정된 애플리케이션 버전 또는 기타 다른 정보로부터 계산된 MD5 해시에 기반한 버전이 지정된(versioned) 자원 URL을 위해
@@ -524,7 +522,7 @@ class WebConfig : WebFluxConfigurer {
 <br>
 
 ## 1.11.9. 경로 매칭(Path Matching)
-경로 매칭 관련 옵션을 커스터마이징할 수 있다. 개별 옵션에 대한 자세한 내용은 `PathMatchConfigurer` javadoc을 참조하라.
+경로 매칭 관련 옵션을 커스터마이징할 수 있다. 개별 옵션에 대한 자세한 내용은 <a href="https://docs.spring.io/spring-framework/docs/5.2.7.RELEASE/javadoc-api/org/springframework/web/reactive/config/PathMatchConfigurer.html" rel="nofollow" target="_blank">`PathMatchConfigurer`</a> javadoc을 참조하라.
 다음 예제는 `PathMatchConfigurer`를 사용하는 방법이다:
 
 #### Java:
@@ -566,7 +564,7 @@ class WebConfig : WebFluxConfigurer {
 않아도 되는 것이다.
 
 또한 스프링 웹플럭스는 스프링 MVC와 다르게 접미사(suffix) 패턴 매칭을 지원하지 않는다. 또한 접미사 패턴에 의존하지 않는 다른 방법을
-**추천**한다.
+<a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/web.html#mvc-ann-requestmapping-suffix-pattern-match" rel="nofollow" target="_blank">추천</a>한다.
 
 <br>
 

@@ -2,7 +2,7 @@
 layout:   post
 title:    "[Web on Reactive Stack] 2. WebClient: 2.4. Request Body"
 author:   Kimtaeng
-tags: 	  spring webflux reactive
+tags: 	  spring reactive webclient
 description: "한글로 번역한 Web on Reactive Stack, 2. WebClient: 2.4. Request Body"
 category: Spring
 date: "2019-09-19 22:21:43"
