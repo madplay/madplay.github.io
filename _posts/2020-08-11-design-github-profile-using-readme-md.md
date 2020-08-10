@@ -3,7 +3,7 @@ layout:   post
 title:    "Github 프로필 꾸미기"
 author:   Kimtaeng
 tags:    github readme
-description: "README.md 파일로 나의 Github 프로필을 예쁘게 꾸며보자" 
+description: "README.md 파일로 나의 Github 프로필을 꾸며보자"
 category: knowledge
 date: "2020-08-11 00:32:54"
 comments: true
@@ -62,8 +62,8 @@ width="450" alt="github readme stats"/>
 
 - <a href="https://github.com/anuraghazra/github-readme-stats/pull/347" rel="nofollow" target="_blank">github readme stats: 한국어 번역 Pull Request</a>
 
-물론 개발자는 영어를 공부해야 한다지만... 영어로 가득한 프로젝트 대문에 "한국어"라고 쓰여있으니 괜히 뿌듯하다.
-> 혹시 보시다가 오역된 부분이 있다면 저와 같이 기여해주시면 좋을 것 같습니다 :D
+물론 개발자는 영어를 공부해야 한다지만, 영어가 가득한 오픈소스 프로젝트의 대문에 버젓이 **"한국어"**라고 쓰여있으니 괜히 또 뿌듯하다.
+> 혹시 잘못 번역된 부분을 보셨나요? 저와 같이 한국어 번역에 기여해주시면 좋을 것 같습니다 :D
 
 <br>
 
@@ -108,4 +108,4 @@ MP4를 GIF로 변환해서 넣은 경우도 있었고, Github Action을 이용�
 참고 링크: 재밌는 Github 프로필 모음(원글: How To Create A GitHub Profile README)</a>
 
 꼭 필수적인 것은 아니지만, 한 번쯤은 자신을 소개하는 Github 프로필을 꾸며보는 것도 좋을 것 같다.
-> 혹시나... 괜찮은 Github 프로필 관련 오픈소스가 있다면 알려주세요 :D
+> 사용하고 계신 괜찮은 Github 프로필 관련 오픈소스가 있다면 알려주세요 :D
