@@ -88,7 +88,8 @@ width="450" alt="accept user and waiting for host approval"/>
 <br>
 
 호스트가 접근을 허용하여 참가자가 접속 상태가 되면 아래와 같이 상단 메뉴바의 UI가 변경된다.
-참가자의 권한을 수정할 수도 있고, `Jump To` 또는 `Follow`와 같은 메뉴를 통해 해당 참가자의 포커스를 따라갈 수 있다.
+참가자의 권한을 수정할 수도 있고, `Jump To` 또는 `Follow`와 같은 메뉴를 통해 해당 참가자의 커서로 바로 이동할 수 있으며
+특정 참가자를 추방할 수도 있다.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2020-11-29-pair-programming-with-intellij-7.png"
 width="450" alt="code with me toolbar"/>
