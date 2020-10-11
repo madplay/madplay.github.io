@@ -1,9 +1,9 @@
 ---
 layout:   post
-title:    git commit author 변경 (커밋 작성자 이름 변경하기)
+title:    git commit author 변경 (커밋 작성자 변경하기)
 author:   Kimtaeng
 tags: 	  git commit rebase
-description: committer를 잘못 입력하여 push까지 해버렸다. 커밋 작성자의 이름을 다시 바꿀 수 있을까?
+description: git commit 작성자를 잘못 입력하여 push까지 해버렸다. 커밋 작성자의 이름을 다시 바꿀 수 있을까?
 category: Knowledge
 comments: true
 ---
@@ -64,7 +64,6 @@ $ git log
 |  
 * commit 97a9e69
   Author: madplay <itsmetaeng@gmail.com>
-
 ```
 
 <div class="post_caption">변경할 커밋의 해시값이 아닌 변경할 커밋의 바로 직전 커밋의 해시값을 알아야 합니다.</div>
@@ -83,10 +82,20 @@ $ git log
 
 ### 1) git rebase 명령어 입력
 ```bash
-# git rebase -i -p {커밋 hash값}
-$ git rebase -i -p 80be237
+# git rebase -i {변경할 커밋의 이전 커밋의 해시값}
+# -i(--interactive): 대화형 모드로 rebase를 실행할 수 있다
+$ git rebase -i 80be237
 ```
 
+> **내용 추가**
+
+**캐럿(`^`) 기호**를 사용하면 해당 커밋의 이전 커밋을 가리키게 되므로 변경할 커밋의 해시값을 바로 이용하면 됩니다.
+관련하여 의견 주신 <a href="https://github.com/youknowone" target="_blank">**@youknowone**</a>님 감사합니다 :)
+
+```bash
+# git rebase -i {변경할 커밋의 해시값}^
+$ git rebase -i b813011^
+```
 
 ### 2) 변경 대상의 커밋 설정 변경하기
 위의 `rebase` 관련 명령어를 입력하면 아래와 같이 vi 에디터가 자동으로 열립니다.
@@ -121,7 +130,7 @@ pick 10aa749 [포스팅] 이진 탐색 트리
 지금은 우선 커밋의 작성자(author) 변경이 우선이므로 `edit` 으로 바꾸고 저장합시다. 
 
 ```bash
-$ git rebase -i -p 80be237
+$ git rebase -i 80be237
 Stopped at b81301124d4b292f8ce0ff484ae73c56f5b3aea4... git 작성자 변경 테스트(얘가 잘못되었어)
 You can amend the commit now, with
 
@@ -250,6 +259,15 @@ fi
 
 구조를 보았을 때, 필터를 등록해서 이전 커밋들을 찾는 구조입니다. 개인적으로 자주 접하진 않은 방법이라 낯설지만 유용할 것 같습니다.
 테스트삼아 해보았는데 전체 커밋을 다 탐색하기 때문에 시간이 조금 더 걸리긴 합니다.
+
+<br>
+
+# 번외. Author와 Committer
+한편 Git에서는 작성자(**Author**)와 커미터(**Committer**)를 구분하고 있습니다. 예를 들어 내가 오픈 소스 프로젝트에 기능을 추가하여
+PR을 보냈고 그 프로젝트의 담당자가 추가된 기능을 적용했다면 나는 작성자가 되는 것이고 프로젝트 담당자는 커미터가 됩니다.
+
+이번 글의 주제인 `rebase`와 `commit amend`를 사용한 방법은 Author만 수정할 수 있는 방법입니다.
+다만 바로 위에서 번외로 살펴본 `filter-branch`의 경우 둘다 수정할 수 있습니다.
 
 <br>
 
