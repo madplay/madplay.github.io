@@ -1,5 +1,5 @@
-## MadPlay's MadLife.
-> 공부하는 개발자의 이야기를 담고 있습니다 :D
+## 오늘도 MadPlay :D
+> 공부하는 개발자의 이야기를 담고 있습니다 ;)
 
 <p align="center">
   <a href="https://madplay.github.io" target="_blank">
