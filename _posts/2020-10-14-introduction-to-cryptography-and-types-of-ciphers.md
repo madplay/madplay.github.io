@@ -31,7 +31,7 @@ comments: true
 <br>
 
 # 치환 암호와 전치 암호
-먼저, 치환(Substitution) 암호는 문자를 다른 문자로 대체하는 방법이다. 원문 메시지의 내용을 추측하기 어렵게 만드는
+먼저, 치환 암호(Substitution cipher)는 문자를 다른 문자로 대체하는 방법이다. 원문 메시지의 내용을 추측하기 어렵게 만드는
 혼돈의 성질을 높이는 특성을 갖는다. 여기서 평문 문자와 암호문의 문자가 일대일 대응이 아니어도 된다.
 
 아래 그림은 ROT13(Rotate by 13)이다. 치환 암호인 카이사르(Caesar, 또는 시저 암호라고도 불린다) 암호의 일종이며
@@ -42,14 +42,14 @@ comments: true
 <img class="post_image" src="{{ site.baseurl }}/img/post/2020-10-14-introduction-to-cryptography-and-types-of-ciphers-1.png"
 width="500" alt="rotate by 13"/>
 
-다음으로 전치(Transposition) 암호는 문자들의 순서를 무작위 규칙에 따라 바꾼다. 사용된 암호화 알고리즘을 추론하기 어렵게
+다음으로 전치 암호(Transposition cipher)는 문자들의 순서를 무작위 규칙에 따라 바꾼다. 사용된 암호화 알고리즘을 추론하기 어렵게
 만들기 때문에 확산의 성질을 높이는 특성을 갖는다. 평문의 문자와 암호문에 사용된 문자가 일대일로 대응된다.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2020-10-14-introduction-to-cryptography-and-types-of-ciphers-2.png"
 width="400" alt="permutation"/>
 
 # 블록 암호와 스트림 암호
-블록(Block) 암호는 특정 비트 수의 집합을 한꺼번에 처리하는 방법을 총칭한다. 여기서 집합은 블록(block)이라고 하며,
+**블록 암호(Block cipher)**는 특정 비트 수의 집합을 한꺼번에 처리하는 방법을 총칭한다. 여기서 집합은 블록(block)이라고 하며,
 블록의 비트 수를 블록 길이(block length)라고 한다.
 
 블록 암호의 구조에는 페스탈(Feistel)구조와 대입-치환 네트워크(SPN, Substitution-Permutation Network) 구조가 있다.
@@ -65,7 +65,7 @@ width="400" alt="permutation"/>
 <img class="post_image" src="{{ site.baseurl }}/img/post/2020-10-14-introduction-to-cryptography-and-types-of-ciphers-3.png"
 width="400" alt="substitution-permutation network"/>
 
-스트림(Stream) 암호는 연속적인 비트 또는 바이트를 순차적으로 암호화한다. 앞서 살펴본 블록 암호가 특정 비트를 묶어서 순서에
+**스트림 암호(Stream cipher)**는 연속적인 비트 또는 바이트를 순차적으로 암호화한다. 앞서 살펴본 블록 암호가 특정 비트를 묶어서 순서에
 상관없이 암호화된다면, 스트림 암호는 순차적으로 진행되며 이전 암호화된 결과가 다음 암호화에 사용되는 연속성의 특징을 가지고 있다. 
 
 대표적으로 RC4가 널리 사용되며, A5/1, A5/2 등의 알고리즘이 있다. 아래는 RC4 스트림 암호의 구조를 나타낸 그림이다.
