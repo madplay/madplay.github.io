@@ -93,7 +93,7 @@ JCA는 설치된 공급자와 지원하는 서비스를 확인할 수 있는 방
 구현체도 가능하다. 이러한 기능은 `Provider` 클래스를 이용하면 된다.
 
 ## Cipher
-`javax.crypto.Cipher` 클래스는 암호화 알고리즘을 나타낸다. 암호를 사용하여 데이터를 암호화하거나 복호화 할 수 있다.
+`javax.crypto.Cipher` 클래스는 암호화 알고리즘을 나타낸다. 암호를 사용하여 데이터를 암호화하거나 복호화할 수 있다.
 아래와 같이 암호화 알고리즘, 운용 방식 그리고 패딩 방식을 전달해 `Cipher` 인스턴스를 만들 수 있다.
 
 ```java
@@ -113,7 +113,7 @@ Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 **비대칭키 알고리즘**은 암호화와 복호화에 사용되는 키가 서로 다르다. 두 개의 키 중에서 하나는 반드시 공개되어야 사용이
 가능하기 때문에 공개키 방식이라고도 한다. 대표적으로는 RSA가 있다. 
 
-**대칭키 알고리즘**은 암호화할 때 사용되는 키와 복호화 할 때 사용되는 키가 동일한 암호화 방법을 말한다. 
+**대칭키 알고리즘**은 암호화할 때 사용되는 키와 복호화할 때 사용되는 키가 동일한 암호화 방법을 말한다.
 가장 보편적으로 사용되는 알고리즘으로 AES가 있다.
 
 ### 운용 방식
@@ -132,7 +132,7 @@ Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 width="800" alt="cipher block chaining (CBC) mode encryption"/>
 
 여기서 **초기화 벡터(Initialization Vector)**라는 용어가 등장한다. 최초의 평문 블록을 암호화할 때 직전의 암호문 블록이
-없기 때문에 이를 대체할 블록이 필요한데, 이를 초기화 벡터라고 하며 보통 `IV`로 표기한다.  
+없기 때문에 이를 대체할 블록이 필요한데, 이를 초기화 벡터라고 하며 영문자 앞 글자만 따서 `IV`로도 표기한다.
 
 ### 패딩
 AES나 DES와 같은 블록 암호 알고리즘은 평문의 길이가 해당 암호의 블록 크기(DES는 8바이트, AES는 16바이트)의 배수로
@@ -214,6 +214,9 @@ public AESCryptoUtil {
 그리고 앞서 만든 키와 초기화 벡터로 Cipher 인스턴스를 초기화시키는 과정이 필요하다. 마지막으로 `doFinal` 메서드를
 호출해서 문자열을 암호화하면 된다.
 
+`Cipher`를 초기화할 때 사용되는 파라미터 값은 암호화, 복호화에 따라서 다르므로 유의하자.
+암호화를 할 때는 `Cipher.ENCRYPT_MODE`이며, 복호화를 할 떄는 `Cipher.DECRYPT_MODE`를 전달해야 한다.
+
 ```java
 public class AESCryptoUtil {
 	
@@ -230,7 +233,7 @@ public class AESCryptoUtil {
 	public static String decrypt(String specName, SecretKey key, IvParameterSpec iv,
 		String cipherText) throws Exception {
 		Cipher cipher = Cipher.getInstance(specName);
-		cipher.init(Cipher.DECRYPT_MODE, key, iv);
+		cipher.init(Cipher.DECRYPT_MODE, key, iv); // 모드가 다르다.
 		byte[] decrypted = cipher.doFinal(Base64.getDecoder().decode(cipherText));
 		return new String(decrypted, StandardCharsets.UTF_8);
 	}
@@ -301,7 +304,7 @@ public static void decryptFile(String specName, SecretKey key, IvParameterSpec i
 }
 ```
 
-테스트는 아래 코드로 해볼 수 있다. 실행 결과로 입력에 사용된 파일과 복호화 된 파일의 내용을 표준 출력으로 보여준다.
+테스트는 아래 코드로 해볼 수 있다. 실행 결과로 입력에 사용된 파일과 복호화된 파일의 내용을 표준 출력으로 보여준다.
 
 
 ```java
