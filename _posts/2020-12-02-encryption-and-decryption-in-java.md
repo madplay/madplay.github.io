@@ -82,7 +82,7 @@ md = MessageDigest.getInstance("SHA-256", "ProviderC"); // 예시
 두 번째 그림은, SHA-256 알고리즘 구현을 특정 공급자인 ProviderC에게 요청한다. 더 높은 우선순위를 가진 ProviderB 공급자가
 SHA-256 알고리즘 구현을 제공할 수 있더라도 지정한 공급자인 ProviderC의 알고리즘 구현이 반횐된다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2020-12-02-encrypting-and-decrypting-files-in-java-1.png"
+<img class="post_image" src="{{ site.baseurl }}/img/post/2020-12-02-encryption-and-decryption-in-java-1.png"
 width="800" alt="sha-256 message digest implementation"/>
 
 JDK의 암호화 구현은 히스토리를 위해 주로 여러 다른 공급자를 통해 배포되지만, 제공하는 기능이나 알고리즘의 유형에 따라서
@@ -128,7 +128,7 @@ Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
 아래는 위의 코드에서 사용한 CBC(Cipher Block Chaining) 운용 방식이다. CBC 모드를 사용한 암호화 과정에서는 원문의 각 블록은
 암호화되기 전에 이전 암호문 블록과 XOR 연산되는 방식이다. 따라서 같은 내용의 원문 블록이어도 다른 암호문을 갖는다.
 
-<img class="post_image" src="{{ site.baseurl }}/img/post/2020-12-02-encrypting-and-decrypting-files-in-java-1.png"
+<img class="post_image" src="{{ site.baseurl }}/img/post/2020-12-02-encryption-and-decryption-in-java-2.png"
 width="800" alt="cipher block chaining (CBC) mode encryption"/>
 
 여기서 **초기화 벡터(Initialization Vector)**라는 용어가 등장한다. 최초의 평문 블록을 암호화할 때 직전의 암호문 블록이
