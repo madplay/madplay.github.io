@@ -1,4 +1,4 @@
-## 오늘도 MadPlay :D
+## 오늘도 MadPlay!
 > "간단하게 설명할 수 없으면 제대로 이해하지 못하는 것이다."
 
 <p align="center">
