@@ -13,6 +13,7 @@ comments: true
 - Spring Cloud Config: 소개와 예제
 - <a href="/post/spring-cloud-bus-example">Spring Cloud Config: Spring Cloud Bus 예제</a>
 - <a href="/post/spring-cloud-config-using-git-webhook-to-auto-refresh">Spring Cloud Config: Git Webhook을 이용한 자동 갱신</a>
+- <a href="/post/changes-in-spring-cloud-config-from-spring-boot-2-4">Spring Cloud Config: Spring Boot 2.4 버전에서의 변경사항</a>
 
 <br>
 
@@ -25,6 +26,9 @@ comments: true
 개발/테스트 환경 그리고 운영 환경에서까지 모든 환경 구성을 간편하게 관리할 수 있다. 설정을 위한 별도의 서버를 구성하기 때문에 실행 중인 애플리케이션이
 서버에서 설정 정보를 받아와 갱신하는 방식이다. 즉 실행 중에 설정값 변경이 필요해지면, 설정 서버만 변경하고 애플리케이션은 갱신하도록 해주기만 하면 된다.
 따라서 **설정이 바뀔 때마다 빌드와 배포가 필요 없는 구조**이다.
+
+> **2021년 1월 내용 추가**: 스프링 부트 2.4 버전부터는 이 글의 예제에서 사용된 `bootstrap.yml` 파일을 더 이상 사용하지 않습니다.
+> 변경 사항에 대해서는 상단 목차의 네 번째 글 "Spring Boot 2.4 버전에서의 변경사항"을 참고하시기 바랍니다.
 
 <br/>
 

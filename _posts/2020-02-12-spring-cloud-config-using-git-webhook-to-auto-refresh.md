@@ -13,6 +13,7 @@ comments: true
 - <a href="/post/introduction-to-spring-cloud-config">Spring Cloud Config: 소개와 예제</a>
 - <a href="/post/spring-cloud-bus-example">Spring Cloud Config: Spring Cloud Bus 예제</a>
 - Spring Cloud Config: Git Webhook을 이용한 자동 갱신
+- <a href="/post/changes-in-spring-cloud-config-from-spring-boot-2-4">Spring Cloud Config: Spring Boot 2.4 버전에서의 변경사항</a>
 
 <br>
 
@@ -22,6 +23,11 @@ comments: true
 
 당연히 참조하고 있는 설정값이 최신 데이터로 갱신되지 않는다. 이러한 불편함은 Git의 `Webhook`을 이용하면 간단히 해결할 수 있다.
 설정 파일이 변경될 때마다 갱신 이벤트 트리거를 발생시키는 것이다. 즉, 수동으로 엔드 포인트를 호출하지 않아도 된다.
+
+> **2021년 1월 내용 추가**: 스프링 부트 2.4 버전부터는 이 글의 예제에서 사용된 `bootstrap.yml` 파일을 더 이상 사용하지 않습니다.
+> 또한 글의 예제에서 사용한 "설정값 갱신을 위한 actuator 엔드포인트" `bus-refresh`도 `busrefresh`로 변경되었습니다.
+> 변경 사항에 대해서는 상단 목차의 네 번째 글 "Spring Boot 2.4 버전에서의 변경사항"을 참고하시기 바랍니다.
+
 
 <br/><br/>
 
@@ -273,6 +279,9 @@ Received remote refresh request. Keys refreshed [config.client.version, taeng.co
 앞선 글에서는 **Spring Cloud Bus**를 이용하여 한 번의 엔드 포인트 호출로 연결된 모든 클라이언트를 갱신하도록 개선하였다.
 그리고 더 나아가 이러한 수동 호출조차 Git 저장소의 `Webhook`을 이용하여 자동화하였다. 물론 엔드 포인트 호출까지 자동화하는 단계가
 필요 없을 수 있다. 필요에 따라 적절하게 사용하면 될 것 같다.
+
+> **2021년 1월 내용 추가**: 스프링 부트 2.4 버전부터는 변경된 내용은 이어지는 글
+> <a href="/post/changes-in-spring-cloud-config-from-spring-boot-2-4">"Spring Cloud Config: Spring Boot 2.4 버전에서의 변경사항"</a>을 참고해주세요.
 
 이번 글에서 사용한 모든 예제 코드는 아래 Git 저장소에 있습니다.
 

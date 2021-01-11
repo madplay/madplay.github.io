@@ -13,6 +13,7 @@ comments: true
 - <a href="/post/introduction-to-spring-cloud-config">Spring Cloud Config: 소개와 예제</a>
 - Spring Cloud Config: Spring Cloud Bus 예제
 - <a href="/post/spring-cloud-config-using-git-webhook-to-auto-refresh">Spring Cloud Config: Git Webhook을 이용한 자동 갱신</a>
+- <a href="/post/changes-in-spring-cloud-config-from-spring-boot-2-4">Spring Cloud Config: Spring Boot 2.4 버전에서의 변경사항</a>
 
 <br>
 
@@ -23,6 +24,10 @@ comments: true
 
 그런데 여기에 **Spring Cloud Bus**를 적용하면 설정 정보가 변경될 때마다 연결된 모든 클라이언트가 한 번에 갱신되도록 할 수 있다.
 모든 서버에 대해 `refresh`를 호출하는 것이 아닌 단 한 개의 클라이언트에만 호출하면 모든 클라이언트가 갱신된다는 것이다.
+
+> **2021년 1월 내용 추가**: 스프링 부트 2.4 버전부터는 이 글의 예제에서 사용된 `bootstrap.yml` 파일을 더 이상 사용하지 않습니다.
+> 또한 글의 예제에서 사용한 "설정값 갱신을 위한 actuator 엔드포인트" `bus-refresh`도 `busrefresh`로 변경되었습니다.
+> 변경 사항에 대해서는 상단 목차의 네 번째 글 "Spring Boot 2.4 버전에서의 변경사항"을 참고하시기 바랍니다.
 
 <br/><br/>
 
