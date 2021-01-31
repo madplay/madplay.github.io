@@ -1,26 +1,30 @@
 ---
 layout:   post
-title:    "자바 직렬화: 직렬화와 역직렬화"
+title:    "자바 직렬화: 직렬화(Serialize)란 무엇일까?"
 author:   Kimtaeng
 tags: 	  java serialization deserialization
-description: 자바에서 직렬화(serialization)와 역직렬화(deserialization)란 무엇일까?
+description: 자바에서 직렬화(serialization)와 역직렬화(deserialization)란 무엇이며 어떻게 사용할까?
 category: Java
 comments: true
 ---
 
-# 자바 직렬화란?
-혹시 자바 프로그램에서 객체나 데이터를 만들어 사용하다가 나중에 다른 프로그램에서 다시 꺼내서 사용할 수 있을까?
-만일 이러한 고민해 본 적이 있다면 **자바 직렬화(Java Serialization)**가 도움을 줄 수 있다.
+# 목차
+- 자바 직렬화: 직렬화(Serialize)란 무엇일까?
+- <a href="/post/java-serialization-advanced">자바 직렬화: SerialVersionUID는 무엇일까?</a>
+- <a href="/why-java-serialization-is-bad">자바 직렬화: 자바 직렬화를 사용할 때 고민하고 주의할 점</a>
 
-자바 직렬화는 외부의 다른 자바 시스템에서 사용할 수 있도록 자바 객체나 데이터를 바이트 형태로 변환하는 기술을 말한다.
-이러한 문맥에서 **직렬화(Serialization)**는 간단하게 포맷을 변환하는 기술이라 말할 수 있다.
-즉, 자바 직렬화라는 직렬화의 기본 개념에 자바(Java) 라는 구체적인 특성이 지정된 것이다.
+<br>
+
+# 직렬화? 그게 무엇일까?
+자바 직렬화는 외부의 다른 자바 시스템에서 사용할 수 있도록 자바 객체나 데이터를 바이트 형태로 변환하는
+기술을 말한다. 이러한 문맥에서 **직렬화(Serialization)**란 간단하게 포맷을 변환하는 기술이라 말할 수 있다.
+그러니까, 자바 직렬화라는 직렬화의 기본 개념에 자바(Java) 라는 구체적인 특성이 지정된 것이다.
 
 <br>
 
 # 자바 직렬화 사용하기
-직렬화를 하기 위해서는 조건이 있다. 객체가 **직렬화 가능한 클래스**의 인스턴스여야 한다. 간단하게 클래스를 선언할 때
-`Serializable` 인터페이스 구현(implements)하도록 선언하면 직렬화 가능한 클래스가 된다. 
+직렬화를 하기 위해서는 조건이 있다. 객체가 **직렬화 가능한 클래스**의 인스턴스여야 한다. 
+직렬화 가능한 클래스로 만드는 방법은 간단하다. `java.io.Serializable` 인터페이스 구현(implements)하도록 선언하면 된다. 
 
 ```java
 /**
@@ -49,10 +53,11 @@ class Article implements Serializable {
 } 
 ```
 
-보통은 위 코드처럼 `Serializable` 인터페이스를 구현(implements)하면 직렬화가 가능한 클래스가 된다.
-물론 직접 구현하지 않아도 **직렬화 가능한 클래스를 상속**하면 '직렬화 가능한' 클래스가 된다.
+물론 직접 구현하지 않아도 **직렬화 가능한 클래스를 상속(extends)**하면 직렬화 가능한 클래스가 된다.
+클래스가 준비되었다면 객체 생성해서 직렬화 해보자. 객체 직렬화에는 `java.io.ObjectOutputStream` 클래스가 사용된다.
 
-클래스가 준비되었다면 객체를 직렬화 해보자. 객체 직렬화에는 `java.io.ObjectOutputStream` 클래스가 사용된다.
+먼저 직렬화 가능한 클래스(Article)의 인스턴스를 생성하고 이를 `ObjectOutputStream`에 출력하였다.
+그리고 결과를 정상적으로 확인하기 위해 `base64` 인코딩하여 콘솔 출력을 한다.
 
 ```java
 // 직렬화 클래스인 Article은 위의 코드와 동일하다.
@@ -82,17 +87,13 @@ public class SerializeTester {
 }
 ```
 
-코드를 잠시 살펴보자. 먼저 직렬화 가능한 클래스(Article)의 인스턴스를 생성하고 이를 `ObjectOutputStream`에 출력하였다.
-그리고 결과를 정상적으로 확인하기 위해 `base64 인코딩`하여 콘솔 출력을 한다.
 
 main 메서드에 출력한 결과는 개발자가 알아보기 힘든 인코딩된 문자열이다. 따라서 base64 인코딩을 진행했다.
 이제 직렬화된 데이터를 이용하여 반대로 **역직렬화(Deserialization)** 하면 처음 선언한 객체를 얻을 수 있다.
 
-그 전에 직렬화를 할 때 참고할만한 내용을 먼저 살펴보자.
-
 <br>
 
-# 직렬화를 할 때는
+# 직렬화를 할 때,
 객체를 직렬화할 때 특정 멤버 필드를 제외하고 싶다면 멤버 변수에 `transient` 키워드를 선언하면 된다.
 아래와 같이 특정 필드에 선언하면 역직렬화를 하더라도 해당 값은 제외된다. 
 
@@ -142,7 +143,7 @@ class Article implements Serializable {
 ```java
 public class SerializeTester {
 
-    // 직렬화 메서드(serializeMethod)는 위와 동일합니다.
+    // 직렬화 메서드(serializeMethod)는 위와 동일하다.
 
     public Article deserializeMethod(String serializedString) {
         // 앞선 직렬화에서 Base64 인코딩하였으므로 다시 디코딩한다.
@@ -167,7 +168,7 @@ public class SerializeTester {
 }
 ```
 
-역직렬화를 할 때는 직렬화된 객체의 클래스가 반드시 클래스 패스(Class Path)에 존재해야 하며 `import` 된 상태여야 한다.
+역직렬화를 할 때는 직렬화된 객체의 클래스가 반드시 클래스 경로(Class Path)에 존재해야 하며 `import` 된 상태여야 한다.
 
 그리고 위의 예제에서는 직렬화된 데이터를 바로 이용하였지만 `FileOutputStream` 등을 사용하여 파일 출력을 한 후
 그 파일을 다시 읽어 원래의 객체로 되돌릴 수도 있다.
@@ -175,10 +176,9 @@ public class SerializeTester {
 <br>
 
 # 정리하면
-직렬화는 모든 클래스에 적용되는 것은 아니며 **Serializable** 인터페이스를 구현하는 클래스만 가능하다.
-클래스의 멤버 변수로 선언된 클래스의 경우도 동일하다.
+이번 글에서는 자바 직렬화에 대해서 알아보았다. 정리하면, 직렬화는 모든 클래스에 적용되는 것은 아니며
+`java.io.Serializable` 인터페이스를 구현하는 클래스만 가능하다. 클래스의 멤버 변수로 선언된 클래스의 경우도 동일하다.
 
 이어지는 글에서는 자바 직렬화를 사용할 때 등장하는 **SerialVersionUID** 에 대해서 알아본다.
 
-- <a href="/post/java-serialization-advanced" target="_blank">
-이어지는 글: "자바 직렬화: SerialVersionUID는 무엇일까?"</a>
+- <a href="/post/java-serialization-advanced">다음글: "자바 직렬화: SerialVersionUID는 무엇일까?"</a>
