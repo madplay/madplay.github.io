@@ -11,7 +11,7 @@ comments: true
 # 목차
 - 자바 직렬화: 직렬화(Serialize)란 무엇일까?
 - <a href="/post/java-serialization-advanced">자바 직렬화: SerialVersionUID는 무엇일까?</a>
-- <a href="/why-java-serialization-is-bad">자바 직렬화: 자바 직렬화를 사용할 때 고민하고 주의할 점</a>
+- <a href="/post/why-java-serialization-is-bad">자바 직렬화: 자바 직렬화를 사용할 때 고민하고 주의할 점</a>
 
 <br>
 
