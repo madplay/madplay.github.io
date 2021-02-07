@@ -76,7 +76,7 @@ public T orElseGet(Supplier<? extends T> supplier) {
 String str = null;
 
 // "hi" 반환
-Optional.ofNullable(str).orElse(() -> "hi");
+Optional.ofNullable(str).orElseGet(() -> "hi");
 ```
 
 > orElse 메서드와 orElseGet 메서드의 차이
