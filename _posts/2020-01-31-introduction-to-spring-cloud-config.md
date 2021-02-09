@@ -418,7 +418,7 @@ $ curl -X POST "http://localhost:8089/actuator/refresh"
 번거로운 작업이 될 수 있다. Spring에서는 이러한 문제를 극복하기 위해 **Spring Cloud Bus** 라는 해결책을 가지고 있다.
 이어지는 포스팅에서 어떤 방식인지 살펴보자.
 
-- <a href="/post/spring-cloud-bus-example" target="_blank">다음 글: "Spring Cloud Config: Spring Cloud Bus 예제" (링크)</a>
+- <a href="/post/spring-cloud-bus-example">다음 글: "Spring Cloud Config: Spring Cloud Bus 예제" (링크)</a>
 
 <br/><br/>
 
