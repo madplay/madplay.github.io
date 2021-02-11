@@ -9,11 +9,16 @@ date: "2020-02-12 00:03:21"
 comments: true
 ---
 
+# 목차
+- <a href="/post/introduction-to-spring-cloud-config">Spring Cloud Config: 소개와 예제</a>
+- <a href="/post/spring-cloud-bus-example">Spring Cloud Config: Spring Cloud Bus 예제</a>
+- Spring Cloud Config: Git Webhook을 이용한 자동 갱신
+
+<br>
+
 # refresh 호출을 잊어버리면 어떻게 될까?
 앞선 글에서는 **Spring Cloud Bus**를 이용하여 설정값 갱신할 때 모든 클라이언트를 호출해야만 하는 불편함을 없앴다.
 그런데 만약에 설정 파일을 수정한 후에 설정값 갱신을 위한 엔드 포인트 호출을 잊어버리면 어떻게 될까?
-
-- <a href="/post/spring-cloud-bus-example">이전 글: "Spring Cloud Config: Spring Cloud Bus 예제" (링크)</a>
 
 당연히 참조하고 있는 설정값이 최신 데이터로 갱신되지 않는다. 이러한 불편함은 Git의 `Webhook`을 이용하면 간단히 해결할 수 있다.
 설정 파일이 변경될 때마다 갱신 이벤트 트리거를 발생시키는 것이다. 즉, 수동으로 엔드 포인트를 호출하지 않아도 된다.
