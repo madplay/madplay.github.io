@@ -9,6 +9,13 @@ date: "2020-01-31 01:38:12"
 comments: true
 ---
 
+# 목차
+- Spring Cloud Config: 소개와 예제
+- <a href="/post/spring-cloud-bus-example">Spring Cloud Config: Spring Cloud Bus 예제</a>
+- <a href="/post/spring-cloud-config-using-git-webhook-to-auto-refresh">Spring Cloud Config: Git Webhook을 이용한 자동 갱신</a>
+
+<br>
+
 # 왜 Spring Cloud Config?
 특정 확률에 따라 광고를 내보내는 기능을 개발한다고 하자. 그리고 확률 값의 변경될 때마다 수익이 어떻게 변하는지 확인해보는 **A/B 테스트**를 진행할 것이다.
 예를 들면 처음에는 5%로 설정했다가 테스트가 끝난 후 다시 10%로 바꿔야 한다. 확률 값을 프로젝트 설정 파일에서 읽어오거나 특정 변수에 대입하여 사용할 텐데
