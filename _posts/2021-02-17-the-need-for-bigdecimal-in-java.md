@@ -84,7 +84,7 @@ double value1 = 12.23;
 double value2 = 34.45;
 
 // 46.68 ???
-System.out.println(value1 + value2);
+value1 + value2;
 ```
 
 12.23와 34.45을 더했으니 결과로 46.68을 예상했겠지만, 실제로는 46.68000000000001가 출력된다. 이와 같이 실수 연산에서는 
@@ -124,10 +124,9 @@ BigDecimal dontDoThis = new BigDecimal(12.23);
 
 ```java
 BigDecimal value = new BigDecimal("12.23");
-BigDecimal result = value.add(BigDecimal.ONE);
 
 // 13.23
-System.out.println(result);
+value.add(BigDecimal.ONE);
 ```
 
 ### 빼기(subtract)
@@ -135,10 +134,9 @@ System.out.println(result);
 
 ```java
 BigDecimal value = new BigDecimal("12.23");
-BigDecimal result = value.subtract(BigDecimal.TEN);
 
 // 2.23
-System.out.println(result);
+value.subtract(BigDecimal.TEN);
 ```
 
 ### 곱하기(multiply)
@@ -146,10 +144,9 @@ System.out.println(result);
 
 ```java
 BigDecimal value = new BigDecimal("1");
-BigDecimal result = value.multiply(BigDecimal.TEN);
 
 // 10
-System.out.println(result);
+value.multiply(BigDecimal.TEN);
 ```
 
 ### 나누기(divide)
@@ -159,10 +156,10 @@ System.out.println(result);
 ```java
 BigDecimal value1 = new BigDecimal("11");
 BigDecimal value2 = BigDecimal.valueOf(3);
-BigDecimal result = value1.divide(value2);
 
-// Exception in thread "main" java.lang.ArithmeticException: Non-terminating decimal expansion; no exact representable decimal result.
-System.out.println(result);
+// Exception in thread "main" java.lang.ArithmeticException:
+// Non-terminating decimal expansion; no exact representable decimal result.
+value1.divide(value2);
 ```
 
 아무리 `BigDecimal` 클래스라도 나누어떨어지지 않는 수는 정확하게 표현할 수 없다. 따라서 `divide` 메서드를 사용할 때는
@@ -176,10 +173,9 @@ System.out.println(result);
 ```java
 BigDecimal value1 = new BigDecimal("11");
 BigDecimal value2 = BigDecimal.valueOf(3);
-BigDecimal result = value1.divide(value2, 2, RoundingMode.HALF_UP);
 
 // 3.67
-System.out.println(result);
+value1.divide(value2, 2, RoundingMode.HALF_UP);
 ```
 
 ## 그 밖의 메서드들
@@ -189,10 +185,9 @@ System.out.println(result);
 ```java
 
 BigDecimal value = new BigDecimal("10");
-BigDecimal result = value.remainder(BigDecimal.valueOf(4));
 
 // 2
-System.out.println(result);
+value.remainder(BigDecimal.valueOf(4));
 ```
 ### 값 비교(compareTo)
 `BigDecimal` 인스턴스는 `compareTo` 메서드를 사용하여 서로 비교할 수 있다. 파라미터로 전달되는 값보다 작은 경우 -1,
@@ -201,14 +196,14 @@ System.out.println(result);
 ```java
 BigDecimal value = new BigDecimal("10");
 
-// value.compareTo(BigDecimal.TEN): 0
-System.out.println("value.compareTo(BigDecimal.TEN): " + value.compareTo(BigDecimal.TEN));
+// 0
+value.compareTo(BigDecimal.TEN);
 
-// value.compareTo(BigDecimal.ONE): 1
-System.out.println("value.compareTo(BigDecimal.ONE): " + value.compareTo(BigDecimal.ONE));
+// 1
+value.compareTo(BigDecimal.ONE);
 
-// BigDecimal.ONE.compareTo(value): -1
-System.out.println("BigDecimal.ONE.compareTo(value): " + BigDecimal.ONE.compareTo(value));
+// -1
+BigDecimal.ONE.compareTo(value);
 ```
 
 ### 최대, 최소(max, min)
@@ -217,11 +212,11 @@ System.out.println("BigDecimal.ONE.compareTo(value): " + BigDecimal.ONE.compareT
 ```java
 BigDecimal value = BigDecimal.valueOf(10);
 
-// max : 10
-System.out.println("max : " + value.max(BigDecimal.ONE));
+// 10
+value.max(BigDecimal.ONE);
 
-// min : 1
-System.out.println("min : " + value.min(BigDecimal.ONE));
+// 1
+value.min(BigDecimal.ONE);
 ```
 
 ## 소수점 처리 방식
@@ -230,19 +225,19 @@ System.out.println("min : " + value.min(BigDecimal.ONE));
 ```java
 // 소수점 첫 번째까지 표현, 두번째 자리에서 반올림
 // 12.4
-System.out.println(BigDecimal.valueOf(12.35).setScale(1, RoundingMode.HALF_UP));
+BigDecimal.valueOf(12.35).setScale(1, RoundingMode.HALF_UP);
 
 // 소수점 이하 모두 제거하고 올림
 // 13
-System.out.println(BigDecimal.valueOf(12.34).setScale(0, RoundingMode.CEILING));
+BigDecimal.valueOf(12.34).setScale(0, RoundingMode.CEILING);
 
 // 음수인 경우는 특정 자릿수 이하 제거
 // -12.3
-System.out.println(BigDecimal.valueOf(-12.34).setScale(1, RoundingMode.CEILING));
+BigDecimal.valueOf(-12.34).setScale(1, RoundingMode.CEILING);
 
 // 특정 자릿수 이하 버림
 // 12.3
-System.out.println(new BigDecimal("12.37").setScale(1, RoundingMode.FLOOR));
+new BigDecimal("12.37").setScale(1, RoundingMode.FLOOR);
 ```
 
 아래는 `BigDecimal` 클래스에서 제공하는 `RoundingMode`를 정리한 표이다. 입력값을 기준으로 소수점 첫 번째 자리에서
