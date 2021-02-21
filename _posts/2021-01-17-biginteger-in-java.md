@@ -1,6 +1,6 @@
 ---
 layout:   post
-title:    "자바 BigInteger(매우 큰 정수 표현)"
+title:    "자바 BigInteger: 매우 큰 정수 표현"
 author:   Kimtaeng
 tags:    java biginteger
 description: 자바에서 매우 큰 정수를 표현하려면 어떻게 해야 할까?  
@@ -30,13 +30,13 @@ comments: true
 
 ```java
 // 16진법
-BigInteger bigIntegerWithRadix = new BigInteger("64", 16);
+BigInteger bigIntWithRadix = new BigInteger("64", 16);
 
 // 정수로 생성
-BigInteger bigIntegerWithValue = BigInteger.valueOf(100);
+BigInteger bigIntWithValue = BigInteger.valueOf(100);
 
 // 문자열
-BigInteger bigIntegerWithString = new BigInteger("100");
+BigInteger bigIntWithString = new BigInteger("100");
 ```
 
 <br>
@@ -48,10 +48,9 @@ BigInteger bigIntegerWithString = new BigInteger("100");
 
 ```java
 BigInteger value = new BigInteger("10");
-BigInteger result = value.add(BigInteger.TEN);
 
 // 20
-System.out.println(result);
+BigInteger result = value.add(BigInteger.TEN);
 ```
 
 ## 빼기(subtract)
@@ -59,10 +58,9 @@ System.out.println(result);
 
 ```java
 BigInteger value = BigInteger.TEN;
-BigInteger result = value.subtract(BigInteger.TWO);
 
 // 8
-System.out.println(result);
+BigInteger result = value.subtract(BigInteger.TWO);
 ```
 
 ## 곱하기(multiply)
@@ -70,10 +68,9 @@ System.out.println(result);
 
 ```java
 BigInteger value = BigInteger.valueOf(3);
-BigInteger result = value.multiply(BigInteger.TWO);
 
 // 6
-System.out.println(result);
+BigInteger result = value.multiply(BigInteger.TWO);
 ```
 
 ## 나누기(divide)
@@ -81,10 +78,9 @@ System.out.println(result);
 
 ```java
 BigInteger value = BigInteger.TEN;
-BigInteger result = value.divide(BigInteger.TWO);
-
+	
 // 5
-System.out.println(result);
+BigInteger result = value.divide(BigInteger.TWO);
 ```
 
 <br>
@@ -103,12 +99,12 @@ System.out.println(result);
 BigInteger value = BigInteger.TEN;
 
 // 4
-System.out.println(value.bitCount());
+value.bitCount()
 
 
 // 참고로 2진수로 변환은 아래와 같이 하면 된다.
 // 결과 값은 1010    
-System.out.println(value.toString(2));
+value.toString(2);
 ```
 
 ## 비트 확인(testBit)
@@ -119,7 +115,7 @@ System.out.println(value.toString(2));
 BigInteger value = BigInteger.TEN;
 
 // false
-System.out.println(value.testBit(0));
+value.testBit(0);
 ```
 
 ## 쉬프트 연산(shiftLeft, shiftRight)
@@ -131,13 +127,13 @@ radix(진법) 파라미터를 2로 지정하여 2진법 비트로 출력했다.
 BigInteger value = BigInteger.TEN;
 
 // value: 1010
-System.out.println("value: " + value.toString(2));
+value.toString(2)
 
 // shiftLeft: 10100
-System.out.println("shiftLeft: " + value.shiftLeft(1).toString(2));
+value.shiftLeft(1).toString(2)
 
 // shiftRight: 101
-System.out.println("shiftRight: " + value.shiftRight(1).toString(2));
+value.shiftRight(1).toString(2)
 ```
 
 # 그 밖의 메서드
@@ -148,7 +144,7 @@ System.out.println("shiftRight: " + value.shiftRight(1).toString(2));
 BigInteger value = new BigInteger("3");
 
 // 1
-System.out.println(value.remainder(BigInteger.TWO));
+value.remainder(BigInteger.TWO);
 ```
 
 
@@ -159,14 +155,14 @@ System.out.println(value.remainder(BigInteger.TWO));
 ```java
 BigInteger value = BigInteger.TEN;
 
-// value.compareTo(BigInteger.TWO): 1
-System.out.println("value.compareTo(BigInteger.TWO): " + value.compareTo(BigInteger.TWO));
+// 1
+value.compareTo(BigInteger.TWO);
 
-// value.compareTo(BigInteger.TEN): 0
-System.out.println("value.compareTo(BigInteger.TEN): " + value.compareTo(BigInteger.TEN));
+// 0
+value.compareTo(BigInteger.TEN);
 
-// BigInteger.TWO.compareTo(value): -1
-System.out.println("BigInteger.TWO.compareTo(value): " + BigInteger.TWO.compareTo(value));
+// -1
+BigInteger.TWO.compareTo(value);
 ```
 
 
@@ -176,9 +172,9 @@ System.out.println("BigInteger.TWO.compareTo(value): " + BigInteger.TWO.compareT
 ```java
 BigInteger value = BigInteger.TEN;
 
-// max: 10
-System.out.println("max: " + value.max(BigInteger.TWO));
+// 10
+value.max(BigInteger.TWO);
 
-// min: 2 
-System.out.println("min: " + value.min(BigInteger.TWO));
+// 2 
+value.min(BigInteger.TWO);
 ```
