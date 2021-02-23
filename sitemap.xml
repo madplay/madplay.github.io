@@ -10,10 +10,17 @@ layout: null
   </url>
 {% endfor %}
 {% for page in site.pages %}
-{% if page.layout != nill %}
+{% if page.layout != nill%}
+  {% if page.url contains 'page' and page.url contains 'post' %}
   <url>
     <loc>{{ site.url }}{{ page.url | remove: '.html' }}</loc>
   </url>
+  {% elsif page.url contains 'page' %}
+  {% else %}
+  <url>
+    <loc>{{ site.url }}{{ page.url | remove: '.html' }}</loc>
+  </url>
+  {% endif %}
 {% endif %}
 {% endfor %}
 </urlset>
