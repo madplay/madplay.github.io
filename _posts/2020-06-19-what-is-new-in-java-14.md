@@ -40,7 +40,7 @@ $ brew cask install adoptopenjdk14
 ```
 
 한편 오라클이 **OpenJDK** 기능에 대한 제안을 수집하기 위해, 스펙 초안을 작성하는 프로세스를 **JEP(JDK Enhancement Proposal)**라고 한다.
-비슷한 용어로 자바 기술에 대한 기술 명세 절차인 **JCP(Java Community Process)**와 자바 스펙 명세인 **JSR(Java Speficiation Requests)**가
+비슷한 용어로 자바 기술에 대한 기술 명세 절차인 **JCP(Java Community Process)**와 자바 스펙 명세인 **JSR(Java Specification Requests)**가
 있다.
 
 참고로 이번 글의 자바 14 변경사항은 <a href="https://openjdk.java.net/projects/jdk/14/" target="_blank" rel="nofollow">OpenJDK
