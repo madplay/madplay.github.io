@@ -113,6 +113,8 @@ System.out.println(1.03 - 0.42);
 하지만 `BigDecimal`에는 primitive 타입보다 사용하기 불편하고 성능적으로 훨씬 느리다.
 이때는 `int` 또는 `long` 타입을 사용해야 하는데, 값의 크기가 제한되고 소수점을 직접 관리해야 하는 점이 있다.
 
+- <a href="/post/the-need-for-bigdecimal-in-java">참고 링크: 자바 BigDecimal: 정확한 실수의 표현과 부동 소수점</a>
+
 성능 저하를 크게 신경 쓰지 않는다면 `BigDecimal`을 사용하고 숫자가 너무 크지 않다면 `int`나 `long` 타입을 사용하자.
 9자리 십진수로 표현할 수 있다면 `int` 타입, 18자리 십진수로 표현할 수 있다면 `long` 타입, 18자리가 넘어가면 `BigDecimal`을 사용하면 된다.
 
