@@ -27,7 +27,7 @@ ExchangeStrategies exchangeStrategies = ExchangeStrategies.builder()
     .codecs(configurer -> configurer.defaultCodecs().maxInMemorySize(10 * 1024 * 1024)) // 10MB
 	.build();
 
-Webclient webClient = WebClient.builder()
+WebClient webClient = WebClient.builder()
 	.exchangeStrategies(exchangeStrategies)
 	.build();
 ```
