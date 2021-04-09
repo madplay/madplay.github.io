@@ -20,10 +20,10 @@ width="650" alt="madplays' profile"/>
 
 # 프로필 저장소 만들기
 Github 프로필을 시작하기 위한 첫 단계는 매우 간단하다. 그저 자신의 Github 계정 이름과 동일한 저장소를 생성하기만 하면 된다.
-아래와 같이 자신의 계정명과 동일하게 적어주면 안내 문구가 노출된다. 중요한 점은 저장소를 **Public으로 설정**해야 한다.
+아래와 같이 자신의 계정명과 동일하게 적어주면 안내 문구가 노출된다. 중요한 점은 저장소를 **public으로 설정**해야 한다.
 
 README.md 같은 경우는 나중에 수동으로 생성할 수 있지만, 어차피 생성할 것이기 때문에 저장소를 생성하면서 만들도록 하자.
-하단의 **Iniitialize this repository with a README**를 클릭하면 된다.
+하단의 **Initialize this repository with a README**를 클릭하면 된다.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2020-08-10-design-github-profile-using-readme-md-2.png"
 width="550" alt="make profile repository"/>
@@ -55,7 +55,7 @@ width="450" alt="github readme stats"/>
 
 - <a href="https://github.com/anuraghazra/github-readme-stats" rel="nofollow" target="_blank">참고 링크: github-readme-stats</a>
 
-인상 깊었던 것은 프로젝트 README에 적힌 프로젝트 가이드가 영어뿐만 아니라 스페인어, 일본어 등 다양하게 번역되어 있다는 점이었는데,
+인상 깊었던 것은 프로젝트 README 파일에 적힌 프로젝트 가이드가 영어뿐만 아니라 스페인어, 일본어 등 다양하게 번역되어 있다는 점이었는데,
 각 나라의 Github 유저들이 자국어로 번역한 것이었다.
 
 혹시나 한국어로도 번역이 진행되고 있을까? 하고 찾아보았지만 아직 없는 것 같아서 최신 버전 가이드를 checkout 받아서 번역했다.
