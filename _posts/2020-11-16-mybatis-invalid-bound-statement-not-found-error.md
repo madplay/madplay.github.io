@@ -62,7 +62,7 @@ Mapper의 이름이 같지만 패키지 이름이 달라서 인텔리제이나 �
 
 <br>
 
-## DadtaSource Configuration
+## DataSource Configuration
 DataSource를 설정하는 Configuration 클래스를 점검할 필요가 있다.
 
 `SessionFactory`가 설정된 경우 `setMapperLocations` 메서드 등으로 Mapper XML의 위치를 선언할 텐데, 의도한 대로 잘 설정되어
