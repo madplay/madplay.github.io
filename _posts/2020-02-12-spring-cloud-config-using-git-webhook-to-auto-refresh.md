@@ -26,7 +26,7 @@ comments: true
 
 > **2021년 1월 내용 추가**: 스프링 부트 2.4 버전부터는 이 글의 예제에서 사용된 `bootstrap.yml` 파일을 더 이상 사용하지 않습니다.
 > 또한 글의 예제에서 사용한 "설정값 갱신을 위한 actuator 엔드포인트" `bus-refresh`도 `busrefresh`로 변경되었습니다.
-> 변경 사항에 대해서는 상단 목차의 네 번째 글 "Spring Boot 2.4 버전에서의 변경사항"을 참고하시기 바랍니다.
+> 변경 사항에 대해서는 상단 목차의 네 번째 글 <a href="/post/changes-in-spring-cloud-config-from-spring-boot-2-4">"Spring Boot 2.4 버전에서의 변경사항"</a>을 참고하시기 바랍니다.
 
 
 <br/><br/>
@@ -281,7 +281,7 @@ Received remote refresh request. Keys refreshed [config.client.version, taeng.co
 필요 없을 수 있다. 필요에 따라 적절하게 사용하면 될 것 같다.
 
 > **2021년 1월 내용 추가**: 스프링 부트 2.4 버전부터는 변경된 내용은 이어지는 글
-> <a href="/post/changes-in-spring-cloud-config-from-spring-boot-2-4">"Spring Cloud Config: Spring Boot 2.4 버전에서의 변경사항"</a>을 참고해주세요.
+> <a href="/post/changes-in-spring-cloud-config-from-spring-boot-2-4">"Spring Boot 2.4 버전에서의 변경사항"</a>을 참고해주세요.
 
 이번 글에서 사용한 모든 예제 코드는 아래 Git 저장소에 있습니다.
 

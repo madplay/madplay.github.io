@@ -28,7 +28,7 @@ comments: true
 따라서 **설정이 바뀔 때마다 빌드와 배포가 필요 없는 구조**이다.
 
 > **2021년 1월 내용 추가**: 스프링 부트 2.4 버전부터는 이 글의 예제에서 사용된 `bootstrap.yml` 파일을 더 이상 사용하지 않습니다.
-> 변경 사항에 대해서는 상단 목차의 네 번째 글 "Spring Boot 2.4 버전에서의 변경사항"을 참고하시기 바랍니다.
+> 변경 사항에 대해서는 상단 목차의 네 번째 글 <a href="/post/changes-in-spring-cloud-config-from-spring-boot-2-4">"Spring Boot 2.4 버전에서의 변경사항"</a>을 참고하시기 바랍니다.
 
 <br/>
 
