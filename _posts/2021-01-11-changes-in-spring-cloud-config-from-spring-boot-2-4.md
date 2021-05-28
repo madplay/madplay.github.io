@@ -55,10 +55,23 @@ spring:
       name: my-config
       profile: dev
 ```
+<br>
+
+# 기타 참고: Spring Cloud와 Spring Boot의 버전 매핑
+아래 표를 참고하여 Spring Cloud와 Boot의 버전을 맞추어 구성하면 된다.
+
+| Spring Cloud 버전 | Spring Boot 버전 |
+| -- | -- |
+<a href="https://github.com/spring-cloud/spring-cloud-release/wiki/Spring-Cloud-2020.0-Release-Notes" target="_blank" rel="nofollow">2020.0.x</a> (일명 Ilford) | 2.4.x
+<a href="https://github.com/spring-cloud/spring-cloud-release/wiki/Spring-Cloud-Hoxton-Release-Notes" target="_blank" rel="nofollow">Hoxton</a> | 2.2.x, 2.3.x (SR5로 시작하는 버전과)
+<a href="https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Greenwich-Release-Notes" target="_blank" rel="nofollow">Greenwich</a> | 2.1.x
+<a href="https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Finchley-Release-Notes" target="_blank" rel="nofollow">Finchley</a> | 2.0.x
+<a href="https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Edgware-Release-Notes" target="_blank" rel="nofollow">Edgware</a> | 1.5.x
+<a href="https://github.com/spring-projects/spring-cloud/wiki/Spring-Cloud-Dalston-Release-Notes" target="_blank" rel="nofollow">Dalston</a> | 1.5.x
 
 <br>
 
-# 그 밖의 변경사항
+# 기타 참고: actuator 관련 변경사항
 이번 글을 정리하면서 기존 코드를 테스트해보니, Spring Cloud Bus 관련 `actuator` 엔드 포인트가 변경된 것 같다.
 `bus-env`는 `busenv`로 변경되었고, `bus-refresh`는 `busrefresh`로 변경되었다.
 
