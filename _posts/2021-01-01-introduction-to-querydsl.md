@@ -3,15 +3,15 @@ layout:   post
 title:    "Querydsl: 소개와 사용법"
 author:   Kimtaeng
 tags: 	  querydsl jpa
-description: HQL 쿼리를 타입 안전하게 실행할 수 있도록 도와주는 Querydsl은 무엇이며 어떻게 사용할까?
+description: Querydsl은 무엇이며 왜 필요할까? 그리고 어떻게 사용할까?
 category: Knowledge
 date: "2021-01-01 20:54:19"
 comments: true
 ---
 
 # Querydsl 소개
-공식 레퍼런스를 보면 Querydsl을 "HQL(Hibernate Query Language) 쿼리를 타입에 안전하게 생성 및 관리할 수 있게 해주는 프레임워크"라고 소개한다.
-이 정의가 잘 와닿지 않는다면, "Querydsl은 자바 코드 기반으로 쿼리를 작성하게 해준다"라고 생각해도 좋을 것 같다.
+Querydsl은 HQL(Hibernate Query Language) 쿼리를 타입에 안전하게 생성 및 관리할 수 있게 해주는 프레임워크" 다.
+공식 레퍼런스를 인용한 정의인데, 잘 와닿지 않는다면 "Querydsl은 자바 코드 기반으로 쿼리를 작성하게 해준다"라고 생각해도 좋을 것 같다.
 
 - <a href="https://querydsl.com/static/querydsl/4.4.0/reference/html_single/#intro" target="_blank" rel="nofollow">참고 링크: Querydsl Reference Guide</a>
 
@@ -20,8 +20,7 @@ comments: true
 
 # Querydsl은 왜 필요할까?
 JPA를 사용한다고 가정해보자. 간단한 쿼리라면 인터페이스에 메서드 명세만 잘 정의해 주면 별다른 문제 없이 사용할 수 있을 것이다.
-
-다음은 제목에 특정 문자열이 포함된 기사를 조회하는 메서드다.
+예를 들면 아래처럼 "제목에 특정 문자열이 포함된 기사를 조회"하는 메서드처럼 말이다.
 
 ```java
 Article findByTitleContains(String title);
@@ -30,15 +29,15 @@ Article findByTitleContains(String title);
 조금 더 복잡한 쿼리가 필요한 경우에는 어떨까? 앞서 살펴본 것처럼 단순히 특정 문자열이 제목에 포함된 기사를 조회하는 것이 아니라,
 기사를 작성한 사용자의 레벨을 기준으로 조회하는 것이다.
 
-이런 경우에는 JPA 자체 제공 메서드만으로 해결하기 어려울 수도 있기 때문에 네이티브 쿼리(Native Query)를 사용할 수도 있다.
-다음은 사용자의 레벨이 특정 기준 이상인 기사 여러 개를 조회하는 메서드다.
+이런 경우에는 JPA 자체 제공 메서드만으로 해결하기 어렵기 때문에 네이티브 쿼리(Native Query)를 고려해볼 수 있다.
+다음은 레벨이 특정 기준 이상인 사용자가 작성한 기사들을 조회하는 메서드다.
 
 ```java
 @Query(value = "SELECT id, title, user_id FROM article WHERE user_id IN (SELECT id FROM user WHERE level > :level)", nativeQuery = true)
 List<Article> findByLevel(String level);
 ```
 
-위에서 정의한 네이티브 쿼리를 자세히 살펴보자. 가독성은 감안하더라도 문자열을 이어 붙여가며 작성해야 하기 때문에 오타가 발생하기 아주 좋다.
+위에서 정의한 네이티브 쿼리를 다시 살펴보자. 가독성은 감안하더라도 문자열을 이어 붙여가며 직접 작성하기 때문에 오타가 발생하기 아주 좋다.
 
 **그렇다면 이 코드를 Querydsl로 변경하면 어떻게 될까?** 아직 Querydsl을 사용하는 방법에 대해서 알아보지 않았지만 어떤 모습일지 먼저 살펴보자.
 다음은 위에서 살펴본 네이티브 쿼리와 동일한 쿼리를 수행하는 Querydsl 예시다. 
@@ -61,7 +60,7 @@ public List<Article> findByUserLevel(String level) {
 }
 ```
 
-앞서 살펴본 네이티브 쿼리보다 훨씬 가독성이 좋다. ~~코드의 절대적인 양은 늘었지만...~~
+앞서 살펴본 네이티브 쿼리보다 훨씬 가독성이 좋다. ~~물론 코드의 절대적인 양은 늘었지만...~~
 
 또한 메서드 타입에 맞지 않는 파라미터를 넘기는 경우 친절하게 컴파일 오류를 발생시켜 잠재적인 버그를 방지해준다.
 즉, 실행 시점 이전에 잘못된 쿼리 파라미터 타입까지 확인할 수 있는 장점이 있다.
