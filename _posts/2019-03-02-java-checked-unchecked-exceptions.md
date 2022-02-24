@@ -54,8 +54,10 @@ src="{{ site.baseurl }}/img/post/2019-03-02-java-checked-unchecked-exceptions-1.
 여기서 **RuntimeException**은 **Exception** 클래스의 서브 클래스이기 때문에 **Exception의 일종**이기도 하지만 자바에서는
 **RuntimeException**과 이를 상속한 클래스를 조금 특별하게 취급한다. 명시적으로 예외 처리를 하지 않아도 되기 때문이다.
 
-<img class="post_image" width="700" alt="checked unchecked exceptions"
-src="{{ site.baseurl }}/img/post/2019-03-02-java-checked-unchecked-exceptions-2.png"/>
+<div class="post_comments">(2022.02.24 내용 추가) 기존에 이 위치에 트랜잭션이 포함된 관련 내용과 맺음말에 "트랜잭션 처리 옵션을 설정할 수 있기 때문에
+트랜잭션 처리 방식은 예외에 따라 고정적이지 않을 수 있다."라는 내용이 있었습니다. 지금 시점에 다시 읽어보니 본문에는 스프링에서의 기본 동작과 같은 추가적인 설명도 없고,
+특히나 현재 글의 카테고리에서는 해당 내용이 적합하지 않은 것 같아서 제외했습니다. 내용이 많이 퍼가진 것 같은... 몇 년 된 글인데요.
+혼란을 드린 점 사과드리고(제 불찰이니 싸우지 마세요😭) 이곳저곳에서 제보해 주셔서 감사합니다. (_ _)</div>
 
 <br>
 
@@ -147,6 +149,3 @@ public void someMethod() {
 # 정리하면
 자바에서 예외는 **RuntimeException을 상속**하지 않고 꼭 처리해야 하는 **Checked Exception**과
 반대로 명시적으로 처리하지 않아도 되는 **Unchecked Exception**로 기본적으로 구분할 수 있다.
-
-추가적으로 스프링 프레임워크에서 트랜잭션 처리 옵션을 설정할 수 있기 때문에 트랜잭션 처리 방식은 예외에 따라 고정적이지 않을 수 있다.
-관련해서는 스프링 프레임워크 관련 설정을 참고하면 된다.
