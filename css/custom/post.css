@@ -44,14 +44,15 @@ a.post_heading_link:active {
         overflow-x: auto;
         word-break: normal;
         width: 95%;
-        margin: auto;
+        margin: 15px auto;
+        white-space: nowrap;
     }
 }
 
 table {
     word-break: normal;
     width: 95%;
-    margin: auto;
+    margin: 15px auto;
 }
 
 th, td {
