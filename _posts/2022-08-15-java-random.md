@@ -266,7 +266,18 @@ LongStream randomLongs = secureRandom.longs();
 DoubleStream randomDoubles = secureRandom.doubles();
 ```
 
-### getInstanceStrong
+<br>
+
+## Random vs SecureRandom
+`SecureRandom` 클래스는 `Random` 클래스와 비교했을 때 암호학적으로 더 강력하다.
+
+`Random` 클래스는 시스템 시간을 시드로 사용하거나 시드를 생성한다. 그러므로 공격자가 시드의 생성된 시간을 알면 쉽게 재현해낼 수 있지만 `SecureRandom`은
+OS의 무작위 데이터(하단의 엔트로피에 관한 내용 참고)를 가져와서 시드로 사용한다. 또한 48비트를 갖는 `Random`과 다르게 `SecureRandom`은 최대 128비트를
+포함할 수 있기 때문에 반복될 확률도 적고 보안을 깨뜨리기 위해서는 상대적으로 더 많은 시도가 필요하다.
+
+<br>
+
+## getInstanceStrong
 자바 8버전에 `getInstanceStrong` 라는 정적 메서드가 추가되었다.
 이 메서드는 시스템에서 사용 가능한 강력한 암호화 알고리즘을 사용하여 인스턴스를 얻도록 한다.
 
