@@ -80,7 +80,7 @@ md = MessageDigest.getInstance("SHA-256", "ProviderC"); // 예시
 검색이 되며, 입력한 SHA-256 알고리즘을 제공하는 첫 번째 공급자인 ProviderB의 구현이 반환된다.
 
 두 번째 그림은, SHA-256 알고리즘 구현을 특정 공급자인 ProviderC에게 요청한다. 더 높은 우선순위를 가진 ProviderB 공급자가
-SHA-256 알고리즘 구현을 제공할 수 있더라도 지정한 공급자인 ProviderC의 알고리즘 구현이 반횐된다.
+SHA-256 알고리즘 구현을 제공할 수 있더라도 지정한 공급자인 ProviderC의 알고리즘 구현이 반환된다.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2020-12-02-encryption-and-decryption-in-java-1.png"
 width="800" alt="sha-256 message digest implementation"/>
