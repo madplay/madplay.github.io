@@ -1,26 +1,26 @@
 ---
 layout: page
 title: "About Me"
-description: "I believe in the power of positive thinking :D"
 ---
 
-{% for member in site.data.members %} {% if member.visible == true %}
-<div class="introduce_wrap">
-    <div class="introduce_image">
-        <img src="{{ member.img }}" alt="프로필 이미지">
+{% include banner.html %}
+
+<div class="col-md-6 offset-md-2 col-lg-6 offset-lg-4">
+    <div class="introduce_wrap">
+        <h2 class="introduce_title">Kim Taewan [MadPlay]</h2>
+        <ul>
+            <li>Software Engineer</li>
+            <li>Back-end Server Developer</li>
+        </ul>
+
+        <h2 class="introduce_title">Activities</h2>
+        <ul>
+            <li>
+                <a class="introduce_link" href="https://github.com/madplay" rel="nofollow"
+                   target="_blank">Github</a><br>
+                <img src="https://ghchart.rshah.org/madplay" alt="Github Image" style="max-width:100%">
+            </li>
+
+        </ul>
     </div>
-
-    <h2 class="introduce_title">Kim Taewan [MadPlay]</h2>
-    <ul>
-        <li>Software Engineer</li>
-        <li>Back-end Server Developer</li>
-    </ul>
-
-    <h2 class="introduce_title">Activities</h2>
-    <ul>
-        <li><a class="introduce_link" href="https://github.com/madplay" rel="nofollow" target="_blank">Github</a>
-            <img src="https://ghchart.rshah.org/madplay" alt="Github Image" style="max-width:100%">
-        </li>
-    </ul>
 </div>
-{% endif %}{% endfor %}

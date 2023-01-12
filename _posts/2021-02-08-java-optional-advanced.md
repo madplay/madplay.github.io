@@ -50,11 +50,11 @@ public String getPhoneManufacturerName(Person person) {
 <br>
 
 # isPresent와 get 메서드보다는 orElse, orElseXXX
-앞서 살펴본 `isPresent`와 `get` 메서드의 조합으로 안전하게 값을 꺼내는 것보다는 `orElse`, `orElseGet` 메서드를 활용하는
+앞서 살펴본 `isPresent`와 `get` 메서드의 조합으로 안전하게 값을 꺼내는 것보다는 `orElse` 또는 `orElseGet` 메서드를 활용하는
 것이 더 좋다. 아래와 같이 바꿔보자.
 
 ```java
-public String getPhoneManufacturerName(Person person){
+public String getPhoneManufacturerName(Person person) {
     return Optional.ofNullable(person)
         .map(Person::getPhone)
         .map(Phone::getManufacturer)
@@ -66,7 +66,7 @@ public String getPhoneManufacturerName(Person person){
 <br>
 
 # orElse 메서드 보다는 orElseGet 메서드
-`orElseGet` 메서드는 `Optional` 객체에 값이 없을 때만 실행되지만, `orElse` 메서드는 그렇지 않다. 
+`orElseGet` 메서드는 `Optional` 객체에 값이 없을 때만 실행되지만 `orElse` 메서드는 그렇지 않다. 
 값이 있든 없든 무조건 실행되기 때문에 메서드로 넘겨지는 매개변수의 생성 비용이 큰 경우 주의해야 한다.
 
 예를 들어, `Collections` 클래스의 `emptyList`, `emptyMap`, `emptySet` 메서드와 같은 메서드는 매번 생성자를 호출하는
@@ -108,7 +108,7 @@ class Person {
 `Serializable` 인터페이스를 상속하기 직렬화가 가능하다. 다만, `ifPresent`, `flatMap`과 같은 추가적인 메서드를
 사용하지 못하며, 기본형 타입(primitive type)에 특화된 `OptionalInt`, `OptionalLong` 등을 사용하지 못한다.
 
-- <a href="https://guava.dev/releases/snapshot-jre/api/docs/com/google/common/base/Optional.html" target="_blank">참고 링크: "guava 라이브러리: Optional"</a>
+- <a href="https://guava.dev/releases/snapshot-jre/api/docs/com/google/common/base/Optional.html" target="_blank" rel="nofollow">참고 링크: "guava 라이브러리: Optional"</a>
 
 <br>
 

@@ -13,7 +13,8 @@ comments: true
 네이티브 메서드(Native Method)는 **C, C++**와 같은 네이티브 프로그래밍 언어로 작성한 메서드를 말합니다.
 그리고 자바 프로그램에서 네이티브 메서드를 호출하는 기술을 JNI(Java Native Interface)라고 합니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public class HelloJNITest
+```java
+public class HelloJNITest
     static {
         // Native Library 로드(Unix는 libhello.so, Windows는 hello.dll)
         System.loadLibrary("hello");
@@ -28,7 +29,7 @@ comments: true
     
     }
 }
-</code></pre>
+```
 
 <br/>
 
