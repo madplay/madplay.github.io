@@ -1,23 +1,39 @@
 ---
-layout: error
+layout: full-width
 title: 404가 나타났다!
 permalink: /404
 ---
 
-<main role="main">
+<script>
+    $(document).ready(function () {
+        $("#typewriteText").typewrite({
+            actions: [{type: "페이지를 삭제했거나 옮겼어요. 블로그 홈에서 다른 페이지를 찾아보세요!"}]
+        });
+    });
+</script>
+
+<style>
+    .jumbotron {
+        background-color: var(--main-background-color) !important;
+        text-align: center;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: center;
+    }
+</style>
+
+<div class="jumbotron">
     <div class="gh-viewport">
         <div class="gh-view">
-            <section class="error-content error-404 js-error-container">
-                <section class="error-details">
-                    <img class="error-ghost" src="/img/404.png"/>
-                    <section class="error-message">
-                        <h1 class="error-code">404 !!!</h1>
-                        <h2 class="error-description">페이지를 찾을 수 없어요.</h2>
-                        <h3 class="error-detail">페이지를 삭제했거나 옮겼어요.<br/>홈에서 다른 페이지를 찾아보세요.</h3>
-                        <a class="error-guide" href="/">블로그 홈으로 이동하기 :D</a>
-                    </section>
+            <section class="error_details">
+                <h1 class="error_code">404 !!!</h1>
+                <img class="error_ghost" src="/img/common/404.png"/>
+                <section class="error_message">
+                    <p class="error_description">페이지를 찾을 수 없어요.</p>
+                    <p class="lead" id="typewriteText"></p>
+                    <a class="error_guide" href="/">블로그 홈으로 이동</a>
                 </section>
             </section>
         </div>
     </div>
-</main>
+</div>

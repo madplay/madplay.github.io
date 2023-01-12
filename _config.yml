@@ -1,55 +1,25 @@
 # Site Settings
-title: 오늘도 MadPlay!
-description: "간단하게 설명할 수 없으면 제대로 이해하지 못하는 것이다."
+title: MadPlay!
+description: "Curiosity and Experience never gets old."
 url: "https://madplay.github.io"
-facebook_username: "itsmetaeng"
-github_username: "madplay"
-instagram_username: "itsme.taeng"
-header-img: "img/common/home_top_banner.jpg"
-avatar-img: "img/profile/profile.jpg"
-og-img: "img/og_image.png"
-headercolor: "#FFFFFF"
 g-analytics: "UA-111002457-1"
 
 # Server Settings
 baseurl: ""
 
-# Converting
-markdown: kramdown
-highlighter: rouge
-
-# Constants
-max_description_length: 50
-
-# Colors in CSS
-navbar-col: "#F5F5F5"
-navbar-text-col: "#404040"
-navbar-children-col: "#F5F5F5"
-link-col: "#707070"
-hover-col: "#707070"
-footer-col: "#F5F5F5"
-footer-text-col: "#777777"
-footer-link-col: "#A44B8A"
-
-# List of links in the navigation bar
-nav_menus:
-  Home: ""
-  About Me: "about"
-  Category: "category"
-  Timeline: "timeline"
 
 # Plugins Settings
-plugins: 
+plugins:
   - jekyll-paginate
 
 # Read Processing
-exclude: 
+exclude:
   - README.md
   - .jekyll-cache
 
 # Print Settings
 permalink: /post/:title
-paginate: 10
+paginate: 5
 paginate_path: /page:num
 
 # Time Zone

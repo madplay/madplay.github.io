@@ -24,7 +24,8 @@ comments: true
 참고링크: Java Date와 Time 클래스를 사용하면 안되는 이유
 </a>
 
-<pre class="line-numbers"><code class="language-java" data-start="1">import java.util.Date;
+```java
+import java.util.Date;
 
 class Period {
     private final Date start;
@@ -58,7 +59,7 @@ class Item50Test {
         main.someMethod();
     }
 }   
-</code></pre>
+```
 
 ```Date``` 클래스의 대부분 메서드는 ```Deprecated``` 되었으므로 사용하면 안됩니다.
 ```Java 8```부터 제공되는 ```LocalDateTime```과 같은 클래스를 사용하는 것을 권장합니다. 
@@ -68,7 +69,8 @@ class Item50Test {
 외부의 공격으로부터 인스턴스의 내부를 보호하려면 생성자에서 받은 가변 매개변수를 **방어적으로 복사**해야 합니다.
 위에서 살펴본 코드의 생성자를 아래와 같이 변경해봅시다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">// 그 외 코드는 동일합니다.
+```java
+// 그 외 코드는 동일합니다.
 public Period(Date start, Date end) {
     this.start = new Date(start.getTime());
     this.end = new Date(end.getTime());
@@ -78,7 +80,7 @@ public Period(Date start, Date end) {
         throw new IllegalArgumentException(start + " after " + end);
     }
 }
-</code></pre>
+```
 
 매개변수의 유효성을 검사하기 전에 복사본을 만들어야 합니다. 멀티 스레드(Multi-Thread) 환경을 가정했을 때
 원본 객체의 유효성을 검사한 후에 복사본을 만드는 찰나의 순간에 다른 스레드가 원본 객체를 수정할 가능성이 있기 때문입니다.
@@ -91,7 +93,8 @@ Date 클래스를 상속한 클래스가 재정의하여 하위 클래스의 인
 한편 생성자를 수정하여 매개변수에 대한 공격은 막아냈으나, 아직도 접근자(getter) 메서드가 내부의 가변 정보 Date를 반환하기 때문에
 직접적인 공격이 가능합니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public void someMethod() {
+```java
+public void someMethod() {
     Date start = new Date();
     Date end = new Date();
     Period period = new Period(start, end);
@@ -100,11 +103,12 @@ Date 클래스를 상속한 클래스가 재정의하여 하위 클래스의 인
     // period의 내부를 또 수정했다.
     period.end().setMonth(3);
 }  
-</code></pre>
+```
 
 이번 공격을 막으려면 단순히 접근자(getter) 메서드가 가변 필드의 방어적 복사본으로 반환하면 됩니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">class Period {
+```java
+class Period {
     private final Date start;
     private final Date end;
 
@@ -124,7 +128,7 @@ Date 클래스를 상속한 클래스가 재정의하여 하위 클래스의 인
     }
     // ... 생략
 }
-</code></pre>
+```
 
 생성자에서와 다르게 접근자 메서드에서는 ```clone``` 메서드를 사용해도 됩니다. Date 객체가 반환될 것임이 확실하기 때문입니다.
 

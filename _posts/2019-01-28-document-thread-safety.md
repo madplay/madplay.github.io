@@ -46,7 +46,8 @@ Java API 문서에 **synchronized** 키워드가 보이는 메서드는 스레�
 
 예를 들면 ```Collections.synchronizedMap```의 API의 문서에는 아래와 같이 명시되어 있습니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">/**
+```java
+/**
  * It is imperative that the user manually synchronize on the returned
  * map when iterating over any of its collection views
  * 반환된 맵의 콜렉션 뷰를 순회할 때 반드시 그 맵으로 수동 동기화하라
@@ -61,7 +62,7 @@ Java API 문서에 **synchronized** 키워드가 보이는 메서드는 스레�
  *          foo(i.next());
  *  }
  */
-</code></pre>
+```
  
 반환 타입만으로 명확히 알 수 없는 정적 팩토리 메서드라면 위의 예시 코멘트처럼 자신이 반환하는 객체에 대한
 스레드 안전성을 문서화해야 합니다.
@@ -74,7 +75,8 @@ Java API 문서에 **synchronized** 키워드가 보이는 메서드는 스레�
 클라이언트가 공개된 락을 가지고 놓지 않는 서비스 거부 공격(denial-of-service attack)을 수행할 수 있습니다.
 (참고로 synchronized 메서드도 공개된 락에 속함) 그렇기 때문에 아래와 같은 비공개 락 객체를 사용해야 합니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">// 비공개 락 객체, final 선언!
+```java
+// 비공개 락 객체, final 선언!
 private final Object lock = new Object();
 
 public void someMethod() {
@@ -82,7 +84,7 @@ public void someMethod() {
         // do something
     }
 }
-</code></pre>
+```
 
 여기서 lock 멤버를 final로 선언한 이유는 우연히라도 락 객체가 교체되는 상황을 방지하기 위함입니다.
 일반적인 락이든 ```java.util.concurrent.locks``` 패키지에서 가져온 락이든 동일합니다.

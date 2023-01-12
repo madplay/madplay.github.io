@@ -1,0 +1,19 @@
+<script>
+
+    $(document).ready(function () {
+        $("#typewriteText").typewrite({
+            actions: [
+                {type: "Curiosity and Experience never gets old."}
+            ]
+        });
+    });
+</script>
+
+<div class="jumbotron">
+    <img class="author-profile-img" src="/img/common/profile.jpg"/>
+    <p class="jumbotron-heading">Hi, I'm MadPlay !</p>
+    <p class="lead" id="typewriteText"></p>
+    <span>
+        {%- include githubStarButton.html -%}
+        </span>
+</div>

@@ -28,7 +28,8 @@ comments: true
 **검사 예외(checked exception)**의 경우는 항상 따로 하나씩 선언하고 각 예외가 발생하는 상황을 javadoc의
 ```@throws``` 태그를 사용하여 정확하게 문서화해야 합니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">/**
+```java
+/**
  * blah blah...
  *
  * @param fileName
@@ -40,7 +41,7 @@ public void someMethod(String fileName) {
         // exception handling
     }
 }
-</code></pre>
+```
 
 검사 예외의 경우도 공통적인 상위 클래스 하나로 퉁쳐서 선언하는 것은 좋지 않습니다. 예를 들어서 ```Exception```을 던진다는
 것을 말하는데 이런 경우에는 코드를 사용하는 입장에서 대처해야 하는 예외에 대한 힌트를 주지 않는 것과 같습니다.
@@ -52,7 +53,8 @@ public void someMethod(String fileName) {
 아래 예제에서 보이는 숫자 리터럴의 언더스코어(_)에 관해서는 아래 링크를 참고하세요. 
 <a href="/post/underscores-in-numeric-literals" target="_blank">(링크: 자바의 숫자 표현과 언더스코어)</a>
 
-<pre class="line-numbers"><code class="language-java" data-start="1">/**
+```java
+/**
  * blah blah...
  *
  * @param divisor
@@ -72,13 +74,14 @@ public int someMethod(int divisor) {
         // divisor(제수)가 0인 경우
     }
 } 
-</code></pre>
+```
 
 하지만 참고 서적에서는 비검사 예외는 메서드의 ```throws 선언``` 에는 넣지 않는 것을 권장합니다.
 javadoc 유틸리티에서는 메서드 선언의 throws 절에 등장하고 메서드 주석의 ```@throws``` 태그에도 명시된 예외와
 ```@throws``` 태그에만 명시된 예외를 시각적으로 구분하기 때문입니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">/**
+```java
+/**
  * blah blah...
  *
  * @param divisor
@@ -88,7 +91,7 @@ javadoc 유틸리티에서는 메서드 선언의 throws 절에 등장하고 메
 public int someMethod(int divisor) throws ArithmeticException {
     // throws 선언에는 제외하는 것을 권장한다.
 }
-</code></pre>
+```
 
 비검사 예외가 현실적으로 모두 문서화가 안될 때도 있습니다. 클래스를 수정하면서 새로운 비검사 예외(unchecked exception)을 던져도
 호환성이 유지되기 때문인데요. 예를 들어서 외부 클래스를 사용하는 메서드가 있을 때, 그 외부 클래스가 다른 예외를 던지도록 수정된다면
@@ -97,7 +100,8 @@ public int someMethod(int divisor) throws ArithmeticException {
 특정 클래스에 대부분의 메서드가 같은 이유로 모두 동일한 예외를 던진다면 그 예외에 대한 설명을 클래스에 추가해도 좋습니다.
 실제로 구현해보면 아래와 같은 모습과 같겠네요.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">/**
+```java
+/**
  * blah... blah...
  *
  * @throws NullPointerException
@@ -125,4 +129,4 @@ public class TestClass {
         // ...
     }
 }
-</code></pre>
+```

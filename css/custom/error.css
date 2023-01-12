@@ -1,0 +1,39 @@
+.error_code {
+    font-size: 4rem;
+}
+
+.error_description {
+    color: #979797;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.error_ghost {
+    width: 100px;
+}
+
+.error_detail {
+    font-size: 1.4rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #979797;
+    font-weight: 400;
+}
+
+.error_details {
+    margin-bottom: 10px;
+}
+
+.error_message a {
+    text-decoration: underline;
+    font-weight: 600;
+    font-size: 1.6rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .error_description {
+        color: #979797;
+        font-size: 2rem;
+        font-weight: 500;
+    }
+}

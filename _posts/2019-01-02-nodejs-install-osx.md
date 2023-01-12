@@ -19,31 +19,34 @@ Node.js 공식 다운로드 페이지(링크)</a>를 통해서 간단하게 설�
 
 ```nvm```은 아래와 같이 설치하면 됩니다.
 
-<pre class="line-numbers"><code class="language-bash" data-start="1">$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+```bash
+$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 # 또는 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
-</code></pre>
+```
 
 설치된 이후에는 쉘을 껐다가 다시 실행하거나 아래와 같이 ```source``` 명령어를 통해 적용합니다.
-<pre class="line-numbers"><code class="language-bash" data-start="1"># 터미널을 다시 실행하거나 아래 명령어 입력
+```bash
+# 터미널을 다시 실행하거나 아래 명령어 입력
 $ source ~/.bash_profile
-</code></pre>
+```
 
 정상적으로 설치가 되었는지 ```nvm --version``` 명령어를 입력해봅시다.
-<pre class="line-numbers"><code class="language-bash" data-start="1"># nvm 버전 출력
+```bash
+# nvm 버전 출력
 $ nvm --version
 0.34.0
-</code></pre>
+```
 
 혹시나 ```nvm: command not found``` 과 같이 명령어를 찾을 수 없다면 ```~/.bash_profile``` 파일을 열어봅시다.
 그리고 아래와 같은 내용이 있는지 확인합니다.
 
-<pre class="line-numbers"><code class="language-bash" data-start="1">$ sudo vi ~/.bash_profile
-
+```bash
+$ sudo vi ~/.bash_profile
 
 # ...생략
 export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
-</code></pre>
+```
 
 위 내용이 없다면 추가하면 됩니다. 그런데 이글을 작성하려고 기존 제 노트북이 기존에 설치된 nvm과 nodejs를 삭제하고 설치해보니
 ```macOS mojave``` 버전 기준으로 ```.bashrc```에 환경변수가 적용되더군요.
@@ -62,12 +65,13 @@ export NVM_DIR="${XDG_CONFIG_HOME/:-$HOME/.}nvm"
 업데이트와 기능 변경이 자주 발생할 수 있습니다. 따라서 실무에서 서버 운영을 위해서는 LTS 버전을 설치하고 간단한 개발 또는 
 자체 테스트에는 Stable 버전을 설치하는 것이 적절할 것 같습니다.
 
-<pre class="line-numbers"><code class="language-bash" data-start="1"># 설치할 수 있는 버전 목록 보기(엄청 많습니다)
+```bash
+# 설치할 수 있는 버전 목록 보기(엄청 많습니다)
 $ nvm ls-remote
 
 # 특정 버전 설치하기
 nvm install v10.15.0
-</code></pre>
+```
 
 <br/>
 
@@ -76,18 +80,20 @@ nvm install v10.15.0
 노드 설치도 끝났으므로 이제 간단한 예제를 진행해봅시다. 혹시나 여러 버전의 노드를 설치했다면
 아래와 같은 명령어로 자신이 사용할 버전을 선택할 수 있습니다.
 
-<pre class="line-numbers"><code class="language-bash" data-start="1"># nvm use 버전명
+```bash
+# nvm use 버전명
 $ nvm use v11.8.0
 
 # node.js 버전 확인하기
 $ node -v
 v11.8.0
-</code></pre>
+```
 
 언어를 배울 때의 가장 첫 단계라고 할 수 있는 **Hello World** 를 웹 서버를 통해 출력해봅시다.
 텍스트 편집기 또는 터미널을 열어서 **helloworld.js** 파일을 생성하고 아래와 같이 입력합니다.
 
-<pre class="line-numbers"><code class="language-javascript" data-start="1">var http = require('http');
+```javascript
+var http = require('http');
 
 http.createServer(function (request, response) {
     response.writeHead(200, {'Content-Type': 'text/plain'});
@@ -95,12 +101,13 @@ http.createServer(function (request, response) {
 }).listen(8000);
 
 console.log('Server running at http://localhost:8000/');
-</code></pre>
+```
 
 실행은 간단히 ```node helloworld.js``` 로 진행하면 됩니다.
-<pre class="line-numbers"><code class="language-bash" data-start="1">$ node test.js 
+```bash
+$ node test.js 
 Server running at http://localhost:8000/
-</code></pre>
+```
 
 위 예제의 결과는 인터넷 브라우저를 주소창에 ```http://localhost:8000```를 입력하여 "Hello World" 가 출력되는 것으로
 확인할 수 있습니다. 서버를 종료하려면 ```Ctrl + C``` 를 입력하면 됩니다.
