@@ -1,5 +1,5 @@
-## 오늘도 MadPlay!
-> "간단하게 설명할 수 없으면 제대로 이해하지 못하는 것이다."
+## MadPlay!
+> Curiosity and Experience never gets old.
 
 <p align="center">
   <a href="https://madplay.github.io" target="_blank">

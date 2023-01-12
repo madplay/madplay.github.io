@@ -1,38 +1,50 @@
 ---
 layout: page
 title: "Category"
-description: "&quot;간단하게 설명할 수 없으면 제대로 이해하지 못하는 것이다.&quot;"
 ---
 
-{% for category in site.categories %}
-<a href="#{{ category | first }}" class="btn btn-primary tag-btn">
-    <i class="fa fa-tag" aria-hidden="true"></i>&nbsp;{{ category | first }}&nbsp;({{ category[1].size }})
-</a>
-{% endfor %}
-
-<hr />
-
-<div class="category_container">
-    {% for category in site.categories %}
-    <h2 id="{{ category | first }}" class="linked-section">
-        <i class="fa fa-tag" aria-hidden="true"></i>
-        <div class="category_link">{{ category | first }}&nbsp;({{ category[1].size }})</div>
-        {% for posts in category %}
-    </h2>
-    <div class="post-list">
-        {% for post in posts %}
-        {% if post.url != category.name %}
-        <div class="tag-entry">
-            <a href="{{ post.url }}">{{ post.title }}</a>
-            <div class="entry-date">
-                <time datetime="{{ post.date | date_to_xmlschema }}"
-                itemprop="datePublished">{{ post.date | date: "%b %d, %Y" }}</time>
-            </div>
+<div class="row justify-content-center">
+    <div class="col-md-9 offset-md-3 col-lg-6 offset-lg-3 page_wrap">
+        <div class="page_header">
+            <h1 class="page_header_title">Category</h1>
+            <hr>
         </div>
-        {% endif %}
+        <div class="timeline_introduce">현재까지 {{ site.categories.size }}개의 주제를 다루고 있습니다.</div>
+        {% for category in site.categories %}
+        <a href="#{{ category | first }}" class="btn category_button">
+            <i class="fa fa-tag category_tag_mark" aria-hidden="true"></i>
+            <div class="category_button_text">&nbsp;{{ category | first }}&nbsp;({{ category[1].size }})</div>
+        </a>
         {% endfor %}
+
+        <hr/>
+
+        <div class="category_container">
+            {% for category in site.categories %}
+            <h2 id="{{ category | first }}" class="category_section">
+                <i class="fa fa-tag " aria-hidden="true"></i>&nbsp;
+                <div class="category_title">{{ category | first }}&nbsp;({{ category[1].size }})</div>
+                {% for posts in category %}
+            </h2>
+            <div class="category_list">
+                {% for post in posts %}
+                {% if post.url != category.name %}
+                <div class="category_item">
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                    <div class="category_item_date">
+                        <i>
+                            <time datetime="{{ post.date | date_to_xmlschema }}"
+                                  itemprop="datePublished">{{ post.date | date: "%b %d, %Y" }}
+                            </time>
+                        </i>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <hr>
+            {% endfor %}
+        </div>
     </div>
-    {% endfor %}
-    <hr>
-    {% endfor %}
 </div>

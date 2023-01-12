@@ -1,20 +1,115 @@
-/* contents */
-div.post_tx_inner {
-    line-height: 1.6;
+.post_container {
+    margin-top: 15px;
+    margin-left: -35px;
+}
+
+@media only screen and (min-width: 768px) {
+    .post_container {
+        margin-top: 20px;
+        margin-left: -35px;
+    }
+
+    .post_container table {
+        display: table;
+        word-break: normal;
+        width: 95%;
+        margin: 15px auto;
+    }
+}
+
+.post_content_container {
+    word-break: break-all;
+    padding: 1rem 0.2rem 1rem 1rem !important;
+}
+
+@media only screen and (min-width: 768px) {
+    .post_content_container {
+        word-break: break-all;
+        padding: 1rem !important;
+    }
+
+    .post_content_container h1 {
+        font-size: 28px;
+        font-weight: 900
+    }
+
+    .post_content_container h2 {
+        font-size: 24px;
+    }
+
+    .post_content_container h3 {
+        font-size: 20px;
+    }
+}
+
+.post_content_container tr th {
+    background-color: rgba(200, 200, 200, 1.5);
+    font-weight: bold;
+    margin: 0;
+    padding: 6px 12px;
+}
+
+.post_content_container tr td {
+    margin: 0;
+    padding: 6px 12px;
+}
+
+.post_content_container h1, .post_content_container h2 {
+    border-bottom: 1px solid #eaecef;
+    margin-top: 25px;
+    margin-bottom: 5px;
+}
+
+.post_content_container li {
+    line-height: 1.5;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+@media only screen and (min-width: 768px) {
+    .post_content_container {
+        word-break: break-all;
+        padding: 1rem !important;
+    }
+
+    .post_content_container h1, .post_content_container h2 {
+        border-bottom: 1px solid #eaecef;
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
 }
 
 .post_image {
     max-width: 100%;
     display: block;
+    height: auto;
     margin-left: auto;
     margin-right: auto;
-    height: auto
+    background-color: #eaecef;
 }
 
-.post_image_inline {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+@media only screen and (min-width: 768px) {
+    .post_image {
+        max-width: 100%;
+        display: block;
+        height: auto;
+        margin-left: 0;
+        margin-right: 0;
+        background-color: #eaecef;
+    }
+}
+
+.post_content_container table {
+    display: block;
+    overflow-x: auto;
+    word-break: normal;
+    width: 95%;
+    margin: 15px auto;
+    white-space: nowrap;
+}
+
+th, td {
+    border: 1px solid rgba(80, 80, 80, 0.25);
 }
 
 .post_caption {
@@ -30,112 +125,152 @@ div.post_tx_inner {
     line-height: 1.5;
 }
 
-a.post_heading_link:link,
-a.post_heading_link:visited,
-a.post_heading_link:hover,
-a.post_heading_link:active {
-    text-decoration: none;
-    color: #FFFFFF;
-}
-
-@media only screen and (max-width: 768px) {
-    table {
-        display: block;
-        overflow-x: auto;
-        word-break: normal;
-        width: 95%;
-        margin: 15px auto;
-        white-space: nowrap;
-    }
-}
-
-table {
-    word-break: normal;
-    width: 95%;
-    margin: 15px auto;
-}
-
-th, td {
-    border: 1px solid rgba(80, 80, 80, 0.25);
-}
-
-.post_container {
-    word-break: break-all;
-}
-
-.post_container th {
-    background-color: rgba(200, 200, 200, 0.5);
-}
-
-.post_container h1, .post_container h2 {
-    border-bottom: 1px solid #eaecef;
-    margin-top: 25px;
-    margin-bottom: 5px;
-}
-
 .post_comments {
     color: #808080;
     font-style: italic;
     padding: 1px 10px;
-    font-size: 12px;
-}
-
-blockquote p {
-    font-size: 14px;
-}
-
-blockquote h1, blockquote h2, blockquote h3 {
-    margin-top: 0px;
-    margin-bottom: 10px;
+    font-size: 13px;
 }
 
 @media only screen and (min-width: 768px) {
-    .post_container h1, .post_container h2 {
-        border-bottom: 1px solid #eaecef;
-        margin-top: 30px;
-        margin-bottom: 10px;
-    }
-
     .post_comments {
         color: #808080;
         font-style: italic;
         padding: 1px 10px;
-        font-size: 13px;
+        font-size: 14px;
     }
-    
+}
+
+blockquote p {
+    font-size: 14px;
+    color: #808080;
+    font-style: italic;
+    padding: 1px 10px;
+    border-left: 3px solid #eaecef;
+}
+
+@media only screen and (min-width: 768px) {
     blockquote p {
         font-size: 15px;
     }
 
     blockquote h1, blockquote h2, blockquote h3 {
-        margin-top: 0px;
+        margin-top: 0;
         margin-bottom: 10px;
     }
 }
 
-.post_container a {
+blockquote h1, blockquote h2, blockquote h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.post_content_container a {
     text-decoration: none;
-    color: #086dc3;
     background-color: transparent;
 }
 
 a:hover {
-    color: #086dc3;
     text-decoration: underline;
     text-underline-position: under;
-
 }
 
-ol {
-    padding-left: 25px;
+.post_content_container h1 {
+    font-size: 22px;
+    font-weight: 900;
 }
 
-code {
-    font-size: 80%
+.post_content_container h2 {
+    font-size: 18px;
 }
 
-a code {
+.post_content_container h3 {
+    font-size: 18px;
+}
+
+.post_title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.post_meta {
+    font-size: 16px;
+    margin-bottom: 0
+}
+
+.post_tags {
+    font-size: 16px;
+}
+
+.post_tags a:hover {
     text-decoration: none;
-    color: #086dc3;
-    font-size: 90%
+}
+
+.post_description {
+    font-size: 17px;
+    line-height: 1.2;
+    display: block;
+    margin: 10px 0 10px;
+}
+
+@media only screen and (min-width: 768px) {
+    .post_title {
+        font-size: 32px;
+        margin-top: 0;
+    }
+
+    .post_meta {
+        font-size: 18px;
+        margin-bottom: 0
+    }
+
+    .post_tags {
+        font-size: 18px;
+    }
+
+    .post_description {
+        font-size: 22px;
+        line-height: 1.4;
+        display: block;
+        margin: 10px 0 20px;
+    }
+}
+
+article.card {
+    padding: 5px !important;
+    margin-top: 15px !important;
+    margin-right: 5px !important;
+}
+
+.highlight code {
+    font-size: 12px;
+}
+
+pre.highlight {
+    margin-bottom: 3rem;
+}
+
+@media only screen and (min-width: 768px) {
+    .highlight code {
+        font-size: 13px;
+    }
+}
+
+.bottom_card_title {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+@media only screen and (min-width: 768px) {
+    .bottom_card_title {
+        font-size: 19px;
+    }
+}
+
+.bottom_card_link_button {
+    float: right;
+    font-size: 16px;
+    font-weight: normal;
 }

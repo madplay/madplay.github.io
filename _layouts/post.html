@@ -2,26 +2,14 @@
 layout: default
 ---
 
-{% include header.html type="post" %}
+{% include navbar.html type="post" %}
 
-{% include topAdSense.html %}
-
-<article class="post_container">
-    <div id="content" class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                {{ content | markdownify }}
-            </div>
-        </div>
+<div class="row justify-content-center post_container">
+    <div class="col-lg-6">
+        {%- include postContent.html -%}
     </div>
-</article>
-
-{% include bottomAdSense.html %}
-
-<hr>
-
-{% include otherPosts.html %}
-
-<hr>
-
+</div>
 {% include comments.html %}
+<hr>
+{% include bottomCard.html %}
+<hr>
