@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark" id="topNav">
+    <a class="navbar-brand" href="/">{{site.title}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/category">Category</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/timeline">Timeline</a>
+            </li>
+        </ul>
+        <ul class="nav navbar-right navbar_search">
+            <li class="nav-item">
+                <a class="nav-link toggle-search-button" href="#">
+                    <i class="fa fa-search search-icon" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="progress-bar"></div>
+
+<div class="search-form-container">
+    <p class="navbar_search_description">RSS(feed.xml) 기반으로 게시글을 검색합니다.</p>
+    <form class="search-form">
+        <fieldset class="search-form__fieldset">
+            <div class="row">
+                <div class="col-lg-8 offset-md-2">
+                    <input class="search-form__field navbar_search_form" placeholder="검색어를 입력하세요. (영문만 지원합니다.)" autofocus>
+                    <input class="search-form__submit" type="submit" value="search">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <div class="row">
+        <div class="col-lg-8 offset-md-2 search-results">
+            <div class="card search-results"></div>
+        </div>
+    </div>
+    <div class="close-search-button search-form-container__close">
+        <i class="fa fa-times icon"></i>
+    </div>
+</div>

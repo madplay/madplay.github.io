@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="col-md-4 offset-md-1 col-lg-3 offset-lg-2">
+        <div class="card">
+            <div class="card-header bottom_card_title">Hi, there!</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 col-lg-4">
+                        <img class="author-profile-img" src="/img/common/profile.jpg"/>
+                    </div>
+                    <div class="col-md-12 offset-md-0 col-lg-7 offset-lg-1 col-xs-6">
+                        <p class="author_bio">Thanks for visiting my blog.
+                        <br>Please let me know if there are any mistakes in my post.</p>
+                        {%- include githubStarButton.html -%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-lg-5">
+        <div class="card">
+            <div class="card-header bottom_card_title">{{ page.categories }} 카테고리의 다른 글
+                <a href="/category#{{ page.categories[0] }}" class="bottom_card_link_button">더보기</a>
+            </div>
+            <div class="card-body text-dark">
+                {% assign post_count = 0 %}
+                {% for post in site.posts %}
+                {% if post.categories == page.categories and post.url != page.url %}
+                {% assign post_count = post_count | plus: 1 %}
+                {% if post_count < 6 %}
+                <li>
+                    <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                </li>
+                {% endif %}{% endif %}{% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

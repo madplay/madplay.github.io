@@ -1,70 +1,76 @@
 ---
 layout: page
 title: "Timeline"
-description: "&quot;간단하게 설명할 수 없으면 제대로 이해하지 못하는 것이다.&quot;"
 ---
 
-<div class="timeline_introduce">현재까지 {{ site.posts.size }}개의 포스트를 작성했어요.</div>
-
-{% assign curYear = "now" | date : "%Y" %}
-{% for post in site.posts %}
-<div class="timeline_box">
-    {% assign postYear = post.date | date: '%Y' %}
-    {% if postYear != curYear %}
-        {% assign curYear = postYear %}
-        {% if containerType == 'left' %}
+<div class="row justify-content-center">
+    <div class="col-md-9 offset-md-3 col-lg-6 offset-lg-3 page_wrap">
+        <div class="page_header">
+            <h1 class="page_header_title">Timeline</h1>
+            <hr>
+        </div>
+        <div class="timeline_introduce">현재까지 {{ site.posts.size }}개의 글을 작성했어요.</div>
+        {% assign curYear = "now" | date : "%Y" %}
+        {% for post in site.posts %}
+        <div class="timeline_box">
+            {% assign postYear = post.date | date: '%Y' %}
+            {% if postYear != curYear %}
+            {% assign curYear = postYear %}
+            {% if containerType == 'left' %}
             {% assign containerType = 'right' %}
-        {% else %}
+            {% else %}
             {% assign containerType = 'left' %}
-        {% endif %}
-    <div class="timeline_container {{ containerType }}">
-        <div class="timeline_content">
-            <div class="timeline_title">{{ "now" | date : "%Y" }} : Happy New Year!</div>
-        </div>
-    </div>
-    {% endif %}
+            {% endif %}
+            <div class="timeline_container {{ containerType }}">
+                <div class="timeline_content">
+                    <div class="timeline_title">{{ "now" | date : "%Y" }} : Happy New Year!</div>
+                </div>
+            </div>
+            {% endif %}
 
-    {% assign postDay = post.date | date: '%d' %}
-    {% if postDay != day %}
-        {% assign day = postDay %}
-        {% if containerType == 'left' %}
+            {% assign postDay = post.date | date: '%d' %}
+            {% if postDay != day %}
+            {% assign day = postDay %}
+            {% if containerType == 'left' %}
             {% assign containerType = 'right' %}
-        {% else %}
+            {% else %}
             {% assign containerType = 'left' %}
-        {% endif %}
-    {% endif %}
-    <div class="timeline_container {{ containerType }}">
-        <div class="timeline_content">
-            <a href="{{ post.url }}">
-                <div class="timeline_title">{{ post.title }}</div>
-            </a>
-            <div class="timeline_date">{{ post.date | date: "%Y. %-m. %-d." }}</div>
+            {% endif %}
+            {% endif %}
+            <div class="timeline_container {{ containerType }}">
+                <div class="timeline_content">
+                    <a href="{{ post.url }}">
+                        <div class="timeline_title">{{ post.title }}</div>
+                    </a>
+                    <div class="timeline_date">{{ post.date | date: "%Y. %-m. %-d." }}</div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-{% endfor %}
+        {% endfor %}
 
-<div class="timeline_box">
-    {% if containerType == 'left' %}
-        {% assign containerType = 'right' %}
-    {% else %}
-        {% assign containerType = 'left' %}
-    {% endif %}
-    <div class="timeline_container {{ containerType }}">
-        <div class="timeline_content">
-            <div class="timeline_title">github 블로그로 이전</div>
-            <div class="timeline_date">2018. 01. 01.</div>
-        </div>
-    </div>
-    {% if containerType == 'left' %}
-        {% assign containerType = 'right' %}
-    {% else %}
-        {% assign containerType = 'left' %}
-    {% endif %}
-    <div class="timeline_container {{ containerType }}">
-        <div class="timeline_content">
-            <div class="timeline_title">블로그 시작</div>
-            <div class="timeline_date">since 2014. 6. 18.</div>
+        <div class="timeline_box">
+            {% if containerType == 'left' %}
+            {% assign containerType = 'right' %}
+            {% else %}
+            {% assign containerType = 'left' %}
+            {% endif %}
+            <div class="timeline_container {{ containerType }}">
+                <div class="timeline_content">
+                    <div class="timeline_title">github 블로그로 이전</div>
+                    <div class="timeline_date">2018. 01. 01.</div>
+                </div>
+            </div>
+            {% if containerType == 'left' %}
+            {% assign containerType = 'right' %}
+            {% else %}
+            {% assign containerType = 'left' %}
+            {% endif %}
+            <div class="timeline_container {{ containerType }}">
+                <div class="timeline_content">
+                    <div class="timeline_title">블로그 시작</div>
+                    <div class="timeline_date">since 2014. 6. 18.</div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

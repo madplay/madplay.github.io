@@ -1,20 +1,5 @@
-<!-- Footer -->
 <footer>
-    <div class="container">
-        <ul class="social_list">
-            {% if site.github_username %}
-            <li class="social_site">
-                <a href="https://github.com/{{ site.github_username }}" rel="nofollow" target="_blank">
-                    <img class="social_icon" src="{{ site.baseurl }}/img/icons/icon_github.png" alt="github">
-                </a>
-            </li>
-            {% endif %}
-            <li class="social_site">
-                <a href="/feed" target="_blank">
-                    <img class="social_icon" src="{{ site.baseurl }}/img/icons/icon_rss.png" alt="rss">
-                </a>
-            </li>
-        </ul>
-        <p class="copyright">Copyright © MadPlay</p>
-    </div>
+    <p> Copyright © <a href="https://github.com/{madplay" rel="nofollow" target="_blank">MadPlay</a>.
+        Subscribe via <a target="_blank" href="{{ " /feed.xml " | prepend: site.baseurl }}">RSS</a>
+    </p>
 </footer>

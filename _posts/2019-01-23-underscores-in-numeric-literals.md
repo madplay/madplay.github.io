@@ -15,7 +15,8 @@ comments: true
 정수형의 표현에서도 기본 int 타입보다 더 넓은 범위의 정수 표현을 위해 ```정수값 뒤에 L``` 이라는 접미사(suffix)를 추가하는 것을
 제외하면 말이지요.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public class TestClass {
+```java
+public class TestClass {
     public void someMethod() {
         // int: -2147483648 ~ 2147483647
 
@@ -26,7 +27,7 @@ comments: true
         long value2 = 2147483648L;
     }
 }
-</code></pre>
+```
 
 정수형 int의 기본 데이터 범위는 ```-2147483648 ~ 2147483647``` 입니다. 해당 값을 넘게되면 오버 플로우가 발생하게 되지요.
 참고로 long의 경우는 ```-9223372036854775808 ~ 9223372036854775807``` 입니다. 
@@ -43,16 +44,18 @@ long형 타입인 것을 명시적으로 선언해주어야 합니다.
 자바7 버전부터는 숫자를 사용할 때 ```_``` 기호인 언더스코어(또는 언더바)를 사용할 수 있습니다.
 흔히 은행에서 금액을 표기할 때 볼 수 있는 세자리 콤마와 같은 형태로 사용할 수 있지요.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public void someMethod() {
+```java
+public void someMethod() {
     // 훨씬 더 읽기 편한 것 같다.
     long valueWithUnderscore = 2_147_483_648L;
 }
-</code></pre>
+```
 
 하지만 언더스코어를 아무 곳에서나 쓸 수 없습니다. **무조건 숫자 사이에만 위치**할 수 있습니다.
 예시로 몇가지 살펴보면 아래와 같습니다.
 
-<pre class="line-numbers"><code class="language-java" data-start="1">public void someMethod() {
+```java
+public void someMethod() {
     long value1 = 2_147_483_648L; // 2147483648
     System.out.println(value1);
 
@@ -66,7 +69,7 @@ long형 타입인 것을 명시적으로 선언해주어야 합니다.
 
     float value5 = _24F; // Error! 변수로 인식됩니다.
 }
-</code></pre>
+```
 
 참고로 언더스코어가 가장 앞에 등장하는 경우 변수의 이름으로 인식될 수 있습니다. 그리고 앞서 소개드린 것처럼 
 **자바7 버전부터 사용이 가능**합니다. 혼동될 수도 있겠지만 이전보다 큰 수를 읽기에는 더 편한 것 같습니다.

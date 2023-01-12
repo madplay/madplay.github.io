@@ -1,0 +1,108 @@
+<head>
+    <meta charset="utf-8"/>
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <link rel="canonical" href="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
+    <meta http-equip="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1"/>
+    <meta name="author" content="madplay"/>
+    <meta name="description"
+          content="{% if page.description %}{{ page.description }}{% else %}{{ site.description | xml_escape }}{% endif %}"/>
+    <meta name="google-site-verification" content="aS92SqPc_nT-M9rztxaMZAkq-SPUxSISK_niJZWoNUI"/>
+    <meta name="naver-site-verification" content="20a36484bff01ff10cf2e8ba576bd3a6724dabd6"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}MadPlay!{% endif %}"/>
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
+    <meta property="og:image" content="{{ site.url }}/img/common/og_image.png"/>
+    <meta property="og:description"
+          content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}"/>
+    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico">
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="keywords"
+          content="{% if page.title %}{{ page.title }}, {{ site.title }}, {% for categ in page.categories %}{{ categ }}{% if forloop.last == false %}, {% endif %}{% endfor %}{% else %}{{ site.title }}, {% for category in site.categories %}{% capture categories_slug %}{{ category | first }}{% endcapture %}{% for categ in categories_slug %}{{ categ }}{% endfor %}{% if forloop.last == false %}, {% endif %}{% endfor %}{% endif %},{{ page.keywords | escape }}"/>
+
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml"/>
+
+    <link rel="stylesheet" href="{{site.url}}{{site.baseurl}}/assets/css/main.css"/>
+    <link rel="stylesheet"
+          href="{{site.url}}{{site.baseurl}}/assets/bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet"
+          href="{{site.url}}{{site.baseurl}}/assets/bower_components/font-awesome/web-fonts-with-css/css/fontawesome-all.min.css"/>
+    <link rel="stylesheet" href="{{site.url}}{{site.baseurl}}/assets/bower_components/icono/dist/icono.min.css"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/custom/custom.css">
+    <link rel="stylesheet" href="/css/custom/post.css">
+    <link rel="stylesheet" href="/css/custom/category.css">
+    <link rel="stylesheet" href="/css/custom/error.css">
+    <link rel="stylesheet" href="/css/custom/others.css">
+    <link rel="stylesheet" href="/css/custom/about.css">
+    <link rel="stylesheet" href="/css/custom/timeline.css">
+
+    <!-- Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet"/>
+
+    <script>
+        var base_url = '{{ site.url}}{{site.baseurl}}';
+    </script>
+
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh"
+            crossorigin="anonymous"></script>
+    <script src="{{site.url}}{{site.baseurl}}/assets/js/mode-switcher.js"></script>
+    <script src="{{site.url}}{{site.baseurl}}/assets/bower_components/jquery.easing/jquery.easing.min.js"></script>
+    <script src="{{site.url}}{{site.baseurl}}/assets/bower_components/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{site.url}}{{site.baseurl}}/assets/bower_components/jquery-mousewheel/jquery.mousewheel.min.js"></script>
+    <script src="{{site.url}}{{site.baseurl}}/assets/bower_components/ghosthunter/dist/jquery.ghostHunter.min.js"></script>
+    <script src="{{site.url}}{{site.baseurl}}/assets/js/on-scroll-progress.js"></script>
+    <script src="{{site.url}}{{site.baseurl}}/assets/bower_components/nanobar/nanobar.min.js"></script>
+    <script src="{{site.url}}{{site.baseurl}}/assets/bower_components/typewrite/dist/typewrite.min.js"></script>
+    <script src="{{site.url}}{{site.baseurl}}/assets/js/search.js"></script>
+
+    <!-- Markdown Math Expression -->
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+
+    <!-- Github Button -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+
+    <!-- Google AdSense -->
+    <script data-ad-client="ca-pub-8036596086585080" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YH3W70BTL1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', 'G-YH3W70BTL1');
+    </script>
+
+    <!-- Asynchronous Google Analytics -->
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', '{{ site.g-analytics }}', 'auto');
+        ga('send', 'pageview');
+    </script>
+</head>

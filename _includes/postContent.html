@@ -1,0 +1,28 @@
+<article class="card" itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="card-header">
+        <h1 class="post_title" itemprop="name headline">{{ page.title }}</h1>
+        <h4 class="post_description">{{ page.description }}</h4>
+        <p class="post_meta">Posted by : {% if page.author %}
+            <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span itemprop="name">
+                <a href="{{site.url}}{{site.baseurl}}/about">{{ page.author }}</a></span>
+            </span>{% endif %} on
+            <time datetime="{{ page.date }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
+        </p>
+        {% if page.tags.size > 0 %}
+        <div class="post_tags">
+            Tags: {% for tag in page.tags %}
+            <a href="javascript:void(0);">#{{tag}}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="card-body post_content_container" itemprop="articleBody">
+        {% include topAdSense.html %}
+        <hr>
+        {{ content }}
+        <hr>
+        {% include bottomAdSense.html %}
+    </div>
+</article>

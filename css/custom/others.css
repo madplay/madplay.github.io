@@ -1,0 +1,11 @@
+/* 스크롤바 가로/세로 */
+::-webkit-scrollbar {
+    height: 2px;
+    width: 4px;
+}
+::-webkit-scrollbar-track-piece {
+    background-color: black;
+}
+::-webkit-scrollbar-thumb {
+    background-color: gray;
+}

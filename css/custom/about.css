@@ -1,0 +1,31 @@
+.introduce_wrap {
+    margin-top: -25px;
+    padding: 20px 15px;
+}
+
+@media only screen and (min-width: 768px) {
+    .introduce_wrap {
+        margin-top: -25px;
+        padding: 20px 35px;
+    }
+}
+
+
+.introduce_wrap a {
+    text-decoration: none;
+    color: #086dc3;
+    background-color: transparent;
+}
+
+.introduce_wrap a:hover {
+    color: #606060;
+    text-decoration: underline;
+}
+
+.introduce_title {
+    font-size: 20px;
+    margin: 20px 0 5px;
+    padding: 0;
+    font-weight: bold;
+    line-height: 1.6;
+}
