@@ -1,5 +1,5 @@
 ## MadPlay!
-> Curiosity and Experience never gets old.
+> Curiosity and Experience never get old.
 
 <p align="center">
   <a href="https://madplay.github.io" target="_blank">
