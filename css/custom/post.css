@@ -241,7 +241,7 @@ a:hover {
 article.card {
     padding: 5px !important;
     margin-top: 15px !important;
-    margin-right: 5px !important;
+    margin-right: -10px !important;
 }
 
 .highlight code {
@@ -273,4 +273,12 @@ pre.highlight {
     float: right;
     font-size: 16px;
     font-weight: normal;
+}
+
+.bottom_card .card {
+    margin-right: -5px !important;
+}
+
+.bottom_card_about {
+    text-align: center;
 }
