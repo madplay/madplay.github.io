@@ -192,8 +192,7 @@ non-sealed class Developer extends Person {
 
 }
 
-// 봉인이 해제된 `Student` 클래스는 다른 서브 클래스에서 확장 가능하다.
-// 그리고 자기 자신을 Developer 봉인(sealed)할 수 있다. 
+// 봉인이 해제된 `Developer` 클래스는 다른 서브 클래스에서 확장 가능하다.
 sealed class Student extends Developer 
     permits HighSchoolStudent, MiddleSchoolStudent {
     // 이 클래스는 `HighSchoolStudent`, `MiddleSchoolStudent` 클래스만 확장 가능하다.
@@ -266,7 +265,7 @@ recordPoint.x();
 <br>
 
 ## JEP 378: Text Blocks
-JDK 15에 드디어 정식 포함되었다. 더이상 긴 문자열을 `+`와 `\n`을 사용해서 꾸덕꾸덕 붙이지 않아도 된다!
+자바 15에서 드디어 정식 포함되었다. 더이상 긴 문자열을 `+`와 `\n`을 사용해서 꾸덕꾸덕 붙이지 않아도 된다!
 
 ```java
 private void runJEP368() {
