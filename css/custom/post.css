@@ -3,43 +3,14 @@
     margin-left: -35px;
 }
 
-@media only screen and (min-width: 768px) {
-    .post_container {
-        margin-top: 20px;
-        margin-left: -35px;
-    }
-
-    .post_container table {
-        display: table;
-        word-break: normal;
-        width: 95%;
-        margin: 15px auto;
-    }
-}
-
 .post_content_container {
     word-break: break-all;
     padding: 1rem 0.2rem 1rem 1rem !important;
 }
 
-@media only screen and (min-width: 768px) {
-    .post_content_container {
-        word-break: break-all;
-        padding: 1rem !important;
-    }
-
-    .post_content_container h1 {
-        font-size: 28px;
-        font-weight: 900
-    }
-
-    .post_content_container h2 {
-        font-size: 24px;
-    }
-
-    .post_content_container h3 {
-        font-size: 20px;
-    }
+.post_content_container a {
+    text-decoration: none;
+    background-color: transparent;
 }
 
 .post_content_container tr th {
@@ -54,49 +25,29 @@
     padding: 6px 12px;
 }
 
-.post_content_container h1, .post_content_container h2 {
+.post_content_container h1 {
     border-bottom: 1px solid #eaecef;
     margin-top: 25px;
     margin-bottom: 5px;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.post_content_container h2 {
+    border-bottom: 1px solid #eaecef;
+    margin-top: 25px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.post_content_container h3 {
+    font-size: 18px;
 }
 
 .post_content_container li {
     line-height: 1.5;
     padding-top: 5px;
     padding-bottom: 5px;
-}
-
-@media only screen and (min-width: 768px) {
-    .post_content_container {
-        word-break: break-all;
-        padding: 1rem !important;
-    }
-
-    .post_content_container h1, .post_content_container h2 {
-        border-bottom: 1px solid #eaecef;
-        margin-top: 30px;
-        margin-bottom: 10px;
-    }
-}
-
-.post_image {
-    max-width: 100%;
-    display: block;
-    height: auto;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #eaecef;
-}
-
-@media only screen and (min-width: 768px) {
-    .post_image {
-        max-width: 100%;
-        display: block;
-        height: auto;
-        margin-left: 0;
-        margin-right: 0;
-        background-color: #eaecef;
-    }
 }
 
 .post_content_container table {
@@ -108,8 +59,13 @@
     white-space: nowrap;
 }
 
-th, td {
-    border: 1px solid rgba(80, 80, 80, 0.25);
+.post_image {
+    max-width: 100%;
+    display: block;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #eaecef;
 }
 
 .post_caption {
@@ -130,62 +86,6 @@ th, td {
     font-style: italic;
     padding: 1px 10px;
     font-size: 13px;
-}
-
-@media only screen and (min-width: 768px) {
-    .post_comments {
-        color: #808080;
-        font-style: italic;
-        padding: 1px 10px;
-        font-size: 14px;
-    }
-}
-
-blockquote p {
-    font-size: 14px;
-    color: #808080;
-    font-style: italic;
-    padding: 1px 10px;
-    border-left: 3px solid #eaecef;
-}
-
-@media only screen and (min-width: 768px) {
-    blockquote p {
-        font-size: 15px;
-    }
-
-    blockquote h1, blockquote h2, blockquote h3 {
-        margin-top: 0;
-        margin-bottom: 10px;
-    }
-}
-
-blockquote h1, blockquote h2, blockquote h3 {
-    margin-top: 0;
-    margin-bottom: 10px;
-}
-
-.post_content_container a {
-    text-decoration: none;
-    background-color: transparent;
-}
-
-a:hover {
-    text-decoration: underline;
-    text-underline-position: under;
-}
-
-.post_content_container h1 {
-    font-size: 22px;
-    font-weight: 900;
-}
-
-.post_content_container h2 {
-    font-size: 18px;
-}
-
-.post_content_container h3 {
-    font-size: 18px;
 }
 
 .post_title {
@@ -215,7 +115,115 @@ a:hover {
     margin: 10px 0 10px;
 }
 
+article.card {
+    padding: 5px !important;
+    margin-top: 15px !important;
+    margin-right: -10px !important;
+}
+
+.highlight code {
+    font-size: 12px;
+}
+
+pre.highlight {
+    margin-bottom: 3rem;
+}
+
+.bottom_card_title {
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.bottom_card_link_button {
+    float: right;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+th, td {
+    border: 1px solid rgba(80, 80, 80, 0.25);
+}
+
+blockquote p {
+    font-size: 14px;
+    color: #808080;
+    font-style: italic;
+    padding: 1px 10px;
+    border-left: 3px solid #eaecef;
+}
+
+blockquote h1, blockquote h2, blockquote h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-underline-position: under;
+}
+
+.bottom_card .card {
+    margin-right: -5px !important;
+}
+
+.bottom_card_about {
+    text-align: center;
+}
+
+
 @media only screen and (min-width: 768px) {
+    .post_container {
+        margin-top: 20px;
+        margin-left: -35px;
+    }
+
+    .post_container table {
+        display: table;
+        word-break: normal;
+        width: 95%;
+        margin: 15px auto;
+    }
+
+    .post_content_container {
+        word-break: break-all;
+        padding: 1rem !important;
+    }
+
+    .post_content_container h1 {
+        border-bottom: 1px solid #eaecef;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        font-size: 28px;
+        font-weight: 900
+    }
+
+    .post_content_container h2 {
+        border-bottom: 1px solid #eaecef;
+        margin-top: 30px;
+        margin-bottom: 10px;
+        font-size: 24px;
+    }
+
+    .post_content_container h3 {
+        font-size: 20px;
+    }
+
+    .post_image {
+        max-width: 100%;
+        display: block;
+        height: auto;
+        margin-left: 0;
+        margin-right: 0;
+        background-color: #eaecef;
+    }
+
+    .post_comments {
+        color: #808080;
+        font-style: italic;
+        padding: 1px 10px;
+        font-size: 14px;
+    }
+
     .post_title {
         font-size: 32px;
         margin-top: 0;
@@ -236,49 +244,21 @@ a:hover {
         display: block;
         margin: 10px 0 20px;
     }
-}
 
-article.card {
-    padding: 5px !important;
-    margin-top: 15px !important;
-    margin-right: -10px !important;
-}
-
-.highlight code {
-    font-size: 12px;
-}
-
-pre.highlight {
-    margin-bottom: 3rem;
-}
-
-@media only screen and (min-width: 768px) {
-    .highlight code {
-        font-size: 13px;
-    }
-}
-
-.bottom_card_title {
-    font-size: 17px;
-    font-weight: 600;
-}
-
-@media only screen and (min-width: 768px) {
     .bottom_card_title {
         font-size: 19px;
     }
-}
 
-.bottom_card_link_button {
-    float: right;
-    font-size: 16px;
-    font-weight: normal;
-}
+    .highlight code {
+        font-size: 13px;
+    }
 
-.bottom_card .card {
-    margin-right: -5px !important;
-}
+    blockquote p {
+        font-size: 15px;
+    }
 
-.bottom_card_about {
-    text-align: center;
+    blockquote h1, blockquote h2, blockquote h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+    }
 }
