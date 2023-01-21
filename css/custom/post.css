@@ -170,6 +170,26 @@ a:hover {
     text-align: center;
 }
 
+.author_image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.author_comment {
+    margin: 10px auto 0 auto;
+}
+
+.related_post {
+    margin-bottom: 0;
+    padding-bottom: 5px;
+}
+
+.related_post_item {
+    margin: 10px 0 10px -5px;
+    padding: 0 0 5px 5px;
+}
 
 @media only screen and (min-width: 768px) {
     .post_container {

@@ -1,18 +1,15 @@
 <div class="row bottom_card">
-    <div class="col-md-4 offset-md-1 col-lg-3 offset-lg-2">
+    <div class="col-md-5 offset-md-1 col-lg-3 offset-lg-2">
         <div class="card">
             <div class="card-header bottom_card_title">Hi, there!</div>
             <div class="card-body bottom_card_about">
                 <div class="row">
-                    <div class="col-md-4 col-lg-4">
-                        <img class="author-profile-img" width="150" height="150" src="/img/common/profile.jpg"/>
-                    </div>
-                    <div class="col-md-12 offset-md-0 col-lg-7 offset-lg-1 col-xs-6">
-                        <p class="author_bio">Thanks for visiting my blog.
-                            <br>Please let me know if there are any mistakes in my post.
-                        </p>
-                        {%- include githubIssueButton.html -%}
-                    </div>
+                    <img class="author_image" width="150" height="150" src="/img/common/profile.jpg"/>
+                </div>
+                <div class="row">
+                    <p class="author_comment">Thanks for visiting my blog.
+                        <br>Please let me know if there are any mistakes in my post.
+                    </p>
                 </div>
             </div>
         </div>
@@ -22,17 +19,17 @@
             <div class="card-header bottom_card_title">{{ page.categories }} 카테고리의 다른 글
                 <a href="/category#{{ page.categories[0] }}" class="bottom_card_link_button">더보기</a>
             </div>
-            <div class="card-body text-dark">
+            <ul class="card-body text-dark related_post">
                 {% assign post_count = 0 %}
                 {% for post in site.posts %}
                 {% if post.categories == page.categories and post.url != page.url %}
                 {% assign post_count = post_count | plus: 1 %}
                 {% if post_count < 6 %}
-                <li>
+                <li class="related_post_item">
                     <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
                 </li>
                 {% endif %}{% endif %}{% endfor %}
-            </div>
+            </ul>
         </div>
     </div>
 </div>
