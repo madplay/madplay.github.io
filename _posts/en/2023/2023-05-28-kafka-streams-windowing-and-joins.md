@@ -13,10 +13,10 @@ comments: true
 ---
 
 # Kafka Streams Series
-- <a href="/en/post/kafka-streams-concepts-and-architecture" target="_blank" rel="nofollow">1. Kafka Streams Concepts and Architecture</a>
-- <a href="/en/post/kafka-streams-kstream-and-ktable" target="_blank" rel="nofollow">2. Kafka Streams KStream and KTable</a>
+- <a href="/en/post/kafka-streams-concepts-and-architecture" target="_blank">1. Kafka Streams Concepts and Architecture</a>
+- <a href="/en/post/kafka-streams-kstream-and-ktable" target="_blank">2. Kafka Streams KStream and KTable</a>
 - **3. Kafka Streams Windows and Joins**
-- <a href="/en/post/kafka-streams-error-handling-and-recovery" target="_blank" rel="nofollow">4. Kafka Streams Error Handling and Recovery Strategies</a>
+- <a href="/en/post/kafka-streams-error-handling-and-recovery" target="_blank">4. Kafka Streams Error Handling and Recovery Strategies</a>
 
 <br>
 
@@ -319,7 +319,7 @@ Checklist:
     (More unique keys make the State Store larger)
 ```
 
-The next post, <a href="/en/post/kafka-streams-error-handling-and-recovery" target="_blank" rel="nofollow">Kafka Streams Error Handling and Recovery Strategies</a>, covers operational topics such as `state.dir` placement and using standby replicas to shorten recovery time.
+The next post, <a href="/en/post/kafka-streams-error-handling-and-recovery" target="_blank">Kafka Streams Error Handling and Recovery Strategies</a>, covers operational topics such as `state.dir` placement and using standby replicas to shorten recovery time.
 
 <br>
 
@@ -344,7 +344,7 @@ Before production rollout, it is safer to estimate State Store size in advance u
 This post covered how each window type works, along with time-based KStream-KStream joins and Grace Period.
 The next post moves to practical recovery topics such as deserialization failures, producer exceptions, and unexpected thread shutdowns in Kafka Streams.
 
-- <a href="/en/post/kafka-streams-error-handling-and-recovery" target="_blank" rel="nofollow">Next post: Kafka Streams Error Handling and Recovery Strategies</a>
+- <a href="/en/post/kafka-streams-error-handling-and-recovery" target="_blank">Next post: Kafka Streams Error Handling and Recovery Strategies</a>
 
 <br>
 
