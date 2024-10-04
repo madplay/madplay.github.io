@@ -2,10 +2,10 @@
     <div class="card-header">
         <h1 class="post_title" itemprop="name headline">{{ page.title }}</h1>
         <h4 class="post_description">{{ page.description }}</h4>
-        <p class="post_meta">Posted by : {% if page.author %}
+        <p class="post_meta">Posted by: {% if page.author %}
             <span itemprop="author" itemscope itemtype="http://schema.org/Person">
             <span itemprop="name">
-                <a href="{{site.url}}{{site.baseurl}}/about">{{ page.author }}</a></span>
+                <a href="{{site.url}}{{site.baseurl}}/about">madplay</a></span>
             </span>{% endif %} on
             <time datetime="{{ page.date }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time>
         </p>
