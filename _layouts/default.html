@@ -81,20 +81,13 @@
     <meta name="twitter:description"
           content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
-    <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
-    <link rel="dns-prefetch" href="//buttons.github.io">
-
     {% if site.ga4_measurement_id %}
     <link rel="preconnect" href="https://www.googletagmanager.com">
-    <link rel="preconnect" href="https://www.google-analytics.com">
     {% endif %}
 
     {% if page.layout == 'post' %}
     <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
-    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
     <link rel="dns-prefetch" href="//utteranc.es">
-    <link rel="preconnect" href="https://utteranc.es" crossorigin>
     {% endif %}
 
     {% if site.ga4_measurement_id %}
@@ -151,7 +144,7 @@
             }
         }
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
 
     <link rel="stylesheet" href="{{ site.baseurl }}/css/custom/default.css">
     {% if page.layout == 'post' %}

@@ -85,6 +85,8 @@ document.addEventListener("DOMContentLoaded", function () {
     tocNav.appendChild(tocList);
 
     function setActive(targetId) {
+        if (!targetId) return;
+        
         var activeItem = null;
         links.forEach(function (item) {
             if (item.heading.id === targetId) {
@@ -140,33 +142,30 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    var suppressUntil = 0;
+    // IntersectionObserver optimization to prevent forced reflows
+    var observerOptions = {
+        rootMargin: "-120px 0px -70% 0px",
+        threshold: [0, 1]
+    };
 
-    function updateActiveByScroll() {
-        if (Date.now() < suppressUntil) {
-            return;
-        }
-
-        var viewportAnchor = Math.max(140, Math.round(window.innerHeight * 0.28));
-        var offset = window.scrollY + getScrollOffset() + viewportAnchor;
-        var activeId = links[0].heading.id;
-
-        links.forEach(function (item) {
-            if (item.heading.offsetTop <= offset) {
-                activeId = item.heading.id;
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+                setActive(entry.target.id);
             }
         });
+    }, observerOptions);
 
-        setActive(activeId);
-    }
+    headings.forEach(function (heading) {
+        observer.observe(heading);
+    });
 
     links.forEach(function (item) {
         item.link.addEventListener("click", function (event) {
             event.preventDefault();
 
             var targetTop = item.heading.getBoundingClientRect().top + window.scrollY - getScrollOffset();
-            suppressUntil = Date.now() + 450;
-
+            
             setActive(item.heading.id);
             window.scrollTo({
                 top: Math.max(0, targetTop),
@@ -176,33 +175,14 @@ document.addEventListener("DOMContentLoaded", function () {
             if (window.history && window.history.replaceState) {
                 window.history.replaceState(null, "", "#" + item.heading.id);
             }
-
-            setTimeout(function () {
-                updateActiveByScroll();
-            }, 500);
         });
     });
 
-    var isTicking = false;
-    function onScroll() {
-        if (isTicking) {
-            return;
-        }
-        isTicking = true;
-        window.requestAnimationFrame(function () {
-            updateActiveByScroll();
-            isTicking = false;
-        });
-    }
-
-    window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", function () {
         applyStickyTop();
         applyScrollMargin();
-        updateActiveByScroll();
     });
 
     applyStickyTop();
     applyScrollMargin();
-    updateActiveByScroll();
 });
