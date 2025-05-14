@@ -3,7 +3,7 @@ layout:   post
 title:    "Fixing IntelliJ Error: source release 8 requires target release 1.8"
 author:   Kimtaeng
 tags: 	  intellij error jdk maven
-description: Fix the IntelliJ error: Error:java: javacTask: source release 8 requires target release 1.8.
+description: "Fix the IntelliJ error: Error:java: javacTask: source release 8 requires target release 1.8."
 category: Knowledge
 comments: true
 slug:     intellij-error-source-release-8-requires-target-release-1-8
