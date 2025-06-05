@@ -65,9 +65,9 @@ comments: true
 <br>
 
 ### 생성자처럼 명확히 드러나지 않는다.
-정적 팩터리 메서드는 일반 메서드일뿐 생성자처럼 Java docs에 명확히 표현되지 않는다.
+정적 팩터리 메서드는 일반 메서드일뿐 생성자처럼 JavaDocs에 명확히 표현되지 않는다.
 따라서 인스턴스화를 하려고 했을 때 생성자가 없으면 정적 팩터리 메서드를 찾는 등의 개발자의 불편함이 생긴다. 
-알려진 규약에 따라 짓는 식으로 문제를 완해해줘야 한다.
+알려진 규약에 따라 짓는 식으로 문제를 완화해줘야 한다.
 
 - **from:** 매개변수를 받아서 해당 타입의 인스턴스를 반환
   - `Date date = Date.from(instant);`
@@ -156,7 +156,7 @@ public class MadPlay {
 
 하지만 위 두가지 방식의 경우 리플렉션 API를 사용하는 경우 private 생성자 호출에 의해 싱글톤이 깨질 수 있다.
 또한 역직렬화할 때 여러 인스턴스가 생성될 수 있는데, 모든 필드를 `transient` 키워드로 선언하고 무조건 싱글톤 인스턴스인
-`INSTANCE`를 반환하도록 `readResolve` 메서드(역직렬화시에 호출된다)를 수정하는 대처가 필요하다.
+`INSTANCE`를 반환하도록 `readResolve` 메서드(역직렬화 시에 호출된다)를 수정하는 대처가 필요하다.
 
 <br>
 
@@ -183,7 +183,7 @@ public enum MadPlay {
 
 ```java
 public class MadUtil {
-    private MadUtil {
+    private MadUtil() {
         throw new AssertionError();
     }
     // ... 생략
@@ -299,7 +299,7 @@ keySet1.remove("MadPlay");
 System.out.println(phoneBook.size()); // 1
 ```
 
-한변 기본 타입과 박싱된 기본 타입을 섞어 쓸 때 자동으로 상호 변환해주는 **오토 박싱(auto boxing)**을 통해서도
+한편 기본 타입과 박싱된 기본 타입을 섞어 쓸 때 자동으로 상호 변환해주는 **오토 박싱(auto boxing)**을 통해서도
 불필요한 객체가 만들어진다.
 
 ```java
@@ -355,7 +355,7 @@ public Object pop() {
 밖으로 밀어내는 것이다. 변수의 범위를 최소가 되게 정의했다면 자연스럽게 이뤄진다.
 
 **캐시(Cache)**도 메모리 누수를 일으키는 주범이다. 객체 참조를 캐시에 넣고 해당 객체를 사용한 후에 잊는 경우 누수가 생긴다.
-`WeakHasHMap`, `LinkedHashMap.removeEldestEntry` 등을 권장한다. 아래는 WeakHashMap을 테스트하는 간단한 예이다.
+`WeakHashMap`, `LinkedHashMap.removeEldestEntry` 등을 권장한다. 아래는 WeakHashMap을 테스트하는 간단한 예이다.
 
 ```java
 // WeakHashMap는 내부적으로 Key를 WeakReference로 만든다.
@@ -426,7 +426,7 @@ finalizer가 언제, 어떠한 스레드에서 실행되는지 알 수도 없고
 # 아이템 9. try-finally보다는 try-with-resources를 사용하라
 > Prefer try-with-resources to try-finally
 
-자바 라이브러리에는 `close()` 메서드를 통해 닫아야 하는 자원들이 있다. 자바 7이전에는 `try-finally`를 이용했다.
+자바 라이브러리에는 `close()` 메서드를 통해 닫아야 하는 자원들이 있다. 자바 7 이전에는 `try-finally`를 이용했다.
 
 ```java
 public void someMethod() throws IOException {
