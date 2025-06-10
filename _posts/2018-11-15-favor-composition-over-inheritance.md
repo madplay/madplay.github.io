@@ -9,7 +9,7 @@ comments: true
 ---
 
 # 상속(extends)
-상속은 코드를 재사용할 수 있는 강력한 수단이지만, 항상 최선이라고 할 수는 없습니다. 메서드 호출과 다르게 캡슐화를 깨드리기 때문인데요. 
+상속은 코드를 재사용할 수 있는 강력한 수단이지만, 항상 최선이라고 할 수는 없습니다. 메서드 호출과 다르게 캡슐화를 깨뜨리기 때문인데요. 
 상위 클래스의 구현이 바뀌면 이를 상속한 하위 클래스에도 영향이 있을 수 있기 때문입니다.
 
 아래와 같이 HashSet을 확장한 MyHashSet 클래스가 있다고 가정해봅시다.
@@ -26,7 +26,7 @@ public class MyHashSet<E> extends HashSet<E> {
 
     @Override
     public boolean addAll(Collection<? extends E> c) {
-        addCount = addCount + c.size(0;
+        addCount = addCount + c.size();
         return super.addAll(c);
     }
 
@@ -57,7 +57,7 @@ public boolean addAll(Collection<? extends E> c) {
 }
 ```
 
-그러니까 addAll 메서드에는 각 요소를 add 메서드를 호출해서 추가하므로 addCount를 증가시키는 코드가 없어야 합니다.
+즉, addAll 메서드에는 각 요소를 add 메서드를 호출해서 추가하므로 addCount를 증가시키는 코드가 없어야 합니다.
 
 <br/>
 
@@ -106,22 +106,21 @@ public class ForwardingSet<E> implements Set<E> {
     private final Set<E> set;
     public ForwardingSet(Set<E> set) { this.set = set; }
     public void clear() { set.clear(); }
-    public boolean isEmpty() { return set.isEmpbty(); }
+    public boolean isEmpty() { return set.isEmpty(); }
     public boolean add(E e) { return set.add(e); }
     public boolean addAll(Collection<? extends E> c) { return set.addAll(c); }
     // ... 생략
 }
 ```
 
-다른 Set 인스턴스를 감싸고 있다는 뜻에서 MySet과 같은 클래스를 **래퍼 클래스**라고 하며
-다른 Set에 계측 기능을 덧씌운다는 뜻에서 **데코레이터 패턴(Decorator Pattern)**이라고 합니다.
-컴포지션과 전달의 조합은 넓은 의미로 위임(delegation)이라고 합니다만 엄밀히 따지면 래퍼 객체가
+다른 Set 인스턴스를 감싸고 있다는 뜻에서 MySet과 같은 클래스를 **래퍼 클래스**라고 하며, 다른 Set에 계측 기능을 덧씌운다는 뜻에서 **데코레이터 패턴(Decorator Pattern)**이라고 합니다.
+컴포지션과 전달의 조합은 넓은 의미로 위임(delegation)이라고 합니다만, 엄밀히 따지면 래퍼 객체가
 내부 객체에 자기 자신의 참조를 넘기는 경우에만 해당됩니다.
 
 <br/>
 
-# 그럼 언제 상속을 해야할까요?
-클래스가 B가 클래스 A와 **is-a 관계**일때만 사용해야 합니다.
+# 그럼 언제 상속을 해야 할까요?
+클래스가 B가 클래스 A와 **is-a 관계**일 때만 사용해야 합니다.
 반드시 하위 클래스가 상위 클래스의 진짜 하위 타입인 상황에서만 쓰여야 합니다. 예를 들어 클래스 A를 상속하는
 클래스 B를 만드려고 한다면, **"B가 정말 A인가?"** 를 생각해봐야 합니다. 
 예를 들자면? 와인 클래스를 상속하는 레드 와인 클래스. 그리고 레드 와인은 와인입니다.
