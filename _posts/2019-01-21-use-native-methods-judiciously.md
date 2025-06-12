@@ -14,7 +14,7 @@ comments: true
 그리고 자바 프로그램에서 네이티브 메서드를 호출하는 기술을 JNI(Java Native Interface)라고 합니다.
 
 ```java
-public class HelloJNITest
+public class HelloJNITest {
     static {
         // Native Library 로드(Unix는 libhello.so, Windows는 hello.dll)
         System.loadLibrary("hello");
@@ -25,7 +25,7 @@ public class HelloJNITest
     
     public static void main(String[] args) {
         // 인스턴스 생성, 네이티브 메서드 호출
-        new HelloJNITest().sayHello();
+        new HelloJNITest().sayHi();
     
     }
 }
@@ -42,9 +42,10 @@ OS 프로세스도 접근할 수 있습니다. 하지만 대체할만한 자바 
 두 번째로 **네이티브 코드로 작성된 기존 라이브러리를 사용할 때** 사용해야 합니다.
 
 마지막으로 **성능 개선을 목적**으로 성능에 결정적인 영향을 주는 영역만 따로 네이티브 언어로 작성할 수 있습니다.
+
 하지만 대부분 성능 개선 목적으로 네이티브 메서드 사용을 권장하지는 않습니다. 예를 들어 ```java.math```가 처음 추가된
-```JDK 1.1```의 BigInteger 클래스는 C언어로 작성된 라이브러리에 의존했지만 ```JDK 1.3``` 버전부터 순수 자바로 구현되었고
-보다 더 세심한 튜닝을 통해 원래의 네이티브 구현보다 더 빨라졌습니다.
+
+```JDK 1.1```의 BigInteger 클래스는 C언어로 작성된 라이브러리에 의존했지만 ```JDK 1.3``` 버전부터 순수 자바로 구현되었고, 보다 더 세심한 튜닝을 통해 원래의 네이티브 구현보다 더 빨라졌습니다.
 
 <br/>
 
