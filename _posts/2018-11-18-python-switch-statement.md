@@ -3,7 +3,7 @@ layout:   post
 title:    파이썬 switch 
 author:   Kimtaeng
 tags: 	  python
-description: Python에서 switch 문을 사용하려면 어떻게 해야할까? 
+description: Python에서 switch 문을 사용하려면 어떻게 해야 할까? 
 category: Python
 comments: true
 ---
@@ -23,7 +23,7 @@ elif a == 4:
     print ("Hello 4")
 elif a == 5:
     print ("Hello 5")
-else
+else:
     print ("Hello Everyone")
 ```
 
@@ -56,7 +56,7 @@ switch (a) {
 
 # 파이썬으로 switch 흉내내기
 딕셔너리(Dictionary)는 키와 데이터 값이 한 쌍을 이루는 자료형입니다. 이를 이용한다면
-우리가 구현하고자하는 ```switch``` 조건문과 유사한 기능을 사용할 수 있습니다.
+우리가 구현하고자 하는 ```switch``` 조건문과 유사한 기능을 사용할 수 있습니다.
 
 ```python
 # -*- coding: utf-8 -*-
