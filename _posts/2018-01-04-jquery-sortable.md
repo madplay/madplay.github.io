@@ -9,7 +9,7 @@ comments: true
 ---
 
 # jQuery UI Sortable
-제이쿼리를 이용하여 드래그 & 드랍 이벤트를 통한 정렬을 구현해봅시다.
+제이쿼리를 이용하여 드래그 앤 드롭 이벤트를 통한 정렬을 구현해봅시다.
 jQuery User Interface Library에 있는 Sortable 이라는 것을 사용할 것인데요. 자세한 소개는 아래 링크를 참조하시기 바랍니다. 
 
 - <a href="https://jqueryui.com/sortable" target="_blank" rel="nofollow">링크: jQuery-UI 가이드 페이지로 이동</a>
@@ -47,7 +47,7 @@ $.(.selector').sortable({
 });
 ```
 
-포스팅을 위해서 테스트 해본 **jsffidle**에서 확인해 볼 수 있습니다.
+포스팅을 위해서 테스트해 본 **jsfiddle**에서 확인해 볼 수 있습니다.
 
 - <a href="https://jsfiddle.net/Kimtaeng/xo8neqpL/1/" target="_blank" rel="nofollow">예제 페이지로 이동(jsfiddle)</a>
 
@@ -65,7 +65,7 @@ $('.selector').sortable('option', 'axis', 'x');
 var axis = $('.selector').sortable('option', 'axis');
 ```
 
-물론, 드래그가 시작된 위치와 드랍된 위치에 대해서도 정보를 가져올 수 있습니다.
+물론, 드래그가 시작된 위치와 드롭된 위치에 대해서도 정보를 가져올 수 있습니다.
 
 ```javascript
 $('.selector').sortable({
@@ -79,4 +79,4 @@ $('.selector').sortable({
 })
 ```
 
-Sortable에서 제공되는 메서드의 인자에 드래그 또는 드랍되는 오브젝트가 담겨오기 때문에 array 형태로 구성된 경우에는 index를 통해 접근도 가능합니다.
+Sortable에서 제공되는 메서드의 인자에 드래그 또는 드롭되는 오브젝트가 담겨오기 때문에 array 형태로 구성된 경우에는 index를 통해 접근도 가능합니다.
