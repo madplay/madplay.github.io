@@ -67,7 +67,7 @@ int main(void)
 }
 ```
 
-위 코드 작성은 Mac OSX 환경에서 진행했고 gcc를 통해서 컴파일 한 후 실행하였습니다.
+위 코드 작성은 Mac OS X 환경에서 진행했고 gcc를 통해서 컴파일한 후 실행하였습니다.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-03-java-finalize-1.jpg" width="600" alt="GCC 결과"/>
 
@@ -114,7 +114,7 @@ public class Test {
 }
 ```
 
-자바는 자동으로 상위 클래스의 종료자가 호출되지 않기 때문에 super.finalize(); 코드를 통해서 명시적으로 상위 클래스의 종료자를 호출해야 합니다.
+자바는 자동으로 상위 클래스의 종료자가 호출되지 않기 때문에 `super.finalize();` 코드를 통해서 명시적으로 상위 클래스의 종료자를 호출해야 합니다.
 
 위의 코드를 실행해보면 종료자를 멀리해야 하는 이유를 알 수 있는데요. `<Effective Java>` 서적에서는 finalize 메서드 사용에 대해서
 다음과 같이 언급하고 있습니다.
@@ -187,7 +187,7 @@ public class Test {
 }
 ```
 
-위 코드를 실행하면 다음과 같은 OutOfMemoryError Exception이 발생합니다.
+위 코드를 실행하면 다음과 같은 OutOfMemoryError 예외가 발생합니다.
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-03-java-finalize-2.jpg"
 width="600" alt="OOM Exception"/>
 
@@ -268,7 +268,7 @@ public class MadPlay {
 결론적으로는 **finalize 메서드는 실행을 보장하지 않습니다.** 사용에 따른 장점이 적습니다. 만일 사용해야 한다면 상위 클래스의 종료자 호출을 잊으면 안됩니다.
 하지만 **예측할 수 없고, 느리고, 일반적으로 불필요**한 경우가 많기 때문에 사용하지 않는 것이 더 이롭습니다.
 
-그리고 **Java 9 버전**에서 finalize 메서드는 **deprecated** 되었고 새롭게 `java.lang.ref` 패키지에 Clenaer 클래스가 추가되었습니다.
+그리고 **Java 9 버전**에서 finalize 메서드는 **deprecated** 되었고 새롭게 `java.lang.ref` 패키지에 Cleaner 클래스가 추가되었습니다.
 
 ```java
 @Deprecated(since="9")
