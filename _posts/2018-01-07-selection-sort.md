@@ -14,7 +14,7 @@ comments: true
 
 - 1) 주어진 데이터 리스트 중에서 제일 작은 값을 갖는 데이터를 찾는다.
 - 2) 찾은 데이터를 가장 처음에 위치한 데이터의 위치와 교체한다.
-- 3) 가장 처음 위치를 제외한 나머지 데이터들도 같은 방법으로 교체한다.
+- 3) 가장 처음 위치를 제외한 나머지 데이터도 같은 방법으로 교체한다.
 
 이를 의사 코드(Pseudo Code)로 나타내면 아래와 같습니다.
 
@@ -30,7 +30,7 @@ For i -> 0 to n:
 그림으로 선택 정렬의 진행 과정을 자세히 살펴봅시다. 시작 상태에 대한 포함 여부(초기 상태로 주느냐 안 주느냐)에 따라서 회전 횟수(PASS)를 세는 방식이
 다를 수 있습니다.
 
-<div class="post_caption">"여기서는 위치를 변경하는 경우만 N 회전(PASS)로 카운팅합니다."</div>
+<div class="post_caption">"여기서는 위치를 변경하는 경우만 N 회전(PASS)로 계산합니다."</div>
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-07-selection-sort-1.png"
 width="650" alt="선택 정렬 Step1"/>
@@ -73,12 +73,12 @@ width="650" alt="선택 정렬 Step8"/>
 <br/>
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-07-selection-sort-9.png"
-width="650" alt="선택 정렬 Step4"/>
+width="650" alt="선택 정렬 Step9"/>
 
 <br/>
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-07-selection-sort-10.png"
-width="650" alt="선택 정렬 Step4"/>
+width="650" alt="선택 정렬 Step10"/>
 
 <br/><br/>
 
