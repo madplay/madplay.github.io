@@ -37,7 +37,7 @@ class MadMan {
     // ...
 }
 
-final class MadPlay extends classMan {
+final class MadPlay extends MadMan {
     // ...
 }
 ```
@@ -46,7 +46,7 @@ final class MadPlay extends classMan {
 
 # final과 메서드
 
-메서드에 ```final``` 키워드를 붙이게 되면 재정의(Overriding)을 할 수 없다.
+메서드에 ```final``` 키워드를 붙이게 되면 재정의(Override)를 할 수 없다.
 
 ```java
 class MadClass {
@@ -120,5 +120,5 @@ class GradeHelper {
 클래스에서도 접근할 수 있음을 뜻한다. 
 
 ```static```은 메모리 할당을 컴파일 시간에 한다. 그러니까 인스턴스가 생성될 때마다 새로운 메모리를 할당하는 것이 아니라
-클레스 레벨에서 단 한번만 할당함을 뜻한다. 그렇기 때문에 의미와 용도가 고정적인 값에 사용하면 알맞다.
+클래스 레벨에서 단 한 번만 할당함을 뜻한다. 그렇기 때문에 의미와 용도가 고정적인 값에 사용하면 알맞다.
 예를 들어, 최고 학점이 A+인 것처럼 말이다. S 학점이 있는 곳도 있을 수 있으려나...
