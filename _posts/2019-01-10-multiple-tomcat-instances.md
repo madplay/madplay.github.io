@@ -28,12 +28,12 @@ $ tree -L 1
 └── work # .class로 컴파일된 디렉터리
 ```
 
-톰캣의 **엔진**에 해당하는 모듈 부분은 bin, lib 이고 **인스턴스**에 해당하는 부분은
-conf, logs, temp, work, webapps 으로 구분할 수 있습니다.
+톰캣의 **엔진**에 해당하는 모듈 부분은 bin, lib이고 **인스턴스**에 해당하는 부분은
+conf, logs, temp, work, webapps으로 구분할 수 있습니다.
 
 여기서 톰캣 엔진은 실제로 자바 애플리케이션을 실행하는 역할을 합니다. 그러니까 톰캣 인스턴스를
 실행하는 역할을 한다는 것이지요. 자바 프로그램이 실행되는 것이므로 **Java Virtual Machine**이 실행될 것이고
-이번에 진행할 여러 개의 톰캣을 띄운다는 것, 그러니까 멀티 인스턴스를 구성한다는 것은 여러 개의 톰캣 JVM을 구동한다는 것입니다.
+이번에 진행할 여러 개의 톰캣을 띄운다는 것, 즉 멀티 인스턴스를 구성한다는 것은 여러 개의 톰캣 JVM을 구동한다는 것입니다.
 
 <br/>
 
@@ -64,13 +64,13 @@ Tomcat started.
 ```
 
 각각의 독립적인 톰캣 인스턴스를 띄우기 위해서는 톰캣 인스턴스의 경로를 갖는 `CATALINA_BASE`와 톰캣 엔진의 경로인
-`TOMCAT_HOME`의 값을 설정해주어야 합니다.
+`CATALINA_HOME` 값을 설정해주어야 합니다.
 
 <br/>
 
 # 톰캣 여러개 띄우기
 먼저 톰캣을 다운로드받아 압축 해제합니다. 다운받은 1개의 톰캣 디렉터리를 복사하여 총 3개를 준비하면 됩니다.
-앞서 설명한 것처럼 엔진 역할을 담당하는 부분은 lib와 bin 이므로 모든 톰캣 디렉터리에 있을 필요가 없습니다.
+앞서 설명한 것처럼 엔진 역할을 담당하는 부분은 lib와 bin이므로 모든 톰캣 디렉터리에 있을 필요가 없습니다.
 더불어 각각의 톰캣 인스턴스 디렉터리에는 인스턴스를 구성하기 위한 디렉터리만 있으면 되고요.
 
 전체 디렉터리 구조를 살펴보면 아래와 같습니다.
@@ -93,9 +93,9 @@ $ tree -L 2
 └── tomcat_main
     ├── bin
     └── lib
-</code></pre>
+```
 
-각각의 톰캣 인스턴스가 다른 포트를 사용하여 구동되어야 하기때문에 `server.xml`의 정보가 수정되어야 합니다.
+각각의 톰캣 인스턴스가 다른 포트를 사용하여 구동되어야 하기 때문에 `server.xml`의 정보가 수정되어야 합니다.
 
 ```xml
 <!-- conf 디렉터리 내의 server.xml -->
@@ -106,7 +106,7 @@ $ tree -L 2
 </Server>
 ```
 
-위의 포트 부분을 tomcat1과 tomcat2를 다르게 설정해주면 됩니다. ROOT 요소가 되는 `<Server>`의 shutdown 포트번호도
+위의 포트 부분을 tomcat1과 tomcat2를 다르게 설정해 주면 됩니다. ROOT 요소가 되는 `<Server>`의 shutdown 포트번호도
 서로 다르게 지정해야 합니다.
 
 이제 톰캣 인스턴스를 **구동시킬 스크립트**를 작성하면 됩니다. 이름은 임의로 `startup.sh`로 지정하며
@@ -119,12 +119,12 @@ tomcat1, 2의 디렉터리에 각각 작성하면 됩니다.
 export CATALINA_BASE=/Users/madplay/Desktop/multitomcat/tomcat1
 
 # tomcat engine 경로
-export TOMCAT_HOME=/Users/madplay/Desktop/multitomcat/tomcat_main 
+export CATALINA_HOME=/Users/madplay/Desktop/multitomcat/tomcat_main 
 
 # 각 톰캣 인스턴스마다 사용하는 jdk가 다를 경우
 #export JAVA_HOME=${자바 경로}
 
-cd $TOMCAT_HOME/bin
+cd $CATALINA_HOME/bin
 ./startup.sh
 ```
 
