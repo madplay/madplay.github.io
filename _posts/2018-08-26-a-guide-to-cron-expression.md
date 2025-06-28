@@ -10,9 +10,9 @@ comments: true
 ---
 
 # 크론 표현식이란?
-크론(Cron)을 구동할 때 스케쥴링의 파라미터로 사용되는 식을 크론 표현식(Cron Expressions)라고 한다.
-유닉스/리눅스 기반의 스케쥴러에도 사용되지만 Quatz 스케줄러 에서도 사용된다.
-크론 표현식은 필드와 특수문자를 조합하여 스케쥴링을 조절할 수 있다.
+크론(Cron)을 구동할 때 스케줄링의 파라미터로 사용되는 식을 크론 표현식(Cron Expressions)이라고 한다.
+유닉스/리눅스 기반의 스케줄러에도 사용되지만 Quartz 스케줄러에서도 사용된다.
+크론 표현식은 필드와 특수문자를 조합하여 스케줄링을 조절할 수 있다.
 
 <br><br>
 
@@ -21,7 +21,7 @@ comments: true
 리눅스/유닉스 크론 표현식에서는 5개 필드가 사용되고, 쿼츠 크론 표현식에서는 7개의 필드가 사용된다.
 
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-08-26-a-guide-to-cron-expression-1.jpg"
-width="800" alt="Swing 기본"/>
+width="800" alt="크론 표현식 기본"/>
 
 <br><br>
 
