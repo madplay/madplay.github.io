@@ -30,15 +30,15 @@ WAS(Web Application Server)라고 말하는데, 이는 웹 서버와 웹 컨테�
 <img class="post_image" src="{{ site.baseurl }}/img/post/2018-01-05-apache-tomcat-modjk-1.png" width="650" alt="WAS"/>
 
 
-**만일 웹 서버가 없이 WAS만 사용한다고 가정해봅시다.**
+**만일 웹 서버 없이 WAS만 사용한다고 가정해봅시다.**
 
 웹 페이지(Web Page)에는 정적인 리소스뿐만 아니라 동적인 리소스가 함께 존재합니다. WAS의 정적 데이터 처리로 인해 동적 데이터에 대한 처리는
-늦어지게 될 것이고 결과적으로 본다면 클라이언트의 요청에 대한 응답 시간은 전반적으로 늘어나게 될겁니다.
+늦어지게 될 것이고 결과적으로 본다면 클라이언트의 요청에 대한 응답 시간은 전반적으로 늘어나게 될 것입니다.
 
 **그러니까 사용 목적에 따라 다르다고 볼 수 있는데요.**
 HTML 파일이나 이미지 파일과 같은 정적 컨텐츠들은 WAS까지 거치는 것보다 웹 서버를 바로 통하는 것이 더 빠릅니다.
 
-이러한 맥락으로 본다면 웹서버인 아파치와 WAS인 톰캣을 연동하여 각자의 역할 분담이 가능하므로 더 좋겠지요?
+이러한 맥락으로 본다면 웹 서버인 아파치와 WAS인 톰캣을 연동하여 각자의 역할 분담이 가능하므로 더 좋겠지요?
 또! 하나의 웹 서버에 여러 개의 톰캣을 연결해서 분산시킬 수 있는 로드 밸런싱(Load Balancing)을 구현할 수도 있습니다.
 
 <div class="post_caption">"그럼 지금부터 아파치와 톰캣을 연결해봅시다. OSX El Capitan 환경을 기준으로 합니다."</div>
@@ -46,7 +46,7 @@ HTML 파일이나 이미지 파일과 같은 정적 컨텐츠들은 WAS까지 �
 <br/>
 
 # 아파치와 톰캣 설치
-아파치와 톰캣을 연동하는 작업을 진행할 것인데 설치도 안 하고 진행하면 이상하겠지요. 아파치의 경우 Mac 환경을 기준으로 했기에 자체적으로 설치되어있는
+아파치와 톰캣을 연동하는 작업을 진행할 것인데, 설치도 안 하고 진행하면 이상하겠지요. 아파치의 경우 Mac 환경을 기준으로 했기에 자체적으로 설치되어 있는
 아파치를 사용해도 됩니다. OSX El Capitan 기준으로 터미널에서 `cd /etc/apache2 ` 명령어를 통해 확인 가능합니다.
 
 터미널에서 `sudo apachectl start` 명령어를 실행하고 브라우저에서 localhost로 접속을 합니다.
@@ -67,7 +67,7 @@ HTML 파일이나 이미지 파일과 같은 정적 컨텐츠들은 WAS까지 �
 curl -O http://archive.apache.org/dist/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.41-src.tar.gz
 ```
 
-tar 압축을 해제하고 `cd 압축해제위치/native` 명령어로 이동합니다.
+tar 압축을 해제하고 `cd 압축 해제 위치/native` 명령어로 이동합니다.
 그리고 다음과 같은 명령어를 실행합니다.
 
 ```bash
@@ -110,7 +110,7 @@ sudo find / -name "apr_lib.h"
 ```
 
 정상적으로 진행되었다면 native 디렉터리 밑 apache-2.0 디렉터리 내에 mod_jk.so가 생성됩니다.
-`install: /usr/libexec/apache2/mod_jk.so: Operation not permitted` 에러가 발생해도 생성됩니다
+`install: /usr/libexec/apache2/mod_jk.so: Operation not permitted` 오류가 발생해도 생성됩니다
 
 **아파치가 설치된 경로의 modules 디렉터리 밑에 mod_jk를 넣도록 합니다.**
 modules가 없다면 생성하면 됩니다. 다른 이름으로 하는 경우 httpd.conf의 mod_jk.so 위치와 일치해야 합니다.
@@ -137,13 +137,13 @@ vi server.xml
 <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
 
 # 주석은 없어도 됩니다. 포트 번호가 8009인지 확인하면 됩니다.
-# 아예 위 부분이 통째로 주석처리 되있다면 해제해주면 되겠지요.
+# 아예 위 부분이 통째로 주석 처리되어 있다면 해제해 주면 되겠지요.
 ```
 
 <br/>
 
 # 아파치 설정하기
-이제 아파치를 설정하면 됩니다. 연동할 톰캣의 리스트를 나타낼 `workers.properties` 파일을 하나 만들어줍니다.
+이제 아파치를 설정하면 됩니다. 연동할 톰캣의 리스트를 나타낼 `workers.properties` 파일을 하나 만들어 줍니다.
 위치는 아파치가 설치된 디렉터리 하위의 conf 디렉터리 밑으로 하지요.
 
 ```bash
