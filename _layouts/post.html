@@ -57,8 +57,24 @@ layout: default
     </div>
 
     {% assign current_lang = page.lang | default: site.default_lang %}
-    {% unless current_lang == 'en' %}
+    {% if current_lang == site.default_lang %}
+        {% assign lang_posts = site.posts | where_exp: "post", "post.lang == nil or post.lang == '' or post.lang == site.default_lang" %}
+    {% else %}
+        {% assign lang_posts = site.posts | where: "lang", current_lang %}
+    {% endif %}
+    {% assign prev_post = nil %}
+    {% assign next_post = nil %}
+    {% assign prev_in_loop = nil %}
+    {% for post in lang_posts %}
+        {% if post.url == page.url %}
+            {% assign next_post = prev_in_loop %}
+            {% assign prev_post = lang_posts[forloop.index] %}
+        {% endif %}
+        {% assign prev_in_loop = post %}
+    {% endfor %}
+
     <footer class="mt-16 md:mt-24 pt-8 border-t border-zinc-900">
+        {% unless current_lang == 'en' %}
         <div class="mb-8">
             <a href="{{ site.baseurl }}/"
                class="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg text-zinc-300 hover:text-zinc-100 transition-all duration-200 text-sm font-medium">
@@ -69,45 +85,45 @@ layout: default
                 목록으로
             </a>
         </div>
+        {% endunless %}
 
-        {% if page.previous or page.next %}
+        {% if prev_post or next_post %}
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {% if page.previous %}
-            <a href="{{ site.baseurl }}{{ page.previous.url }}"
+            {% if prev_post %}
+            <a href="{{ site.baseurl }}{{ prev_post.url }}"
                class="group flex flex-col p-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg transition-all duration-200">
                 <div class="flex items-center gap-2 text-zinc-500 text-xs font-medium mb-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="M15 19l-7-7 7-7"></path>
                     </svg>
-                    이전 글
+                    {% if current_lang == 'en' %}Previous{% else %}이전 글{% endif %}
                 </div>
                 <div class="text-zinc-300 group-hover:text-zinc-100 font-medium text-sm line-clamp-2 transition-colors duration-200">
-                    {{ page.previous.title }}
+                    {{ prev_post.title }}
                 </div>
             </a>
             {% else %}
             <div class="hidden md:block"></div>
             {% endif %}
 
-            {% if page.next %}
-            <a href="{{ site.baseurl }}{{ page.next.url }}"
-               class="group flex flex-col p-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg transition-all duration-200 {% unless page.previous %}md:col-start-2{% endunless %}">
+            {% if next_post %}
+            <a href="{{ site.baseurl }}{{ next_post.url }}"
+               class="group flex flex-col p-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg transition-all duration-200 {% unless prev_post %}md:col-start-2{% endunless %}">
                 <div class="flex items-center justify-end gap-2 text-zinc-500 text-xs font-medium mb-2">
-                    다음 글
+                    {% if current_lang == 'en' %}Next{% else %}다음 글{% endif %}
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </div>
                 <div class="text-zinc-300 group-hover:text-zinc-100 font-medium text-sm line-clamp-2 text-right transition-colors duration-200">
-                    {{ page.next.title }}
+                    {{ next_post.title }}
                 </div>
             </a>
             {% endif %}
         </div>
         {% endif %}
     </footer>
-    {% endunless %}
 
     <div class="mt-16 pt-8 border-t border-zinc-900">
         {% assign current_lang = page.lang | default: site.default_lang %}
