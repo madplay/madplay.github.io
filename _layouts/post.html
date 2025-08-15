@@ -57,23 +57,21 @@ layout: default
     </div>
 
     {% assign current_lang = page.lang | default: site.default_lang %}
-    {% if current_lang == site.default_lang %}
-        {% assign default_lang_posts = site.posts | where: "lang", site.default_lang %}
-        {% assign no_lang_posts = site.posts | where: "lang", nil %}
-        {% assign empty_lang_posts = site.posts | where: "lang", "" %}
-        {% assign lang_posts = no_lang_posts | concat: empty_lang_posts | concat: default_lang_posts %}
-    {% else %}
-        {% assign lang_posts = site.posts | where: "lang", current_lang %}
-    {% endif %}
     {% assign prev_post = nil %}
     {% assign next_post = nil %}
     {% assign prev_in_loop = nil %}
-    {% for post in lang_posts %}
+    {% assign found_current = false %}
+    {% for post in site.posts %}
+        {% assign post_lang = post.lang | default: site.default_lang %}
+        {% if post_lang == current_lang %}
         {% if post.url == page.url %}
             {% assign next_post = prev_in_loop %}
-            {% assign prev_post = lang_posts[forloop.index] %}
+            {% assign found_current = true %}
+        {% elsif found_current and prev_post == nil %}
+            {% assign prev_post = post %}
         {% endif %}
         {% assign prev_in_loop = post %}
+        {% endif %}
     {% endfor %}
 
     <footer class="mt-16 md:mt-24 pt-8 border-t border-zinc-900">
