@@ -29,6 +29,7 @@ layout: default
     <!-- Posts Archive -->
     <div class="space-y-1">
         {% for post in paginator.posts %}
+        {% unless post.lang == 'en' %}
         <article class="stagger-animation">
             <a href="{{ site.baseurl }}{{ post.url }}" class="block py-6 md:py-8 border-b border-zinc-900 hover:border-zinc-800 transition-colors duration-300 group">
                 <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-6">
@@ -48,6 +49,7 @@ layout: default
                 </div>
             </a>
         </article>
+        {% endunless %}
         {% endfor %}
     </div>
     

@@ -58,7 +58,10 @@ layout: default
 
     {% assign current_lang = page.lang | default: site.default_lang %}
     {% if current_lang == site.default_lang %}
-        {% assign lang_posts = site.posts | where_exp: "post", "post.lang == nil or post.lang == '' or post.lang == site.default_lang" %}
+        {% assign default_lang_posts = site.posts | where: "lang", site.default_lang %}
+        {% assign no_lang_posts = site.posts | where: "lang", nil %}
+        {% assign empty_lang_posts = site.posts | where: "lang", "" %}
+        {% assign lang_posts = no_lang_posts | concat: empty_lang_posts | concat: default_lang_posts %}
     {% else %}
         {% assign lang_posts = site.posts | where: "lang", current_lang %}
     {% endif %}
