@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Scripting API: Calling JavaScript Functions from Java"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java scriptengine
 description: "Use the Java Scripting API to invoke functions defined in a JavaScript file from Java." 
 category: Java

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "What’s New in Java 14?"
-author:   Kimtaeng
+author:   madplay
 tags:    java jdk14 openjdk
 description: "A practical overview of new features and notable changes introduced in JDK 14." 
 category: Java

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Bracket Matching with a Stack (Java)
-author:   Kimtaeng
+author:   madplay
 tags: 	  algorithm datastructure stack
 description: How can you verify matching brackets in an expression? Use a stack to validate pairs.
 category: Algorithm

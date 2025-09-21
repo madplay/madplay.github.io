@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Merge Sort
-author:   Kimtaeng
+author:   madplay
 tags: 	  algorithm mergesort divide
 description: Learning about the merge sort algorithm that goes through divide, conquer, and combine processes.
 category: Algorithm

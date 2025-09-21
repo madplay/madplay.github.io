@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Spring Boot에서 Log4j2 설정하기
-author:   Kimtaeng
+author:   madplay
 tags: 	  springboot log4j2
 description: 스프링 부트(Spring Boot) 프로젝트에서 로깅을 위해 Log4j2를 설정해보자 
 category: Spring

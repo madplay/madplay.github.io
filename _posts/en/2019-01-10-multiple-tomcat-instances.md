@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Multiple Tomcat Instances
-author:   Kimtaeng
+author:   madplay
 tags: 	  apache tomcat
 description: How do you run multiple Tomcat instances?
-category: Knowledge
+category: Development
 comments: true
 slug:     multiple-tomcat-instances
 lang:     en

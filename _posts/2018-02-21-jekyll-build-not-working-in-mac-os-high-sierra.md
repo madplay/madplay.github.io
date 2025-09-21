@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    MacOS High Sierra에서 Jekyll 실행 오류 해결하기
-author:   Kimtaeng
+author:   madplay
 tags: 	  HighSierra Jekyll
 description: High Sierra 버전에서 Jekyll 실행 오류를 해결해보자.
-category: Knowledge
+category: Development
 comments: true
 ---
 

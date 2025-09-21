@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java String Objects and String Literals
-author:   Kimtaeng
+author:   madplay
 tags: 	  Java String Literal Object
 description: There are two ways to declare strings in Java. What's the difference between String and new String()?
 category: Java

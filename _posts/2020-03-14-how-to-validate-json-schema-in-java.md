@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "JSON Schema: 자바 코드로 Validator 구현"
-author:   Kimtaeng
+author:   madplay
 tags: 	  json jsonschema jsonvalidate
 description: "JSON 스키마를 검증하는 validator를 자바 코드로 구현해보자."
 category: Java

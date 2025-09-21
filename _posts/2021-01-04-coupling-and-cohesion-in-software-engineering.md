@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "결합도와 응집도는 무엇일까?"
-author:   Kimtaeng
+author:   madplay
 tags:     coupling cohesion module
 description: "낮은 결합도(Coupling)와 높은 응집도(Cohesion)를 갖도록 설계해야 하는 이유는 무엇일까?"
 category: Knowledge

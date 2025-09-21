@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[이펙티브 자바 3판] 아이템 15. 클래스와 멤버의 접근 권한을 최소화하라"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3th Edition] Item 15. Minimize the accessibility of classes and members" 
 category: Java

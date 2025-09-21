@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Spring Framework Summary: Inversion of Control"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring framework
 description: Learning about Spring's Inversion of Control (IOC, Inversion of Control)
 category: Spring

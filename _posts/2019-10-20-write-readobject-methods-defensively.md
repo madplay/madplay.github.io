@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[이펙티브 자바 3판] 아이템 88. readObject 메서드는 방어적으로 작성하라"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 88. Write readObject methods defensively"
 category: Java

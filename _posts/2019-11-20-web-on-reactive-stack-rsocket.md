@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Web on Reactive Stack] 5. RSocket"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring reactive rsocket
 description: "한글로 번역한 Web on Reactive Stack, 5. RSocket"
 category: Spring

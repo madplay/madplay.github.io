@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "Querydsl: fetch join으로 JPA의 N+1 문제 해결하기"
-author:   Kimtaeng
+author:   madplay
 tags: 	  querydsl fetchjoin
 description: Querydsl의 fetchJoin을 사용하여 JPA의 N+1 문제를 회피해보자  
-category: Knowledge
+category: Database
 date: "2021-01-07 20:54:19"
 comments: true
 ---

@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    NHN Technology Services Written Test Review (SW Development, NTS pretest)
-author:   Kimtaeng
+author:   madplay
 tags: 	  Job Career Interview
 description: NHN Technology Services Written Test Review
-category: Carrer
+category: Career
 comments: true
 slug:     job-interview-nhn-technology-services
 lang:     en

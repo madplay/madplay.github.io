@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    자바 컬렉션과 동기화(Java Collection Synchronization)
-author:   Kimtaeng
+author:   madplay
 tags: 	  Java Collection Synchronization
 description: 동기화는 중요하다. 내가 의도한 것이 다른 사람에게 다르게 보일 수 있다. 컬렉션을 사용할 때의 동기화에 대해서 알아보자
 category: Java

@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    git commit author 변경 (커밋 작성자 변경하기)
-author:   Kimtaeng
+author:   madplay
 tags: 	  git commit rebase
 description: git commit 작성자를 잘못 입력하여 push까지 해버렸다. 커밋 작성자의 이름을 다시 바꿀 수 있을까?
-category: Knowledge
+category: Development
 comments: true
 ---
 

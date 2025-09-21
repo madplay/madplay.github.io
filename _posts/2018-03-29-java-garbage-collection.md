@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    자바 가비지 컬렉션(Java Garbage Collection)
-author:   Kimtaeng
+author:   madplay
 tags: 	  Java Garbage GC
 description: 더이상 사용되지 않는 메모리를 뜻하는 가비지(Garbage)와 이를 청소하는 가비지 컬렉션(Garbage Collection)에 대해서 알아보자.
 category: Java

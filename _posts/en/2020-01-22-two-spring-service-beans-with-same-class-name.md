@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Can Spring Include Package Names in Bean Identifiers?"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring bean
 description: "Can classes with the same name in different packages be registered as Spring beans? How can package names be included in bean names?"
 category: Spring

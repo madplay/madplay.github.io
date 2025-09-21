@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java Upcasting and Downcasting
-author:   Kimtaeng
+author:   madplay
 tags: 	  java upcasting downcasting
 description: What are Upcasting and Downcasting in Java?
 category: Java

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Item 80. Prefer Executors, Tasks, and Streams to Threads"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 80. Prefer executors, tasks, and streams to threads"
 category: Java

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Item 79. Avoid Excessive Synchronization"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 79. Avoid excessive synchronization"
 category: Java

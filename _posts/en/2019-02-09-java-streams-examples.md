@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Streams: 4. Examples"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java stream
 description: Practical examples using the Java Stream API.
 category: Java

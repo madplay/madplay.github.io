@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java String replaceAll Method $(Dollar Sign) Issue
-author:   Kimtaeng
+author:   madplay
 tags: 	  Java String Replacement
 description: Issues you may encounter when using String replaceAll method in Java
 category: Java

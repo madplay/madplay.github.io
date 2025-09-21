@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Why Are Computers Based on Binary System?
-author:   Kimtaeng
+author:   madplay
 tags: 	  knowledge binary
 description: Learning why computers use the binary system.
 category: Knowledge

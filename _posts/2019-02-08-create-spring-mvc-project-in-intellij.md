@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Intellij에서 Spring MVC + Maven 프로젝트 설정하기
-author:   Kimtaeng
+author:   madplay
 tags: 	  springmvc maven intellij
 description: Intellij IDEA 환경에서 Maven 기반 Spring MVC 프로젝트를 생성해보자.
 category: Spring

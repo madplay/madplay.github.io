@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    자바 업캐스팅 다운캐스팅
-author:   Kimtaeng
+author:   madplay
 tags: 	  java upcasting downcasting
 description: 자바에서 업캐스팅(Upcasting)과 다운캐스팅(Downcasting)이란 무엇일까?
 category: Java

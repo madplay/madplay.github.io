@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    자바 파일 압축과 압축 해제(ZipInputStream, ZipOutputStream)
-author:   Kimtaeng
+author:   madplay
 tags: 	  Java ZipOutputStream
 description: java.util.zip 패키지를 이용한 자바 파일 압축과 압축 해제
 category: Java

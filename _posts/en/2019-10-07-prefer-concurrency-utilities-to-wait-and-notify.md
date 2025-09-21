@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Item 81. Prefer Concurrency Utilities to wait and notify"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 81. Prefer concurrency utilities to wait and notify"
 category: Java

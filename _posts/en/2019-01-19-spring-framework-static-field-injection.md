@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    How to Autowire a Static Field
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring framework
 description: Inject a bean into a static field in the Spring Framework.
 category: Spring

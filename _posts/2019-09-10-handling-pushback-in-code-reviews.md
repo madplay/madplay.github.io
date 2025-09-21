@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "구글의 코드 리뷰 가이드: 코드 리뷰에서 반대 의견을 다루는 방법"
-author:   Kimtaeng
+author:   madplay
 tags: 	  google codereview reviewer
 description: 구글의 코드 리뷰 가이드. 리뷰어는 코드 리뷰에서 반대 의견에 어떻게 대처해야 할까?
-category: Knowledge
+category: Development
 date: "2019-09-10 00:00:01"
 comments: true
 ---

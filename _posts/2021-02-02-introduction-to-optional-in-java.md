@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바 Optional: 2. Optional 소개"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java optional
 description: 자바8 에서 추가된 옵셔널(optional) 클래스는 무엇일까? 
 category: Java

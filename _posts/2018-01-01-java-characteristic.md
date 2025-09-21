@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    자바(Java) 언어의 특징
-author:   Kimtaeng
+author:   madplay
 tags: 	  java
 description: 자바 언어는 객체지향, 플랫폼 독립성, 캡슐화와 같은 특성을 가지고 있다. 또 어떤 특성을 가지고 있을까?
 category: Java

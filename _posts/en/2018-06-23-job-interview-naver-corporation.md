@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Naver Interview Review (SW Development, Phone Interview, Technical Interview)
-author:   Kimtaeng
+author:   madplay
 tags: 	  Job Career Interview
 description: Naver SW Development Interview Review
-category: Carrer
+category: Career
 comments: true
 slug:     job-interview-naver-corporation
 lang:     en

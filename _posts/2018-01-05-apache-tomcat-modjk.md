@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    아파치 톰캣 연동하기(apache, tomcat, mod_jk)
-author:   Kimtaeng
+author:   madplay
 tags: 	  apache tomcat modjk ajp
 description: 웹서버 아파치와 WAS 톰캣을 modjk를 통해 연동해보자. 그리고 아파치와 톰캣을 연동하는 이유는 무엇일까?
-category: Knowledge
+category: Network
 comments: true
 ---
 

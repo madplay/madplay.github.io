@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Chapter 7. Lambdas and Streams"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Chapter7: Lambdas and Streams"
 category: Java

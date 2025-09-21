@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Time Complexity and Space Complexity
-author:   Kimtaeng
+author:   madplay
 tags: 	  Algorithm Complexity
 description: Learning about complexity for evaluating algorithm performance.
 category: Algorithm

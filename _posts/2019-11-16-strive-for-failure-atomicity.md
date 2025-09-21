@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[이펙티브 자바 3판] 아이템 76. 가능한 한 실패 원자적으로 만들라"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3th Edition] Item 76. Strive for failure atomicity" 
 category: Java

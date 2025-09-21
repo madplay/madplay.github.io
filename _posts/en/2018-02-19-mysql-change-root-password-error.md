@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Resolving MySQL Root Password Change Error on Mac OS
-author:   Kimtaeng
+author:   madplay
 tags: 	  Database MySQL
 description: Resolving access denied for user... error
 category: Database

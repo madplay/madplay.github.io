@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "이진 탐색 트리: 자바 언어로 구현하기"
-author:   Kimtaeng
+author:   madplay
 tags: 	  BST BinarySearchTree DataStructure Algorithm
 description: 자바 언어로 구현한 이진 탐색 트리(Binary Search Tree)
 category: Algorithm

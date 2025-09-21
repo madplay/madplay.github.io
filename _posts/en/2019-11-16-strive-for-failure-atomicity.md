@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Item 76. Strive for Failure Atomicity"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3rd Edition] Item 76. Strive for failure atomicity" 
 category: Java

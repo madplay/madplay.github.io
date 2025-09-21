@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "FTP Active와 Passive 차이"
-author:   Kimtaeng
+author:   madplay
 tags: 	  ftp active passive
 description: "FTP에서 액티브(Active) 모드와 패시브(Passive) 모드는 어떤 차이가 있을까?"
 category: Network

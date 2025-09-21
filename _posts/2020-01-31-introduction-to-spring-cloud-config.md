@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Spring Cloud Config: 소개와 예제"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring springcloud
 description: "스프링 설정이 바뀌었을 때 빌드, 배포없이 갱신하려면 어떻게 해야할까? 스프링의 설정 파일들을 어떻게 외부로 분리시킬 수 있을까?"
 category: Spring

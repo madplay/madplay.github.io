@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    LeetCode 3. Longest Substring Without Repeating Characters
-author:   Kimtaeng
+author:   madplay
 tags: 	  Algotithm LeetCode
 description: 주어진 문자열에서 문자가 반복되지 않는 가장 긴 서브(sub) 문자열 찾기
 category: Algorithm

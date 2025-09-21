@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바 14 버전에서는 어떤 새로운 기능이 추가됐을까?"
-author:   Kimtaeng
+author:   madplay
 tags:    java jdk14 openjdk
 description: "JDK 14 버전에서는 어떤 기능이 새롭게 등장했을까? 그리고 어떤 기능이 사라졌을까?" 
 category: Java

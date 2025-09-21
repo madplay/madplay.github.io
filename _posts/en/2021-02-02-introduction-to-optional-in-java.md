@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Optional: 2. Introduction to Optional"
-author:   Kimtaeng
+author:   madplay
 tags:    java optional
 description: What is the Optional class added in Java 8?
 category: Java

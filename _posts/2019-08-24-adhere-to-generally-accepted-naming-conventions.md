@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[이펙티브 자바 3판] 아이템 68. 일반적으로 통용되는 명명 규칙을 따르라"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3th Edition] Item 68. Adhere to generally accepted naming conventions"
 category: Java

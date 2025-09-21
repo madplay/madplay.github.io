@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Item 86. Implement Serializable with Great Caution"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 86. Implement Serializable with great caution"
 category: Java

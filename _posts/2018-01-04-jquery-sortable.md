@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    jQuery Sortable (드래그앤드롭으로 정렬 구현하기)
-author:   Kimtaeng
+author:   madplay
 tags: 	  jquery jqueryui
 description: jQuery UI로 드래그 & 드랍 정렬을 구현해보자!
-category: Script
+category: Frontend
 comments: true
 ---
 

@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Getting Started with Node.js
-author:   Kimtaeng
+author:   madplay
 tags: 	  nodejs 
 description: What is Node.js and what makes it different? A concise introduction.
-category: Nodejs
+category: Backend
 comments: true
 slug:     introduction-to-nodejs
 lang:     en

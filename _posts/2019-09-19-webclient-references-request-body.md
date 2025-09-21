@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Web on Reactive Stack] 2. WebClient: 2.4. Request Body"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring reactive webclient
 description: "한글로 번역한 Web on Reactive Stack, 2. WebClient: 2.4. Request Body"
 category: Spring

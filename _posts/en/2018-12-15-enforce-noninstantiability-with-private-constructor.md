@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Item 4. Enforce Noninstantiability with a Private Constructor"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 4. Enforce noninstantiability with a private constructor"
 category: Java

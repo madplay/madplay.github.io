@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Item 90. Consider Serialization Proxies Instead of Serialized Instances"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 90. Consider serialization proxies instead of serialized instances"
 category: Java

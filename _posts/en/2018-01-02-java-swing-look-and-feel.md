@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java Swing LookAndFeel
-author:   Kimtaeng
+author:   madplay
 tags: 	  java swing lookandfeel
 description: Customize Swing UI with LookAndFeel.
 category: Java

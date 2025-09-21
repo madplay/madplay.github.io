@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Python switch Statements
-author:   Kimtaeng
+author:   madplay
 tags: 	  python
 description: How do you implement a switch statement in Python?
 category: Python

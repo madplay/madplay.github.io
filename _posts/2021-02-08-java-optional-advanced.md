@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바 Optional: 5. Optional 톺아보기"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java optional
 description: Optional 클래스를 의도에 맞게 잘 사용하려면 어떻게 해야할까?
 category: Java

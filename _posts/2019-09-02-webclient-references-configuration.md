@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Web on Reactive Stack] 2. WebClient: 2.1. Configuration"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring rective webclient
 description: "한글로 번역한 Web on Reactive Stack, 2. WebClient: 2.1. Configuration"
 category: Spring

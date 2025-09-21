@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[이펙티브 자바 3판] 아이템 89. 인스턴스 수를 통제해야 한다면 readResolve보다는 열거 타입을 사용하라"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 89. For instance control, prefer enum types to readResolve"
 category: Java

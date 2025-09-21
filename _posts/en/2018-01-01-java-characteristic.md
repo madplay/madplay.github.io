@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java Language Characteristics
-author:   Kimtaeng
+author:   madplay
 tags: 	  java
 description: Java is object-oriented and platform independent, and it supports multithreading and encapsulation. What else defines the language?
 category: Java

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Selection Sort
-author:   Kimtaeng
+author:   madplay
 tags: 	  algorithm selectionsort
 description: Learning about selection sort, one of the in-place sorting algorithms.
 category: Algorithm

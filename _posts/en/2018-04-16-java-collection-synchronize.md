@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java Collection Synchronization
-author:   Kimtaeng
+author:   madplay
 tags: 	  Java Collection Synchronization
 description: Synchronization is important. What I intended can appear differently to others. Learning about synchronization when using collections
 category: Java

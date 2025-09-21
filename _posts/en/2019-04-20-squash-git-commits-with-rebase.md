@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Squash Commits with git rebase
-author:   Kimtaeng
+author:   madplay
 tags: 	  git commit squash rebase
 description: How do you combine multiple commits into one? Use git rebase to clean up commit history.
-category: Knowledge
+category: Development
 comments: true
 slug:     squash-git-commits-with-rebase
 lang:     en

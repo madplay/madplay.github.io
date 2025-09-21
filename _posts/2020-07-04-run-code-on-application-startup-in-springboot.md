@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "스프링 부트 애플리케이션이 구동될 때 코드를 실행하는 방법"
-author:   Kimtaeng
+author:   madplay
 tags:     springboot commandlinerunner applicationrunner applicationevent
 description: "스프링 부트(Spring Boot) 애플리케이션이 시작될 때 특정 코드를 실행시킬 수 있는 방법이 있을까?" 
 category: Spring

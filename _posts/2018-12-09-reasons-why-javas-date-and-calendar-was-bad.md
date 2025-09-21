@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java Date와 Time 클래스를 사용하면 안되는 이유
-author:   Kimtaeng
+author:   madplay
 tags: 	  java date calendar
 description: 자바에서 기본적으로 제공하는 Date와 Calendar를 사용하면 안되는 이유는 무엇일까? 
 category: Java

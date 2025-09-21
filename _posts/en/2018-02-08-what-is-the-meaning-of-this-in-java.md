@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    The this Keyword in Java
-author:   Kimtaeng
+author:   madplay
 tags: 	  java this
 description: Learning about the this keyword that refers to the object itself in Java
 category: Java

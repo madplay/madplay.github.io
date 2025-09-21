@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Spring Cloud Config: Spring Cloud Bus 예제"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring springcloud springcloudbus
 description: "Spring Cloud Config가 변경될 때마다 모든 클라이언트 호출해야만 할까? Spring Cloud Bus를 이용하여 모든 클라이언트를 연결해보자."
 category: Spring

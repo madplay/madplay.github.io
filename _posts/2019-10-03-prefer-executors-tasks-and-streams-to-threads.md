@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[이펙티브 자바 3판] 아이템 80. 스레드보다는 실행자, 태스크, 스트림을 애용하라"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 80. Prefer executors, tasks, and streams to threads"
 category: Java

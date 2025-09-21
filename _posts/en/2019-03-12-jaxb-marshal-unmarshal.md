@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "JAXB Marshalling and Unmarshalling"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java jaxb marshal unmarshal
 description: Use JAXB (Java Architecture for XML Binding) to marshal and unmarshal XML in Java.
 category: Java

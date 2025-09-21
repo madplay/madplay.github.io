@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바 17의 새로운 기능들, 3년 만에 LTS 버전 릴리즈!"
-author:   Kimtaeng
+author:   madplay
 tags:    java jdk17 openjdk
 description: "3년 만에 새로운 자바 LTS 버전 출시! JDK 17 버전에서는 어떤 새로운 기능이 추가됐을까?"
 category: Java

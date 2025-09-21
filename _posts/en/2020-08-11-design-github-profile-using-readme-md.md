@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "Design Your GitHub Profile"
-author:   Kimtaeng
+author:   madplay
 tags:    github readme
 description: "Design your GitHub profile with README.md"
-category: Knowledge
+category: Development
 lang: en
 slug: design-github-profile-using-readme-md
 permalink: /en/design-github-profile-using-readme-md/

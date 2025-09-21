@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[이펙티브 자바 3판] 아이템 24. 멤버 클래스는 되도록 static으로 만들라"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3th Edition] Item 24. Favor static member classes over nonstatic" 
 category: Java

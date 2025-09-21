@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java Inheritance
-author:   Kimtaeng
+author:   madplay
 tags: 	  java inheritance
 description: Examining the concept and usage examples of inheritance in Java
 category: Java

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[이펙티브 자바 3판] 아이템 62. 다른 타입이 적절하다면 문자열 사용을 피하라"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3th Edition] Item 62. Avoid strings where other types are more appropriate" 
 category: Java

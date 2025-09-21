@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    LeetCode 344. Reverse String
-author:   Kimtaeng
+author:   madplay
 tags: 	  algotithm leetCode
 description: Output the input string in reverse
 category: Algorithm

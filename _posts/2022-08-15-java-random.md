@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바에서 난수를 만드는 방법과 주의할 점"
-author:   Kimtaeng
+author:   madplay
 tags:    java random
 description: "자바에서 난수를 생성하는 방법에는 어떤 것들이 있을까? 그리고 주의할 점은 무엇일까?"
 category: Java

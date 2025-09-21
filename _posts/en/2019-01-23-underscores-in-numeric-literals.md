@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Numeric Literals and Underscores in Java
-author:   Kimtaeng
+author:   madplay
 tags: 	  java
 description: Since Java 7, you can use underscores in numeric literals to improve readability.
 category: Java

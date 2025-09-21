@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    LeetCode 344. Reverse String
-author:   Kimtaeng
+author:   madplay
 tags: 	  algotithm leetCode
 description: 입력한 문자열을 거꾸로 출력하기
 category: Algorithm

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Quick Sort
-author:   Kimtaeng
+author:   madplay
 tags: 	  Algorithm quicksort pivot
 description: Learning about the quick sort algorithm based on divide & conquer.
 category: Algorithm

@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "Building an IntelliJ Plugin: 2. Define an Action"
-author:   Kimtaeng
+author:   madplay
 tags: 	  intellij plugin 
 description: Define an Action to run an IntelliJ plugin
-category: Knowledge
+category: Development
 comments: true
 slug:     creating-an-intellij-plugin-action
 lang:     en

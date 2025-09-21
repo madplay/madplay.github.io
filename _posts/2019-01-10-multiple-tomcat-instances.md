@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    톰캣 멀티 인스턴스(Multiple Tomcat Instances)
-author:   Kimtaeng
+author:   madplay
 tags: 	  apache tomcat
 description: 여러 개의 톰캣 인스턴스를 띄우려면 어떻게 해야할까?
-category: Knowledge
+category: Development
 comments: true
 ---
 

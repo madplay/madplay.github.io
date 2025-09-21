@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java Finalize Method
-author:   Kimtaeng
+author:   madplay
 tags: 	  java finalize destructor
 description: How to release memory-allocated objects in Java?
 category: Java

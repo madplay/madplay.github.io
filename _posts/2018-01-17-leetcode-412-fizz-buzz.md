@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    LeetCode 412. Fizz Buzz
-author:   Kimtaeng
+author:   madplay
 tags: 	  algotithm leetcode
 description: 1부터 N까지의 숫자에서 3의 배수는 Fizz, 5의 배수는 Buzz, 3과 5의 공배수는 FizzBuzz 출력하기
 category: Algorithm

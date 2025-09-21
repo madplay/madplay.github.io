@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "인텔리제이(Intellij) 플러그인 만들기: 3. 빌드 & 배포하기"
-author:   Kimtaeng
+author:   madplay
 tags: 	  intellij plugin 
 description: 직접 개발한 인텔리제이 플러그인을 빌드하고 JetBrains의 플러그인 저장소에 배포해보자.
-category: Knowledge
+category: Development
 comments: true
 ---
 

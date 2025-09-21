@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java effectively final"
-author:   Kimtaeng
+author:   madplay
 tags:    java final effectivelyfinal
 description: What is "effectively final" in Java, where a variable is not declared final but behaves as final because its reference is not changed after initialization?
 category: Java

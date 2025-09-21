@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    The final Keyword in Java
-author:   Kimtaeng
+author:   madplay
 tags: 	  java final
 description: What does the final keyword mean in Java, and how should you use it?
 category: Java

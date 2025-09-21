@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "Code With Me: Intellij IDEA를 이용한 페어 프로그래밍(Pair Programming)"
-author:   Kimtaeng
+author:   madplay
 tags: 	  intellij pairprogramming codewithme
 description: 인텔리제이(Intellij IDEA)에서 공동 개발 및 페어 프로그래밍을 할 수 있도록 지원하는 'Code With Me' 플러그인에 대해서 알아보자.
-category: Knowledge
+category: Development
 date: "2020-10-28 02:21:25"
 comments: true
 ---

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바 ThreadLocal: 사용법과 주의사항"
-author:   Kimtaeng
+author:   madplay
 tags:    java threadlocal
 description: "자바에서 스레드(thread)마다 독립적인 변수를 가질 수 있게 해주는 스레드 로컬(thread local)은 무엇이며 사용할 때 주의사항은 무엇일까?"
 category: Java

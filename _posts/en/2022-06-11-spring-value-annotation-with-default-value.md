@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Set Default Values in Spring @Value Annotation"
-author:   Kimtaeng
+author:   madplay
 tags:     spring annotation value
 description: "What default values can you use with Spring's @Value annotation, and how do you configure them?"
 category: Spring

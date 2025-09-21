@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java의 문자열 replaceAll 메서드 $(dollar sign) 이슈
-author:   Kimtaeng
+author:   madplay
 tags: 	  Java String Replacement
 description: Java에서 String replaceAll 메서드를 사용할 때 겪을 수 있는 이슈
 category: Java

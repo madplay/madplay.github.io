@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java References and Garbage Collection
-author:   Kimtaeng
+author:   madplay
 tags: 	  Java Garbage GC Reference
 description: Following Garbage Collection, learning about object references of Java references.
 category: Java

@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Windows 10 Jekyll 설치 및 github blog 만들기
-author:   Kimtaeng
+author:   madplay
 tags: 	  jekyll windows github
 description: 윈도우 10(Windows 10) 환경에서 지킬(Jekyll)을 설치하고 github blog 를 생성해봅시다 
-category: Knowledge
+category: Development
 comments: true
 ---
 

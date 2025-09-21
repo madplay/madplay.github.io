@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Big Endian and Little Endian
-author:   Kimtaeng
+author:   madplay
 tags: 	  knowledge byteorder
 description: What's the difference between Big Endian and Little Endian? Learning about methods of arranging bytes.
 category: Knowledge

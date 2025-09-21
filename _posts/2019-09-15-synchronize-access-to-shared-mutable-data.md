@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[이펙티브 자바 3판] 아이템 78. 공유 중인 가변 데이터는 동기화해 사용하라"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 78. Synchronize access to shared mutable data" 
 category: Java

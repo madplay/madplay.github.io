@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    컴투스 면접 후기(플랫폼개발) 
-author:   Kimtaeng
+author:   madplay
 tags: 	  Job Career Interview
 description: 컴투스 플랫폼개발 면접 후기
-category: Carrer
+category: Career
 comments: true
 ---
 

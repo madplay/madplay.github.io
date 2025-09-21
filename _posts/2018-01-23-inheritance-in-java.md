@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    자바 상속(Java Inheritance)
-author:   Kimtaeng
+author:   madplay
 tags: 	  java inheritance
 description: "자바의 상속에 대한 개념과 사용 예제를 살펴보자"
 category: Java

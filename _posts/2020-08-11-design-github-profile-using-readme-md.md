@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "Github 프로필 꾸미기"
-author:   Kimtaeng
+author:   madplay
 tags:    github readme
 description: "README.md 파일로 나의 Github 프로필을 꾸며보자"
-category: Knowledge
+category: Development
 date: "2020-08-11 00:32:54"
 comments: true
 ---

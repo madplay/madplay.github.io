@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[이펙티브 자바 3판] 아이템 23. 태그 달린 클래스보다는 클래스 계층구조를 활용하라"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3th Edition] Item 23. Prefer class hierarchies to tagged classes" 
 category: Java

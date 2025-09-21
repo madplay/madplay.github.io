@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "스프링 프레임워크 정리: 디자인 패턴"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring framework 
 description: 스프링 프레임워크와 디자인패턴에 대해서 공부하자!
 category: Spring

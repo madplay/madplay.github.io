@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "MapStruct 라이브러리로 객체 매핑을 간편하게!"
-author:   Kimtaeng
+author:   madplay
 tags:    java spring mapstruct
 description: "MapStruct 라이브러리를 사용하여 DTO, Entity와 같이 객체 간의 매핑을 간편하게! (feat. SpringBoot, Lombok)"
 category: Spring

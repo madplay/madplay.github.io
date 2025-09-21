@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "스프링 배치 메타데이터 테이블 자동 생성 설정"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring springbatch
 description: "스프링 배치(Spring Batch)에서 사용하는 메타데이터(Meta-Data) 테이블을 자동 생성하도록 설정하는 방법"
 category: Spring

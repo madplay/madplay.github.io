@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Why Constructor Injection Is Preferred Over Field Injection with @Autowired"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring dependencyinjection constructorinjection
 description: "Why is constructor injection generally recommended over field injection with @Autowired?"
 category: Spring

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Serialization: writeObject and readObject"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java readobject writeobject serialization
 description: "What roles do writeObject and readObject play in Java serialization, and why are they private?"
 category: Java

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java 8 날짜와 시간 계산 
-author:   Kimtaeng
+author:   madplay
 tags: 	  java date 자바날짜계산
 description: 자바 8에서 추가된 날짜 관련 클래스(LocalDate, LocalDateTime)로 날짜와 시간을 계산해보자. 
 category: Java

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Optional: 3. Intermediate Optional Methods"
-author:   Kimtaeng
+author:   madplay
 tags:    java optional
 description: How to filter or transform values in Optional objects
 category: Java

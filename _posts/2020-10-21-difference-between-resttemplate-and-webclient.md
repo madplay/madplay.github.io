@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "RestTemplate과 WebClient"
-author:   Kimtaeng
+author:   madplay
 tags:     resttemplate webclient
 description: "RestTemplate 는 Deprecated 될 예정이다. WebClient 를 사용하자." 
 category: Spring

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Web on Reactive Stack] 레퍼런스 한글 번역"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring reactive
 description: "한글로 번역한 레퍼런스 가이드, Web on Reactive Stack"
 category: Spring

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "스프링 부트에서 JSONP를 다루는 방법, CORS 이슈 해결하기"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring springboot jsonp cors
 description: "스프링 부트에서 JSONP 응답을 어떻게 구현할 수 있을까? 그리고 크로스 도메인 이슈를 해결하는 방법은?"
 category: Spring

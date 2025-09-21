@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Argument and Parameter
-author:   Kimtaeng
+author:   madplay
 tags: 	  knowledge
 description: What's the difference between function arguments and parameters?
 category: Knowledge

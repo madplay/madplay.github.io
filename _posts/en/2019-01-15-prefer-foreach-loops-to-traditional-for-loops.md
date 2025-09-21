@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Item 58. Prefer for-each Loops to Traditional for Loops"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 58. Prefer for-each loops to traditional for loops"
 category: Java

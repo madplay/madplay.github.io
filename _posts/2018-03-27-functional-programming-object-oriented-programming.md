@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    함수형 프로그래밍과 객체지향 프로그래밍
-author:   Kimtaeng
+author:   madplay
 tags: 	  OOP Functional Object-Oriented 
 description: 함수형 프로그래밍과 객체지향 프로그래밍
 category: Knowledge

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바 Optional: 4. Optional 종단 처리 메서드"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java optional
 description: 옵셔널(optional) 객체의 중간 처리 과정을 끝내고 값을 꺼내오거나 조건부 처리하는 방법
 category: Java

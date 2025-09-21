@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "맥북 충전기 연결음 끄기"
-author:   Kimtaeng
+author:   madplay
 tags: 	  mac macbook
 description: "맥북(MacBook)에 충전기를 연결했을 때 발생하는 알림음 제거하기"
-category: Knowledge
+category: Development
 date: "2022-07-24 21:51:25"
 comments: true
 ---

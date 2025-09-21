@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java ThreadLocal: Usage and Caveats"
-author:   Kimtaeng
+author:   madplay
 tags:    java threadlocal
 description: "What ThreadLocal is in Java, how to use it, and what to watch out for in real applications."
 category: Java

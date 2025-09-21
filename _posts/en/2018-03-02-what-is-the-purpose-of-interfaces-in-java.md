@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java Interface
-author:   Kimtaeng
+author:   madplay
 tags: 	  java interface
 description: What is an interface in Java? And how can multiple inheritance be implemented in Java?
 category: Java

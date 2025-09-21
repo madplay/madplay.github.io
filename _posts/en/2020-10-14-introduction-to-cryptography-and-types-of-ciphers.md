@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Cryptographic Techniques: Substitution, Transposition, Block Ciphers, and Stream Ciphers"
-author:   Kimtaeng
+author:   madplay
 tags: 	  cryptology cryptography
 description: What types of cryptographic techniques exist? Let's look at substitution and transposition ciphers, and block and stream ciphers.
 category: Knowledge

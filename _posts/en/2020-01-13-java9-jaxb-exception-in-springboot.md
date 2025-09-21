@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "How to Fix ClassNotFoundException: JAXBException When Running a Spring Boot Project on Java 9"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java9 springboot exception
 description: You upgraded to Java 9 and now your Spring Boot project fails at startup. How do you fix it?
 category: Spring

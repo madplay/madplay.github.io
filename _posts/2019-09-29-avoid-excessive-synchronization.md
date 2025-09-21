@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[이펙티브 자바 3판] 아이템 79. 과도한 동기화는 피하라"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 79. Avoid excessive synchronization"
 category: Java

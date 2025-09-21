@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    NTFS, FAT32, and exFAT Formats
-author:   Kimtaeng
+author:   madplay
 tags: 	  Knowledge Windows filesystem
 description: Differences in Windows file systems
-category: Knowledge
+category: Development
 comments: true
 slug:     ntfs-fat32-exfat
 lang:     en

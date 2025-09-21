@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "JSON Schema: JSON 스키마란 무엇일까?"
-author:   Kimtaeng
+author:   madplay
 tags: 	  json jsonschema
 description: "JSON 데이터를 검증할 수 있는 방법이 없을까? XML 스키마인 XSD처럼 JSON 데이터를 검증하는 방법은?"
-category: Knowledge
+category: Backend
 date: "2020-02-19 21:32:51"
 comments: true
 ---

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Setting Up Spring Boot Project in IntelliJ
-author:   Kimtaeng
+author:   madplay
 tags: 	  springboot intellij
 description: Let's create a Spring Boot project using IntelliJ IDE
 category: Spring

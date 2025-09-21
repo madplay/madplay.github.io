@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Benefits of Java Generics and Pitfalls to Avoid
-author:   Kimtaeng
+author:   madplay
 tags: 	  java generic generic-class generic-interface generic-method
 description: Why are Java generics useful, and what should you watch out for?
 category: Java

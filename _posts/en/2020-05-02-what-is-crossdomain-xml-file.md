@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "What Is the crossdomain.xml File?"
-author:   Kimtaeng
+author:   madplay
 tags: 	  crossdomain flash
 description: "Let's look at crossdomain.xml, the security policy file required for Flash (SWF) to access data from external domains."
-category: Knowledge
+category: Network
 lang: en
 slug: what-is-crossdomain-xml-file
 permalink: /en/what-is-crossdomain-xml-file/

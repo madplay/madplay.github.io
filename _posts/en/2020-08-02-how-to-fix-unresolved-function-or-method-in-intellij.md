@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "How to Fix a Node.js Project Not Being Recognized in IntelliJ"
-author:   Kimtaeng
+author:   madplay
 tags:     coupling cohesion module
 description: "How to resolve the \"Unresolved function or method for require()\" warning when developing a Node.js project with IntelliJ IDEA/WebStorm"
-category: Knowledge
+category: Development
 lang: en
 slug: how-to-fix-unresolved-function-or-method-in-intellij
 permalink: /en/how-to-fix-unresolved-function-or-method-in-intellij/

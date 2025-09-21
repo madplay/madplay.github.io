@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Spring Bean Lifecycle Methods and Execution Order
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring bean lifecycle
 description: What are the Bean Lifecycle methods in Spring Framework? And in what order are they executed?
 category: Spring

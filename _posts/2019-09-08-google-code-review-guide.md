@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "구글의 코드 리뷰 가이드: 한글 번역본"
-author:   Kimtaeng
+author:   madplay
 tags: 	  google codereview
 description: 구글에서는 어떻게 코드 리뷰를 할까? 구글에서 사용하는 코드 리뷰 가이드를 한글로 번역해보았습니다.
-category: Knowledge
+category: Development
 date: "2019-09-08 00:00:00"
 comments: true
 ---

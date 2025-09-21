@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "Turn Off the Charging Chime on MacBook"
-author:   Kimtaeng
+author:   madplay
 tags:    mac macbook
 description: "Remove the notification sound that plays when you connect a charger to a MacBook"
-category: Knowledge
+category: Development
 date: "2022-07-24 21:51:25"
 comments: true
 slug:     how-to-turn-off-the-charging-sound-on-macbook

@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "구글의 코드 리뷰 가이드: 리뷰어의 의견을 다루는 방법"
-author:   Kimtaeng
+author:   madplay
 tags: 	  google codereview author
 description: 구글의 코드 리뷰 가이드. 리뷰어의 의견에 코드 작성자는 어떻게 대처해야 할까?
-category: Knowledge
+category: Development
 comments: true
 ---
 

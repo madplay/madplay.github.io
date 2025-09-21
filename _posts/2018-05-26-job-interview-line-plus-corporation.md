@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    라인플러스 면접 후기(SW개발, 기술면접) 
-author:   Kimtaeng
+author:   madplay
 tags: 	  Job Career Interview
 description: 라인플러스 SW개발 면접 후기
-category: Carrer
+category: Career
 comments: true
 ---
 

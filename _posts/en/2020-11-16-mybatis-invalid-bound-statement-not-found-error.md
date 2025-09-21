@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "MyBatis Error: Invalid bound statement (not found)"
-author:   Kimtaeng
+author:   madplay
 tags:     mybatis
 description: "What if 'Invalid bound statement (not found)' occurs when executing a MyBatis query?"
 category: MyBatis

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Serialization: What Is SerialVersionUID?"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java serialization deserialization suid
 description: What is SerialVersionUID, and how does it affect Java serialization?
 category: Java

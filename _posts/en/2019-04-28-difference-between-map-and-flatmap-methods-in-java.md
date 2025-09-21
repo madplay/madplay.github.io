@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    The Difference Between map and flatMap in Java
-author:   Kimtaeng
+author:   madplay
 tags: 	  java java8 map flatmap
 description: What is the difference between map and flatMap in Java 8?
 category: Java

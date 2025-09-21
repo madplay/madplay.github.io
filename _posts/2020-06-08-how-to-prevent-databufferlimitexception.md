@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "DataBufferLimitException 해결 방법"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring webclient databufferlimitexception
 description: "WebClient를 사용할 때 코덱의 메모리 버퍼 사이즈를 초과하는 경우 발생하는 DataBufferLimitException을 해결하는 방법"
 category: Spring

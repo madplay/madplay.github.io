@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Item 39. Prefer Annotations to Naming Patterns"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3rd Edition] Item 39. Prefer annotations to naming patterns"
 category: Java

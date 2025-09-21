@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java Data Types
-author:   Kimtaeng
+author:   madplay
 tags: 	  java datatype
 description: What data types does Java provide?
 category: Java

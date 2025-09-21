@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "Querydsl: Introduction and Usage"
-author:   Kimtaeng
+author:   madplay
 tags:    querydsl jpa
 description: What is Querydsl, why do we need it, and how do we use it?
-category: Knowledge
+category: Database
 date: "2021-01-01 20:54:19"
 comments: true
 slug:     introduction-to-querydsl

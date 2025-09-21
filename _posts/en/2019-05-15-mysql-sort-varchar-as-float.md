@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Sorting a MySQL VARCHAR Column as a Number
-author:   Kimtaeng
+author:   madplay
 tags: 	  Database MySQL
 description: How do you sort a VARCHAR column as a number in MySQL? Convert the string to a number and order it.
 category: Database

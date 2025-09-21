@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Web on Reactive Stack] 3. WebSockets: 3.2. 웹소켓 API(WebSocket API)"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring reactive websocket
 description: "한글로 번역한 Web on Reactive Stack, 3. WebSockets: 3.2. WebSocket API"
 category: Spring

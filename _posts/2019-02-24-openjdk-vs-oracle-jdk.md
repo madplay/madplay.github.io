@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바 유료화? OpenJDK와 Oracle JDK 차이"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java openjdk oraclejdk
 description: "오라클의 자바 유료화? OpenJDK와 Oracle JDK의 차이는 무엇일까?"
 category: Java

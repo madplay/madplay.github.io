@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    롯데정보통신 스펙태클 오디션 후기 
-author:   Kimtaeng
+author:   madplay
 tags: 	  Job Career Interview
 description: 롯데그룹의 IT회사, 롯데정보통신의 무스펙 채용전형 후기
-category: Carrer
+category: Career
 comments: true
 ---
 

@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "JSON Schema: 스키마 결합과 조건부 스키마 그리고 반복적인 스키마의 재사용"
-author:   Kimtaeng
+author:   madplay
 tags: 	  json jsonschema jsonvalidate
 description: "JSON 스키마를 결합하거나 JSON 스키마에 조건문을 넣을 수 있을까? 그리고 반복적인 스키마를 재사용할 수 있는 방법은?"
-category: Knowledge
+category: Backend
 date: "2020-03-07 23:54:23"
 comments: true
 ---

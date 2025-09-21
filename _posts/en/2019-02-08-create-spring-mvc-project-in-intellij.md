@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Setting Up a Spring MVC + Maven Project in IntelliJ
-author:   Kimtaeng
+author:   madplay
 tags: 	  springmvc maven intellij
 description: Create a Maven-based Spring MVC project in IntelliJ IDEA.
 category: Spring

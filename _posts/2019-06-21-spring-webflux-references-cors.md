@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Web on Reactive Stack] 1. 스프링 웹플럭스: 1.7. CORS"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring reactive webflux
 description: "한글로 번역한 Web on Reactive Stack, 1. Spring Webflux: 1.7. CORS"
 category: Spring

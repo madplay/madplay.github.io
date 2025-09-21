@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Encryption and Decryption in Java"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java encrypting decrypting
 description: "How to implement encryption and decryption in Java, including algorithm, mode of operation, and padding basics."
 category: Java

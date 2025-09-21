@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "크론 표현식(Cron Expressions)"
-author:   Kimtaeng
+author:   madplay
 tags: 	  cron cronexpressions
 description: "크론 스케쥴러(Cron Scheduler)에 사용하는 크론 표현식(Cron Expressions에 대해서 알아보자"
-category: Knowledge
+category: Development
 date: "2018-08-26 00:11:46"
 comments: true
 ---

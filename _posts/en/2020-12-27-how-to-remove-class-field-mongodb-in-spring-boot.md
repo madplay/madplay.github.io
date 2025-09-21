@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "How to Avoid Storing _class Field in MongoDB from Spring Boot"
-author:   Kimtaeng
+author:   madplay
 tags:    spring mongotemplate reactivemongotemplate
 description: "How to configure Spring Boot so MongoDB documents do not store the _class field"
 category: Spring

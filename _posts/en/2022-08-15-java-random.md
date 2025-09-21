@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "How to Generate Random Numbers in Java and What to Watch"
-author:   Kimtaeng
+author:   madplay
 tags:    java random
 description: "What options exist for random number generation in Java, and what caveats should you know?"
 category: Java

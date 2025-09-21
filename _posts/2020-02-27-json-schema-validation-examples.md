@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "JSON Schema: 기본적인 스키마 선언과 검증 방법"
-author:   Kimtaeng
+author:   madplay
 tags: 	  json jsonschema jsonvalidate
 description: "JSON 스키마를 이용하여 JSON 데이터가 올바른 형태인지 검증해보자. JSON 스키마를 이용한 기본적인 검증 방법"
-category: Knowledge
+category: Backend
 date: "2020-02-27 01:22:19"
 comments: true
 ---

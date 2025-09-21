@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "스프링 프레임워크 정리: 테스트"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring framework 
 description: 테스트는 스프링을 학습하기 위한 가장 효과적인 방법 중 하나다.
 category: Spring

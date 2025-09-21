@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    jQuery Sortable (Implementing Sorting with Drag and Drop)
-author:   Kimtaeng
+author:   madplay
 tags: 	  jquery jqueryui
 description: Implementing drag & drop sorting with jQuery UI!
-category: Script
+category: Frontend
 comments: true
 slug:     jquery-sortable
 lang:     en

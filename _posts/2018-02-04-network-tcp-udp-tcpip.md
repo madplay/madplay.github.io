@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    TCP와 UDP 차이 그리고 TCP/IP
-author:   Kimtaeng
+author:   madplay
 tags: 	  Network TCP UDP
 description: TCP와 UDP의 차이에 대해서 알아보자.
 category: Network

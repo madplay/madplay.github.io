@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "구글의 코드 리뷰 가이드: 코드 리뷰의 표준 원칙"
-author:   Kimtaeng
+author:   madplay
 tags: 	  google codereview reviewer
 description: 구글의 코드 리뷰 가이드. 리뷰어를 위한 코드 리뷰의 표준 원칙에 대해서 알아봅시다.
-category: Knowledge
+category: Development
 date: "2019-09-08 00:00:02"
 comments: true
 ---

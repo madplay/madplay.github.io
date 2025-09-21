@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Creating Java Executable Files
-author:   Kimtaeng
+author:   madplay
 tags: 	  Java JSmooth
 description: Creating Java executable files using JSmooth.
 category: Java

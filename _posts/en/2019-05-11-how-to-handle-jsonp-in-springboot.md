@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Handling JSONP in Spring Boot and Solving CORS Issues"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring springboot jsonp cors
 description: "How do you implement JSONP responses in Spring Boot, and how do you solve cross-domain issues?"
 category: Spring

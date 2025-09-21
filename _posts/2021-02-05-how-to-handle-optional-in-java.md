@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바 Optional: 3. Optional 중간 처리 메서드"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java optional
 description: 옵서녈(Optional) 객체의 값을 필터링하거나 다른 형태로 변환시키는 방법
 category: Java

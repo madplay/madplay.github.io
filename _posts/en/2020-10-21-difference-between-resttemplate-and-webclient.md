@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "RestTemplate and WebClient"
-author:   Kimtaeng
+author:   madplay
 tags:     resttemplate webclient
 description: "RestTemplate is expected to be deprecated. Use WebClient." 
 category: Spring

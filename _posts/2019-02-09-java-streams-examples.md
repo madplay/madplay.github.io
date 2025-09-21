@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바 스트림 정리: 4. 자바 스트림 예제"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java stream
 description: 자바 스트림 API를 사용하는 여러가지 예제들을 알아보자.
 category: Java

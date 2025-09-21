@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    싱글톤 패턴(Singleton Pattern)
-author:   Kimtaeng
+author:   madplay
 tags: 	  DesignPattern
 description: 객체의 개수를 제한하는 싱글톤 패턴에 대해 알아보자. 그리고 싱글톤 패턴을 왜 안티 패턴이라고 할까?
 category: DesignPattern

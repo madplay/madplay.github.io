@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Lotte Data Communication Company Spectacle Audition Review
-author:   Kimtaeng
+author:   madplay
 tags: 	  Job Career Interview
 description: Review of the no-spec hiring process of Lotte Data Communication Company, an IT company of the Lotte Group
-category: Carrer
+category: Career
 comments: true
 slug:     job-interview-lotte-data-communication-company
 lang:     en

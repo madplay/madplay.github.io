@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Singleton Pattern
-author:   Kimtaeng
+author:   madplay
 tags: 	  DesignPattern
 description: Learning about the singleton pattern that limits the number of objects. And why is the singleton pattern called an anti-pattern?
 category: DesignPattern

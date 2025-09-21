@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    log4j, logback 그리고 log4j2
-author:   Kimtaeng
+author:   madplay
 tags: 	  java log4j logback log4j2
 description: 자바의 로깅 프레임워크인 log4j, logback 그리고 log4j2에 대해서 알아보자.
 category: Java

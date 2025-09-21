@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "JSON Schema: Basic Schema Definitions and Validation"
-author:   Kimtaeng
+author:   madplay
 tags: 	  json jsonschema jsonvalidate
 description: "Validate JSON data with JSON Schema using fundamental schema declaration and validation patterns."
-category: Knowledge
+category: Backend
 date: "2020-02-27 01:22:19"
 comments: true
 lang: en

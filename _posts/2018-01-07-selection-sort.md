@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    선택 정렬(Selection Sort)
-author:   Kimtaeng
+author:   madplay
 tags: 	  algorithm selectionsort
 description: 제자리 정렬 알고리즘의 하나인 선택 정렬을 알아보자.
 category: Algorithm

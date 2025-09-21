@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "What Are Coupling and Cohesion?"
-author:   Kimtaeng
+author:   madplay
 tags:     coupling cohesion module
 description: "Why should we design for low coupling and high cohesion?"
 category: Knowledge

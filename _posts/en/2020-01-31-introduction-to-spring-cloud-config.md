@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Spring Cloud Config: Introduction and Example"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring springcloud
 description: "How can you refresh Spring configuration changes without rebuild and redeploy, and externalize configuration files?"
 category: Spring

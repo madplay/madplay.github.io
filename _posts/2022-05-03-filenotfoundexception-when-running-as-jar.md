@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "jar 파일로 실행할 때 FileNotFoundException"
-author:   Kimtaeng
+author:   madplay
 tags:    java jar filenotfoundexception
 description: "자바에서 jar 파일로 실행할 때 FileNotFoundException이 발생하는 경우"
 category: Java

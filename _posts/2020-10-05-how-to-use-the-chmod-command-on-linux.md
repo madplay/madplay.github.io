@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    리눅스 chmod 명령어 사용법
-author:   Kimtaeng
+author:   madplay
 tags: 	  linux chmod
 description: 리눅스에서 파일과 디렉터리의 사용 권한을 변경하는 chmod 명령어에 대해서 알아보자.
-category: Knowledge
+category: Development
 date: "2020-10-05 23:51:22"
 comments: true
 ---

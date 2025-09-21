@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Server-Side Rendering vs Client-Side Rendering
-author:   Kimtaeng
+author:   madplay
 tags: 	  serverside clientside rendering SPA
 description: What is the difference between server-side rendering (SSR) and client-side rendering (CSR)?
-category: Knowledge
+category: Frontend
 comments: true
 slug:     server-side-rendering-vs-client-side-rendering
 lang:     en

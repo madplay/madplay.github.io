@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    시간복잡도와 공간복잡도(Time Complexity Space Complexity)
-author:   Kimtaeng
+author:   madplay
 tags: 	  Algorithm Complexity 
 description: 알고리즘의 성능을 판단하는 복잡도에 대해서 알아보자. 
 category: Algorithm

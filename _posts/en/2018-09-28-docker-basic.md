@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "Docker: Following Docker Installation and Commands"
-author:   Kimtaeng
+author:   madplay
 tags: 	  docker
 description: Docker, an open-source virtualization platform based on containers! Let's just do it!
-categories: Docker
+category: DevOps
 comments: true
 slug:     docker-basic
 lang:     en

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Optional: 5. A Closer Look at Optional"
-author:   Kimtaeng
+author:   madplay
 tags:    java optional
 description: How can you use Optional in ways that align with its intent?
 category: Java

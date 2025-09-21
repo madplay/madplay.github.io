@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Resolving Maven Tomcat 404 Error
-author:   Kimtaeng
+author:   madplay
 tags: 	  framework maven tomcat
 description: Finding various causes of 404 errors in Maven + Tomcat.
-category: Knowledge
+category: Development
 comments: true
 slug:     maven-tomcat-404-error
 lang:     en

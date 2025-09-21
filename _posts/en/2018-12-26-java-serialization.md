@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Serialization: What Is Serialization?"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java serialization deserialization
 description: What are serialization and deserialization in Java, and how do you use them?
 category: Java

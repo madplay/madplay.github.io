@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Spring Data JPA를 사용할 때 필드 이름이 데이터베이스의 예약어와 같아서 문법 오류가 발생한다면?"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring jpa hibernate
 description: "JPA의 엔티티 클래스 또는 필드 이름이 order, group과 같은 데이터베이스의 예약어와 동일하여 문법 오류가 발생하는 경우에는 어떻게 해야 할까?"
 category: Spring

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Spring Cloud Config: Spring Boot 2.4 버전에서의 변경사항"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring springcloud
 description: "스프링 부트 2.4 버전에서 적용된 Spring Cloud Config 관련 변경사항"
 category: Spring

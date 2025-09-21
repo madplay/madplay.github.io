@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Node.js 설치와 예제
-author:   Kimtaeng
+author:   madplay
 tags: 	  nodejs 
 description: Node.js를 Mac OS X에 설치하고 Hello World 예제 따라 해보기
-category: Nodejs
+category: Backend
 comments: true
 ---
 

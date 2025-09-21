@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java Kafka Producer and Consumer configs Settings
-author:   Kimtaeng
+author:   madplay
 tags: 	  java kafka
 description: Let's set configs for Kafka Producer and Kafka Consumer.
 category: Java

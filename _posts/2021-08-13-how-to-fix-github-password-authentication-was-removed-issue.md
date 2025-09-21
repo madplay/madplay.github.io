@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "git push 오류: Please use a personal access token instead"
-author:   Kimtaeng
+author:   madplay
 tags: 	  git github accesstoken
 description: github에 소스코드를 push를 하는데 "Support for password authentication was removed on August 13, 2021. Please use a personal access token instead" 오류가 발생한다면?
-category: Knowledge
+category: Development
 date: "2021-08-13 01:33:21"
 comments: true
 ---

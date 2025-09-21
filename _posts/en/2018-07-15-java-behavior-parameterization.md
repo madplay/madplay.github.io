@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java and Behavior Parameterization
-author:   Kimtaeng
+author:   madplay
 tags: 	  java parameterization lambda
 description: Passing code to methods when execution behavior hasn't been decided yet.
 category: Java

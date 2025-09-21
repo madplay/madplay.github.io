@@ -4,7 +4,7 @@ title: "프롬프트 엔지니어링 가이드: 1. 프롬프트 기초와 LLM �
 author: madplay
 tags: prompt-engineering llm prompt
 description: "좋은 프롬프트의 출발점은 기법이 아니라 기본기다. LLM 설정부터 구성 요소, 프롬프트 예시까지 흐름대로 정리한다."
-category: Backend
+category: AI
 date: "2024-01-27 08:14:00"
 comments: true
 ---

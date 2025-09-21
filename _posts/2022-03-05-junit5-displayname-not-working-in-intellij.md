@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "인텔리제이에서 JUnit5 @DisplayName 어노테이션이 동작하지 않을 때 해결하기"
-author:   Kimtaeng
+author:   madplay
 tags:    intelliJ junit5
 description: "IntelliJ IDEA에서 JUnit5의 @DisplayName 어노테이션에 선언된 내용이 표기되지 않는 문제 해결방법"
-category: Knowledge
+category: Development
 date: "2022-03-05 21:33:51"
 comments: true
 ---

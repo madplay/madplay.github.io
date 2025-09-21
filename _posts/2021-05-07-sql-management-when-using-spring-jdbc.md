@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Spring JDBC를 사용할 때의 SQL 관리"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring jdbc grooby
 description: "Spring JDBC는 초기 설정이 간단하고 학습 비용이 낮은 장점이 있지만, SQL 문이 비즈니스 로직과 같이 섞여있어 가독성이 좋지 않다. SQL 문을 분리할 수 있는 방법이 없을까?" 
 category: Spring

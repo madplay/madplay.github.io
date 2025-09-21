@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Software Maestro Interview Review (Group Discussion Evaluation, Coding Test)
-author:   Kimtaeng
+author:   madplay
 tags: 	  Job Career Interview
 description: Software Maestro (SW Maestro) Interview Review
-category: Carrer
+category: Career
 comments: true
 slug:     job-interview-software-maestro
 lang:     en

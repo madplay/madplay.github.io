@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    편집거리 알고리즘 Levenshtein Distance(Edit Distance Algorithm)
-author:   Kimtaeng
+author:   madplay
 tags: 	  Algorithm
 description: 문자열 간의 유사도를 알아내는 편집거리 알고리즘을 살펴보자.
 category: Algorithm

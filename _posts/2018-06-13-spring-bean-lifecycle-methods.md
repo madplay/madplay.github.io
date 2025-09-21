@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    스프링 빈 생명주기(Bean Lifecycle) 메서드와 실행 순서
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring bean lifecycle
 description: 스프링 프레임워크에서 빈의 생명주기(Bean Lifecycle) 메서드에는 어떤 것들이 있을까? 또 어떤 순서로 실행될까?
 category: Spring

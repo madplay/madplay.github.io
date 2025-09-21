@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바 직렬화: readResolve와 writeReplace"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java readresolve writereplace serialization
 description: "자바 직렬화에 사용되는 readResolve 메서드와 writeReplace 메서드의 역할은 무엇일까?"
 category: Java

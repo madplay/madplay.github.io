@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Web on Reactive Stack] 6. Reactive Libraries"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring reactive
 description: "한글로 번역한 Web on Reactive Stack, 6. Reactive Libraries"
 category: Spring

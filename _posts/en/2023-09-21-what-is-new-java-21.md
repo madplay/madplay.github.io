@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Java 21 LTS Is Here: What Changed?"
-author: Kimtaeng
+author: madplay
 tags: java jdk21 openjdk
 description: "What has changed in Java 21 LTS?"
 category: Java

@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "JSON Schema: Combining Schemas, Conditional Schemas, and Reuse"
-author:   Kimtaeng
+author:   madplay
 tags: 	  json jsonschema jsonvalidate
 description: "How to combine JSON schemas, apply conditional logic, and reuse repeated schema fragments."
-category: Knowledge
+category: Backend
 date: "2020-03-07 23:54:23"
 comments: true
 lang: en

@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "인텔리제이에서 애플리케이션 분석하기"
-author:   Kimtaeng
+author:   madplay
 tags:    intellij profile
 description: "Intellij IDEA Ultimate 에디션에서 제공하는 애플리케이션 프로파일링 도구(Profiling tools) 기능은 무엇일까?"
-category: Knowledge
+category: Development
 date: "2022-02-04 23:05:11"
 comments: true
 ---

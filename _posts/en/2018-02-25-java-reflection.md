@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java Reflection and Dynamic Loading
-author:   Kimtaeng
+author:   madplay
 tags: 	  Java Reflection dynamic loading
 description: Dynamically load (Dynamic Load) other classes within a class.
 category: Java

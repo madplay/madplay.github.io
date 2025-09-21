@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Functional Programming and Object-Oriented Programming
-author:   Kimtaeng
+author:   madplay
 tags: 	  OOP Functional Object-Oriented
 description: Functional Programming and Object-Oriented Programming
 category: Knowledge

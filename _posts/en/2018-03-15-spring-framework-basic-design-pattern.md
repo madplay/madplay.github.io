@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Spring Framework Summary: Design Patterns"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring framework
 description: Studying Spring Framework and design patterns!
 category: Spring

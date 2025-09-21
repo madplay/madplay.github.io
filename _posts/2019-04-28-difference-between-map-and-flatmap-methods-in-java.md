@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    자바 map 메서드와 flatMap 메서드의 차이
-author:   Kimtaeng
+author:   madplay
 tags: 	  java java8 map flatmap
 description: 자바 8에서 추가된 map 메서드와 flatMap 메서드의 차이는 무엇일까? 
 category: Java

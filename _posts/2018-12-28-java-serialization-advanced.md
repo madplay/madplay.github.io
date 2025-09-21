@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바 직렬화: SerialVersionUID는 무엇일까?"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java serialization deserialization suid
 description: 자바 직렬화를 사용할 때 필요한 SerialVersionUID는 무엇일까?
 category: Java

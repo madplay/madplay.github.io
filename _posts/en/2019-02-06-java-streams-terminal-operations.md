@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Streams: 3. Terminal Operations"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java stream
 description: What terminal operations exist in Java streams, and how do you use them?
 category: Java

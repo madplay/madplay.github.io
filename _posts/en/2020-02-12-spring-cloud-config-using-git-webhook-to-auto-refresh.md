@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Spring Cloud Config: Auto Refresh with Git Webhook"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring springcloud springcloudbus webhook
 description: "Use a Git webhook to refresh Spring Cloud Config automatically whenever configuration changes."
 category: Spring

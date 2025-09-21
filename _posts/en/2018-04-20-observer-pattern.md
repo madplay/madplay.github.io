@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Observer Pattern
-author:   Kimtaeng
+author:   madplay
 tags: 	  DesignPattern
 description: When an object's state changes, is there a way for other objects that depend on it to know?
 category: DesignPattern

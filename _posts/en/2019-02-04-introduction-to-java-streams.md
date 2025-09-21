@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Streams: 1. API Overview and Stream Creation"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java stream
 description: What are Java 8 streams? This post introduces the Stream API and ways to create streams.
 category: Java

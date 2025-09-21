@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    OSI 7 Layer
-author:   Kimtaeng
+author:   madplay
 tags: 	  Network OSI7
 description: Open System Interconnection 7 Layer
 category: Network

@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Com2us Interview Review (Platform Development)
-author:   Kimtaeng
+author:   madplay
 tags: 	  Job Career Interview
 description: Com2us Platform Development Interview Review
-category: Carrer
+category: Career
 comments: true
 slug:     job-interview-com2us
 lang:     en

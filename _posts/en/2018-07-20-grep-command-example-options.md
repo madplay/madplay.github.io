@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    grep Examples and Options
-author:   Kimtaeng
+author:   madplay
 tags: 	  grep
 description: Let's find specific strings in files with the grep command
-category: Knowledge
+category: Development
 comments: true
 slug:     grep-command-example-options
 lang:     en

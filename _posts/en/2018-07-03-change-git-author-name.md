@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Change Git Commit Author (Changing Commit Author)
-author:   Kimtaeng
+author:   madplay
 tags: 	  git commit rebase
 description: I mistakenly entered the commit author and even pushed it. Can I change the commit author's name again?
-category: Knowledge
+category: Development
 comments: true
 slug:     change-git-author-name
 lang:     en

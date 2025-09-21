@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Chapter 5. Generics"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "Effective Java 3rd Edition Chapter 5: Generics"
 category: Java

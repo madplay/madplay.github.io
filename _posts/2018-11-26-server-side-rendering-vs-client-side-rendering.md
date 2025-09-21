@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    서버 사이드 렌더링과 클라이언트 사이드 렌더링
-author:   Kimtaeng
+author:   madplay
 tags: 	  serverside clientside rendering SPA
 description: 서버 사이드 렌더링(Server Side Rendering)과 클라이언트 사이드 렌더링(Client Side Rendering)은 어떤 차이가 있을까? 
-category: Knowledge
+category: Frontend
 comments: true
 ---
 

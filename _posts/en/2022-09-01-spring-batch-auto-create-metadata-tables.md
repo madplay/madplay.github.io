@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Auto-Create Spring Batch Metadata Tables"
-author:   Kimtaeng
+author:   madplay
 tags:    spring springbatch
 description: "How to configure automatic creation of metadata tables used by Spring Batch"
 category: Spring

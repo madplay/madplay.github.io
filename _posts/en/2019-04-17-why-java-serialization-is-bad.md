@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Serialization: What to Consider and Why It Is Discouraged"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java serialization deserialization
 description: "What should you watch out for when using Java serialization, and why is it discouraged?"
 category: Java

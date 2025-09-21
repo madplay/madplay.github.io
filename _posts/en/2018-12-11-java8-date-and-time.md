@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java 8 Date and Time
-author:   Kimtaeng
+author:   madplay
 tags: 	  java date time
 description: Use Java 8 date/time classes (LocalDate, LocalDateTime) to handle dates and times.
 category: Java

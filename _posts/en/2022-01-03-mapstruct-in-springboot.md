@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Simplify Object Mapping with MapStruct"
-author:   Kimtaeng
+author:   madplay
 tags:    java spring mapstruct
 description: "Use MapStruct to simplify object mapping between DTOs and Entities (feat. Spring Boot, Lombok)"
 category: Spring

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Spring Cloud Config: Git Webhook을 이용한 자동 갱신"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring springcloud springcloudbus webhook
 description: "Git Webhook을 이용하여 Spring Cloud Config 설정이 변경될 때마다 자동으로 갱신되도록 해보자"
 category: Spring

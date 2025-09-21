@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Strategy Pattern
-author:   Kimtaeng
+author:   madplay
 tags: 	  DesignPattern
 description: A pattern that encapsulates object behavior into classes to dynamically and freely change them
 category: DesignPattern

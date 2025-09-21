@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    심볼릭 링크(symbolic link)
-author:   Kimtaeng
+author:   madplay
 tags: 	  linux symboliclink symlink 
 description: 리눅스에서 파일이나 디렉터리에 대한 참조를 포함하는 특별한 종류의 파일인 심볼릭 링크는 무엇일까?
-category: Knowledge
+category: Development
 date: "2020-09-02 01:12:58"
 comments: true
 ---

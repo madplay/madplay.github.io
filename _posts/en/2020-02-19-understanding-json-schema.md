@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "JSON Schema: What Is JSON Schema?"
-author:   Kimtaeng
+author:   madplay
 tags: 	  json jsonschema
 description: "Is there a way to validate JSON data? Like XSD for XML, how can you validate JSON?"
-category: Knowledge
+category: Backend
 lang: en
 slug: understanding-json-schema
 permalink: /en/understanding-json-schema/

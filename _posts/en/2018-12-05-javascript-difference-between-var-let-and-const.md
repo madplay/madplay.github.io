@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Differences Between var, let, and const
-author:   Kimtaeng
+author:   madplay
 tags: 	  javascript variable scope
 description: Explore the differences between var, let, and const introduced in ECMAScript 2015 (ES6).
-category: Script
+category: Frontend
 comments: true
 slug:     javascript-difference-between-var-let-and-const
 lang:     en

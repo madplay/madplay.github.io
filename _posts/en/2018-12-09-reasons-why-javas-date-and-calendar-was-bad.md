@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Why Java Date and Calendar Are a Bad Fit
-author:   Kimtaeng
+author:   madplay
 tags: 	  java date calendar
 description: Why should you avoid Java’s legacy Date and Calendar APIs?
 category: Java

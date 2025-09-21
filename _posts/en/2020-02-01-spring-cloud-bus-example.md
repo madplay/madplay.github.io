@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Spring Cloud Config: Spring Cloud Bus Example"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring springcloud springcloudbus
 description: "Do we have to call every client whenever Spring Cloud Config changes? Connect all clients with Spring Cloud Bus."
 category: Spring

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    자바 리플렉션(Java Reflection)과 동적 로딩
-author:   Kimtaeng
+author:   madplay
 tags: 	  Java Reflection 동적로딩
 description: 클래스 내에서 다른 클래스를 동적으로 로딩(Dynamic Load) 한다.
 category: Java

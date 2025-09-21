@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java File Compression and Decompression (ZipInputStream, ZipOutputStream)
-author:   Kimtaeng
+author:   madplay
 tags: 	  Java ZipOutputStream
 description: Java file compression and decompression using java.util.zip package
 category: Java

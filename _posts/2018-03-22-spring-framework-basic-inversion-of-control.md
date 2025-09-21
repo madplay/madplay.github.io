@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "스프링 프레임워크 정리: 제어의 역전"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring framework 
 description: 스프링의 제어의 역전(IOC, Inversion of Control)에 대해서 알아보자
 category: Spring

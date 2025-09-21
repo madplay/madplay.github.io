@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "What Is the Difference Between #{} and ${} in MyBatis?"
-author:   Kimtaeng
+author:   madplay
 tags: 	  mybatis
 description: "When writing SQL in MyBatis XML mappers, what is the difference between #{} and ${}?"
 category: MyBatis

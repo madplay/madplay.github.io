@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Can Spring Register and Use Multiple DataSources?"
-author:   Kimtaeng
+author:   madplay
 tags:     abstractroutingdatasource
 description: "Let's register multiple DataSources with Spring AbstractRoutingDataSource and switch them by context." 
 category: Spring

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "스프링에서 여러 개의 DataSource를 등록하고 사용할 수 있을까?"
-author:   Kimtaeng
+author:   madplay
 tags:     abstractroutingdatasource
 description: "스프링의 AbstractRoutingDataSource를 사용하여 다중 DataSource를 등록하고 상황에 맞게 변경하여 사용해보자." 
 category: Spring

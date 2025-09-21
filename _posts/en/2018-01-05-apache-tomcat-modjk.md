@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Connecting Apache and Tomcat (apache, tomcat, mod_jk)
-author:   Kimtaeng
+author:   madplay
 tags: 	  apache tomcat modjk ajp
 description: Connecting web server Apache and WAS Tomcat through modjk. And why do we connect Apache and Tomcat?
-category: Knowledge
+category: Network
 comments: true
 slug:     apache-tomcat-modjk
 lang:     en

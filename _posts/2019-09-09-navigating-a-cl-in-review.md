@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "구글의 코드 리뷰 가이드: 리뷰중인 코드 변경사항 탐색"
-author:   Kimtaeng
+author:   madplay
 tags: 	  google codereview reviewer
 description: 구글의 코드 리뷰 가이드. 리뷰어는 리뷰중인 코드에서 어떤 것들을 살펴보아야 할까?
-category: Knowledge
+category: Development
 date: "2019-09-09 00:00:02"
 comments: true
 ---

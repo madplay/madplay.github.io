@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    자바에서 제네릭의 장점과 사용할 때 주의할 점
-author:   Kimtaeng
+author:   madplay
 tags: 	  java generic generic-class generic-interface generic-method
 description: 자바에서 제네릭을 사용하면 좋은 점은 무엇일까? 그리고 주의할 점은?
 category: Java

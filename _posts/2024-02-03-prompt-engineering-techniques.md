@@ -4,7 +4,7 @@ title: "프롬프트 엔지니어링 가이드: 2. Zero-shot부터 Self-Consiste
 author: madplay
 tags: prompt-engineering zero-shot few-shot chain-of-thought self-consistency
 description: "같은 질문도 방식 선택에 따라 성능이 달라진다. Zero-shot, Few-shot, Chain-of-Thought, Self-Consistency를 문제 유형과 운영 조건에 맞춰 어떻게 선택할지 사례 중심으로 정리한다."
-category: Backend
+category: AI
 date: "2024-02-03 21:43:00"
 comments: true
 ---

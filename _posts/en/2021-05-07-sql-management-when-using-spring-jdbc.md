@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Managing SQL When Using Spring JDBC"
-author:   Kimtaeng
+author:   madplay
 tags:    spring jdbc grooby
 description: "Spring JDBC is simple to configure and has a low learning curve, but SQL gets mixed into business logic and hurts readability. How can we separate SQL?"
 category: Spring

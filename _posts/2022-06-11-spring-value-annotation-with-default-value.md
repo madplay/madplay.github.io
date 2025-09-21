@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "스프링 @Value 어노테이션에 기본값 설정"
-author:   Kimtaeng
+author:   madplay
 tags:     spring annotation value
 description: "스프링 프레임워크 @Value 어노테이션에 지정할 수 있는 기본값은 무엇이 있으며 어떻게 설정할 수 있을까?"
 category: Spring

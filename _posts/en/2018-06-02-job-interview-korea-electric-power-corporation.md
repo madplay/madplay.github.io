@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Korea Electric Power Corporation Interview Review (IT Information & Communication)
-author:   Kimtaeng
+author:   madplay
 tags: 	  Job Career Interview
 description: Korea Electric Power Corporation IT (Information & Communication) Interview Review
-category: Carrer
+category: Career
 comments: true
 slug:     job-interview-korea-electric-power-corporation
 lang:     en

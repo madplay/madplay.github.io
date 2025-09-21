@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Item 15. Minimize the Accessibility of Classes and Members"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3rd Edition] Item 15. Minimize the accessibility of classes and members" 
 category: Java

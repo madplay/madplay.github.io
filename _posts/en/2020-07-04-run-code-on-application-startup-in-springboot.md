@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "How to Run Code When a Spring Boot Application Starts"
-author:   Kimtaeng
+author:   madplay
 tags:     springboot commandlinerunner applicationrunner applicationevent
 description: "Is there a way to run specific code when a Spring Boot application starts?" 
 category: Spring

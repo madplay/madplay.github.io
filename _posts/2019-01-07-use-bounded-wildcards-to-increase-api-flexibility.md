@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[이펙티브 자바 3판] 아이템 31. 한정적 와일드카드를 사용해 API 유연성을 높이라"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 31. Use bounded wildcards to increase API flexibility"
 category: Java

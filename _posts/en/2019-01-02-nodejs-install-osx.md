@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    Installing Node.js on macOS and Running an Example
-author:   Kimtaeng
+author:   madplay
 tags: 	  nodejs 
 description: Install Node.js on Mac OSX and run a Hello World example.
-category: Nodejs
+category: Backend
 comments: true
 slug:     nodejs-install-osx
 lang:     en

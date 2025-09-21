@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "What If a Spring Data JPA Field Name Matches a Database Reserved Word?"
-author:   Kimtaeng
+author:   madplay
 tags:    spring jpa hibernate
 description: "How to handle syntax errors when JPA entity class/field names match database reserved words such as order or group"
 category: Spring

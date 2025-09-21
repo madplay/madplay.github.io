@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Item 62. Avoid Strings Where Other Types Are More Appropriate"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3rd Edition] Item 62. Avoid strings where other types are more appropriate"
 category: Java

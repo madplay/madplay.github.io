@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Scripting API: Migrating to GraalVM"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java scriptengine graalvm
 description: "Let's replace Nashorn script engine, deprecated in Java 11, with GraalVM." 
 category: Java

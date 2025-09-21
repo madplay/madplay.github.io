@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Spring Framework Summary: Testing"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring framework
 description: Testing is one of the most effective methods for learning Spring.
 category: Spring

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Item 23. Prefer Class Hierarchies to Tagged Classes"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3rd Edition] Item 23. Prefer class hierarchies to tagged classes" 
 category: Java

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Spring Boot에서 MongoDB에 _class 필드를 저장하지 않는 방법"
-author:   Kimtaeng
+author:   madplay
 tags: 	  spring mongotemplate reactivemongotemplate
 description: "스프링 부트에서 몽고 DB에 데이터를 저장할 때 _class 필드를 저장하지 않도록 설정하는 방법은?"
 category: Spring

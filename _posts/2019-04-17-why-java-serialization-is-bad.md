@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바 직렬화: 자바 직렬화를 사용할 때 고민하고 주의할 점"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java serialization deserialization
 description: "자바 직렬화를 사용할 때 주의할 점은 무엇일까? 그리고 왜 권장되지 않을까?"
 category: Java

@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    LINE Plus Interview Review (SW Development, Technical Interview)
-author:   Kimtaeng
+author:   madplay
 tags: 	  Job Career Interview
 description: LINE Plus SW Development Interview Review
-category: Carrer
+category: Career
 comments: true
 slug:     job-interview-line-plus-corporation
 lang:     en

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    전달인자(argument)와 매개변수(parameter)
-author:   Kimtaeng
+author:   madplay
 tags: 	  knowledge
 description: 함수의 전달인자(argument, 아큐먼트)와 매개변수(parameter, 파라미터)는 무슨 차이일까?  
 category: Knowledge

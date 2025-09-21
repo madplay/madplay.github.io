@@ -4,7 +4,7 @@ title: "프롬프트 엔지니어링 가이드: 3. Tree of Thoughts, RAG(Retriev
 author: madplay
 tags: prompt-engineering tot rag retrieval
 description: "Tree of Thoughts는 사고 경로를 넓히고, RAG는 근거를 보강한다. 복잡한 추론과 최신 지식이 필요한 문제를 두 축으로 푸는 방법을 다룬다."
-category: Backend
+category: AI
 date: "2024-02-10 23:11:00"
 comments: true
 ---

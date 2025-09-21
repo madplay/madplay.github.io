@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Optional: 4. Terminal Optional Methods"
-author:   Kimtaeng
+author:   madplay
 tags:    java optional
 description: How to end Optional chaining and extract values or handle branches conditionally
 category: Java

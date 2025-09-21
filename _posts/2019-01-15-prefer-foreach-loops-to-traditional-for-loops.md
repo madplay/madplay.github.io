@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[이펙티브 자바 3판] 아이템 58. 전통적인 for 문보다는 for-each 문을 사용하라"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 58. Prefer for-each loops to traditional for loops" 
 category: Java

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Scripting API: 자바에서 자바스크립트의 함수를 호출할 수 있을까?"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java scriptengine
 description: "자바의 Scripting API를 이용하여 자바스크립트(Javascript) 파일 내의 함수를 호출해보자" 
 category: Java

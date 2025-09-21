@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바 BigInteger: 매우 큰 정수 표현"
-author:   Kimtaeng
+author:   madplay
 tags:    java biginteger
 description: 자바에서 매우 큰 정수를 표현하려면 어떻게 해야 할까?  
 category: Java

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Detect JAXB Parsing Errors with ValidationEventHandler"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java jaxb validation eventhandle
 description: Detect JAXB unmarshal errors and find the error line with ValidationEventHandler.
 category: Java

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Java Garbage Collection
-author:   Kimtaeng
+author:   madplay
 tags: 	  Java Garbage GC
 description: Learning about Garbage, which refers to memory no longer in use, and Garbage Collection, which cleans it up.
 category: Java

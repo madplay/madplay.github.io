@@ -1,10 +1,10 @@
 ---
 layout:   post
 title:    "인텔리제이 source release 8 requires target release 1.8 오류 해결하기"
-author:   Kimtaeng
+author:   madplay
 tags: 	  intellij error jdk maven
 description: "Intellij를 사용할 때 발생하는 Error:java: javacTask: source release 8 requires target release 1.8 오류 해결하기"
-category: Knowledge
+category: Development
 comments: true
 ---
 

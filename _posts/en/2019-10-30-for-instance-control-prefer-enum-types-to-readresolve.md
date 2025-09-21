@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Item 89. For Instance Control, Prefer Enum Types to readResolve"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 89. For instance control, prefer enum types to readResolve"
 category: Java

@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    Setting Up Log4j2 in Spring Boot
-author:   Kimtaeng
+author:   madplay
 tags: 	  springboot log4j2
 description: Let's set up Log4j2 for logging in Spring Boot projects
 category: Spring

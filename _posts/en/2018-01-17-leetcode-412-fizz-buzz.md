@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    LeetCode 412. Fizz Buzz
-author:   Kimtaeng
+author:   madplay
 tags: 	  algotithm leetcode
 description: Output Fizz for multiples of 3, Buzz for multiples of 5, and FizzBuzz for both from numbers 1 to N
 category: Algorithm

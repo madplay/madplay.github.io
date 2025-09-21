@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "Java Streams: 5. Common Mistakes"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java stream
 description: Common pitfalls and trade-offs when using the Java Stream API.
 category: Java

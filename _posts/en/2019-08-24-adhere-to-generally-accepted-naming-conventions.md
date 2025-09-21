@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "[Effective Java 3rd Edition] Item 68. Adhere to Generally Accepted Naming Conventions"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3rd Edition] Item 68. Adhere to generally accepted naming conventions"
 category: Java

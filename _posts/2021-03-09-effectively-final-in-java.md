@@ -1,7 +1,7 @@
 ---
 layout:   post
 title:    "자바의 effectively final"
-author:   Kimtaeng
+author:   madplay
 tags: 	  java final effectivelyfinal
 description: 자바에서 final로 선언되지 않았지만 초기화된 이후 참조가 변경되지 않아 final처럼 동작하는 "effectively final" 이란 무엇일까?
 category: Java
