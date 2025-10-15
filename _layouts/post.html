@@ -2,16 +2,16 @@
 layout: default
 ---
 
-<link rel="stylesheet" href="{{ site.baseurl }}/css/custom/post.css">
 <script src="{{ site.baseurl }}/js/copy-button.js"></script>
+<script src="{{ site.baseurl }}/js/toc.js" defer></script>
 
-<article class="max-w-3xl mx-auto px-4 md:px-12 py-12 md:py-24">
+<article class="post-article mx-auto px-4 md:px-10 py-12 md:py-24">
     <header class="mb-12 md:mb-16">
-        <h1 class="text-3xl md:text-5xl font-medium text-zinc-100 leading-tight mb-6 md:mb-8">
+        <h1 class="text-3xl md:text-5xl font-medium text-zinc-100 leading-tight mb-6 md:mb-8 text-center">
             {{ page.title }}
         </h1>
 
-        <div class="flex flex-wrap items-center gap-4 text-sm md:text-base">
+        <div class="flex flex-wrap items-center justify-center gap-4 text-sm md:text-base">
             <time datetime="{{ page.date | date: '%Y-%m-%d' }}" class="text-zinc-500 font-mono">
                 {% assign current_lang = page.lang | default: site.default_lang %}
                 {% if current_lang == 'en' %}
@@ -34,135 +34,146 @@ layout: default
         </div>
     </header>
 
-    <div class="mb-8">
-        {% assign current_lang = page.lang | default: site.default_lang %}
-        {% if current_lang == 'en' %}
-        {% assign target_lang = site.default_lang %}
-        {% else %}
-        {% assign target_lang = 'en' %}
-        {% endif %}
-        {% assign paired_post = nil %}
-        {% for p in site.posts %}
-        {% assign p_lang = p.lang | default: site.default_lang %}
-        {% if p.slug == page.slug and p.url != page.url and p_lang == target_lang %}
-        {% assign paired_post = p %}
-        {% break %}
-        {% endif %}
-        {% endfor %}
-        {% if paired_post %}
-        <div class="mb-8">
-            <a href="{{ site.baseurl }}{{ paired_post.url }}"
-               class="inline-flex items-center gap-2 px-3 py-2 border border-zinc-700 rounded text-sm text-zinc-300 hover:text-zinc-100 hover:border-zinc-500 transition-colors duration-200">
-                {% if current_lang == 'en' %}한국어로 보기{% else %}Read in English{% endif %}
-            </a>
+    <div class="post-main-with-toc">
+        <div class="post-main">
+            <div class="mb-8">
+                {% assign current_lang = page.lang | default: site.default_lang %}
+                {% if current_lang == 'en' %}
+                {% assign target_lang = site.default_lang %}
+                {% else %}
+                {% assign target_lang = 'en' %}
+                {% endif %}
+                {% assign paired_post = nil %}
+                {% for p in site.posts %}
+                {% assign p_lang = p.lang | default: site.default_lang %}
+                {% if p.slug == page.slug and p.url != page.url and p_lang == target_lang %}
+                {% assign paired_post = p %}
+                {% break %}
+                {% endif %}
+                {% endfor %}
+                {% if paired_post %}
+                <div class="mb-8">
+                    <a href="{{ site.baseurl }}{{ paired_post.url }}"
+                       class="inline-flex items-center gap-2 px-3 py-2 border border-zinc-700 rounded text-sm text-zinc-300 hover:text-zinc-100 hover:border-zinc-500 transition-colors duration-200">
+                        {% if current_lang == 'en' %}한국어로 보기{% else %}Read in English{% endif %}
+                    </a>
+                </div>
+                {% endif %}
+
+                <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+                     data-ad-format="fluid" data-ad-client="ca-pub-8036596086585080" data-ad-slot="9643944593"
+                     data-language="{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            <div class="post-content">
+                {{ content }}
+            </div>
+
+            <div class="mt-12 mb-8">
+                <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+                     data-ad-format="fluid" data-ad-client="ca-pub-8036596086585080" data-ad-slot="7241821159"
+                     data-language="{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
+
+            {% assign current_lang = page.lang | default: site.default_lang %}
+            {% assign prev_post = nil %}
+            {% assign next_post = nil %}
+            {% assign prev_in_loop = nil %}
+            {% assign found_current = false %}
+            {% for post in site.posts %}
+                {% assign post_lang = post.lang | default: site.default_lang %}
+                {% if post_lang == current_lang %}
+                {% if post.url == page.url %}
+                    {% assign next_post = prev_in_loop %}
+                    {% assign found_current = true %}
+                {% elsif found_current and prev_post == nil %}
+                    {% assign prev_post = post %}
+                {% endif %}
+                {% assign prev_in_loop = post %}
+                {% endif %}
+            {% endfor %}
+
+            <footer class="mt-16 md:mt-24 pt-8 border-t border-zinc-900">
+                {% unless current_lang == 'en' %}
+                <div class="mb-8">
+                    <a href="{{ site.baseurl }}/"
+                       class="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg text-zinc-300 hover:text-zinc-100 transition-all duration-200 text-sm font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        목록으로
+                    </a>
+                </div>
+                {% endunless %}
+
+                {% if prev_post or next_post %}
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {% if prev_post %}
+                    <a href="{{ site.baseurl }}{{ prev_post.url }}"
+                       class="group flex flex-col p-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg transition-all duration-200">
+                        <div class="flex items-center gap-2 text-zinc-500 text-xs font-medium mb-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M15 19l-7-7 7-7"></path>
+                            </svg>
+                            {% if current_lang == 'en' %}Previous{% else %}이전 글{% endif %}
+                        </div>
+                        <div class="text-zinc-300 group-hover:text-zinc-100 font-medium text-sm line-clamp-2 transition-colors duration-200">
+                            {{ prev_post.title }}
+                        </div>
+                    </a>
+                    {% else %}
+                    <div class="hidden md:block"></div>
+                    {% endif %}
+
+                    {% if next_post %}
+                    <a href="{{ site.baseurl }}{{ next_post.url }}"
+                       class="group flex flex-col p-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg transition-all duration-200 {% unless prev_post %}md:col-start-2{% endunless %}">
+                        <div class="flex items-center justify-end gap-2 text-zinc-500 text-xs font-medium mb-2">
+                            {% if current_lang == 'en' %}Next{% else %}다음 글{% endif %}
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                            </svg>
+                        </div>
+                        <div class="text-zinc-300 group-hover:text-zinc-100 font-medium text-sm line-clamp-2 text-right transition-colors duration-200">
+                            {{ next_post.title }}
+                        </div>
+                    </a>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </footer>
+
+            <div class="mt-16 pt-8 border-t border-zinc-900">
+                {% assign current_lang = page.lang | default: site.default_lang %}
+                {% if current_lang == 'en' %}
+                <p class="text-center text-zinc-500 text-sm mb-6">Please log in with GitHub to leave a comment :D</p>
+                {% else %}
+                <p class="text-center text-zinc-500 text-sm mb-6">댓글을 남기시려면 Github 로그인을 해주세요 :D</p>
+                {% endif %}
+                <script src="https://utteranc.es/client.js"
+                        repo="madplay/madplay.github.io"
+                        issue-term="og:title"
+                        label="comment"
+                        theme="github-dark"
+                        crossorigin="anonymous"
+                        async>
+                </script>
+            </div>
         </div>
-        {% endif %}
 
-        <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
-             data-ad-format="fluid" data-ad-client="ca-pub-8036596086585080" data-ad-slot="9643944593"
-             data-language="{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
-
-    <div class="post-content">
-        {{ content }}
-    </div>
-
-    <div class="mt-12 mb-8">
-        <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
-             data-ad-format="fluid" data-ad-client="ca-pub-8036596086585080" data-ad-slot="7241821159"
-             data-language="{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}"></ins>
-        <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
-
-    {% assign current_lang = page.lang | default: site.default_lang %}
-    {% assign prev_post = nil %}
-    {% assign next_post = nil %}
-    {% assign prev_in_loop = nil %}
-    {% assign found_current = false %}
-    {% for post in site.posts %}
-        {% assign post_lang = post.lang | default: site.default_lang %}
-        {% if post_lang == current_lang %}
-        {% if post.url == page.url %}
-            {% assign next_post = prev_in_loop %}
-            {% assign found_current = true %}
-        {% elsif found_current and prev_post == nil %}
-            {% assign prev_post = post %}
-        {% endif %}
-        {% assign prev_in_loop = post %}
-        {% endif %}
-    {% endfor %}
-
-    <footer class="mt-16 md:mt-24 pt-8 border-t border-zinc-900">
-        {% unless current_lang == 'en' %}
-        <div class="mb-8">
-            <a href="{{ site.baseurl }}/"
-               class="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg text-zinc-300 hover:text-zinc-100 transition-all duration-200 text-sm font-medium">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                </svg>
-                목록으로
-            </a>
-        </div>
-        {% endunless %}
-
-        {% if prev_post or next_post %}
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {% if prev_post %}
-            <a href="{{ site.baseurl }}{{ prev_post.url }}"
-               class="group flex flex-col p-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg transition-all duration-200">
-                <div class="flex items-center gap-2 text-zinc-500 text-xs font-medium mb-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                    {% if current_lang == 'en' %}Previous{% else %}이전 글{% endif %}
-                </div>
-                <div class="text-zinc-300 group-hover:text-zinc-100 font-medium text-sm line-clamp-2 transition-colors duration-200">
-                    {{ prev_post.title }}
-                </div>
-            </a>
-            {% else %}
-            <div class="hidden md:block"></div>
-            {% endif %}
-
-            {% if next_post %}
-            <a href="{{ site.baseurl }}{{ next_post.url }}"
-               class="group flex flex-col p-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg transition-all duration-200 {% unless prev_post %}md:col-start-2{% endunless %}">
-                <div class="flex items-center justify-end gap-2 text-zinc-500 text-xs font-medium mb-2">
-                    {% if current_lang == 'en' %}Next{% else %}다음 글{% endif %}
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </div>
-                <div class="text-zinc-300 group-hover:text-zinc-100 font-medium text-sm line-clamp-2 text-right transition-colors duration-200">
-                    {{ next_post.title }}
-                </div>
-            </a>
-            {% endif %}
-        </div>
-        {% endif %}
-    </footer>
-
-    <div class="mt-16 pt-8 border-t border-zinc-900">
-        {% assign current_lang = page.lang | default: site.default_lang %}
-        {% if current_lang == 'en' %}
-        <p class="text-center text-zinc-500 text-sm mb-6">Please log in with GitHub to leave a comment :D</p>
-        {% else %}
-        <p class="text-center text-zinc-500 text-sm mb-6">댓글을 남기시려면 Github 로그인을 해주세요 :D</p>
-        {% endif %}
-        <script src="https://utteranc.es/client.js"
-                repo="madplay/madplay.github.io"
-                issue-term="og:title"
-                label="comment"
-                theme="github-dark"
-                crossorigin="anonymous"
-                async>
-        </script>
+        <aside class="post-toc" aria-label="{% if current_lang == 'en' %}Table of contents{% else %}목차{% endif %}">
+            <div class="post-toc-inner">
+                <p class="post-toc-title">{% if current_lang == 'en' %}On this page{% else %}한눈에 보기{% endif %}</p>
+                <nav class="post-toc-nav" id="post-toc-nav"></nav>
+            </div>
+        </aside>
     </div>
 </article>
