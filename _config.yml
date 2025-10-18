@@ -33,6 +33,7 @@ kramdown:
 plugins:
   - jekyll-paginate
   - jekyll-feed
+  - jekyll-sitemap
 
 # Pagination
 paginate: 10
