@@ -290,6 +290,11 @@
     line-height: 1.4;
 }
 
+.post-content strong {
+    color: rgb(244 244 245);
+    font-weight: 700;
+}
+
 .post-content a {
     color: rgb(96 165 250);
     text-decoration: underline;
