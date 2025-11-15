@@ -251,7 +251,7 @@
 }
 
 .post-content {
-    max-width: 48rem;
+    max-width: 50rem;
     margin: 0 auto;
     width: 100%;
 }
@@ -490,13 +490,13 @@
 
 @media (min-width: 1280px) {
     .post-article {
-        max-width: 100rem;
+        max-width: 108rem;
     }
 
     .post-main-with-toc {
         display: grid;
-        grid-template-columns: minmax(0, 54rem) 19rem;
-        gap: 3.5rem;
+        grid-template-columns: minmax(0, 58rem) 17.5rem;
+        gap: 2.5rem;
         justify-content: center;
         align-items: start;
     }
@@ -671,7 +671,7 @@
 
 .ad-container {
     margin: 2.5rem auto;
-    max-width: 48rem;
+    max-width: 50rem;
     text-align: center;
     padding: 0.5rem 0;
     min-height: 100px;
