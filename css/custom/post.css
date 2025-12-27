@@ -344,6 +344,31 @@
     height: auto;
 }
 
+.post-content .post_image {
+    display: block;
+    margin: 2rem auto 0.75rem;
+}
+
+.post-content .post_image_caption {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 1.75rem;
+    color: rgb(161 161 170);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.post-content .post_image_caption a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.post-content .post_image_caption a:hover {
+    color: rgb(212 212 216);
+}
+
 .post-content hr {
     border: none;
     border-top: 1px solid rgb(39 39 42);
