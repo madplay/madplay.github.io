@@ -1,28 +1,27 @@
 ---
 layout: post
-title: "AI Agent Skills 개념과 SKILL.md 작성 가이드"
+title: "AI Agent Skills, 어떻게 만들고 어떻게 쓸까?"
 author: madplay
-tags: agent-skills skill-md claude-code cursor ai-coding
-description: "Claude Code, Cursor 등에서 반복되는 맥락을 스킬로 만들어 재사용하는 방법. Agent Skills의 동작 원리부터 SKILL.md 작성법까지 정리한다."
+tags: agent-skills skill-md claude-code cursor codex ai-coding
+description: "매번 다시 설명하던 규칙과 절차, 스킬로 분리하면 재사용이 쉬워진다. Agent Skills의 구조와 작성 포인트를 알아보자!"
 category: AI
 date: "2025-12-28 14:22:07"
 comments: true
 ---
 
-# AI Agent Skills
+# Agent Skills란 무엇일까
 Claude Code, Cursor, Codex 같은 AI 에이전트를 쓰다 보면 매번 같은 맥락을 반복해서 알려줘야 할 때가 있다.
 "테스트 계정은 제외해줘", "커밋 메시지는 이 형식으로 써줘" 같은 것들이다.
-신입 개발자에게 매번 같은 설명을 반복하는 대신 온보딩 문서를 만들어두는 것처럼,
-반복되는 작업 절차를 문서로 만들어두면 에이전트가 알아서 읽고 수행한다. 이것이 AI Agent Skills다.
+신입 개발자에게 매번 같은 설명을 반복하는 대신 온보딩 문서를 만들어두는 것처럼, 반복되는 작업 절차를 문서로 만들어두면 에이전트가 알아서 읽고 수행한다.
+이것이 AI Agent Skills다.
 
 Agent Skills는 Anthropic이 2025년 10월 16일에 처음 발표한 뒤, 같은 해 12월 18일에
 <a href="https://agentskills.io/" target="_blank" rel="nofollow">agentskills.io</a>를 통해 오픈 스탠다드로 공개됐다.
-YAML frontmatter와 마크다운 본문으로 구성된 `SKILL.md` 파일이 핵심이며,
-한 번 만들어두면 여러 에이전트에서 그대로 사용할 수 있다.
+YAML frontmatter와 마크다운 본문으로 구성된 `SKILL.md` 파일이 핵심이며, 한 번 만들어두면 여러 에이전트에서 그대로 사용할 수 있다.
 
 <br>
 
-# SKILL.md의 구조
+# 스킬은 어떻게 구성할까?
 
 스킬은 디렉터리 하나가 단위다. 필수 파일은 `SKILL.md` 하나뿐이고, 나머지는 필요에 따라 추가한다.
 
@@ -39,10 +38,8 @@ code-review/
     └── comment-template.md
 ```
 
-`scripts/`에는 에이전트가 실행할 스크립트를 둔다. 에이전트가 매번 코드를 새로 생성하지 않고 검증된 스크립트를 실행하므로,
-운영 환경에서 돌리는 작업이라면 이 방식이 안정적이다.
-`references/`에는 API 문서나 체크리스트처럼 분량이 긴 참조 자료를 분리해서 넣는다.
-에이전트는 필요한 시점에만 이 파일을 읽기 때문에 컨텍스트 윈도우를 아낄 수 있다.
+`scripts/`에는 에이전트가 실행할 스크립트를 둔다. 에이전트가 매번 코드를 새로 생성하지 않고 검증된 스크립트를 실행하므로, 운영 환경에서 돌리는 작업이라면 이 방식이 안정적이다.
+`references/`에는 API 문서나 체크리스트처럼 분량이 긴 참조 자료를 분리해서 넣는다. 에이전트는 필요한 시점에만 이 파일을 읽기 때문에 컨텍스트 윈도우를 아낄 수 있다.
 `assets/`에는 JSON 스키마, 설정 템플릿 같은 정적 리소스를 둔다. 에이전트가 직접 실행하지는 않지만, 참조하거나 복사해서 사용하는 파일이 여기에 해당한다.
 
 <br>
@@ -64,12 +61,11 @@ Phase 3: Resources (필요한 만큼)
   └─ scripts/, references/, assets/ 파일을 필요할 때 읽는다.
 ```
 
-이 구조 때문에 `description`이 가장 중요하다. Phase 1에서 에이전트가 "이 스킬을 활성화할지 말지"를
-판단하는 유일한 근거가 `description`이기 때문이다.
+이 구조 때문에 `description`이 가장 중요하다. Phase 1에서 에이전트가 "이 스킬을 활성화할지 말지"를 판단하는 유일한 근거가 `description`이기 때문이다.
 
 <br>
 
-# Frontmatter: name과 description
+# Frontmatter에서 먼저 볼 것
 
 `SKILL.md`는 YAML frontmatter + 마크다운 본문으로 구성된다.
 
@@ -83,6 +79,8 @@ description: >-
 ```
 
 필수 필드는 `name`과 `description` 두 개다.
+
+## name 필드
 
 `name`은 디렉터리 이름과 반드시 일치해야 한다.
 소문자, 숫자, 하이픈만 허용되며 64자 이하로 제한된다.
@@ -98,6 +96,8 @@ name: Order-Event-Review   # 대문자 불가
 name: -order-event          # 하이픈으로 시작 불가
 name: order--event          # 연속 하이픈 불가
 ```
+
+## description 필드
 
 `description`은 1024자 이하로, "무엇을 하는지(WHAT)"와 "언제 쓰는지(WHEN)"를 모두 포함해야 한다.
 
@@ -115,16 +115,14 @@ description: >-
 <a href="https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices#writing-effective-descriptions" target="_blank" rel="nofollow">Anthropic 공식 가이드</a>에서도
 "The description is critical for skill selection"이라고 명시하고 있다.
 
-한 가지 주의할 점이 있다. `description`은 시스템 프롬프트에 주입되기 때문에
-"나는", "당신은", "I can" 같은 1/2인칭 표현을 쓰면 시점이 섞여 스킬 탐색에 문제가 생길 수 있다.
-3인칭 서술로 작성한다.
+한 가지 주의할 점이 있다. `description`은 시스템 프롬프트에 주입되기 때문에 "나는", "당신은", "I can" 같은 1/2인칭 표현을 쓰면
+시점이 섞여 스킬 탐색에 문제가 생길 수 있다. 3인칭 서술로 작성한다.
 
 <br>
 
 # 본문 작성 가이드
 
-frontmatter 아래의 마크다운 본문은 에이전트가 따를 실제 지침이다.
-포맷에 대한 공식 제약은 없지만, 효과적으로 작성하기 위한 기준은 있다.
+frontmatter 아래의 마크다운 본문은 에이전트가 따를 실제 지침이다. 포맷에 대한 공식 제약은 없지만, 효과적으로 작성하기 위한 기준은 있다.
 
 ```markdown
 ---
@@ -180,7 +178,7 @@ Phase 1에서 이미 `description`을 읽었기 때문이다.
 
 <br>
 
-# 스킬을 만드는 과정
+# 스킬은 어떻게 만들고 검증할까
 
 > Anthropic 공식 가이드에서는 "Claude로 스킬을 만들고, 다른 Claude로 테스트하라"는 방식을 권장한다.
 
@@ -198,7 +196,7 @@ Phase 1에서 이미 `description`을 읽었기 때문이다.
 공식 가이드에서는 스킬을 만드는 인스턴스를 "Claude A", 테스트하는 인스턴스를 "Claude B"로 구분하는데,
 같은 에이전트라도 세션을 분리하면 스킬이 의도대로 동작하는지 객관적으로 확인할 수 있기 때문이다.
 
-이때 확인할 것은 세 가지다.
+이때 확인할 것은 다음과 같다.
 
 - 스킬이 자동으로 활성화되는가?
 - 지침을 잘 따르는가?
@@ -215,10 +213,15 @@ Phase 1에서 이미 `description`을 읽었기 때문이다.
 
 <br>
 
-# 저장 경로와 에이전트 호환
+# 표준 포맷과 구현체별 차이
+
+`SKILL.md` 포맷 자체는 오픈 스탠다드로 동일하지만, 저장 경로나 수동 호출 방식은 구현체마다 달라질 수 있다.
+즉, 같은 스킬이라도 포맷은 재사용할 수 있지만 설치 위치와 호출 문법까지 완전히 같다고 보기는 어렵다.
+
+## 저장 경로는 구현체마다 다르다
 
 스킬의 저장 경로는 에이전트마다 다르다. 이 경로는 agentskills.io 오픈 스탠다드의 범위가 아니라
-각 에이전트 구현체가 독자적으로 정한 것이다.
+각 구현체가 독자적으로 정한 것이다.
 
 ```bash
 # Claude Code
@@ -231,18 +234,23 @@ Phase 1에서 이미 `description`을 읽었기 때문이다.
 .agents/skills/db-migration-check/SKILL.md
 ```
 
-`SKILL.md` 포맷 자체는 오픈 스탠다드로 동일하기 때문에 스킬을 다시 작성할 필요 없이 경로만 맞춰주면 된다.
-Cursor는 `.claude/skills/`도 자동으로 읽으므로, Claude Code에서 만든 스킬을 그대로 사용할 수 있다.
+위 예시는 2025년 말 기준으로 자주 보이는 경로를 정리한 것이다.
+다만 실제 지원 여부와 로딩 방식은 각 구현체 버전에 따라 달라질 수 있으므로, 현재 사용 중인 도구의 문서를 함께 확인하는 편이 안전하다.
 
-팀에서 공유할 스킬은 프로젝트 레벨 경로(예: `.cursor/skills/`)에 넣으면
-Git으로 관리되므로 팀원 모두 동일한 스킬을 사용하게 된다.
+`SKILL.md` 포맷 자체는 오픈 스탠다드로 동일하기 때문에, 지원 구현체라면 스킬을 처음부터 다시 작성하기보다 경로와 로딩 방식만 맞춰 재사용할 수 있다.
+Cursor는 `.claude/skills/`도 읽을 수 있어, Claude Code에서 만든 스킬을 그대로 가져다 쓰는 흐름이 비교적 자연스럽다.
+
+## 수동 호출 문법도 같지는 않다
+
+팀에서 공유할 스킬은 프로젝트 레벨 경로(예: `.cursor/skills/`)에 넣으면 Git으로 관리되므로 팀원 모두 동일한 스킬을 사용하게 된다.
 개인용 스킬은 홈 디렉터리(예: `~/.cursor/skills/`)에 두면 모든 프로젝트에서 사용할 수 있다.
 
-수동 호출 문법은 에이전트마다 다르다. Claude Code와 Cursor는 `/skill-name`, OpenAI Codex는 `$skill-name` 형태다.
+수동 호출 문법도 에이전트마다 다르다. `/command`를 쓰는 경우도 있고, 별도 mention 문법을 두는 경우도 있다.
+스킬을 설계할 때는 호출 문법보다 자동 선택이 잘 되도록 `description`을 쓰는 편이 더 중요하다.
 
 <br>
 
-# 스킬 작성 시 주의할 점
+# 스킬을 사용할 때 함께 주의할 점
 
 ## 스킬은 프로그래밍적 강제가 아니다
 
@@ -259,13 +267,11 @@ order-restart/
     └── restart-connector.sh  # 핵심 로직: 커넥터 재시작
 ```
 
-이 구조에서 에이전트는 `SKILL.md`의 지침에 따라 판단하고,
-실제 실행은 검증된 스크립트를 호출하는 방식이 된다.
+이 구조에서 에이전트는 `SKILL.md`의 지침에 따라 판단하고, 실제 실행은 검증된 스크립트를 호출하는 방식이 된다.
 
 ## 민감 정보는 하드코딩하지 않는다
 
-API 키나 인증 토큰 같은 값을 `SKILL.md`나 `scripts/`에 직접 넣으면
-Git 커밋에 포함된다. 실행 시점에 환경 변수나 입력으로 받도록 설계한다.
+API 키나 인증 토큰 같은 값을 `SKILL.md`나 `scripts/`에 직접 넣으면 Git 커밋에 포함된다. 실행 시점에 환경 변수나 입력으로 받도록 설계한다.
 
 ```bash
 #!/bin/bash
@@ -277,8 +283,7 @@ curl -X POST "${API_URL}/connectors/${CONNECTOR_NAME}/restart"
 
 ## 용어를 일관되게 쓴다
 
-동일 개념에 서로 다른 용어를 혼용하면 에이전트의 해석이 흔들린다.
-"API endpoint"와 "URL", "재시작"과 "restart"를 섞어 쓰는 것이 대표적인 예다.
+동일 개념에 서로 다른 용어를 혼용하면 에이전트의 해석이 흔들린다. "API endpoint"와 "URL", "재시작"과 "restart"를 섞어 쓰는 것이 대표적인 예다.
 하나를 골라서 전체 스킬에서 통일한다.
 
 <br>
