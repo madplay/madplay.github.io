@@ -709,6 +709,32 @@
     }
 }
 
+.post-content pre.mermaid {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    text-align: center;
+    font-family: inherit !important;
+    white-space: normal !important;
+}
+
+.post-content pre.mermaid svg {
+    margin: 0 auto;
+}
+
+.post-content pre.mermaid svg .nodeLabel,
+.post-content pre.mermaid svg .nodeLabel p {
+    font-size: 0.9rem !important;
+    margin: 0 !important;
+}
+
+.post-content pre.mermaid svg .edgeLabel,
+.post-content pre.mermaid svg .edgeLabel p {
+    font-size: 0.85rem !important;
+    margin: 0 !important;
+}
+
 .ad-container {
     margin: 2.5rem auto;
     max-width: 50rem;
