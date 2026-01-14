@@ -354,10 +354,12 @@
     display: block;
     width: fit-content;
     max-width: 100%;
-    margin: 0 auto 1.75rem;
+    margin: 0.5rem auto 1.75rem;
     color: rgb(161 161 170);
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    font-style: italic;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
 }
 
 .post-content .post_image_caption a {
