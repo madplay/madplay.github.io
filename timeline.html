@@ -17,11 +17,28 @@ layout: default
         <p>현재까지 {{ timeline_posts_count }}개의 글을 작성했어요.</p>
     </div>
 
+    {% assign grouped_posts = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {% assign sorted_years = grouped_posts | sort: "name" | reverse %}
+
+    <div class="timeline-years-nav">
+        {% for year_group in sorted_years %}
+        {% assign visible_posts_count = 0 %}
+        {% for post in year_group.items %}
+        {% if post.lang == nil or post.lang == '' or post.lang == default_lang %}
+        {% assign visible_posts_count = visible_posts_count | plus: 1 %}
+        {% endif %}
+        {% endfor %}
+        {% if visible_posts_count > 0 %}
+        <a href="#timeline-year-{{ year_group.name }}" class="timeline-year-tag">
+            {{ year_group.name }}
+            <span class="timeline-year-tag-count">({{ visible_posts_count }})</span>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+
     <div class="timeline-container">
         <div class="timeline-line"></div>
-
-        {% assign grouped_posts = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
-        {% assign sorted_years = grouped_posts | sort: "name" | reverse %}
 
         {% for year_group in sorted_years %}
         {% assign visible_posts_count = 0 %}
@@ -31,7 +48,7 @@ layout: default
         {% endif %}
         {% endfor %}
         {% if visible_posts_count > 0 %}
-        <div class="timeline-year">
+        <div id="timeline-year-{{ year_group.name }}" class="timeline-year">
             <div class="timeline-year-header">
                 <div class="timeline-year-dot"></div>
                 <span class="timeline-year-title">{{ year_group.name }}</span>
@@ -71,3 +88,66 @@ layout: default
         </div>
     </div>
 </div>
+
+<script>
+    document.querySelectorAll('.timeline-year-tag[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (!targetElement) return;
+
+            document.querySelectorAll('.timeline-year-tag').forEach(tag => {
+                tag.classList.remove('active');
+            });
+
+            this.classList.add('active');
+
+            const headerOffset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    function updateActiveTimelineYear() {
+        const years = document.querySelectorAll('.timeline-year[id]');
+        const tags = document.querySelectorAll('.timeline-year-tag[href^="#"]');
+        const headerOffset = 100;
+        let currentYear = '';
+
+        years.forEach(year => {
+            const yearTop = year.getBoundingClientRect().top;
+            const yearId = year.getAttribute('id');
+
+            if (yearTop <= headerOffset && yearTop >= -200) {
+                currentYear = yearId;
+            }
+        });
+
+        tags.forEach(tag => {
+            tag.classList.remove('active');
+        });
+
+        if (currentYear) {
+            const activeTag = document.querySelector(`.timeline-year-tag[href="#${currentYear}"]`);
+            if (activeTag) {
+                activeTag.classList.add('active');
+            }
+        }
+    }
+
+    let timelineScrollTimeout;
+    window.addEventListener('scroll', function () {
+        if (timelineScrollTimeout) {
+            clearTimeout(timelineScrollTimeout);
+        }
+        timelineScrollTimeout = setTimeout(updateActiveTimelineYear, 100);
+    });
+
+    updateActiveTimelineYear();
+</script>
