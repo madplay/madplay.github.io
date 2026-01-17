@@ -2,8 +2,9 @@
 layout: default
 ---
 
-<script src="{{ site.baseurl }}/js/copy-button.js"></script>
+<script src="{{ site.baseurl }}/js/copy-button.js" defer></script>
 <script src="{{ site.baseurl }}/js/toc.js" defer></script>
+<script src="{{ site.baseurl }}/js/post-performance.js" defer></script>
 
 <article class="post-article mx-auto px-4 md:px-10 py-12 md:py-24">
     <header class="mb-12 md:mb-16">
@@ -67,12 +68,9 @@ layout: default
                 </div>
                 {% endif %}
 
-                <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+                <ins class="adsbygoogle" style="display:block; text-align:center;" data-ads-lazy="true" data-ad-layout="in-article"
                      data-ad-format="fluid" data-ad-client="ca-pub-8036596086585080" data-ad-slot="9643944593"
                      data-language="{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
             </div>
 
             <div class="post-content">
@@ -80,12 +78,9 @@ layout: default
             </div>
 
             <div class="mt-12 mb-8">
-                <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+                <ins class="adsbygoogle" style="display:block; text-align:center;" data-ads-lazy="true" data-ad-layout="in-article"
                      data-ad-format="fluid" data-ad-client="ca-pub-8036596086585080" data-ad-slot="7241821159"
                      data-language="{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
             </div>
 
             {% assign current_lang = page.lang | default: site.default_lang %}
@@ -165,14 +160,11 @@ layout: default
                 {% else %}
                 <p class="text-center text-zinc-500 text-sm mb-6">댓글을 남기시려면 Github 로그인을 해주세요 :D</p>
                 {% endif %}
-                <script src="https://utteranc.es/client.js"
-                        repo="madplay/madplay.github.io"
-                        issue-term="og:title"
-                        label="comment"
-                        theme="github-dark"
-                        crossorigin="anonymous"
-                        async>
-                </script>
+                <div id="utterances-container"
+                     data-repo="madplay/madplay.github.io"
+                     data-issue-term="og:title"
+                     data-label="comment"
+                     data-theme="github-dark"></div>
             </div>
         </div>
 

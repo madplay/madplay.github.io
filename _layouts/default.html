@@ -81,6 +81,22 @@
     <meta name="twitter:description"
           content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
+    <link rel="dns-prefetch" href="//cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+    <link rel="dns-prefetch" href="//buttons.github.io">
+
+    {% if site.ga4_measurement_id %}
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://www.google-analytics.com">
+    {% endif %}
+
+    {% if page.layout == 'post' %}
+    <link rel="dns-prefetch" href="//pagead2.googlesyndication.com">
+    <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossorigin>
+    <link rel="dns-prefetch" href="//utteranc.es">
+    <link rel="preconnect" href="https://utteranc.es" crossorigin>
+    {% endif %}
+
     {% if site.ga4_measurement_id %}
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga4_measurement_id }}"></script>
     <script>
@@ -91,9 +107,9 @@
     </script>
     {% endif %}
 
-    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
+        window.tailwind = window.tailwind || {};
+        window.tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
@@ -135,14 +151,16 @@
             }
         }
     </script>
+    <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="{{ site.baseurl }}/css/custom/default.css">
     {% if page.layout == 'post' %}
     <link rel="stylesheet" href="{{ site.baseurl }}/css/custom/post.css">
     {% endif %}
-
     <script data-ad-client="ca-pub-8036596086585080" async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8036596086585080"
+            crossorigin="anonymous"></script>
+
 </head>
 <body class="bg-zinc-950 text-zinc-100 antialiased animate-fade-in">
 {% assign current_lang = page.lang | default: site.default_lang %}
@@ -287,16 +305,7 @@
 
 {% unless current_lang == 'en' %}
 <script>
-    window.postsData = [
-        {% for post in site.posts %}
-        {
-            title: {{ post.title | jsonify }},
-            url: {{ post.url | jsonify }},
-            excerpt: {{ post.excerpt | strip_html | strip_newlines | truncate: 200 | jsonify }},
-            date: {{ post.date | date: "%Y년 %m월 %d일" | jsonify }}
-        }{% unless forloop.last %},{% endunless %}
-        {% endfor %}
-    ];
+    window.searchIndexUrl = "{{ site.baseurl }}/search.json";
 </script>
 <script>
     // 모바일 메뉴 토글
@@ -345,8 +354,76 @@
         });
     })();
 </script>
-<script src="{{ site.baseurl }}/js/search.js"></script>
+<script>
+    (function () {
+        var loaded = false;
+        var pendingToggle = null;
+
+        function loadSearchScript(event) {
+            if (event && event.currentTarget) {
+                pendingToggle = event.currentTarget;
+            }
+            if (loaded) {
+                return;
+            }
+            loaded = true;
+
+            var script = document.createElement('script');
+            script.src = "{{ site.baseurl }}/js/search.js";
+            script.defer = true;
+            script.onload = function () {
+                if (pendingToggle) {
+                    pendingToggle.click();
+                    pendingToggle = null;
+                }
+            };
+            document.body.appendChild(script);
+        }
+
+        var searchToggle = document.getElementById('search-toggle');
+        var searchToggleMobile = document.getElementById('search-toggle-mobile');
+        [searchToggle, searchToggleMobile].forEach(function (el) {
+            if (!el) {
+                return;
+            }
+            el.addEventListener('pointerdown', loadSearchScript, { once: true, passive: true });
+            el.addEventListener('focus', loadSearchScript, { once: true });
+        });
+
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadSearchScript, { timeout: 2000 });
+            return;
+        }
+        setTimeout(loadSearchScript, 1200);
+    })();
+</script>
 {% endunless %}
-<script async defer src="https://buttons.github.io/buttons.js"></script>
+<script>
+    (function () {
+        if (!document.querySelector('.github-button')) {
+            return;
+        }
+
+        var loaded = false;
+        function loadGithubButtons() {
+            if (loaded) {
+                return;
+            }
+            loaded = true;
+
+            var script = document.createElement('script');
+            script.src = "https://buttons.github.io/buttons.js";
+            script.async = true;
+            script.defer = true;
+            document.body.appendChild(script);
+        }
+
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(loadGithubButtons, { timeout: 2500 });
+        } else {
+            setTimeout(loadGithubButtons, 1500);
+        }
+    })();
+</script>
 </body>
 </html>

@@ -13,11 +13,44 @@
     }
 
     let postsData = [];
+    let postsLoaded = false;
+    let loadingPromise = null;
 
     function loadPostsData() {
-        if (window.postsData) {
-            postsData = window.postsData;
+        if (postsLoaded) {
+            return Promise.resolve(postsData);
         }
+
+        if (loadingPromise) {
+            return loadingPromise;
+        }
+
+        if (window.postsData && window.postsData.length) {
+            postsData = window.postsData;
+            postsLoaded = true;
+            return Promise.resolve(postsData);
+        }
+
+        const searchIndexUrl = window.searchIndexUrl || '/search.json';
+        loadingPromise = fetch(searchIndexUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('검색 인덱스를 불러올 수 없습니다');
+                }
+                return response.json();
+            })
+            .then(data => {
+                postsData = Array.isArray(data) ? data : [];
+                postsLoaded = true;
+                return postsData;
+            })
+            .catch(() => {
+                postsData = [];
+                postsLoaded = true;
+                return postsData;
+            });
+
+        return loadingPromise;
     }
 
     function performSearch(query) {
@@ -58,7 +91,15 @@
         searchModal.classList.remove('hidden');
         document.body.style.overflow = 'hidden';
         searchInput.focus();
-        loadPostsData();
+        if (!postsLoaded) {
+            searchEmpty.textContent = '검색 데이터를 불러오는 중...';
+            searchEmpty.classList.remove('hidden');
+            searchList.classList.add('hidden');
+            searchNoResults.classList.add('hidden');
+            loadPostsData().then(() => {
+                searchEmpty.textContent = '검색어를 입력하세요';
+            });
+        }
     }
 
     function closeSearch() {
