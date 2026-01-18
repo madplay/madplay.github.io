@@ -620,8 +620,8 @@
     }
 
     .post-toc-nav li.toc-level-1 {
-        margin-top: 0.44rem;
-        padding-top: 0.22rem;
+        margin-top: 0.4rem;
+        padding-top: 0.2rem;
         border-top: none;
     }
 
@@ -632,10 +632,23 @@
     }
 
     .post-toc-nav li.toc-level-2 a {
-        padding-left: 0.8rem;
-        color: rgb(208 214 224);
-        font-size: 0.82rem;
+        padding-left: 1.1rem;
+        color: rgb(180 188 204);
+        font-size: 0.78rem;
         font-weight: 520;
+    }
+
+    .post-toc-nav li.toc-level-2 a::after {
+        content: "";
+        position: absolute;
+        left: 0.5rem;
+        top: 50%;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: rgb(120 130 150 / 0.5);
+        transform: translateY(-50%);
+        transition: background-color 0.22s ease;
     }
 
     .post-toc-nav li.toc-level-2.is-expanded a {
@@ -661,19 +674,20 @@
     }
 
     .post-toc-nav li.toc-level-3 a {
-        padding-left: 1.2rem;
-        font-size: 0.775rem;
-        color: rgb(148 156 170);
+        padding-left: 1.8rem;
+        font-size: 0.72rem;
+        color: rgb(130 138 155);
         line-height: 1.34;
     }
 
     .post-toc-nav li.toc-level-1 a {
-        color: rgb(238 243 251);
-        font-size: 0.97rem;
-        font-weight: 690;
+        color: rgb(240 244 252);
+        font-size: 0.84rem;
+        font-weight: 620;
         letter-spacing: -0.01em;
-        padding-top: 0.16rem;
-        padding-bottom: 0.14rem;
+        padding-left: 0.5rem;
+        padding-top: 0.14rem;
+        padding-bottom: 0.12rem;
     }
 
     .post-toc-nav a:hover {
