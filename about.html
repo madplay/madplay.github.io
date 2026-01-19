@@ -1,26 +1,102 @@
 ---
-layout: page
-title: "About Me"
+layout: default
 ---
 
-{% include banner.html %}
+<link rel="stylesheet" href="{{ site.baseurl }}/css/custom/about.css">
 
-<div class="col-md-6 offset-md-2 col-lg-6 offset-lg-4">
-    <div class="introduce_wrap">
-        <h2 class="introduce_title">I'm MadPlay !</h2>
-        <ul>
-            <li>Software Engineer</li>
-            <li>Backend Server Developer</li>
-        </ul>
+<div class="max-w-5xl mx-auto px-6 md:px-12 py-8 md:py-12">
+    <div class="about-hero">
+        <div class="about-hero-image-wrapper">
+            <img src="{{ site.baseurl }}/img/common/profile.jpg"
+                 alt="MadPlay Profile"
+                 class="about-hero-image"
+                 width="180"
+                 height="180">
+        </div>
+        <h1>Hi, I'm MadPlay!</h1>
+        <p class="description">
+            {{ site.description }}
+        </p>
+    </div>
 
-        <h2 class="introduce_title">Activities</h2>
-        <ul>
-            <li>
-                <a class="introduce_link" href="https://github.com/madplay" rel="nofollow"
-                   target="_blank">Github</a><br>
-                <img src="https://ghchart.rshah.org/madplay" alt="Github Image" style="max-width:100%">
-            </li>
+    <div class="about-section">
+        <h2 class="about-section-title">What I Do</h2>
+        <div class="about-grid">
+            <div class="about-card">
+                <svg class="about-card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <h3>Learning & Exploration</h3>
+                <p>최신 트렌드와 기술 동향을 탐색하고 학습합니다. 새로운 아키텍처 패턴, 프레임워크, 도구들을 찾아보고 비교하며 지식을 쌓아갑니다.</p>
+            </div>
 
-        </ul>
+            <div class="about-card">
+                <svg class="about-card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+                <h3>Backend Engineering</h3>
+                <p>학습한 기술과 트렌드를 실제로 적용해보며 실험합니다. 서버 사이드 개발을 주로 하며, 프론트엔드 경험도 활용해 풀스택 관점에서 탐구합니다.</p>
+            </div>
+
+            <div class="about-card">
+                <svg class="about-card-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <h3>Knowledge Sharing</h3>
+                <p>탐구한 내용을 체계적으로 정리하여 기술 블로그에 공유합니다. 함께 성장하는 개발 문화를 만들어갑니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-section">
+        <h2 class="about-section-title">Skills</h2>
+        <div class="about-tags">
+            <span class="about-tag tag-language">Java</span>
+            <span class="about-tag tag-language">Kotlin</span>
+            <span class="about-tag tag-language">Python</span>
+            <span class="about-tag tag-language">JavaScript</span>
+
+            <span class="about-tag tag-framework">Spring</span>
+            <span class="about-tag tag-framework">React</span>
+            <span class="about-tag tag-framework">Node.js</span>
+            <span class="about-tag tag-framework">GraphQL</span>
+
+            <span class="about-tag tag-database">MySQL</span>
+            <span class="about-tag tag-database">MongoDB</span>
+            <span class="about-tag tag-database">Redis</span>
+
+            <span class="about-tag tag-bigdata">Spark</span>
+            <span class="about-tag tag-bigdata">Kafka</span>
+
+            <span class="about-tag tag-devops">Docker</span>
+            <span class="about-tag tag-devops">DevOps</span>
+
+            <span class="about-tag tag-ai">AI</span>
+        </div>
+    </div>
+
+    <div class="about-section">
+        <h2 class="about-section-title">Activities</h2>
+        <div class="github-section">
+            <a href="https://github.com/madplay"
+               class="github-link"
+               rel="nofollow"
+               target="_blank">
+                <svg fill="currentColor" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd"
+                          d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                          clip-rule="evenodd"></path>
+                </svg>
+                GitHub
+            </a>
+            <div class="github-chart">
+                <img src="https://ghchart.rshah.org/madplay"
+                     alt="GitHub Contribution Chart"
+                     loading="lazy">
+            </div>
+        </div>
     </div>
 </div>

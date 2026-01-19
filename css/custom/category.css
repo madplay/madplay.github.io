@@ -1,60 +1,161 @@
-.category_container {
-    margin-left: 10px;
+.category-header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgb(39 39 42);
 }
 
-.category_section {
-    padding-top: 60px;
-    margin-top: -25px;
+.category-header h1 {
+    font-size: 3.5rem;
+    font-weight: 200;
+    color: rgb(244 244 245);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.03em;
+}
+
+.category-header p {
+    color: rgb(161 161 170);
+    font-size: 1rem;
+}
+
+.category-tags {
     display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 3rem;
 }
 
-.category_title {
-    font-size: 1.5rem;
+.category-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: rgb(39 39 42);
+    border: 1px solid rgb(63 63 70);
+    border-radius: 0.5rem;
+    color: rgb(228 228 231);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
+}
+
+.category-tag:hover {
+    background-color: rgb(63 63 70);
+    border-color: rgb(82 82 91);
+    color: rgb(244 244 245);
+    transform: translateY(-1px);
+}
+
+.category-tag.active {
+    background-color: rgb(30 58 138 / 0.3);
+    border-color: rgb(96 165 250);
+    color: rgb(147 197 253);
+}
+
+.category-tag.active:hover {
+    background-color: rgb(30 58 138 / 0.5);
+    border-color: rgb(96 165 250);
+}
+
+.category-tag-count {
+    margin-left: 0.5rem;
+    color: rgb(161 161 170);
+    font-size: 0.8125rem;
+}
+
+.category-section {
+    margin-bottom: 5rem;
+    scroll-margin-top: 6rem;
+}
+
+.category-section:target {
+    animation: highlight 1s ease-out;
+}
+
+@keyframes highlight {
+    0% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: rgb(30 58 138 / 0.1);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+.category-section-title {
+    font-size: 1.875rem;
     font-weight: 600;
-    font-style: italic;
+    color: rgb(244 244 245);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgb(39 39 42);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.category_item {
-    font-size: 17px;
-    margin: 0 0 20px 15px;
+.category-section-title::before {
+    content: '#';
+    color: rgb(96 165 250);
+    font-weight: 400;
 }
 
-.category_item_date {
-    font-size: 14px;
+.category-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-.category_button {
-    font-size: 16px;
-    font-weight: 600;
-    color: white !important;
+.category-post-item {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: rgb(24 24 27);
+    border: 1px solid rgb(39 39 42);
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
 }
 
-.category_button_text {
-    display: inline;
-    vertical-align: text-bottom;
-    font-style: italic;
+.category-post-item:hover {
+    border-color: rgb(63 63 70);
+    background-color: rgb(39 39 42);
+    transform: translateX(4px);
 }
 
-.category_tag_mark {
-    font-size: 18px;
+.category-post-link {
+    color: rgb(228 228 231);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s ease;
 }
 
-@media only screen and (min-width: 768px) {
-    .category_item {
-        font-size: 20px;
+.category-post-link:hover {
+    color: rgb(96 165 250);
+}
+
+.category-post-date {
+    color: rgb(161 161 170);
+    font-size: 0.875rem;
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+}
+
+@media (max-width: 768px) {
+    .category-header h1 {
+        font-size: 2.5rem;
     }
 
-    .category_button {
-        font-size: 18px;
-        font-weight: 600;
-        color: white !important;
+    .category-section-title {
+        font-size: 1.5rem;
     }
 
-    .category_tag_mark {
-        font-size: 20px;
+    .category-tags {
+        gap: 0.5rem;
     }
 
-    .category_item_date {
-        font-size: 16px;
+    .category-tag {
+        font-size: 0.8125rem;
+        padding: 0.375rem 0.75rem;
     }
 }

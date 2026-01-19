@@ -1,75 +1,55 @@
 ---
-layout: page
-title: "Timeline"
+layout: default
 ---
 
-<div class="row justify-content-center">
-    <div class="col-md-9 offset-md-3 col-lg-6 offset-lg-3 page_wrap">
-        <div class="page_header">
-            <h1 class="page_header_title">Timeline</h1>
-            <hr>
-        </div>
-        <div class="timeline_introduce">현재까지 {{ site.posts.size }}개의 글을 작성했어요.</div>
-        {% assign curYear = "now" | date : "%Y" %}
-        {% for post in site.posts %}
-        <div class="timeline_box">
-            {% assign postYear = post.date | date: '%Y' %}
-            {% if postYear != curYear %}
-            {% assign curYear = postYear %}
-            {% if containerType == 'left' %}
-            {% assign containerType = 'right' %}
-            {% else %}
-            {% assign containerType = 'left' %}
-            {% endif %}
-            <div class="timeline_container {{ containerType }}">
-                <div class="timeline_content">
-                    <div class="timeline_title">{{ "now" | date : "%Y" }} : Happy New Year!</div>
-                </div>
-            </div>
-            {% endif %}
+<link rel="stylesheet" href="{{ site.baseurl }}/css/custom/timeline.css">
 
-            {% assign postDay = post.date | date: '%d' %}
-            {% if postDay != day %}
-            {% assign day = postDay %}
-            {% if containerType == 'left' %}
-            {% assign containerType = 'right' %}
-            {% else %}
-            {% assign containerType = 'left' %}
-            {% endif %}
-            {% endif %}
-            <div class="timeline_container {{ containerType }}">
-                <div class="timeline_content">
-                    <a href="{{ post.url }}">
-                        <div class="timeline_title">{{ post.title }}</div>
+<div class="max-w-4xl mx-auto px-6 md:px-12 py-8 md:py-12">
+    <div class="timeline-header">
+        <h1>Timeline</h1>
+        <p>현재까지 {{ site.posts.size }}개의 글을 작성했어요.</p>
+    </div>
+
+    <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        {% assign grouped_posts = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+        {% assign sorted_years = grouped_posts | sort: "name" | reverse %}
+
+        {% for year_group in sorted_years %}
+        <div class="timeline-year">
+            <div class="timeline-year-header">
+                <div class="timeline-year-dot"></div>
+                <span class="timeline-year-title">{{ year_group.name }}</span>
+                <span class="timeline-year-count">({{ year_group.items.size }})</span>
+            </div>
+
+            <div class="timeline-posts">
+                {% for post in year_group.items %}
+                <div class="timeline-post">
+                    <a href="{{ site.baseurl }}{{ post.url }}" class="timeline-post-link">
+                        <div class="timeline-post-title">{{ post.title }}</div>
+                        <time class="timeline-post-date">{{ post.date | date: "%Y년 %m월 %d일" }}</time>
                     </a>
-                    <div class="timeline_date">{{ post.date | date: "%Y. %-m. %-d." }}</div>
                 </div>
+                {% endfor %}
             </div>
         </div>
         {% endfor %}
 
-        <div class="timeline_box">
-            {% if containerType == 'left' %}
-            {% assign containerType = 'right' %}
-            {% else %}
-            {% assign containerType = 'left' %}
-            {% endif %}
-            <div class="timeline_container {{ containerType }}">
-                <div class="timeline_content">
-                    <div class="timeline_title">github 블로그로 이전</div>
-                    <div class="timeline_date">2018. 01. 01.</div>
-                </div>
+        <div class="timeline-milestone">
+            <div class="timeline-year-dot" style="background-color: rgb(34 197 94);"></div>
+            <div class="timeline-milestone-content">
+                <div class="timeline-milestone-title">GitHub 블로그로 이전</div>
+                <div class="timeline-milestone-date">2018년 1월 1일</div>
             </div>
-            {% if containerType == 'left' %}
-            {% assign containerType = 'right' %}
-            {% else %}
-            {% assign containerType = 'left' %}
-            {% endif %}
-            <div class="timeline_container {{ containerType }}">
-                <div class="timeline_content">
-                    <div class="timeline_title">블로그 시작</div>
-                    <div class="timeline_date">since 2014. 6. 18.</div>
-                </div>
+        </div>
+
+        <div class="timeline-milestone">
+            <div class="timeline-year-dot" style="background-color: rgb(34 197 94);"></div>
+            <div class="timeline-milestone-content">
+                <div class="timeline-milestone-title">블로그 시작</div>
+                <div class="timeline-milestone-date">2014년 6월 18일부터</div>
             </div>
         </div>
     </div>

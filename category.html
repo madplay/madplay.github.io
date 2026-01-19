@@ -1,50 +1,108 @@
 ---
-layout: page
-title: "Category"
+layout: default
 ---
 
-<div class="row justify-content-center">
-    <div class="col-md-9 offset-md-3 col-lg-6 offset-lg-3 page_wrap">
-        <div class="page_header">
-            <h1 class="page_header_title">Category</h1>
-            <hr>
-        </div>
-        <div class="timeline_introduce">현재까지 {{ site.categories.size }}개의 주제를 다루고 있습니다.</div>
+<link rel="stylesheet" href="{{ site.baseurl }}/css/custom/category.css">
+
+<div class="max-w-4xl mx-auto px-6 md:px-12 py-8 md:py-12">
+    <div class="category-header">
+        <h1>Category</h1>
+        <p>현재까지 {{ site.categories.size }}개의 주제를 다루고 있습니다.</p>
+    </div>
+    
+    <div class="category-tags">
         {% for category in site.categories %}
-        <a href="#{{ category | first }}" class="btn category_button">
-            <i class="fa fa-tag category_tag_mark" aria-hidden="true"></i>
-            <div class="category_button_text">&nbsp;{{ category | first }}&nbsp;({{ category[1].size }})</div>
+        <a href="#{{ category | first | slugify }}" class="category-tag">
+            {{ category | first }}
+            <span class="category-tag-count">({{ category[1].size }})</span>
         </a>
         {% endfor %}
-
-        <hr/>
-
-        <div class="category_container">
-            {% for category in site.categories %}
-            <h2 id="{{ category | first }}" class="category_section">
-                <i class="fa fa-tag " aria-hidden="true"></i>&nbsp;
-                <div class="category_title">{{ category | first }}&nbsp;({{ category[1].size }})</div>
-                {% for posts in category %}
+    </div>
+    
+    <div class="category-sections">
+        {% for category in site.categories %}
+        <section id="{{ category | first | slugify }}" class="category-section">
+            <h2 class="category-section-title">
+                {{ category | first }} ({{ category[1].size }})
             </h2>
-            <div class="category_list">
-                {% for post in posts %}
-                {% if post.url != category.name %}
-                <div class="category_item">
-                    <a href="{{ post.url }}">{{ post.title }}</a>
-                    <div class="category_item_date">
-                        <i>
-                            <time datetime="{{ post.date | date_to_xmlschema }}"
-                                  itemprop="datePublished">{{ post.date | date: "%b %d, %Y" }}
-                            </time>
-                        </i>
-                    </div>
+            <div class="category-posts">
+                {% assign sorted_posts = category[1] | sort: 'date' | reverse %}
+                {% for post in sorted_posts %}
+                <div class="category-post-item">
+                    <a href="{{ site.baseurl }}{{ post.url }}" class="category-post-link">
+                        {{ post.title }}
+                    </a>
+                    <time datetime="{{ post.date | date_to_xmlschema }}" class="category-post-date">
+                        {{ post.date | date: "%Y년 %m월 %d일" }}
+                    </time>
                 </div>
-                {% endif %}
                 {% endfor %}
             </div>
-            {% endfor %}
-            <hr>
-            {% endfor %}
-        </div>
+        </section>
+        {% endfor %}
     </div>
 </div>
+
+<script>
+    document.querySelectorAll('.category-tag[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                document.querySelectorAll('.category-tag').forEach(tag => {
+                    tag.classList.remove('active');
+                });
+                
+                this.classList.add('active');
+                
+                const headerOffset = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    function updateActiveTag() {
+        const sections = document.querySelectorAll('.category-section');
+        const tags = document.querySelectorAll('.category-tag[href^="#"]');
+        const headerOffset = 100;
+        
+        let currentSection = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const sectionId = section.getAttribute('id');
+            
+            if (sectionTop <= headerOffset && sectionTop >= -200) {
+                currentSection = sectionId;
+            }
+        });
+        
+        tags.forEach(tag => {
+            tag.classList.remove('active');
+        });
+        
+        if (currentSection) {
+            const activeTag = document.querySelector(`.category-tag[href="#${currentSection}"]`);
+            if (activeTag) {
+                activeTag.classList.add('active');
+            }
+        }
+    }
+    
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+        if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+        }
+        scrollTimeout = setTimeout(updateActiveTag, 100);
+    });
+    
+    updateActiveTag();
+</script>
