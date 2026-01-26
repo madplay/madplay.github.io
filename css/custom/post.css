@@ -347,6 +347,7 @@
 .post-content .post_image {
     display: block;
     margin: 2rem auto 0.75rem;
+    background-color: #ffffff;
 }
 
 .post-content .post_image_caption {
