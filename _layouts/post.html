@@ -2,14 +2,88 @@
 layout: default
 ---
 
-{% include navbar.html type="post" %}
+<link rel="stylesheet" href="{{ site.baseurl }}/css/custom/post.css">
+<script src="{{ site.baseurl }}/js/copy-button.js"></script>
 
-<div class="row justify-content-center post_container">
-    <div class="col-lg-6">
-        {%- include postContent.html -%}
+<article class="max-w-3xl mx-auto px-6 md:px-12 py-16 md:py-24">
+    <header class="mb-12 md:mb-16">
+        <h1 class="text-3xl md:text-5xl font-medium text-zinc-100 leading-tight mb-6 md:mb-8">
+            {{ page.title }}
+        </h1>
+        
+        <div class="flex flex-wrap items-center gap-4 text-sm md:text-base">
+            <time datetime="{{ page.date | date: '%Y-%m-%d' }}" class="text-zinc-500 font-mono">
+                {{ page.date | date: "%Y년 %m월 %d일" }}
+            </time>
+            
+            {% if page.tags.size > 0 %}
+            <span class="text-zinc-600">·</span>
+            <div class="flex flex-wrap gap-2">
+                {% for tag in page.tags %}
+                <span class="text-zinc-500 hover:text-zinc-300 transition-colors duration-300">
+                    #{{ tag }}
+                </span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+    </header>
+    
+    <div class="mb-8">
+        <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+             data-ad-format="fluid" data-ad-client="ca-pub-8036596086585080" data-ad-slot="9643944593"
+             data-language="ko"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
-</div>
-{% include comments.html %}
-<hr>
-{% include bottomCard.html %}
-<hr>
+    
+    <div class="post-content">
+        {{ content }}
+    </div>
+    
+    <div class="mt-12 mb-8">
+        <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+             data-ad-format="fluid" data-ad-client="ca-pub-8036596086585080" data-ad-slot="7241821159"
+             data-language="ko"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <footer class="mt-16 md:mt-24 pt-8 border-t border-zinc-900">
+        <div class="flex items-center justify-between">
+            <a href="{{ site.baseurl }}/" class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-sm md:text-base">
+                ← 목록으로
+            </a>
+            
+            {% if page.previous or page.next %}
+            <div class="flex items-center space-x-4">
+                {% if page.previous %}
+                <a href="{{ site.baseurl }}{{ page.previous.url }}" class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-sm md:text-base">
+                    ← 이전 글
+                </a>
+                {% endif %}
+                
+                {% if page.next %}
+                <a href="{{ site.baseurl }}{{ page.next.url }}" class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-sm md:text-base">
+                    다음 글 →
+                </a>
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </footer>
+    
+    <div class="mt-16 pt-8 border-t border-zinc-900">
+        <p class="text-center text-zinc-500 text-sm mb-6">댓글을 남기시려면 Github 로그인을 해주세요 :D</p>
+        <script src="https://utteranc.es/client.js"
+                repo="madplay/madplay.github.io"
+                issue-term="og:title"
+                label="comment"
+                theme="github-dark"
+                crossorigin="anonymous"
+                async>
+        </script>
+    </div>
+</article>
