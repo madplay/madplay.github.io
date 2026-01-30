@@ -1,10 +1,76 @@
 ---
-layout: full-width
+layout: default
 ---
 
-{% include banner.html %}
-
-<div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1">
-    {%- include recentPosts.html -%}
-    {%- include paginator.html -%}
+<div class="max-w-4xl mx-auto px-6 md:px-12 py-16 md:py-24">
+    <!-- Hero Section -->
+    <div class="mb-20 md:mb-32">
+        <div class="flex items-center gap-4 mb-3 animate-fade-in">
+            <a class="github-button" href="https://github.com/madplay"
+               data-color-scheme="no-preference: dark; light: dark; dark: dark;"
+               data-icon="octicon-star"
+               data-size="large"
+               data-show-count="true"
+               aria-label="Star madplay on GitHub">Star</a>
+            <a class="github-button" href="https://github.com/madplay/madplay.github.io/issues"
+               data-color-scheme="no-preference: dark; light: dark; dark: dark;"
+               data-size="large"
+               data-show-count="true"
+               aria-label="Issue madplay/madplay.github.io on GitHub">Issue</a>
+        </div>
+        <h1 class="text-4xl md:text-7xl font-thin text-zinc-100 leading-tight mb-4 animate-fade-in" style="animation-delay: 0.2s;">
+            Learn. Build. Share.
+        </h1>
+        <p class="text-zinc-400 text-base md:text-lg leading-relaxed max-w-2xl animate-fade-in" style="animation-delay: 0.4s;">
+            {{ site.description }}
+        </p>
+    </div>
+    
+    <!-- Posts Archive -->
+    <div class="space-y-1">
+        {% for post in paginator.posts %}
+        <article class="stagger-animation">
+            <a href="{{ site.baseurl }}{{ post.url }}" class="block py-6 md:py-8 border-b border-zinc-900 hover:border-zinc-800 transition-colors duration-300 group">
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-6">
+                    <div class="flex-1">
+                        <h2 class="text-lg md:text-xl font-medium text-zinc-100 group-hover:text-zinc-300 transition-colors duration-300 mb-2 leading-relaxed">
+                            {{ post.title }}
+                        </h2>
+                        {% if post.excerpt %}
+                        <p class="text-zinc-400 text-sm md:text-base leading-relaxed line-clamp-2">
+                            {{ post.excerpt | strip_html | truncatewords: 25 }}
+                        </p>
+                        {% endif %}
+                    </div>
+                    <time datetime="{{ post.date | date: '%Y-%m-%d' }}" class="text-zinc-500 text-xs md:text-sm font-mono whitespace-nowrap flex-shrink-0">
+                        {{ post.date | date: "%Y.%m.%d" }}
+                    </time>
+                </div>
+            </a>
+        </article>
+        {% endfor %}
+    </div>
+    
+    <!-- Pagination -->
+    {% if paginator.total_pages > 1 %}
+    <nav class="mt-16 md:mt-24 pt-8 border-t border-zinc-900">
+        <div class="flex items-center justify-center space-x-4">
+            {% if paginator.previous_page %}
+            <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-sm md:text-base">
+                ← 이전
+            </a>
+            {% endif %}
+            
+            <span class="text-zinc-500 text-sm md:text-base">
+                {{ paginator.page }} / {{ paginator.total_pages }}
+            </span>
+            
+            {% if paginator.next_page %}
+            <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-sm md:text-base">
+                다음 →
+            </a>
+            {% endif %}
+        </div>
+    </nav>
+    {% endif %}
 </div>
