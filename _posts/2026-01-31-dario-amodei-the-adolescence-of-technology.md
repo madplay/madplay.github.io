@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "《기술의 사춘기》, 다리오 아모데이는 강력한 AI의 위험을 어떻게 경고했나"
+title: "앤트로픽 CEO가 경고하는 강력한 AI의 5가지 치명적 위험: 《기술의 사춘기》를 읽고"
 author: madplay
 tags: ai anthropic dario-amodei llm agi governance
-description: "강력한 AI는 어떻게 사회를 흔들까? 다리오 아모데이의 《기술의 사춘기》에서 꼽은 5가지 치명적 위험."
+description: "강력한 AI는 어떻게 사회를 흔들까? 다리오 아모데이(Dario Amodei)의 《기술의 사춘기》에서 꼽은 5가지 치명적 위험."
 category: AI
 date: "2026-01-31 22:54:03"
 comments: true
