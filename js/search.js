@@ -69,6 +69,13 @@
     }
 
     searchToggle.addEventListener('click', openSearch);
+    
+    // 모바일 검색 버튼
+    const searchToggleMobile = document.getElementById('search-toggle-mobile');
+    if (searchToggleMobile) {
+        searchToggleMobile.addEventListener('click', openSearch);
+    }
+    
     searchClose.addEventListener('click', closeSearch);
     searchOverlay.addEventListener('click', closeSearch);
 

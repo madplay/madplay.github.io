@@ -83,24 +83,26 @@
 </head>
 <body class="bg-zinc-950 text-zinc-100 antialiased animate-fade-in">
 <header class="sticky top-0 z-50 backdrop-blur-xl bg-zinc-950/80 border-b border-zinc-900">
-    <nav class="max-w-7xl mx-auto px-6 md:px-12 py-4">
+    <nav class="max-w-7xl mx-auto px-4 md:px-12 py-3 md:py-4">
         <div class="flex items-center justify-between">
             <a href="{{ site.baseurl }}/"
-               class="text-2xl font-medium text-zinc-100 hover:text-zinc-300 transition-colors duration-300 flex items-center gap-2">
+               class="text-xl md:text-2xl font-medium text-zinc-100 hover:text-zinc-300 transition-colors duration-300 flex items-center gap-2">
                 <span>MadPlay</span>
-                <span class="text-xl">🚀</span>
+                <span class="text-lg md:text-xl">🚀</span>
             </a>
-            <div class="flex items-center space-x-8">
+            
+            <!-- 데스크톱 메뉴 -->
+            <div class="hidden md:flex items-center space-x-8">
                 <a href="{{ site.baseurl }}/category"
-                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-base md:text-lg">
+                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-lg">
                     Category
                 </a>
                 <a href="{{ site.baseurl }}/timeline"
-                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-base md:text-lg">
+                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-lg">
                     Timeline
                 </a>
                 <a href="{{ site.baseurl }}/about"
-                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-base md:text-lg">
+                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-lg">
                     About
                 </a>
                 <button id="search-toggle"
@@ -113,6 +115,46 @@
                     </svg>
                 </button>
             </div>
+            
+            <!-- 모바일 메뉴 버튼 -->
+            <div class="flex md:hidden items-center space-x-2">
+                <button id="search-toggle-mobile"
+                        class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 bg-transparent border-none cursor-pointer p-2"
+                        aria-label="검색">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </button>
+                <button id="mobile-menu-toggle"
+                        class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 bg-transparent border-none cursor-pointer p-2"
+                        aria-label="메뉴 열기">
+                    <svg id="mobile-menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 모바일 메뉴 -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2 border-t border-zinc-900">
+            <div class="flex flex-col space-y-2 pt-4">
+                <a href="{{ site.baseurl }}/category"
+                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 py-2 px-2 rounded-lg hover:bg-zinc-900">
+                    Category
+                </a>
+                <a href="{{ site.baseurl }}/timeline"
+                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 py-2 px-2 rounded-lg hover:bg-zinc-900">
+                    Timeline
+                </a>
+                <a href="{{ site.baseurl }}/about"
+                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 py-2 px-2 rounded-lg hover:bg-zinc-900">
+                    About
+                </a>
+            </div>
         </div>
     </nav>
 </header>
@@ -123,7 +165,7 @@
         <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" id="search-overlay"></div>
 
         <div class="inline-block align-bottom bg-zinc-900 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full border border-zinc-800">
-            <div class="p-6">
+            <div class="p-4 md:p-6">
                 <div class="relative mb-4">
                     <input
                             type="text"
@@ -160,7 +202,7 @@
 </main>
 
 <footer class="border-t border-zinc-900 mt-12">
-    <div class="max-w-7xl mx-auto px-6 md:px-12 py-12">
+    <div class="max-w-7xl mx-auto px-4 md:px-12 py-8 md:py-12">
         <p class="text-zinc-500 text-sm text-center">
             Copyright &copy; 2014-{{ 'now' | date: "%Y" }} <a href="https://github.com/madplay" class="footer-link" rel="nofollow" target="_blank">{{ site.title | remove: '!' }}</a>. All rights reserved.
         </p>
@@ -178,6 +220,57 @@
         }{% unless forloop.last %},{% endunless %}
         {% endfor %}
     ];
+</script>
+<script>
+    // 모바일 메뉴 토글
+    (function() {
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+        
+        if (!mobileMenuToggle || !mobileMenu || !mobileMenuIcon) {
+            return;
+        }
+        
+        let isOpen = false;
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            isOpen = !isOpen;
+            
+            if (isOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuToggle.setAttribute('aria-label', '메뉴 닫기');
+                // X 아이콘으로 변경
+                mobileMenuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenuToggle.setAttribute('aria-label', '메뉴 열기');
+                // 햄버거 아이콘으로 변경
+                mobileMenuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+            }
+        });
+        
+        // 모바일 메뉴 링크 클릭 시 메뉴 닫기
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                isOpen = false;
+                mobileMenu.classList.add('hidden');
+                mobileMenuToggle.setAttribute('aria-label', '메뉴 열기');
+                mobileMenuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+            });
+        });
+        
+        // 화면 크기 변경 시 데스크톱에서는 메뉴 닫기
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768 && isOpen) {
+                isOpen = false;
+                mobileMenu.classList.add('hidden');
+                mobileMenuToggle.setAttribute('aria-label', '메뉴 열기');
+                mobileMenuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+            }
+        });
+    })();
 </script>
 <script src="{{ site.baseurl }}/js/search.js"></script>
 <script async defer src="https://buttons.github.io/buttons.js"></script>
