@@ -2,25 +2,40 @@
 title: MadPlay!
 description: "Curiosity and Experience never get old."
 url: "https://madplay.github.io"
-g-analytics: "UA-111002457-1"
-
-# Server Settings
 baseurl: ""
-
-
-# Plugins Settings
-plugins:
-  - jekyll-paginate
-
-# Read Processing
-exclude:
-  - README.md
-  - .jekyll-cache
-
-# Print Settings
-permalink: /post/:title
-paginate: 5
-paginate_path: /page:num
+g-analytics: "UA-111002457-1"
 
 # Time Zone
 timezone: Asia/Seoul
+
+# Build Settings
+markdown: kramdown
+highlighter: rouge
+permalink: /post/:title
+
+# Kramdown Settings
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+
+# Plugins (GitHub Pages 호환)
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+
+# Pagination
+paginate: 10
+paginate_path: /page:num
+
+# Exclude
+exclude:
+  - README.md
+  - .jekyll-cache
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - assets/bower_components
