@@ -150,15 +150,13 @@
     <nav class="max-w-7xl mx-auto px-4 md:px-12 py-3 md:py-4">
         <div class="flex items-center {% if current_lang == 'en' %}justify-start{% else %}justify-between{% endif %}">
             {% if current_lang == 'en' %}
-            <span class="text-xl md:text-2xl font-medium text-zinc-100 flex items-center gap-2">
-                <span>MadPlay</span>
-                <span class="text-lg md:text-xl">🚀</span>
+            <span class="text-xl md:text-2xl font-medium text-zinc-100">
+                {{ site.title }}
             </span>
             {% else %}
             <a href="{{ site.baseurl }}/"
-               class="text-xl md:text-2xl font-medium text-zinc-100 hover:text-zinc-300 transition-colors duration-300 flex items-center gap-2">
-                <span>MadPlay</span>
-                <span class="text-lg md:text-xl">🚀</span>
+               class="text-xl md:text-2xl font-medium text-zinc-100 hover:text-zinc-300 transition-colors duration-300">
+                {{ site.title }}
             </a>
             {% endif %}
 
