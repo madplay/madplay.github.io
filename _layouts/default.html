@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="{% if page.lang %}{{ page.lang }}{% else %}{{ site.default_lang }}{% endif %}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,8 +11,60 @@
           content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
     <meta name="author" content="{{ site.title }}">
 
+    {% assign current_lang = page.lang | default: site.default_lang %}
     {% if page.url %}
     <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html','' }}">
+
+    {% if page.layout == 'post' and page.slug %}
+    {% for lang in site.languages %}
+    {% assign translated_post = site.posts | where: 'slug', page.slug | where: 'lang', lang | first %}
+    {% if translated_post %}
+    <link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ site.baseurl }}{{ translated_post.url }}">
+    {% endif %}
+    {% endfor %}
+    <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": {{
+            page.title
+            |
+            jsonify
+        }},
+        "description": {{page.description | default: page.excerpt | strip_html | strip_newlines | truncate: 160 | jsonify}},
+        {% if page.author %}
+        "author": {
+        "@type": "Person",
+        "name": {{page.author | jsonify}}
+        },
+        {% endif %}
+        "datePublished": "{{ page.date | date_to_xmlschema }}",
+        "dateModified": "{{ page.date | date_to_xmlschema }}",
+        "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html','' }}"
+        },
+        "publisher": {
+        "@type": "Organization",
+        "name": {{site.title | jsonify}},
+        "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.url }}{{ site.baseurl }}/img/common/og_image.png"
+        }
+        },
+        {% if page.category %}
+        "articleSection": {{page.category | jsonify}},
+        {% endif %}
+        {% if page.tags.size > 0 %}
+        "keywords": {{page.tags | join: ', ' | jsonify}},
+        {% endif %}
+        "inLanguage": "{% if page.lang %}{{ page.lang }}{% else %}{{ site.default_lang }}{% endif %}",
+        "url": "{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html','' }}"
+        }
+    </script>
+    {% endif %}
     {% endif %}
 
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
@@ -82,16 +134,24 @@
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <body class="bg-zinc-950 text-zinc-100 antialiased animate-fade-in">
+{% assign current_lang = page.lang | default: site.default_lang %}
 <header class="sticky top-0 z-50 backdrop-blur-xl bg-zinc-950/80 border-b border-zinc-900">
     <nav class="max-w-7xl mx-auto px-4 md:px-12 py-3 md:py-4">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center {% if current_lang == 'en' %}justify-start{% else %}justify-between{% endif %}">
+            {% if current_lang == 'en' %}
+            <span class="text-xl md:text-2xl font-medium text-zinc-100 flex items-center gap-2">
+                <span>MadPlay</span>
+                <span class="text-lg md:text-xl">🚀</span>
+            </span>
+            {% else %}
             <a href="{{ site.baseurl }}/"
                class="text-xl md:text-2xl font-medium text-zinc-100 hover:text-zinc-300 transition-colors duration-300 flex items-center gap-2">
                 <span>MadPlay</span>
                 <span class="text-lg md:text-xl">🚀</span>
             </a>
-            
-            <!-- 데스크톱 메뉴 -->
+            {% endif %}
+
+            {% unless current_lang == 'en' %}
             <div class="hidden md:flex items-center space-x-8">
                 <a href="{{ site.baseurl }}/category"
                    class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-lg">
@@ -115,8 +175,7 @@
                     </svg>
                 </button>
             </div>
-            
-            <!-- 모바일 메뉴 버튼 -->
+
             <div class="flex md:hidden items-center space-x-2">
                 <button id="search-toggle-mobile"
                         class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 bg-transparent border-none cursor-pointer p-2"
@@ -137,9 +196,10 @@
                     </svg>
                 </button>
             </div>
+            {% endunless %}
         </div>
-        
-        <!-- 모바일 메뉴 -->
+
+        {% unless current_lang == 'en' %}
         <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2 border-t border-zinc-900">
             <div class="flex flex-col space-y-2 pt-4">
                 <a href="{{ site.baseurl }}/category"
@@ -156,9 +216,11 @@
                 </a>
             </div>
         </div>
+        {% endunless %}
     </nav>
 </header>
 
+{% unless current_lang == 'en' %}
 <div id="search-modal" class="hidden fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog"
      aria-modal="true">
     <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
@@ -196,19 +258,25 @@
         </div>
     </div>
 </div>
+{% endunless %}
 
 <main class="min-h-screen">
     {{ content }}
 </main>
 
+{% unless current_lang == 'en' %}
 <footer class="border-t border-zinc-900 mt-12">
     <div class="max-w-7xl mx-auto px-4 md:px-12 py-8 md:py-12">
         <p class="text-zinc-500 text-sm text-center">
-            Copyright &copy; 2014-{{ 'now' | date: "%Y" }} <a href="https://github.com/madplay" class="footer-link" rel="nofollow" target="_blank">{{ site.title | remove: '!' }}</a>. All rights reserved.
+            Copyright &copy; 2014-{{ 'now' | date: "%Y" }} <a href="https://github.com/madplay" class="footer-link"
+                                                              rel="nofollow" target="_blank">{{ site.title | remove: '!'
+            }}</a>. All rights reserved.
         </p>
     </div>
 </footer>
+{% endunless %}
 
+{% unless current_lang == 'en' %}
 <script>
     window.postsData = [
         {% for post in site.posts %}
@@ -223,46 +291,42 @@
 </script>
 <script>
     // 모바일 메뉴 토글
-    (function() {
+    (function () {
         const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuIcon = document.getElementById('mobile-menu-icon');
-        
+
         if (!mobileMenuToggle || !mobileMenu || !mobileMenuIcon) {
             return;
         }
-        
+
         let isOpen = false;
-        
-        mobileMenuToggle.addEventListener('click', function() {
+
+        mobileMenuToggle.addEventListener('click', function () {
             isOpen = !isOpen;
-            
+
             if (isOpen) {
                 mobileMenu.classList.remove('hidden');
                 mobileMenuToggle.setAttribute('aria-label', '메뉴 닫기');
-                // X 아이콘으로 변경
                 mobileMenuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
             } else {
                 mobileMenu.classList.add('hidden');
                 mobileMenuToggle.setAttribute('aria-label', '메뉴 열기');
-                // 햄버거 아이콘으로 변경
                 mobileMenuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
             }
         });
-        
-        // 모바일 메뉴 링크 클릭 시 메뉴 닫기
+
         const mobileMenuLinks = mobileMenu.querySelectorAll('a');
         mobileMenuLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 isOpen = false;
                 mobileMenu.classList.add('hidden');
                 mobileMenuToggle.setAttribute('aria-label', '메뉴 열기');
                 mobileMenuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
             });
         });
-        
-        // 화면 크기 변경 시 데스크톱에서는 메뉴 닫기
-        window.addEventListener('resize', function() {
+
+        window.addEventListener('resize', function () {
             if (window.innerWidth >= 768 && isOpen) {
                 isOpen = false;
                 mobileMenu.classList.add('hidden');
@@ -273,6 +337,7 @@
     })();
 </script>
 <script src="{{ site.baseurl }}/js/search.js"></script>
+{% endunless %}
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>

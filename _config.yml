@@ -5,6 +5,13 @@ url: "https://madplay.github.io"
 baseurl: ""
 g-analytics: "UA-111002457-1"
 
+# Language Settings
+languages: [ "ko", "en" ]
+default_lang: "ko"
+lang_names:
+  ko: "한국어"
+  en: "English"
+
 # Time Zone
 timezone: Asia/Seoul
 

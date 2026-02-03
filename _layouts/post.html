@@ -10,12 +10,17 @@ layout: default
         <h1 class="text-3xl md:text-5xl font-medium text-zinc-100 leading-tight mb-6 md:mb-8">
             {{ page.title }}
         </h1>
-        
+
         <div class="flex flex-wrap items-center gap-4 text-sm md:text-base">
             <time datetime="{{ page.date | date: '%Y-%m-%d' }}" class="text-zinc-500 font-mono">
+                {% assign current_lang = page.lang | default: site.default_lang %}
+                {% if current_lang == 'en' %}
+                {{ page.date | date: "%B %d, %Y" }}
+                {% else %}
                 {{ page.date | date: "%Y년 %m월 %d일" }}
+                {% endif %}
             </time>
-            
+
             {% if page.tags.size > 0 %}
             <span class="text-zinc-600">·</span>
             <div class="flex flex-wrap gap-2">
@@ -28,50 +33,52 @@ layout: default
             {% endif %}
         </div>
     </header>
-    
+
     <div class="mb-8">
         <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
              data-ad-format="fluid" data-ad-client="ca-pub-8036596086585080" data-ad-slot="9643944593"
-             data-language="ko"></ins>
+             data-language="{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
-    
+
     <div class="post-content">
         {{ content }}
     </div>
-    
+
     <div class="mt-12 mb-8">
         <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
              data-ad-format="fluid" data-ad-client="ca-pub-8036596086585080" data-ad-slot="7241821159"
-             data-language="ko"></ins>
+             data-language="{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}"></ins>
         <script>
             (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
     </div>
-    
+
+    {% assign current_lang = page.lang | default: site.default_lang %}
+    {% unless current_lang == 'en' %}
     <footer class="mt-16 md:mt-24 pt-8 border-t border-zinc-900">
-        <!-- 목록으로 버튼 -->
         <div class="mb-8">
-            <a href="{{ site.baseurl }}/" 
+            <a href="{{ site.baseurl }}/"
                class="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg text-zinc-300 hover:text-zinc-100 transition-all duration-200 text-sm font-medium">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
                 목록으로
             </a>
         </div>
-        
-        <!-- 이전/다음 글 네비게이션 -->
+
         {% if page.previous or page.next %}
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             {% if page.previous %}
-            <a href="{{ site.baseurl }}{{ page.previous.url }}" 
+            <a href="{{ site.baseurl }}{{ page.previous.url }}"
                class="group flex flex-col p-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg transition-all duration-200">
                 <div class="flex items-center gap-2 text-zinc-500 text-xs font-medium mb-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M15 19l-7-7 7-7"></path>
                     </svg>
                     이전 글
                 </div>
@@ -82,9 +89,9 @@ layout: default
             {% else %}
             <div class="hidden md:block"></div>
             {% endif %}
-            
+
             {% if page.next %}
-            <a href="{{ site.baseurl }}{{ page.next.url }}" 
+            <a href="{{ site.baseurl }}{{ page.next.url }}"
                class="group flex flex-col p-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg transition-all duration-200 {% unless page.previous %}md:col-start-2{% endunless %}">
                 <div class="flex items-center justify-end gap-2 text-zinc-500 text-xs font-medium mb-2">
                     다음 글
@@ -100,9 +107,15 @@ layout: default
         </div>
         {% endif %}
     </footer>
-    
+    {% endunless %}
+
     <div class="mt-16 pt-8 border-t border-zinc-900">
+        {% assign current_lang = page.lang | default: site.default_lang %}
+        {% if current_lang == 'en' %}
+        <p class="text-center text-zinc-500 text-sm mb-6">Please log in with GitHub to leave a comment :D</p>
+        {% else %}
         <p class="text-center text-zinc-500 text-sm mb-6">댓글을 남기시려면 Github 로그인을 해주세요 :D</p>
+        {% endif %}
         <script src="https://utteranc.es/client.js"
                 repo="madplay/madplay.github.io"
                 issue-term="og:title"
