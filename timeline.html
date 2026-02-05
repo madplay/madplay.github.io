@@ -5,9 +5,16 @@ layout: default
 <link rel="stylesheet" href="{{ site.baseurl }}/css/custom/timeline.css">
 
 <div class="max-w-4xl mx-auto px-4 md:px-12 py-8 md:py-12">
+    {% assign default_lang = site.default_lang | default: 'ko' %}
+    {% assign timeline_posts_count = 0 %}
+    {% for post in site.posts %}
+    {% if post.lang == nil or post.lang == '' or post.lang == default_lang %}
+    {% assign timeline_posts_count = timeline_posts_count | plus: 1 %}
+    {% endif %}
+    {% endfor %}
     <div class="timeline-header">
         <h1>Timeline</h1>
-        <p>현재까지 {{ site.posts.size }}개의 글을 작성했어요.</p>
+        <p>현재까지 {{ timeline_posts_count }}개의 글을 작성했어요.</p>
     </div>
 
     <div class="timeline-container">
@@ -17,24 +24,34 @@ layout: default
         {% assign sorted_years = grouped_posts | sort: "name" | reverse %}
 
         {% for year_group in sorted_years %}
+        {% assign visible_posts_count = 0 %}
+        {% for post in year_group.items %}
+        {% if post.lang == nil or post.lang == '' or post.lang == default_lang %}
+        {% assign visible_posts_count = visible_posts_count | plus: 1 %}
+        {% endif %}
+        {% endfor %}
+        {% if visible_posts_count > 0 %}
         <div class="timeline-year">
             <div class="timeline-year-header">
                 <div class="timeline-year-dot"></div>
                 <span class="timeline-year-title">{{ year_group.name }}</span>
-                <span class="timeline-year-count">({{ year_group.items.size }})</span>
+                <span class="timeline-year-count">({{ visible_posts_count }})</span>
             </div>
 
             <div class="timeline-posts">
                 {% for post in year_group.items %}
+                {% if post.lang == nil or post.lang == '' or post.lang == default_lang %}
                 <div class="timeline-post">
                     <a href="{{ site.baseurl }}{{ post.url }}" class="timeline-post-link">
                         <div class="timeline-post-title">{{ post.title }}</div>
                         <time class="timeline-post-date">{{ post.date | date: "%Y년 %m월 %d일" }}</time>
                     </a>
                 </div>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
+        {% endif %}
         {% endfor %}
 
         <div class="timeline-milestone">
