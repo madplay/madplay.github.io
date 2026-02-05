@@ -5,28 +5,41 @@ layout: default
 <link rel="stylesheet" href="{{ site.baseurl }}/css/custom/category.css">
 
 <div class="max-w-4xl mx-auto px-4 md:px-12 py-8 md:py-12">
+    {% assign default_lang = site.default_lang | default: 'ko' %}
+    {% assign visible_categories_count = 0 %}
+    {% for category in site.categories %}
+    {% assign localized_posts = category[1] | where_exp: "post", "post.lang == nil or post.lang == default_lang" %}
+    {% if localized_posts.size > 0 %}
+    {% assign visible_categories_count = visible_categories_count | plus: 1 %}
+    {% endif %}
+    {% endfor %}
     <div class="category-header">
         <h1>Category</h1>
-        <p>현재까지 {{ site.categories.size }}개의 주제를 다루고 있습니다.</p>
+        <p>현재까지 {{ visible_categories_count }}개의 주제를 다루고 있습니다.</p>
     </div>
     
     <div class="category-tags">
         {% for category in site.categories %}
+        {% assign localized_posts = category[1] | where_exp: "post", "post.lang == nil or post.lang == default_lang" %}
+        {% if localized_posts.size > 0 %}
         <a href="#{{ category | first | slugify }}" class="category-tag">
             {{ category | first }}
-            <span class="category-tag-count">({{ category[1].size }})</span>
+            <span class="category-tag-count">({{ localized_posts.size }})</span>
         </a>
+        {% endif %}
         {% endfor %}
     </div>
     
     <div class="category-sections">
         {% for category in site.categories %}
+        {% assign localized_posts = category[1] | where_exp: "post", "post.lang == nil or post.lang == default_lang" %}
+        {% if localized_posts.size > 0 %}
         <section id="{{ category | first | slugify }}" class="category-section">
             <h2 class="category-section-title">
-                {{ category | first }} ({{ category[1].size }})
+                {{ category | first }} ({{ localized_posts.size }})
             </h2>
             <div class="category-posts">
-                {% assign sorted_posts = category[1] | sort: 'date' | reverse %}
+                {% assign sorted_posts = localized_posts | sort: 'date' | reverse %}
                 {% for post in sorted_posts %}
                 <div class="category-post-item">
                     <a href="{{ site.baseurl }}{{ post.url }}" class="category-post-link">
@@ -39,6 +52,7 @@ layout: default
                 {% endfor %}
             </div>
         </section>
+        {% endif %}
         {% endfor %}
     </div>
 </div>
