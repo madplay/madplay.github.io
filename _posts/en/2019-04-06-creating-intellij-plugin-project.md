@@ -6,6 +6,9 @@ tags: 	  intellij plugin
 description: Build a plugin for IntelliJ IDEA from scratch
 category: Knowledge
 comments: true
+slug:     creating-intellij-plugin-project
+lang:     en
+permalink: /en/post/creating-intellij-plugin-project
 ---
 
 # Table of Contents

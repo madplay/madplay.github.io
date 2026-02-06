@@ -6,6 +6,9 @@ tags: 	  java serialization deserialization
 description: "What should you watch out for when using Java serialization, and why is it discouraged?"
 category: Java
 comments: true
+slug:     why-java-serialization-is-bad
+lang:     en
+permalink: /en/post/why-java-serialization-is-bad
 ---
 
 # Table of Contents

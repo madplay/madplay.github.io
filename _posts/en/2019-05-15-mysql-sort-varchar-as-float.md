@@ -7,6 +7,9 @@ description: How do you sort a VARCHAR column as a number in MySQL? Convert the 
 category: Database
 date: "2019-05-15 01:01:13"
 comments: true
+slug:     mysql-sort-varchar-as-float
+lang:     en
+permalink: /en/post/mysql-sort-varchar-as-float
 ---
 
 # When a Column Is a String

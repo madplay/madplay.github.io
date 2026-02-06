@@ -6,6 +6,9 @@ tags: 	  vuejs vuex
 description: "What is Vuex, and why does a Vue app need it?"
 category: Vuejs
 comments: true
+slug:     why-do-we-need-vuex
+lang:     en
+permalink: /en/post/why-do-we-need-vuex
 ---
 
 # What Is Vuex?

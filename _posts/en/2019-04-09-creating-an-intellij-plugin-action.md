@@ -6,6 +6,9 @@ tags: 	  intellij plugin
 description: Define an Action to run an IntelliJ plugin
 category: Knowledge
 comments: true
+slug:     creating-an-intellij-plugin-action
+lang:     en
+permalink: /en/post/creating-an-intellij-plugin-action
 ---
 
 # Table of Contents

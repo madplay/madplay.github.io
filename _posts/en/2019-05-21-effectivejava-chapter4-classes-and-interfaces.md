@@ -7,6 +7,9 @@ description: "[Effective Java 3th Edition] Chapter4: Classes and Interfaces"
 category: Java
 date: "2019-05-21 02:12:22"
 comments: true
+slug:     effectivejava-chapter4-classes-and-interfaces
+lang:     en
+permalink: /en/post/effectivejava-chapter4-classes-and-interfaces
 ---
 
 # Table of Contents

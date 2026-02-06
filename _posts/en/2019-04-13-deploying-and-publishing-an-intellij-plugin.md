@@ -6,6 +6,9 @@ tags: 	  intellij plugin
 description: Build your IntelliJ plugin and publish it to the JetBrains plugin repository.
 category: Knowledge
 comments: true
+slug:     deploying-and-publishing-an-intellij-plugin
+lang:     en
+permalink: /en/post/deploying-and-publishing-an-intellij-plugin
 ---
 
 # Table of Contents

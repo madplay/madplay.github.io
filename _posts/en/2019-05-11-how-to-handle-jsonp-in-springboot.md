@@ -7,6 +7,9 @@ description: "How do you implement JSONP responses in Spring Boot, and how do yo
 category: Spring
 date: "2019-05-11 23:52:10"
 comments: true
+slug:     how-to-handle-jsonp-in-springboot
+lang:     en
+permalink: /en/post/how-to-handle-jsonp-in-springboot
 ---
 
 # What Is CORS?

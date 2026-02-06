@@ -6,6 +6,9 @@ tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Chapter3: Methods Common to All Objects"  
 category: Java
 comments: true
+slug:     methods-common-to-all-objects
+lang:     en
+permalink: /en/post/methods-common-to-all-objects
 ---
 
 # Table of Contents
