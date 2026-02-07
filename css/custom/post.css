@@ -260,12 +260,12 @@
     color: rgb(212 212 216);
     line-height: 1.875;
     margin-bottom: 1.5rem;
-    font-size: 1.125rem;
+    font-size: 1rem;
 }
 
 .post-content h1 {
     color: rgb(244 244 245);
-    font-size: 2.25rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-top: 3rem;
     margin-bottom: 1.5rem;
@@ -274,7 +274,7 @@
 
 .post-content h2 {
     color: rgb(244 244 245);
-    font-size: 1.875rem;
+    font-size: 1.625rem;
     font-weight: 600;
     margin-top: 2.5rem;
     margin-bottom: 1rem;
@@ -283,7 +283,7 @@
 
 .post-content h3 {
     color: rgb(228 228 231);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
     margin-top: 2rem;
     margin-bottom: 0.75rem;
@@ -426,19 +426,19 @@
 
 @media (max-width: 768px) {
     .post-content h1 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         margin-top: 2rem;
         margin-bottom: 1rem;
     }
 
     .post-content h2 {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
         margin-top: 2rem;
         margin-bottom: 0.75rem;
     }
 
     .post-content h3 {
-        font-size: 1.25rem;
+        font-size: 1.125rem;
         margin-top: 1.5rem;
         margin-bottom: 0.5rem;
     }

@@ -37,9 +37,10 @@ layout: default
                         <h2 class="text-lg md:text-xl font-medium text-zinc-100 group-hover:text-zinc-300 transition-colors duration-300 mb-2 leading-relaxed">
                             {{ post.title }}
                         </h2>
-                        {% if post.excerpt %}
+                        {% assign post_summary = post.description | default: post.excerpt %}
+                        {% if post_summary %}
                         <p class="text-zinc-400 text-sm md:text-base leading-relaxed line-clamp-2">
-                            {{ post.excerpt | strip_html | truncatewords: 25 }}
+                            {{ post_summary | strip_html | truncatewords: 25 }}
                         </p>
                         {% endif %}
                     </div>

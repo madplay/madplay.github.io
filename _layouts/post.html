@@ -11,6 +11,13 @@ layout: default
             {{ page.title }}
         </h1>
 
+        {% assign post_summary = page.description | default: page.excerpt %}
+        {% if post_summary %}
+        <p class="text-zinc-400 text-base md:text-lg leading-relaxed text-center max-w-3xl mx-auto mb-6 md:mb-8">
+            {{ post_summary | strip_html | strip_newlines }}
+        </p>
+        {% endif %}
+
         <div class="flex flex-wrap items-center justify-center gap-4 text-sm md:text-base">
             <time datetime="{{ page.date | date: '%Y-%m-%d' }}" class="text-zinc-500 font-mono">
                 {% assign current_lang = page.lang | default: site.default_lang %}
