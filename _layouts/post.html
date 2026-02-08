@@ -35,6 +35,29 @@ layout: default
     </header>
 
     <div class="mb-8">
+        {% assign current_lang = page.lang | default: site.default_lang %}
+        {% if current_lang == 'en' %}
+        {% assign target_lang = site.default_lang %}
+        {% else %}
+        {% assign target_lang = 'en' %}
+        {% endif %}
+        {% assign paired_post = nil %}
+        {% for p in site.posts %}
+        {% assign p_lang = p.lang | default: site.default_lang %}
+        {% if p.slug == page.slug and p.url != page.url and p_lang == target_lang %}
+        {% assign paired_post = p %}
+        {% break %}
+        {% endif %}
+        {% endfor %}
+        {% if paired_post %}
+        <div class="mb-8">
+            <a href="{{ site.baseurl }}{{ paired_post.url }}"
+               class="inline-flex items-center gap-2 px-3 py-2 border border-zinc-700 rounded text-sm text-zinc-300 hover:text-zinc-100 hover:border-zinc-500 transition-colors duration-200">
+                {% if current_lang == 'en' %}한국어로 보기{% else %}Read in English{% endif %}
+            </a>
+        </div>
+        {% endif %}
+
         <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
              data-ad-format="fluid" data-ad-client="ca-pub-8036596086585080" data-ad-slot="9643944593"
              data-language="{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}"></ins>
