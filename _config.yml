@@ -4,6 +4,7 @@ description: "Curiosity and Experience never get old."
 url: "https://madplay.github.io"
 baseurl: ""
 g-analytics: "UA-111002457-1"
+ga4_measurement_id: "G-YH3W70BTL1"
 
 # Language Settings
 languages: [ "ko", "en" ]
