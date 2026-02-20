@@ -67,7 +67,7 @@ Giving the model a role, breaking work into steps, and adding examples was often
 
 That changed around the middle of 2025.
 When Andrej Karpathy emphasized that **context engineering matters more than prompts**,
-<a href="/en/post/context-engineering" target="_blank" rel="nofollow">context engineering</a> began to attract broader attention.
+<a href="/en/post/context-engineering" target="_blank">context engineering</a> began to attract broader attention.
 The key idea was that it is not enough to phrase prompts well; the full context available to the model at reasoning time must be designed at the system level.
 
 But once AI agents entered production settings seriously, it became clear that context design alone did not cover everything.
@@ -151,11 +151,11 @@ claude mcp add --transport stdio github -- npx -y @modelcontextprotocol/server-g
 But connecting many MCP servers is not always better.
 Tool definitions themselves **consume tokens**,
 so in practice it is more effective to connect only the MCP servers needed for the current work.
-This is also why <a href="/en/post/claude-code-mcp-setup" target="_blank" rel="nofollow">MCP setup and the things to watch for</a> deserves its own discussion.
+This is also why <a href="/en/post/claude-code-mcp-setup" target="_blank">MCP setup and the things to watch for</a> deserves its own discussion.
 
 ## Skill Files
 
-<a href="/en/post/ai-agent-skills-and-skill-md" target="_blank" rel="nofollow">Agent Skills</a>
+<a href="/en/post/ai-agent-skills-and-skill-md" target="_blank">Agent Skills</a>
 document repeated work procedures.
 If a `SKILL.md` file contains the instructions for a recurring task, the agent can read it when needed and carry out the workflow.
 Typical examples include a code-review checklist, a deployment workflow, or the preferred pattern for a specific framework.
@@ -325,6 +325,16 @@ Installing and using AI tools is no longer the hard part.
 What creates the difference is how well the environment around those tools is designed.
 
 **The hard part is that what looks like the right answer today can easily become a different answer tomorrow.**
+
+<br>
+
+# You Might Also Like
+
+The harness components mentioned in this post are covered in more detail in these articles.
+
+- <a href="/en/post/context-engineering" target="_blank">Context Engineering: Designing the Full Picture Beyond Prompts</a>
+- <a href="/en/post/claude-code-mcp-setup" target="_blank">How to Set Up MCP Servers in Claude Code and What to Watch For</a>
+- <a href="/en/post/ai-agent-skills-and-skill-md" target="_blank">What Are Agent Skills, and How Do You Build Them?</a>
 
 <br>
 
