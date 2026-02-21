@@ -407,18 +407,6 @@
     content: ' 복사됨';
 }
 
-.adsbygoogle {
-    display: block;
-    margin: 1.25rem 0;
-    min-height: 0;
-}
-
-.adsbygoogle[data-ad-status="unfilled"] {
-    display: none !important;
-    margin: 0 !important;
-    min-height: 0 !important;
-}
-
 .github-button {
     display: inline-block;
     margin: 0;
