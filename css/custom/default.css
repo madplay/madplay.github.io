@@ -65,13 +65,25 @@
 
 footer .footer-link {
     color: rgb(96 165 250);
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+    text-decoration-thickness: 1px;
     transition: color 0.3s ease;
 }
 
 footer .footer-link:hover {
     color: rgb(147 197 253);
-    text-decoration: underline;
+    text-decoration-thickness: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-fade-in-up,
+    .stagger-animation,
+    #mobile-menu {
+        animation: none !important;
+        transition: none !important;
+    }
 }
 
 #mobile-menu {

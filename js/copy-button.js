@@ -84,7 +84,7 @@
         wrapper.className = 'code-block-wrapper';
         
         const codeElement = block.querySelector('code') || block;
-        const codeText = codeElement.textContent || codeElement.innerText;
+        const codeText = codeElement.textContent || '';
         const copyButton = createCopyButton(codeText);
         
         block.parentNode.insertBefore(wrapper, block);
@@ -95,16 +95,33 @@
     function initCopyButtons() {
         const processedBlocks = new Set();
         
-        const highlights = document.querySelectorAll('.post-content .highlight');
-        const pres = document.querySelectorAll('.post-content pre:not(.highlight)');
-        
-        highlights.forEach(function(block) {
-            processCodeBlock(block, processedBlocks, true);
-        });
-        
-        pres.forEach(function(block) {
-            processCodeBlock(block, processedBlocks, false);
-        });
+        const highlights = Array.prototype.slice.call(document.querySelectorAll('.post-content .highlight'));
+        const pres = Array.prototype.slice.call(document.querySelectorAll('.post-content pre:not(.highlight)'));
+        const queue = highlights.map(function(block) { return { block: block, skipHighlightCheck: true }; })
+            .concat(pres.map(function(block) { return { block: block, skipHighlightCheck: false }; }));
+
+        function processBatch(deadline) {
+            while (queue.length) {
+                const item = queue.shift();
+                processCodeBlock(item.block, processedBlocks, item.skipHighlightCheck);
+
+                if (deadline && deadline.timeRemaining && deadline.timeRemaining() < 3) {
+                    break;
+                }
+            }
+
+            if (!queue.length) {
+                return;
+            }
+
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(processBatch, { timeout: 1200 });
+                return;
+            }
+            setTimeout(processBatch, 16);
+        }
+
+        processBatch();
     }
     
     if (document.readyState === 'loading') {

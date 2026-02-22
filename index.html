@@ -56,20 +56,20 @@ layout: default
     
     <!-- Pagination -->
     {% if paginator.total_pages > 1 %}
-    <nav class="mt-16 md:mt-24 pt-8 border-t border-zinc-900">
-        <div class="flex items-center justify-center space-x-4">
+    <nav class="mt-10 md:mt-14 pt-6 border-t border-zinc-900">
+        <div class="flex items-center justify-center space-x-6">
             {% if paginator.previous_page %}
-            <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-sm md:text-base">
+            <a href="{{ site.baseurl }}{{ paginator.previous_page_path }}" class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-base md:text-lg px-2 py-1">
                 ← 이전
             </a>
             {% endif %}
             
-            <span class="text-zinc-500 text-sm md:text-base">
+            <span class="text-zinc-500 text-base md:text-lg font-medium">
                 {{ paginator.page }} / {{ paginator.total_pages }}
             </span>
             
             {% if paginator.next_page %}
-            <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-sm md:text-base">
+            <a href="{{ site.baseurl }}{{ paginator.next_page_path }}" class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-base md:text-lg px-2 py-1">
                 다음 →
             </a>
             {% endif %}

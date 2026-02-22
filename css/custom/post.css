@@ -292,12 +292,14 @@
 
 .post-content a {
     color: rgb(96 165 250);
-    text-decoration: none;
+    text-decoration: underline;
+    text-underline-offset: 0.16em;
+    text-decoration-thickness: 1px;
     transition: all 0.3s;
 }
 
 .post-content a:hover {
-    text-decoration: underline;
+    text-decoration-thickness: 2px;
 }
 
 .post-content ul,
@@ -401,10 +403,6 @@
     background-color: rgb(34 197 94);
     border-color: rgb(34 197 94);
     color: rgb(255 255 255);
-}
-
-.copy-button.copied::after {
-    content: ' 복사됨';
 }
 
 .github-button {

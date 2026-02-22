@@ -80,6 +80,20 @@
     <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
     <meta name="twitter:description"
           content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <style>
+        html {
+            background-color: rgb(9 9 11);
+            color: rgb(244 244 245);
+        }
+        body {
+            margin: 0;
+            background-color: rgb(9 9 11);
+            color: rgb(244 244 245);
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
 
     {% if site.ga4_measurement_id %}
     <link rel="preconnect" href="https://www.googletagmanager.com">
@@ -100,62 +114,19 @@
     </script>
     {% endif %}
 
-    <script>
-        window.tailwind = window.tailwind || {};
-        window.tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: [
-                            '-apple-system',
-                            'BlinkMacSystemFont',
-                            'SF Pro Display',
-                            'SF Pro Text',
-                            'Inter',
-                            'Segoe UI',
-                            'Roboto',
-                            'Helvetica Neue',
-                            'Arial',
-                            'sans-serif'
-                        ]
-                    },
-                    animation: {
-                        'fade-in': 'fadeIn 0.6s ease-out',
-                        'fade-in-up': 'fadeInUp 0.6s ease-out',
-                        'stagger-fade-in-up': 'fadeInUp 0.6s ease-out'
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': {opacity: '0'},
-                            '100%': {opacity: '1'}
-                        },
-                        fadeInUp: {
-                            '0%': {
-                                opacity: '0',
-                                transform: 'translateY(20px)'
-                            },
-                            '100%': {
-                                opacity: '1',
-                                transform: 'translateY(0)'
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <script src="https://cdn.tailwindcss.com" defer></script>
+    {% if page.layout == 'post' %}
+    <script data-ad-client="ca-pub-8036596086585080" async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8036596086585080"
+            crossorigin="anonymous"></script>
+    {% endif %}
 
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/custom/utilities.css">
     <link rel="stylesheet" href="{{ site.baseurl }}/css/custom/default.css">
     {% if page.layout == 'post' %}
     <link rel="stylesheet" href="{{ site.baseurl }}/css/custom/post.css">
     {% endif %}
-    <script data-ad-client="ca-pub-8036596086585080" async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8036596086585080"
-            crossorigin="anonymous"></script>
-
 </head>
-<body class="bg-zinc-950 text-zinc-100 antialiased animate-fade-in">
+<body class="bg-zinc-950 text-zinc-100 antialiased">
 {% assign current_lang = page.lang | default: site.default_lang %}
 <header class="sticky top-0 z-50 backdrop-blur-xl bg-zinc-950/80 border-b border-zinc-900">
     <nav class="max-w-7xl mx-auto px-4 md:px-12 py-3 md:py-4">
@@ -296,6 +267,10 @@
 </footer>
 {% endunless %}
 
+<script>
+    window.siteBaseUrl = "{{ site.baseurl }}";
+</script>
+
 {% unless current_lang == 'en' %}
 <script>
     window.searchIndexUrl = "{{ site.baseurl }}/search.json";
@@ -381,13 +356,8 @@
             }
             el.addEventListener('pointerdown', loadSearchScript, { once: true, passive: true });
             el.addEventListener('focus', loadSearchScript, { once: true });
+            el.addEventListener('keydown', loadSearchScript, { once: true });
         });
-
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadSearchScript, { timeout: 2000 });
-            return;
-        }
-        setTimeout(loadSearchScript, 1200);
     })();
 </script>
 {% endunless %}

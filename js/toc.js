@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+function initPostToc() {
     var postContent = document.querySelector(".post-content");
     var tocNav = document.getElementById("post-toc-nav");
     var tocAside = document.querySelector(".post-toc");
@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     var currentH2Id = null;
+    var currentActiveId = "";
 
     headings.forEach(function (heading) {
         var text = heading.textContent ? heading.textContent.trim() : "";
@@ -85,8 +86,11 @@ document.addEventListener("DOMContentLoaded", function () {
     tocNav.appendChild(tocList);
 
     function setActive(targetId) {
-        if (!targetId) return;
-        
+        if (!targetId || currentActiveId === targetId) {
+            return;
+        }
+        currentActiveId = targetId;
+
         var activeItem = null;
         links.forEach(function (item) {
             if (item.heading.id === targetId) {
@@ -111,15 +115,23 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         links.forEach(function (item) {
-            item.link.classList.toggle("is-active", item.heading.id === targetId);
+            var isActive = item.heading.id === targetId;
+            if (isActive !== item.link.classList.contains("is-active")) {
+                item.link.classList.toggle("is-active", isActive);
+            }
 
             if (item.level === 2) {
-                item.listItem.classList.toggle("is-expanded", item.heading.id === expandedH2Id);
+                var isExpanded = item.heading.id === expandedH2Id;
+                if (isExpanded !== item.listItem.classList.contains("is-expanded")) {
+                    item.listItem.classList.toggle("is-expanded", isExpanded);
+                }
             }
 
             if (item.level === 3) {
                 var isVisible = item.parentH2Id === expandedH2Id || item.heading.id === targetId;
-                item.listItem.classList.toggle("is-visible", isVisible);
+                if (isVisible !== item.listItem.classList.contains("is-visible")) {
+                    item.listItem.classList.toggle("is-visible", isVisible);
+                }
             }
         });
     }
@@ -163,8 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
     links.forEach(function (item) {
         item.link.addEventListener("click", function (event) {
             event.preventDefault();
-
-            var targetTop = item.heading.getBoundingClientRect().top + window.scrollY - getScrollOffset();
+            var targetTop = item.heading.offsetTop - getScrollOffset();
             
             setActive(item.heading.id);
             window.scrollTo({
@@ -178,11 +189,25 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    var resizeQueued = false;
     window.addEventListener("resize", function () {
-        applyStickyTop();
-        applyScrollMargin();
-    });
+        if (resizeQueued) {
+            return;
+        }
+        resizeQueued = true;
+        window.requestAnimationFrame(function () {
+            applyStickyTop();
+            applyScrollMargin();
+            resizeQueued = false;
+        });
+    }, { passive: true });
 
     applyStickyTop();
     applyScrollMargin();
-});
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initPostToc, { once: true });
+} else {
+    initPostToc();
+}
