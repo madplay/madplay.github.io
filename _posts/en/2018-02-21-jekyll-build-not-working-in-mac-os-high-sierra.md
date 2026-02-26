@@ -4,7 +4,7 @@ title:    Resolving Jekyll Execution Error on MacOS High Sierra
 author:   madplay
 tags: 	  HighSierra Jekyll
 description: Resolving Jekyll execution errors in High Sierra version.
-category: Development
+category: Frontend
 comments: true
 slug:     jekyll-build-not-working-in-mac-os-high-sierra
 lang:     en

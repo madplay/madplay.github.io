@@ -4,7 +4,7 @@ title:    Stack Overflow, Growth and Experience Points for Developers
 author:   madplay
 tags: 	  motivation stackoverflow community
 description: Growth and experience points you can gain from the Stack Overflow community that most developers have visited at least once
-category: Development
+category: Career
 lang: en
 slug: how-i-use-stackoverflow
 permalink: /en/how-i-use-stackoverflow/

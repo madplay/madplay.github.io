@@ -4,7 +4,7 @@ title:    자바 업캐스팅 다운캐스팅
 author:   madplay
 tags: 	  java upcasting downcasting
 description: 자바에서 업캐스팅(Upcasting)과 다운캐스팅(Downcasting)이란 무엇일까?
-category: Java
+category: Java/Kotlin
 date: "2018-08-04 22:24:10"
 comments: true
 ---

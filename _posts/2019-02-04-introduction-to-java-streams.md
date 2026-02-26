@@ -4,7 +4,7 @@ title:    "자바 스트림 정리: 1. API 소개와 스트림 생성 연산"
 author:   madplay
 tags: 	  java stream
 description: Java 8에서 도입된 스트림(Stream)은 무엇일까? 자바 스트림 API 소개와 스트림을 생성하는 방법에 대해 알아보자.
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

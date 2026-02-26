@@ -4,7 +4,7 @@ title:    "What’s New in Java 14?"
 author:   madplay
 tags:    java jdk14 openjdk
 description: "A practical overview of new features and notable changes introduced in JDK 14." 
-category: Java
+category: Java/Kotlin
 date: "2020-06-19 23:51:22"
 comments: true
 lang: en

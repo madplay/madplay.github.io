@@ -4,7 +4,7 @@ title:    Levenshtein Distance Algorithm (Edit Distance Algorithm)
 author:   madplay
 tags: 	  Algorithm
 description: Examining the edit distance algorithm for finding similarity between strings.
-category: Algorithm
+category: Algorithm/CS
 comments: true
 slug:     levenshtein-distance-edit-distance
 lang:     en

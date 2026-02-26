@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 68. 일반적으로 통용되는
 author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3th Edition] Item 68. Adhere to generally accepted naming conventions"
-category: Java
+category: Java/Kotlin
 date: "2019-08-24 23:19:31"
 comments: true
 ---

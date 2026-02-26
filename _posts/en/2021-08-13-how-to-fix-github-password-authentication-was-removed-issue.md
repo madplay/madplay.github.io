@@ -4,7 +4,7 @@ title:    "git push Error: Please use a personal access token instead"
 author:   madplay
 tags:    git github accesstoken
 description: If you see "Support for password authentication was removed on August 13, 2021. Please use a personal access token instead" while pushing to GitHub, how do you fix it?
-category: Development
+category: Engineering
 date: "2021-08-13 01:33:21"
 comments: true
 slug:     how-to-fix-github-password-authentication-was-removed-issue

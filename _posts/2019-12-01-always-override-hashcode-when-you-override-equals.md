@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 11. equals를 재정의하려거
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 11. Always override hashCode when you override equals" 
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

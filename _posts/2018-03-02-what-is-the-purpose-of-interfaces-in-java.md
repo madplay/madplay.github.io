@@ -4,7 +4,7 @@ title:    자바의 인터페이스(Java Interface)
 author:   madplay
 tags: 	  java interface
 description: 자바에서 인터페이스는 무엇일까? 그리고 자바에서는 어떻게 다중 상속을 구현할 수 있을까?
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

@@ -4,7 +4,7 @@ title:    자바의 추상 클래스와 추상 메서드
 author:   madplay
 tags: 	  java abstract
 description: "자바에서 추상 클래스와 추상 메서드를 사용하는 이유는 무엇일까?"
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

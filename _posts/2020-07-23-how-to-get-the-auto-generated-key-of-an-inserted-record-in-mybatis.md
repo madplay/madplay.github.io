@@ -4,7 +4,7 @@ title:    "MyBatis에서 데이터 insert 후에 auto_increment 키값 가져오
 author:   madplay
 tags:     mybatis
 description: "마이바티스(MyBatis)에서 insert 쿼리를 실행한 후 입력된 데이터의 auto_increment 키값을 가져오는 방법" 
-category: MyBatis
+category: Data
 date: "2020-07-23 02:41:21"
 comments: true
 ---

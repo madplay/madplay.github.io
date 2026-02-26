@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 85. 자바 직렬화의 대안�
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 85. Prefer alternatives to Java serialization"
-category: Java
+category: Java/Kotlin
 date: "2019-10-12 01:21:59"
 comments: true
 ---

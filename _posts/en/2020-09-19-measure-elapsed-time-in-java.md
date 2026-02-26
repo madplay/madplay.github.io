@@ -4,7 +4,7 @@ title:    "How to Measure Code Execution Time in Java"
 author:   madplay
 tags:     currenttimemillis nanotime stopwatch
 description: "How can you measure how long code takes to execute in Java?" 
-category: Java
+category: Java/Kotlin
 lang: en
 slug: measure-elapsed-time-in-java
 permalink: /en/measure-elapsed-time-in-java/

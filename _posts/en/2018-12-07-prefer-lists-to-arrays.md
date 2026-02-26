@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 28. Prefer Lists to Arrays"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 28. Prefer lists to arrays"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     prefer-lists-to-arrays
 lang:     en

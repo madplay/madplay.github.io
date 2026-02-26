@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 10. equals는 일반 규약을 �
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 10. Obey the general contract when overriding equals" 
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 4. Enforce Noninstantiability with 
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 4. Enforce noninstantiability with a private constructor"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     enforce-noninstantiability-with-private-constructor
 lang:     en

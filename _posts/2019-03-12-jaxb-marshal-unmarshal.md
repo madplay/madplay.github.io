@@ -4,7 +4,7 @@ title:    "JAXB marshal, unmarshal(마샬, 언마샬)"
 author:   madplay
 tags: 	  java jaxb marshal unmarshal
 description: "자바에서 XML을 파싱할 때 사용하는 JAXB(Java Architecture for XML Binding) API로 마샬링, 언마샬링을 해보자."
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

@@ -4,7 +4,7 @@ title:    Why Are Computers Based on Binary System?
 author:   madplay
 tags: 	  knowledge binary
 description: Learning why computers use the binary system.
-category: Knowledge
+category: Algorithm/CS
 comments: true
 slug:     why-computer-is-based-on-binary-system
 lang:     en

@@ -4,7 +4,7 @@ title:    "Java Optional: 2. Introduction to Optional"
 author:   madplay
 tags:    java optional
 description: What is the Optional class added in Java 8?
-category: Java
+category: Java/Kotlin
 date: "2021-02-02 22:51:54"
 comments: true
 slug:     introduction-to-optional-in-java

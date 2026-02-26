@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 2. Consider a builder when faced wi
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 2. Consider a builder when faced with many constructor parameters"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     builder-when-faced-with-many-constructor-parameters
 lang:     en

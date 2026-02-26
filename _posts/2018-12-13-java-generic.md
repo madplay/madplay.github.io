@@ -4,7 +4,7 @@ title:    자바 제네릭(Java Generic)
 author:   madplay
 tags: 	  java generic generic-class generic-interface generic-method
 description: 자바 제네릭과 제네릭 클래스, 제네릭 인터페이스 그리고 제네릭 메서드에 대해서 알아봅니다.
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

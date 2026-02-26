@@ -4,7 +4,7 @@ title:    grep 예제와 옵션
 author:   madplay
 tags: 	  grep 
 description: grep 명령어로 파일 내의 특정 문자열들을 찾아보자
-category: Development
+category: Infra
 comments: true
 ---
 

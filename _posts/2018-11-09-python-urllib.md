@@ -4,7 +4,7 @@ title:    파이썬 URL 파싱, 호출(urllib)
 author:   madplay
 tags: 	  python
 description: Python에서 URL 파싱, 호출 등을 쉽게해주는 urllib 라이브러리
-category: Python
+category: Backend
 comments: true
 ---
 

@@ -4,7 +4,7 @@ title:    "Manage Multiple Java Versions with jEnv"
 author:   madplay
 tags: 	  java jenv
 description: Install jEnv on macOS and manage multiple JDK versions.
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     manage-java-version-using-jenv
 lang:     en

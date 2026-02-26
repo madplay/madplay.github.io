@@ -4,7 +4,7 @@ title:    Python if __name__ == "__main__" Meaning
 author:   madplay
 tags: 	  python
 description: What is the meaning of the if __name__ == "__main__" declaration in Python?
-category: Python
+category: Backend
 comments: true
 slug:     python-main-function
 lang:     en

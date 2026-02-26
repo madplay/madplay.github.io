@@ -4,7 +4,7 @@ title:    Abstract Classes and Methods in Java
 author:   madplay
 tags: 	  java abstract
 description: What's the reason for using abstract classes and abstract methods in Java?
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     abstract-classes-and-methods-in-java
 lang:     en

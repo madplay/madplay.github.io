@@ -4,7 +4,7 @@ title: "Kotlin Null Safety and Functional Programming"
 author: madplay
 tags: kotlin null-safety collection lambda higher-order-function sequence fold
 description: "Covers Kotlin null safety operators and functional patterns for safer, concise code."
-category: Kotlin
+category: Java/Kotlin
 date: "2025-01-27 10:00:00"
 comments: true
 lang:     en

@@ -75,6 +75,34 @@ layout: default
 </div>
 
 <script>
+    function shuffleCategoryGroups() {
+        const tagsContainer = document.querySelector('.category-tags');
+        const sectionsContainer = document.querySelector('.category-sections');
+        if (!tagsContainer || !sectionsContainer) return;
+
+        const tags = Array.from(tagsContainer.querySelectorAll('.category-tag[href^="#"]'));
+        const sections = Array.from(sectionsContainer.querySelectorAll('.category-section[id]'));
+        if (tags.length === 0 || sections.length === 0) return;
+
+        const groups = tags.map(tag => {
+            const href = tag.getAttribute('href');
+            const section = href ? sectionsContainer.querySelector(href) : null;
+            return section ? { tag, section } : null;
+        }).filter(Boolean);
+
+        for (let i = groups.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [groups[i], groups[j]] = [groups[j], groups[i]];
+        }
+
+        groups.forEach(group => {
+            tagsContainer.appendChild(group.tag);
+            sectionsContainer.appendChild(group.section);
+        });
+    }
+
+    shuffleCategoryGroups();
+
     document.querySelectorAll('.category-tag[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();

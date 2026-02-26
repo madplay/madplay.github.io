@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Chapter 3. Methods Common to All Objects
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Chapter3: Methods Common to All Objects"  
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     methods-common-to-all-objects
 lang:     en

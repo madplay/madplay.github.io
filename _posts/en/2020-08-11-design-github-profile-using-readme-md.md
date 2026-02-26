@@ -4,7 +4,7 @@ title:    "Design Your GitHub Profile"
 author:   madplay
 tags:    github readme
 description: "Design your GitHub profile with README.md"
-category: Development
+category: Career
 lang: en
 slug: design-github-profile-using-readme-md
 permalink: /en/design-github-profile-using-readme-md/

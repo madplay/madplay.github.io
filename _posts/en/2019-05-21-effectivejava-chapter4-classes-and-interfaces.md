@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Chapter 4. Classes and Interfaces"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Chapter4: Classes and Interfaces"  
-category: Java
+category: Java/Kotlin
 date: "2019-05-21 02:12:22"
 comments: true
 slug:     effectivejava-chapter4-classes-and-interfaces

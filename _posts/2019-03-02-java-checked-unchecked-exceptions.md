@@ -4,7 +4,7 @@ title:    "자바 예외 구분: Checked Exception, Unchecked Exception"
 author:   madplay
 tags: 	  java exception
 description: "자바에서 예외는 어떻게 구분할까? Checked Exception과 Unchecked Exception의 차이는 무엇일까?"
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

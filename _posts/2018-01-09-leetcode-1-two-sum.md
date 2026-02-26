@@ -4,7 +4,7 @@ title:    LeetCode 1. Two Sum
 author:   madplay
 tags: 	  algotithm leetcode
 description: 1~N이 포함된 배열이 주어질 때, 입력한 숫자 M을 만들 수 있는 배열의 인덱스 찾기
-category: Algorithm
+category: Algorithm/CS
 comments: true
 ---
 

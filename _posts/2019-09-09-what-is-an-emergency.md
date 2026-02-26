@@ -4,7 +4,7 @@ title:    "구글의 코드 리뷰 가이드: 긴급상황"
 author:   madplay
 tags: 	  google codereview reviewer
 description: 구글의 코드 리뷰 가이드. 코드 리뷰에서 긴급 상황이란 어떤 상황을 말하는 것일까?
-category: Development
+category: Engineering
 date: "2019-09-09 00:00:03"
 comments: true
 ---

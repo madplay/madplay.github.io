@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 18. Favor Composition over Inherita
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 18. Favor composition over inheritance"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     favor-composition-over-inheritance
 lang:     en

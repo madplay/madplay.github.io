@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 8장. 메서드"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Chapter8: Methods"
-category: Java
+category: Java/Kotlin
 date: "2019-08-03 02:11:01"
 comments: true
 ---

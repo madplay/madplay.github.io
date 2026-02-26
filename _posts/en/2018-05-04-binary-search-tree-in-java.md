@@ -4,7 +4,7 @@ title:    "Binary Search Tree: Implementation in Java"
 author:   madplay
 tags: 	  BST BinarySearchTree DataStructure Algorithm
 description: A Java implementation of a Binary Search Tree.
-category: Algorithm
+category: Algorithm/CS
 date: "2018-05-04 21:49:02"
 comments: true
 slug:     binary-search-tree-in-java

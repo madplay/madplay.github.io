@@ -4,7 +4,7 @@ title:    "crossdomain.xml 파일은 무엇일까?"
 author:   madplay
 tags: 	  crossdomain flash
 description: "플래시(SWF) 파일이 외부 도메인의 데이터에 접근하기 위해 필요한 보안 정책 파일인 crossdomain.xml에 대해서 알아보자."
-category: Network
+category: Infra
 date: "2020-05-02 23:14:23"
 comments: true
 ---

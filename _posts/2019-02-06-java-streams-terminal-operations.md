@@ -4,7 +4,7 @@ title:    "자바 스트림 정리: 3. 스트림 결과 구하기"
 author:   madplay
 tags: 	  java stream
 description: 원하는 형태로 가공한 스트림에서 결과를 구하는 연산의 종류에는 무엇이 있을까?
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 58. 전통적인 for 문보다�
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 58. Prefer for-each loops to traditional for loops" 
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

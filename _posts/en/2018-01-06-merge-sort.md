@@ -4,7 +4,7 @@ title:    Merge Sort
 author:   madplay
 tags: 	  algorithm mergesort divide
 description: Learning about the merge sort algorithm that goes through divide, conquer, and combine processes.
-category: Algorithm
+category: Algorithm/CS
 comments: true
 slug:     merge-sort
 lang:     en

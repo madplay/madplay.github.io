@@ -4,7 +4,7 @@ title:    자바 오버라이딩과 오버로딩
 author:   madplay
 tags: 	  java overriding overloading
 description: 자바에서 메서드 오버라이딩(Overriding)과 메서드 오버로딩(Overloading)은 어떤 차이가 있을까?
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

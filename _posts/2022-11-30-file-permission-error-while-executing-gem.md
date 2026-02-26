@@ -4,7 +4,7 @@ title:    "gem 권한 에러 해결하기(Gem::FilePermissionError)"
 author:   madplay
 tags: 	  gem ruby
 description: "루비(Ruby)의 패키지 매니저인 gem 실행하다가 발생하는 FilePermissionError 권한 오류 해결하기"
-category: Development
+category: Infra
 date: "2022-11-30 02:11:20"
 comments: true
 ---

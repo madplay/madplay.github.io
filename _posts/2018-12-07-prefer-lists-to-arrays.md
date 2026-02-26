@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 28. 배열보다는 리스트를
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 28. Prefer lists to arrays" 
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

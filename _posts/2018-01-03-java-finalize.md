@@ -4,7 +4,7 @@ title:    자바 소멸자 finalize
 author:   madplay
 tags: 	  java finalize 소멸자
 description: 자바에서 메모리 할당된 객체를 해제하려면?
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

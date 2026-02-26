@@ -4,7 +4,7 @@ title: "Kotlin Error Handling and Coroutine-Based Failure Resilience"
 author: madplay
 tags: kotlin coroutine exception-handling retry test runCatching
 description: "Covers exception classification, coroutine timeout, retry design, unit testing, runCatching, and lazy patterns for Kotlin failure handling."
-category: Kotlin
+category: Java/Kotlin
 date: "2025-02-08 12:04:00"
 comments: true
 lang: en

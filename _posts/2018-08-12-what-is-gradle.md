@@ -3,8 +3,8 @@ layout:   post
 title:    "Gradle이란 무엇일까?"
 author:   madplay
 tags: 	  java gradle
-description: "그루비(Grrovy)를 기반으로 한 빌드 자동화, 개발 지원에 중점을 둔 빌드 도구인 그래들(Gradle)에 대해서 알아보자"  
-category: Development
+description: "그루비(Groovy)를 기반으로 한 빌드 자동화, 개발 지원에 중점을 둔 빌드 도구인 그래들(Gradle)에 대해서 알아보자"  
+category: Backend
 date: "2018-08-12 21:23:12"
 comments: true
 ---

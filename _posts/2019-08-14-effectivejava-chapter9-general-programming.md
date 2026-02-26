@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 9장. 일반적인 프로그래밍 원칙"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Chapter9: General Programming"
-category: Java
+category: Java/Kotlin
 date: "2019-08-14 22:39:53"
 comments: true
 ---

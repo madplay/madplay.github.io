@@ -4,7 +4,7 @@ title:    "Java Streams: 4. Examples"
 author:   madplay
 tags: 	  java stream
 description: Practical examples using the Java Stream API.
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     java-streams-examples
 lang:     en

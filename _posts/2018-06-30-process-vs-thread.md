@@ -4,7 +4,7 @@ title:    프로세스와 스레드 차이
 author:   madplay
 tags: 	  OS Process Thread
 description: 프로세스와 스레드는 어떤 차이를 갖고 있을까
-category: Knowledge
+category: Algorithm/CS
 comments: true
 ---
 

@@ -4,7 +4,7 @@ title:    Selection Sort
 author:   madplay
 tags: 	  algorithm selectionsort
 description: Learning about selection sort, one of the in-place sorting algorithms.
-category: Algorithm
+category: Algorithm/CS
 comments: true
 slug:     selection-sort
 lang:     en

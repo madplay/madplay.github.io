@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 39. Prefer Annotations to Naming Pa
 author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3rd Edition] Item 39. Prefer annotations to naming patterns"
-category: Java
+category: Java/Kotlin
 date: "2019-06-15 01:12:25"
 comments: true
 slug:     prefer-annotations-to-naming-patterns

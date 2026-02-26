@@ -4,7 +4,7 @@ title:    "도커(Docker): 도커 설치와 명령어 따라하기"
 author:   madplay
 tags: 	  docker
 description: 컨테이너 기반의 오픈소스 가상화 플랫폼인 도커! 일단 해보자!
-category: DevOps
+category: Infra
 comments: true
 ---
 

@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 88. readObject 메서드는 방�
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 88. Write readObject methods defensively"
-category: Java
+category: Java/Kotlin
 date: "2019-10-20 23:12:56"
 comments: true
 ---

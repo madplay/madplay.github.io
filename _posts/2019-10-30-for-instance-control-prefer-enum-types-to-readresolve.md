@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 89. 인스턴스 수를 통제�
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 89. For instance control, prefer enum types to readResolve"
-category: Java
+category: Java/Kotlin
 date: "2019-10-30 23:52:10"
 comments: true
 ---

@@ -4,7 +4,7 @@ title:    "JSON Schema: Implementing a Validator in Java"
 author:   madplay
 tags: 	  json jsonschema jsonvalidate
 description: "Let's implement a JSON Schema validator in Java code."
-category: Java
+category: Java/Kotlin
 lang: en
 slug: how-to-validate-json-schema-in-java
 permalink: /en/how-to-validate-json-schema-in-java/

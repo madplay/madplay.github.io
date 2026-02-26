@@ -4,7 +4,7 @@ title:    Python switch Statements
 author:   madplay
 tags: 	  python
 description: How do you implement a switch statement in Python?
-category: Python
+category: Backend
 comments: true
 slug:     python-switch-statement
 lang:     en

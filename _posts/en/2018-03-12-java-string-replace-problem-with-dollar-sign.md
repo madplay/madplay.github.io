@@ -4,7 +4,7 @@ title:    Java String replaceAll Method $(Dollar Sign) Issue
 author:   madplay
 tags: 	  Java String Replacement
 description: Issues you may encounter when using String replaceAll method in Java
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     java-string-replace-problem-with-dollar-sign
 lang:     en

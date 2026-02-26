@@ -4,7 +4,7 @@ title:    Quick Sort
 author:   madplay
 tags: 	  Algorithm quicksort pivot
 description: Learning about the quick sort algorithm based on divide & conquer.
-category: Algorithm
+category: Algorithm/CS
 comments: true
 slug:     quick-sort
 lang:     en

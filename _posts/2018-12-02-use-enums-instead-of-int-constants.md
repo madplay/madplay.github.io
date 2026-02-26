@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 34. INT 상수 대신 열거 타
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 34. Use enums instead of int constants"
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

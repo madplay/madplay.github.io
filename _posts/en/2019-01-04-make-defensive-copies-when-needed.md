@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 50. Make Defensive Copies When Need
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 50. Make defensive copies when needed"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     make-defensive-copies-when-needed
 lang:     en

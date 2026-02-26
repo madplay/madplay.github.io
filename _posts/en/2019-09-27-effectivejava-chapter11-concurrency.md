@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Chapter 11. Concurrency"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Chapter11: Concurrency"
-category: Java
+category: Java/Kotlin
 lang: en
 slug: effectivejava-chapter11-concurrency
 permalink: /en/effectivejava-chapter11-concurrency/

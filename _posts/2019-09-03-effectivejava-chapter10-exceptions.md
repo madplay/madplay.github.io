@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 10장. 예외"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Chapter10: Exceptions"
-category: Java
+category: Java/Kotlin
 date: "2019-09-03 00:42:12"
 comments: true
 ---

@@ -4,7 +4,7 @@ title:    "Add Comments to a Jekyll Blog with utterances"
 author:   madplay
 tags: 	  jekyll comment utterances
 description: "Add a comment system to a Jekyll blog by using utterances, which is backed by GitHub issues"
-category: Development
+category: Frontend
 lang: en
 slug: jekyll-blog-comments-with-utterances
 permalink: /en/jekyll-blog-comments-with-utterances/

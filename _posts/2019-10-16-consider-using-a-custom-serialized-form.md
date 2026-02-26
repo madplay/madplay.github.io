@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 87. 커스텀 직렬화 형태�
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 85. Consider using a custom serialized form"
-category: Java
+category: Java/Kotlin
 date: "2019-10-16 02:08:22"
 comments: true
 ---

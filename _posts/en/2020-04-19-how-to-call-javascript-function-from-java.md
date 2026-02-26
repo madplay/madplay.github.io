@@ -4,7 +4,7 @@ title:    "Java Scripting API: Calling JavaScript Functions from Java"
 author:   madplay
 tags: 	  java scriptengine
 description: "Use the Java Scripting API to invoke functions defined in a JavaScript file from Java." 
-category: Java
+category: Java/Kotlin
 date: "2020-04-19 23:49:51"
 comments: true
 lang: en

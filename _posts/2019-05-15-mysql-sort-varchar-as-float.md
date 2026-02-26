@@ -4,7 +4,7 @@ title:    MySQL 문자열 varchar 컬럼 정렬하기
 author:   madplay
 tags: 	  Database MySQL
 description: MySQL에서 varchar 컬럼을 숫자처럼 정렬하려면 어떻게 해야할까? 문자열을 숫자로 변환하여 정렬하는 방법은?
-category: Database
+category: Data
 date: "2019-05-15 01:01:13"
 comments: true
 ---

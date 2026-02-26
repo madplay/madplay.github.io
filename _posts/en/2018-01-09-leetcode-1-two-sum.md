@@ -4,7 +4,7 @@ title:    LeetCode 1. Two Sum
 author:   madplay
 tags: 	  algotithm leetcode
 description: Given an array containing 1~N, find the indices of the array that can make the input number M
-category: Algorithm
+category: Algorithm/CS
 comments: true
 slug:     leetcode-1-two-sum
 lang:     en

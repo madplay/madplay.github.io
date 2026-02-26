@@ -4,7 +4,7 @@ title:    "구글의 코드 리뷰 가이드: 코드 리뷰에 의견을 작성�
 author:   madplay
 tags: 	  google codereview reviewer
 description: 구글의 코드 리뷰 가이드. 리뷰어가 코드 리뷰에서 의견을 작성하는 방법에 대해서 알아봅시다.
-category: Development
+category: Engineering
 date: "2019-09-10 00:00:00"
 comments: true
 ---

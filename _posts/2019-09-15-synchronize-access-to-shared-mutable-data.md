@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 78. 공유 중인 가변 데이�
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 78. Synchronize access to shared mutable data" 
-category: Java
+category: Java/Kotlin
 date: "2019-09-15 22:19:29"
 comments: true
 ---

@@ -4,7 +4,7 @@ title:    합병 정렬(Merge Sort)
 author:   madplay
 tags: 	  algorithm mergesort divide
 description: 분할, 정복, 결합 과정을 거치는 합병 정렬 알고리즘에 대해서 알아보자.
-category: Algorithm
+category: Algorithm/CS
 comments: true
 ---
 

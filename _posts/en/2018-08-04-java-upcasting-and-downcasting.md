@@ -4,7 +4,7 @@ title:    Java Upcasting and Downcasting
 author:   madplay
 tags: 	  java upcasting downcasting
 description: What are Upcasting and Downcasting in Java?
-category: Java
+category: Java/Kotlin
 date: "2018-08-04 22:24:10"
 comments: true
 slug:     java-upcasting-and-downcasting

@@ -4,7 +4,7 @@ title:    Gradle Project Structure and Gradle Wrapper
 author:   madplay
 tags: 	  java gradle
 description: Let's learn about the structure of Gradle-based projects and Gradle Wrapper that enables builds even without Gradle installation.
-category: Development
+category: Backend
 date: "2018-08-19 00:11:46"
 comments: true
 slug:     the-structure-of-the-gradle-project

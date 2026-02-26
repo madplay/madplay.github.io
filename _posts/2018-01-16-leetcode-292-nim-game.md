@@ -4,7 +4,7 @@ title:    LeetCode 292. Nim Game
 author:   madplay
 tags: 	  algotithm leetcode
 description: 베스킨라빈스 게임의 유래라고도 할 수 있는 님(NIM) 게임
-category: Algorithm
+category: Algorithm/CS
 comments: true
 ---
 

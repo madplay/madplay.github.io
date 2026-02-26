@@ -4,7 +4,7 @@ title:    NTFS와 FAT32 그리고 exFAT 방식
 author:   madplay
 tags: 	  Knowledge Windows 파일시스템
 description: Windows 파일 시스템의 차이점
-category: Development
+category: Infra
 comments: true
 ---
 

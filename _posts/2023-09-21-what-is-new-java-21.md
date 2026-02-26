@@ -4,7 +4,7 @@ title: "자바 21 LTS 출시! 무엇이 바뀌었을까?"
 author: madplay
 tags: java jdk21 openjdk
 description: "자바 21 LTS 에서는 어떤 변화들이 있을까?"
-category: Java
+category: Java/Kotlin
 date: "2023-09-20 09:00:00"
 comments: true
 ---

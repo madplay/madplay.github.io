@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 2. 생성자에 매개변수가 
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 2. Consider a builder when faced with many constructor parameters" 
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

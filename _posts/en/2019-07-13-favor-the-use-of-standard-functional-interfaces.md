@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 44. Favor the Use of Standard Funct
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 44. Favor the use of standard functional interfaces"
-category: Java
+category: Java/Kotlin
 date: "2019-07-13 23:51:29"
 comments: true
 slug:     favor-the-use-of-standard-functional-interfaces

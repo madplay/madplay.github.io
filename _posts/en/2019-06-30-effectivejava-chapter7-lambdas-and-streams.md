@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Chapter 7. Lambdas and Streams"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Chapter7: Lambdas and Streams"
-category: Java
+category: Java/Kotlin
 date: "2019-06-30 23:37:39"
 comments: true
 slug:     effectivejava-chapter7-lambdas-and-streams

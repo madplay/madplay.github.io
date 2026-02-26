@@ -4,7 +4,7 @@ title:    Java Inheritance
 author:   madplay
 tags: 	  java inheritance
 description: Examining the concept and usage examples of inheritance in Java
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     inheritance-in-java
 lang:     en

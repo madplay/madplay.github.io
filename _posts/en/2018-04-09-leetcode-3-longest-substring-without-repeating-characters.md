@@ -4,7 +4,7 @@ title:    LeetCode 3. Longest Substring Without Repeating Characters
 author:   madplay
 tags: 	  Algotithm LeetCode
 description: Find the longest substring without repeating characters in a given string
-category: Algorithm
+category: Algorithm/CS
 comments: true
 slug:     leetcode-3-longest-substring-without-repeating-characters
 lang:     en

@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Chapter 12. Serialization"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Chapter12: Serialization"
-category: Java
+category: Java/Kotlin
 lang: en
 slug: effectivejava-chapter12-serialization
 permalink: /en/effectivejava-chapter12-serialization/

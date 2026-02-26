@@ -4,7 +4,7 @@ title:    전략 패턴(Strategy Pattern)
 author:   madplay
 tags: 	  DesignPattern
 description: 객체의 동작을 클래스로 캡슐화하여 동적으로 자유롭게 바꿀 수 있게 해주는 패턴
-category: DesignPattern
+category: Algorithm/CS
 date: "2018-03-10 01:04:32"
 comments: true
 ---

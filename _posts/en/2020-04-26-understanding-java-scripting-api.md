@@ -4,7 +4,7 @@ title:    "Java Scripting API: Bindings, ScriptContext, and Execution Performanc
 author:   madplay
 tags: 	  java scriptengine
 description: "Execute JavaScript from Java, manage state with bindings and ScriptContext, and improve execution performance." 
-category: Java
+category: Java/Kotlin
 date: "2020-04-26 01:11:23"
 comments: true
 lang: en

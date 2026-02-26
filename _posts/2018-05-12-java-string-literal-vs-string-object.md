@@ -4,7 +4,7 @@ title:    자바의 String 객체와 String 리터럴
 author:   madplay
 tags: 	  Java String Literal Object
 description: 자바에서 문자열을 선언하는 방법은 두 가지가 있다. String과 new String()은 어떤 차이가 있을까?
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

@@ -4,7 +4,7 @@ title:    "How to Generate Random Numbers in Java and What to Watch"
 author:   madplay
 tags:    java random
 description: "What options exist for random number generation in Java, and what caveats should you know?"
-category: Java
+category: Java/Kotlin
 date: "2022-08-15 21:54:23"
 comments: true
 slug:     java-random

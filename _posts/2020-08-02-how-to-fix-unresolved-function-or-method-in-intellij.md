@@ -4,7 +4,7 @@ title:    "Intellij에서 nodejs 프로젝트가 인식되지 않을 때 해결 
 author:   madplay
 tags:     coupling cohesion module
 description: "Intellij IDEA/WebStorm으로 nodejs 프로젝트를 개발할 때 'Unresolved function or method for require()' 경고 메시지 해결 방법"
-category: Development
+category: Engineering
 date: "2020-08-02 22:42:59"
 comments: true
 ---

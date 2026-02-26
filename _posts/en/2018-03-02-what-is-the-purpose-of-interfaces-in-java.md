@@ -4,7 +4,7 @@ title:    Java Interface
 author:   madplay
 tags: 	  java interface
 description: What is an interface in Java? And how can multiple inheritance be implemented in Java?
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     what-is-the-purpose-of-interfaces-in-java
 lang:     en

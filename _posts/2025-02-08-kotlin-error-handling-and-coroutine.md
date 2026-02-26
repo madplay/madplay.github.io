@@ -4,7 +4,7 @@ title: "코틀린 예외 처리와 코루틴 기반 장애 대응"
 author: madplay
 tags: kotlin coroutine exception-handling retry test runCatching
 description: "예외 분류, 코루틴 타임아웃, 재시도 설계, 단위 테스트, runCatching, lazy를 활용한 코틀린 실패 처리 전략을 정리한다."
-category: Kotlin
+category: Java/Kotlin
 date: "2025-02-08 12:04:00"
 comments: true
 ---

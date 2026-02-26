@@ -4,7 +4,7 @@ title:    TCP vs UDP Differences and TCP/IP
 author:   madplay
 tags: 	  Network TCP UDP
 description: Learning about the differences between TCP and UDP.
-category: Network
+category: Infra
 comments: true
 slug:     network-tcp-udp-tcpip
 lang:     en

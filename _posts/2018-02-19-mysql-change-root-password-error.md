@@ -4,7 +4,7 @@ title:    Mac OS에서 MySQL root 비밀번호 변경 오류 해결하기
 author:   madplay
 tags: 	  Database MySQL
 description: access denied for user... 오류 해결하기
-category: Database
+category: Data
 comments: true
 ---
 

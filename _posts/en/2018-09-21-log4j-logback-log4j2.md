@@ -4,7 +4,7 @@ title:    log4j, logback, and log4j2
 author:   madplay
 tags: 	  java log4j logback log4j2
 description: Let's learn about log4j, logback, and log4j2, Java's logging frameworks.
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     log4j-logback-log4j2
 lang:     en

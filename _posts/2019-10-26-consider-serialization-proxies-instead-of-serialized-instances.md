@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 90. 직렬화된 인스턴스 �
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 90. Consider serialization proxies instead of serialized instances"
-category: Java
+category: Java/Kotlin
 date: "2019-10-26 01:31:34"
 comments: true
 ---

@@ -4,7 +4,7 @@ title:    "FileNotFoundException When Running as a JAR"
 author:   madplay
 tags:    java jar filenotfoundexception
 description: "Cases where FileNotFoundException occurs when running a Java application as a JAR"
-category: Java
+category: Java/Kotlin
 date: "2022-05-03 01:21:55"
 comments: true
 slug:     filenotfoundexception-when-running-as-jar

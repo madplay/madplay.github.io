@@ -4,7 +4,7 @@ title:    파이썬 switch
 author:   madplay
 tags: 	  python
 description: Python에서 switch 문을 사용하려면 어떻게 해야 할까? 
-category: Python
+category: Backend
 comments: true
 ---
 

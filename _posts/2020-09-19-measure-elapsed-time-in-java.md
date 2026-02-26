@@ -4,7 +4,7 @@ title:    "자바에서 코드 실행 시간을 측정하는 방법"
 author:   madplay
 tags:     currenttimemillis nanotime stopwatch
 description: "자바에서 코드가 수행되는 데 걸린 시간을 측정하려면 어떻게 해야 할까?" 
-category: Java
+category: Java/Kotlin
 date: "2020-09-19 22:18:43"
 comments: true
 ---

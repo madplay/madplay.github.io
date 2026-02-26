@@ -4,7 +4,7 @@ title:    "자바 스트림 정리: 5. 스트림을 사용할 때 주의할 점"
 author:   madplay
 tags: 	  java stream
 description: 자바 스트림 API를 사용할 때 실수할 수 있는 부분과 고민해볼 점은 무엇이 있을까?
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

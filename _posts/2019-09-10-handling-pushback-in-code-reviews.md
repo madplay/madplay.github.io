@@ -4,7 +4,7 @@ title:    "구글의 코드 리뷰 가이드: 코드 리뷰에서 반대 의견�
 author:   madplay
 tags: 	  google codereview reviewer
 description: 구글의 코드 리뷰 가이드. 리뷰어는 코드 리뷰에서 반대 의견에 어떻게 대처해야 할까?
-category: Development
+category: Engineering
 date: "2019-09-10 00:00:01"
 comments: true
 ---

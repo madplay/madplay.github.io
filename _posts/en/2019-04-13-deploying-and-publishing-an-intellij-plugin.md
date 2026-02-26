@@ -4,7 +4,7 @@ title:    "Building an IntelliJ Plugin: 3. Build & Publish"
 author:   madplay
 tags: 	  intellij plugin 
 description: Build your IntelliJ plugin and publish it to the JetBrains plugin repository.
-category: Development
+category: Engineering
 comments: true
 slug:     deploying-and-publishing-an-intellij-plugin
 lang:     en

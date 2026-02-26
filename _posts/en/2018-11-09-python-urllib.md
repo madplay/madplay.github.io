@@ -4,7 +4,7 @@ title:    Python URL Parsing and Calling (urllib)
 author:   madplay
 tags: 	  python
 description: urllib library that makes URL parsing and calling easy in Python
-category: Python
+category: Backend
 comments: true
 slug:     python-urllib
 lang:     en

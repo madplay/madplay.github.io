@@ -4,7 +4,7 @@ title:    OSI 7계층 (OSI 7 Layer)
 author:   madplay
 tags: 	  Network OSI7
 description: Open System Interconnection 7 Layer
-category: Network
+category: Infra
 comments: true
 ---
 

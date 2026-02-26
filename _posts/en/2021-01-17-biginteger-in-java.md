@@ -4,7 +4,7 @@ title:    "Java BigInteger: Representing Very Large Integers"
 author:   madplay
 tags:    java biginteger
 description: How can Java represent very large integers?
-category: Java
+category: Java/Kotlin
 date: "2021-01-17 02:11:31"
 comments: true
 slug:     biginteger-in-java

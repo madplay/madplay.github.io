@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 7장. 람다와 스트림"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Chapter7: Lambdas and Streams"
-category: Java
+category: Java/Kotlin
 date: "2019-06-30 23:37:39"
 comments: true
 ---

@@ -4,7 +4,7 @@ title: "코틀린 기초 문법 가이드"
 author: madplay
 tags: kotlin basic var-val function control-flow
 description: "var/val, 함수, 제어식, 문자열 템플릿, 반복문, 예외 처리까지 백엔드 코드에서 자주 쓰는 코틀린 기초 문법을 정리한다."
-category: Kotlin
+category: Java/Kotlin
 date: "2025-01-05 23:59:00"
 comments: true
 ---

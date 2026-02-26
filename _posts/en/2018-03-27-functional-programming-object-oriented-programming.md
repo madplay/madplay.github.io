@@ -4,7 +4,7 @@ title:    Functional Programming and Object-Oriented Programming
 author:   madplay
 tags: 	  OOP Functional Object-Oriented
 description: Functional Programming and Object-Oriented Programming
-category: Knowledge
+category: Algorithm/CS
 comments: true
 slug:     functional-programming-object-oriented-programming
 lang:     en

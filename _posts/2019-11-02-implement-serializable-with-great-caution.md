@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 86. Serializable을 구현할지
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 86. Implement Serializable with great caution"
-category: Java
+category: Java/Kotlin
 date: "2019-11-02 22:13:54"
 comments: true
 ---

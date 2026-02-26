@@ -4,7 +4,7 @@ title:    "구글의 코드 리뷰 가이드: 좋은 CL 설명을 작성하는 �
 author:   madplay
 tags: 	  google codereview author
 description: 구글의 코드 리뷰 가이드. 코드 작성자는 코드 변경사항에 대한 설명을 어떻게 써야할까?
-category: Development
+category: Engineering
 date: "2019-09-11 00:00:01"
 comments: true
 ---

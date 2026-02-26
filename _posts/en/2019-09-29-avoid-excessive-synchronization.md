@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 79. Avoid Excessive Synchronization
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 79. Avoid excessive synchronization"
-category: Java
+category: Java/Kotlin
 lang: en
 slug: avoid-excessive-synchronization
 permalink: /en/avoid-excessive-synchronization/

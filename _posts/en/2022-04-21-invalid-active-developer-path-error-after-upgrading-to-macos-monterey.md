@@ -4,7 +4,7 @@ title:    "Fix xcrun: invalid active developer path After a macOS Upgrade"
 author:   madplay
 tags:    macos monterey xcode
 description: "How to fix the \"xcrun: error: invalid active developer path\" error after upgrading macOS"
-category: Development
+category: Infra
 date: "2022-04-21 01:22:54"
 comments: true
 slug:     invalid-active-developer-path-error-after-upgrading-to-macos-monterey

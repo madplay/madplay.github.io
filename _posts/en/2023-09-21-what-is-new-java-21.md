@@ -4,7 +4,7 @@ title: "Java 21 LTS Is Here: What Changed?"
 author: madplay
 tags: java jdk21 openjdk
 description: "What has changed in Java 21 LTS?"
-category: Java
+category: Java/Kotlin
 lang: en
 slug: what-is-new-java-21
 permalink: /en/what-is-new-java-21

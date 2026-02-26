@@ -4,7 +4,7 @@ title:    Symbolic Link
 author:   madplay
 tags: 	  linux symboliclink symlink 
 description: What is a symbolic link, a special kind of file that contains a reference to a file or directory in Linux?
-category: Development
+category: Infra
 lang: en
 slug: what-is-a-symbolic-link-in-linux
 permalink: /en/what-is-a-symbolic-link-in-linux/

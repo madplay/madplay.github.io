@@ -4,7 +4,7 @@ title:    "자바 BigDecimal: 정확한 실수의 표현과 부동 소수점"
 author:   madplay
 tags:    java bigdecimal
 description: 자바에서 정확하게 실수를 표현하려면 어떻게 해야 할까? 그리고 부동 소수점 방식이란 무엇일까?  
-category: Java
+category: Java/Kotlin
 date: "2021-02-17 01:52:50"
 comments: true
 ---

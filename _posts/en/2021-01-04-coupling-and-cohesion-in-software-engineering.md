@@ -4,7 +4,7 @@ title:    "What Are Coupling and Cohesion?"
 author:   madplay
 tags:     coupling cohesion module
 description: "Why should we design for low coupling and high cohesion?"
-category: Knowledge
+category: Algorithm/CS
 date: "2021-01-04 19:46:49"
 comments: true
 slug:     coupling-and-cohesion-in-software-engineering

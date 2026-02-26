@@ -4,7 +4,7 @@ title:    "자바 Optional: 2. Optional 소개"
 author:   madplay
 tags: 	  java optional
 description: 자바8 에서 추가된 옵셔널(optional) 클래스는 무엇일까? 
-category: Java
+category: Java/Kotlin
 date: "2021-02-02 22:51:54"
 comments: true
 ---

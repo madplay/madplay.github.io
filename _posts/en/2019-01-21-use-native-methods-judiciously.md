@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 66. Use Native Methods Judiciously"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 66. Use native methods judiciously"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     use-native-methods-judiciously
 lang:     en

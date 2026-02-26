@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 10. Obey the general contract when 
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 10. Obey the general contract when overriding equals"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     obey-the-general-contract-when-overriding-equals
 lang:     en

@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 74. Document All Exceptions Thrown 
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 74. Document all exceptions thrown by each method"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     document-all-exceptions-thrown-by-each-method
 lang:     en

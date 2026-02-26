@@ -4,7 +4,7 @@ title:    LeetCode 292. Nim Game
 author:   madplay
 tags: 	  algotithm leetcode
 description: Nim game, which can also be said to be the origin of Baskin-Robbins game
-category: Algorithm
+category: Algorithm/CS
 comments: true
 slug:     leetcode-292-nim-game
 lang:     en

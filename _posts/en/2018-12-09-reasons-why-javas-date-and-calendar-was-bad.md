@@ -4,7 +4,7 @@ title:    Why Java Date and Calendar Are a Bad Fit
 author:   madplay
 tags: 	  java date calendar
 description: Why should you avoid Java’s legacy Date and Calendar APIs?
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     reasons-why-javas-date-and-calendar-was-bad
 lang:     en

@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Chapter 8. Methods"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Chapter8: Methods"
-category: Java
+category: Java/Kotlin
 date: "2019-08-03 02:11:01"
 comments: true
 slug:     effectivejava-chapter8-methods

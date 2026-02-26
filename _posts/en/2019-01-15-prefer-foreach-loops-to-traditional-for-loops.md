@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 58. Prefer for-each Loops to Tradit
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 58. Prefer for-each loops to traditional for loops"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     prefer-foreach-loops-to-traditional-for-loops
 lang:     en

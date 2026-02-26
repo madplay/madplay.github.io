@@ -4,7 +4,7 @@ title:    "MyBatis Error: Invalid bound statement (not found)"
 author:   madplay
 tags:     mybatis
 description: "What if 'Invalid bound statement (not found)' occurs when executing a MyBatis query?"
-category: MyBatis
+category: Data
 date: "2020-11-16 23:19:04"
 comments: true
 slug:     mybatis-invalid-bound-statement-not-found-error

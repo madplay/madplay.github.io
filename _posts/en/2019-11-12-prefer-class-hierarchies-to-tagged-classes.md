@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 23. Prefer Class Hierarchies to Tag
 author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3rd Edition] Item 23. Prefer class hierarchies to tagged classes" 
-category: Java
+category: Java/Kotlin
 lang: en
 slug: prefer-class-hierarchies-to-tagged-classes
 permalink: /en/prefer-class-hierarchies-to-tagged-classes/

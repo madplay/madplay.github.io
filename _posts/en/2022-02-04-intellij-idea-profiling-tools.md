@@ -4,7 +4,7 @@ title:    "Profiling Applications in IntelliJ"
 author:   madplay
 tags:    intellij profile
 description: "What profiling tools are available in IntelliJ IDEA Ultimate?"
-category: Development
+category: Engineering
 date: "2022-02-04 23:05:11"
 comments: true
 slug:     intellij-idea-profiling-tools

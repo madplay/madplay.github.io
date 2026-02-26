@@ -4,7 +4,7 @@ title:    "Java ThreadLocal: Usage and Caveats"
 author:   madplay
 tags:    java threadlocal
 description: "What ThreadLocal is in Java, how to use it, and what to watch out for in real applications."
-category: Java
+category: Java/Kotlin
 date: "2021-11-06 23:11:25"
 comments: true
 lang: en

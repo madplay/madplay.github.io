@@ -4,7 +4,7 @@ title:    "자바 Optional: 1. null은 무엇인가?"
 author:   madplay
 tags: 	  java null nullpointerexception
 description: 자바에서 null은 무엇이며 왜 우리에게 고통을 안겨줄까?
-category: Java
+category: Java/Kotlin
 date: "2021-01-28 23:51:29"
 comments: true
 ---

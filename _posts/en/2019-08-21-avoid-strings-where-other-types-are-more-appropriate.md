@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 62. Avoid Strings Where Other Types
 author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3rd Edition] Item 62. Avoid strings where other types are more appropriate"
-category: Java
+category: Java/Kotlin
 date: "2019-08-21 00:32:45"
 comments: true
 slug:     avoid-strings-where-other-types-are-more-appropriate

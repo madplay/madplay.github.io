@@ -4,7 +4,7 @@ title: "자바 sealed class vs abstract class vs interface: 언제 무엇을 써
 author: madplay
 tags: java sealed-class abstract-class interface type-system class-hierarchy java17
 description: "자바에서 sealed class, abstract class, interface가 각각 언제 왜 필요한지, 실무 예시와 함께 구체적으로 비교한다."
-category: Java
+category: Java/Kotlin
 date: "2023-02-07 08:55:00"
 comments: true
 ---

@@ -4,7 +4,7 @@ title:    Java References and Garbage Collection
 author:   madplay
 tags: 	  Java Garbage GC Reference
 description: Following Garbage Collection, learning about object references of Java references.
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     java-garbage-collection-and-java-reference
 lang:     en

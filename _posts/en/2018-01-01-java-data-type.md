@@ -4,7 +4,7 @@ title:    Java Data Types
 author:   madplay
 tags: 	  java datatype
 description: What data types does Java provide?
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     java-data-type
 lang:     en

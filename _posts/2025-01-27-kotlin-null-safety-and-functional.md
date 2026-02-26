@@ -4,7 +4,7 @@ title: "코틀린 널 안정성과 컬렉션, 함수형 프로그래밍"
 author: madplay
 tags: kotlin null-safety collection lambda higher-order-function sequence fold
 description: "널 안정성, 스코프 함수, 컬렉션 연산, 람다, 고차 함수, inline 키워드까지 코틀린 데이터 처리의 핵심 패턴을 정리한다."
-category: Kotlin
+category: Java/Kotlin
 date: "2025-01-27 10:00:00"
 comments: true
 ---

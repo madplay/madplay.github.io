@@ -4,7 +4,7 @@ title:    Why Does Java Main Method Use public static?
 author:   madplay
 tags: 	  java main
 description: Why is the structure of the main method in Java public static void main(String[] args)?
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     java-main-method-structure
 lang:     en

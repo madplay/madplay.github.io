@@ -4,7 +4,7 @@ title:    "Building an IntelliJ Plugin: 1. Environment Setup"
 author:   madplay
 tags: 	  intellij plugin 
 description: Build a plugin for IntelliJ IDEA from scratch
-category: Development
+category: Engineering
 comments: true
 slug:     creating-intellij-plugin-project
 lang:     en

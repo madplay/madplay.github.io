@@ -4,7 +4,7 @@ title:    Java Kafka Producer and Consumer configs Settings
 author:   madplay
 tags: 	  java kafka
 description: Let's set configs for Kafka Producer and Kafka Consumer.
-category: Java
+category: Backend
 comments: true
 slug:     kafka-producer-consumer-options
 lang:     en

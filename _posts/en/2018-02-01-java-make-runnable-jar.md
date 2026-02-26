@@ -4,7 +4,7 @@ title:    Creating Java Executable Files
 author:   madplay
 tags: 	  Java JSmooth
 description: Creating Java executable files using JSmooth.
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     java-make-runnable-jar
 lang:     en

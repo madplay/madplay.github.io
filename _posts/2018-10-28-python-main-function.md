@@ -4,7 +4,7 @@ title:    파이썬 if __name__ == "__main__" 의미
 author:   madplay
 tags: 	  python
 description: Python에서 if __name__ == "__main__" 선언의 의미는 무엇일까? 
-category: Python
+category: Backend
 comments: true
 ---
 

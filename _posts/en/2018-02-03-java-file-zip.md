@@ -4,7 +4,7 @@ title:    Java File Compression and Decompression (ZipInputStream, ZipOutputStre
 author:   madplay
 tags: 	  Java ZipOutputStream
 description: Java file compression and decompression using java.util.zip package
-category: Java
+category: Java/Kotlin
 date: "2018-02-03 21:31:29"
 comments: true
 slug:     java-file-zip

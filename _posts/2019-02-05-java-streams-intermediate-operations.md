@@ -4,7 +4,7 @@ title:    "자바 스트림 정리: 2. 스트림의 중간 연산"
 author:   madplay
 tags: 	  java stream
 description: 자바에서 스트림(Stream) 내의 요소를 원하는 형태에 알맞게 가공하는 중간 연산(intermediate operations)은 어떤 것들이 있을까? 
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

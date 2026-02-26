@@ -4,7 +4,7 @@ title:    "MyBatis 오류: Invalid bound statement (not found)"
 author:   madplay
 tags:     mybatis
 description: "마이바티스(MyBatis) 쿼리를 실행하는 순간 'Invalid bound statement (not found)' 오류가 발생한다면?" 
-category: MyBatis
+category: Data
 date: "2020-11-16 23:19:04"
 comments: true
 ---

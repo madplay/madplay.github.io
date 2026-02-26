@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Chapter 9. General Programming"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Chapter9: General Programming"
-category: Java
+category: Java/Kotlin
 date: "2019-08-14 22:39:53"
 comments: true
 slug:     effectivejava-chapter9-general-programming

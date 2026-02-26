@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 74. 메서드가 던지는 모�
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 74. Document all exceptions thrown by each method" 
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

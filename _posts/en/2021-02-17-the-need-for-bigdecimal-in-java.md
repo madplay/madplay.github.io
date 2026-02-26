@@ -4,7 +4,7 @@ title:    "Java BigDecimal: Accurate Real Numbers and Floating Point"
 author:   madplay
 tags:    java bigdecimal
 description: How can Java represent real numbers accurately, and what is floating-point representation?
-category: Java
+category: Java/Kotlin
 date: "2021-02-17 01:52:50"
 comments: true
 slug:     the-need-for-bigdecimal-in-java

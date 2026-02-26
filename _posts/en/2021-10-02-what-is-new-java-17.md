@@ -4,7 +4,7 @@ title:    "What Is New in Java 17: First LTS Release in 3 Years"
 author:   madplay
 tags:    java jdk17 openjdk
 description: "A new Java LTS release after 3 years. What features were added in JDK 17?"
-category: Java
+category: Java/Kotlin
 date: "2021-10-02 00:24:31"
 comments: true
 slug:     what-is-new-java-17

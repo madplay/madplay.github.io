@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 88. Write readObject Methods Defens
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 88. Write readObject methods defensively"
-category: Java
+category: Java/Kotlin
 lang: en
 slug: write-readobject-methods-defensively
 permalink: /en/write-readobject-methods-defensively/

@@ -4,7 +4,7 @@ title:    "Gradle 프로젝트 구조와 Gradle Wrapper"
 author:   madplay
 tags: 	  java gradle
 description: "Gradle 기반 프로젝트의 구조와 Gradle 설치 없이도 빌드를 할 수 있도록 해주는 Gradle Wrapper를 알아보자."
-category: Development
+category: Backend
 date: "2018-08-19 00:11:46"
 comments: true
 ---

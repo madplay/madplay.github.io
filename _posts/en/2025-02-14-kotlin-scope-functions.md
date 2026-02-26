@@ -4,7 +4,7 @@ title: "Kotlin Scope Functions Compared: let, run, with, apply, also"
 author: madplay
 tags: kotlin scope-function let run with apply also null-safety
 description: "Compares receiver reference style and return values of let, run, with, apply, and also with practical examples, and outlines criteria for choosing the right function."
-category: Kotlin
+category: Java/Kotlin
 date: "2025-02-14 07:44:00"
 comments: true
 lang: en

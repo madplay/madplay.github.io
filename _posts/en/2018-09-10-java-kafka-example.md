@@ -4,7 +4,7 @@ title:    Java Kafka Producer and Consumer Example Implementation
 author:   madplay
 tags: 	  java kafka
 description: Implementing Kafka Producer and Kafka Consumer using Java.
-category: Java
+category: Backend
 comments: true
 slug:     java-kafka-example
 lang:     en

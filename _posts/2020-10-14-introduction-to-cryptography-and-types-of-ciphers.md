@@ -4,7 +4,7 @@ title:    "암호 기법: 치환 암호, 전치 암호, 블록 암호, 스트림
 author:   madplay
 tags: 	  cryptology cryptography
 description: 암호 기법의 종류에는 무엇이 있을까? 치환 암호와 전치 암호, 블록 암호와 스트림 암호에 대해서 알아보자.
-category: Knowledge
+category: Algorithm/CS
 date: "2020-10-14 00:58:37"
 comments: true
 ---

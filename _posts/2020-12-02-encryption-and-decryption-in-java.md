@@ -4,7 +4,7 @@ title:    자바 암호화와 복호화
 author:   madplay
 tags: 	  java encrypting decrypting
 description: 자바에서 암호화와 복호화는 어떻게 구현할까? 암호화에 사용되는 알고리즘, 운용 방식, 패딩이란 무엇일까?
-category: Java
+category: Java/Kotlin
 date: "2020-12-02 21:23:11"
 comments: true
 ---

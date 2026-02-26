@@ -4,7 +4,7 @@ title:    자바의 데이터 타입
 author:   madplay
 tags: 	  java datatype
 description: 자바 언어의 데이터 타입에는 무엇이 있을까?
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

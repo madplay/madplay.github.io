@@ -4,7 +4,7 @@ title:    grep Examples and Options
 author:   madplay
 tags: 	  grep
 description: Let's find specific strings in files with the grep command
-category: Development
+category: Infra
 comments: true
 slug:     grep-command-example-options
 lang:     en

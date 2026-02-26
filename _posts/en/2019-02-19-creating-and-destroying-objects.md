@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Chapter 2. Creating and Destroying Objec
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Chapter 2. Creating and Destroying Objects"  
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     creating-and-destroying-objects
 lang:     en

@@ -4,7 +4,7 @@ title:    "Java Optional: 4. Terminal Optional Methods"
 author:   madplay
 tags:    java optional
 description: How to end Optional chaining and extract values or handle branches conditionally
-category: Java
+category: Java/Kotlin
 date: "2021-02-05 23:49:11"
 comments: true
 slug:     how-to-return-value-from-optional-in-java

@@ -4,7 +4,7 @@ title:    "Java Serialization: readResolve and writeReplace"
 author:   madplay
 tags: 	  java readresolve writereplace serialization
 description: "What roles do readResolve and writeReplace play in Java serialization?"
-category: Java
+category: Java/Kotlin
 date: "2019-07-24 01:21:46"
 comments: true
 slug:     what-is-readresolve-method-and-writereplace-method

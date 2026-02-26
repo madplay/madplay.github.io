@@ -4,7 +4,7 @@ title:    Difference Between Process and Thread
 author:   madplay
 tags: 	  OS Process Thread
 description: What differences do processes and threads have?
-category: Knowledge
+category: Algorithm/CS
 comments: true
 slug:     process-vs-thread
 lang:     en

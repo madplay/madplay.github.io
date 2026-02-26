@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 79. 과도한 동기화는 피�
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 79. Avoid excessive synchronization"
-category: Java
+category: Java/Kotlin
 date: "2019-09-29 00:23:49"
 comments: true
 ---

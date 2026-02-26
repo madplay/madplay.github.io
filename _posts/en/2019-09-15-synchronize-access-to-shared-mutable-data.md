@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 78. Synchronize Access to Shared Mu
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 78. Synchronize access to shared mutable data" 
-category: Java
+category: Java/Kotlin
 lang: en
 slug: synchronize-access-to-shared-mutable-data
 permalink: /en/synchronize-access-to-shared-mutable-data/

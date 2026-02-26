@@ -4,7 +4,7 @@ title:    What is Gradle?
 author:   madplay
 tags: 	  java gradle
 description: Let's learn about Gradle, a build tool based on Groovy that focuses on build automation and development support
-category: Development
+category: Backend
 date: "2018-08-12 21:23:12"
 comments: true
 slug:     what-is-gradle

@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 5장. 제네릭"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Chapter5: Generics"  
-category: Java
+category: Java/Kotlin
 date: "2019-05-28 01:33:05"
 comments: true
 ---

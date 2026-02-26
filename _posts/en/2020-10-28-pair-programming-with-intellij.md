@@ -4,7 +4,7 @@ title:    "Code With Me: Pair Programming with IntelliJ IDEA"
 author:   madplay
 tags: 	  intellij pairprogramming codewithme
 description: Let's look at the 'Code With Me' feature that supports collaborative development and pair programming in IntelliJ IDEA.
-category: Development
+category: Engineering
 lang: en
 slug: pair-programming-with-intellij
 permalink: /en/pair-programming-with-intellij/

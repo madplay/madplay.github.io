@@ -4,7 +4,7 @@ title:    "Binary Search Tree: Theory and Introduction"
 author:   madplay
 tags: 	  BST BinarySearchTree DataStructure Algorithm
 description: Tree, a hierarchical structure similar to trees, combines with binary search. What is a Binary Search Tree?
-category: Algorithm
+category: Algorithm/CS
 date: "2018-05-02 00:25:32"
 comments: true
 slug:     binary-search-tree

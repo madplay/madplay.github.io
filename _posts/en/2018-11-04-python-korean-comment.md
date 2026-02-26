@@ -4,7 +4,7 @@ title:    "Entering Korean Comments in Python (SyntaxError: Non-ASCII character)
 author:   madplay
 tags: 	  python
 description: Let's learn about methods for entering comments in Korean in Python.
-category: Python
+category: Backend
 comments: true
 slug:     python-korean-comment
 lang:     en

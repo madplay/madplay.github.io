@@ -4,7 +4,7 @@ title:    "Java Scripting API: 바인딩과 스크립트 컨텍스트 그리고 
 author:   madplay
 tags: 	  java scriptengine
 description: "자바 프로그램에서 자바스크립트 코드를 실행하고 그 변수를 참조할 수 있을까?" 
-category: Java
+category: Java/Kotlin
 date: "2020-04-26 01:11:23"
 comments: true
 ---

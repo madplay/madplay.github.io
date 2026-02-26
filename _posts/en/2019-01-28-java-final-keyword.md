@@ -4,7 +4,7 @@ title:    The final Keyword in Java
 author:   madplay
 tags: 	  java final
 description: What does the final keyword mean in Java, and how should you use it?
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     java-final-keyword
 lang:     en

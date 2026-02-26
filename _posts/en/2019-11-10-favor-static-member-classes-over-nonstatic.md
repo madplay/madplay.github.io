@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 24. Favor Static Member Classes ove
 author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3rd Edition] Item 24. Favor static member classes over nonstatic" 
-category: Java
+category: Java/Kotlin
 lang: en
 slug: favor-static-member-classes-over-nonstatic
 permalink: /en/favor-static-member-classes-over-nonstatic/

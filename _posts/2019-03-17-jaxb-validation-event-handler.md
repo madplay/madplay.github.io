@@ -4,7 +4,7 @@ title:    "ValidationEventHandler를 이용하여 JAXB 파싱 에러 탐지하�
 author:   madplay
 tags: 	  java jaxb validation eventhandle
 description: "ValidationEventHandler를 이용하여 JAXB 언마샬 에러를 탐지하고 에러 내용과 에러 라인 수를 확인해보자"
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

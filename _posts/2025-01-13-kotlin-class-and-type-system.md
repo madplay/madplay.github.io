@@ -4,7 +4,7 @@ title: "코틀린 클래스 설계와 타입 시스템 활용"
 author: madplay
 tags: kotlin class sealed generics interface value-class delegation
 description: "생성자 검증, 접근 제어, 인터페이스, sealed class, 제네릭, by 위임, enum/value class를 활용해 안전한 도메인 모델을 만드는 방법을 정리한다."
-category: Kotlin
+category: Java/Kotlin
 date: "2025-01-13 22:11:00"
 comments: true
 ---

@@ -4,7 +4,7 @@ title:    "Fixing gem Permission Errors (Gem::FilePermissionError)"
 author:   madplay
 tags:    gem ruby
 description: "How to resolve Gem::FilePermissionError when running Ruby's gem package manager"
-category: Development
+category: Infra
 date: "2022-11-30 02:11:20"
 comments: true
 slug:     file-permission-error-while-executing-gem

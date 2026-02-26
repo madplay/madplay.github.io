@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Chapter 10. Exceptions"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Chapter 10: Exceptions"
-category: Java
+category: Java/Kotlin
 date: "2019-09-03 00:42:12"
 comments: true
 lang: en

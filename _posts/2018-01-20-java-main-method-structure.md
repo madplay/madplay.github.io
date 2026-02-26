@@ -4,7 +4,7 @@ title:    "자바의 메인 메서드는 왜 public static을 사용할까?"
 author:   madplay
 tags: 	  java main
 description: "자바에서 main 메서드의 구조는 왜 public static void main(String[] args) 일까?"
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

@@ -4,7 +4,7 @@ title:    옵저버 패턴(Observer Pattern)
 author:   madplay
 tags: 	  DesignPattern
 description: 객체의 상태가 변경될 때 그 객체에 의존하는 다른 객체가 알 수 있는 방법은 없을까? 
-category: DesignPattern
+category: Algorithm/CS
 date: "2018-04-20 01:32:12"
 comments: true
 ---

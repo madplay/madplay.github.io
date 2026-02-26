@@ -4,7 +4,7 @@ title:    "Java Scripting API: 자바에서 자바스크립트의 함수를 호�
 author:   madplay
 tags: 	  java scriptengine
 description: "자바의 Scripting API를 이용하여 자바스크립트(Javascript) 파일 내의 함수를 호출해보자" 
-category: Java
+category: Java/Kotlin
 date: "2020-04-19 23:49:51"
 comments: true
 ---

@@ -4,7 +4,7 @@ title:    "Java Streams: 2. Intermediate Operations"
 author:   madplay
 tags: 	  java stream
 description: What intermediate operations exist in Java streams, and how do you use them?
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     java-streams-intermediate-operations
 lang:     en

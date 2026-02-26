@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 6장. 열거 타입과 애너테이션"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Chapter6: Enums and Annotations"
-category: Java
+category: Java/Kotlin
 date: "2019-06-03 00:02:55"
 comments: true
 ---

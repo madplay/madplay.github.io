@@ -4,7 +4,7 @@ title:    Cron Expressions
 author:   madplay
 tags: 	  cron cronexpressions
 description: Let's learn about Cron Expressions used in Cron Scheduler
-category: Development
+category: Infra
 date: "2018-08-26 00:11:46"
 comments: true
 slug:     a-guide-to-cron-expression

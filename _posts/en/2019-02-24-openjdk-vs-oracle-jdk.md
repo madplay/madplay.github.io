@@ -4,7 +4,7 @@ title:    "Java Licensing? OpenJDK vs Oracle JDK"
 author:   madplay
 tags: 	  java openjdk oraclejdk
 description: Oracle's Java licensing changes and the differences between OpenJDK and Oracle JDK.
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     openjdk-vs-oracle-jdk
 lang:     en

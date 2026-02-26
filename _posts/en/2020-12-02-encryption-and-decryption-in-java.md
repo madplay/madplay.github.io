@@ -4,7 +4,7 @@ title:    "Encryption and Decryption in Java"
 author:   madplay
 tags: 	  java encrypting decrypting
 description: "How to implement encryption and decryption in Java, including algorithm, mode of operation, and padding basics."
-category: Java
+category: Java/Kotlin
 date: "2020-12-02 21:23:11"
 comments: true
 lang: en

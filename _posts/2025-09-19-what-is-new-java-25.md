@@ -4,7 +4,7 @@ title: "JDK 25 LTS 릴리즈 노트 정리: 주요 변경사항 한눈에 보기
 author: madplay
 tags: java jdk25 openjdk
 description: "다섯 번째 LTS 자바 버전인 JDK 25 버전의 주요 변경사항을 공식 릴리즈 기준으로 살펴보자!"
-category: Java
+category: Java/Kotlin
 date: "2025-09-19 21:32:10"
 comments: true
 ---

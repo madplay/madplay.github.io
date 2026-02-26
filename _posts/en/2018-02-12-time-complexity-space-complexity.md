@@ -4,7 +4,7 @@ title:    Time Complexity and Space Complexity
 author:   madplay
 tags: 	  Algorithm Complexity
 description: Learning about complexity for evaluating algorithm performance.
-category: Algorithm
+category: Algorithm/CS
 comments: true
 slug:     time-complexity-space-complexity
 lang:     en

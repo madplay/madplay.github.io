@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 31. Use Bounded Wildcards to Increa
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 31. Use bounded wildcards to increase API flexibility"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     use-bounded-wildcards-to-increase-api-flexibility
 lang:     en

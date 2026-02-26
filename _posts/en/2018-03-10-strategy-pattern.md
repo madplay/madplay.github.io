@@ -4,7 +4,7 @@ title:    Strategy Pattern
 author:   madplay
 tags: 	  DesignPattern
 description: A pattern that encapsulates object behavior into classes to dynamically and freely change them
-category: DesignPattern
+category: Algorithm/CS
 date: "2018-03-10 01:04:32"
 comments: true
 slug:     strategy-pattern

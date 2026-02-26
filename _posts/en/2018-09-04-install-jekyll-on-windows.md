@@ -4,7 +4,7 @@ title:    Installing Jekyll on Windows 10 and Creating GitHub Blog
 author:   madplay
 tags: 	  jekyll windows github
 description: Let's install Jekyll in Windows 10 environment and create a github blog
-category: Development
+category: Frontend
 comments: true
 slug:     install-jekyll-on-windows
 lang:     en

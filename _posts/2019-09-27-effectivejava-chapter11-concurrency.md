@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 11장. 동시성"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Chapter11: Concurrency"
-category: Java
+category: Java/Kotlin
 date: "2019-09-27 23:25:42"
 comments: true
 ---

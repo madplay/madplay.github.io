@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Chapter 6. Enums and Annotations"
 author:   madplay
 tags: 	  java effectivejava
 description: "Effective Java 3rd Edition Chapter 6: Enums and Annotations"
-category: Java
+category: Java/Kotlin
 date: "2019-06-03 00:02:55"
 comments: true
 slug:     effectivejava-chapter6-enums-and-annotations

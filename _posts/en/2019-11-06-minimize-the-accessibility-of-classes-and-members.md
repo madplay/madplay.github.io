@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 15. Minimize the Accessibility of C
 author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3rd Edition] Item 15. Minimize the accessibility of classes and members" 
-category: Java
+category: Java/Kotlin
 lang: en
 slug: minimize-the-accessibility-of-classes-and-members
 permalink: /en/minimize-the-accessibility-of-classes-and-members/

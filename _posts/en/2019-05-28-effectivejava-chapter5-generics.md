@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Chapter 5. Generics"
 author:   madplay
 tags: 	  java effectivejava
 description: "Effective Java 3rd Edition Chapter 5: Generics"
-category: Java
+category: Java/Kotlin
 date: "2019-05-28 01:33:05"
 comments: true
 slug:     effectivejava-chapter5-generics

@@ -4,7 +4,7 @@ title:    Java Access Modifiers
 author:   madplay
 tags: 	  java accessmodifier
 description: What access modifiers are there in Java? What's the difference between public, protected, private, and default access modifiers?
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     java-access-modifier
 lang:     en

@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 62. 다른 타입이 적절하�
 author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3th Edition] Item 62. Avoid strings where other types are more appropriate" 
-category: Java
+category: Java/Kotlin
 date: "2019-08-21 00:32:45"
 comments: true
 ---

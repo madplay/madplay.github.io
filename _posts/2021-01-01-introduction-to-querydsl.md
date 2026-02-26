@@ -4,7 +4,7 @@ title:    "Querydsl: 소개와 사용법"
 author:   madplay
 tags: 	  querydsl jpa
 description: Querydsl은 무엇이며 왜 필요할까? 그리고 어떻게 사용할까?
-category: Database
+category: Data
 date: "2021-01-01 20:54:19"
 comments: true
 ---

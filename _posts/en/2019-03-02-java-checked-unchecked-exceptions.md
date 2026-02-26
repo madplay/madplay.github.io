@@ -4,7 +4,7 @@ title:    "Java Exceptions: Checked vs Unchecked"
 author:   madplay
 tags: 	  java exception
 description: How does Java classify exceptions? Differences between checked and unchecked exceptions.
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     java-checked-unchecked-exceptions
 lang:     en

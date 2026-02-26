@@ -4,7 +4,7 @@ title:    Java Generics
 author:   madplay
 tags: 	  java generic generic-class generic-interface generic-method
 description: A practical overview of Java generics, including generic classes, interfaces, and methods.
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     java-generic
 lang:     en

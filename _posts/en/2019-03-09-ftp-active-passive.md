@@ -4,7 +4,7 @@ title:    "FTP Active vs Passive Mode"
 author:   madplay
 tags: 	  ftp active passive
 description: What is the difference between FTP active and passive modes?
-category: Network
+category: Infra
 comments: true
 slug:     ftp-active-passive
 lang:     en

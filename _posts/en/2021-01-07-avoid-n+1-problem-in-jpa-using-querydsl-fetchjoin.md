@@ -4,7 +4,7 @@ title:    "Querydsl: Avoid JPA N+1 with fetch join"
 author:   madplay
 tags:    querydsl fetchjoin
 description: Use Querydsl fetchJoin to avoid the N+1 problem in JPA
-category: Database
+category: Data
 date: "2021-01-07 20:54:19"
 comments: true
 slug:     avoid-n+1-problem-in-jpa-using-querydsl-fetchjoin

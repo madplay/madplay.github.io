@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 86. Implement Serializable with Gre
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 86. Implement Serializable with great caution"
-category: Java
+category: Java/Kotlin
 lang: en
 slug: implement-serializable-with-great-caution
 permalink: /en/implement-serializable-with-great-caution/

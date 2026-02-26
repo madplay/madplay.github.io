@@ -4,7 +4,7 @@ title:    "How to Get the auto_increment Key Value After Insert in MyBatis"
 author:   madplay
 tags:     mybatis
 description: "How to get the auto_increment key value of inserted data after executing an insert query in MyBatis"
-category: MyBatis
+category: Data
 lang: en
 slug: how-to-get-the-auto-generated-key-of-an-inserted-record-in-mybatis
 permalink: /en/how-to-get-the-auto-generated-key-of-an-inserted-record-in-mybatis/

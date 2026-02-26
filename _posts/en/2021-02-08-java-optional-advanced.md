@@ -4,7 +4,7 @@ title:    "Java Optional: 5. A Closer Look at Optional"
 author:   madplay
 tags:    java optional
 description: How can you use Optional in ways that align with its intent?
-category: Java
+category: Java/Kotlin
 date: "2021-02-08 00:59:35"
 comments: true
 slug:     java-optional-advanced

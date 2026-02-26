@@ -4,7 +4,7 @@ title:    git rebase로 커밋 합치기
 author:   madplay
 tags: 	  git commit squash rebase
 description: 여러 개의 커밋(commit)을 하나로 합치고 싶을 때는 어떻게 해야할까? git rebase를 이용하여 commit 로그를 묶어보자.
-category: Development
+category: Engineering
 comments: true
 ---
 

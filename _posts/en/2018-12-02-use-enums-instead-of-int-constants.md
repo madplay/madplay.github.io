@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 34. Use Enums Instead of Int Consta
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 34. Use enums instead of int constants"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     use-enums-instead-of-int-constants
 lang:     en

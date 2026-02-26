@@ -4,7 +4,7 @@ title:    "Java Optional: 3. Intermediate Optional Methods"
 author:   madplay
 tags:    java optional
 description: How to filter or transform values in Optional objects
-category: Java
+category: Java/Kotlin
 date: "2021-02-05 20:49:50"
 comments: true
 slug:     how-to-handle-optional-in-java

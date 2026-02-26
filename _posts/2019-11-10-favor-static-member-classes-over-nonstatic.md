@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 24. 멤버 클래스는 되도�
 author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3th Edition] Item 24. Favor static member classes over nonstatic" 
-category: Java
+category: Java/Kotlin
 date: "2019-11-10 01:20:59"
 comments: true
 ---

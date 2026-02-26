@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 89. For Instance Control, Prefer En
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 89. For instance control, prefer enum types to readResolve"
-category: Java
+category: Java/Kotlin
 lang: en
 slug: for-instance-control-prefer-enum-types-to-readresolve
 permalink: /en/for-instance-control-prefer-enum-types-to-readresolve/

@@ -2,9 +2,9 @@
 layout:   post
 title:    "Fixing JUnit5 @DisplayName Not Working in IntelliJ"
 author:   madplay
-tags:    intelliJ junit5
+tags:    intellij junit5
 description: "How to fix cases where IntelliJ IDEA does not display labels declared with JUnit5 @DisplayName"
-category: Development
+category: Engineering
 date: "2022-03-05 21:33:51"
 comments: true
 slug:     junit5-displayname-not-working-in-intellij

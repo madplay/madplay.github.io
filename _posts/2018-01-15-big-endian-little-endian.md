@@ -4,7 +4,7 @@ title:    빅 엔디안과 리틀 엔디안(Big Endian & Little Endian)
 author:   madplay
 tags: 	  knowledge byteorder
 description: 빅 엔디안과 리틀 엔디안의 차이는 무엇일까? 바이트를 배열하는 방법을 알아보자.
-category: Knowledge
+category: Algorithm/CS
 comments: true
 ---
 

@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 15. 클래스와 멤버의 접�
 author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3th Edition] Item 15. Minimize the accessibility of classes and members" 
-category: Java
+category: Java/Kotlin
 date: "2019-11-06 22:34:15"
 comments: true
 ---

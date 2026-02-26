@@ -4,7 +4,7 @@ title:    "자바의 effectively final"
 author:   madplay
 tags: 	  java final effectivelyfinal
 description: 자바에서 final로 선언되지 않았지만 초기화된 이후 참조가 변경되지 않아 final처럼 동작하는 "effectively final" 이란 무엇일까?
-category: Java
+category: Java/Kotlin
 date: "2021-03-09 02:33:18"
 comments: true
 ---
@@ -234,4 +234,4 @@ public class Tester {
 따라서 별도 스레드에서 실행 가능한 람다에서는 외부 지역 변수를 복사하는 과정을 거치는데, 복사되는 값이 변경 가능하다면
 참조하는 변수의 최신값을 보장할 수 없어 멀티 스레드 환경에서 동시성 문제가 발생할 수 있다. 
 
-따라서, 람다 내부에서 외부 지역 변수를 참조할 때는 반드시 `fianl` 또는 **effectively final**이어야 한다.
+따라서, 람다 내부에서 외부 지역 변수를 참조할 때는 반드시 `final` 또는 **effectively final**이어야 한다.

@@ -4,7 +4,7 @@ title:    "MyBatis에서 샾(#{})과 달러(${})의 차이는 무엇일까?"
 author:   madplay
 tags: 	  mybatis
 description: "마이바티스(MyBatis)에서 XML 파일에 쿼리문을 작성할 때, 샾(#{}) 기호와 달러(${}) 기호의 차이점은 무엇일까?" 
-category: MyBatis
+category: Data
 date: "2019-08-10 22:38:11"
 comments: true
 ---

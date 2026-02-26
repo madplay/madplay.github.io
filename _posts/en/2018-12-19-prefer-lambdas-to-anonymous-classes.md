@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 42. Prefer Lambdas to Anonymous Cla
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 42. Prefer lambdas to anonymous classes"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     prefer-lambdas-to-anonymous-classes
 lang:     en

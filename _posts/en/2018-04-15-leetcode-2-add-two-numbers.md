@@ -4,7 +4,7 @@ title:    LeetCode 2. Add Two Numbers
 author:   madplay
 tags: 	  algotithm leetCode
 description: Find the result of adding two lists consisting of positive numbers by each index
-category: Algorithm
+category: Algorithm/CS
 comments: true
 slug:     leetcode-2-add-two-numbers
 lang:     en

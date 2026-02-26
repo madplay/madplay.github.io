@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 82. Document Thread Safety"
 author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3rd Edition] Item 82. Document thread safety"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     document-thread-safety
 lang:     en

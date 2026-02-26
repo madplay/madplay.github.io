@@ -4,7 +4,7 @@ title:    "What Is the Difference Between #{} and ${} in MyBatis?"
 author:   madplay
 tags: 	  mybatis
 description: "When writing SQL in MyBatis XML mappers, what is the difference between #{} and ${}?"
-category: MyBatis
+category: Data
 date: "2019-08-10 22:38:11"
 comments: true
 slug:     difference-between-dollar-sign-and-sharp-sign-in-mybatis

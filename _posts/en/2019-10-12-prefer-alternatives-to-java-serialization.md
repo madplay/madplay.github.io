@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 85. Prefer Alternatives to Java Ser
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 85. Prefer alternatives to Java serialization"
-category: Java
+category: Java/Kotlin
 lang: en
 slug: prefer-alternatives-to-java-serialization
 permalink: /en/prefer-alternatives-to-java-serialization/

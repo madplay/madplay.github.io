@@ -4,7 +4,7 @@ title:    Argument and Parameter
 author:   madplay
 tags: 	  knowledge
 description: What's the difference between function arguments and parameters?
-category: Knowledge
+category: Algorithm/CS
 date: "2018-10-23 23:47:12"
 comments: true
 slug:     difference-between-argument-and-parameter

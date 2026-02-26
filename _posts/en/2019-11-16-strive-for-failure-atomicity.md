@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 76. Strive for Failure Atomicity"
 author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3rd Edition] Item 76. Strive for failure atomicity" 
-category: Java
+category: Java/Kotlin
 lang: en
 slug: strive-for-failure-atomicity
 permalink: /en/strive-for-failure-atomicity/

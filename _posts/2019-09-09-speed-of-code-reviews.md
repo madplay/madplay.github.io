@@ -4,7 +4,7 @@ title:    "구글의 코드 리뷰 가이드: 코드 리뷰의 속도"
 author:   madplay
 tags: 	  google codereview reviewer
 description: 구글의 코드 리뷰 가이드. 리뷰어는 코드 리뷰를 어느 정도의 속도로 진행해야 할까?
-category: Development
+category: Engineering
 date: "2019-09-09 00:00:02"
 comments: true
 ---

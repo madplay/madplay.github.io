@@ -4,7 +4,7 @@ title:    "What Is RSS? RSS 2.0 Specification and Format"
 author:   madplay
 tags: 	  rss
 description: "What is RSS (Rich Site Summary, Really Simple Syndication)? Let's look at RSS 2.0 specification and format."
-category: Network
+category: Infra
 lang: en
 slug: rss2-specification
 permalink: /en/rss2-specification/

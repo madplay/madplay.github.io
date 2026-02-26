@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 8. Avoid Finalizers and Cleaners"
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 8. Avoid finalizers and cleaners"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     avoid-finalizers-and-cleaners
 lang:     en

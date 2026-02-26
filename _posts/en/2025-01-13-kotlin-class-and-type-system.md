@@ -4,7 +4,7 @@ title: "Kotlin Class Design and Type System Usage"
 author: madplay
 tags: kotlin class sealed generics interface value-class delegation
 description: "A concise guide to building safe domain models using constructor validation, access control, interfaces, sealed class, generics, delegation by, and enum/value class."
-category: Kotlin
+category: Java/Kotlin
 date: "2025-01-13 22:11:00"
 comments: true
 lang: en

@@ -4,7 +4,7 @@ title:    "Building an IntelliJ Plugin: 2. Define an Action"
 author:   madplay
 tags: 	  intellij plugin 
 description: Define an Action to run an IntelliJ plugin
-category: Development
+category: Engineering
 comments: true
 slug:     creating-an-intellij-plugin-action
 lang:     en

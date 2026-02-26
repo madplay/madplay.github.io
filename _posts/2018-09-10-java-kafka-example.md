@@ -4,7 +4,7 @@ title:    Java Kafka Producer, Consumer 예제 구현
 author:   madplay
 tags: 	  java kafka 
 description: Java를 이용하여 Kafka Producer와 Kakfa Consumer를 구현해보자. 
-category: Java
+category: Backend
 comments: true
 ---
 

@@ -4,7 +4,7 @@ title:    스택을 이용한 괄호 짝 검사(Java 코드)
 author:   madplay
 tags: 	  algorithm datastructure stack
 description: 주어진 수식의 괄호가 서로 짝이 맞는지 어떻게 확인할 수 있을까? 스택을 이용하여 괄호의 짝이 맞는지 검사해보자.
-category: Algorithm
+category: Algorithm/CS
 comments: true
 ---
 

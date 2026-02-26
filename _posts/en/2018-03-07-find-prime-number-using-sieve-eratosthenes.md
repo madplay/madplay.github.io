@@ -4,7 +4,7 @@ title:    Finding Prime Numbers Quickly Using Sieve of Eratosthenes
 author:   madplay
 tags: 	  algorithm primeNumber
 description: Finding prime numbers quickly using the Sieve of Eratosthenes!
-category: Algorithm
+category: Algorithm/CS
 comments: true
 slug:     find-prime-number-using-sieve-eratosthenes
 lang:     en

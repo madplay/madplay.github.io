@@ -4,7 +4,7 @@ title:    LeetCode 344. Reverse String
 author:   madplay
 tags: 	  algotithm leetCode
 description: Output the input string in reverse
-category: Algorithm
+category: Algorithm/CS
 comments: true
 slug:     leetcode-344-reverse-string
 lang:     en

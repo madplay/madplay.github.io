@@ -4,7 +4,7 @@ title:    Java 8 Date and Time
 author:   madplay
 tags: 	  java date time
 description: Use Java 8 date/time classes (LocalDate, LocalDateTime) to handle dates and times.
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     java8-date-and-time
 lang:     en

@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 39. 명명 패턴보다 애너�
 author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3th Edition] Item 39. Prefer annotations to naming patterns" 
-category: Java
+category: Java/Kotlin
 date: "2019-06-15 01:12:25"
 comments: true
 ---

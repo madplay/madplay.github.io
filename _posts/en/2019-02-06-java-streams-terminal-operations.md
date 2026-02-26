@@ -4,7 +4,7 @@ title:    "Java Streams: 3. Terminal Operations"
 author:   madplay
 tags: 	  java stream
 description: What terminal operations exist in Java streams, and how do you use them?
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     java-streams-terminal-operations
 lang:     en

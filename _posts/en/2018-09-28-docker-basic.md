@@ -4,7 +4,7 @@ title:    "Docker: Following Docker Installation and Commands"
 author:   madplay
 tags: 	  docker
 description: Docker, an open-source virtualization platform based on containers! Let's just do it!
-category: DevOps
+category: Infra
 comments: true
 slug:     docker-basic
 lang:     en

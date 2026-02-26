@@ -4,7 +4,7 @@ title:    "jEnv로 여러 버전의 Java 사용하기(JDK 버전 관리)"
 author:   madplay
 tags: 	  java jenv
 description: "Mac OS 환경에서 jEnv를 설치하고 여러 버전의 JDK를 간편하게 관리해보자."
-category: Java
+category: Java/Kotlin
 comments: true
 ---
 

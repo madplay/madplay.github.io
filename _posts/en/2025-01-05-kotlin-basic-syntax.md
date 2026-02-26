@@ -4,7 +4,7 @@ title: "Kotlin Basics: Syntax and Core Concepts"
 author: madplay
 tags: kotlin basic var-val function control-flow
 description: "Introduces Kotlin syntax, variables, functions, control flow, and collections with practical examples."
-category: Kotlin
+category: Java/Kotlin
 date: "2025-01-05 23:59:00"
 comments: true
 lang:     en

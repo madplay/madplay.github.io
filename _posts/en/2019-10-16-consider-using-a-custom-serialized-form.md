@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 87. Consider Using a Custom Seriali
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 85. Consider using a custom serialized form"
-category: Java
+category: Java/Kotlin
 lang: en
 slug: consider-using-a-custom-serialized-form
 permalink: /en/consider-using-a-custom-serialized-form/

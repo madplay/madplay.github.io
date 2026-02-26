@@ -4,7 +4,7 @@ title:    "Java Optional: 1. What Is null?"
 author:   madplay
 tags:    java null nullpointerexception
 description: What is null in Java, and why does it cause so much pain?
-category: Java
+category: Java/Kotlin
 date: "2021-01-28 23:51:29"
 comments: true
 slug:     what-is-null-in-java

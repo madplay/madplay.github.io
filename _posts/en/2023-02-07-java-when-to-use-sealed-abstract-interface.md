@@ -4,7 +4,7 @@ title: "Java Sealed Class vs Abstract Class vs Interface: When to Use Each"
 author: madplay
 tags: java sealed-class abstract-class interface type-system class-hierarchy java17
 description: "Compares sealed class, abstract class, and interface in Java with practical criteria and examples."
-category: Java
+category: Java/Kotlin
 date: "2023-02-07 08:55:00"
 comments: true
 lang: en

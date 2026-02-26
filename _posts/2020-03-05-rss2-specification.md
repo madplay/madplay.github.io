@@ -4,7 +4,7 @@ title:    "RSS란 무엇일까? RSS 2.0 스펙과 포맷"
 author:   madplay
 tags: 	  rss
 description: "RSS(Rich Site Summary, Really Simple Syndication)란 무엇일까? RSS 2.0 의 스펙과 포맷에 대해서 알아보자."
-category: Network
+category: Infra
 date: "2020-03-05 00:03:21"
 comments: true
 ---

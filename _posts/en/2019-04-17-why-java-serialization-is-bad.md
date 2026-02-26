@@ -4,7 +4,7 @@ title:    "Java Serialization: What to Consider and Why It Is Discouraged"
 author:   madplay
 tags: 	  java serialization deserialization
 description: "What should you watch out for when using Java serialization, and why is it discouraged?"
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     why-java-serialization-is-bad
 lang:     en

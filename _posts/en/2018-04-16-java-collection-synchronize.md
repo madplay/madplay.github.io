@@ -4,7 +4,7 @@ title:    Java Collection Synchronization
 author:   madplay
 tags: 	  Java Collection Synchronization
 description: Synchronization is important. What I intended can appear differently to others. Learning about synchronization when using collections
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     java-collection-synchronize
 lang:     en

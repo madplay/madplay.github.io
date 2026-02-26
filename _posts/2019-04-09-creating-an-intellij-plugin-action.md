@@ -4,7 +4,7 @@ title:    "인텔리제이(Intellij) 플러그인 만들기: 2. Action 정의"
 author:   madplay
 tags: 	  intellij plugin 
 description: 인텔리제이(Intellij) 플러그인(Plugin)를 실행하기 위한 액션(Action) 정의하기
-category: Development
+category: Engineering
 comments: true
 ---
 

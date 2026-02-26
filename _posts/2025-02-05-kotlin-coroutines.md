@@ -4,7 +4,7 @@ title: "코틀린 코루틴 개념과 실전 활용"
 author: madplay
 tags: kotlin coroutine suspend dispatcher flow async launch
 description: "코루틴의 동작 원리, CoroutineScope, Dispatcher, async/await, 구조화된 동시성, Flow까지 코틀린 코루틴의 핵심 개념과 실전 패턴을 정리한다."
-category: Kotlin
+category: Java/Kotlin
 date: "2025-02-05 08:18:00"
 comments: true
 ---

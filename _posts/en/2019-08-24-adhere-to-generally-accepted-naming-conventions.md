@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 68. Adhere to Generally Accepted Na
 author:   madplay
 tags: 	  java effectivajava
 description: "[Effective Java 3rd Edition] Item 68. Adhere to generally accepted naming conventions"
-category: Java
+category: Java/Kotlin
 date: "2019-08-24 23:19:31"
 comments: true
 slug:     adhere-to-generally-accepted-naming-conventions

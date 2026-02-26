@@ -4,7 +4,7 @@ title: "JDK 25 LTS Release Notes: Key Changes at a Glance"
 author: madplay
 tags: java jdk25 openjdk
 description: "Let’s review the key changes in JDK 25, the fifth LTS Java release, based on the official release notes."
-category: Java
+category: Java/Kotlin
 lang: en
 slug: what-is-new-java-25
 permalink: /en/what-is-new-java-25

@@ -4,7 +4,7 @@ title:    메이븐 톰캣 404 에러 해결하기(Maven Tomcat 404 Error)
 author:   madplay
 tags: 	  framework maven tomcat
 description: Maven + Tomcat에서 404 에러가 발생하는 여러가지 원인을 찾아보자. 
-category: Development
+category: Backend
 comments: true
 ---
 

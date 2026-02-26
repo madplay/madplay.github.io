@@ -4,7 +4,7 @@ title:    "Comparing Performance: String vs StringBuilder vs StringBuffer in Jav
 author:   madplay
 tags: 	  java string stringbuilder stringbuffer
 description: "What are the differences between String, StringBuilder, and StringBuffer in Java, and which one performs fastest?"
-category: Java
+category: Java/Kotlin
 date: "2020-02-04 00:06:02"
 comments: true
 lang: en

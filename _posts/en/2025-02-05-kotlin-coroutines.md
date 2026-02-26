@@ -4,7 +4,7 @@ title: "Kotlin Coroutines: Concepts and Practical Usage"
 author: madplay
 tags: kotlin coroutine suspend dispatcher flow async launch
 description: "Covers coroutine fundamentals, CoroutineScope, Dispatcher, async/await, structured concurrency, and Flow. A concise guide to Kotlin coroutines for production use."
-category: Kotlin
+category: Java/Kotlin
 date: "2025-02-05 08:18:00"
 comments: true
 lang: en

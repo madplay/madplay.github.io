@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 80. Prefer Executors, Tasks, and St
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 80. Prefer executors, tasks, and streams to threads"
-category: Java
+category: Java/Kotlin
 lang: en
 slug: prefer-executors-tasks-and-streams-to-threads
 permalink: /en/prefer-executors-tasks-and-streams-to-threads/

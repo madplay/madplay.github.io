@@ -4,7 +4,7 @@ title: "코틀린 스코프 함수 비교: let, run, with, apply, also"
 author: madplay
 tags: kotlin scope-function let run with apply also null-safety
 description: "let, run, with, apply, also의 수신 객체 참조 방식과 반환값 차이를 실무 예시로 비교하고, 언제 어떤 함수를 선택해야 하는지 기준을 정리한다."
-category: Kotlin
+category: Java/Kotlin
 date: "2025-02-14 07:44:00"
 comments: true
 ---

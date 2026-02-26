@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 81. wait와 notify보다는 동�
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 81. Prefer concurrency utilities to wait and notify"
-category: Java
+category: Java/Kotlin
 date: "2019-10-07 23:19:34"
 comments: true
 ---

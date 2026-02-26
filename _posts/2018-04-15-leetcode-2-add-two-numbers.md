@@ -4,7 +4,7 @@ title:    LeetCode 2. Add Two Numbers
 author:   madplay
 tags: 	  algotithm leetCode
 description: 양수(Positive Number)들로 이루어진 2개의 리스트를 각 인덱스 별로 더한 결과 구하기
-category: Algorithm
+category: Algorithm/CS
 comments: true
 ---
 

@@ -4,7 +4,7 @@ title:    "Java Streams: 5. Common Mistakes"
 author:   madplay
 tags: 	  java stream
 description: Common pitfalls and trade-offs when using the Java Stream API.
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     mistakes-when-using-java-streams
 lang:     en

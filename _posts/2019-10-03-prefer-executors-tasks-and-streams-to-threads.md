@@ -4,7 +4,7 @@ title:    "[이펙티브 자바 3판] 아이템 80. 스레드보다는 실행자
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3th Edition] Item 80. Prefer executors, tasks, and streams to threads"
-category: Java
+category: Java/Kotlin
 date: "2019-10-03 00:52:12"
 comments: true
 ---

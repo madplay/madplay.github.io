@@ -4,7 +4,7 @@ title:    How to Use the chmod Command on Linux
 author:   madplay
 tags: 	  linux chmod
 description: Learn about the chmod command for changing file and directory permissions on Linux.
-category: Development
+category: Infra
 lang: en
 slug: how-to-use-the-chmod-command-on-linux
 permalink: /en/how-to-use-the-chmod-command-on-linux/

@@ -4,7 +4,7 @@ title:    Java Method Overriding and Overloading
 author:   madplay
 tags: 	  java overriding overloading
 description: What's the difference between Method Overriding and Method Overloading in Java?
-category: Java
+category: Java/Kotlin
 comments: true
 slug:     method-overriding-vs-method-overloading-in-java
 lang:     en

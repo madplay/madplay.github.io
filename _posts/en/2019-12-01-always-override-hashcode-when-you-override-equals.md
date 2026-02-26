@@ -4,7 +4,7 @@ title:    "[Effective Java 3rd Edition] Item 11. Always Override hashCode When Y
 author:   madplay
 tags: 	  java effectivejava
 description: "[Effective Java 3rd Edition] Item 11. Always override hashCode when you override equals" 
-category: Java
+category: Java/Kotlin
 lang: en
 slug: always-override-hashcode-when-you-override-equals
 permalink: /en/always-override-hashcode-when-you-override-equals/
