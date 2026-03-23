@@ -152,10 +152,73 @@
         runWhenIdle(loadCopyScript, 2600);
     }
 
+    function collapseEmptyAds() {
+        setTimeout(function() {
+            document.querySelectorAll('.ad-container').forEach(function(el) {
+                if (!el.querySelector('iframe')) el.style.minHeight = '0';
+            });
+        }, 8000);
+    }
+
+    function initLazyBottomAd() {
+        var bottomAd = document.querySelector('.ad-container-bottom ins.adsbygoogle');
+        if (!bottomAd || bottomAd.dataset.adsbygoogleStatus) return;
+
+        if (!('IntersectionObserver' in window)) {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            return;
+        }
+
+        var observer = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting) {
+                observer.disconnect();
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            }
+        }, { rootMargin: '600px 0px' });
+        observer.observe(bottomAd);
+    }
+
+    function initScrollTracking() {
+        if (typeof gtag !== 'function') return;
+        var thresholds = [25, 50, 75, 100];
+        var fired = {};
+        window.addEventListener('scroll', function() {
+            var scrollPct = Math.round(
+                (window.scrollY + window.innerHeight) / document.body.scrollHeight * 100
+            );
+            thresholds.forEach(function(t) {
+                if (scrollPct >= t && !fired[t]) {
+                    fired[t] = true;
+                    gtag('event', 'scroll_depth', { percent: t });
+                }
+            });
+        }, { passive: true });
+    }
+
+    function initOutboundTracking() {
+        if (typeof gtag !== 'function') return;
+        document.addEventListener('click', function(e) {
+            var link = e.target.closest('a[href]');
+            if (!link) return;
+            var href = link.getAttribute('href');
+            if (href && href.startsWith('http') && href.indexOf('madplay.github.io') === -1) {
+                if (navigator.sendBeacon) {
+                    gtag('event', 'outbound_click', { url: href, transport_type: 'beacon' });
+                } else {
+                    gtag('event', 'outbound_click', { url: href });
+                }
+            }
+        });
+    }
+
     whenReady(function () {
         optimizePostImages();
         initLazyComments();
         initLazyToc();
         initLazyCopyButtons();
+        collapseEmptyAds();
+        initLazyBottomAd();
+        initScrollTracking();
+        initOutboundTracking();
     });
 })();

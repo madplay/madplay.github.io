@@ -87,7 +87,6 @@ layout: default
                      data-ad-format="fluid"
                      data-ad-client="ca-pub-8036596086585080"
                      data-ad-slot="7241821159"></ins>
-                <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             </div>
 
             {% assign current_lang = page.lang | default: site.default_lang %}
@@ -173,6 +172,32 @@ layout: default
                      data-label="comment"
                      data-theme="github-dark"></div>
             </div>
+
+            {% assign current_lang = page.lang | default: site.default_lang %}
+            {% assign related_posts = "" | split: "" %}
+            {% assign related_count = 0 %}
+            {% for p in site.posts %}
+            {% if related_count >= 5 %}{% break %}{% endif %}
+            {% if p.category == page.category and p.url != page.url %}
+            {% assign p_lang = p.lang | default: site.default_lang %}
+            {% if p_lang == current_lang %}
+            {% assign related_posts = related_posts | push: p %}
+            {% assign related_count = related_count | plus: 1 %}
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+            {% if related_posts.size > 0 %}
+            <section class="related-posts mt-16 pt-8 border-t border-zinc-900">
+                <h3 class="text-lg font-medium text-zinc-300 mb-6">{% if current_lang == 'en' %}Related Posts{% else %}관련 포스트{% endif %}</h3>
+                <div class="space-y-3">
+                    {% for rpost in related_posts %}
+                    <a href="{{ site.baseurl }}{{ rpost.url }}" class="block py-3 px-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg text-zinc-300 hover:text-zinc-100 transition-all duration-200 text-sm">
+                        {{ rpost.title }}
+                    </a>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
         </div>
 
         <aside class="post-toc" aria-label="{% if current_lang == 'en' %}Table of contents{% else %}목차{% endif %}">
@@ -184,5 +209,12 @@ layout: default
     </div>
 </article>
 
-<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
-<script>mermaid.initialize({theme: 'dark', flowchart: {rankSpacing: 30}});</script>
+<script>
+(function() {
+    if (!document.querySelector('.language-mermaid, .mermaid, pre.mermaid')) return;
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js';
+    s.onload = function() { mermaid.initialize({theme: 'dark', flowchart: {rankSpacing: 30}}); };
+    document.body.appendChild(s);
+})();
+</script>

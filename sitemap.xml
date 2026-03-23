@@ -2,7 +2,7 @@
 layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   {% assign latest_post = site.posts | first %}
   {% assign collections = site.collections | where_exp:'collection','collection.output != false' | sort: 'label' %}
   {% for collection in collections %}
@@ -12,6 +12,11 @@ layout: null
         <loc>{{ doc.url | replace:'/index.html','/' | absolute_url | xml_escape }}</loc>
         {% if doc.last_modified_at or doc.date %}
           <lastmod>{{ doc.last_modified_at | default: doc.date | date_to_xmlschema }}</lastmod>
+        {% endif %}
+        {% if doc.image %}
+        <image:image>
+          <image:loc>{{ doc.image | prepend: site.baseurl | prepend: site.url }}</image:loc>
+        </image:image>
         {% endif %}
       </url>
     {% endfor %}
