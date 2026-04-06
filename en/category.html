@@ -1,0 +1,102 @@
+---
+layout: default
+lang: en
+permalink: /en/category
+---
+
+<link rel="stylesheet" href="{{ site.baseurl }}/css/custom/category.css">
+
+<div class="max-w-4xl mx-auto px-4 md:px-12 py-8 md:py-12">
+    {% assign visible_categories_count = 0 %}
+    {% for category in site.categories %}
+    {% assign localized_posts_count = 0 %}
+    {% for post in category[1] %}
+    {% if post.lang == 'en' %}
+    {% assign localized_posts_count = localized_posts_count | plus: 1 %}
+    {% endif %}
+    {% endfor %}
+    {% if localized_posts_count > 0 %}
+    {% assign visible_categories_count = visible_categories_count | plus: 1 %}
+    {% endif %}
+    {% endfor %}
+    <div class="category-header">
+        <h1>Category</h1>
+        <p>Covering {{ visible_categories_count }} topics so far.</p>
+    </div>
+    
+    <div class="category-tags">
+        {% for category in site.categories %}
+        {% assign localized_posts_count = 0 %}
+        {% for post in category[1] %}
+        {% if post.lang == 'en' %}
+        {% assign localized_posts_count = localized_posts_count | plus: 1 %}
+        {% endif %}
+        {% endfor %}
+        {% if localized_posts_count > 0 %}
+        <a href="#{{ category | first | slugify }}" class="category-tag">
+            {{ category | first }}
+            <span class="category-tag-count">({{ localized_posts_count }})</span>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+    
+    <div class="category-sections">
+        {% for category in site.categories %}
+        {% assign localized_posts_count = 0 %}
+        {% for post in category[1] %}
+        {% if post.lang == 'en' %}
+        {% assign localized_posts_count = localized_posts_count | plus: 1 %}
+        {% endif %}
+        {% endfor %}
+        {% if localized_posts_count > 0 %}
+        <section id="{{ category | first | slugify }}" class="category-section">
+            <h2 class="category-section-title">
+                {{ category | first }} ({{ localized_posts_count }})
+            </h2>
+            <div class="category-posts">
+                {% assign sorted_posts = category[1] | sort: 'date' | reverse %}
+                {% for post in sorted_posts %}
+                {% if post.lang == 'en' %}
+                <div class="category-post-item">
+                    <a href="{{ site.baseurl }}{{ post.url }}" class="category-post-link">
+                        {{ post.title }}
+                    </a>
+                    <time datetime="{{ post.date | date_to_xmlschema }}" class="category-post-date">
+                        {{ post.date | date: "%B %d, %Y" }}
+                    </time>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.category-tag[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                document.querySelectorAll('.category-tag').forEach(tag => {
+                    tag.classList.remove('active');
+                });
+                
+                this.classList.add('active');
+                
+                const headerOffset = 80;
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+</script>

@@ -1,0 +1,58 @@
+---
+layout: default
+lang: en
+permalink: /en/
+---
+
+<div class="max-w-4xl mx-auto px-4 md:px-12 py-12 md:py-24">
+    <!-- Hero Section -->
+    <div class="mb-20 md:mb-32">
+        <div class="flex items-center gap-4 mb-3 animate-fade-in">
+            <a class="github-button" href="https://github.com/madplay"
+               data-color-scheme="no-preference: dark; light: dark; dark: dark;"
+               data-icon="octicon-star"
+               data-size="large"
+               data-show-count="true"
+               aria-label="Star madplay on GitHub">Star</a>
+            <a class="github-button" href="https://github.com/madplay/madplay.github.io/issues"
+               data-color-scheme="no-preference: dark; light: dark; dark: dark;"
+               data-size="large"
+               data-show-count="true"
+               aria-label="Issue madplay/madplay.github.io on GitHub">Issue</a>
+        </div>
+        <h1 class="text-4xl md:text-7xl font-thin text-zinc-100 leading-tight mb-4 animate-fade-in" style="animation-delay: 0.2s;">
+            Learn. Build. Share.
+        </h1>
+        <p class="text-zinc-400 text-base md:text-lg leading-relaxed max-w-2xl animate-fade-in" style="animation-delay: 0.4s;">
+            {{ site.description }}
+        </p>
+    </div>
+    
+    <!-- Posts Archive -->
+    <div class="space-y-1">
+        {% for post in site.posts %}
+        {% if post.lang == 'en' %}
+        <article class="stagger-animation">
+            <a href="{{ site.baseurl }}{{ post.url }}" class="block py-6 md:py-8 border-b border-zinc-900 hover:border-zinc-800 transition-colors duration-300 group">
+                <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-6">
+                    <div class="flex-1">
+                        <h2 class="text-lg md:text-xl font-medium text-zinc-100 group-hover:text-zinc-300 transition-colors duration-300 mb-2 leading-relaxed">
+                            {{ post.title }}
+                        </h2>
+                        {% assign post_summary = post.description | default: post.excerpt %}
+                        {% if post_summary %}
+                        <p class="text-zinc-400 text-sm md:text-base leading-relaxed line-clamp-2">
+                            {{ post_summary | strip_html | truncatewords: 25 }}
+                        </p>
+                        {% endif %}
+                    </div>
+                    <time datetime="{{ post.date | date: '%Y-%m-%d' }}" class="text-zinc-500 text-xs md:text-sm font-mono whitespace-nowrap flex-shrink-0">
+                        {{ post.date | date: "%B %d, %Y" }}
+                    </time>
+                </div>
+            </a>
+        </article>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>

@@ -3,7 +3,7 @@ layout: default
 sitemap: false
 ---
 
-<div class="max-w-4xl mx-auto px-4 md:px-12 py-12 md:py-24 text-center">
+<div id="ko-404" class="max-w-4xl mx-auto px-4 md:px-12 py-12 md:py-24 text-center">
     <h1 class="text-6xl md:text-8xl font-thin text-zinc-100 mb-8 animate-fade-in">404</h1>
     <img src="{{ site.baseurl }}/img/common/404.png" alt="404" class="mx-auto mb-8 max-w-xs animate-fade-in" style="animation-delay: 0.2s;">
     <p class="text-zinc-400 text-lg md:text-xl mb-4 animate-fade-in" style="animation-delay: 0.4s;">페이지를 찾을 수 없어요.</p>
@@ -12,3 +12,20 @@ sitemap: false
         블로그 홈으로 이동
     </a>
 </div>
+
+<div id="en-404" class="hidden max-w-4xl mx-auto px-4 md:px-12 py-12 md:py-24 text-center">
+    <h1 class="text-6xl md:text-8xl font-thin text-zinc-100 mb-8 animate-fade-in">404</h1>
+    <img src="{{ site.baseurl }}/img/common/404.png" alt="404" class="mx-auto mb-8 max-w-xs animate-fade-in" style="animation-delay: 0.2s;">
+    <p class="text-zinc-400 text-lg md:text-xl mb-4 animate-fade-in" style="animation-delay: 0.4s;">Page not found.</p>
+    <p class="text-zinc-500 text-base md:text-lg mb-8 animate-fade-in" style="animation-delay: 0.6s;">The page may have been deleted or moved.</p>
+    <a href="{{ site.baseurl }}/en/" class="inline-block px-6 py-3 bg-zinc-800 hover:bg-zinc-700 text-zinc-100 rounded-lg transition-colors duration-300 animate-fade-in" style="animation-delay: 0.8s;">
+        Go to Blog Home
+    </a>
+</div>
+
+<script>
+    if (location.pathname.startsWith('/en/')) {
+        document.getElementById('ko-404').classList.add('hidden');
+        document.getElementById('en-404').classList.remove('hidden');
+    }
+</script>

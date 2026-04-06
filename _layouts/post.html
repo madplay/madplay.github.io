@@ -108,7 +108,18 @@ layout: default
             {% endfor %}
 
             <footer class="mt-16 md:mt-24 pt-8 border-t border-zinc-900">
-                {% unless current_lang == 'en' %}
+                {% if current_lang == 'en' %}
+                <div class="mb-8">
+                    <a href="{{ site.baseurl }}/en/"
+                       class="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg text-zinc-300 hover:text-zinc-100 transition-all duration-200 text-sm font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                        </svg>
+                        All Posts
+                    </a>
+                </div>
+                {% else %}
                 <div class="mb-8">
                     <a href="{{ site.baseurl }}/"
                        class="inline-flex items-center gap-2 px-4 py-2 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg text-zinc-300 hover:text-zinc-100 transition-all duration-200 text-sm font-medium">
@@ -119,7 +130,7 @@ layout: default
                         목록으로
                     </a>
                 </div>
-                {% endunless %}
+                {% endif %}
 
                 {% if prev_post or next_post %}
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">

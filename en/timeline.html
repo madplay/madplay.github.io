@@ -1,0 +1,153 @@
+---
+layout: default
+lang: en
+permalink: /en/timeline
+---
+
+<link rel="stylesheet" href="{{ site.baseurl }}/css/custom/timeline.css">
+
+<div class="max-w-4xl mx-auto px-4 md:px-12 py-8 md:py-12">
+    {% assign timeline_posts_count = 0 %}
+    {% for post in site.posts %}
+    {% if post.lang == 'en' %}
+    {% assign timeline_posts_count = timeline_posts_count | plus: 1 %}
+    {% endif %}
+    {% endfor %}
+    <div class="timeline-header">
+        <h1>Timeline</h1>
+        <p>{{ timeline_posts_count }} posts written so far.</p>
+    </div>
+
+    {% assign grouped_posts = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+    {% assign sorted_years = grouped_posts | sort: "name" | reverse %}
+
+    <div class="timeline-years-nav">
+        {% for year_group in sorted_years %}
+        {% assign visible_posts_count = 0 %}
+        {% for post in year_group.items %}
+        {% if post.lang == 'en' %}
+        {% assign visible_posts_count = visible_posts_count | plus: 1 %}
+        {% endif %}
+        {% endfor %}
+        {% if visible_posts_count > 0 %}
+        <a href="#timeline-year-{{ year_group.name }}" class="timeline-year-tag">
+            {{ year_group.name }}
+            <span class="timeline-year-tag-count">({{ visible_posts_count }})</span>
+        </a>
+        {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        {% for year_group in sorted_years %}
+        {% assign visible_posts_count = 0 %}
+        {% for post in year_group.items %}
+        {% if post.lang == 'en' %}
+        {% assign visible_posts_count = visible_posts_count | plus: 1 %}
+        {% endif %}
+        {% endfor %}
+        {% if visible_posts_count > 0 %}
+        <div id="timeline-year-{{ year_group.name }}" class="timeline-year">
+            <div class="timeline-year-header">
+                <div class="timeline-year-dot"></div>
+                <span class="timeline-year-title">{{ year_group.name }}</span>
+                <span class="timeline-year-count">({{ visible_posts_count }})</span>
+            </div>
+
+            <div class="timeline-posts">
+                {% for post in year_group.items %}
+                {% if post.lang == 'en' %}
+                <div class="timeline-post">
+                    <a href="{{ site.baseurl }}{{ post.url }}" class="timeline-post-link">
+                        <div class="timeline-post-title">{{ post.title }}</div>
+                        <time class="timeline-post-date">{{ post.date | date: "%B %d, %Y" }}</time>
+                    </a>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+
+        <div class="timeline-milestone">
+            <div class="timeline-year-dot" style="background-color: rgb(34 197 94);"></div>
+            <div class="timeline-milestone-content">
+                <div class="timeline-milestone-title">Migrated to GitHub Blog</div>
+                <div class="timeline-milestone-date">January 1, 2018</div>
+            </div>
+        </div>
+
+        <div class="timeline-milestone">
+            <div class="timeline-year-dot" style="background-color: rgb(34 197 94);"></div>
+            <div class="timeline-milestone-content">
+                <div class="timeline-milestone-title">Started Blog</div>
+                <div class="timeline-milestone-date">June 18, 2014</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.timeline-year-tag[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (!targetElement) return;
+
+            document.querySelectorAll('.timeline-year-tag').forEach(tag => {
+                tag.classList.remove('active');
+            });
+            this.classList.add('active');
+
+            const headerOffset = 80;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -60% 0px',
+        threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                const correspondingTag = document.querySelector(`.timeline-year-tag[href="#${id}"]`);
+
+                if (correspondingTag) {
+                    document.querySelectorAll('.timeline-year-tag').forEach(tag => {
+                        tag.classList.remove('active');
+                    });
+                    correspondingTag.classList.add('active');
+
+                    const navContainer = document.querySelector('.timeline-years-nav');
+                    const tagRect = correspondingTag.getBoundingClientRect();
+                    const containerRect = navContainer.getBoundingClientRect();
+
+                    if (tagRect.left < containerRect.left || tagRect.right > containerRect.right) {
+                        navContainer.scrollTo({
+                            left: correspondingTag.offsetLeft - (containerRect.width / 2) + (tagRect.width / 2),
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.timeline-year').forEach((section) => {
+        observer.observe(section);
+    });
+</script>

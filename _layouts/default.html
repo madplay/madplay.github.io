@@ -182,11 +182,12 @@
 {% assign current_lang = page.lang | default: site.default_lang %}
 <header class="sticky top-0 z-50 backdrop-blur-xl bg-zinc-950/80 border-b border-zinc-900">
     <nav class="max-w-7xl mx-auto px-4 md:px-12 py-3 md:py-4">
-        <div class="flex items-center {% if current_lang == 'en' %}justify-start{% else %}justify-between{% endif %}">
+        <div class="flex items-center justify-between">
             {% if current_lang == 'en' %}
-            <span class="text-xl md:text-2xl font-medium text-zinc-100">
+            <a href="{{ site.baseurl }}/en/"
+               class="text-xl md:text-2xl font-medium text-zinc-100 hover:text-zinc-300 transition-colors duration-300">
                 {{ site.title }}
-            </span>
+            </a>
             {% else %}
             <a href="{{ site.baseurl }}/"
                class="text-xl md:text-2xl font-medium text-zinc-100 hover:text-zinc-300 transition-colors duration-300">
@@ -194,7 +195,52 @@
             </a>
             {% endif %}
 
-            {% unless current_lang == 'en' %}
+            {% if current_lang == 'en' %}
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="{{ site.baseurl }}/en/category"
+                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-lg">
+                    Category
+                </a>
+                <a href="{{ site.baseurl }}/en/timeline"
+                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-lg">
+                    Timeline
+                </a>
+                <a href="{{ site.baseurl }}/en/about"
+                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-lg">
+                    About
+                </a>
+                <button id="search-toggle-en"
+                        class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 bg-transparent border-none cursor-pointer p-2 -mr-2"
+                        aria-label="Search">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="flex md:hidden items-center space-x-2">
+                <button id="search-toggle-mobile-en"
+                        class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 bg-transparent border-none cursor-pointer p-2"
+                        aria-label="Search">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </button>
+                <button id="mobile-menu-toggle-en"
+                        class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 bg-transparent border-none cursor-pointer p-2"
+                        aria-label="Open menu">
+                    <svg id="mobile-menu-icon-en" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            {% else %}
             <div class="hidden md:flex items-center space-x-8">
                 <a href="{{ site.baseurl }}/category"
                    class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 text-lg">
@@ -239,10 +285,27 @@
                     </svg>
                 </button>
             </div>
-            {% endunless %}
+            {% endif %}
         </div>
 
-        {% unless current_lang == 'en' %}
+        {% if current_lang == 'en' %}
+        <div id="mobile-menu-en" class="hidden md:hidden mt-4 pb-2 border-t border-zinc-900">
+            <div class="flex flex-col space-y-2 pt-4">
+                <a href="{{ site.baseurl }}/en/category"
+                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 py-2 px-2 rounded-lg hover:bg-zinc-900">
+                    Category
+                </a>
+                <a href="{{ site.baseurl }}/en/timeline"
+                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 py-2 px-2 rounded-lg hover:bg-zinc-900">
+                    Timeline
+                </a>
+                <a href="{{ site.baseurl }}/en/about"
+                   class="text-zinc-400 hover:text-zinc-100 transition-colors duration-300 py-2 px-2 rounded-lg hover:bg-zinc-900">
+                    About
+                </a>
+            </div>
+        </div>
+        {% else %}
         <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2 border-t border-zinc-900">
             <div class="flex flex-col space-y-2 pt-4">
                 <a href="{{ site.baseurl }}/category"
@@ -259,11 +322,49 @@
                 </a>
             </div>
         </div>
-        {% endunless %}
+        {% endif %}
     </nav>
 </header>
 
-{% unless current_lang == 'en' %}
+{% if current_lang == 'en' %}
+<div id="search-modal-en" class="hidden fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title-en" role="dialog"
+     aria-modal="true">
+    <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
+        <div class="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity" id="search-overlay-en"></div>
+
+        <div class="inline-block align-bottom bg-zinc-900 rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full border border-zinc-800">
+            <div class="p-4 md:p-6">
+                <div class="relative mb-4">
+                    <input
+                            type="text"
+                            id="search-input-en"
+                            placeholder="Search..."
+                            class="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 rounded-lg text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base"
+                            autocomplete="off"
+                            autofocus>
+                    <button id="search-close-en"
+                            class="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-300 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+
+                <div id="search-results-en" class="max-h-96 overflow-y-auto">
+                    <div id="search-empty-en" class="text-center py-8 text-zinc-500 text-sm">
+                        Enter a search term
+                    </div>
+                    <div id="search-list-en" class="hidden space-y-2"></div>
+                    <div id="search-no-results-en" class="hidden text-center py-8 text-zinc-500 text-sm">
+                        No results found
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
 <div id="search-modal" class="hidden fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog"
      aria-modal="true">
     <div class="flex items-center justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
@@ -301,13 +402,13 @@
         </div>
     </div>
 </div>
-{% endunless %}
+{% endif %}
 
 <main class="min-h-screen">
     {{ content }}
 </main>
 
-{% unless current_lang == 'en' %}
+{% if current_lang == 'en' %}
 <footer class="border-t border-zinc-900 mt-12">
     <div class="max-w-7xl mx-auto px-4 md:px-12 py-8 md:py-12">
         <p class="text-zinc-500 text-sm text-center">
@@ -317,13 +418,111 @@
         </p>
     </div>
 </footer>
-{% endunless %}
+{% else %}
+<footer class="border-t border-zinc-900 mt-12">
+    <div class="max-w-7xl mx-auto px-4 md:px-12 py-8 md:py-12">
+        <p class="text-zinc-500 text-sm text-center">
+            Copyright &copy; 2014-{{ 'now' | date: "%Y" }} <a href="https://github.com/madplay" class="footer-link"
+                                                              rel="nofollow" target="_blank">{{ site.title | remove: '!'
+            }}</a>. All rights reserved.
+        </p>
+    </div>
+</footer>
+{% endif %}
 
 <script>
     window.siteBaseUrl = "{{ site.baseurl }}";
 </script>
 
-{% unless current_lang == 'en' %}
+{% if current_lang == 'en' %}
+<script>
+    window.searchIndexUrl = "{{ site.baseurl }}/en/search.json";
+</script>
+<script>
+    (function () {
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle-en');
+        const mobileMenu = document.getElementById('mobile-menu-en');
+        const mobileMenuIcon = document.getElementById('mobile-menu-icon-en');
+
+        if (!mobileMenuToggle || !mobileMenu || !mobileMenuIcon) {
+            return;
+        }
+
+        let isOpen = false;
+
+        mobileMenuToggle.addEventListener('click', function () {
+            isOpen = !isOpen;
+
+            if (isOpen) {
+                mobileMenu.classList.remove('hidden');
+                mobileMenuToggle.setAttribute('aria-label', 'Close menu');
+                mobileMenuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+            } else {
+                mobileMenu.classList.add('hidden');
+                mobileMenuToggle.setAttribute('aria-label', 'Open menu');
+                mobileMenuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+            }
+        });
+
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function () {
+                isOpen = false;
+                mobileMenu.classList.add('hidden');
+                mobileMenuToggle.setAttribute('aria-label', 'Open menu');
+                mobileMenuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+            });
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth >= 768 && isOpen) {
+                isOpen = false;
+                mobileMenu.classList.add('hidden');
+                mobileMenuToggle.setAttribute('aria-label', 'Open menu');
+                mobileMenuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>';
+            }
+        });
+    })();
+</script>
+<script>
+    (function () {
+        var loaded = false;
+        var pendingToggle = null;
+
+        function loadSearchScript(event) {
+            if (event && event.currentTarget) {
+                pendingToggle = event.currentTarget;
+            }
+            if (loaded) {
+                return;
+            }
+            loaded = true;
+
+            var script = document.createElement('script');
+            script.src = "{{ site.baseurl }}/js/search.js";
+            script.defer = true;
+            script.onload = function () {
+                if (pendingToggle) {
+                    pendingToggle.click();
+                    pendingToggle = null;
+                }
+            };
+            document.body.appendChild(script);
+        }
+
+        var searchToggle = document.getElementById('search-toggle-en');
+        var searchToggleMobile = document.getElementById('search-toggle-mobile-en');
+        [searchToggle, searchToggleMobile].forEach(function (el) {
+            if (!el) {
+                return;
+            }
+            el.addEventListener('pointerdown', loadSearchScript, { once: true, passive: true });
+            el.addEventListener('focus', loadSearchScript, { once: true });
+            el.addEventListener('keydown', loadSearchScript, { once: true });
+        });
+    })();
+</script>
+{% else %}
 <script>
     window.searchIndexUrl = "{{ site.baseurl }}/search.json";
 </script>
@@ -412,7 +611,7 @@
         });
     })();
 </script>
-{% endunless %}
+{% endif %}
 <script>
     (function () {
         if (!document.querySelector('.github-button')) {

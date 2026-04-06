@@ -1,0 +1,20 @@
+---
+layout: null
+---
+[
+{% assign en_posts = "" | split: "" %}
+{% for post in site.posts %}
+  {% if post.lang == 'en' %}
+    {% assign en_posts = en_posts | push: post %}
+  {% endif %}
+{% endfor %}
+
+{% for post in en_posts %}
+  {
+    "title": {{ post.title | jsonify }},
+    "url": {{ post.url | jsonify }},
+    "excerpt": {{ post.excerpt | strip_html | strip_newlines | truncate: 200 | jsonify }},
+    "date": {{ post.date | date: "%B %d, %Y" | jsonify }}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]
