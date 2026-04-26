@@ -185,30 +185,50 @@ layout: default
             </div>
 
             {% assign current_lang = page.lang | default: site.default_lang %}
-            {% assign related_posts = "" | split: "" %}
-            {% assign related_count = 0 %}
-            {% for p in site.posts %}
-            {% if related_count >= 5 %}{% break %}{% endif %}
-            {% if p.category == page.category and p.url != page.url %}
-            {% assign p_lang = p.lang | default: site.default_lang %}
-            {% if p_lang == current_lang %}
-            {% assign related_posts = related_posts | push: p %}
-            {% assign related_count = related_count | plus: 1 %}
-            {% endif %}
-            {% endif %}
+            {% assign all_other_posts = site.posts | where_exp: "p", "p.url != page.url" %}
+            {% assign filtered_posts = "" | split: "" %}
+            {% for p in all_other_posts %}
+                {% assign p_lang = p.lang | default: site.default_lang %}
+                {% if p_lang == current_lang %}
+                    {% assign filtered_posts = filtered_posts | push: p %}
+                {% endif %}
             {% endfor %}
-            {% if related_posts.size > 0 %}
-            <section class="related-posts mt-16 pt-8 border-t border-zinc-900">
-                <h3 class="text-lg font-medium text-zinc-300 mb-6">{% if current_lang == 'en' %}Related Posts{% else %}관련 포스트{% endif %}</h3>
-                <div class="space-y-3">
-                    {% for rpost in related_posts %}
-                    <a href="{{ site.baseurl }}{{ rpost.url }}" class="block py-3 px-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg text-zinc-300 hover:text-zinc-100 transition-all duration-200 text-sm">
-                        {{ rpost.title }}
-                    </a>
-                    {% endfor %}
+
+            <section class="random-posts mt-16 pt-8 border-t border-zinc-900">
+                <h3 class="text-lg font-medium text-zinc-300 mb-6">{% if current_lang == 'en' %}Explore More{% else %}이런 글은 어떠세요?{% endif %}</h3>
+                <div id="random-posts-container" class="space-y-3">
+                    <!-- JavaScript가 여기에 무작위 포스트를 삽입합니다. -->
                 </div>
             </section>
-            {% endif %}
+
+            <script>
+                (function() {
+                    const allPosts = [
+                        {% for p in filtered_posts %}
+                        {
+                            title: {{ p.title | jsonify }},
+                            url: {{ p.url | prepend: site.baseurl | jsonify }}
+                        }{% unless forloop.last %},{% endunless %}
+                        {% endfor %}
+                    ];
+
+                    function getRandomPosts(posts, count) {
+                        const shuffled = posts.sort(() => 0.5 - Math.random());
+                        return shuffled.slice(0, count);
+                    }
+
+                    const container = document.getElementById('random-posts-container');
+                    const selectedPosts = getRandomPosts(allPosts, 5);
+
+                    selectedPosts.forEach(post => {
+                        const anchor = document.createElement('a');
+                        anchor.href = post.url;
+                        anchor.className = 'block py-3 px-4 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 rounded-lg text-zinc-300 hover:text-zinc-100 transition-all duration-200 text-sm';
+                        anchor.textContent = post.title;
+                        container.appendChild(anchor);
+                    });
+                })();
+            </script>
         </div>
 
         <aside class="post-toc" aria-label="{% if current_lang == 'en' %}Table of contents{% else %}목차{% endif %}">
